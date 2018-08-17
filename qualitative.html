@@ -23,32 +23,33 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">SPIKEStudy</a>
-      </div>
-      <div class="collapse navbar-collapse" id="Navbar">
-        <ul class="nav navbar-nav">
-          <li class="active">
-            <a href="qualitative.html">Qualitative</a>
-          </li>
-          <li>
-            <a href="quantitative.html">Quantitative Schild</a>
-          </li>
-          <li>
-            <a href="quiz.html">Quiz</a>
-          </li>
-        </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">SPIKEStudy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav"> 
+          <a class="nav-item nav-link active" href="qualitative.html">Qualitative <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="quantitative.html">Quantitative Schild</a>
+          <a class="nav-item nav-link" href="quiz.html">Quiz</a>
       </div>
     </div>
   </nav>
-  <div class="container-fluid text-center">
+  <div class="container">
+    <h1>Qualitative Graphs</h1>
+    <br>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+        </li>
+      </ul>
     <div id="graph">
       <script>
         Plotly.plot('graph', [{
