@@ -1,1 +1,2 @@
-#[Site Link](https://spikestudy.github.io/)
+# Link to site
+[Spikestudy.github.io](https://spikestudy.github.io/)
