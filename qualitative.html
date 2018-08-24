@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" context="width=device-width, initial scale=1">
+  <title>SPIKEStudy</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+
+  <!-- Add in plotly.js files still to go, might put them in body -->
+
+  <link href="css/stylesheet.css" rel="stylesheet">
+  <script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">SPIKEStudy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="qualitative.html">Qualitative
+          <span class="sr-only">(current)</span>
+        </a>
+        <a class="nav-item nav-link" href="quantitative.html">Quantitative Schild</a>
+        <a class="nav-item nav-link" href="quiz.html">Quiz</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <br>
+    <h1>Qualitative Graphs</h1>
+    <br>
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#home">Agonist</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu1">Competitive Antagonist</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu2">Irreversible Antagonist</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="home" class="container tab-pane active">
+        <br>
+        <h3>HOME</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua.
+        </p>
+        <div id="graph">
+          <script>
+            Plotly.plot('graph', [{
+              x: [1, 2, 3],
+              y: [2, 1, 3]
+            }], {
+                sliders: [{
+                  pad: {
+                    t: 30
+                  },
+                  currentvalue: {
+                    xanchor: 'right',
+                    prefix: 'color: ',
+                    font: {
+                      color: '#888',
+                      size: 20
+                    }
+                  },
+                  steps: [{
+                    label: 'red',
+                    method: 'restyle',
+                    args: ['line.color', 'red']
+                  }, {
+                    label: 'green',
+                    method: 'restyle',
+                    args: ['line.color', 'green']
+                  }, {
+                    label: 'blue',
+                    method: 'restyle',
+                    args: ['line.color', 'blue']
+                  }]
+                }]
+              });    
+          </script>
+        </div>
+      </div>
+      <div id="menu1" class="container tab-pane fade">
+        <br>
+        <h3>Menu 1</h3>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      <div id="menu2" class="container tab-pane fade">
+        <br>
+        <h3>Menu 2</h3>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+  </div>
+
+
+
+</body>
+
+</html>
