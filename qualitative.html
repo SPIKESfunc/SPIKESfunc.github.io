@@ -66,15 +66,15 @@
             <div class="col-lg-6">
               <p>Agonist</p>
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" name="affinity" id = "affslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinity(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id = "affslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinity(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" name="efficacy" id = "effslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacy(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id = "effslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacy(this.value)">
               <p>Cell</p>
               <br><label for="density">Receptor Density</label>
-              <input type="range" name="density" id = "denslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensity(this.value)">
+              <input type="range" autocomplete="off" name="density" id = "denslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensity(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" name="efficiency" id = "efficislider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiency(this.value)">
-              <span id="demo"></span>
+              <input type="range" autocomplete="off" name="efficiency" id = "efficislider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiency(this.value)">
+              
             </div>
             <div class="col-lg-6">  
               <div id="agonist"></div>
@@ -89,22 +89,22 @@
             <div class="col-lg-6">
               <p>Agonist</p>
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" name="affinity" id = "affcomslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityCom(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id = "affcomslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityCom(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" name="efficacy" id = "effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyCom(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id = "effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyCom(this.value)">
               <br>
               <p>Cell</p>
               <label for="density">Receptor Density</label>
-              <input type="range" name="density" id = "dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityCom(this.value)">
+              <input type="range" autocomplete="off" name="density" id = "dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityCom(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" name="efficiency" id = "efficicomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyCom(this.value)">
+              <input type="range" autocomplete="off" name="efficiency" id = "efficicomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyCom(this.value)">
               <br>
               <p>Antagonist</p>
               <label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" name="agoaffinity" id = "agoaffcomslider" min="-11" max="-7" step="0.04" value="-9" onchange="updateAgoAffinityCom(this.value)">
+              <input type="range" autocomplete="off" name="agoaffinity" id = "agoaffcomslider" min="-11" max="-7" step="0.04" value="-9" onchange="updateAgoAffinityCom(this.value)">
               <br><label for="agoconcentration">Agonist Concentrations</label>
               <!--COLOURS OF DIFFERENT ONES-->
-              <span id="demo"></span>
+              
             </div>
             <div class="col-lg-6">  
               <div id="competitive"></div>
@@ -117,17 +117,17 @@
           <div class = "row">
             <div class="col-lg-6">
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" name="affinity" id = "affirrslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityIrr(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id = "affirrslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityIrr(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" name="efficacy" id = "effirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyIrr(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id = "effirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyIrr(this.value)">
               <br><label for="density">Receptor Density</label>
-              <input type="range" name="density" id = "denirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityIrr(this.value)">
+              <input type="range" autocomplete="off" name="density" id = "denirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityIrr(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" name="efficiency" id = "efficiirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyIrr(this.value)">
+              <input type="range" autocomplete="off" name="efficiency" id = "efficiirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyIrr(this.value)">
               <br><label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" name="agoaffinity" id = "agoaffirrslider" min="-11" max="-7" step="0.04" value="-9" onchange="updateAgoAffinityIrr(this.value)">
+              <input type="range" autocomplete="off" name="agoaffinity" id = "agoaffirrslider" min="-11" max="-7" step="0.04" value="-9" onchange="updateAgoAffinityIrr(this.value)">
               <br><label for="agoconcentration">Antagonist Concentrations</label>
-              <span id="demo"></span>
+              
             </div>
             <div class="col-lg-6">  
               <div id="irreversible"></div>
@@ -140,14 +140,14 @@
           <div class = "row">
             <div class="col-lg-6">
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" name="affinity" id = "affaffslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityAff(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id = "affaffslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityAff(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" name="efficacy" id = "effaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyAff(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id = "effaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyAff(this.value)">
               <br><label for="density">Receptor Density</label>
-              <input type="range" name="density" id = "denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityAff(this.value)">
+              <input type="range" autocomplete="off" name="density" id = "denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityAff(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" name="efficiency" id = "efficiaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyAff(this.value)">
-              <span id="demo"></span>
+              <input type="range" autocomplete="off" name="efficiency" id = "efficiaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyAff(this.value)">
+              
             </div>
             <div class="col-lg-6">  
               <div id="alloaffin"></div>
@@ -160,14 +160,14 @@
           <div class = "row">
             <div class="col-lg-6">
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" name="affinity" id = "affeffslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityEff(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id = "affeffslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityEff(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" name="efficacy" id = "effeffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyEff(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id = "effeffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyEff(this.value)">
               <br><label for="density">Receptor Density</label>
-              <input type="range" name="density" id = "deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityEff(this.value)">
+              <input type="range" autocomplete="off" name="density" id = "deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityEff(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" name="efficiency" id = "efficieffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyEff(this.value)">
-              <span id="demo"></span>
+              <input type="range" autocomplete="off" name="efficiency" id = "efficieffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyEff(this.value)">
+              
             </div>
             <div class="col-lg-6">  
               <div id="alloeffic"></div>
@@ -180,14 +180,14 @@
           <div class = "row">
             <div class="col-lg-6">
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" name="affinity" id = "afffunslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityFun(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id = "afffunslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityFun(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" name="efficacy" id = "efffunslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyFun(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id = "efffunslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyFun(this.value)">
               <br><label for="density">Receptor Density</label>
-              <input type="range" name="density" id = "denfunslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityFun(this.value)">
+              <input type="range" autocomplete="off" name="density" id = "denfunslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityFun(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" name="efficiency" id = "efficifunslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyFun(this.value)">
-              <span id="demo"></span>
+              <input type="range" autocomplete="off" name="efficiency" id = "efficifunslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyFun(this.value)">
+              
             </div>
             <div class="col-lg-6">  
               <div id="functional"></div>

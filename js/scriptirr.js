@@ -9,31 +9,6 @@ var den = document.getElementById("denirrslider").defaultValue;
 var effic = document.getElementById("efficiirrslider").defaultValue;
 var agoaff = document.getElementById("agoaffirrslider").defaultValue;
 
-/*
-var trace = {
-    x: [-10,-9,-8],
-    y: [10,20,30],
-    
-};
-
-//var data = [trace];
-var sliderSteps = [];
-for(i = -0.3;i<0.7;i+=0.01){
-    sliderSteps.push({
-        method:'animate',
-        label: i,
-              
-        args: [[i],{
-            
-            mode:'immediate',
-            transition:{duration: 100},
-            frame: {duration: 100, redraw: false},
-        }]
-    });
-    
-    
-}*/
-
 function updateAffinityIrr(value){
     //newData = [];
     aff = value;
@@ -123,9 +98,9 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity){
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
     var agoaffin = 10**agoaffinity;
-    var agoconc = 10**(-9);
+    var agoconc = 0.000001;
     for (i=-12; i<-2;i=i+STEP){
-        effect = (10**i*efcay*recep*efcey*100)/((10**i*(efcay*recep*efcey+1+agoconc/agoaffin)/affin)+(1+agoconc/agoaffin));
+        effect = (((10**i)/affin)*efcay*recep*efcey*100)/(((10**i)/affin)*(efcay*recep*efcey+1+(agoconc/agoaffin))+1+(agoconc/agoaffin));
         data[0].push(i);
         data[1].push(effect);
     }

@@ -100,7 +100,7 @@ function updateEfficiency(value){
 function calcLines(affinity, efficacy, recepDensity, efficiency){
     //console.log("calclines ran")
     //console.log(affinity, efficacy, recepDensity, efficiency)
-    const STEP = 0.05;
+    const STEP = 0.01;
     var data = [[],[]];
     //Inverse log input values
 
