@@ -119,12 +119,15 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity){
     //Inverse log input values
 
     var affin = 10**affinity;
+    // var affin = 10**(-1*affinity);
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
     var agoaffin = 10**agoaffinity;
+    // var agoaffin = 10**(-1*agoaffinity);
+    var agoconc = 10**(-9);
     for (i=-12; i<-2;i=i+STEP){
-        effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+10**(-9)/agoaffin));
+        effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
         data[0].push(i);
         data[1].push(effect);
     }

@@ -65,7 +65,7 @@
           <div class="row">
             <div class="col-lg-6">
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id="affslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinity(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id="affslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinity(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
               <input type="range" autocomplete="off" name="efficacy" id="effslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacy(this.value)">
               <br><label for="density">Receptor Density</label>
@@ -117,7 +117,7 @@
           <div class="row">
             <div class="col-lg-6">
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id="affirrslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityIrr(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id="affirrslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityIrr(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
               <input type="range" autocomplete="off" name="efficacy" id="effirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyIrr(this.value)">
               <br><label for="density">Receptor Density</label>
@@ -126,7 +126,7 @@
               <input type="range" autocomplete="off" name="efficiency" id="efficiirrslider" min="-0.3" max="0.7" step="0.01" value="0.2"
                 onchange="updateEfficiencyIrr(this.value)">
               <br><label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="-11" max="-7" step="0.04" value="-9"
+              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04" value="9"
                 onchange="updateAgoAffinityIrr(this.value)">
               <br><label for="agoconcentration">Antagonist Concentrations</label>
               <span id="demo"></span>
