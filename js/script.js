@@ -8,31 +8,6 @@ var eff = document.getElementById("effslider").defaultValue;
 var den = document.getElementById("denslider").defaultValue;
 var effic = document.getElementById("efficislider").defaultValue;
 
-/*
-var trace = {
-    x: [-10,-9,-8],
-    y: [10,20,30],
-    
-};
-
-//var data = [trace];
-var sliderSteps = [];
-for(i = -0.3;i<0.7;i+=0.01){
-    sliderSteps.push({
-        method:'animate',
-        label: i,
-              
-        args: [[i],{
-            
-            mode:'immediate',
-            transition:{duration: 100},
-            frame: {duration: 100, redraw: false},
-        }]
-    });
-    
-    
-}*/
-
 function updateAffinity(value){
     //newData = [];
     aff = value;
@@ -104,7 +79,7 @@ function calcLines(affinity, efficacy, recepDensity, efficiency){
     var data = [[],[]];
     //Inverse log input values
 
-    var affin = 10**affinity;
+    var affin = (10**(-1*affinity));
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
