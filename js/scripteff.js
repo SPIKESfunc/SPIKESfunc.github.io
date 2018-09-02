@@ -3,11 +3,11 @@ function showVal(val){
 
 }
 
-var aff = document.getElementById("affslider").defaultValue;
-var eff = document.getElementById("effslider").defaultValue;
-var den = document.getElementById("denslider").defaultValue;
-var effic = document.getElementById("efficislider").defaultValue;
-var agoaff = document.getElementById("agoaffslider").defaultValue;
+var aff = document.getElementById("affeffslider").defaultValue;
+var eff = document.getElementById("effeffslider").defaultValue;
+var den = document.getElementById("deneffslider").defaultValue;
+var effic = document.getElementById("efficieffslider").defaultValue;
+var agoaff = document.getElementById("agoaffeffslider").defaultValue;
 
 /*
 var trace = {
@@ -181,7 +181,7 @@ function plotGraph(chart){
 
     Plotly.plot(chart,data,layout);
 }
-plotGraph("competitive");
+plotGraph("alloeffic");
 
 
 
