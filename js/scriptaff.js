@@ -7,6 +7,7 @@ var effic = document.getElementById("efficislider").defaultValue;
 var agoaff = document.getElementById("agoaffslider").defaultValue;
 var agoeff = document.getElementById("agoeffaffslider").defaultValue;
 
+
 var agoconcarr = [0, -6, -7, -8, -9];
 
 var animation = {
@@ -176,4 +177,6 @@ function plotGraph(chart){
     Plotly.plot(chart,data,layout);
     }
 }
+
 plotGraph("alloaffin");
+
