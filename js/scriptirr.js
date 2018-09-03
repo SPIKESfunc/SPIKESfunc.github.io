@@ -102,16 +102,14 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     var data = [[],[]];
     //Inverse log input values
 
-    // var affin = 10**affinity;
     var affin = 10**(-1*affinity);
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
-    // var agoaffin = 10**agoaffinity;
     var agoaffin = 10**(-1*agoaffinity);
-    //var agoconc = 0.000001;
+
     if(agoconcentration == 0){
-        console.log("agoconc 0 activated")
+        //console.log("agoconc 0 activated")
         agoconc = 0;
         agoaffin = 0;
         for (i=-12; i<-2;i=i+STEP){
@@ -121,7 +119,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
         }
     }
     else{
-        console.log("agoconc not 0 activated")
+        //console.log("agoconc not 0 activated")
         agoconc = 10**agoconcentration;
         for (i=-12; i<-2;i=i+STEP){
             effect = (((10**i)/affin)*efcay*recep*efcey*100)/(((10**i)/affin)*(efcay*recep*efcey+1+(agoconc/agoaffin))+1+(agoconc/agoaffin));
@@ -155,10 +153,10 @@ function plotGraph(chart){
     var j;
     for(j = 0; j<5; j++){
         var data= [];
-        console.log("for loop ran "+j)
-        console.log("value of agoconc:"+agoconcarr[j])
+        //console.log("for loop ran "+j)
+        //console.log("value of agoconc:"+agoconcarr[j])
         var lineData = calcLinesIrr(aff, eff, den, effic, agoaff, agoconcarr[j])
-        console.log(lineData)
+        //console.log(lineData)
         var graph = {
             x: lineData[0],
             y: lineData[1],

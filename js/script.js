@@ -128,7 +128,7 @@ function plotGraph(chart){
     }
     var data = []
     var lineData = calcLines(aff, eff, den, effic)
-    console.log(lineData)
+    //console.log(lineData)
     var graph = {
         x: lineData[0],
         y: lineData[1],
