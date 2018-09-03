@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" context="width=device-width, initial scale=1">
+  <title>SPIKEStudy</title>
+
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Add in plotly.js files still to go, might put them in body -->
+
+  <link href="css/stylesheet.css" rel="stylesheet">
+  <script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="index.html">SPIKEStudy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="qualitative.html">Qualitative</a>
+        <a class="nav-item nav-link active" href="quantitative.html">Quantitative Schild <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="quiz.html">Quiz</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div id="graph">
+      <script>
+        Plotly.plot('graph', [{
+          x: [1, 2, 3],
+          y: [2, 1, 3]
+        }], {
+            sliders: [{
+              pad: {
+                t: 30
+              },
+              currentvalue: {
+                xanchor: 'right',
+                prefix: 'color: ',
+                font: {
+                  color: '#888',
+                  size: 20
+                }
+              },
+              steps: [{
+                label: 'red',
+                method: 'restyle',
+                args: ['line.color', 'red']
+              }, {
+                label: 'green',
+                method: 'restyle',
+                args: ['line.color', 'green']
+              }, {
+                label: 'blue',
+                method: 'restyle',
+                args: ['line.color', 'blue']
+              }]
+            }]
+          });    
+      </script>
+
+    </div>
+  </div>
+</body>
+
+</html>
