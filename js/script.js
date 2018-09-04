@@ -1,71 +1,50 @@
-function showVal(val){
-    document.getElementById("demo").innerHTML = val;
+var affago = document.getElementById("affslider").defaultValue;
+var effago = document.getElementById("effslider").defaultValue;
+var denago = document.getElementById("denslider").defaultValue;
+var efficago = document.getElementById("efficislider").defaultValue;
 
+var animation = {
+    transition: {
+        duration: 100,
+        easing: "cubic-in-out"
+    }
 }
-
-var aff = document.getElementById("affslider").defaultValue;
-var eff = document.getElementById("effslider").defaultValue;
-var den = document.getElementById("denslider").defaultValue;
-var effic = document.getElementById("efficislider").defaultValue;
 
 function updateAffinity(value){
     //newData = [];
-    aff = value;
+    affago = value;
     //console.log(aff)
-    lineData = calcLines(aff,eff,den,effic);
+    lineData = calcLines(affago,effago,denago,efficago);
     /*var graph = {
         y: lineData[1],
         traces:[0]
     }
     console.log(lineData)
     newData.push(graph);*/
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
+    
     //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("agonist",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 
 } 
 
 function updateEfficacy(value){
-    eff = value;
-    lineData = calcLines(aff,eff,den,effic);
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
+    effago = value;
+    lineData = calcLines(affago,effago,denago,efficago);
     //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("agonist",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 
 } 
 
 function updateDensity(value){
-    den = value;
-    lineData = calcLines(aff,eff,den,effic);
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
+    denago = value;
+    lineData = calcLines(affago,effago,denago,efficago);
     //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("agonist",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 } 
 
 function updateEfficiency(value){
-    effic = value;
-    lineData = calcLines(aff,eff,den,effic);
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
+    efficago = value;
+    lineData = calcLines(affago,effago,denago,efficago);
     //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("agonist",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 
@@ -73,8 +52,6 @@ function updateEfficiency(value){
 
 
 function calcLines(affinity, efficacy, recepDensity, efficiency){
-    //console.log("calclines ran")
-    //console.log(affinity, efficacy, recepDensity, efficiency)
     const STEP = 0.01;
     var data = [[],[]];
     //Inverse log input values
@@ -127,7 +104,7 @@ function plotGraph(chart){
         ]*/
     }
     var data = []
-    var lineData = calcLines(aff, eff, den, effic)
+    var lineData = calcLines(affago, effago, denago, efficago)
     //console.log(lineData)
     var graph = {
         x: lineData[0],
