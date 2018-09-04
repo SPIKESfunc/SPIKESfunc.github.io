@@ -3,11 +3,11 @@ function showVal(val){
 
 }
 
-var aff = document.getElementById("affcomslider").defaultValue;
-var eff = document.getElementById("effcomslider").defaultValue;
-var den = document.getElementById("dencomslider").defaultValue;
-var effic = document.getElementById("efficicomslider").defaultValue;
-var agoaff = document.getElementById("agoaffcomslider").defaultValue;
+var affcom = document.getElementById("affcomslider").defaultValue;
+var effcom = document.getElementById("effcomslider").defaultValue;
+var dencom = document.getElementById("dencomslider").defaultValue;
+var efficcom = document.getElementById("efficicomslider").defaultValue;
+var agoaffcom = document.getElementById("agoaffcomslider").defaultValue;
 
 /*
 var trace = {
@@ -36,9 +36,9 @@ for(i = -0.3;i<0.7;i+=0.01){
 
 function updateAffinityCom(value){
     //newData = [];
-    aff = value;
+    affcom = value;
     //console.log(aff)
-    lineData = calcLinesCom(aff,eff,den,effic,agoaff);
+    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
     /*var graph = {
         y: lineData[1],
         traces:[0]
@@ -57,8 +57,8 @@ function updateAffinityCom(value){
 } 
 
 function updateEfficacyCom(value){
-    eff = value;
-    lineData = calcLinesCom(aff,eff,den,effic,agoaff);
+    effcom = value;
+    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
     var animation = {
         transition: {
             duration: 100,
@@ -71,8 +71,8 @@ function updateEfficacyCom(value){
 } 
 
 function updateDensityCom(value){
-    den = value;
-    lineData = calcLinesCom(aff,eff,den,effic,agoaff);
+    dencom = value;
+    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
     var animation = {
         transition: {
             duration: 100,
@@ -84,8 +84,8 @@ function updateDensityCom(value){
 } 
 
 function updateEfficiencyCom(value){
-    effic = value;
-    lineData = calcLinesCom(aff,eff,den,effic,agoaff);
+    efficcom = value;
+    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
     var animation = {
         transition: {
             duration: 100,
@@ -98,8 +98,8 @@ function updateEfficiencyCom(value){
 } 
 
 function updateAgoAffinityCom(value){
-    agoaff = value;
-    lineData = calcLinesCom(aff,eff,den,effic,agoaff);
+    agoaffcom = value;
+    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
     var animation = {
         transition: {
             duration: 100,
@@ -119,20 +119,23 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity){
     //Inverse log input values
 
     var affin = 10**affinity;
+    // var affin = 10**(-1*affinity);
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
     var agoaffin = 10**agoaffinity;
+    // var agoaffin = 10**(-1*agoaffinity);
+    var agoconc = 10**(-9);
+    console.log(efcay)
     for (i=-12; i<-2;i=i+STEP){
-        effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+10**(-9)/agoaffin));
+        effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
         data[0].push(i);
         data[1].push(effect);
     }
     return data;
 }
 
-function plotGraph(chart){
-
+function plotGraphCom(chart){
     var layout = {
         xaxis:{
             title: "[Agonist] (log M)",
@@ -167,7 +170,7 @@ function plotGraph(chart){
         ]*/
     }
     var data = []
-    var lineData = calcLinesCom(aff, eff, den, effic, agoaff)
+    var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom)
     console.log(lineData)
     var graph = {
         x: lineData[0],
@@ -181,42 +184,4 @@ function plotGraph(chart){
 
     Plotly.plot(chart,data,layout);
 }
-plotGraph("competitive");
-
-
-
-
-/*
-Plotly.plot('graph', [{
-    x: [-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2],
-    y: [0,]
-  }], {
-      sliders: [
-        {
-          label: 'SLider 1',
-          pad: {t: 30},
-          currentvalue: {
-            xanchor: 'right',
-            prefix: 'color: ',
-            font: {color: '#888', size: 20}
-          },
-        steps: [{
-          label: 'red',
-          method: 'restyle',
-          args: ['line.color', 'red']
-        }, {
-          label: 'green',
-          method: 'restyle',
-          args: ['line.color', 'green']
-        }, {
-          label: 'blue',
-          method: 'restyle',
-          args: ['line.color', 'blue']
-        }]
-      },
-      {
-        label: 'Slider 2',
-        pad: {t: 30},
-      }
-      ]
-    }); */
+plotGraphCom("competitive");

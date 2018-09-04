@@ -1,137 +1,178 @@
-function showVal(val){
-    document.getElementById("demo").innerHTML = val;
+
+var afffun = document.getElementById("afffunslider").defaultValue;
+var efffun = document.getElementById("efffunslider").defaultValue;
+var denfun = document.getElementById("denfunslider").defaultValue;
+var efficfun = document.getElementById("efficifunslider").defaultValue;
+var agoafffun = document.getElementById("agoafffunslider").defaultValue;
+var agoefffun = document.getElementById("agoefffunslider").defaultValue;
+var agodenfun = document.getElementById("agodenfunslider").defaultValue;
+var agoefficfun = document.getElementById("agoefficifunslider").defaultValue;
+
+var agoconcarr = [0, -6, -7, -8, -9];
+
+var animation = {
+    transition: {
+        duration: 100,
+        easing: "cubic-in-out"
+    }
+}
+
+function updateAffinityFun(value){
+    afffun = value;
+    lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
+    lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
+    lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
+    lineData3 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[3],agodenfun,agoefficfun);
+    lineData4 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[4],agodenfun,agoefficfun);
+    Plotly.animate("functional",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+
+} 
+
+function updateEfficacyFun(value){
+    efffun = value;
+    lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
+    lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
+    lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
+    lineData3 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[3],agodenfun,agoefficfun);
+    lineData4 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[4],agodenfun,agoefficfun);
+    Plotly.animate("functional",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+} 
+
+function updateDensityFun(value){
+    denfun = value;
+    lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
+    lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
+    lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
+    lineData3 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[3],agodenfun,agoefficfun);
+    lineData4 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[4],agodenfun,agoefficfun);
+    Plotly.animate("functional",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+} 
+
+function updateEfficiencyFun(value){
+    efficfun = value;
+    lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
+    lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
+    lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
+    lineData3 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[3],agodenfun,agoefficfun);
+    lineData4 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[4],agodenfun,agoefficfun);
+    Plotly.animate("functional",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+
+} 
+
+function updateAgoAffinityFun(value){
+    agoafffun = value;
+    lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
+    lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
+    lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
+    lineData3 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[3],agodenfun,agoefficfun);
+    lineData4 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[4],agodenfun,agoefficfun);
+    Plotly.animate("functional",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
 
 }
 
-var aff = document.getElementById("affslider").defaultValue;
-var eff = document.getElementById("effslider").defaultValue;
-var den = document.getElementById("denslider").defaultValue;
-var effic = document.getElementById("efficislider").defaultValue;
-var agoaff = document.getElementById("agoaffslider").defaultValue;
-
-/*
-var trace = {
-    x: [-10,-9,-8],
-    y: [10,20,30],
-    
-};
-
-//var data = [trace];
-var sliderSteps = [];
-for(i = -0.3;i<0.7;i+=0.01){
-    sliderSteps.push({
-        method:'animate',
-        label: i,
-              
-        args: [[i],{
-            
-            mode:'immediate',
-            transition:{duration: 100},
-            frame: {duration: 100, redraw: false},
-        }]
-    });
-    
-    
-}*/
-
-function updateAffinityCom(value){
-    //newData = [];
-    aff = value;
-    //console.log(aff)
-    lineData = calcLinesCom(aff,eff,den,effic,agoaff);
-    /*var graph = {
-        y: lineData[1],
-        traces:[0]
-    }
-    console.log(lineData)
-    newData.push(graph);*/
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
-
-} 
-
-function updateEfficacyCom(value){
-    eff = value;
-    lineData = calcLinesCom(aff,eff,den,effic,agoaff);
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
-
-} 
-
-function updateDensityCom(value){
-    den = value;
-    lineData = calcLinesCom(aff,eff,den,effic,agoaff);
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
-} 
-
-function updateEfficiencyCom(value){
-    effic = value;
-    lineData = calcLinesCom(aff,eff,den,effic,agoaff);
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
-
-} 
-
-function updateAgoAffinityCom(value){
-    agoaff = value;
-    lineData = calcLinesCom(aff,eff,den,effic,agoaff);
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
-
+function updateAgoEfficacyFun(value){
+    agoefffun = value;
+    lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
+    lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
+    lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
+    lineData3 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[3],agodenfun,agoefficfun);
+    lineData4 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[4],agodenfun,agoefficfun);
+    Plotly.animate("functional",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
 }
 
-function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity){
+function updateAgoDensityFun(value){
+    agodenfun = value;
+    lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
+    lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
+    lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
+    lineData3 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[3],agodenfun,agoefficfun);
+    lineData4 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[4],agodenfun,agoefficfun);
+    Plotly.animate("functional",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+} 
+
+function updateAgoEfficiencyFun(value){
+    agoefficfun = value;
+    lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
+    lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
+    lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
+    lineData3 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[3],agodenfun,agoefficfun);
+    lineData4 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[4],agodenfun,agoefficfun);
+    Plotly.animate("functional",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+
+} 
+
+function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoefficacy, agoconcentration, agodensity, agoefficiency){
     //console.log("calclines ran")
     //console.log(affinity, efficacy, recepDensity, efficiency)
     const STEP = 0.05;
     var data = [[],[]];
     //Inverse log input values
 
-    var affin = 10**affinity;
+    var affin = 10**(-1*affinity);
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
-    var agoaffin = 10**agoaffinity;
-    for (i=-12; i<-2;i=i+STEP){
-        effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+10**(-9)/agoaffin));
-        data[0].push(i);
-        data[1].push(effect);
+    var agoaffin = 10**(-1*agoaffinity);
+    var agoeff = 10**(agoefficacy);
+    var agoden = 10**agodensity;
+    var agoeffic = 10**agoefficiency;
+
+    if(agoconcentration == 0){
+        //console.log("agoconc 0 activated")
+        agoconc = 0;
+        agoaffin = 0;
+        for (i=-12; i<-2;i=i+STEP){
+            effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
+            data[0].push(i);
+            data[1].push(effect);
+        }
+    }
+    else{
+        //console.log("agoconc not 0 activated")
+        agoconc = 10**agoconcentration;
+        for (i=-12; i<-2;i=i+STEP){
+            var aconc = 10**i;
+            effect = (100/((agoconc/agoaffin)+1))*(((aconc*efcay*recep*efcey)/((aconc*((efcay*recep*efcey)+1))+affin))+((agoconc*aconc*(agoeff*agoden*agoeffic))/(agoaffin*aconc*((agoeff*agoden*agoeffic)+1)+affin)));
+            data[0].push(i);
+            data[1].push(effect);
+        }
     }
     return data;
 }
 
-function plotGraph(chart){
+function plotGraphFun(chart){
 
     var layout = {
         xaxis:{
@@ -146,77 +187,28 @@ function plotGraph(chart){
             range: [0,100],
             tickvals: [0,20,40,60,80,100]
 
-        },
-        /*sliders: [
-            {
-                label: 'Slider 1',
-                pad: {t: 30},
-                active: 50,
-                font:{color: 'transparent'}, 
-                tickcolor: 'transparent',
-                steps: sliderSteps
-            },
-            {
-                label: 'Slider 2',
-                pad: {t: 30},
-                active: 50,
-                font:{color: 'transparent'}, 
-                tickcolor: 'transparent',
-                steps: sliderSteps
-            }
-        ]*/
-    }
-    var data = []
-    var lineData = calcLinesCom(aff, eff, den, effic, agoaff)
-    console.log(lineData)
-    var graph = {
-        x: lineData[0],
-        y: lineData[1],
-        mode: "lines",
-        line: {
-            width: 1
         }
     }
+    var j;
+    for(j = 0; j<5; j++){
+        var data= [];
+        //console.log("for loop ran "+j)
+        //console.log("value of agoconc:"+agoconcarr[j])
+        var lineData = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[j],agodenfun,agoefficfun)
+        console.log(lineData)
+        var graph = {
+            x: lineData[0],
+            y: lineData[1],
+            mode: "lines",
+            line: {
+                width: 1
+            }
+        }
     data.push(graph);
 
     Plotly.plot(chart,data,layout);
+    }
 }
-plotGraph("competitive");
 
+plotGraphFun("functional");
 
-
-
-/*
-Plotly.plot('graph', [{
-    x: [-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2],
-    y: [0,]
-  }], {
-      sliders: [
-        {
-          label: 'SLider 1',
-          pad: {t: 30},
-          currentvalue: {
-            xanchor: 'right',
-            prefix: 'color: ',
-            font: {color: '#888', size: 20}
-          },
-        steps: [{
-          label: 'red',
-          method: 'restyle',
-          args: ['line.color', 'red']
-        }, {
-          label: 'green',
-          method: 'restyle',
-          args: ['line.color', 'green']
-        }, {
-          label: 'blue',
-          method: 'restyle',
-          args: ['line.color', 'blue']
-        }]
-      },
-      {
-        label: 'Slider 2',
-        pad: {t: 30},
-      }
-      ]
-    }); */

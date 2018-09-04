@@ -6,8 +6,8 @@
   <meta name="viewport" context="width=device-width, initial scale=1">
   <title>SPIKEStudy</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 
@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="index.html">SPIKEStudy</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -62,135 +62,156 @@
     <div class="tab-content">
       <div id="home" class="container tab-pane active">
         <div class="col col-lg-12">
-          <div class = "row">
+          <div class="row">
             <div class="col-lg-6">
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id = "affslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinity(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id="affslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinity(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id = "effslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacy(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id="effslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacy(this.value)">
               <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id = "denslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensity(this.value)">
+              <input type="range" autocomplete="off" name="density" id="denslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensity(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id = "efficislider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiency(this.value)">
-              <span id="demo"></span>
+              <input type="range" autocomplete="off" name="efficiency" id="efficislider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiency(this.value)">
+              
             </div>
-            <div class="col-lg-6">  
+            <div class="col-lg-6">
               <div id="agonist"></div>
-            </div>  
-          </div>    
+            </div>
+          </div>
         </div>
-        
+
       </div>
       <div id="menu1" class="container tab-pane fade">
         <div class="col col-lg-12">
-          <div class = "row">
+          <div class="row">
             <div class="col-lg-6">
               <p>Agonist</p>
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id = "affcomslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityCom(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id="affcomslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityCom(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id = "effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyCom(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyCom(this.value)">
               <br>
               <p>Cell</p>
               <label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id = "dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityCom(this.value)">
+              <input type="range" autocomplete="off" name="density" id="dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityCom(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id = "efficicomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyCom(this.value)">
+              <input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
+                onchange="updateEfficiencyCom(this.value)">
               <br>
               <p>Antagonist</p>
               <label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" autocomplete="off" name="agoaffinity" id = "agoaffcomslider" min="-11" max="-7" step="0.04" value="-9" onchange="updateAgoAffinityCom(this.value)">
-              <br><label for="agoconcentration">Agonist Concentrations</label>
+              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="-11" max="-7" step="0.04" value="-9"
+                onchange="updateAgoAffinityCom(this.value)">
+              <br><label for="concentration">Antagonist Concentrations (nM) </label>
               <!--COLOURS OF DIFFERENT ONES-->
-              <span id="demo"></span>
+              
             </div>
-            <div class="col-lg-6">  
+            <div class="col-lg-6">
               <div id="competitive"></div>
-            </div>  
-          </div>    
+            </div>
+          </div>
         </div>
       </div>
       <div id="menu2" class="container tab-pane fade">
         <div class="col col-lg-12">
-          <div class = "row">
+          <div class="row">
             <div class="col-lg-6">
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id = "affirrslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityIrr(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id="affirrslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityIrr(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id = "effirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyIrr(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id="effirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyIrr(this.value)">
               <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id = "denirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityIrr(this.value)">
+              <input type="range" autocomplete="off" name="density" id="denirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityIrr(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id = "efficiirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyIrr(this.value)">
+              <input type="range" autocomplete="off" name="efficiency" id="efficiirrslider" min="-0.3" max="0.7" step="0.01" value="0.2"
+                onchange="updateEfficiencyIrr(this.value)">
               <br><label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" autocomplete="off" name="agoaffinity" id = "agoaffirrslider" min="-11" max="-7" step="0.04" value="-9" onchange="updateAgoAffinityIrr(this.value)">
-              <br><label for="agoconcentration">Antagonist Concentrations</label>
-              <span id="demo"></span>
+              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04" value="9"
+                onchange="updateAgoAffinityIrr(this.value)">
+              <br><label for="concentration">Antagonist Concentrations (nM) </label>
+              
             </div>
-            <div class="col-lg-6">  
+            <div class="col-lg-6">
               <div id="irreversible"></div>
-            </div>  
-          </div>    
+            </div>
+          </div>
         </div>
       </div>
       <div id="menu3" class="container tab-pane fade">
         <div class="col col-lg-12">
-          <div class = "row">
+          <div class="row">
             <div class="col-lg-6">
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id = "affaffslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityAff(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id="affaffslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityAff(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id = "effaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyAff(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id="effaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyAff(this.value)">
               <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id = "denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityAff(this.value)">
+              <input type="range" autocomplete="off" name="density" id="denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityAff(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id = "efficiaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyAff(this.value)">
-              <span id="demo"></span>
+              <input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyAff(this.value)">
+              <br><label for="agoaffinity">Affinity ( 1/KB)</label>
+              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityAff(this.value)">
+              <br><label for="effect">Effect on Agonist</label>
+              <input type="range" autocomplete="off" name="effect" id="agoeffaffslider" min="-1" max="-0.01" step="0.01" value="-0.1" onchange="updateAgoEffectAff(this.value)">
+              <br><label for="concentration">Antagonist Concentrations (nM) </label>
+
             </div>
-            <div class="col-lg-6">  
+            <div class="col-lg-6">
               <div id="alloaffin"></div>
-            </div>  
-          </div>    
+            </div>
+          </div>
         </div>
       </div>
       <div id="menu4" class="container tab-pane fade">
         <div class="col col-lg-12">
-          <div class = "row">
+          <div class="row">
             <div class="col-lg-6">
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id = "affeffslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityEff(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id="affeffslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityEff(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id = "effeffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyEff(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id="effeffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyEff(this.value)">
               <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id = "deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityEff(this.value)">
+              <input type="range" autocomplete="off" name="density" id="deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityEff(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id = "efficieffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyEff(this.value)">
-              <span id="demo"></span>
+              <input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyEff(this.value)">
+              <br><label for="agoaffinity">Affinity ( 1/KB)</label>
+              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityEff(this.value)">
+              <br><label for="effect">Effect on Agonist</label>
+              <input type="range" autocomplete="off" name="effect" id="agoeffeffslider" min="-0.99" max="-0.01" step="0.01" value="-0.1" onchange="updateAgoEffectEff(this.value)">
+              <br><label for="concentration">Antagonist Concentrations (nM) </label>
             </div>
-            <div class="col-lg-6">  
+            <div class="col-lg-6">
               <div id="alloeffic"></div>
-            </div>  
-          </div>    
+            </div>
+          </div>
         </div>
       </div>
       <div id="menu5" class="container tab-pane fade">
         <div class="col col-lg-12">
-          <div class = "row">
+          <div class="row">
             <div class="col-lg-6">
               <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id = "afffunslider" min="-8" max="-4" step="0.04" value="-6" onchange="updateAffinityFun(this.value)">
+              <input type="range" autocomplete="off" name="affinity" id="afffunslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityFun(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id = "efffunslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyFun(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id="efffunslider" min="0" max="0.6667" step="0.02487" value="0.333" onchange="updateEfficacyFun(this.value)">
               <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id = "denfunslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityFun(this.value)">
+              <input type="range" autocomplete="off" name="density" id="denfunslider" min="0" max="0.6667" step="0.02487" value="0.333" onchange="updateDensityFun(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id = "efficifunslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyFun(this.value)">
-              <span id="demo"></span>
+              <input type="range" autocomplete="off" name="efficiency" id="efficifunslider" min="0" max="0.6667" step="0.02487" value="0.333" onchange="updateEfficiencyFun(this.value)">
+              <br><label for="agoaffinity">Affinity ( 1/KB)</label>
+              <input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="6" max="10" step="0.04" value="8" onchange="updateAgoAffinityFun(this.value)">
+              <br><label for="effect">Intrinsic Efficacy</label>
+              <input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667" max="0" step="0.00785" value="-0.216" onchange="updateAgoEfficacyFun(this.value)">
+              <br><label for="concentration">Antagonist Concentrations (nM) </label>
+              <br><label for="density">Receptor Density</label>
+              <input type="range" autocomplete="off" name="density" id="agodenfunslider" min="-0.6667" max="0" step="0.00785" value="-0.216" onchange="updateAgoDensityFun(this.value)">
+              <br><label for="efficiency">Coupling Efficiency</label>
+              <input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider" min="-0.6667" max="0" step="0.00785" value="-0.216" onchange="updateAgoEfficiencyFun(this.value)">
             </div>
-            <div class="col-lg-6">  
+            <div class="col-lg-6">
               <div id="functional"></div>
-            </div>  
-          </div>    
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -206,13 +227,96 @@
   <script type="text/javascript" src="js/scripteff.js"></script>
   <script type="text/javascript" src="js/scriptfun.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
+  <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
+  <footer>
+	<div class="container">
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a data-toggle="modal" href="" data-target="#about">About</a>
+            </li>
+            <li class="footer-menu-divider list-inline-item">⋅</li>
+            <li class="list-inline-item">
+                <a data-toggle="modal" href="" data-target="#instructions">Instructions</a>
+            </li>
+            <li class="footer-menu-divider list-inline-item">⋅</li>
+            <li class="list-inline-item">
+                <a data-toggle="modal" href="" data-target="#contact">Contact</a>
+            </li>
+        </ul>
+       <!-- <p class="cc text-muted small">Creative Commons <i class="fa fa-creative-commons fa-fw"></i> 2018</p>  ask peter about copyright-->
+    </div>
+	<div id="about" class="modal fade" role="dialog">
+		<div class="modal-dialog">	
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">About</h4>
+				</div>
+				<div class="modal-body">
+					<p>Summary about the project<br />Created by Cam, Dan, Harry, Oliver, Thai - students of CITS3200 UWA 2018, directed by Associate Professor Peter Henry</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>		
+    </div>
+	<div id="instructions" class="modal fade" role="dialog">
+		<div class="modal-dialog">	
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Instructions</h4>
+				</div>
+				<div class="modal-body">
+					<p>Will insert three tabs for 3 different tools, qual, quant, quiz</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>		
+    </div>
+	<div id="contact" class="modal fade" role="dialog">
+		<div class="modal-dialog">	
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Contact</h4>
+				</div>
+				<div class="modal-body">
+					<p>Is something not working properly?<br />Have an idea about how can we improve the interactive tools?<br />Please contact us!</p>
+					<div class="box">
+                        <table style="width:100%;">
+                            <tbody>
+							<tr>                              
+                                <td>
+                                    <p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western Australia</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="contact">Room 1.34, M Block,
+                                        <br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody></table>
+
+
+                    </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>		
+    </div>
+  </footer
 </body>
 
 </html>
