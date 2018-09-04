@@ -91,12 +91,13 @@ function updateAgoAffinityEff(value){
 
 function updateAgoEffectEff(value){
     agoeffeff = value;
+    console.log("new agoeff value is: " + agoeffeff)
     lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[0]);
     lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[1]);
     lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[2]);
     lineData3 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[3]);
     lineData4 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[4]);
-    console.log(lineData0)
+    //console.log(lineData0)
     Plotly.animate("alloeffic",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -109,6 +110,7 @@ function calcLinesEff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     //console.log(affinity, efficacy, recepDensity, efficiency)
     const STEP = 0.05;
     var data = [[],[]];
+    console.log("Inside calclines, agoeffeff:" + agoeffect)
     //Inverse log input values
 
     var affin = 10**(-1*affinity);
@@ -133,8 +135,12 @@ function calcLinesEff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
         agoconc = 10**agoconcentration;
         for (i=-12; i<-2;i=i+STEP){
             var aconc = 10**i;
-            //effect = ((10**i)*efcay*recep*efcey*100)/((10**i)*(efcay*recep*efcey+1)+((affin*(agoconc/agoaffin + 1))/(1+((agoeff*agoconc)/agoaffin))));
-            effect = (100/((agoconc/agoaffin)+1))*(((aconc*efcay*recep*efcey)/((aconc*((efcay*recep*efcey)+1))+affin))+((agoconc*aconc*((agoeff*efcay)*recep*efcey))/(agoaffin*aconc*(((agoeff*efcay)*recep*efcey)+1)+affin)))
+            //effect = (100/((agoconc/agoaffin)+1))*(((aconc*efcay*recep*efcey)/((aconc*((efcay*recep*efcey)+1))+affin))+((agoconc*aconc*((agoeff*efcay)*recep*efcey))/(agoaffin*aconc*(((agoeff*efcay)*recep*efcey)+1)+affin)))
+            effect1 = (100/((agoconc/agoaffin)+1))
+            effect2 = (aconc*efcay*recep*efcey)/(aconc*(efcay*recep*efcey+1)+affin)
+            effect3 = (agoconc/agoaffin)
+            effect4 = (aconc*agoeff*efcay*recep*efcey)/(aconc*(agoeff*efcay*recep*efcey+1)+affin)
+            effect = effect1*(effect2+effect3*effect4)
             data[0].push(i);
             data[1].push(effect);
         }

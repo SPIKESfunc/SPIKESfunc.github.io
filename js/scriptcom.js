@@ -1,13 +1,17 @@
-function showVal(val){
-    document.getElementById("demo").innerHTML = val;
 
-}
 
 var affcom = document.getElementById("affcomslider").defaultValue;
 var effcom = document.getElementById("effcomslider").defaultValue;
 var dencom = document.getElementById("dencomslider").defaultValue;
 var efficcom = document.getElementById("efficicomslider").defaultValue;
 var agoaffcom = document.getElementById("agoaffcomslider").defaultValue;
+
+var animation = {
+    transition: {
+        duration: 100,
+        easing: "cubic-in-out"
+    }
+}
 
 /*
 var trace = {
@@ -45,12 +49,7 @@ function updateAffinityCom(value){
     }
     console.log(lineData)
     newData.push(graph);*/
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
+    
     //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 
@@ -59,12 +58,6 @@ function updateAffinityCom(value){
 function updateEfficacyCom(value){
     effcom = value;
     lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
     //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 
@@ -73,12 +66,6 @@ function updateEfficacyCom(value){
 function updateDensityCom(value){
     dencom = value;
     lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
     //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 } 
@@ -86,12 +73,6 @@ function updateDensityCom(value){
 function updateEfficiencyCom(value){
     efficcom = value;
     lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
     //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 
@@ -100,12 +81,6 @@ function updateEfficiencyCom(value){
 function updateAgoAffinityCom(value){
     agoaffcom = value;
     lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
-    var animation = {
-        transition: {
-            duration: 100,
-            easing: "cubic-in-out"
-        }
-    }
     //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 
@@ -118,13 +93,13 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity){
     var data = [[],[]];
     //Inverse log input values
 
-    var affin = 10**affinity;
-    // var affin = 10**(-1*affinity);
+    //var affin = 10**affinity;
+    var affin = 10**(-1*affinity);
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
-    var agoaffin = 10**agoaffinity;
-    // var agoaffin = 10**(-1*agoaffinity);
+    //var agoaffin = 10**agoaffinity;
+    var agoaffin = 10**(-1*agoaffinity);
     var agoconc = 10**(-9);
     console.log(efcay)
     for (i=-12; i<-2;i=i+STEP){
