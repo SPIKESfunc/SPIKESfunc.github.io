@@ -131,7 +131,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-function plotGraph(chart){
+function plotGraphIrr(chart){
 
     var layout = {
         xaxis:{
@@ -171,4 +171,4 @@ function plotGraph(chart){
     }
     
 }
-plotGraph("irreversible");
+plotGraphIrr("irreversible");

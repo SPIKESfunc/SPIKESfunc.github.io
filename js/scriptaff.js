@@ -1,13 +1,9 @@
 
-
 var affaff = document.getElementById("affaffslider").defaultValue;
 var effaff = document.getElementById("effaffslider").defaultValue;
 var denaff = document.getElementById("denaffslider").defaultValue;
 var efficaff = document.getElementById("efficiaffslider").defaultValue;
-//var affaff = document.getElementById("affslider").defaultValue;
-// var effaff = document.getElementById("effaffslider").defaultValue;
-// var denaff = document.getElementById("denaffslider").defaultValue;
-// var efficaff = document.getElementById("efficiaffslider").defaultValue;
+
 var agoaffaff = document.getElementById("agoaffslider").defaultValue;
 var agoeffaff = document.getElementById("agoeffaffslider").defaultValue;
 
@@ -144,7 +140,7 @@ function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-function plotGraph(chart){
+function plotGraphAff(chart){
 
     var layout = {
         xaxis:{
@@ -182,5 +178,5 @@ function plotGraph(chart){
     }
 }
 
-plotGraph("alloaffin");
+plotGraphAff("alloaffin");
 
