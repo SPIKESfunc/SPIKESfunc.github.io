@@ -1,11 +1,15 @@
 
 
-var aff = document.getElementById("affslider").defaultValue;
-var eff = document.getElementById("effslider").defaultValue;
-var den = document.getElementById("denslider").defaultValue;
-var effic = document.getElementById("efficislider").defaultValue;
-var agoaff = document.getElementById("agoaffslider").defaultValue;
-var agoeff = document.getElementById("agoeffaffslider").defaultValue;
+var affaff = document.getElementById("affaffslider").defaultValue;
+var effaff = document.getElementById("effaffslider").defaultValue;
+var denaff = document.getElementById("denaffslider").defaultValue;
+var efficaff = document.getElementById("efficiaffslider").defaultValue;
+//var affaff = document.getElementById("affslider").defaultValue;
+// var effaff = document.getElementById("effaffslider").defaultValue;
+// var denaff = document.getElementById("denaffslider").defaultValue;
+// var efficaff = document.getElementById("efficiaffslider").defaultValue;
+var agoaffaff = document.getElementById("agoaffslider").defaultValue;
+var agoeffaff = document.getElementById("agoeffaffslider").defaultValue;
 
 
 var agoconcarr = [0, -6, -7, -8, -9];
@@ -18,12 +22,12 @@ var animation = {
 }
 
 function updateAffinityAff(value){
-    aff = value;
-    lineData0 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[0]);
-    lineData1 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[1]);
-    lineData2 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[2]);
-    lineData3 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[3]);
-    lineData4 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[4]);
+    affaff = value;
+    lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
+    lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
+    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
+    lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
     Plotly.animate("alloaffin",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -33,12 +37,12 @@ function updateAffinityAff(value){
 } 
 
 function updateEfficacyAff(value){
-    eff = value;
-    lineData0 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[0]);
-    lineData1 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[1]);
-    lineData2 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[2]);
-    lineData3 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[3]);
-    lineData4 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[4]);
+    effaff = value;
+    lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
+    lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
+    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
+    lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
     Plotly.animate("alloaffin",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -47,12 +51,12 @@ function updateEfficacyAff(value){
 } 
 
 function updateDensityAff(value){
-    den = value;
-    lineData0 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[0]);
-    lineData1 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[1]);
-    lineData2 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[2]);
-    lineData3 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[3]);
-    lineData4 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[4]);
+    denaff = value;
+    lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
+    lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
+    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
+    lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
     Plotly.animate("alloaffin",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -61,12 +65,12 @@ function updateDensityAff(value){
 } 
 
 function updateEfficiencyAff(value){
-    effic = value;
-    lineData0 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[0]);
-    lineData1 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[1]);
-    lineData2 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[2]);
-    lineData3 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[3]);
-    lineData4 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[4]);
+    efficaff = value;
+    lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
+    lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
+    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
+    lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
     Plotly.animate("alloaffin",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -76,12 +80,12 @@ function updateEfficiencyAff(value){
 } 
 
 function updateAgoAffinityAff(value){
-    agoaff = value;
-    lineData0 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[0]);
-    lineData1 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[1]);
-    lineData2 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[2]);
-    lineData3 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[3]);
-    lineData4 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[4]);
+    agoaffaff = value;
+    lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
+    lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
+    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
+    lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
     Plotly.animate("alloaffin",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -91,12 +95,12 @@ function updateAgoAffinityAff(value){
 }
 
 function updateAgoEffectAff(value){
-    agoeff = value;
-    lineData0 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[0]);
-    lineData1 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[1]);
-    lineData2 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[2]);
-    lineData3 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[3]);
-    lineData4 = calcLinesAff(aff,eff,den,effic,agoaff,agoeff,agoconcarr[4]);
+    agoeffaff = value;
+    lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
+    lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
+    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
+    lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
     Plotly.animate("alloaffin",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -162,7 +166,7 @@ function plotGraph(chart){
         var data= [];
         //console.log("for loop ran "+j)
         console.log("value of agoconc:"+agoconcarr[j])
-        var lineData = calcLinesAff(aff, eff, den, effic, agoaff, agoeff, agoconcarr[j])
+        var lineData = calcLinesAff(affaff, effaff, denaff, efficaff, agoaffaff, agoeffaff, agoconcarr[j])
         console.log(lineData)
         var graph = {
             x: lineData[0],
