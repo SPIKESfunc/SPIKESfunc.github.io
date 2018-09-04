@@ -3,6 +3,7 @@ var affaff = document.getElementById("affaffslider").defaultValue;
 var effaff = document.getElementById("effaffslider").defaultValue;
 var denaff = document.getElementById("denaffslider").defaultValue;
 var efficaff = document.getElementById("efficiaffslider").defaultValue;
+
 var agoaffaff = document.getElementById("agoaffslider").defaultValue;
 var agoeffaff = document.getElementById("agoeffaffslider").defaultValue;
 
