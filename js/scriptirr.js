@@ -1,11 +1,11 @@
 
 var agoconcarr = [0, -6, -7, -8, -9];
 
-var aff = document.getElementById("affirrslider").defaultValue;
-var eff = document.getElementById("effirrslider").defaultValue;
-var den = document.getElementById("denirrslider").defaultValue;
-var effic = document.getElementById("efficiirrslider").defaultValue;
-var agoaff = document.getElementById("agoaffirrslider").defaultValue;
+var affirr = document.getElementById("affirrslider").defaultValue;
+var effirr = document.getElementById("effirrslider").defaultValue;
+var denirr = document.getElementById("denirrslider").defaultValue;
+var efficirr = document.getElementById("efficiirrslider").defaultValue;
+var agoaffirr = document.getElementById("agoaffirrslider").defaultValue;
 
 var animation = {
     transition: {
@@ -15,13 +15,13 @@ var animation = {
 }
 
 function updateAffinityIrr(value){
-    aff = value;
+    affirr = value;
 
-    lineData0 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[0]);
-    lineData1 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[1]);
-    lineData2 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[2]);
-    lineData3 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[3]);
-    lineData4 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[4]);
+    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
+    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
+    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
+    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
     Plotly.animate("irreversible",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -31,13 +31,13 @@ function updateAffinityIrr(value){
 } 
 
 function updateEfficacyIrr(value){
-    eff = value;
+    effirr = value;
 
-    lineData0 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[0]);
-    lineData1 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[1]);
-    lineData2 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[2]);
-    lineData3 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[3]);
-    lineData4 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[4]);
+    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
+    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
+    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
+    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
     Plotly.animate("irreversible",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -47,13 +47,13 @@ function updateEfficacyIrr(value){
 } 
 
 function updateDensityIrr(value){
-    den = value;
+    denirr = value;
 
-    lineData0 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[0]);
-    lineData1 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[1]);
-    lineData2 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[2]);
-    lineData3 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[3]);
-    lineData4 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[4]);
+    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
+    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
+    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
+    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
     Plotly.animate("irreversible",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -62,13 +62,13 @@ function updateDensityIrr(value){
 } 
 
 function updateEfficiencyIrr(value){
-    effic = value;
+    efficirr = value;
 
-    lineData0 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[0]);
-    lineData1 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[1]);
-    lineData2 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[2]);
-    lineData3 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[3]);
-    lineData4 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[4]);
+    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
+    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
+    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
+    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
     Plotly.animate("irreversible",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -78,13 +78,13 @@ function updateEfficiencyIrr(value){
 } 
 
 function updateAgoAffinityIrr(value){
-    agoaff = value;
+    agoaffirr = value;
     
-    lineData0 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[0]);
-    lineData1 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[1]);
-    lineData2 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[2]);
-    lineData3 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[3]);
-    lineData4 = calcLinesIrr(aff,eff,den,effic,agoaff,agoconcarr[4]);
+    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
+    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
+    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
+    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
     Plotly.animate("irreversible",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
         traces: [0,1,2,3,4], 
@@ -102,16 +102,14 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     var data = [[],[]];
     //Inverse log input values
 
-    // var affin = 10**affinity;
     var affin = 10**(-1*affinity);
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
-    // var agoaffin = 10**agoaffinity;
     var agoaffin = 10**(-1*agoaffinity);
-    //var agoconc = 0.000001;
+
     if(agoconcentration == 0){
-        console.log("agoconc 0 activated")
+        //console.log("agoconc 0 activated")
         agoconc = 0;
         agoaffin = 0;
         for (i=-12; i<-2;i=i+STEP){
@@ -121,7 +119,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
         }
     }
     else{
-        console.log("agoconc not 0 activated")
+        //console.log("agoconc not 0 activated")
         agoconc = 10**agoconcentration;
         for (i=-12; i<-2;i=i+STEP){
             effect = (((10**i)/affin)*efcay*recep*efcey*100)/(((10**i)/affin)*(efcay*recep*efcey+1+(agoconc/agoaffin))+1+(agoconc/agoaffin));
@@ -133,7 +131,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-function plotGraph(chart){
+function plotGraphIrr(chart){
 
     var layout = {
         xaxis:{
@@ -155,10 +153,10 @@ function plotGraph(chart){
     var j;
     for(j = 0; j<5; j++){
         var data= [];
-        console.log("for loop ran "+j)
-        console.log("value of agoconc:"+agoconcarr[j])
-        var lineData = calcLinesIrr(aff, eff, den, effic, agoaff, agoconcarr[j])
-        console.log(lineData)
+        //console.log("for loop ran "+j)
+        //console.log("value of agoconc:"+agoconcarr[j])
+        var lineData = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[j])
+        //console.log(lineData)
         var graph = {
             x: lineData[0],
             y: lineData[1],
@@ -173,4 +171,4 @@ function plotGraph(chart){
     }
     
 }
-plotGraph("irreversible");
+plotGraphIrr("irreversible");
