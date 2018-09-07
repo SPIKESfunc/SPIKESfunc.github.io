@@ -57,7 +57,7 @@
                         onchange="updateEfficiencyCom(this.value)">
                     <br>
                     <label for="agoaffinity">Antagonist Affinity (KB)</label>
-                    <input type="number" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityCom(this.value)">
+                    <input type="number" autocomplete="off" name="agoaffinitynum" id="agoaffcomnum" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityComNum(this.value)">
                     <label for="neglog">-logKB</label>
                     <input type="number">
                     <br><label for="concentration">Antagonist Concentrations (nM) </label>
@@ -65,7 +65,7 @@
 
                 </div>
                 <div class="col-lg-6">
-                    <div id="competitive"></div>
+                    <div id="quant"></div>
                 </div>
             </div>
             <div class="row">
@@ -86,7 +86,7 @@
     </div>
 
     <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/scriptcom.js"></script>
+    <script type="text/javascript" src="js/scriptquant.js"></script>
 
     <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>

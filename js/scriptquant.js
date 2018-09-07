@@ -4,7 +4,7 @@ var affcom = document.getElementById("affcomslider").defaultValue;
 var effcom = document.getElementById("effcomslider").defaultValue;
 var dencom = document.getElementById("dencomslider").defaultValue;
 var efficcom = document.getElementById("efficicomslider").defaultValue;
-var agoaffcom = document.getElementById("agoaffcomslider").defaultValue;
+var agoaffcomnum = document.getElementById("agoaffcomnum").defaultValue;
 
 var animation = {
     transition: {
@@ -79,7 +79,7 @@ function updateEfficiencyCom(value){
 } 
 
 function updateAgoAffinityCom(value){
-    agoaffcom = value;
+    agoaffcomnum = value;
     lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
     //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
