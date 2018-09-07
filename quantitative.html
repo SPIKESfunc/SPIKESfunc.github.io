@@ -56,9 +56,10 @@
                     <input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
                         onchange="updateEfficiencyCom(this.value)">
                     <br>
-                    <p>Antagonist</p>
-                    <label for="agoaffinity">Affinity ( 1/KB)</label>
+                    <label for="agoaffinity">Antagonist Affinity (KB)</label>
                     <input type="number" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityCom(this.value)">
+                    <label for="neglog">-logKB</label>
+                    <input type="number">
                     <br><label for="concentration">Antagonist Concentrations (nM) </label>
                     <!--COLOURS OF DIFFERENT ONES-->
 

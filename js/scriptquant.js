@@ -159,4 +159,4 @@ function plotGraphCom(chart){
 
     Plotly.plot(chart,data,layout);
 }
-plotGraphCom("schild");
+plotGraphCom("quant");
