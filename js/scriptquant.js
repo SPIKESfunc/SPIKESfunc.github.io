@@ -1,10 +1,11 @@
-
+                      
 
 var affcom = document.getElementById("affcomslider").defaultValue;
 var effcom = document.getElementById("effcomslider").defaultValue;
 var dencom = document.getElementById("dencomslider").defaultValue;
 var efficcom = document.getElementById("efficicomslider").defaultValue;
-var agoaffcomnum = document.getElementById("agoaffcomnum").defaultValue;
+var agoaff = document.getElementById("agoaffnum").defaultValue;
+var agoafflog = document.getElementById("agoafflognum").defaultValue;
 
 var animation = {
     transition: {
@@ -42,7 +43,7 @@ function updateAffinityCom(value){
     //newData = [];
     affcom = value;
     //console.log(aff)
-    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
+    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaff);
     /*var graph = {
         y: lineData[1],
         traces:[0]
@@ -51,38 +52,49 @@ function updateAffinityCom(value){
     newData.push(graph);*/
     
     //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 
 } 
 
 function updateEfficacyCom(value){
     effcom = value;
-    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
+    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog);
     //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 
 } 
 
 function updateDensityCom(value){
     dencom = value;
-    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
+    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog);
     //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 } 
 
 function updateEfficiencyCom(value){
     efficcom = value;
-    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
+    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog);
     //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 
 } 
 
-function updateAgoAffinityCom(value){
-    agoaffcomnum = value;
-    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom);
+function updateAgoAffinity(value){
+    agoaff = value;
+    agoafflog = -1*Math.log10(value);
+    document.getElementById("agoafflognum").value = agoafflog;
+    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog);
     //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+
+}
+
+function updateAgoAffinityLog(value){
+    agoafflog = value;
+    agoaff = Math.pow(10, -value);
+    document.getElementById("agoaffnum").value = agoaff;
+    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog);
+    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
 
 }
 
@@ -145,7 +157,7 @@ function plotGraphCom(chart){
         ]*/
     }
     var data = []
-    var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom)
+    var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog)
     console.log(lineData)
     var graph = {
         x: lineData[0],
@@ -159,4 +171,4 @@ function plotGraphCom(chart){
 
     Plotly.plot(chart,data,layout);
 }
-plotGraphCom("quant");
+plotGraphCom("quantitative");

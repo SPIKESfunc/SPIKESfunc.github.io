@@ -57,15 +57,15 @@
                         onchange="updateEfficiencyCom(this.value)">
                     <br>
                     <label for="agoaffinity">Antagonist Affinity (KB)</label>
-                    <input type="number" autocomplete="off" name="agoaffinitynum" id="agoaffcomnum" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityComNum(this.value)">
+                    <input type="number" autocomplete="off" name="agoaffinity" id="agoaffnum" min="0.0000000001" max="0.000001" step="0.000000001" value="0.000000001" onchange="updateAgoAffinity(this.value)">
                     <label for="neglog">-logKB</label>
-                    <input type="number">
-                    <br><label for="concentration">Antagonist Concentrations (nM) </label>
+                    <input type="number" autocomplete="off" name="agoafflog" id="agoafflognum" min="4" max="10" step="0.1" value="9" onchange="updateAgoAffinityLog(this.value)">
+                    <br><br><label for="concentration">Antagonist Concentrations (nM) </label>
                     <!--COLOURS OF DIFFERENT ONES-->
 
                 </div>
                 <div class="col-lg-6">
-                    <div id="quant"></div>
+                    <div id="quantitative"></div>
                 </div>
             </div>
             <div class="row">
@@ -73,6 +73,8 @@
                     <div>
                         Antagonist affinity table
                     </div>
+                    Ant 1
+                    <input type="number" autocomplete="off" name="antagonist1" id="ant1" min="" max="" step="" value="" >
                     <div>
                         Antagonist concentration
                     </div>
@@ -85,7 +87,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="js/script.js"></script>
+
     <script type="text/javascript" src="js/scriptquant.js"></script>
 
     <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
@@ -184,6 +186,6 @@
             </div>
         </div>
 
-    </footer </body>
+    </footer> </body>
 
 </html>
