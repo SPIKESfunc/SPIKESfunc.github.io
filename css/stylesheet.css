@@ -9,13 +9,17 @@ html{
 
 body {
     padding-top: 3rem;
+	display: flex;
+	flex-direction: column;
+  min-height: 100vh;
     padding-bottom: 3rem;
     color: #5a5a5a;
  }
 
 footer{
-    position: relative;
-    margin: 4%;
+	margin: 2%;
+	margin-top:auto;
+    
     bottom: 0;
     left: 0;
     right: 0;
