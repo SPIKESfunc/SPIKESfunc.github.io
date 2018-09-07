@@ -72,7 +72,7 @@
               <input type="range" autocomplete="off" name="density" id="denslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensity(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
               <input type="range" autocomplete="off" name="efficiency" id="efficislider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiency(this.value)">
-              
+
             </div>
             <div class="col-lg-6">
               <div id="agonist"></div>
@@ -100,11 +100,10 @@
               <br>
               <p>Antagonist</p>
               <label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04" value="9"
-                onchange="updateAgoAffinityCom(this.value)">
+              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityCom(this.value)">
               <br><label for="concentration">Antagonist Concentrations (nM) </label>
               <!--COLOURS OF DIFFERENT ONES-->
-              
+
             </div>
             <div class="col-lg-6">
               <div id="competitive"></div>
@@ -126,10 +125,9 @@
               <input type="range" autocomplete="off" name="efficiency" id="efficiirrslider" min="-0.3" max="0.7" step="0.01" value="0.2"
                 onchange="updateEfficiencyIrr(this.value)">
               <br><label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04" value="9"
-                onchange="updateAgoAffinityIrr(this.value)">
+              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityIrr(this.value)">
               <br><label for="concentration">Antagonist Concentrations (nM) </label>
-              
+
             </div>
             <div class="col-lg-6">
               <div id="irreversible"></div>
@@ -148,7 +146,8 @@
               <br><label for="density">Receptor Density</label>
               <input type="range" autocomplete="off" name="density" id="denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityAff(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyAff(this.value)">
+              <input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
+                onchange="updateEfficiencyAff(this.value)">
               <br><label for="agoaffinity">Affinity ( 1/KB)</label>
               <input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityAff(this.value)">
               <br><label for="effect">Effect on Agonist</label>
@@ -175,7 +174,8 @@
               <br><label for="density">Receptor Density</label>
               <input type="range" autocomplete="off" name="density" id="deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityEff(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyEff(this.value)">
+              <input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
+                onchange="updateEfficiencyEff(this.value)">
               <br><label for="agoaffinity">Affinity ( 1/KB)</label>
               <input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityEff(this.value)">
               <br><label for="effect">Effect on Agonist</label>
@@ -197,20 +197,26 @@
               <label for="affinity">Affinity ( 1/KA)</label>
               <input type="range" autocomplete="off" name="affinity" id="afffunslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityFun(this.value)">
               <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id="efffunslider" min="0" max="0.6667" step="0.02487" value="0.333" onchange="updateEfficacyFun(this.value)">
+              <input type="range" autocomplete="off" name="efficacy" id="efffunslider" min="0" max="0.6667" step="0.02487" value="0.333"
+                onchange="updateEfficacyFun(this.value)">
               <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id="denfunslider" min="0" max="0.6667" step="0.02487" value="0.333" onchange="updateDensityFun(this.value)">
+              <input type="range" autocomplete="off" name="density" id="denfunslider" min="0" max="0.6667" step="0.02487" value="0.333"
+                onchange="updateDensityFun(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="efficifunslider" min="0" max="0.6667" step="0.02487" value="0.333" onchange="updateEfficiencyFun(this.value)">
+              <input type="range" autocomplete="off" name="efficiency" id="efficifunslider" min="0" max="0.6667" step="0.02487" value="0.333"
+                onchange="updateEfficiencyFun(this.value)">
               <br><label for="agoaffinity">Affinity ( 1/KB)</label>
               <input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="6" max="10" step="0.04" value="8" onchange="updateAgoAffinityFun(this.value)">
               <br><label for="effect">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667" max="0" step="0.00785" value="-0.216" onchange="updateAgoEfficacyFun(this.value)">
+              <input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667" max="0" step="0.00785" value="-0.216"
+                onchange="updateAgoEfficacyFun(this.value)">
               <br><label for="concentration">Antagonist Concentrations (nM) </label>
               <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id="agodenfunslider" min="-0.6667" max="0" step="0.00785" value="-0.216" onchange="updateAgoDensityFun(this.value)">
+              <input type="range" autocomplete="off" name="density" id="agodenfunslider" min="-0.6667" max="0" step="0.00785" value="-0.216"
+                onchange="updateAgoDensityFun(this.value)">
               <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider" min="-0.6667" max="0" step="0.00785" value="-0.216" onchange="updateAgoEfficiencyFun(this.value)">
+              <input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider" min="-0.6667" max="0" step="0.00785" value="-0.216"
+                onchange="updateAgoEfficiencyFun(this.value)">
             </div>
             <div class="col-lg-6">
               <div id="functional"></div>
@@ -233,92 +239,94 @@
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <footer>
-	<div class="container">
-        <ul class="list-inline">
-            <li class="list-inline-item">
-                <a data-toggle="modal" href="" data-target="#about">About</a>
-            </li>
-            <li class="footer-menu-divider list-inline-item">⋅</li>
-            <li class="list-inline-item">
-                <a data-toggle="modal" href="" data-target="#instructions">Instructions</a>
-            </li>
-            <li class="footer-menu-divider list-inline-item">⋅</li>
-            <li class="list-inline-item">
-                <a data-toggle="modal" href="" data-target="#contact">Contact</a>
-            </li>
-        </ul>
-       <!-- <p class="cc text-muted small">Creative Commons <i class="fa fa-creative-commons fa-fw"></i> 2018</p>  ask peter about copyright-->
+    <div class="container">
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a data-toggle="modal" href="" data-target="#about">About</a>
+        </li>
+        <li class="footer-menu-divider list-inline-item">⋅</li>
+        <li class="list-inline-item">
+          <a data-toggle="modal" href="" data-target="#instructions">Instructions</a>
+        </li>
+        <li class="footer-menu-divider list-inline-item">⋅</li>
+        <li class="list-inline-item">
+          <a data-toggle="modal" href="" data-target="#contact">Contact</a>
+        </li>
+      </ul>
+      <!-- <p class="cc text-muted small">Creative Commons <i class="fa fa-creative-commons fa-fw"></i> 2018</p>  ask peter about copyright-->
     </div>
-	<div id="about" class="modal fade" role="dialog">
-		<div class="modal-dialog">	
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">About</h4>
-				</div>
-				<div class="modal-body">
-					<p>Summary about the project<br />Created by Cam, Dan, Harry, Oliver, Thai - students of CITS3200 UWA 2018, directed by Associate Professor Peter Henry</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>		
+    <div id="about" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About</h4>
+          </div>
+          <div class="modal-body">
+            <p>Summary about the project<br />Created by Cam, Dan, Harry, Oliver, Thai - students of CITS3200 UWA 2018, directed
+              by Associate Professor Peter Henry</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
-	<div id="instructions" class="modal fade" role="dialog">
-		<div class="modal-dialog">	
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Instructions</h4>
-				</div>
-				<div class="modal-body">
-					<p>Will insert three tabs for 3 different tools, qual, quant, quiz</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>		
+    <div id="instructions" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Instructions</h4>
+          </div>
+          <div class="modal-body">
+            <p>Will insert three tabs for 3 different tools, qual, quant, quiz</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
-	<div id="contact" class="modal fade" role="dialog">
-		<div class="modal-dialog">	
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Contact</h4>
-				</div>
-				<div class="modal-body">
-					<p>Is something not working properly?<br />Have an idea about how can we improve the interactive tools?<br />Please contact us!</p>
-					<div class="box">
-                        <table style="width:100%;">
-                            <tbody>
-							<tr>                              
-                                <td>
-                                    <p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western Australia</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="contact">Room 1.34, M Block,
-                                        <br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a>
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody></table>
+    <div id="contact" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Contact</h4>
+          </div>
+          <div class="modal-body">
+            <p>Is something not working properly?<br />Have an idea about how can we improve the interactive tools?<br />Please
+              contact us!</p>
+            <div class="box">
+              <table style="width:100%;">
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western Australia</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="contact">Room 1.34, M Block,
+                        <br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
 
 
-                    </div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>		
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer
-</body>
+  </footer </body>
 
 </html>
