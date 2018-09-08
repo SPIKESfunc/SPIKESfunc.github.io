@@ -168,7 +168,7 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
             effect2 = aconc*efcay*recep*efcey;
             effect3 = (aconc*((efcay*recep*efcey)+1))+affin;
             effect4 = agoconc*aconc*agoeff*agoden*agoeffic;
-            effect5 = (agoconc*aconc*((agoeff*agoden*agoeffic)+1))+affin;
+            effect5 = agoaffin*((aconc*((agoeff*agoden*agoeffic)+1))+affin);
             effect = effect1*((effect2/effect3)+(effect4/effect5));
             //effect = (100/((agoconc/agoaffin)+1))*(((aconc*efcay*recep*efcey)/((aconc*((efcay*recep*efcey)+1))+affin))+((agoconc*aconc*(agoeff*agoden*agoeffic))/(agoaffin*aconc*((agoeff*agoden*agoeffic)+1)+affin)));
             data[0].push(i);
