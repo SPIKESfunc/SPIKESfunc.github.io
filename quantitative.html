@@ -70,22 +70,35 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div>
                         Antagonist affinity table
                     </div>
+                    Ant 0
+                    <input type="number" autocomplete="off" name="antagonist0" id="ant0" value="0.0000000" readonly>
+                    Log[B]
+                    <input type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
+                    <br>
                     Ant 1
                     <input type="number" autocomplete="off" name="antagonist1" id="ant1" min="0.0000000001" max="0.0001" step="0.000001" value="0.000000001" onchange="updateAntagonist1(this.value)">
                     <input type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4" step="0.1" value="-9" onchange="updateAntagonistLog1(this.value)">
+                    <input type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
+                    <input type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
+                    <input type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
                     <br>
                     Ant 2
                     <input type="number" autocomplete="off" name="antagonist2" id="ant2" min="0.0000000001" max="0.0001" step="0.000001" value="0.00000001" onchange="updateAntagonist2(this.value)">
                     <input type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4" step="0.1" value="-8" onchange="updateAntagonistLog2(this.value)">
+                    <input type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
+                    <input type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
+                    <input type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
                     <br>
                     Ant 3
                     <input type="number" autocomplete="off" name="antagonist3" id="ant3" min="0.0000000001" max="0.0001" step="0.000001" value="0.0000001" onchange="updateAntagonist3(this.value)">
                     <input type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4" step="0.1" value="-7" onchange="updateAntagonistLog3(this.value)">
-
+                    <input type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
+                    <input type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
+                    <input type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
                     <div>
                         Antagonist concentration
                     </div>
@@ -102,7 +115,6 @@
 
 
     <script type="text/javascript" src="js/scriptquant.js"></script>
-    <script type="text/javascript" src="js/scriptschild.js"></script>
 
     <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
