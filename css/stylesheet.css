@@ -12,8 +12,18 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-bottom: 3rem;
-  color: #5a5a5a;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+  }
+  
+footer{
+	margin: 2%;
+	margin-top:auto;
+    
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height:100px;
 }
 
 footer {
