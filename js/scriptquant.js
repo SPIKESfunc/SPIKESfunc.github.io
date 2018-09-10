@@ -213,18 +213,18 @@ function calcLogDR(doseratio){
 }
 
 function updateEverything(){
-    var anthalfeff0 = document.getElementById("anteff0").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval0);
-    var anthalfeff1 = document.getElementById("anteff1").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval1);
-    var anthalfeff2 = document.getElementById("anteff2").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval2);
-    var anthalfeff3 = document.getElementById("anteff3").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval3);
+    anthalfeff0 = document.getElementById("anteff0").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval0);
+    anthalfeff1 = document.getElementById("anteff1").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval1);
+    anthalfeff2 = document.getElementById("anteff2").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval2);
+    anthalfeff3 = document.getElementById("anteff3").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval3);
     
-    var doseratio1 = document.getElementById("antdose1").value = calcDoseRatio(anthalfeff1, anthalfeff0);
-    var doseratio2 = document.getElementById("antdose2").value = calcDoseRatio(anthalfeff2, anthalfeff0);
-    var doseratio3 = document.getElementById("antdose3").value = calcDoseRatio(anthalfeff3, anthalfeff0);
+    doseratio1 = document.getElementById("antdose1").value = calcDoseRatio(anthalfeff1, anthalfeff0);
+    doseratio2 = document.getElementById("antdose2").value = calcDoseRatio(anthalfeff2, anthalfeff0);
+    doseratio3 = document.getElementById("antdose3").value = calcDoseRatio(anthalfeff3, anthalfeff0);
     
-    var logdr1 = document.getElementById("antlogdr1").value = calcLogDR(doseratio1);
-    var logdr2 = document.getElementById("antlogdr2").value = calcLogDR(doseratio2);
-    var logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3);
+    logdr1 = document.getElementById("antlogdr1").value = calcLogDR(doseratio1);
+    logdr2 = document.getElementById("antlogdr2").value = calcLogDR(doseratio2);
+    logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3);
 }
 
 
