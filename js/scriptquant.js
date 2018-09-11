@@ -150,7 +150,7 @@ function updateAntagonistLog1(value){
 
 function updateAntagonist2(value){
     antval2 = value;
-    antlogval2 = Math.pow(10, value);
+    antlogval2 = Math.log10(value);
     document.getElementById("antlog2").value = antlogval2;
     updateEverything();
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
@@ -170,7 +170,7 @@ function updateAntagonistLog2(value){
 
 function updateAntagonist3(value){
     antval3 = value;
-    antlogval3 = Math.pow(10, value);
+    antlogval3 = Math.log10(value);
     document.getElementById("antlog3").value = antlogval3;
     updateEverything();
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
