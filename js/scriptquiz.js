@@ -1,5 +1,5 @@
 //Array of objects that contain -log Ki values for each receptor subtype
-var drugs =[
+/*var drugs =[
     {name:"Atropine",m1:9.0,m2:8.8,m3:9.3,m4:8.9,m5:9.2},
     {name:"Pirenzepine",m1:8.2,m2:6.5,m3:6.9,m4:7.4,m5:7.2},
     {name:"Methotramine",m1:6.7,m2:7.7,m3:6.0,m4:7.0,m5:6.3},
@@ -8,6 +8,16 @@ var drugs =[
     {name:"S-Secoverine",m1:8.0,m2:7.9,m3:7.7,m4:7.7,m5:6.5},
     {name:"Solifenacin",m1:7.6,m2:6.8,m3:7.9,m4:7.0,m5:7.5},
     {name:"DAU-5884",m1:8.9,m2:7.1,m3:8.9,m4:8.5,m5:8.1}
+]*/
+var drugs =[
+	{name:"Atropine",receptors: [9.0, 8.8, 9.3, 8.9, 9.2]},
+    {name:"Pirenzepine",receptors: [8.2,6.5,6.9,7.4,7.2]},
+    {name:"Methotramine",receptors: [6.7,7.7,6.0,7.0,6.3]},
+    {name:"Darifenacin",receptors: [7.8,7.0,8.8,7.7,8.0]},
+    {name:"MT-3",receptors:[6.7,5.9,6.0,8.1,6.0]},
+    {name:"S-Secoverine",receptors:[8.0,7.9,7.7,7.7,6.5]},
+    {name:"Solifenacin",receptors:[7.6,6.8,7.9,7.0,7.5]},
+    {name:"DAU-5884",receptors:[8.9,7.1,8.9,8.5,8.1]}
 ]
 
 //Array of objects that contain coordinates for each type. e1,e2,e3 correspond to different examples.
@@ -21,18 +31,19 @@ var Ant3321 =[
 // for ^^, make sure that we add the Feedback comment into that. 
 
 //Choose receptor subtype
-receptor = rand(5) + 1;
+recep = rand(5) + 1;
 
 // My attempt at concatenating. Did a very brief test and it didn't seem to throw an error.
 // Might still not work, however.
-str_receptor = receptor.toString();
+/*str_receptor = receptor.toString();
 mX = "m" + str_receptor;
-
+*/
+//mX = "m" + receptor
 
 //Determine which antagonists are to be used
 var i;
 
-for(i=0;i<5;i++){
+for(i=0;i<4;i++){
     var t = rand(drugs.length)
     drugs.splice(t,1);
     //Remove drugs[t] from array, after this is complete remaining drugs will be graphed, with drugs[4] only having a dot on schild
@@ -46,7 +57,7 @@ shuffle(drugs);
 plotPoints = [	[[0,0,0],[0,0,0]],
 				[[0,0,0],[0,0,0]],
 				[[0,0,0],[0,0,0]],
-				[0,0],
+				[[0],[0]],
 				[[0,0,0],[0,0,0]],
 				];
 				
@@ -67,6 +78,11 @@ for(i=0;i<3;i++){
 	
 	plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
 }
+lb = 1.5-drugs[3].receptors[recep];
+lDR = drugs[3].receptors[recep]+lb;
+plotPoints[3]=[[lb],[lDR]]
+//console.log(drugs)
+//console.log(drugs[3].receptors[recep])
 
 
 
@@ -119,7 +135,7 @@ var animation = {
 	}
 }
 
-function PlotAndPray(chart){
+function PlotQuizSchild(chart){
 	var layout = {
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
@@ -135,12 +151,21 @@ function PlotAndPray(chart){
 	
 	var data = []
 	// It's probably going to fail here because I'm not passing plotPoints in
-	var eqn1 = {
-		x: plotPoints[0][0],
-		y: plotPoints[0][1],
-		mode: 'lines',
-		line: {
-			width: 3
+	var jj
+	for(jj = 0;jj<4;jj++){
+		var data = []
+		var eqn1 = {
+			x: plotPoints[jj][0],
+			y: plotPoints[jj][1],
+			mode: 'lines',
+			line: {
+				width: 3
+			}
 		}
+		data.push(eqn1);
+		console.log(data)
+		Plotly.plot(chart,data,layout)
 	}
-	data.push(eqn1);
+	
+}
+PlotQuizSchild("quizschild")
