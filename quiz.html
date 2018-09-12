@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
   <!-- Add in plotly.js files still to go, might put them in body -->
 
@@ -33,10 +34,203 @@
     </div>
   </nav>
   <div class="container-fluid text-center">
-    <div class="col-sm-8 text-center">
-      <h1>HELLO WORLD</h1>
+    <div class="col-lg-12">
+      <div class="row">
+          <div class="col-lg-4">
+            <!-- <h1>SCHILD PLOT GOES HERE</h1> -->
+            <div id = "quizschild"></div>
+          </div>
+          <div class="col-lg-8">
+            <form>
+                <table class="table-responsive">
+                    <tbody>
+                        <tr>
+                            <td>Antagonist</td>
+                            <td>Shape of Plot</td>
+                            <td>pA2 Value</td>
+                            <td>Incline (slope)</td>
+                            <td>pA2 = logKB?</td>
+                            <td>Eliminated Receptors</td>
+                        </tr>
+                        <tr>
+                            <td id="drug1"></td>
+                            <td>
+                                <select name="drug1shape" required>
+                                    <option value="linear">Linear</option>
+                                    <option value="nlinearup">Nonlinear upwards</option>
+                                    <option value="nlineardo">Nonlinear downwards</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" id="drug1pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                            </td>
+                            <td>
+                                <select name="drug1gradient" required>
+                                    <option value="=1">Gradient=1</option>
+                                    <option value="<1">Gradient<1</option>
+                                    <option value=">2">Gradient>1</option>
+                                    <option value="0">Can't be sure</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="drug1gradient" required>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                    <option value="0">Can't be sure</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for "m1">M1</label>
+                                <input type="radio" name = "m1" id="drug1m1">
+                                <label for "m2">M2</label>
+                                <input type="radio" name = "m2" id="drug1m2">
+                                <label for "m3">M3</label>
+                                <input type="radio" name = "m3" id="drug1m3">
+                                <label for "m4">M4</label>
+                                <input type="radio" name = "m4" id="drug1m4">
+                                <label for "m5">M5</label>
+                                <input type="radio" name = "m5" id="drug1m5">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="drug2"></td>
+                            <td>
+                                <select name="drug2shape" required>
+                                    <option value="linear">Linear</option>
+                                    <option value="nlinearup">Nonlinear upwards</option>
+                                    <option value="nlineardo">Nonlinear downwards</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" id="drug2pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                            </td>
+                            <td>
+                                <select name="drug2gradient" required>
+                                    <option value="=1">Gradient=1</option>
+                                    <option value="<1">Gradient<1</option>
+                                    <option value=">2">Gradient>1</option>
+                                    <option value="0">Can't be sure</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="drug2gradient" required>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                    <option value="0">Can't be sure</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for "m1">M1</label>
+                                <input type="radio" name = "m1" id="drug2m1">
+                                <label for "m2">M2</label>
+                                <input type="radio" name = "m2" id="drug2m2">
+                                <label for "m3">M3</label>
+                                <input type="radio" name = "m3" id="drug2m3">
+                                <label for "m4">M4</label>
+                                <input type="radio" name = "m4" id="drug2m4">
+                                <label for "m5">M5</label>
+                                <input type="radio" name = "m5" id="drug2m5">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="drug3"></td>
+                            <td>
+                                <select name="drug3shape" required>
+                                    <option value="linear">Linear</option>
+                                    <option value="nlinearup">Nonlinear upwards</option>
+                                    <option value="nlineardo">Nonlinear downwards</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" id="drug3pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                            </td>
+                            <td>
+                                <select name="drug3gradient" required>
+                                    <option value="=1">Gradient=1</option>
+                                    <option value="<1">Gradient<1</option>
+                                    <option value=">2">Gradient>1</option>
+                                    <option value="0">Can't be sure</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="drug3gradient" required>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                    <option value="0">Can't be sure</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for "m1">M1</label>
+                                <input type="radio" name = "m1" id="drug3m1">
+                                <label for "m2">M2</label>
+                                <input type="radio" name = "m2" id="drug3m2">
+                                <label for "m3">M3</label>
+                                <input type="radio" name = "m3" id="drug3m3">
+                                <label for "m4">M4</label>
+                                <input type="radio" name = "m4" id="drug3m4">
+                                <label for "m5">M5</label>
+                                <input type="radio" name = "m5" id="drug3m5">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="drug4"></td>
+                            <td>
+                                <select name="drug4shape" required>
+                                    <option value="linear">Linear</option>
+                                    <option value="nlinearup">Nonlinear upwards</option>
+                                    <option value="nlineardo">Nonlinear downwards</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" id="drug4pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                            </td>
+                            <td>
+                                <select name="drug4gradient" required>
+                                    <option value="=1">Gradient=1</option>
+                                    <option value="<1">Gradient<1</option>
+                                    <option value=">2">Gradient>1</option>
+                                    <option value="0">Can't be sure</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="drug4gradient" required>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                    <option value="0">Can't be sure</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for "m1">M1</label>
+                                <input type="radio" name = "m1" id="drug4m1">
+                                <label for "m2">M2</label>
+                                <input type="radio" name = "m2" id="drug4m2">
+                                <label for "m3">M3</label>
+                                <input type="radio" name = "m3" id="drug4m3">
+                                <label for "m4">M4</label>
+                                <input type="radio" name = "m4" id="drug4m4">
+                                <label for "m5">M5</label>
+                                <input type="radio" name = "m5" id="drug4m5">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="drug5"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-8">
+              <h1>Summation section goes here</h1>
+          </div>
+          <div class="col-lg-4">
+              <h1>Submit button and other stuff around here</h1>
+          </div>
+      </div>
     </div>
   </div>
+  <script type="text/javascript" src="js/scriptquiz.js"></script>
   <footer>
 	<div class="container">
         <ul class="list-inline">
@@ -123,7 +317,7 @@
 			</div>
 		</div>		
     </div>
-  </footer
+  </footer>
 </body>
 
 </html>
