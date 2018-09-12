@@ -121,6 +121,7 @@ function calcLinesEff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
 
     var agoeff = 10**(-1*agoeffect);
 
+
     if(agoconcentration == 0){
         //console.log("agoconc 0 activated")
         agoconc = 0;

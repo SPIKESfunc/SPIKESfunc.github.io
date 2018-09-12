@@ -30,8 +30,6 @@ function updateAgoAffinitySchild(value){
 	}
 	
 
-
-
 function testPlot(chart){
 	var layout = {
         xaxis:{

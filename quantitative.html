@@ -1,185 +1,214 @@
 <!DOCTYPE HTML>
 <html lang="en">
-
-    
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" context="width=device-width, initial scale=1">
-  <title>SPIKEStudy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" context="width=device-width, initial scale=1">
+    <title>SPIKEStudy</title>
 
-  <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-  <!-- Add in plotly.js files still to go, might put them in body -->
+    <!-- Add in plotly.js files still to go, might put them in body -->
 
-  <link href="css/stylesheet.css" rel="stylesheet">
-  <script type="text/javascript" src="js/script.js"></script>
+    <link href="css/stylesheet.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="index.html">SPIKEStudy</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="qualitative.html">Qualitative</a>
-        <a class="nav-item nav-link active" href="quantitative.html">Quantitative Schild <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="quiz.html">Quiz</a>
-      </div>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="index.html">SPIKEStudy</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="qualitative.html">Qualitative</a>
+                    <a class="nav-item nav-link active" href="quantitative.html">Quantitative Schild <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="quiz.html">Quiz</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <br>
+        <h1>Competitive Antagonist Model</h1>
+        <br>
     </div>
-  </nav>
-  <div class="container">
-    <br>
-    <h1>Competitive Antagonist Model</h1>
-    <br>
-  </div> 
-  
     <div class="container">
         <div class="col col-lg-12">
-           <div class="row">
-            <div class="col-lg-6">
-              <p>Agonist</p>
-              <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityCom(this.value)">
-              <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyCom(this.value)">
-              <br>
-              <p>Cell</p>
-              <label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id="dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityCom(this.value)">
-              <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-                onchange="updateEfficiencyCom(this.value)">
-              <br>
-              <p>Antagonist</p>
-              <label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04" value="9"
-                onchange="updateAgoAffinityCom(this.value); updateAgoAffinitySchild(this.value)">
-              <br><label for="concentration">Antagonist Concentrations (nM) </label>
-              <!--COLOURS OF DIFFERENT ONES-->
-              
-            </div>
-            <div class="col-lg-6">
-              <div id="competitive"></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6">
-                <div>
-                    Antagonist affinity table
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>Agonist</p>
+                    <label for="affinity">Affinity ( 1/KA)</label>
+                    <input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityCom(this.value)">
+                    <br><label for="efficacy">Intrinsic Efficacy</label>
+                    <input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyCom(this.value)">
+                    <br>
+                    <p>Cell</p>
+                    <label for="density">Receptor Density</label>
+                    <input type="range" autocomplete="off" name="density" id="dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityCom(this.value)">
+                    <br><label for="efficiency">Coupling Efficiency</label>
+                    <input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
+                        onchange="updateEfficiencyCom(this.value)">
+                    <br>
+                    <label for="agoaffinity">Antagonist Affinity (KB)</label>
+                    <input type="number" autocomplete="off" name="agoaffinity" id="agoaffnum" min="0.0000000001" max="0.000001" step="0.000000001" value="0.000000001" onchange="updateAgoAffinity(this.value)">
+                    <label for="neglog">-logKB</label>
+                    <input type="number" autocomplete="off" name="agoafflog" id="agoafflognum" min="4" max="10" step="0.1" value="9" onchange="updateAgoAffinityLog(this.value)">
+                    <br><br><label for="concentration">Antagonist Concentrations (nM) </label>
+                    <!--COLOURS OF DIFFERENT ONES-->
+            
                 </div>
-                <div>
-                    Antagonist concentration
+                <div class="col-lg-6">
+                    <div id="quantitative"></div>
                 </div>
             </div>
-            <div class="col-lg-6">
-				<div id="schild"></div>
-			</div>
-          </div> 
-          
-        </div>
-     </div>
-  
-   <script type="text/javascript" src="js/scriptcom.js"></script>
-   <script type="text/javascript" src="js/scriptschild.js"></script>
 
-  <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <footer>
-	<div class="container">
-        <ul class="list-inline">
-            <li class="list-inline-item">
-                <a data-toggle="modal" href="" data-target="#about">About</a>
-            </li>
-            <li class="footer-menu-divider list-inline-item">⋅</li>
-            <li class="list-inline-item">
-                <a data-toggle="modal" href="" data-target="#instructions">Instructions</a>
-            </li>
-            <li class="footer-menu-divider list-inline-item">⋅</li>
-            <li class="list-inline-item">
-                <a data-toggle="modal" href="" data-target="#contact">Contact</a>
-            </li>
-        </ul>
-       <!-- <p class="cc text-muted small">Creative Commons <i class="fa fa-creative-commons fa-fw"></i> 2018</p>  ask peter about copyright-->
-    </div>
-	<div id="about" class="modal fade" role="dialog">
-		<div class="modal-dialog">	
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">About</h4>
-				</div>
-				<div class="modal-body">
-					<p>Summary about the project<br />Created by Cam, Dan, Harry, Oliver, Thai - students of CITS3200 UWA 2018, directed by Associate Professor Peter Henry</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>		
-    </div>
-	<div id="instructions" class="modal fade" role="dialog">
-		<div class="modal-dialog">	
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Instructions</h4>
-				</div>
-				<div class="modal-body">
-					<p>Will insert three tabs for 3 different tools, qual, quant, quiz</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>		
-    </div>
-	<div id="contact" class="modal fade" role="dialog">
-		<div class="modal-dialog">	
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Contact</h4>
-				</div>
-				<div class="modal-body">
-					<p>Is something not working properly?<br />Have an idea about how can we improve the interactive tools?<br />Please contact us!</p>
-					<div class="box">
-                        <table style="width:100%;">
-                            <tbody>
-							<tr>                              
-                                <td>
-                                    <p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western Australia</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="contact">Room 1.34, M Block,
-                                        <br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a>
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody></table>
-
-
+            <div class="row">
+                <div class="col-lg-12">
+                    <div>
+                        Antagonist affinity table
                     </div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>		
+                    Ant 0
+                    <input type="number" autocomplete="off" name="antagonist0" id="ant0" value="0.0000000" readonly>
+                    Log[B]
+                    <input type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
+                    <br>
+                    Ant 1
+                    <input type="number" autocomplete="off" name="antagonist1" id="ant1" min="0.0000000001" max="0.0001" step="0.000001" value="0.000000001" onchange="updateAntagonist1(this.value)">
+                    <input type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4" step="0.1" value="-9" onchange="updateAntagonistLog1(this.value)">
+                    <input type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
+                    <input type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
+                    <input type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
+                    <br>
+                    Ant 2
+                    <input type="number" autocomplete="off" name="antagonist2" id="ant2" min="0.0000000001" max="0.0001" step="0.000001" value="0.00000001" onchange="updateAntagonist2(this.value)">
+                    <input type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4" step="0.1" value="-8" onchange="updateAntagonistLog2(this.value)">
+                    <input type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
+                    <input type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
+                    <input type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
+                    <br>
+                    Ant 3
+                    <input type="number" autocomplete="off" name="antagonist3" id="ant3" min="0.0000000001" max="0.0001" step="0.000001" value="0.0000001" onchange="updateAntagonist3(this.value)">
+                    <input type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4" step="0.1" value="-7" onchange="updateAntagonistLog3(this.value)">
+                    <input type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
+                    <input type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
+                    <input type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
+                    <div>
+                        Antagonist concentration
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    Schild Plot
+                    <br>
+                    <div id="schild"></div>
+                </div>
+            </div>
+
+        </div>
     </div>
-      
-  </footer
-</body>
+
+
+    <script type="text/javascript" src="js/scriptquant.js"></script>
+
+    <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <footer>
+        <div class="container">
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <a data-toggle="modal" href="" data-target="#about">About</a>
+                </li>
+                <li class="footer-menu-divider list-inline-item">⋅</li>
+                <li class="list-inline-item">
+                    <a data-toggle="modal" href="" data-target="#instructions">Instructions</a>
+                </li>
+                <li class="footer-menu-divider list-inline-item">⋅</li>
+                <li class="list-inline-item">
+                    <a data-toggle="modal" href="" data-target="#contact">Contact</a>
+                </li>
+            </ul>
+            <!-- <p class="cc text-muted small">Creative Commons <i class="fa fa-creative-commons fa-fw"></i> 2018</p>  ask peter about copyright-->
+        </div>
+        <div id="about" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">About</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Summary about the project<br />Created by Cam, Dan, Harry, Oliver, Thai - students of CITS3200
+                            UWA 2018, directed by Associate Professor Peter Henry</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="instructions" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Instructions</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Will insert three tabs for 3 different tools, qual, quant, quiz</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contact" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Contact</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Is something not working properly?<br />Have an idea about how can we improve the interactive
+                            tools?
+                            <br />Please contact us!</p>
+                        <div class="box">
+                            <table style="width:100%;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University
+                                                of Western Australia</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="contact">Room 1.34, M Block,
+                                                <br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer> </body>
 
 </html>
