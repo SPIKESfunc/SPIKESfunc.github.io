@@ -81,9 +81,11 @@ for(i=0;i<3;i++){
 lb = 1.5-drugs[3].receptors[recep];
 lDR = drugs[3].receptors[recep]+lb;
 plotPoints[3]=[[lb],[lDR]]
-//console.log(drugs)
-//console.log(drugs[3].receptors[recep])
 
+document.getElementById("drug1").innerHTML=drugs[0].name;
+document.getElementById("drug2").innerHTML=drugs[1].name;
+document.getElementById("drug3").innerHTML=drugs[2].name;
+document.getElementById("drug4").innerHTML=drugs[3].name;
 
 
 
