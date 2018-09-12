@@ -68,13 +68,13 @@ plotPoints = [	[[0,0,0],[0,0,0]],
 // Looping over drugs. Basically dong slide 52
 
 for(i=0;i<3;i++){
-	lb1 = 1-drugs[i].mX;
-	lb2 = 2-drugs[i].mX;
-	lb3 = 3-drugs[i].mX;
+	lb1 = 1-drugs[i].receptors[recep];
+	lb2 = 2-drugs[i].receptors[recep];
+	lb3 = 3-drugs[i].receptors[recep];
 	
-	lDR1 = drugs[i].mX+lb1;
-	lDR2 = drugs[i].mX+lb2;
-	lDR3 = drugs[i].mX+lb3;
+	lDR1 = drugs[i].receptors[recep]+lb1;
+	lDR2 = drugs[i].receptors[recep]+lb2;
+	lDR3 = drugs[i].receptors[recep]+lb3;
 	
 	plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
 }
@@ -140,7 +140,7 @@ function PlotQuizSchild(chart){
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
-			range:[-10.0,-4.0],
+			range:[-10.0,-1.0],
 		},
 		yaxis:{
 			title:"Log(DR-1)",
@@ -157,7 +157,7 @@ function PlotQuizSchild(chart){
 		var eqn1 = {
 			x: plotPoints[jj][0],
 			y: plotPoints[jj][1],
-			mode: 'lines',
+			mode: 'lines+markers',
 			line: {
 				width: 3
 			}
