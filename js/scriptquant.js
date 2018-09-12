@@ -324,8 +324,8 @@ function calcSchild(logval1,logval2, logval3, dr1, dr2, dr3){ //add 3 other conc
     logDr2 = dr2;
     logDr3 = dr3;
 	var data = [[],[]];
-	var xLogs = [logB1, logB2, logB3] //x values for the schild
-	var logDr1 = [logDr1, logDr2, logDr3]
+	var xLogs = [-agoafflog, logB1, logB2, logB3] //x values for the schild
+	var logDr1 = [0, logDr1, logDr2, logDr3]
 	
 
 	data[0] = xLogs;
@@ -357,7 +357,7 @@ function testPlot(chart){
 	var trace1 = {
 		x: lineData[0],
 		y: lineData[1],
-		mode: 'lines',
+		mode: 'lines+markers',
 		line: {
 			width: 1
 		}
