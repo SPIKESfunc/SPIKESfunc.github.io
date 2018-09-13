@@ -33,6 +33,11 @@ var Ant3321 =[
 //Choose receptor subtype
 recep = rand(5);
 
+//Choose ant3321 version
+ant = rand(4);
+example = rand(3);
+var examples = ['e1', 'e2', 'e3'];
+
 // My attempt at concatenating. Did a very brief test and it didn't seem to throw an error.
 // Might still not work, however.
 /*str_receptor = receptor.toString();
@@ -82,11 +87,17 @@ lb = 1.5-drugs[3].receptors[recep];
 lDR = drugs[3].receptors[recep]+lb;
 plotPoints[3]=[[lb],[lDR]]
 
+plotPoints[4] = [Ant3321[ant][examples[example]][0],Ant3321[ant][examples[example]][1]];
+
+console.log(ant)
+console.log(examples[example])
+console.log(plotPoints[4])
+
 document.getElementById("drug1").innerHTML=drugs[0].name;
 document.getElementById("drug2").innerHTML=drugs[1].name;
 document.getElementById("drug3").innerHTML=drugs[2].name;
 document.getElementById("drug4").innerHTML=drugs[3].name;
-
+document.getElementById("drug5").innerHTML="Ant3321";
 
 
 //Shuffles the array, to remove the slight bias towards the final element of drugs(initial) being drugs[4]
@@ -154,7 +165,7 @@ function PlotQuizSchild(chart){
 	var data = []
 	// It's probably going to fail here because I'm not passing plotPoints in
 	var jj
-	for(jj = 0;jj<4;jj++){
+	for(jj = 0;jj<5;jj++){
 		var data = []
 		var eqn1 = {
 			x: plotPoints[jj][0],
