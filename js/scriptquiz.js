@@ -31,7 +31,7 @@ var Ant3321 =[
 // for ^^, make sure that we add the Feedback comment into that. 
 
 //Choose receptor subtype
-recep = rand(5) + 1;
+recep = rand(5);
 
 // My attempt at concatenating. Did a very brief test and it didn't seem to throw an error.
 // Might still not work, however.
