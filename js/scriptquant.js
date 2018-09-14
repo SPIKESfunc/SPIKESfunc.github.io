@@ -1,4 +1,4 @@
-
+var agoconcarr = [0, -6, -7, -8, -9];
                     
 
 var affcom = document.getElementById("affcomslider").defaultValue;
@@ -55,7 +55,12 @@ function updateAffinityCom(value){
     //newData = [];
     affcom = value;
     //console.log(aff)
-    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoaff);
+    //need to put agoaff instead of agoafflog?
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]); 
     /*var graph = {
         y: lineData[1],
         traces:[0]
@@ -65,17 +70,29 @@ function updateAffinityCom(value){
     
     //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
-    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("quantitative",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
+            traces: [0,1,2,3,4],
+            layout: {}
+            },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 } 
 
 function updateEfficacyCom(value){
     effcom = value;
-    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]); 
     //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
-    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("quantitative",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
+            traces: [0,1,2,3,4],
+            layout: {}
+            },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
@@ -83,10 +100,18 @@ function updateEfficacyCom(value){
 
 function updateDensityCom(value){
     dencom = value;
-    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]); 
     //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
-    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("quantitative",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
+            traces: [0,1,2,3,4],
+            layout: {}
+            },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
@@ -94,10 +119,18 @@ function updateDensityCom(value){
 
 function updateEfficiencyCom(value){
     efficcom = value;
-    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]); 
     //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
-    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("quantitative",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
+            traces: [0,1,2,3,4],
+            layout: {}
+            },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
@@ -107,10 +140,18 @@ function updateAgoAffinity(value){
     agoaff = value;
     agoafflog = -1*Math.log10(value);
     document.getElementById("agoafflognum").value = agoafflog;
-    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]); 
     //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
-    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("quantitative",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
+            traces: [0,1,2,3,4],
+            layout: {}
+            },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
@@ -120,9 +161,17 @@ function updateAgoAffinityLog(value){
     agoafflog = value;
     agoaff = Math.pow(10, -value);
     document.getElementById("agoaffnum").value = agoaff;
-    lineData = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]); 
     updateEverything();
-    Plotly.animate("quantitative",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("quantitative",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
+            traces: [0,1,2,3,4],
+            layout: {}
+            },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
@@ -228,7 +277,7 @@ function updateEverything(){
 }
 
 
-function calcLinesCom(affinity, efficacy, recepDensity, efficiency, agoaffinity){
+function calcLinesCom(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration){
     //console.log("calclines ran")
     //console.log(affinity, efficacy, recepDensity, efficiency)
     const STEP = 0.05;
@@ -242,12 +291,23 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency, agoaffinity)
     var efcey = 10**efficiency;
     //var agoaffin = 10**agoaffinity;
     var agoaffin = 10**(-1*agoaffinity);
-    var agoconc = 10**(-9);
-    console.log(efcay)
-    for (i=-12; i<-2;i=i+STEP){
-        effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
-        data[0].push(i);
-        data[1].push(effect);
+    if(agoconcentration == 0){
+        //console.log("agoconc 0 activated")
+        agoconc = 0;
+        agoaffin = 0;
+        for (i=-12; i<-2;i=i+STEP){
+            effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
+            data[0].push(i);
+            data[1].push(effect);
+        }
+    }
+    else{
+        agoconc = 10**agoconcentration;
+        for (i=-12; i<-2;i=i+STEP){
+            effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
+            data[0].push(i);
+            data[1].push(effect);
+        }
     }
     return data;
 }
@@ -286,20 +346,23 @@ function plotGraphCom(chart){
             }
         ]*/
     }
-    var data = []
-    var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog)
-    console.log(lineData)
-    var graph = {
-        x: lineData[0],
-        y: lineData[1],
-        mode: "lines",
-        line: {
+    var j;
+    for(j = 0; j<5; j++){
+        var data = []
+        var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[j])
+    
+        var graph = {
+            x: lineData[0],
+            y: lineData[1],
+            mode: "lines",
+            line: {
             width: 1
+            }
         }
-    }
-    data.push(graph);
+        data.push(graph);
 
-    Plotly.plot(chart,data,layout);
+        Plotly.plot(chart,data,layout);
+    }
 }
 plotGraphCom("quantitative");
 
