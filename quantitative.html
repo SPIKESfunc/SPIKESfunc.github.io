@@ -54,9 +54,9 @@
                         onchange="updateEfficiencyCom(this.value)">
                     <br>
                     <label for="agoaffinity">Antagonist Affinity (KB)</label>
-                    <input type="number" autocomplete="off" name="agoaffinity" id="agoaffnum" min="0.0000000001" max="0.000001" step="0.000000001" value="0.000000001" onchange="updateAgoAffinity(this.value)">
+                    <input type="number" autocomplete="off" name="agoaffinity" id="agoaffnum" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-9" onchange="updateAgoAffinity(this.value)">
                     <label for="neglog">-logKB</label>
-                    <input type="number" autocomplete="off" name="agoafflog" id="agoafflognum" min="4" max="10" step="0.1" value="9" onchange="updateAgoAffinityLog(this.value)">
+                    <input type="number" autocomplete="off" name="agoafflog" id="agoafflognum" min="4" max="10" step="0.1" value="9.0" onchange="updateAgoAffinityLog(this.value)">
                     <br><br><label for="concentration">Antagonist Concentrations (nM) </label>
                     <!--COLOURS OF DIFFERENT ONES-->
             
@@ -72,26 +72,26 @@
                         Antagonist affinity table
                     </div>
                     Ant 0
-                    <input type="number" autocomplete="off" name="antagonist0" id="ant0" value="0.0000000" readonly>
+                    <input type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
                     Log[B]
                     <input type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
                     <br>
                     Ant 1
-                    <input type="number" autocomplete="off" name="antagonist1" id="ant1" min="0.0000000001" max="0.0001" step="0.000001" value="0.000000001" onchange="updateAntagonist1(this.value)">
+                    <input type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-9" onchange="updateAntagonist1(this.value)">
                     <input type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4" step="0.1" value="-9" onchange="updateAntagonistLog1(this.value)">
                     <input type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
                     <input type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
                     <input type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
                     <br>
                     Ant 2
-                    <input type="number" autocomplete="off" name="antagonist2" id="ant2" min="0.0000000001" max="0.0001" step="0.000001" value="0.00000001" onchange="updateAntagonist2(this.value)">
+                    <input type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-8" onchange="updateAntagonist2(this.value)">
                     <input type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4" step="0.1" value="-8" onchange="updateAntagonistLog2(this.value)">
                     <input type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
                     <input type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
                     <input type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
                     <br>
                     Ant 3
-                    <input type="number" autocomplete="off" name="antagonist3" id="ant3" min="0.0000000001" max="0.0001" step="0.000001" value="0.0000001" onchange="updateAntagonist3(this.value)">
+                    <input type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-7" onchange="updateAntagonist3(this.value)">
                     <input type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4" step="0.1" value="-7" onchange="updateAntagonistLog3(this.value)">
                     <input type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
                     <input type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
