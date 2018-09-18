@@ -33,15 +33,16 @@
     </div>
   </nav>
   <div class="container-fluid text-center">
-    <div class="col-lg-12">
+    <div class="col-lg-12" id="quizsection">
       <div class="row" style="padding-top:20px">
           <div class="col-lg-4">
             <!-- <h1>SCHILD PLOT GOES HERE</h1> -->
             <div id = "quizschild"></div>
             <p class = "warning">NOTE: Everything below the y-value of 1 is an extrapolation</p>
           </div>
+          <!-- <form id="quizform"> -->
           <div class="col-lg-8">
-            <form>
+            <form id="form1" name="tableform">
                 <table class="table-responsive">
                     <tbody>
                         <tr>
@@ -62,7 +63,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" id="drug1pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                                <input type="number" name="drug1pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
                             </td>
                             <td>
                                 <select name="drug1gradient" required>
@@ -73,7 +74,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="drug1gradient" required>
+                                <select name="drug1equal" required>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                     <option value="0">Can't be sure</option>
@@ -102,7 +103,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" id="drug2pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                                <input type="number" name="drug2pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
                             </td>
                             <td>
                                 <select name="drug2gradient" required>
@@ -113,7 +114,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="drug2gradient" required>
+                                <select name="drug2equal" required>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                     <option value="0">Can't be sure</option>
@@ -142,7 +143,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" id="drug3pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                                <input type="number" name="drug3pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
                             </td>
                             <td>
                                 <select name="drug3gradient" required>
@@ -153,7 +154,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="drug3gradient" required>
+                                <select name="drug3equal" required>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                     <option value="0">Can't be sure</option>
@@ -182,7 +183,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" id="drug4pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                                <input type="number" name="drug4pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
                             </td>
                             <td>
                                 <select name="drug4gradient" required>
@@ -193,7 +194,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="drug4gradient" required>
+                                <select name="drug4equal" required>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                     <option value="0">Can't be sure</option>
@@ -222,7 +223,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" id="drug5pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                                <input type="number" name="drug5pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
                             </td>
                             <td>
                                 <select name="drug5gradient" required>
@@ -233,7 +234,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="drug5gradient" required>
+                                <select name="drug5equal" required>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                     <option value="0">Can't be sure</option>
@@ -255,7 +256,7 @@
                     </tbody>
                 </table>
             </form>
-            <form>
+            <form id = "form1" name="antagonistform">
             	<label for "drug5reason">Why might the ant3311 Schild plot shape be nonlinear &/or slope  1.0?</label>
             	<select name="drug5reason" required>
                     <option value="allosteric">Ant3321 acts allosterically</option>
@@ -265,26 +266,29 @@
                 </select>
             </form>
           </div>
+          <!-- </form> -->
       </div>
       <div class="row" style="padding-top:20px">
           <div class="col-lg-8">
-          	<form>
+          	<form id = "form1" name="receptorform">
                 <p>Based on your analysis which M receptor subtype is mediating the functional response to the agonist?</p>
                 <label for "m1">M1</label>
-                <input type="checkbox" name = "m1" id="answerm1">
+                <input type="radio" name = "receptor" value="m1" required autocomplete="off"/>
                 <label for "m2">M2</label>
-                <input type="checkbox" name = "m2" id="answerm2">
+                <input type="radio" name = "receptor" value="m2" required autocomplete="off"/>
                 <label for "m3">M3</label>
-                <input type="checkbox" name = "m3" id="answerm3">
+                <input type="radio" name = "receptor" value="m3" required autocomplete="off"/>
                 <label for "m4">M4</label>
-                <input type="checkbox" name = "m4" id="answerm4">
+                <input type="radio" name = "receptor" value="m4" required autocomplete="off"/>
                 <label for "m5">M5</label>
-                <input type="checkbox" name = "m5" id="answerm5">
+                <input type="radio" name = "receptor" value="m5" required autocomplete="off"/>
+                <!-- <input type="button" onclick="markAnswers()"/> -->
             </form>
           </div>
           <div class="col-lg-4">
-              <form>
-              	<input type="button" name="answer" value="Submit">
+              
+                <input type="button" form="form1" onclick="markAnswers()">
+                
           </div>
       </div>
     </div>
@@ -305,7 +309,7 @@
                 <a data-toggle="modal" href="" data-target="#contact">Contact</a>
             </li>
         </ul>
-       <!-- <p class="cc text-muted small">Creative Commons <i class="fa fa-creative-commons fa-fw"></i> 2018</p>  ask peter about copyright-->
+       <!-- <p class="cc text-muted small">Creative Commons <i class="fa fa-creative-commons fa-fw"></i> 2018</p>  ask peter about copyright -->
     </div>
 	<div id="about" class="modal fade" role="dialog">
 		<div class="modal-dialog">	
