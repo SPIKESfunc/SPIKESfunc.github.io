@@ -1,7 +1,6 @@
 //Array of objects that contain -log Ki values for each receptor subtype
 
-var drugs =[
-	{name:"Atropine",receptors: [9.0, 8.8, 9.3, 8.9, 9.2]},
+var drugsmaster =[
     {name:"Pirenzepine",receptors: [8.2,6.5,6.9,7.4,7.2]},
     {name:"Methotramine",receptors: [6.7,7.7,6.0,7.0,6.3]},
     {name:"Darifenacin",receptors: [7.8,7.0,8.8,7.7,8.0]},
@@ -10,6 +9,9 @@ var drugs =[
     {name:"Solifenacin",receptors:[7.6,6.8,7.9,7.0,7.5]},
     {name:"DAU-5884",receptors:[8.9,7.1,8.9,8.5,8.1]}
 ]
+
+var drugs=[];
+
 
 //Array of objects that contain coordinates for each type. e1,e2,e3 correspond to different examples.
 // e1[0] = x, e1[1] = y 
@@ -21,6 +23,19 @@ var Ant3321 =[
 ]
 // for ^^, make sure that we add the Feedback comment into that. 
 
+var op1 = ["Methotramine","DAU-5884"] 
+var op2 = ["Solifenacin","DAU-5884"]
+
+option = rand(2);
+
+var options=[
+	{name:"m1", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine",op1[option]]},
+	{name:"m2", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","Solifenacin",op1[option]]},
+	{name:"m3", choices: ["Pirenzepine","Methotramine","Darifenacin","MT-3","S-Secoverine",op2[option]]},
+	{name:"m4", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine",op1[option]]},
+	{name:"m5", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine",op1[option]]}
+]
+
 //Choose receptor subtype
 recep = rand(5);
 
@@ -31,14 +46,24 @@ var examples = ['e1', 'e2', 'e3'];
 
 //Determine which antagonists are to be used
 var i;
+var j = 0;
+var l=0;
 
-for(i=0;i<4;i++){
-    var t = rand(drugs.length)
-    drugs.splice(t,1);
+while(options[recep].choices.length > 4){
+    var t = rand(options[recep].choices.length)
+    options[recep].choices.splice(t,1);
+}
+
+while(j<7){
+	if(options[recep].choices.includes(drugsmaster[j].name)){
+		drugs[l]=drugsmaster[j]
+		l+=1
+	}
+	j+=1
 }
 
 // See line 74.
-shuffle(drugs);
+shuffle(drugs)
 
 // Array of points is the best that I can think of at the moment, will probably change later
 plotPoints = [	[[0,0,0],[0,0,0]],
