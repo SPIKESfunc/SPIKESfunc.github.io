@@ -267,13 +267,13 @@ function updateEverything(){
     anthalfeff2 = document.getElementById("anteff2").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval2).toExponential(2);
     anthalfeff3 = document.getElementById("anteff3").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval3).toExponential(2);
     
-    doseratio1 = document.getElementById("antdose1").value = calcDoseRatio(anthalfeff1, anthalfeff0);
-    doseratio2 = document.getElementById("antdose2").value = calcDoseRatio(anthalfeff2, anthalfeff0);
-    doseratio3 = document.getElementById("antdose3").value = calcDoseRatio(anthalfeff3, anthalfeff0);
+    doseratio1 = document.getElementById("antdose1").value = calcDoseRatio(anthalfeff1, anthalfeff0).toFixed(2);
+    doseratio2 = document.getElementById("antdose2").value = calcDoseRatio(anthalfeff2, anthalfeff0).toFixed(2);
+    doseratio3 = document.getElementById("antdose3").value = calcDoseRatio(anthalfeff3, anthalfeff0).toFixed(2);
     
-    logdr1 = document.getElementById("antlogdr1").value = calcLogDR(doseratio1);
-    logdr2 = document.getElementById("antlogdr2").value = calcLogDR(doseratio2);
-    logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3);
+    logdr1 = document.getElementById("antlogdr1").value = calcLogDR(doseratio1).toFixed(2);
+    logdr2 = document.getElementById("antlogdr2").value = calcLogDR(doseratio2).toFixed(2);
+    logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3).toFixed(2);
 }
 
 
