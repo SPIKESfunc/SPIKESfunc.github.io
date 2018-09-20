@@ -1,4 +1,4 @@
-$("#feedbacksection").hide();
+$("#feedbackcontainer").hide();
 //Array of objects that contain -log Ki values for each receptor subtype
 
 var drugsmaster =[
@@ -161,23 +161,14 @@ function rand(maxval){
 }
 
 function markAnswers(){
-	
-	//var recepform = document.forms.recepform
-	//var tabform = document.forms['tableform']
-	//var antform = document.forms['antagonistform']
-	//var recepform = document.forms['receptorform']
-
-	//var checknull = recepform.elements.receptor.value
-	/*if(checknull === ""){
-		alert("You have not filled out Question 3")
-		return 1;
-	}*/
 	var ans = $('form').serializeArray();
 	if(ans.length < 22){
 		alert("You have not filled out Question 3")
 		return 1;
 	}
-	$("#quizsection").hide();
+	$("#quizcontainer").hide();
+	$('#feedbackcontainer').show();
+	PlotQuizSchild("actualanswer")
 	console.log(ans)
 	if(ans[20].value == Ant3321[ant].type){
 		console.log("drug 5 reason is correct")
@@ -191,86 +182,8 @@ function markAnswers(){
 	else{
 		console.log("receptor is wrong")
 	}
-	/*var k;
-	for(k = 0;k<12;k+=4){
-		if(ans[k].value === "linear"){
-			console.log(ans[k].name + " is correct")
-		}
-		else{
-			console.log(ans[k].name + " is false")
-		}
-		if(ans[k+1].value == drugs[Math.floor(k/3)].receptors[recep]){
-			console.log(ans[k+1].name + " is correct")
-		}
-		else{
-			console.log(ans[k+1].name + " is false")
-			console.log(ans[k+1].value + " should be: " + drugs[Math.floor(k/3)].receptors[recep])
-		}
-		if(ans[k+2].value == "=1"){
-			console.log(ans[k+2].name + " is correct")
-		}
-		else{
-			console.log(ans[k+2].name + " is false")
-			// console.log(ans[k+2].value)
-		}
-		if(ans[k+3].value == "yes"){
-			console.log(ans[k+3].name + " is correct")
-		}
-		else{
-			console.log(ans[k+3].name + " is false")
-			// console.log(ans[k+3].value)
-		}
-	}
-
-	//Following deals with antagonist with a single plotted point
-	if(ans[13].value == "linear"){
-		console.log(ans[13].name + " is correct")
-	}
-	else{
-		console.log(ans[13].name + " is false")
-		// console.log(ans[k+3].value)
-	}
-	if(ans[14].value == drugs[Math.floor(4)].receptors[recep]){
-		console.log(ans[14].name + " is correct")
-	}
-	else{
-		console.log(ans[14].name + " is false")
-		// console.log(ans[k+3].value)
-	}
-	if(ans[13].value == "0"){
-		console.log(ans[15].name + " is correct")
-	}
-	else{
-		console.log(ans[15].name + " is false")
-		// console.log(ans[k+3].value)
-	}
-	if(ans[k+3].value == "0"){
-		console.log(ans[k+3].name + " is correct")
-	}
-	else{
-		console.log(ans[k+3].name + " is false")
-		// console.log(ans[k+3].value)
-	}
-
-	//Following deals with a "bad" antagonist
-	if(ans[13].value == "linear"){
-		console.log(ans[13].name + " is correct")
-	}
-	else{
-		console.log(ans[13].name + " is false")
-		// console.log(ans[k+3].value)
-	}
-	*/
+	
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -317,3 +230,4 @@ function PlotQuizSchild(chart){
 	
 }
 PlotQuizSchild("quizschild")
+PlotQuizSchild("actualanswer")
