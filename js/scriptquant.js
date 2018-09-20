@@ -139,7 +139,7 @@ function updateEfficiencyCom(value){
 function updateAgoAffinity(value){
     agoaff = value;
     agoafflog = -1*Math.log10(value);
-    document.getElementById("agoafflognum").value = agoafflog;
+    document.getElementById("agoafflognum").value = agoafflog.toFixed(2);
     lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
@@ -160,7 +160,7 @@ function updateAgoAffinity(value){
 function updateAgoAffinityLog(value){
     agoafflog = value;
     agoaff = Math.pow(10, -value);
-    document.getElementById("agoaffnum").value = agoaff;
+    document.getElementById("agoaffnum").value = agoaff.toExponential(2);
     lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
@@ -180,7 +180,7 @@ function updateAgoAffinityLog(value){
 function updateAntagonist1(value){
     antval1 = value;
     antlogval1 = Math.log10(value);
-    document.getElementById("antlog1").value = antlogval1;
+    document.getElementById("antlog1").value = antlogval1.toFixed(2);
     updateEverything();
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
@@ -190,7 +190,7 @@ function updateAntagonist1(value){
 function updateAntagonistLog1(value){
     antlogval1 = value;
     antval1 = Math.pow(10, value);
-    document.getElementById("ant1").value = antval1;
+    document.getElementById("ant1").value = antval1.toExponential(2);
     updateEverything();
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
@@ -200,7 +200,7 @@ function updateAntagonistLog1(value){
 function updateAntagonist2(value){
     antval2 = value;
     antlogval2 = Math.log10(value);
-    document.getElementById("antlog2").value = antlogval2;
+    document.getElementById("antlog2").value = antlogval2.toFixed(2);
     updateEverything();
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
@@ -210,7 +210,7 @@ function updateAntagonist2(value){
 function updateAntagonistLog2(value){
     antlogval2 = value;
     antval2 = Math.pow(10, value);
-    document.getElementById("ant2").value = antval2;
+    document.getElementById("ant2").value = antval2.toExponential(2);
     updateEverything();
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
@@ -220,7 +220,7 @@ function updateAntagonistLog2(value){
 function updateAntagonist3(value){
     antval3 = value;
     antlogval3 = Math.log10(value);
-    document.getElementById("antlog3").value = antlogval3;
+    document.getElementById("antlog3").value = antlogval3.toFixed(2);
     updateEverything();
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
@@ -230,7 +230,7 @@ function updateAntagonist3(value){
 function updateAntagonistLog3(value){
     antlogval3 = value;
     antval3 = Math.pow(10, value);
-    document.getElementById("ant3").value = antval3;
+    document.getElementById("ant3").value = antval3.toExponential(2);
     updateEverything();
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
@@ -262,18 +262,18 @@ function calcLogDR(doseratio){
 }
 
 function updateEverything(){
-    anthalfeff0 = document.getElementById("anteff0").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval0);
-    anthalfeff1 = document.getElementById("anteff1").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval1);
-    anthalfeff2 = document.getElementById("anteff2").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval2);
-    anthalfeff3 = document.getElementById("anteff3").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval3);
+    anthalfeff0 = document.getElementById("anteff0").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval0).toExponential(2);
+    anthalfeff1 = document.getElementById("anteff1").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval1).toExponential(2);
+    anthalfeff2 = document.getElementById("anteff2").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval2).toExponential(2);
+    anthalfeff3 = document.getElementById("anteff3").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval3).toExponential(2);
     
-    doseratio1 = document.getElementById("antdose1").value = calcDoseRatio(anthalfeff1, anthalfeff0);
-    doseratio2 = document.getElementById("antdose2").value = calcDoseRatio(anthalfeff2, anthalfeff0);
-    doseratio3 = document.getElementById("antdose3").value = calcDoseRatio(anthalfeff3, anthalfeff0);
+    doseratio1 = document.getElementById("antdose1").value = calcDoseRatio(anthalfeff1, anthalfeff0).toFixed(2);
+    doseratio2 = document.getElementById("antdose2").value = calcDoseRatio(anthalfeff2, anthalfeff0).toFixed(2);
+    doseratio3 = document.getElementById("antdose3").value = calcDoseRatio(anthalfeff3, anthalfeff0).toFixed(2);
     
-    logdr1 = document.getElementById("antlogdr1").value = calcLogDR(doseratio1);
-    logdr2 = document.getElementById("antlogdr2").value = calcLogDR(doseratio2);
-    logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3);
+    logdr1 = document.getElementById("antlogdr1").value = calcLogDR(doseratio1).toFixed(2);
+    logdr2 = document.getElementById("antlogdr2").value = calcLogDR(doseratio2).toFixed(2);
+    logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3).toFixed(2);
 }
 
 
@@ -366,18 +366,18 @@ function plotGraphCom(chart){
 }
 plotGraphCom("quantitative");
 
-var anthalfeff0 = document.getElementById("anteff0").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval0);
-var anthalfeff1 = document.getElementById("anteff1").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval1);
-var anthalfeff2 = document.getElementById("anteff2").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval2);
-var anthalfeff3 = document.getElementById("anteff3").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval3);
+var anthalfeff0 = document.getElementById("anteff0").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval0).toExponential(2);
+var anthalfeff1 = document.getElementById("anteff1").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval1).toExponential(2);
+var anthalfeff2 = document.getElementById("anteff2").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval2).toExponential(2);
+var anthalfeff3 = document.getElementById("anteff3").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval3).toExponential(2);
 
-var doseratio1 = document.getElementById("antdose1").value = calcDoseRatio(anthalfeff1, anthalfeff0);
-var doseratio2 = document.getElementById("antdose2").value = calcDoseRatio(anthalfeff2, anthalfeff0);
-var doseratio3 = document.getElementById("antdose3").value = calcDoseRatio(anthalfeff3, anthalfeff0);
+var doseratio1 = document.getElementById("antdose1").value = calcDoseRatio(anthalfeff1, anthalfeff0).toFixed(2);
+var doseratio2 = document.getElementById("antdose2").value = calcDoseRatio(anthalfeff2, anthalfeff0).toFixed(2);
+var doseratio3 = document.getElementById("antdose3").value = calcDoseRatio(anthalfeff3, anthalfeff0).toFixed(2);
 
-var logdr1 = document.getElementById("antlogdr1").value = calcLogDR(doseratio1);
-var logdr2 = document.getElementById("antlogdr2").value = calcLogDR(doseratio2);
-var logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3);
+var logdr1 = document.getElementById("antlogdr1").value = calcLogDR(doseratio1).toFixed(2);
+var logdr2 = document.getElementById("antlogdr2").value = calcLogDR(doseratio2).toFixed(2);
+var logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3).toFixed(2);
 
 function calcSchild(logval1,logval2, logval3, dr1, dr2, dr3){ //add 3 other concentrations as args
 	logB1 = logval1;
