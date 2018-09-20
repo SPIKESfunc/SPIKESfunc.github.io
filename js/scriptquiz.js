@@ -209,8 +209,9 @@ function PlotQuizSchild(chart){
 			range:[0.0,5.0],
 		},
 	}
-	
-	var data = []
+	var data = [];
+	Plotly.newPlot(chart,data,layout)
+	//var data = []
 	// It's probably going to fail here because I'm not passing plotPoints in
 	var jj
 	for(jj = 0;jj<5;jj++){
