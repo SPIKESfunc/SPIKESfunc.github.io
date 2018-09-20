@@ -92,10 +92,9 @@ while(j<8){
 	j+=1
 }
 
-// See line 74.
 shuffle(drugs)
 
-// Array of points is the best that I can think of at the moment, will probably change later
+// Array of points
 plotPoints = [	[[0,0,0],[0,0,0]],
 				[[0,0,0],[0,0,0]],
 				[[0,0,0],[0,0,0]],
@@ -176,11 +175,14 @@ function markAnswers(){
 	else{
 		console.log("drug5reason is wrong")
 	}
-	if(ans[21].value == "m"+(recep+1)){
+	//if(ans[21].value == "m"+(recep+1)){
+	if(ans[21].value == recep){
 		console.log("receptor is correct")
+
 	}
 	else{
 		console.log("receptor is wrong")
+		plotAnswerSchild("youranswer",ans[21].value)
 	}
 	
 }
@@ -196,7 +198,9 @@ var animation = {
 	}
 }
 
-function PlotQuizSchild(chart){
+function plotAnswerSchild(chart,rec){
+	console.log("red is"+rec)
+	intrec = parseInt(rec)
 	var layout = {
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
@@ -209,10 +213,64 @@ function PlotQuizSchild(chart){
 			range:[0.0,5.0],
 		},
 	}
+	var data=[];
+	ansPlotPoints = [	
+				[[0,0,0],[0,0,0]],
+				[[0,0,0],[0,0,0]],
+				[[0,0,0],[0,0,0]],
+				[[0],[0]]
+				];
+	for(i=0;i<3;i++){
+		lb1 = 1-drugs[i].receptors[rec];
+		lb2 = 2-drugs[i].receptors[rec];
+		lb3 = 3-drugs[i].receptors[rec];
+		
+		lDR1 = drugs[i].receptors[rec]+lb1;
+		lDR2 = drugs[i].receptors[rec]+lb2;
+		lDR3 = drugs[i].receptors[rec]+lb3;
+		
+		//plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
+		ansPlotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
+	}
+	lb = 1.5-drugs[3].receptors[rec];
+	lDR = drugs[3].receptors[rec]+lb;
+	ansPlotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
+
+	Plotly.newPlot(chart,data,layout)
+	//var data = []
+	var jj
+	for(jj = 0;jj<4;jj++){
+		var data = []
+		var eqn1 = {
+			x: ansPlotPoints[jj][0],
+			y: ansPlotPoints[jj][1],
+			mode: 'lines+markers',
+			line: {
+				width: 3
+			}
+		}
+		data.push(eqn1);
+		//console.log(data)
+		Plotly.plot(chart,data,layout)
+	}
+}
+
+function PlotQuizSchild(chart){
+	var layout = {
+		xaxis:{
+			title:"Log [ Antagonist ] (log M)",
+			showline: true,
+			range:[-10.0,-1.0],
+		},
+		yaxis:{
+			title:"Log(DR-1)",
+			showline: true,
+			range:[0.0,5.0],
+		}
+	}
 	var data = [];
 	Plotly.newPlot(chart,data,layout)
 	//var data = []
-	// It's probably going to fail here because I'm not passing plotPoints in
 	var jj
 	for(jj = 0;jj<5;jj++){
 		var data = []
