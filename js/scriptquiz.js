@@ -54,7 +54,6 @@ while(antagonists.length > 4){
     var t = rand(antagonists.length)
     antagonists.splice(t,1);
     if(antagonists.length==4){
-    	console.log(antagonists)
     	if(recep==0){
     		if((antagonists.includes("Pirenzepine")||antagonists.includes(op[option]))&&(antagonists.includes("Pirenzepine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
     			break;
