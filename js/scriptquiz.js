@@ -1,3 +1,4 @@
+$("#feedbackcontainer").hide();
 //Array of objects that contain -log Ki values for each receptor subtype
 
 var drugsmaster =[
@@ -91,10 +92,9 @@ while(j<8){
 	j+=1
 }
 
-// See line 74.
 shuffle(drugs)
 
-// Array of points is the best that I can think of at the moment, will probably change later
+// Array of points
 plotPoints = [	[[0,0,0],[0,0,0]],
 				[[0,0,0],[0,0,0]],
 				[[0,0,0],[0,0,0]],
@@ -160,23 +160,14 @@ function rand(maxval){
 }
 
 function markAnswers(){
-	
-	//var recepform = document.forms.recepform
-	//var tabform = document.forms['tableform']
-	//var antform = document.forms['antagonistform']
-	//var recepform = document.forms['receptorform']
-
-	//var checknull = recepform.elements.receptor.value
-	/*if(checknull === ""){
-		alert("You have not filled out Question 3")
-		return 1;
-	}*/
 	var ans = $('form').serializeArray();
 	if(ans.length < 22){
 		alert("You have not filled out Question 3")
 		return 1;
 	}
-	$("#quizsection").hide();
+	$("#quizcontainer").hide();
+	$('#feedbackcontainer').show();
+	PlotQuizSchild("actualanswer")
 	console.log(ans)
 	if(ans[20].value == Ant3321[ant].type){
 		console.log("drug 5 reason is correct")
@@ -184,92 +175,17 @@ function markAnswers(){
 	else{
 		console.log("drug5reason is wrong")
 	}
-	if(ans[21].value == "m"+(recep+1)){
+	//if(ans[21].value == "m"+(recep+1)){
+	if(ans[21].value == recep){
 		console.log("receptor is correct")
+
 	}
 	else{
 		console.log("receptor is wrong")
+		plotAnswerSchild("youranswer",ans[21].value)
 	}
-	/*var k;
-	for(k = 0;k<12;k+=4){
-		if(ans[k].value === "linear"){
-			console.log(ans[k].name + " is correct")
-		}
-		else{
-			console.log(ans[k].name + " is false")
-		}
-		if(ans[k+1].value == drugs[Math.floor(k/3)].receptors[recep]){
-			console.log(ans[k+1].name + " is correct")
-		}
-		else{
-			console.log(ans[k+1].name + " is false")
-			console.log(ans[k+1].value + " should be: " + drugs[Math.floor(k/3)].receptors[recep])
-		}
-		if(ans[k+2].value == "=1"){
-			console.log(ans[k+2].name + " is correct")
-		}
-		else{
-			console.log(ans[k+2].name + " is false")
-			// console.log(ans[k+2].value)
-		}
-		if(ans[k+3].value == "yes"){
-			console.log(ans[k+3].name + " is correct")
-		}
-		else{
-			console.log(ans[k+3].name + " is false")
-			// console.log(ans[k+3].value)
-		}
-	}
-
-	//Following deals with antagonist with a single plotted point
-	if(ans[13].value == "linear"){
-		console.log(ans[13].name + " is correct")
-	}
-	else{
-		console.log(ans[13].name + " is false")
-		// console.log(ans[k+3].value)
-	}
-	if(ans[14].value == drugs[Math.floor(4)].receptors[recep]){
-		console.log(ans[14].name + " is correct")
-	}
-	else{
-		console.log(ans[14].name + " is false")
-		// console.log(ans[k+3].value)
-	}
-	if(ans[13].value == "0"){
-		console.log(ans[15].name + " is correct")
-	}
-	else{
-		console.log(ans[15].name + " is false")
-		// console.log(ans[k+3].value)
-	}
-	if(ans[k+3].value == "0"){
-		console.log(ans[k+3].name + " is correct")
-	}
-	else{
-		console.log(ans[k+3].name + " is false")
-		// console.log(ans[k+3].value)
-	}
-
-	//Following deals with a "bad" antagonist
-	if(ans[13].value == "linear"){
-		console.log(ans[13].name + " is correct")
-	}
-	else{
-		console.log(ans[13].name + " is false")
-		// console.log(ans[k+3].value)
-	}
-	*/
+	
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -279,6 +195,63 @@ var animation = {
 	transition: {
 		duration: 100,
 		easing: "cubic-in-out"
+	}
+}
+
+function plotAnswerSchild(chart,rec){
+	console.log("red is"+rec)
+	intrec = parseInt(rec)
+	var layout = {
+		xaxis:{
+			title:"Log [ Antagonist ] (log M)",
+			showline: true,
+			range:[-10.0,-1.0],
+		},
+		yaxis:{
+			title:"Log(DR-1)",
+			showline: true,
+			range:[0.0,5.0],
+		},
+	}
+	var data=[];
+	ansPlotPoints = [	
+				[[0,0,0],[0,0,0]],
+				[[0,0,0],[0,0,0]],
+				[[0,0,0],[0,0,0]],
+				[[0],[0]]
+				];
+	for(i=0;i<3;i++){
+		lb1 = 1-drugs[i].receptors[rec];
+		lb2 = 2-drugs[i].receptors[rec];
+		lb3 = 3-drugs[i].receptors[rec];
+		
+		lDR1 = drugs[i].receptors[rec]+lb1;
+		lDR2 = drugs[i].receptors[rec]+lb2;
+		lDR3 = drugs[i].receptors[rec]+lb3;
+		
+		//plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
+		ansPlotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
+	}
+	lb = 1.5-drugs[3].receptors[rec];
+	lDR = drugs[3].receptors[rec]+lb;
+	ansPlotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
+
+	Plotly.newPlot(chart,data,layout)
+	//var data = []
+	var jj
+	for(jj = 0;jj<4;jj++){
+		var data = []
+		var eqn1 = {
+			x: ansPlotPoints[jj][0],
+			y: ansPlotPoints[jj][1],
+			mode: 'lines+markers',
+			line: {
+				width: 3
+			}
+		}
+		data.push(eqn1);
+		//console.log(data)
+		Plotly.plot(chart,data,layout)
 	}
 }
 
@@ -293,11 +266,11 @@ function PlotQuizSchild(chart){
 			title:"Log(DR-1)",
 			showline: true,
 			range:[0.0,5.0],
-		},
+		}
 	}
-	
-	var data = []
-	// It's probably going to fail here because I'm not passing plotPoints in
+	var data = [];
+	Plotly.newPlot(chart,data,layout)
+	//var data = []
 	var jj
 	for(jj = 0;jj<5;jj++){
 		var data = []
@@ -315,4 +288,32 @@ function PlotQuizSchild(chart){
 	}
 	
 }
+
+function antFeedback(){
+	var inequality
+	var ant3321Feedback	
+	switch(Ant3321[ant].type) {
+		case "allosteric":
+			inequality = "<";
+			ant3321Feedback = "allosteric antagonist.";
+			break;
+		case "irreversible":
+			inequality = ">";
+			ant3321Feedback = "irreversible antagonist." 
+			break;
+		case "toxic":
+			inequality = ">";
+			ant3321Feedback = "antagonist that produces toxicity at high concentrations." 
+			break;
+		case "saturable":
+			inequality = "<";
+			ant3321Feedback = "antagonist that is the substrate of a saturable uptake process."
+			break;
+
+	} 
+	document.getElementById("antFeedback").innerHTML = "The Schild plot for ant3321 is nonlinear with slope " + inequality + " 1.0 – this would be expected for an " + ant3321Feedback;
+
+}
 PlotQuizSchild("quizschild")
+PlotQuizSchild("actualanswer")
+antFeedback("antFeedback")
