@@ -7,7 +7,8 @@ var drugsmaster =[
     {name:"MT-3",receptors:[6.7,5.9,6.0,8.1,6.0]},
     {name:"S-Secoverine",receptors:[8.0,7.9,7.7,7.7,6.5]},
     {name:"Solifenacin",receptors:[7.6,6.8,7.9,7.0,7.5]},
-    {name:"DAU-5884",receptors:[8.9,7.1,8.9,8.5,8.1]}
+    {name:"DAU-5884",receptors:[8.9,7.1,8.9,8.5,8.1]},
+    {name:"PD102807",receptors:[5.79,5.78,6.42,7.56,4.74]}
 ]
 
 var drugs=[];
@@ -23,17 +24,16 @@ var Ant3321 =[
 ]
 // for ^^, make sure that we add the Feedback comment into that. 
 
-var op1 = ["Methotramine","DAU-5884"] 
-var op2 = ["Solifenacin","DAU-5884"]
+var op = ["Methotramine","DAU-5884"] 
 
 option = rand(2);
 
 var options=[
-	{name:"m1", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine",op1[option]]},
-	{name:"m2", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","Solifenacin",op1[option]]},
-	{name:"m3", choices: ["Pirenzepine","Methotramine","Darifenacin","MT-3","S-Secoverine",op2[option]]},
-	{name:"m4", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine",op1[option]]},
-	{name:"m5", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine",op1[option]]}
+	{name:"m1", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
+	{name:"m2", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
+	{name:"m3", choices: ["Pirenzepine","PD102807","Darifenacin","MT-3","S-Secoverine","Methotramine"]},
+	{name:"m4", choices: ["Pirenzepine","Darifenacin","MT-3","PD102807","S-Secoverine",op[option]]},
+	{name:"m5", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]}
 ]
 
 //Choose receptor subtype
@@ -48,14 +48,43 @@ var examples = ['e1', 'e2', 'e3'];
 var i;
 var j = 0;
 var l=0;
+var antagonists = options[recep].choices.slice()
 
-while(options[recep].choices.length > 4){
-    var t = rand(options[recep].choices.length)
-    options[recep].choices.splice(t,1);
+while(antagonists.length > 4){
+    var t = rand(antagonists.length)
+    antagonists.splice(t,1);
+    if(antagonists.length==4){
+    	if(recep==0){
+    		if((antagonists.includes("Pirenzepine")||antagonists.includes(op[option]))&&(antagonists.includes("Pirenzepine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
+    			break;
+    		}
+    	}
+    	if(recep==1){
+    		if((antagonists.includes("Pirenzepine")||antagonists.includes(op[option]))&&(antagonists.includes(op[option])||antagonists.includes("Darifenacin"))&&(antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
+    			break;
+    		}
+    	}
+    	if(recep==2){
+    		if((antagonists.includes("Pirenzepine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("Methotramine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("S-Secoverine")||antagonists.includes("PD102807"))){
+    			break;
+    		}
+    	}
+    	if(recep==3){
+    		if((antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
+    			break;
+    		}
+    	}
+    	if(recep==4){
+    		if((antagonists.includes("S-Secoverine")||antagonists.includes("PD102807"))){
+    			break;
+    		}
+    	}
+    	antagonists = options[recep].choices.slice()
+    }
 }
 
-while(j<7){
-	if(options[recep].choices.includes(drugsmaster[j].name)){
+while(j<8){
+	if(antagonists.includes(drugsmaster[j].name)){
 		drugs[l]=drugsmaster[j]
 		l+=1
 	}
