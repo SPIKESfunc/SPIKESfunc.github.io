@@ -229,5 +229,32 @@ function PlotQuizSchild(chart){
 	}
 	
 }
+
+function antFeedback(){
+	var inequality
+	var ant3321Feedback	
+	switch(Ant3321[ant].type) {
+		case "allosteric":
+			inequality = "<";
+			ant3321Feedback = "allosteric antagonist.";
+			break;
+		case "irreversible":
+			inequality = ">";
+			ant3321Feedback = "irreversible antagonist." 
+			break;
+		case "toxic":
+			inequality = ">";
+			ant3321Feedback = "antagonist that produces toxicity at high concentrations." 
+			break;
+		case "saturable":
+			inequality = "<";
+			ant3321Feedback = "antagonist that is the substrate of a saturable uptake process."
+			break;
+
+	} 
+	document.getElementById("antFeedback").innerHTML = "The Schild plot for ant3321 is nonlinear with slope " + inequality + " 1.0 – this would be expected for an " + ant3321Feedback;
+
+}
 PlotQuizSchild("quizschild")
 PlotQuizSchild("actualanswer")
+antFeedback("antFeedback")
