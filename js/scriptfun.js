@@ -8,7 +8,7 @@ var agoefffun = document.getElementById("agoefffunslider").defaultValue;
 var agodenfun = document.getElementById("agodenfunslider").defaultValue;
 var agoefficfun = document.getElementById("agoefficifunslider").defaultValue;
 
-var agoconcarr = [0, -6, -7, -8, -9];
+var agoconcarr = [0, -9, -8, -7, -6];
 
 var animation = {
     transition: {
@@ -133,6 +133,27 @@ function updateAgoEfficiencyFun(value){
 
 } 
 
+function resetFun(){
+    afffun = document.getElementById("afffunslider").value = document.getElementById("afffunslider").defaultValue;
+    efffun = document.getElementById("efffunslider").value = document.getElementById("efffunslider").defaultValue;
+    denfun = document.getElementById("denfunslider").value = document.getElementById("denfunslider").defaultValue;
+    efficfun = document.getElementById("efficifunslider").value = document.getElementById("efficifunslider").defaultValue;
+    agoafffun = document.getElementById("agoafffunslider").value = document.getElementById("agoafffunslider").defaultValue;
+    agoefffun = document.getElementById("agoefffunslider").value = document.getElementById("agoefffunslider").defaultValue;
+    agodenfun = document.getElementById("agodenfunslider").value = document.getElementById("agodenfunslider").defaultValue;
+    agoefficfun = document.getElementById("agoefficifunslider").value = document.getElementById("agoefficifunslider").defaultValue;
+    lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
+    lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
+    lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
+    lineData3 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[3],agodenfun,agoefficfun);
+    lineData4 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[4],agodenfun,agoefficfun);
+    Plotly.animate("functional",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+}
+
 function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoefficacy, agoconcentration, agodensity, agoefficiency){
     //console.log("calclines ran")
     //console.log(affinity, efficacy, recepDensity, efficiency)
@@ -209,16 +230,28 @@ function plotGraphFun(chart){
     var j;
     for(j = 0; j<5; j++){
         var data= [];
-        //console.log("for loop ran "+j)
-        //console.log("value of agoconc:"+agoconcarr[j])
         var lineData = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[j],agodenfun,agoefficfun)
-        console.log(lineData)
-        var graph = {
-            x: lineData[0],
-            y: lineData[1],
-            mode: "lines",
-            line: {
+        
+        if(j==0){
+            var graph = {
+                x: lineData[0],
+                y: lineData[1],
+                mode: "lines",
+                name: 0+"nM",
+                line: {
                 width: 1
+                }
+            }
+        }
+        else{
+        var graph = {
+                x: lineData[0],
+                y: lineData[1],
+                mode: "lines",
+                name: 10**agoconcarr[j]*1000000000+"nM",
+                line: {
+                width: 1
+                }
             }
         }
     data.push(graph);

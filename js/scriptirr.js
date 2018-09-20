@@ -1,5 +1,5 @@
 
-var agoconcarr = [0, -6, -7, -8, -9];
+var agoconcarr = [0, -9, -8, -7, -6];
 
 var affirr = document.getElementById("affirrslider").defaultValue;
 var effirr = document.getElementById("effirrslider").defaultValue;
@@ -95,6 +95,24 @@ function updateAgoAffinityIrr(value){
 
 }
 
+function resetIrr(){
+    affirr = document.getElementById("affirrslider").value = document.getElementById("affirrslider").defaultValue;
+    effirr = document.getElementById("effirrslider").value = document.getElementById("effirrslider").defaultValue;
+    denirr = document.getElementById("denirrslider").value;
+    efficirr = document.getElementById("denirrslider").value = document.getElementById("efficiirrslider").defaultValue;
+    agoaffirr = document.getElementById("agoaffirrslider").value = document.getElementById("agoaffirrslider").defaultValue;
+    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
+    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
+    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
+    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+    Plotly.animate("irreversible",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+}
+
 function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
     console.log("calclinesirr ran")
     //console.log(affinity, efficacy, recepDensity, efficiency)
@@ -148,21 +166,32 @@ function plotGraphIrr(chart){
 
         }
     }
-    //var data = []
-    console.log(agoconcarr.length);
+
     var j;
     for(j = 0; j<5; j++){
         var data= [];
-        //console.log("for loop ran "+j)
-        //console.log("value of agoconc:"+agoconcarr[j])
         var lineData = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[j])
-        //console.log(lineData)
-        var graph = {
-            x: lineData[0],
-            y: lineData[1],
-            mode: "lines",
-            line: {
+
+        if(j==0){
+            var graph = {
+                x: lineData[0],
+                y: lineData[1],
+                mode: "lines",
+                name: 0+"nM",
+                line: {
                 width: 1
+                }
+            }
+        }
+        else{
+        var graph = {
+                x: lineData[0],
+                y: lineData[1],
+                mode: "lines",
+                name: 10**agoconcarr[j]*1000000000+"nM",
+                line: {
+                width: 1
+                }
             }
         }
         data.push(graph);

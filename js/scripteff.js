@@ -7,7 +7,7 @@ var agoaffeff = document.getElementById("agoaffeffslider").defaultValue;
 var agoeffeff = document.getElementById("agoeffeffslider").defaultValue;
 
 
-var agoconcarr = [0, -6, -7, -8, -9];
+var agoconcarr = [0, -9, -8, -7, -6];
 
 var animation = {
     transition: {
@@ -91,7 +91,25 @@ function updateAgoAffinityEff(value){
 
 function updateAgoEffectEff(value){
     agoeffeff = value;
-    console.log("new agoeff value is: " + agoeffeff)
+    lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[0]);
+    lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[1]);
+    lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[2]);
+    lineData3 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[3]);
+    lineData4 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[4]);
+    Plotly.animate("alloeffic",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+}
+
+function resetEff(){
+    affeff = document.getElementById("affeffslider").value = document.getElementById("affeffslider").defaultValue;
+    effeff = document.getElementById("effeffslider").value = document.getElementById("effeffslider").defaultValue;
+    deneff = document.getElementById("deneffslider").value = document.getElementById("deneffslider").defaultValue;
+    efficeff = document.getElementById("efficieffslider").value = document.getElementById("efficieffslider").defaultValue;
+    agoaffeff = document.getElementById("agoaffeffslider").value = document.getElementById("agoaffeffslider").defaultValue;
+    agoeffeff = document.getElementById("agoeffeffslider").value = document.getElementById("agoeffeffslider").defaultValue;
     lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[0]);
     lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[1]);
     lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[2]);
@@ -170,16 +188,28 @@ function plotGraphEff(chart){
     var j;
     for(j = 0; j<5; j++){
         var data= [];
-        //console.log("for loop ran "+j)
-        //console.log("value of agoconc:"+agoconcarr[j])
         var lineData = calcLinesEff(affeff, effeff, deneff, efficeff, agoaffeff, agoeffeff, agoconcarr[j])
-        console.log(lineData)
-        var graph = {
-            x: lineData[0],
-            y: lineData[1],
-            mode: "lines",
-            line: {
+
+        if(j==0){
+            var graph = {
+                x: lineData[0],
+                y: lineData[1],
+                mode: "lines",
+                name: 0+"nM",
+                line: {
                 width: 1
+                }
+            }
+        }
+        else{
+        var graph = {
+                x: lineData[0],
+                y: lineData[1],
+                mode: "lines",
+                name: 10**agoconcarr[j]*1000000000+"nM",
+                line: {
+                width: 1
+                }
             }
         }
     data.push(graph);
