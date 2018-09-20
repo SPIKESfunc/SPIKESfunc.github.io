@@ -1,4 +1,4 @@
-var agoconcarr = [0, -6, -7, -8, -9];
+var agoconcarr = [0, -9, -8, -7, -6];
 
 var affcom = document.getElementById("affcomslider").defaultValue;
 var effcom = document.getElementById("effcomslider").defaultValue;
@@ -91,6 +91,24 @@ function updateAgoAffinityCom(value){
 
 }
 
+function resetCom(){
+	affcom = document.getElementById("affcomslider").value = document.getElementById("affcomslider").defaultValue;
+	effcom = document.getElementById("effcomslider").value = document.getElementById("effcomslider").defaultValue;
+	dencom = document.getElementById("dencomslider").value = document.getElementById("dencomslider").defaultValue;
+	efficcom = document.getElementById("efficicomslider").value = document.getElementById("efficicomslider").defaultValue;
+	agoaffcom = document.getElementById("agoaffcomslider").value = document.getElementById("agoaffcomslider").defaultValue;
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);    //I'm doing something wrong if I try just place lineData into newData, below works though
+    Plotly.animate("competitive",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
+            traces: [0,1,2,3,4],
+            layout: {}
+            },animation)
+}
+
 function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
     //console.log("calclines ran")
     //console.log(affinity, efficacy, recepDensity, efficiency)
@@ -105,7 +123,6 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     var efcey = 10**efficiency;
     //var agoaffin = 10**agoaffinity;
     var agoaffin = 10**(-1*agoaffinity);
-    console.log(efcay)
 
     if(agoconcentration == 0){
         //console.log("agoconc 0 activated")
@@ -142,38 +159,33 @@ function plotGraphCom(chart){
             range: [0,100],
             tickvals: [0,20,40,60,80,100]
 
-        },
-        /*sliders: [
-            {
-                label: 'Slider 1',
-                pad: {t: 30},
-                active: 50,
-                font:{color: 'transparent'}, 
-                tickcolor: 'transparent',
-                steps: sliderSteps
-            },
-            {
-                label: 'Slider 2',
-                pad: {t: 30},
-                active: 50,
-                font:{color: 'transparent'}, 
-                tickcolor: 'transparent',
-                steps: sliderSteps
-            }
-        ]*/
+        }
     }
     var j;
     for(j = 0; j<5; j++){
     	var data = []
     	var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[j])
-    
+   		if(j==0){
+			var graph = {
+        		x: lineData[0],
+        		y: lineData[1],
+       			mode: "lines",
+       			name: 0+"nM",
+       			line: {
+       	    	width: 1
+    	    	}
+    		}
+   		}
+   		else{
     	var graph = {
-        	x: lineData[0],
-        	y: lineData[1],
-       		mode: "lines",
-       		line: {
-       	    width: 1
-    	    }
+        		x: lineData[0],
+        		y: lineData[1],
+       			mode: "lines",
+       			name: 10**agoconcarr[j]*1000000000+"nM",
+       			line: {
+       	    	width: 1
+    	    	}
+    		}
     	}
     	data.push(graph);
 
