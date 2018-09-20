@@ -1,3 +1,4 @@
+$("#feedbacksection").hide();
 //Array of objects that contain -log Ki values for each receptor subtype
 
 var drugsmaster =[
