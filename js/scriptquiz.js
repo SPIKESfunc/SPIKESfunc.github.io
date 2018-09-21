@@ -50,7 +50,6 @@ var error=[];
 var err;
 for(err=0; err<5; err++){
 	error[err] = ((+ (Math.random() * 5) + 1)/100 + 1);
-	console.log(error[err]);
 }
 
 //Determine which antagonists are to be used
