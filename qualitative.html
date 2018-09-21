@@ -39,7 +39,7 @@
     <br>
     <h1>Qualitative Graphs</h1>
     <br>
-    <ul class="nav nav-tabs" role="tablist">
+    <ul class="nav nav-tabs nav-justified" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" data-toggle="tab" href="#home">Agonist</a>
       </li>
@@ -63,19 +63,26 @@
       <div id="home" class="container tab-pane active">
         <div class="col col-lg-12">
           <div class="row">
-            <div class="col-lg-6">
-              <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id="affslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinity(this.value)">
-              <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id="effslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacy(this.value)">
-              <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id="denslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensity(this.value)">
-              <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="efficislider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiency(this.value)">
+            <div class="col-lg-5" style="padding-top:100px">
+              <fieldset>
+                <legend>Agonist</legend>
+                  <label for="affinity">Affinity (&#8733 1/KA)</label>
+                  <input type="range" autocomplete="off" name="affinity" id="affslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinity(this.value)">
+                  <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
+                  <input type="range" autocomplete="off" name="efficacy" id="effslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacy(this.value)">
+              </fieldset>
+              <fieldset>
+                <legend>Cell</legend>
+                  <label for="density">Receptor Density (R<sub>T</sub>)</label>
+                  <input type="range" autocomplete="off" name="density" id="denslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensity(this.value)">
+                  <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+                  <input type="range" autocomplete="off" name="efficiency" id="efficislider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiency(this.value)">
+              </fieldset>
 
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-7">
               <div id="agonist"></div>
+              <input id="reset" type="button" class="button" value="Reset" onclick="resetAgo()" style="float:right;">
             </div>
           </div>
         </div>
@@ -84,29 +91,32 @@
       <div id="menu1" class="container tab-pane fade">
         <div class="col col-lg-12">
           <div class="row">
-            <div class="col-lg-6">
-              <p>Agonist</p>
-              <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityCom(this.value)">
-              <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyCom(this.value)">
-              <br>
-              <p>Cell</p>
-              <label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id="dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityCom(this.value)">
-              <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-                onchange="updateEfficiencyCom(this.value)">
-              <br>
-              <p>Antagonist</p>
-              <label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityCom(this.value)">
-              <br><label for="concentration">Antagonist Concentrations (nM) </label>
+            <div class="col-lg-5" style="padding-top: 50px;">
+              <fieldset>
+                <legend>Agonist</legend>
+                  <label for="affinity">Affinity (&#8733 1/KA)</label>
+                  <input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityCom(this.value)">
+                  <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
+                  <input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyCom(this.value)">
+              </fieldset>
+              <fieldset>
+                <legend>Cell</legend>
+                  <label for="density">Receptor Density (R<sub>T</sub>)</label>
+                  <input type="range" autocomplete="off" name="density" id="dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityCom(this.value)">
+                  <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+                  <input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyCom(this.value)">
+              </fieldset>
+              <fieldset>
+                <legend>Competitive Antagonist</legend>
+                  <label for="agoaffinity">Affinity (&#8733 1/KB)</label>
+                  <input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityCom(this.value)">
+              </fieldset>
               <!--COLOURS OF DIFFERENT ONES-->
 
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-7">
               <div id="competitive"></div>
+              <input id="reset" type="button" class="button" value="Reset" onclick="resetCom()" style="float:right;">
             </div>
           </div>
         </div>
@@ -114,23 +124,30 @@
       <div id="menu2" class="container tab-pane fade">
         <div class="col col-lg-12">
           <div class="row">
-            <div class="col-lg-6">
-              <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id="affirrslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityIrr(this.value)">
-              <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id="effirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyIrr(this.value)">
-              <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id="denirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityIrr(this.value)">
-              <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="efficiirrslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-                onchange="updateEfficiencyIrr(this.value)">
-              <br><label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityIrr(this.value)">
-              <br><label for="concentration">Antagonist Concentrations (nM) </label>
-
+            <div class="col-lg-5" style="padding-top: 50px;">
+              <fieldset>
+                <legend>Agonist</legend>
+                  <label for="affinity">Affinity (&#8733 1/KA)</label>
+                  <input type="range" autocomplete="off" name="affinity" id="affirrslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityIrr(this.value)">
+                  <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
+                  <input type="range" autocomplete="off" name="efficacy" id="effirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyIrr(this.value)">
+              </fieldset>
+              <fieldset>
+                <legend>Cell</legend>
+                  <label for="density">Receptor Density (R<sub>T</sub>)</label>
+                  <input type="range" autocomplete="off" name="density" id="denirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityIrr(this.value)">
+                  <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+                  <input type="range" autocomplete="off" name="efficiency" id="efficiirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyIrr(this.value)">
+              </fieldset>
+              <fieldset>
+                <legend>Irreversible Antagonist</legend>
+                  <label for="agoaffinity">Affinity (&#8733 1/KB)</label>
+                  <input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityIrr(this.value)">
+              </fieldset>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-7">
               <div id="irreversible"></div>
+              <input id="reset" type="button" class="button" value="Reset" onclick="resetIrr()" style="float:right;">
             </div>
           </div>
         </div>
@@ -138,25 +155,33 @@
       <div id="menu3" class="container tab-pane fade">
         <div class="col col-lg-12">
           <div class="row">
-            <div class="col-lg-6">
-              <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id="affaffslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityAff(this.value)">
-              <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id="effaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyAff(this.value)">
-              <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id="denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityAff(this.value)">
-              <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-                onchange="updateEfficiencyAff(this.value)">
-              <br><label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityAff(this.value)">
-              <br><label for="effect">Effect on Agonist</label>
-              <input type="range" autocomplete="off" name="effect" id="agoeffaffslider" min="0" max="2" step="0.001" value="1" onchange="updateAgoEffectAff(this.value)">
-              <br><label for="concentration">Antagonist Concentrations (nM) </label>
+            <div class="col-lg-5" style="padding-top: 50px;">
+              <fieldset>
+                <legend>Agonist</legend>
+                  <label for="affinity">Affinity (&#8733 1/KA)</label>
+                  <input type="range" autocomplete="off" name="affinity" id="affaffslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityAff(this.value)">
+                  <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
+                  <input type="range" autocomplete="off" name="efficacy" id="effaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyAff(this.value)">
+              </fieldset>
+              <fieldset>
+                <legend>Cell</legend>
+                  <label for="density">Receptor Density (R<sub>T</sub>)</label>
+                  <input type="range" autocomplete="off" name="density" id="denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityAff(this.value)">
+                  <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+                  <input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyAff(this.value)">
+              </fieldset>
+              <fieldset>
+                <legend>Allosteric Antagonist</legend>
+                  <label for="agoaffinity">Affinity (&#8733 1/KB)</label>
+                  <input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityAff(this.value)">
+                  <br><label for="effect">Effect on Agonist K<sub>A</sub> (&#945)</label>
+                  <input type="range" autocomplete="off" name="effect" id="agoeffaffslider" min="0" max="2" step="0.001" value="1" onchange="updateAgoEffectAff(this.value)">
+              </fieldset>
 
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-7">
               <div id="alloaffin"></div>
+              <input id="reset" type="button" class="button" value="Reset" onclick="resetAff()" style="float:right;">
             </div>
           </div>
         </div>
@@ -164,24 +189,32 @@
       <div id="menu4" class="container tab-pane fade">
         <div class="col col-lg-12">
           <div class="row">
-            <div class="col-lg-6">
-              <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id="affeffslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityEff(this.value)">
-              <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id="effeffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyEff(this.value)">
-              <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id="deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityEff(this.value)">
-              <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-                onchange="updateEfficiencyEff(this.value)">
-              <br><label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityEff(this.value)">
-              <br><label for="effect">Effect on Agonist</label>
-              <input type="range" autocomplete="off" name="effect" id="agoeffeffslider" min="0" max="2" step="0.001" value="1" onchange="updateAgoEffectEff(this.value)">
-              <br><label for="concentration">Antagonist Concentrations (nM) </label>
+            <div class="col-lg-5" style="padding-top: 50px;">
+              <fieldset>
+                <legend>Agonist</legend>
+                  <label for="affinity">Affinity (&#8733 1/KA)</label>
+                  <input type="range" autocomplete="off" name="affinity" id="affeffslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityEff(this.value)">
+                  <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
+                  <input type="range" autocomplete="off" name="efficacy" id="effeffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyEff(this.value)">
+              </fieldset>
+              <fieldset>
+                <legend>Cell</legend>
+                  <label for="density">Receptor Density (R<sub>T</sub>)</label>
+                  <input type="range" autocomplete="off" name="density" id="deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityEff(this.value)">
+                  <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+                  <input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyEff(this.value)">
+              </fieldset>
+              <fieldset>
+                <legend>Allosteric Antagonist</legend>
+                  <label for="agoaffinity">Affinity (&#8733 1/KB)</label>
+                  <input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityEff(this.value)">
+                  <br><label for="effect">Effect on Agonist &#949 (&#946)</label>
+                  <input type="range" autocomplete="off" name="effect" id="agoeffeffslider" min="0" max="2" step="0.001" value="1" onchange="updateAgoEffectEff(this.value)">
+              </fieldset>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-7">
               <div id="alloeffic"></div>
+              <input id="reset" type="button" class="button" value="Reset" onclick="resetEff()" style="float:right;">
             </div>
           </div>
         </div>
@@ -189,33 +222,39 @@
       <div id="menu5" class="container tab-pane fade">
         <div class="col col-lg-12">
           <div class="row">
-            <div class="col-lg-6">
-              <label for="affinity">Affinity ( 1/KA)</label>
-              <input type="range" autocomplete="off" name="affinity" id="afffunslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityFun(this.value)">
-              <br><label for="efficacy">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="efficacy" id="efffunslider" min="0" max="0.6667" step="0.02487" value="0.333"
-                onchange="updateEfficacyFun(this.value)">
-              <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id="denfunslider" min="0" max="0.6667" step="0.02487" value="0.333"
-                onchange="updateDensityFun(this.value)">
-              <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="efficifunslider" min="0" max="0.6667" step="0.02487" value="0.333"
-                onchange="updateEfficiencyFun(this.value)">
-              <br><label for="agoaffinity">Affinity ( 1/KB)</label>
-              <input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="6" max="10" step="0.04" value="8" onchange="updateAgoAffinityFun(this.value)">
-              <br><label for="effect">Intrinsic Efficacy</label>
-              <input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667" max="0" step="0.00785" value="-0.216"
-                onchange="updateAgoEfficacyFun(this.value)">
-              <br><label for="concentration">Antagonist Concentrations (nM) </label>
-              <br><label for="density">Receptor Density</label>
-              <input type="range" autocomplete="off" name="density" id="agodenfunslider" min="-0.6667" max="0" step="0.00785" value="-0.216"
-                onchange="updateAgoDensityFun(this.value)">
-              <br><label for="efficiency">Coupling Efficiency</label>
-              <input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider" min="-0.6667" max="0" step="0.00785" value="-0.216"
-                onchange="updateAgoEfficiencyFun(this.value)">
+            <div class="col-lg-5" style="padding-top: 5px;">
+              <fieldset>
+                <legend>Agonist</legend>
+                  <label for="affinity">Affinity (&#8733 1/KA)</label>
+                  <input type="range" autocomplete="off" name="affinity" id="afffunslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityFun(this.value)">
+                  <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
+                  <input type="range" autocomplete="off" name="efficacy" id="efffunslider" min="0" max="0.6667" step="0.02487" value="0.33335" onchange="updateEfficacyFun(this.value)">
+              <fieldset>
+                <legend>Cell</legend>
+                  <label for="density">Receptor Density (R<sub>T</sub>)</label>
+                  <input type="range" autocomplete="off" name="density" id="denfunslider" min="0" max="0.6667" step="0.02487" value="0.33335" onchange="updateDensityFun(this.value)">
+                  <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+                  <input type="range" autocomplete="off" name="efficiency" id="efficifunslider" min="0" max="0.6667" step="0.02487" value="0.33335" onchange="updateEfficiencyFun(this.value)">
+              </fieldset>
+              </fieldset>
+              <fieldset>
+                <legend>Functional Antagonist</legend>
+                  <label for="agoaffinity">Affinity (&#8733 1/KB)</label>
+                  <input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="6" max="10" step="0.04" value="8" onchange="updateAgoAffinityFun(this.value)">
+                  <br><label for="effect">Intrinsic Efficacy (&#949)</label>
+                  <input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667" max="0" step="0.00785" value="-0.33335" onchange="updateAgoEfficacyFun(this.value)"><!--value was -0.216-->
+              <fieldset>
+                <legend>Cell</legend>
+                  <label for="density">Receptor Density (R<sub>T</sub>)</label>
+                  <input type="range" autocomplete="off" name="density" id="agodenfunslider" min="-0.6667" max="0" step="0.00785" value="-0.33335" onchange="updateAgoDensityFun(this.value)"><!--value was -0.216-->
+                  <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+                  <input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider" min="-0.6667" max="0" step="0.00785" value="-0.33335" onchange="updateAgoEfficiencyFun(this.value)"><!--value was -0.216-->
+              </fieldset>
+              </fieldset>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-7">
               <div id="functional"></div>
+              <input id="reset" type="button" class="button" value="Reset" onclick="resetFun()" style="float:right;">
             </div>
           </div>
         </div>
@@ -260,7 +299,7 @@
             <h4 class="modal-title">About</h4>
           </div>
           <div class="modal-body">
-            <p>Summary about the project<br />Created by Cam, Dan, Harry, Oliver, Thai - students of CITS3200 UWA 2018, directed
+            <p>Summary about the project<br />Created by Cam, Dan, Harry, Thai - students of CITS3200 UWA 2018, directed
               by Associate Professor Peter Henry</p>
           </div>
           <div class="modal-footer">

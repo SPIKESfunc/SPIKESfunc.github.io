@@ -33,17 +33,14 @@
     </div>
   </nav>
   <div class="container-fluid text-center">
-    <div id = "quizcontainer">
-    <div class="col-lg-12" id="quizsection">
+    <div class="col-lg-12">
       <div class="row" style="padding-top:20px">
           <div class="col-lg-4">
             <!-- <h1>SCHILD PLOT GOES HERE</h1> -->
             <div id = "quizschild"></div>
-            <p class = "warning">NOTE: Everything below the y-value of 1 is an extrapolation</p>
           </div>
-          <!-- <form id="quizform"> -->
           <div class="col-lg-8">
-            <form id="form1" name="tableform">
+            <form>
                 <table class="table-responsive">
                     <tbody>
                         <tr>
@@ -64,7 +61,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" name="drug1pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                                <input type="number" id="drug1pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
                             </td>
                             <td>
                                 <select name="drug1gradient" required>
@@ -75,7 +72,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="drug1equal" required>
+                                <select name="drug1gradient" required>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                     <option value="0">Can't be sure</option>
@@ -83,15 +80,15 @@
                             </td>
                             <td>
                                 <label for "m1">M1</label>
-                                <input type="checkbox" name = "m1" id="drug1m1">
+                                <input type="radio" name = "m1" id="drug1m1">
                                 <label for "m2">M2</label>
-                                <input type="checkbox" name = "m2" id="drug1m2">
+                                <input type="radio" name = "m2" id="drug1m2">
                                 <label for "m3">M3</label>
-                                <input type="checkbox" name = "m3" id="drug1m3">
+                                <input type="radio" name = "m3" id="drug1m3">
                                 <label for "m4">M4</label>
-                                <input type="checkbox" name = "m4" id="drug1m4">
+                                <input type="radio" name = "m4" id="drug1m4">
                                 <label for "m5">M5</label>
-                                <input type="checkbox" name = "m5" id="drug1m5">
+                                <input type="radio" name = "m5" id="drug1m5">
                             </td>
                         </tr>
                         <tr>
@@ -104,7 +101,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" name="drug2pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                                <input type="number" id="drug2pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
                             </td>
                             <td>
                                 <select name="drug2gradient" required>
@@ -115,7 +112,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="drug2equal" required>
+                                <select name="drug2gradient" required>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                     <option value="0">Can't be sure</option>
@@ -123,15 +120,15 @@
                             </td>
                             <td>
                                 <label for "m1">M1</label>
-                                <input type="checkbox" name = "m1" id="drug2m1">
+                                <input type="radio" name = "m1" id="drug2m1">
                                 <label for "m2">M2</label>
-                                <input type="checkbox" name = "m2" id="drug2m2">
+                                <input type="radio" name = "m2" id="drug2m2">
                                 <label for "m3">M3</label>
-                                <input type="checkbox" name = "m3" id="drug2m3">
+                                <input type="radio" name = "m3" id="drug2m3">
                                 <label for "m4">M4</label>
-                                <input type="checkbox" name = "m4" id="drug2m4">
+                                <input type="radio" name = "m4" id="drug2m4">
                                 <label for "m5">M5</label>
-                                <input type="checkbox" name = "m5" id="drug2m5">
+                                <input type="radio" name = "m5" id="drug2m5">
                             </td>
                         </tr>
                         <tr>
@@ -144,7 +141,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" name="drug3pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                                <input type="number" id="drug3pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
                             </td>
                             <td>
                                 <select name="drug3gradient" required>
@@ -155,7 +152,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="drug3equal" required>
+                                <select name="drug3gradient" required>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                     <option value="0">Can't be sure</option>
@@ -163,15 +160,15 @@
                             </td>
                             <td>
                                 <label for "m1">M1</label>
-                                <input type="checkbox" name = "m1" id="drug3m1">
+                                <input type="radio" name = "m1" id="drug3m1">
                                 <label for "m2">M2</label>
-                                <input type="checkbox" name = "m2" id="drug3m2">
+                                <input type="radio" name = "m2" id="drug3m2">
                                 <label for "m3">M3</label>
-                                <input type="checkbox" name = "m3" id="drug3m3">
+                                <input type="radio" name = "m3" id="drug3m3">
                                 <label for "m4">M4</label>
-                                <input type="checkbox" name = "m4" id="drug3m4">
+                                <input type="radio" name = "m4" id="drug3m4">
                                 <label for "m5">M5</label>
-                                <input type="checkbox" name = "m5" id="drug3m5">
+                                <input type="radio" name = "m5" id="drug3m5">
                             </td>
                         </tr>
                         <tr>
@@ -184,7 +181,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" name="drug4pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                                <input type="number" id="drug4pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
                             </td>
                             <td>
                                 <select name="drug4gradient" required>
@@ -195,7 +192,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="drug4equal" required>
+                                <select name="drug4gradient" required>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                     <option value="0">Can't be sure</option>
@@ -203,15 +200,15 @@
                             </td>
                             <td>
                                 <label for "m1">M1</label>
-                                <input type="checkbox" name = "m1" id="drug4m1">
+                                <input type="radio" name = "m1" id="drug4m1">
                                 <label for "m2">M2</label>
-                                <input type="checkbox" name = "m2" id="drug4m2">
+                                <input type="radio" name = "m2" id="drug4m2">
                                 <label for "m3">M3</label>
-                                <input type="checkbox" name = "m3" id="drug4m3">
+                                <input type="radio" name = "m3" id="drug4m3">
                                 <label for "m4">M4</label>
-                                <input type="checkbox" name = "m4" id="drug4m4">
+                                <input type="radio" name = "m4" id="drug4m4">
                                 <label for "m5">M5</label>
-                                <input type="checkbox" name = "m5" id="drug4m5">
+                                <input type="radio" name = "m5" id="drug4m5">
                             </td>
                         </tr>
                         <tr>
@@ -224,7 +221,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" name="drug5pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+                                <input type="number" id="drug5pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
                             </td>
                             <td>
                                 <select name="drug5gradient" required>
@@ -235,7 +232,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="drug5equal" required>
+                                <select name="drug5gradient" required>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                     <option value="0">Can't be sure</option>
@@ -257,7 +254,7 @@
                     </tbody>
                 </table>
             </form>
-            <form id = "form1" name="antagonistform">
+            <form>
             	<label for "drug5reason">Why might the ant3311 Schild plot shape be nonlinear &/or slope  1.0?</label>
             	<select name="drug5reason" required>
                     <option value="allosteric">Ant3321 acts allosterically</option>
@@ -267,47 +264,28 @@
                 </select>
             </form>
           </div>
-          <!-- </form> -->
       </div>
-      <div class="row" style="padding-top:20px">
+      <div class="row">
           <div class="col-lg-8">
-          	<form id = "form1" name="receptorform">
+          	<form>
                 <p>Based on your analysis which M receptor subtype is mediating the functional response to the agonist?</p>
                 <label for "m1">M1</label>
-                <input type="radio" name = "receptor" value="0" required autocomplete="off"/>
+                <input type="checkbox" name = "m1" id="drug5m1">
                 <label for "m2">M2</label>
-                <input type="radio" name = "receptor" value="1" required autocomplete="off"/>
+                <input type="checkbox" name = "m2" id="drug5m2">
                 <label for "m3">M3</label>
-                <input type="radio" name = "receptor" value="2" required autocomplete="off"/>
+                <input type="checkbox" name = "m3" id="drug5m3">
                 <label for "m4">M4</label>
-                <input type="radio" name = "receptor" value="3" required autocomplete="off"/>
+                <input type="checkbox" name = "m4" id="drug5m4">
                 <label for "m5">M5</label>
-                <input type="radio" name = "receptor" value="4" required autocomplete="off"/>
-                <!-- <input type="button" onclick="markAnswers()"/> -->
+                <input type="checkbox" name = "m5" id="drug5m5">
             </form>
           </div>
           <div class="col-lg-4">
-              
-                <input type="button" form="form1" onclick="markAnswers()">
-                
+              <form>
+              	<input type="button" name="answer" value="Submit" href="feedbackpage.html">
           </div>
       </div>
-    </div>
-    </div>
-    <div id="feedbackcontainer">
-    <div class ="col-lg-12" id = "feedbacksection">
-        <div class = "row">
-            <div class = "col-lg-6">
-				<div id="youranswer" class="js-plotly-plot"></div>
-			</div>
-            <div class = "col-lg-6">
-				<div id="actualanswer" class="js-plotly-plot"></div>
-			</div>
-        </div>
-		<div class="row">
-			<div id="antFeedback" class="col-lg-12"></div>
-		</div>
-    </div>
     </div>
   </div>
   <script type="text/javascript" src="js/scriptquiz.js"></script>
@@ -326,7 +304,7 @@
                 <a data-toggle="modal" href="" data-target="#contact">Contact</a>
             </li>
         </ul>
-       <!-- <p class="cc text-muted small">Creative Commons <i class="fa fa-creative-commons fa-fw"></i> 2018</p>  ask peter about copyright -->
+       <!-- <p class="cc text-muted small">Creative Commons <i class="fa fa-creative-commons fa-fw"></i> 2018</p>  ask peter about copyright-->
     </div>
 	<div id="about" class="modal fade" role="dialog">
 		<div class="modal-dialog">	
