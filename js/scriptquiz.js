@@ -188,7 +188,11 @@ function markAnswers(){
 	
 }
 
+function quizReturn(){
+	$('#feedbackcontainer').hide();
+	$("#quizcontainer").show();
 
+}
 
 // Schlid
 
@@ -230,12 +234,13 @@ function plotAnswerSchild(chart,rec){
 		lDR2 = drugs[i].receptors[rec]+lb2;
 		lDR3 = drugs[i].receptors[rec]+lb3;
 		
-		//plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
-		ansPlotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
+		ansPlotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
+		//ansPlotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
 	}
 	lb = 1.5-drugs[3].receptors[rec];
 	lDR = drugs[3].receptors[rec]+lb;
-	ansPlotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
+	ansPlotPoints[3]=[[lb],[lDR]]
+	//ansPlotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
 
 	Plotly.newPlot(chart,data,layout)
 	//var data = []
