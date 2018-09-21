@@ -184,6 +184,8 @@ function markAnswers(){
 	else{
 		console.log("receptor is wrong")
 		plotAnswerSchild("youranswer",ans[21].value)
+		document.getElementById("recFeedback").innerHTML = "The receptor you chose (m" + (parseInt(ans[21].value)+1) + "), is incorrect, and produces this plot:";
+
 	}
 	
 }
