@@ -336,4 +336,5 @@ function antFeedback(){
 }
 PlotQuizSchild("quizschild")
 PlotQuizSchild("actualanswer")
-antFeedback("antFeedback")
+antFeedback()
+

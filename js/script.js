@@ -50,6 +50,14 @@ function updateEfficiency(value){
 
 } 
 
+function resetAgo(){
+    affago = document.getElementById("affslider").value = document.getElementById("affslider").defaultValue;
+    effago = document.getElementById("effslider").value = document.getElementById("effslider").defaultValue;
+    denago = document.getElementById("denslider").value = document.getElementById("denslider").defaultValue;
+    efficago = document.getElementById("efficislider").value = document.getElementById("efficislider").defaultValue;
+    lineData = calcLines(affago,effago,denago,efficago);
+    Plotly.animate("agonist",{data: [{y: lineData[1]}], traces: [0], layout: {}},animation)
+}
 
 function calcLines(affinity, efficacy, recepDensity, efficiency){
     const STEP = 0.01;
