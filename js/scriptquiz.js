@@ -142,6 +142,8 @@ document.getElementById("drug4").innerHTML=drugs[3].name;
 document.getElementById("drug5").innerHTML="Ant3321";
 
 
+drugs[4] = {name: "Ant3321"};
+
 //Shuffles the array, to remove the slight bias towards the final element of drugs(initial) being drugs[4]
 //Also because it's impossible for drug[0] to become drug[4] without this step.
 //Using the modern algorithm of the Fisher-Yates Shuffle
@@ -186,13 +188,15 @@ function markAnswers(){
 	}
 	//if(ans[21].value == "m"+(recep+1)){
 	if(ans[21].value == recep){
-		console.log("receptor is correct")
+		document.getElementById("recCorrectFeedback").innerHTML = "Your answer of (m" + recep + ") was correct and produced this plot:";
 
 	}
 	else{
 		console.log("receptor is wrong")
 		plotAnswerSchild("youranswer",ans[21].value)
-		document.getElementById("recFeedback").innerHTML = "The receptor you chose (m" + (parseInt(ans[21].value)+1) + "), is incorrect, and produces this plot:";
+		document.getElementById("recAnswerFeedback").innerHTML = "The receptor you chose (m" + (parseInt(ans[21].value)+1) + "), is incorrect, and produces this plot:";
+		document.getElementById("recCorrectFeedback").innerHTML = "The correct answer of (m" + recep + ") produced this plot:";
+
 
 	}
 	
@@ -260,6 +264,7 @@ function plotAnswerSchild(chart,rec){
 		var eqn1 = {
 			x: ansPlotPoints[jj][0],
 			y: ansPlotPoints[jj][1],
+			name: drugs[jj].name,
 			mode: 'lines+markers',
 			line: {
 				width: 3
@@ -296,6 +301,7 @@ function PlotQuizSchild(chart){
 		var eqn1 = {
 			x: plotPoints[jj][0],
 			y: plotPoints[jj][1],
+			name: drugs[jj].name,
 			mode: 'lines+markers',
 			line: {
 				width: 3
