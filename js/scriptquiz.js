@@ -305,6 +305,7 @@ function PlotQuizSchild(chart){
 		//console.log(data)
 		Plotly.plot(chart,data,layout)
 	}
+	document.querySelector('[data-title="Autoscale"]').click()
 	
 }
 
