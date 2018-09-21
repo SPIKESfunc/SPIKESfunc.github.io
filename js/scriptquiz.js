@@ -14,7 +14,6 @@ var drugsmaster =[
 
 var drugs=[];
 
-
 //Array of objects that contain coordinates for each type. e1,e2,e3 correspond to different examples.
 // e1[0] = x, e1[1] = y 
 var Ant3321 =[
@@ -45,8 +44,17 @@ ant = rand(4);
 example = rand(3);
 var examples = ['e1', 'e2', 'e3'];
 
-//Determine which antagonists are to be used
+//Get a random error adjustment from 1-5%
+var error=[];
 var i;
+for(i=0; i<4; i++){
+	var  err = ((+ (Math.random() * 5) + 1)/100 + 1)
+	error[i] = Math.round(err * 100) / 100; //round to 2 dp.
+	//console.log(error[i]);
+}
+
+//Determine which antagonists are to be used
+//var i;
 var j = 0;
 var l=0;
 var antagonists = options[recep].choices.slice()
@@ -113,15 +121,15 @@ for(i=0;i<3;i++){
 	lb2 = 2-drugs[i].receptors[recep];
 	lb3 = 3-drugs[i].receptors[recep];
 	
-	lDR1 = drugs[i].receptors[recep]+lb1;
-	lDR2 = drugs[i].receptors[recep]+lb2;
-	lDR3 = drugs[i].receptors[recep]+lb3;
+	lDR1 = (drugs[i].receptors[recep]+lb1) * error[i]; //add error adjustment, keep gradient = to 1
+	lDR2 = (drugs[i].receptors[recep]+lb2) * error[i] - (error[i]-1); 
+	lDR3 = (drugs[i].receptors[recep]+lb3) * error[i] - 2*(error[i]-1);
 	
 	plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
 	//plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
 }
 lb = 1.5-drugs[3].receptors[recep];
-lDR = drugs[3].receptors[recep]+lb;
+lDR = (drugs[3].receptors[recep]+lb) * error[3];
 plotPoints[3]=[[lb],[lDR]];
 //plotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
 
