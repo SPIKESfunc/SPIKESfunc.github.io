@@ -45,6 +45,14 @@ ant = rand(4);
 example = rand(3);
 var examples = ['e1', 'e2', 'e3'];
 
+//Get a random error adjustment from 1-5%
+var error=[];
+var err;
+for(err=0; err<5; err++){
+	error[err] = ((+ (Math.random() * 5) + 1)/100 + 1);
+	console.log(error[err]);
+}
+
 //Determine which antagonists are to be used
 var i;
 var j = 0;
@@ -316,4 +324,4 @@ function antFeedback(){
 }
 PlotQuizSchild("quizschild")
 PlotQuizSchild("actualanswer")
-antFeedback("antFeedback")
+antFeedback()
