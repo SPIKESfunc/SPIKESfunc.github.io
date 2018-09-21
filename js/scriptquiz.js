@@ -117,12 +117,13 @@ for(i=0;i<3;i++){
 	lDR2 = drugs[i].receptors[recep]+lb2;
 	lDR3 = drugs[i].receptors[recep]+lb3;
 	
-	//plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
-	plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
+	plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
+	//plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
 }
 lb = 1.5-drugs[3].receptors[recep];
 lDR = drugs[3].receptors[recep]+lb;
-plotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
+plotPoints[3]=[[lb],[lDR]];
+//plotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
 
 plotPoints[4] = [Ant3321[ant][examples[example]][0],Ant3321[ant][examples[example]][1]];
 
@@ -205,12 +206,12 @@ function plotAnswerSchild(chart,rec){
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
-			range:[-10.0,-1.0],
+			range:[-8.0,-2.0],
 		},
 		yaxis:{
 			title:"Log(DR-1)",
 			showline: true,
-			range:[0.0,5.0],
+			range:[0.0,4.0],
 		},
 	}
 	var data=[];
@@ -260,13 +261,16 @@ function PlotQuizSchild(chart){
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
-			range:[-10.0,-1.0],
+			range:[-8.0,-2.0],
+			dtick: 0.25,
+			ticks: 'outside',
+			tickwidth:4
 		},
 		yaxis:{
 			title:"Log(DR-1)",
 			showline: true,
-			range:[0.0,5.0],
-		}
+			range:[0.0,4.0],
+		},
 	}
 	var data = [];
 	Plotly.newPlot(chart,data,layout)
