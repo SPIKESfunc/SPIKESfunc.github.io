@@ -210,7 +210,7 @@ function markAnswers(){
 		$('#incorrectFeedback').show()
 		plotAnswerSchild("youranswer",ans[21].value)
 		document.getElementById("recAnswerFeedback").innerHTML = "The receptor you chose (m" + (parseInt(ans[21].value)+1) + "), is incorrect, and produces this plot:";
-		document.getElementById("recIncorrectFeedback").innerHTML = "The correct answer of (m" + recep + ") produced this plot:";
+		document.getElementById("recIncorrectFeedback").innerHTML = "The correct answer of (m" + (recep + 1) + ") produced this plot:";
 
 
 	}
