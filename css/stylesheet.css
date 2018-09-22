@@ -12,15 +12,12 @@ html {
 }
 
 body {
-  padding-top: 3rem;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-    padding-bottom: 3rem;
-    color: #5a5a5a;
+  color: #5a5a5a;
   }
   
-footer{
+/*footer{
 	margin: 2%;
 	margin-top:auto;
     padding:10px 0;
@@ -28,7 +25,7 @@ footer{
     left: 0;
     right: 0;
     height:20px;
-}
+}*/
 
 fieldset { 
     display: block;
@@ -246,14 +243,14 @@ input[type=range]:focus::-ms-fill-upper {
   background: #ffc951;
 }
 
-.nav-link {
+.nav-style {
 	text-decoration: none;
-	color: #5A6377;
+	color: rgb(255, 255, 255);
 	position: relative;
 }
 
-.nav-link::after {
-	border-bottom: 2px solid #1894ff;
+.nav-style::after {
+	border-bottom: 2px solid #ffffff;
 	bottom: 6px;
 	content: '';
 	left: 0;
@@ -262,13 +259,41 @@ input[type=range]:focus::-ms-fill-upper {
 	width: 0;
 }
 
-.nav-link:hover::after {
+.nav-style:hover::after {
 	width: 100%;
 }
 
 .navbar-nav {
-	color: #5A6377;
+	color: rgb(255, 255, 255);
 	list-style: none;
 	margin: 0;
   margin-right: 10%;
+}
+
+.box {
+  display: block;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  border-radius: 3px;
+  margin: 10px 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.btn.box {
+  padding: 10px 20px;
+  display: inline-block;
+  /*color: #eee;
+  background-color: #3d566e;*/
+  background-color: #fefefe;
+  text-decoration: none;
+}
+
+.footer {
+  background: rgba(238, 238, 238, 0.9);
+  height: 70px;
+  margin-top:3rem;
+}
+
+.footerlink {
+  padding-top:5px;
 }
