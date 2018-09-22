@@ -288,7 +288,8 @@
           </div>
           <div class="col-lg-4">
               
-                <input type="button" form="form1" onclick="markAnswers()">
+                <!-- <input type="button" form="form1" onclick="markAnswers()"> -->
+            <button onclick="markAnswers()">Submit Answers</button>    
                 
           </div>
       </div>
@@ -296,6 +297,14 @@
     </div>
     <div id="feedbackcontainer">
     <div class ="col-lg-12" id = "feedbacksection">
+        <div class="row">
+            <div class = "col-lg-6">
+                <div id="recAnswerFeedback" style="padding-top:20px"></div>
+            </div>
+			<div class = "col-lg-6">
+                <div id="recCorrectFeedback" style="padding-top:20px"></div>
+            </div>
+        </div>
         <div class = "row">
             <div class = "col-lg-6">
 				<div id="youranswer" class="js-plotly-plot"></div>
@@ -305,7 +314,13 @@
 			</div>
         </div>
 		<div class="row">
-			<div id="antFeedback" class="col-lg-12"></div>
+            <div class="col-lg-10">
+                    <div id="antFeedback"></div>
+            </div>
+            <div class="col-lg-2">
+                <!-- <input type="button" value="1234" onclick="quizReturn()"> -->
+                <button onclick="quizReturn()">Try again?</button>
+            </div>
 		</div>
     </div>
     </div>
@@ -326,7 +341,7 @@
                 <a data-toggle="modal" href="" data-target="#contact">Contact</a>
             </li>
         </ul>
-       <!-- <p class="cc text-muted small">Creative Commons <i class="fa fa-creative-commons fa-fw"></i> 2018</p>  ask peter about copyright -->
+        <p class="cc text-muted small">Creative Commons &copy; 2018 </p>  
     </div>
 	<div id="about" class="modal fade" role="dialog">
 		<div class="modal-dialog">	
