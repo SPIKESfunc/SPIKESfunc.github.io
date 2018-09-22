@@ -1,6 +1,3 @@
-$("#feedbackcontainer").hide();
-//Array of objects that contain -log Ki values for each receptor subtype
-
 var drugsmaster =[
     {name:"Pirenzepine",receptors: [8.2,6.5,6.9,7.4,7.2]},
     {name:"Methotramine",receptors: [6.7,7.7,6.0,7.0,6.3]},
@@ -11,9 +8,6 @@ var drugsmaster =[
     {name:"DAU-5884",receptors:[8.9,7.1,8.9,8.5,8.1]},
     {name:"PD102807",receptors:[5.79,5.78,6.42,7.56,4.74]}
 ]
-
-var drugs=[];
-
 
 //Array of objects that contain coordinates for each type. e1,e2,e3 correspond to different examples.
 // e1[0] = x, e1[1] = y 
@@ -27,110 +21,137 @@ var Ant3321 =[
 
 var op = ["Methotramine","DAU-5884"] 
 
-option = rand(2);
-
-var options=[
-	{name:"m1", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
-	{name:"m2", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
-	{name:"m3", choices: ["Pirenzepine","PD102807","Darifenacin","MT-3","S-Secoverine","Methotramine"]},
-	{name:"m4", choices: ["Pirenzepine","Darifenacin","MT-3","PD102807","S-Secoverine",op[option]]},
-	{name:"m5", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]}
-]
-
-//Choose receptor subtype
-recep = rand(5);
-
-//Choose ant3321 version
-ant = rand(4);
-example = rand(3);
+var drugs;
+var option;
+var recep;
+var ant;
+var example;
 var examples = ['e1', 'e2', 'e3'];
+var plotPoints;
+var antagonists;
 
-//Determine which antagonists are to be used
-var i;
-var j = 0;
-var l=0;
-var antagonists = options[recep].choices.slice()
+$(document).ready(function () {
+	$("#feedbackcontainer").hide();
+	$('#incorrectFeedback').hide()
+	$('#correctFeedback').hide()
+	selectDrugs();
+	PlotQuizSchild("quizschild")
+	PlotQuizSchild("actualanswer")
+	PlotQuizSchild("correctanswer")
+	
+})
 
-while(antagonists.length > 4){
-    var t = rand(antagonists.length)
-    antagonists.splice(t,1);
-    if(antagonists.length==4){
-    	if(recep==0){
-    		if((antagonists.includes("Pirenzepine")||antagonists.includes(op[option]))&&(antagonists.includes("Pirenzepine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
-    			break;
-    		}
-    	}
-    	if(recep==1){
-    		if((antagonists.includes("Pirenzepine")||antagonists.includes(op[option]))&&(antagonists.includes(op[option])||antagonists.includes("Darifenacin"))&&(antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
-    			break;
-    		}
-    	}
-    	if(recep==2){
-    		if((antagonists.includes("Pirenzepine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("Methotramine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("S-Secoverine")||antagonists.includes("PD102807"))){
-    			break;
-    		}
-    	}
-    	if(recep==3){
-    		if((antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
-    			break;
-    		}
-    	}
-    	if(recep==4){
-    		if((antagonists.includes("S-Secoverine")||antagonists.includes("PD102807"))){
-    			break;
-    		}
-    	}
-    	antagonists = options[recep].choices.slice()
-    }
-}
+function selectDrugs(){
+	drugs = [];
+	
+	option = rand(2);
+	var options=[
+		{name:"m1", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
+		{name:"m2", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
+		{name:"m3", choices: ["Pirenzepine","PD102807","Darifenacin","MT-3","S-Secoverine","Methotramine"]},
+		{name:"m4", choices: ["Pirenzepine","Darifenacin","MT-3","PD102807","S-Secoverine",op[option]]},
+		{name:"m5", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]}
+	]
+	//Choose receptor
+	recep = rand(5);
 
-while(j<8){
-	if(antagonists.includes(drugsmaster[j].name)){
-		drugs[l]=drugsmaster[j]
-		l+=1
+	//Choose ant3321 version
+	ant = rand(4);
+	example = rand(3);
+	
+	//Get a random error adjustment from 1-5%
+	var error=[];
+	var i;
+	for(i=0; i<4; i++){
+	var  err = ((+ (Math.random() * 5) + 1)/100 + 1)
+	error[i] = Math.round(err * 100) / 100; //round to 2 dp.
 	}
-	j+=1
-}
 
-shuffle(drugs)
+	//Determine which antagonists are to be used
+	var j=0;
+	var l=0;
+	antagonists = options[recep].choices.slice()
 
-// Array of points
-plotPoints = [	[[0,0,0],[0,0,0]],
+	while(antagonists.length > 4){
+		var t = rand(antagonists.length)
+		antagonists.splice(t,1);
+		if(antagonists.length==4){
+			if(recep==0){
+				if((antagonists.includes("Pirenzepine")||antagonists.includes(op[option]))&&(antagonists.includes("Pirenzepine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
+					break;
+				}
+			}
+			if(recep==1){
+				if((antagonists.includes("Pirenzepine")||antagonists.includes(op[option]))&&(antagonists.includes(op[option])||antagonists.includes("Darifenacin"))&&(antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
+					break;
+				}
+			}
+			if(recep==2){
+				if((antagonists.includes("Pirenzepine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("Methotramine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("S-Secoverine")||antagonists.includes("PD102807"))){
+					break;
+				}
+			}
+			if(recep==3){
+				if((antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
+					break;
+				}
+			}
+			if(recep==4){
+				if((antagonists.includes("S-Secoverine")||antagonists.includes("PD102807"))){
+					break;
+				}
+			}
+			antagonists = options[recep].choices.slice()
+		}
+	}
+
+	while(j<8){
+		if(antagonists.includes(drugsmaster[j].name)){
+			drugs[l]=drugsmaster[j]
+			l+=1
+		}
+		j+=1
+	}
+
+	shuffle(drugs)
+
+	plotPoints = [	
+				[[0,0,0],[0,0,0]],
 				[[0,0,0],[0,0,0]],
 				[[0,0,0],[0,0,0]],
 				[[0],[0]],
 				[[0,0,0],[0,0,0]],
 				];
-				
-// format for ^^ is 0 = drug[0] ... 2 = drug[2], 3 = point (drug[3]), 4 = Ant3321
 
-
-
-// Looping over drugs.
-
-for(i=0;i<3;i++){
+	for(i=0;i<3;i++){
 	lb1 = 1-drugs[i].receptors[recep];
 	lb2 = 2-drugs[i].receptors[recep];
 	lb3 = 3-drugs[i].receptors[recep];
 	
-	lDR1 = drugs[i].receptors[recep]+lb1;
-	lDR2 = drugs[i].receptors[recep]+lb2;
-	lDR3 = drugs[i].receptors[recep]+lb3;
+	lDR1 = (drugs[i].receptors[recep]+lb1) * error[i]; //add error adjustment, keep gradient = to 1
+	lDR2 = (drugs[i].receptors[recep]+lb2) * error[i] - (error[i]-1); 
+	lDR3 = (drugs[i].receptors[recep]+lb3) * error[i] - 2*(error[i]-1);
 	
-	//plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
-	plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
+	plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
+	//plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
+	}
+	lb = 1.5-drugs[3].receptors[recep];
+	lDR = (drugs[3].receptors[recep]+lb) * error[3];
+	plotPoints[3]=[[lb],[lDR]];
+	//plotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
+
+	plotPoints[4] = [Ant3321[ant][examples[example]][0],Ant3321[ant][examples[example]][1]];
+
+	document.getElementById("drug1").innerHTML=drugs[0].name;
+	document.getElementById("drug2").innerHTML=drugs[1].name;
+	document.getElementById("drug3").innerHTML=drugs[2].name;
+	document.getElementById("drug4").innerHTML=drugs[3].name;
+	document.getElementById("drug5").innerHTML="Ant3321";
+
+
+	drugs[4] = {name: "Ant3321"};			
+
 }
-lb = 1.5-drugs[3].receptors[recep];
-lDR = drugs[3].receptors[recep]+lb;
-plotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
-
-plotPoints[4] = [Ant3321[ant][examples[example]][0],Ant3321[ant][examples[example]][1]];
-
-document.getElementById("drug1").innerHTML=drugs[0].name;
-document.getElementById("drug2").innerHTML=drugs[1].name;
-document.getElementById("drug3").innerHTML=drugs[2].name;
-document.getElementById("drug4").innerHTML=drugs[3].name;
-document.getElementById("drug5").innerHTML="Ant3321";
 
 
 //Shuffles the array, to remove the slight bias towards the final element of drugs(initial) being drugs[4]
@@ -165,6 +186,7 @@ function markAnswers(){
 		alert("You have not filled out Question 3")
 		return 1;
 	}
+	antFeedback()
 	$("#quizcontainer").hide();
 	$('#feedbackcontainer').show();
 	PlotQuizSchild("actualanswer")
@@ -177,17 +199,35 @@ function markAnswers(){
 	}
 	//if(ans[21].value == "m"+(recep+1)){
 	if(ans[21].value == recep){
-		console.log("receptor is correct")
+		$('#incorrectFeedback').hide()
+		$('#correctFeedback').show()
+		document.getElementById("recCorrectFeedback").innerHTML = "Your answer of (m" + (recep + 1) + ") was correct and produced this plot:";
 
 	}
 	else{
 		console.log("receptor is wrong")
+		$('#correctFeedback').hide()
+		$('#incorrectFeedback').show()
 		plotAnswerSchild("youranswer",ans[21].value)
+		document.getElementById("recAnswerFeedback").innerHTML = "The receptor you chose (m" + (parseInt(ans[21].value)+1) + "), is incorrect, and produces this plot:";
+		document.getElementById("recIncorrectFeedback").innerHTML = "The correct answer of (m" + (recep + 1) + ") produced this plot:";
+
+
 	}
 	
 }
 
+function quizReturn(){
+	selectDrugs();
+	PlotQuizSchild("quizschild")
+	PlotQuizSchild("actualanswer")
+	PlotQuizSchild("correctanswer")
+	$('#feedbackcontainer').hide();
+	$("#quizcontainer").show();
+	$('#incorrectFeedback').hide()
+	$('#correctFeedback').hide()
 
+}
 
 // Schlid
 
@@ -205,12 +245,12 @@ function plotAnswerSchild(chart,rec){
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
-			range:[-10.0,-1.0],
+			range:[-8.0,-2.0],
 		},
 		yaxis:{
 			title:"Log(DR-1)",
 			showline: true,
-			range:[0.0,5.0],
+			range:[0.0,4.0],
 		},
 	}
 	var data=[];
@@ -229,12 +269,13 @@ function plotAnswerSchild(chart,rec){
 		lDR2 = drugs[i].receptors[rec]+lb2;
 		lDR3 = drugs[i].receptors[rec]+lb3;
 		
-		//plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
-		ansPlotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
+		ansPlotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
+		//ansPlotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
 	}
 	lb = 1.5-drugs[3].receptors[rec];
 	lDR = drugs[3].receptors[rec]+lb;
-	ansPlotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
+	ansPlotPoints[3]=[[lb],[lDR]]
+	//ansPlotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
 
 	Plotly.newPlot(chart,data,layout)
 	//var data = []
@@ -244,6 +285,7 @@ function plotAnswerSchild(chart,rec){
 		var eqn1 = {
 			x: ansPlotPoints[jj][0],
 			y: ansPlotPoints[jj][1],
+			name: drugs[jj].name,
 			mode: 'lines+markers',
 			line: {
 				width: 3
@@ -260,13 +302,16 @@ function PlotQuizSchild(chart){
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
-			range:[-10.0,-1.0],
+			range:[-8.0,-2.0],
+			dtick: 0.25,
+			ticks: 'outside',
+			tickwidth:4
 		},
 		yaxis:{
 			title:"Log(DR-1)",
 			showline: true,
-			range:[0.0,5.0],
-		}
+			range:[0.0,4.0],
+		},
 	}
 	var data = [];
 	Plotly.newPlot(chart,data,layout)
@@ -277,6 +322,7 @@ function PlotQuizSchild(chart){
 		var eqn1 = {
 			x: plotPoints[jj][0],
 			y: plotPoints[jj][1],
+			name: drugs[jj].name,
 			mode: 'lines+markers',
 			line: {
 				width: 3
@@ -286,6 +332,7 @@ function PlotQuizSchild(chart){
 		//console.log(data)
 		Plotly.plot(chart,data,layout)
 	}
+	document.querySelector('[data-title="Autoscale"]').click()
 	
 }
 
@@ -314,6 +361,4 @@ function antFeedback(){
 	document.getElementById("antFeedback").innerHTML = "The Schild plot for ant3321 is nonlinear with slope " + inequality + " 1.0 – this would be expected for an " + ant3321Feedback;
 
 }
-PlotQuizSchild("quizschild")
-PlotQuizSchild("actualanswer")
-antFeedback("antFeedback")
+
