@@ -21,20 +21,21 @@ var Ant3321 =[
 
 var op = ["Methotramine","DAU-5884"] 
 
-var options=[
+/*var options=[
 	{name:"m1", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
 	{name:"m2", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
 	{name:"m3", choices: ["Pirenzepine","PD102807","Darifenacin","MT-3","S-Secoverine","Methotramine"]},
 	{name:"m4", choices: ["Pirenzepine","Darifenacin","MT-3","PD102807","S-Secoverine",op[option]]},
 	{name:"m5", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]}
-]
-var drugs=[];
+]*/
+var drugs;
 var option;
 var recep;
 var ant;
 var example;
 var examples = ['e1', 'e2', 'e3'];
 var plotPoints;
+var antagonists;
 
 $(document).ready(function () {
 	$("#feedbackcontainer").hide();
@@ -45,8 +46,16 @@ $(document).ready(function () {
 })
 
 function selectDrugs(){
+	drugs = [];
 	
 	option = rand(2);
+	var options=[
+		{name:"m1", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
+		{name:"m2", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
+		{name:"m3", choices: ["Pirenzepine","PD102807","Darifenacin","MT-3","S-Secoverine","Methotramine"]},
+		{name:"m4", choices: ["Pirenzepine","Darifenacin","MT-3","PD102807","S-Secoverine",op[option]]},
+		{name:"m5", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]}
+	]
 	//Choose receptor
 	recep = rand(5);
 
@@ -65,7 +74,7 @@ function selectDrugs(){
 	//Determine which antagonists are to be used
 	var j=0;
 	var l=0;
-	var antagonists = options[recep].choices.slice()
+	antagonists = options[recep].choices.slice()
 
 	while(antagonists.length > 4){
 		var t = rand(antagonists.length)
@@ -320,9 +329,9 @@ function markAnswers(){
 }
 
 function quizReturn(){
-	//selectDrugs();
-	//PlotQuizSchild("quizschild")
-	//PlotQuizSchild("actualanswer")
+	selectDrugs();
+	PlotQuizSchild("quizschild")
+	PlotQuizSchild("actualanswer")
 	$('#feedbackcontainer').hide();
 	$("#quizcontainer").show();
 
