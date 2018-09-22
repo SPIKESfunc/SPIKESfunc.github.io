@@ -201,7 +201,7 @@ function markAnswers(){
 	if(ans[21].value == recep){
 		$('#incorrectFeedback').hide()
 		$('#correctFeedback').show()
-		document.getElementById("recCorrectFeedback").innerHTML = "Your answer of (m" + recep + ") was correct and produced this plot:";
+		document.getElementById("recCorrectFeedback").innerHTML = "Your answer of (m" + (recep + 1) + ") was correct and produced this plot:";
 
 	}
 	else{
