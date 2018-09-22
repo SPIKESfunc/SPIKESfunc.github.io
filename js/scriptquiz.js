@@ -21,13 +21,6 @@ var Ant3321 =[
 
 var op = ["Methotramine","DAU-5884"] 
 
-/*var options=[
-	{name:"m1", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
-	{name:"m2", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]},
-	{name:"m3", choices: ["Pirenzepine","PD102807","Darifenacin","MT-3","S-Secoverine","Methotramine"]},
-	{name:"m4", choices: ["Pirenzepine","Darifenacin","MT-3","PD102807","S-Secoverine",op[option]]},
-	{name:"m5", choices: ["Pirenzepine","Darifenacin","MT-3","S-Secoverine","PD102807",op[option]]}
-]*/
 var drugs;
 var option;
 var recep;
@@ -39,9 +32,12 @@ var antagonists;
 
 $(document).ready(function () {
 	$("#feedbackcontainer").hide();
+	$('#incorrectFeedback').hide()
+	$('#correctFeedback').hide()
 	selectDrugs();
 	PlotQuizSchild("quizschild")
 	PlotQuizSchild("actualanswer")
+	PlotQuizSchild("correctanswer")
 	
 })
 
@@ -157,117 +153,6 @@ function selectDrugs(){
 
 }
 
-//Array of objects that contain -log Ki values for each receptor subtype
-
-
-
-//Choose receptor subtype
-//recep = rand(5);
-
-/*//Choose ant3321 version
-ant = rand(4);
-example = rand(3);
-var examples = ['e1', 'e2', 'e3'];*/
-
-/*//Get a random error adjustment from 1-5%
-var error=[];
-var i;
-for(i=0; i<4; i++){
-	var  err = ((+ (Math.random() * 5) + 1)/100 + 1)
-	error[i] = Math.round(err * 100) / 100; //round to 2 dp.
-	//console.log(error[i]);
-}*/
-
-/*//Determine which antagonists are to be used
-//var i;
-var j = 0;
-var l=0;
-var antagonists = options[recep].choices.slice()
-
-while(antagonists.length > 4){
-    var t = rand(antagonists.length)
-    antagonists.splice(t,1);
-    if(antagonists.length==4){
-    	if(recep==0){
-    		if((antagonists.includes("Pirenzepine")||antagonists.includes(op[option]))&&(antagonists.includes("Pirenzepine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
-    			break;
-    		}
-    	}
-    	if(recep==1){
-    		if((antagonists.includes("Pirenzepine")||antagonists.includes(op[option]))&&(antagonists.includes(op[option])||antagonists.includes("Darifenacin"))&&(antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
-    			break;
-    		}
-    	}
-    	if(recep==2){
-    		if((antagonists.includes("Pirenzepine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("Methotramine")||antagonists.includes("Darifenacin"))&&(antagonists.includes("S-Secoverine")||antagonists.includes("PD102807"))){
-    			break;
-    		}
-    	}
-    	if(recep==3){
-    		if((antagonists.includes("MT-3")||antagonists.includes("PD102807"))){
-    			break;
-    		}
-    	}
-    	if(recep==4){
-    		if((antagonists.includes("S-Secoverine")||antagonists.includes("PD102807"))){
-    			break;
-    		}
-    	}
-    	antagonists = options[recep].choices.slice()
-    }
-}*/
-
-/*while(j<8){
-	if(antagonists.includes(drugsmaster[j].name)){
-		drugs[l]=drugsmaster[j]
-		l+=1
-	}
-	j+=1
-}*/
-
-//shuffle(drugs)
-
-// Array of points
-/*plotPoints = [	[[0,0,0],[0,0,0]],
-				[[0,0,0],[0,0,0]],
-				[[0,0,0],[0,0,0]],
-				[[0],[0]],
-				[[0,0,0],[0,0,0]],
-				];*/
-				
-// format for ^^ is 0 = drug[0] ... 2 = drug[2], 3 = point (drug[3]), 4 = Ant3321
-
-
-
-// Looping over drugs.
-
-/*for(i=0;i<3;i++){
-	lb1 = 1-drugs[i].receptors[recep];
-	lb2 = 2-drugs[i].receptors[recep];
-	lb3 = 3-drugs[i].receptors[recep];
-	
-	lDR1 = (drugs[i].receptors[recep]+lb1) * error[i]; //add error adjustment, keep gradient = to 1
-	lDR2 = (drugs[i].receptors[recep]+lb2) * error[i] - (error[i]-1); 
-	lDR3 = (drugs[i].receptors[recep]+lb3) * error[i] - 2*(error[i]-1);
-	
-	plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
-	//plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
-}
-lb = 1.5-drugs[3].receptors[recep];
-lDR = (drugs[3].receptors[recep]+lb) * error[3];
-plotPoints[3]=[[lb],[lDR]];
-//plotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
-
-plotPoints[4] = [Ant3321[ant][examples[example]][0],Ant3321[ant][examples[example]][1]];
-
-document.getElementById("drug1").innerHTML=drugs[0].name;
-document.getElementById("drug2").innerHTML=drugs[1].name;
-document.getElementById("drug3").innerHTML=drugs[2].name;
-document.getElementById("drug4").innerHTML=drugs[3].name;
-document.getElementById("drug5").innerHTML="Ant3321";
-
-
-drugs[4] = {name: "Ant3321"};*/
 
 //Shuffles the array, to remove the slight bias towards the final element of drugs(initial) being drugs[4]
 //Also because it's impossible for drug[0] to become drug[4] without this step.
@@ -314,14 +199,18 @@ function markAnswers(){
 	}
 	//if(ans[21].value == "m"+(recep+1)){
 	if(ans[21].value == recep){
+		$('#incorrectFeedback').hide()
+		$('#correctFeedback').show()
 		document.getElementById("recCorrectFeedback").innerHTML = "Your answer of (m" + recep + ") was correct and produced this plot:";
 
 	}
 	else{
 		console.log("receptor is wrong")
+		$('#correctFeedback').hide()
+		$('#incorrectFeedback').show()
 		plotAnswerSchild("youranswer",ans[21].value)
 		document.getElementById("recAnswerFeedback").innerHTML = "The receptor you chose (m" + (parseInt(ans[21].value)+1) + "), is incorrect, and produces this plot:";
-		document.getElementById("recCorrectFeedback").innerHTML = "The correct answer of (m" + recep + ") produced this plot:";
+		document.getElementById("recIncorrectFeedback").innerHTML = "The correct answer of (m" + recep + ") produced this plot:";
 
 
 	}
@@ -332,8 +221,11 @@ function quizReturn(){
 	selectDrugs();
 	PlotQuizSchild("quizschild")
 	PlotQuizSchild("actualanswer")
+	PlotQuizSchild("correctanswer")
 	$('#feedbackcontainer').hide();
 	$("#quizcontainer").show();
+	$('#incorrectFeedback').hide()
+	$('#correctFeedback').hide()
 
 }
 

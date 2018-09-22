@@ -297,21 +297,35 @@
     </div>
     <div id="feedbackcontainer">
     <div class ="col-lg-12" id = "feedbacksection">
-        <div class="row">
-            <div class = "col-lg-6">
-                <div id="recAnswerFeedback" style="padding-top:20px"></div>
+        <div id="incorrectFeedback">
+            <div class="row">
+                <div class = "col-lg-6">
+                    <div id="recAnswerFeedback" style="padding-top:20px"></div>
+                </div>
+                <div class = "col-lg-6">
+                    <div id="recIncorrectFeedback" style="padding-top:20px"></div>
+                </div>
             </div>
-			<div class = "col-lg-6">
-                <div id="recCorrectFeedback" style="padding-top:20px"></div>
+            <div class = "row">
+                <div class = "col-lg-6">
+                    <div id="youranswer" class="js-plotly-plot"></div>
+                </div>
+                <div class = "col-lg-6">
+                    <div id="actualanswer" class="js-plotly-plot"></div>
+                </div>
             </div>
         </div>
-        <div class = "row">
-            <div class = "col-lg-6">
-				<div id="youranswer" class="js-plotly-plot"></div>
-			</div>
-            <div class = "col-lg-6">
-				<div id="actualanswer" class="js-plotly-plot"></div>
-			</div>
+        <div id="correctFeedback">
+            <div class="row">
+                <div class = "col-lg-12">
+                    <div id="recCorrectFeedback" style="padding-top:20px"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "col-lg-12">
+                    <div id="correctanswer" class="js-plotly-plot" align="center"></div>
+                </div>
+            </div>
         </div>
 		<div class="row">
             <div class="col-lg-10">
