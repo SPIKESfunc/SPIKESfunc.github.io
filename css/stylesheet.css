@@ -245,30 +245,3 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #ffc951;
 }
-
-.nav-link {
-	text-decoration: none;
-	color: #5A6377;
-	position: relative;
-}
-
-.nav-link::after {
-	border-bottom: 2px solid #1894ff;
-	bottom: 6px;
-	content: '';
-	left: 0;
-	position: absolute;
-	transition: .4s;
-	width: 0;
-}
-
-.nav-link:hover::after {
-	width: 100%;
-}
-
-.navbar-nav {
-	color: #5A6377;
-	list-style: none;
-	margin: 0;
-  margin-right: 10%;
-}
