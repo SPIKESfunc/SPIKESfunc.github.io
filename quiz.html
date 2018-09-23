@@ -24,26 +24,34 @@
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="qualitative.html">Qualitative</a>
-        <a class="nav-item nav-link" href="quantitative.html">Quantitative Schild</a>
-        <a class="nav-item nav-link active" href="quiz.html">Quiz <span class="sr-only">(current)</span></a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-item nav-link nav-style" href="qualitative.html">Qualitative</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link nav-style" href="quantitative.html">Quantitative Schild</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link nav-style active" href="quiz.html">Quiz</a>
+          </li>
+        </ul>
       </div>
-    </div>
   </nav>
   <div class="container-fluid text-center">
     <div id = "quizcontainer">
     <div class="col-lg-12" id="quizsection">
       <div class="row" style="padding-top:20px">
-          <div class="col-lg-4">
-            <!-- <h1>SCHILD PLOT GOES HERE</h1> -->
-            <div id = "quizschild"></div>
-            <p class = "warning">NOTE: Everything below the y-value of 1 is an extrapolation</p>
+          <div class="col-lg-5">
+            <fieldset style="display: block;">
+                <legend>Schild Plot</legend>
+                    <div id = "quizschild"></div>
+            <fieldset>
           </div>
-          <!-- <form id="quizform"> -->
-          <div class="col-lg-8">
+          <div class="col-lg-7">
             <form id="form1" name="tableform">
+                <fieldset>
+                    <legend>Questions</legend>
                 <table class="table-responsive">
                     <tbody>
                         <tr>
@@ -87,7 +95,7 @@
                                 <label for "m2">M2</label>
                                 <input type="checkbox" name = "m2" id="drug1m2">
                                 <label for "m3">M3</label>
-                                <input type="checkbox" name = "m3" id="drug1m3">
+                                <input type="checkbox" name = "m3" id="drug1m3"><br>
                                 <label for "m4">M4</label>
                                 <input type="checkbox" name = "m4" id="drug1m4">
                                 <label for "m5">M5</label>
@@ -258,7 +266,7 @@
                 </table>
             </form>
             <form id = "form1" name="antagonistform">
-            	<label for "drug5reason">Why might the ant3311 Schild plot shape be nonlinear &/or slope  1.0?</label>
+            	<label for "drug5reason">Why might the ant3311 Schild plot shape be nonlinear &/or slope &#8800 1.0?</label>
             	<select name="drug5reason" required>
                     <option value="allosteric">Ant3321 acts allosterically</option>
                     <option value="irreversible">Ant3321 acts irreversibly</option>
@@ -266,12 +274,15 @@
                     <option value="substrate">Ant3321 is a substrate of a saturable uptake process</option>
                 </select>
             </form>
+          </fieldset>
           </div>
           <!-- </form> -->
       </div>
       <div class="row" style="padding-top:20px">
-          <div class="col-lg-8">
-          	<form id = "form1" name="receptorform">
+          <div class="col-lg-8" align="left">
+            <fieldset>
+                <legend>Receptor Choice</legend>
+          	<form id = "form1" name="receptorform" align="center">
                 <p>Based on your analysis which M receptor subtype is mediating the functional response to the agonist?</p>
                 <label for "m1">M1</label>
                 <input type="radio" name = "receptor" value="0" required autocomplete="off"/>
@@ -285,11 +296,12 @@
                 <input type="radio" name = "receptor" value="4" required autocomplete="off"/>
                 <!-- <input type="button" onclick="markAnswers()"/> -->
             </form>
+        </fieldset>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-4" align="center">
               
                 <!-- <input type="button" form="form1" onclick="markAnswers()"> -->
-            <button onclick="markAnswers()">Submit Answers</button>    
+            <button class="button" onclick="markAnswers()">Submit Answers</button>    
                 
           </div>
       </div>
@@ -308,10 +320,16 @@
             </div>
             <div class = "row">
                 <div class = "col-lg-6">
-                    <div id="youranswer" class="js-plotly-plot"></div>
+                    <fieldset style="display: block;">
+                        <legend>What your answer gives</legend>
+                            <div id="youranswer" class="js-plotly-plot"></div>
+                    </fieldset>
                 </div>
                 <div class = "col-lg-6">
-                    <div id="actualanswer" class="js-plotly-plot"></div>
+                    <fieldset>
+                        <legend>Correct Answer</legend>
+                            <div id="actualanswer" class="js-plotly-plot"></div>
+                    </fieldset>
                 </div>
             </div>
         </div>
@@ -323,7 +341,10 @@
             </div>
             <div class="row">
                 <div class = "col-lg-12">
-                    <div id="correctanswer" class="js-plotly-plot" align="center"></div>
+                    <fieldset>
+                        <legend>Correct Answer</legend>
+                            <div id="correctanswer" class="js-plotly-plot" align="center"></div>
+                    </fieldset>
                 </div>
             </div>
         </div>
@@ -333,7 +354,7 @@
             </div>
             <div class="col-lg-2">
                 <!-- <input type="button" value="1234" onclick="quizReturn()"> -->
-                <button onclick="quizReturn()">Try again?</button>
+                <button onclick="quizReturn()" class="button">Try again?</button>
             </div>
 		</div>
     </div>
