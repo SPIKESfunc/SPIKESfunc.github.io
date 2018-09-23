@@ -1,12 +1,5 @@
 var t = new Trianglify();
-var button = document.getElementById("button"),
-  prevheight = height();
-
-button.onclick = function() {
-  recolor();
-  redraw();
-  return false;
-};
+var prevheight = height();
 
 window.onresize = function() {
   redraw();
