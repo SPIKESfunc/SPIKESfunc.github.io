@@ -218,15 +218,14 @@ function markAnswers(){
 }
 
 function quizReturn(){
-	selectDrugs();
-	PlotQuizSchild("quizschild")
-	PlotQuizSchild("actualanswer")
-	PlotQuizSchild("correctanswer")
 	$('#feedbackcontainer').hide();
 	$("#quizcontainer").show();
 	$('#incorrectFeedback').hide()
 	$('#correctFeedback').hide()
-
+	selectDrugs();
+	PlotQuizSchild("quizschild")
+	PlotQuizSchild("actualanswer")
+	PlotQuizSchild("correctanswer")
 }
 
 // Schlid

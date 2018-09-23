@@ -25,23 +25,27 @@
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="qualitative.html">Qualitative
-          <span class="sr-only">(current)</span>
-        </a>
-        <a class="nav-item nav-link" href="quantitative.html">Quantitative Schild</a>
-        <a class="nav-item nav-link" href="quiz.html">Quiz</a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-item nav-link nav-style active" href="qualitative.html">Qualitative</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link nav-style" href="quantitative.html">Quantitative Schild</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link nav-style" href="quiz.html">Quiz</a>
+          </li>
+        </ul>
       </div>
-    </div>
   </nav>
   <div class="container">
     <br>
     <h1>Qualitative Graphs</h1>
     <br>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
+    <ul class="nav nav-pills nav-justified" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#home">Agonist</a>
+        <a class="nav-link active" data-toggle="tab" style="height: 100%;" href="#home">Agonist</br></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#menu1">Competitive Antagonist</a>
@@ -59,19 +63,20 @@
         <a class="nav-link" data-toggle="tab" href="#menu5">Functional Antagonist</a>
       </li>
     </ul>
+    <hr>
     <div class="tab-content">
       <div id="home" class="container tab-pane active">
         <div class="col col-lg-12">
           <div class="row">
-            <div class="col-lg-5" style="padding-top:100px">
-              <fieldset>
+            <div class="col-lg-5" style="padding-top:50px">
+              <fieldset style="width: 400px;">
                 <legend>Agonist</legend>
                   <label for="affinity">Affinity (&#8733 1/KA)</label>
                   <input type="range" autocomplete="off" name="affinity" id="affslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinity(this.value)">
                   <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
                   <input type="range" autocomplete="off" name="efficacy" id="effslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacy(this.value)">
               </fieldset>
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Cell</legend>
                   <label for="density">Receptor Density (R<sub>T</sub>)</label>
                   <input type="range" autocomplete="off" name="density" id="denslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensity(this.value)">
@@ -81,7 +86,10 @@
 
             </div>
             <div class="col-lg-7">
-              <div id="agonist"></div>
+              <fieldset style="display:block">
+                <legend>Agonist Graph</legend>
+                  <div id="agonist"></div>
+                </fieldset>
               <input id="reset" type="button" class="button" value="Reset" onclick="resetAgo()" style="float:right;">
             </div>
           </div>
@@ -92,21 +100,21 @@
         <div class="col col-lg-12">
           <div class="row">
             <div class="col-lg-5" style="padding-top: 50px;">
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Agonist</legend>
                   <label for="affinity">Affinity (&#8733 1/KA)</label>
                   <input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityCom(this.value)">
                   <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
                   <input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyCom(this.value)">
               </fieldset>
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Cell</legend>
                   <label for="density">Receptor Density (R<sub>T</sub>)</label>
                   <input type="range" autocomplete="off" name="density" id="dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityCom(this.value)">
                   <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
                   <input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyCom(this.value)">
               </fieldset>
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Competitive Antagonist</legend>
                   <label for="agoaffinity">Affinity (&#8733 1/KB)</label>
                   <input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityCom(this.value)">
@@ -115,7 +123,10 @@
 
             </div>
             <div class="col-lg-7">
-              <div id="competitive"></div>
+              <fieldset>
+                <legend>Competitive Graph</legend>
+                  <div id="competitive"></div>
+              </fieldset>
               <input id="reset" type="button" class="button" value="Reset" onclick="resetCom()" style="float:right;">
             </div>
           </div>
@@ -125,28 +136,31 @@
         <div class="col col-lg-12">
           <div class="row">
             <div class="col-lg-5" style="padding-top: 50px;">
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Agonist</legend>
                   <label for="affinity">Affinity (&#8733 1/KA)</label>
                   <input type="range" autocomplete="off" name="affinity" id="affirrslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityIrr(this.value)">
                   <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
                   <input type="range" autocomplete="off" name="efficacy" id="effirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyIrr(this.value)">
               </fieldset>
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Cell</legend>
                   <label for="density">Receptor Density (R<sub>T</sub>)</label>
                   <input type="range" autocomplete="off" name="density" id="denirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityIrr(this.value)">
                   <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
                   <input type="range" autocomplete="off" name="efficiency" id="efficiirrslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyIrr(this.value)">
               </fieldset>
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Irreversible Antagonist</legend>
                   <label for="agoaffinity">Affinity (&#8733 1/KB)</label>
                   <input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityIrr(this.value)">
               </fieldset>
             </div>
             <div class="col-lg-7">
-              <div id="irreversible"></div>
+              <fieldset>
+                <legend>Irreversible Graph</legend>
+                  <div id="irreversible"></div>
+              </fieldset>
               <input id="reset" type="button" class="button" value="Reset" onclick="resetIrr()" style="float:right;">
             </div>
           </div>
@@ -156,21 +170,21 @@
         <div class="col col-lg-12">
           <div class="row">
             <div class="col-lg-5" style="padding-top: 50px;">
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Agonist</legend>
                   <label for="affinity">Affinity (&#8733 1/KA)</label>
                   <input type="range" autocomplete="off" name="affinity" id="affaffslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityAff(this.value)">
                   <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
                   <input type="range" autocomplete="off" name="efficacy" id="effaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyAff(this.value)">
               </fieldset>
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Cell</legend>
                   <label for="density">Receptor Density (R<sub>T</sub>)</label>
                   <input type="range" autocomplete="off" name="density" id="denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityAff(this.value)">
                   <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
                   <input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyAff(this.value)">
               </fieldset>
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Allosteric Antagonist</legend>
                   <label for="agoaffinity">Affinity (&#8733 1/KB)</label>
                   <input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityAff(this.value)">
@@ -180,7 +194,10 @@
 
             </div>
             <div class="col-lg-7">
-              <div id="alloaffin"></div>
+              <fieldset>
+                <legend>Allosteric Graph</legend>
+                  <div id="alloaffin"></div>
+              </fieldset>
               <input id="reset" type="button" class="button" value="Reset" onclick="resetAff()" style="float:right;">
             </div>
           </div>
@@ -190,21 +207,21 @@
         <div class="col col-lg-12">
           <div class="row">
             <div class="col-lg-5" style="padding-top: 50px;">
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Agonist</legend>
                   <label for="affinity">Affinity (&#8733 1/KA)</label>
                   <input type="range" autocomplete="off" name="affinity" id="affeffslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityEff(this.value)">
                   <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
                   <input type="range" autocomplete="off" name="efficacy" id="effeffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyEff(this.value)">
               </fieldset>
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Cell</legend>
                   <label for="density">Receptor Density (R<sub>T</sub>)</label>
                   <input type="range" autocomplete="off" name="density" id="deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityEff(this.value)">
                   <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
                   <input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficiencyEff(this.value)">
               </fieldset>
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Allosteric Antagonist</legend>
                   <label for="agoaffinity">Affinity (&#8733 1/KB)</label>
                   <input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04" value="9" onchange="updateAgoAffinityEff(this.value)">
@@ -213,7 +230,10 @@
               </fieldset>
             </div>
             <div class="col-lg-7">
-              <div id="alloeffic"></div>
+              <fieldset>
+                <legend>Allosteric Graph</legend>
+                  <div id="alloeffic"></div>
+              </fieldset>
               <input id="reset" type="button" class="button" value="Reset" onclick="resetEff()" style="float:right;">
             </div>
           </div>
@@ -223,7 +243,7 @@
         <div class="col col-lg-12">
           <div class="row">
             <div class="col-lg-5" style="padding-top: 5px;">
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Agonist</legend>
                   <label for="affinity">Affinity (&#8733 1/KA)</label>
                   <input type="range" autocomplete="off" name="affinity" id="afffunslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityFun(this.value)">
@@ -237,7 +257,7 @@
                   <input type="range" autocomplete="off" name="efficiency" id="efficifunslider" min="0" max="0.6667" step="0.02487" value="0.33335" onchange="updateEfficiencyFun(this.value)">
               </fieldset>
               </fieldset>
-              <fieldset>
+              <fieldset style="width: 400px;">
                 <legend>Functional Antagonist</legend>
                   <label for="agoaffinity">Affinity (&#8733 1/KB)</label>
                   <input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="6" max="10" step="0.04" value="8" onchange="updateAgoAffinityFun(this.value)">
@@ -252,8 +272,11 @@
               </fieldset>
               </fieldset>
             </div>
-            <div class="col-lg-7">
-              <div id="functional"></div>
+            <div class="col-lg-7" style="padding-top: 40px;">
+              <fieldset>
+                <legend>Functional Graph</legend>
+                  <div id="functional"></div>
+              </fieldset>
               <input id="reset" type="button" class="button" value="Reset" onclick="resetFun()" style="float:right;">
             </div>
           </div>
