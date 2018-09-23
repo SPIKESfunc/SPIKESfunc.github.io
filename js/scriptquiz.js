@@ -186,16 +186,20 @@ function markAnswers(){
 		alert("You have not filled out Question 3")
 		return 1;
 	}
-	antFeedback()
+	//antFeedback()
 	$("#quizcontainer").hide();
 	$('#feedbackcontainer').show();
 	PlotQuizSchild("actualanswer")
 	console.log(ans)
 	if(ans[20].value == Ant3321[ant].type){
 		console.log("drug 5 reason is correct")
+		var reason = "Well done! You got the correct reason for why the Schild plot for ant3321 was nonlinear!";
+		antFeedback(reason)
 	}
 	else{
 		console.log("drug5reason is wrong")
+		var reason = "Your reason for why the Schild plot for ant3321 is nonlinear was incorrect. This was the correct answer:";
+		antFeedback(reason)
 	}
 	//if(ans[21].value == "m"+(recep+1)){
 	if(ans[21].value == recep){
@@ -335,29 +339,29 @@ function PlotQuizSchild(chart){
 	
 }
 
-function antFeedback(){
+function antFeedback(reason){
 	var inequality
 	var ant3321Feedback	
 	switch(Ant3321[ant].type) {
 		case "allosteric":
 			inequality = "<";
-			ant3321Feedback = "allosteric antagonist.";
+			ant3321Feedback = "<b>allosteric antagonist.</b>";
 			break;
 		case "irreversible":
 			inequality = ">";
-			ant3321Feedback = "irreversible antagonist." 
+			ant3321Feedback = "<b>irreversible antagonist.</b>" 
 			break;
 		case "toxic":
 			inequality = ">";
-			ant3321Feedback = "antagonist that produces toxicity at high concentrations." 
+			ant3321Feedback = "<b>antagonist that produces toxicity at high concentrations.</b>" 
 			break;
 		case "saturable":
 			inequality = "<";
-			ant3321Feedback = "antagonist that is the substrate of a saturable uptake process."
+			ant3321Feedback = "<b>antagonist that is the substrate of a saturable uptake process.</b>"
 			break;
 
 	} 
-	document.getElementById("antFeedback").innerHTML = "The Schild plot for ant3321 is nonlinear with slope " + inequality + " 1.0 – this would be expected for an " + ant3321Feedback;
+	document.getElementById("antFeedback").innerHTML = reason + "<br>The Schild plot for ant3321 is nonlinear with slope " + inequality + " 1.0, which is expected for an " + ant3321Feedback;
 
 }
 
