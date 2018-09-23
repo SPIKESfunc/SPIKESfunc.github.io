@@ -8,14 +8,13 @@
 
   <link rel="shortcut icon" href="images/favicon.ico">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
 
   <!-- Add in plotly.js files still to go, might put them in body -->
 
   <link href="css/stylesheet.css" rel="stylesheet">
-  <script type="text/javascript" src="js/script.js"></script>
-  
+
+
 </head>
 
 <body>
@@ -23,20 +22,20 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="index.html">SPIKEStudy</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-        aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-item nav-link" href="qualitative.html">Qualitative</a>
+            <a class="nav-item nav-link nav-style" href="qualitative.html">Qualitative</a>
           </li>
           <li class="nav-item">
-            <a class="nav-item nav-link" href="quantitative.html">Quantitative Schild</a>
+            <a class="nav-item nav-link nav-style" href="quantitative.html">Quantitative Schild</a>
           </li>
           <li class="nav-item">
-            <a class="nav-item nav-link" href="quiz.html">Quiz</a>
+            <a class="nav-item nav-link nav-style" href="quiz.html">Quiz</a>
           </li>
         </ul>
       </div>
@@ -50,37 +49,46 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+        <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+          alt="First slide">
         <div class="container">
           <div class="carousel-caption text-left">
             <h1>Drug Dose Responses Interactive Learning Tool.</h1>
-            <p>This tool can be used in order to learn the effects of how drugs bind to receptors using SPIKES analysis to
-              qualitatively view changes to graphs, quantitatively alter them, and an interactive test tool to check your
+            <p>This tool can be used in order to learn the effects of how drugs bind to receptors using SPIKES analysis
+              to
+              qualitatively view changes to graphs, quantitatively alter them, and an interactive test tool to check
+              your
               knowledge.
             </p>
-            <p><a class="btn btn-lg btn-primary" href="https://spikestudy.github.io/qualitative.html" role="button">Get started!</a></p>
+            <p><a class="btn btn-lg btn-primary" href="https://spikestudy.github.io/qualitative.html" role="button">Get
+                started!</a></p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+        <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+          alt="Second slide">
         <div class="container">
           <div class="carousel-caption">
             <h1>Schild Analysis</h1>
-            <p>Quantitative analysis of the effect of competitive antagonists on agonist-induced effects is a powerful method
+            <p>Quantitative analysis of the effect of competitive antagonists on agonist-induced effects is a powerful
+              method
               for identifying the receptors that mediate agonist-induced effects.</p>
-            <p><a class="btn btn-lg btn-primary" href="https://spikestudy.github.io/quantitative.html" role="button">Learn more!</a></p>
-			
+            <p><a class="btn btn-lg btn-primary" href="https://spikestudy.github.io/quantitative.html" role="button">Learn
+                more!</a></p>
+
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+        <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+          alt="Third slide">
         <div class="container">
           <div class="carousel-caption text-right">
             <h1>Self assessment tool</h1>
             <p>Quiz tool that students can use to develop competencies in interpreting Schild analyses.</p>
-            <p><a class="btn btn-lg btn-primary" href="https://spikestudy.github.io/quiz.html" role="button">Start the quiz!</a></p>
+            <p><a class="btn btn-lg btn-primary" href="https://spikestudy.github.io/quiz.html" role="button">Start the
+                quiz!</a></p>
           </div>
         </div>
       </div>
@@ -95,103 +103,121 @@
     </a>
   </div>
   <div class="container text-center">
-  
-    <div class="col-sm-12 text-center">
-      <h1>Modelling how drugs prdouce effects</h1>
-      <p>Most drugs work by binding to specific receptors on the surface of cells, which alters the activity of the cell
-        to produce beneficial therapeutic effects. These drug-induced effects can be readily described by relatively simple
-        mathematical relationships. Undergraduate students completing a Major in Pharmacology need to have an advanced level
-        of understanding of the importance of the properties of both the drug and cell in determining drug-induced effects.</p>
+
+    <div class="col-sm-12 text-center box">
+      <h1>Modelling how drugs produce effects</h1>
+      <p>Most drugs work by binding to specific receptors on the surface of cells, which alters the activity of the
+        cell
+        to produce beneficial therapeutic effects. These drug-induced effects can be readily described by relatively
+        simple
+        mathematical relationships. Undergraduate students completing a Major in Pharmacology need to have an advanced
+        level
+        of understanding of the importance of the properties of both the drug and cell in determining drug-induced
+        effects.</p>
+      <p>
+        <a href="#" id="button" class="btn box">Change background</a>
+      </p>
     </div>
 
   </div>
-  <footer>
-	<div class="container">
-        <ul class="list-inline">
-            <li class="list-inline-item">
-                <a data-toggle="modal" href="" data-target="#about">About</a>
-            </li>
-            <li class="footer-menu-divider list-inline-item">⋅</li>
-            <li class="list-inline-item">
-                <a data-toggle="modal" href="" data-target="#instructions">Instructions</a>
-            </li>
-            <li class="footer-menu-divider list-inline-item">⋅</li>
-            <li class="list-inline-item">
-                <a data-toggle="modal" href="" data-target="#contact">Contact</a>
-            </li>
-        </ul>
-        <p class="cc text-muted small">Creative Commons &copy; 2018 </p>  
+  <footer class="footer">
+    <div class="container">
+      <ul class="list-inline">
+        <li class="list-inline-item footerlink">
+          <a data-toggle="modal" href="" data-target="#about">About</a>
+        </li>
+        <li class="footer-menu-divider list-inline-item">⋅</li>
+        <li class="list-inline-item footerlink">
+          <a data-toggle="modal" href="" data-target="#instructions">Instructions</a>
+        </li>
+        <li class="footer-menu-divider list-inline-item">⋅</li>
+        <li class="list-inline-item footerlink">
+          <a data-toggle="modal" href="" data-target="#contact">Contact</a>
+        </li>
+      </ul>
+      <p class="cc text-muted small">Creative Commons &copy; 2018 </p>
     </div>
-	<div id="about" class="modal fade" role="dialog">
-		<div class="modal-dialog">	
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">About</h4>
-				</div>
-				<div class="modal-body">
-					<p>Summary about the project<br />Created by Cam, Dan, Harry, Oliver, Thai - students of CITS3200 UWA 2018, directed by Associate Professor Peter Henry</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>		
+    <div id="about" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About</h4>
+          </div>
+          <div class="modal-body">
+            <p>Summary about the project<br />Created by Cam, Dan, Harry, Oliver, Thai - students of CITS3200 UWA 2018,
+              directed by Associate Professor Peter Henry</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
-	<div id="instructions" class="modal fade" role="dialog">
-		<div class="modal-dialog">	
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Instructions</h4>
-				</div>
-				<div class="modal-body">
-					<p>Will insert three tabs for 3 different tools, qual, quant, quiz</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>		
+    <div id="instructions" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Instructions</h4>
+          </div>
+          <div class="modal-body">
+            <p>Will insert three tabs for 3 different tools, qual, quant, quiz</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
-	<div id="contact" class="modal fade" role="dialog">
-		<div class="modal-dialog">	
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Contact</h4>
-				</div>
-				<div class="modal-body">
-					<p>Is something not working properly?<br />Have an idea about how can we improve the interactive tools?<br />Please contact us!</p>
-					<div class="box">
-                        <table style="width:100%;">
-                            <tbody>
-							<tr>                              
-                                <td>
-                                    <p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western Australia</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="contact">Room 1.34, M Block,
-                                        <br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a>
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody></table>
+    <div id="contact" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Contact</h4>
+          </div>
+          <div class="modal-body">
+            <p>Is something not working properly?<br />Have an idea about how can we improve the interactive tools?<br />Please
+              contact us!</p>
+            <div class="box">
+              <table style="width:100%;">
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western
+                        Australia</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="contact">Room 1.34, M Block,
+                        <br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
 
 
-                    </div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>		
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
+  <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/triangle.js"></script>
+
 </body>
 
 </html>
