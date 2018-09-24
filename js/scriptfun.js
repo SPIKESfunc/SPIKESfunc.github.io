@@ -256,7 +256,7 @@ function plotGraphFun(chart){
         }
     data.push(graph);
 
-    Plotly.plot(chart,data,layout);
+    Plotly.plot(chart,data,layout, {responsive: true});
     }
 }
 
