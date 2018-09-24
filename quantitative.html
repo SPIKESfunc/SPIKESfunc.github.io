@@ -1,231 +1,252 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" context="width=device-width, initial scale=1">
-    <title>SPIKEStudy</title>
+	<meta charset="utf-8">
+	<meta name="viewport" context="width=device-width, initial scale=1">
+	<title>SPIKEStudy</title>
 
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-    <!-- Add in plotly.js files still to go, might put them in body -->
+	<!-- Add in plotly.js files still to go, might put them in body -->
 
-    <link href="css/stylesheet.css" rel="stylesheet">
+	<link href="css/stylesheet.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="index.html">SPIKEStudy</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-item nav-link nav-style" href="qualitative.html">Qualitative</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-item nav-link nav-style active" href="quantitative.html">Quantitative Schild</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-item nav-link nav-style" href="quiz.html">Quiz</a>
-          </li>
-        </ul>
-      </div>
-        </nav>
-    </header>
-    <div class="container">
-        <br>
-        <h1>Competitive Antagonist Model</h1>
-        <br>
-    </div>
-    <div class="container">
-        <div class="col col-lg-12">
-            <div class="row">
-                <div class="col-lg-6" align="center">
-                    <fieldset style="width: 500px;">
-                        <legend>Agonist</legend>
-                            <label for="affinity">Affinity (&#8733 1/KA)</label>
-                            <input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6" onchange="updateAffinityCom(this.value)">
-                            <br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
-                            <input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateEfficacyCom(this.value)">
-                    </fieldset>
-                    <fieldset style="width: 500px;">
-                        <legend>Cell</legend>
-                            <label for="density">Receptor Density (R<sub>T</sub>)</label>
-                            <input type="range" autocomplete="off" name="density" id="dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2" onchange="updateDensityCom(this.value)">
-                            <br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
-                            <input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-                        onchange="updateEfficiencyCom(this.value)">
-                    </fieldset>
-                    <fieldset style="width: 500px;">
-                        <legend>Competitive Antagonist</legend>
-                            <label for="agoaffinity">Antagonist Affinity (&#8733 1/KB)</label>
-                            <input type="number" style="float:right;" autocomplete="off" name="agoaffinity" id="agoaffnum" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-9" onchange="updateAgoAffinity(this.value)">
-                            <br>
-                            <label for="neglog">-logKB</label>
-                            <input type="number" style="float:right; width:138px;" autocomplete="off" name="agoafflog" id="agoafflognum" min="4" max="10" step="0.1" value="9.0" onchange="updateAgoAffinityLog(this.value)">
-                    </fieldset>
-                </div>
-                <div class="col-lg-6">
-                    <fieldset style="display:block;">
-                        <legend>Competitive Graph</legend>
-                            <div id="quantitative"></div>
-                    </fieldset>
-                </div>
-            </div>
+	<header>
+		<nav class="navbar navbar-expand-md fixed-top header">
+			<div class="container">
+				<a class="navbar-brand nav-style" href="index.html">SPIKEStudy</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+				 aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-item nav-link nav-style" href="qualitative.html">Qualitative</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-item nav-link nav-style active" href="quantitative.html">Quantitative Schild</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-item nav-link nav-style" href="quiz.html">Quiz</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
 
-            <div class="row">
-                <div class="col-lg-6">
-                    <fieldset style="width:528px;">
-                        <legend>Antagonist affinity table</legend>
-                    Ant B
-                    <label class="numbox" style="text-align: center;">[Antagonist]</label>
-                    <label class="numbox" style="text-align: center;">log[B]</label>
-                    <label class="numbox" style="text-align: center;">[Agonist](50% Emax)</label>
-                    <label class="numbox" style="text-align: center;">Dose Ratio</label>
-                    <label class="numbox" style="text-align: center;">log(DR-1)</label>
-                    <hr>
-                    Ant 0
-                    <input class="numbox" type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
-                    <label class="numbox"></label>
-                    <input class="numbox" type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
-                    <br>
-                    Ant 1
-                    <input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-9" onchange="updateAntagonist1(this.value)">
-                    <input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4" step="0.1" value="-9" onchange="updateAntagonistLog1(this.value)">
-                    <input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
-                    <input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
-                    <input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
-                    <br>
-                    Ant 2
-                    <input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-8" onchange="updateAntagonist2(this.value)">
-                    <input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4" step="0.1" value="-8" onchange="updateAntagonistLog2(this.value)">
-                    <input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
-                    <input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
-                    <input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
-                    <br>
-                    Ant 3
-                    <input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-7" onchange="updateAntagonist3(this.value)">
-                    <input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4" step="0.1" value="-7" onchange="updateAntagonistLog3(this.value)">
-                    <input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
-                    <input class="numbox" type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
-                    <input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
-                </div>
-            </fieldset>
-                <div class="col-lg-6">
-                    <fieldset style="display:block;">
-                        <legend>Schild Plot</legend>
-                            <div id="schild"></div>
-                    </fieldset>
-                </div>
-            </div>
+	<div class="container box-size bg-box p-4">
+		<br>
+		<h1 class="d-flex justify-content-center">Competitive Antagonist Model</h1>
+		<br>
+		<div class="col col-lg-12">
+			<div class="row">
+				<div class="col-lg-6" align="center">
+					<fieldset style="width: 500px;">
+						<legend>Agonist</legend>
+						<label for="affinity">Affinity (&#8733 1/KA)</label>
+						<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6"
+						 onchange="updateAffinityCom(this.value)">
+						<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
+						<input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="0.04" max="0.74" step="0.01" value="0.39"
+						 onchange="updateEfficacyCom(this.value)">
+					</fieldset>
+					<fieldset style="width: 500px;">
+						<legend>Cell</legend>
+						<label for="density">Receptor Density (R<sub>T</sub>)</label>
+						<input type="range" autocomplete="off" name="density" id="dencomslider" min="0.04" max="0.74" step="0.01" value="0.39"
+						 onchange="updateDensityCom(this.value)">
+						<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+						<input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="0.04" max="0.74" step="0.01"
+						 value="0.39" onchange="updateEfficiencyCom(this.value)">
+					</fieldset>
+					<fieldset style="width: 500px;">
+						<legend>Competitive Antagonist</legend>
+						<label for="agoaffinity">Antagonist Affinity (&#8733 1/KB)</label>
+						<input type="number" style="float:right;" autocomplete="off" name="agoaffinity" id="agoaffnum" min="1.00e-10" max="1.00e-6"
+						 step="1.00e-9" value="1e-9" onchange="updateAgoAffinity(this.value)">
+						<br>
+						<label for="neglog">-logKB</label>
+						<input type="number" style="float:right; width:138px;" autocomplete="off" name="agoafflog" id="agoafflognum" min="4"
+						 max="10" step="0.1" value="9.0" onchange="updateAgoAffinityLog(this.value)">
+					</fieldset>
+				</div>
+				<div class="col-lg-6">
+					<fieldset style="display:block;">
+						<legend>Competitive Graph</legend>
+						<div id="quantitative"></div>
+					</fieldset>
+				</div>
+			</div>
 
-        </div>
-    </div>
+			<div class="row">
+				<div class="col-lg-6" align="center">
+					<fieldset style="width:528px;">
+						<legend>Antagonist affinity table</legend>
+						Ant B
+						<label class="numbox" style="text-align: center;">[Antagonist]</label>
+						<label class="numbox" style="text-align: center;">log[B]</label>
+						<label class="numbox" style="text-align: center;">[Agonist](50% Emax)</label>
+						<label class="numbox" style="text-align: center;">Dose Ratio</label>
+						<label class="numbox" style="text-align: center;">log(DR-1)</label>
+						<hr>
+						Ant 0
+						<input class="numbox" type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
+						<label class="numbox"></label>
+						<input class="numbox" type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
+						<br>
+						Ant 1
+						<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
+						 step="1.00e-9" value="1e-9" onchange="updateAntagonist1(this.value)">
+						<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4" step="0.1"
+						 value="-9" onchange="updateAntagonistLog1(this.value)">
+						<input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
+						<input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
+						<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
+						<br>
+						Ant 2
+						<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
+						 step="1.00e-9" value="1e-8" onchange="updateAntagonist2(this.value)">
+						<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4" step="0.1"
+						 value="-8" onchange="updateAntagonistLog2(this.value)">
+						<input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
+						<input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
+						<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
+						<br>
+						Ant 3
+						<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
+						 step="1.00e-9" value="1e-7" onchange="updateAntagonist3(this.value)">
+						<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4" step="0.1"
+						 value="-7" onchange="updateAntagonistLog3(this.value)">
+						<input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
+						<input class="numbox" type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
+						<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
+				</div>
+				</fieldset>
+				<div class="col-lg-6">
+					<fieldset style="display:block;">
+						<legend>Schild Plot</legend>
+						<div id="schild"></div>
+					</fieldset>
+				</div>
+			</div>
 
-
-    <script type="text/javascript" src="js/scriptquant.js"></script>
-
-    <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-    <footer>
-        <div class="container">
-            <ul class="list-inline">
-                <li class="list-inline-item">
-                    <a data-toggle="modal" href="" data-target="#about">About</a>
-                </li>
-                <li class="footer-menu-divider list-inline-item">⋅</li>
-                <li class="list-inline-item">
-                    <a data-toggle="modal" href="" data-target="#instructions">Instructions</a>
-                </li>
-                <li class="footer-menu-divider list-inline-item">⋅</li>
-                <li class="list-inline-item">
-                    <a data-toggle="modal" href="" data-target="#contact">Contact</a>
-                </li>
-            </ul>
-        <p class="cc text-muted small">Creative Commons &copy; 2018 </p>  
-        </div>
-        <div id="about" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">About</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Summary about the project<br />Created by Cam, Dan, Harry, Oliver, Thai - students of CITS3200
-                            UWA 2018, directed by Associate Professor Peter Henry</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="instructions" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Instructions</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Will insert three tabs for 3 different tools, qual, quant, quiz</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="contact" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Contact</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Is something not working properly?<br />Have an idea about how can we improve the interactive
-                            tools?
-                            <br />Please contact us!</p>
-                        <div class="box">
-                            <table style="width:100%;">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University
-                                                of Western Australia</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="contact">Room 1.34, M Block,
-                                                <br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+		</div>
+	</div>
 
 
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+	<script type="text/javascript" src="js/scriptquant.js"></script>
 
-    </footer> </body>
+	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>
+	<script type="text/javascript" src="js/triangle.js"></script>
+
+
+	<footer class="footer">
+		<div class="container">
+			<ul class="list-inline">
+				<li class="list-inline-item">
+					<a data-toggle="modal" href="" data-target="#about">About</a>
+				</li>
+				<li class="footer-menu-divider list-inline-item">⋅</li>
+				<li class="list-inline-item">
+					<a data-toggle="modal" href="" data-target="#instructions">Instructions</a>
+				</li>
+				<li class="footer-menu-divider list-inline-item">⋅</li>
+				<li class="list-inline-item">
+					<a data-toggle="modal" href="" data-target="#contact">Contact</a>
+				</li>
+			</ul>
+			<p class="cc text-muted small">Creative Commons &copy; 2018 </p>
+		</div>
+		<div id="about" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">About</h4>
+					</div>
+					<div class="modal-body">
+						<p>Summary about the project<br />Created by Cam, Dan, Harry, Oliver, Thai - students of
+							CITS3200
+							UWA 2018, directed by Associate Professor Peter Henry</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="instructions" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Instructions</h4>
+					</div>
+					<div class="modal-body">
+						<p>Will insert three tabs for 3 different tools, qual, quant, quiz</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="contact" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Contact</h4>
+					</div>
+					<div class="modal-body">
+						<p>Is something not working properly?<br />Have an idea about how can we improve the
+							interactive
+							tools?
+							<br />Please contact us!</p>
+						<div class="box">
+							<table style="width:100%;">
+								<tbody>
+									<tr>
+										<td>
+											<p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The
+												University
+												of Western Australia</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p class="contact">Room 1.34, M Block,
+												<br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a>
+											</p>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+</body>
 
 </html>
