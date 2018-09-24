@@ -1,3 +1,16 @@
+
+var myVar;
+
+function myFunction() {
+    myVar = setTimeout(showPage, 1000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("page").style.visibility = "visible";
+  document.getElementById("page").style.position = "relative";
+}
+
 var drugsmaster =[
     {name:"Pirenzepine",receptors: [8.2,6.5,6.9,7.4,7.2]},
     {name:"Methotramine",receptors: [6.7,7.7,6.0,7.0,6.3]},

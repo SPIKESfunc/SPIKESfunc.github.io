@@ -17,7 +17,7 @@
 	<link href="css/stylesheet.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="myFunction()">
 	<header>
 		<nav class="navbar navbar-expand-md fixed-top header">
 			<div class="container">
@@ -42,7 +42,8 @@
 			</div>
 		</nav>
 	</header>
-	<div class="container-fluid text-center bg-box p-4">
+	<div id="loader"></div>
+	<div id="page" class="container-fluid text-center bg-box p-4" style="visibility: hidden; position: absolute;">
 		<div id="quizcontainer">
 			<div class="col-lg-12" id="quizsection">
 				<div class="row" style="padding-top:20px">
@@ -98,7 +99,7 @@
 												<label for "m2">M2</label>
 												<input type="checkbox" name="m2" id="drug1m2">
 												<label for "m3">M3</label>
-												<input type="checkbox" name="m3" id="drug1m3"><br>
+												<input type="checkbox" name="m3" id="drug1m3">
 												<label for "m4">M4</label>
 												<input type="checkbox" name="m4" id="drug1m4">
 												<label for "m5">M5</label>

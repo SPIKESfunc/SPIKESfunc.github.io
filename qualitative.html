@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body onload="myFunction()">
 	<header>
 		<nav class="navbar navbar-expand-md fixed-top header">
 			<div class="container">
@@ -43,7 +43,8 @@
 			</div>
 		</nav>
 	</header>
-	<div class="container box-size bg-box p-4">
+	<div id="loader"></div>
+	<div id="page" class="container box-size bg-box p-4" style="visibility: hidden; position: absolute;">
 		<br>
 		<h1 class="d-flex justify-content-center">Qualitative Graphs</h1>
 		<br>
@@ -102,7 +103,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 			<div id="menu1" class="container tab-pane fade">
 				<div class="col col-lg-12">
@@ -327,8 +327,8 @@
 	</div>
 
 
-	</div>
-	</div>
+	<!--</div>-->
+	<!--</div>-->
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript" src="js/scriptcom.js"></script>
 	<script type="text/javascript" src="js/scriptirr.js"></script>
@@ -433,4 +433,4 @@
 				</div>
 			</div>
 		</div>
-	</footer </body> </html>
+	</footer> </body> </html>
