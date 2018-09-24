@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   color: #5a5a5a;
-  padding-bottom: 10em;
+  margin-bottom: 7.5em;
 }
   
 /*footer{
