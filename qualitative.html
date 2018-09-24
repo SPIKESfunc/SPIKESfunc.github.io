@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body onload="loadingScreen()">
 	<header>
 		<nav class="navbar navbar-expand-md fixed-top header">
 			<div class="container">
@@ -43,7 +43,8 @@
 			</div>
 		</nav>
 	</header>
-	<div class="container box-size bg-box p-4">
+	<div id="loader"></div>
+	<div id="page" class="container box-size bg-box p-4" style="visibility: hidden; position: absolute;">
 		<br>
 		<h1 class="d-flex justify-content-center">Qualitative Graphs</h1>
 		<br>
@@ -102,7 +103,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 			<div id="menu1" class="container tab-pane fade">
 				<div class="col col-lg-12">
@@ -328,14 +328,13 @@
 
 
 	</div>
-	</div>
+	</div>	
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript" src="js/scriptcom.js"></script>
 	<script type="text/javascript" src="js/scriptirr.js"></script>
 	<script type="text/javascript" src="js/scriptaff.js"></script>
 	<script type="text/javascript" src="js/scripteff.js"></script>
 	<script type="text/javascript" src="js/scriptfun.js"></script>
-
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
@@ -401,29 +400,9 @@
 						<p>Is something not working properly?<br />Have an idea about how can we improve the interactive tools?<br />Please
 							contact us!</p>
 						<div class="box">
-							<table style="width:100%;">
-								<tbody>
-									<tr>
-										<td>
-											<p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western
-												Australia</p>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<p class="contact">Room 1.34, M Block,
-												<br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a>
-											</p>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-
+							<p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western Australia</p>
+							<p class="contact">Room 1.34, M Block,<br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
+							<p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a></p>
 
 						</div>
 					</div>
@@ -433,4 +412,4 @@
 				</div>
 			</div>
 		</div>
-	</footer </body> </html>
+	</footer> </body> </html>

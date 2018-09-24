@@ -1,3 +1,14 @@
+function loadingScreen() {
+    myVar = setTimeout(showPage, 1000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("page").style.visibility = "visible";
+  document.getElementById("page").style.position = "relative";
+}
+
+
 var affago = document.getElementById("affslider").defaultValue;
 var effago = document.getElementById("effslider").defaultValue;
 var denago = document.getElementById("denslider").defaultValue;

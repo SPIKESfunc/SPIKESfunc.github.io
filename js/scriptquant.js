@@ -1,3 +1,13 @@
+function loadingScreen() {
+    myVar = setTimeout(showPage, 1000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("page").style.visibility = "visible";
+  document.getElementById("page").style.position = "relative";
+}
+
 var agoconcarr = [0, -6, -7, -8, -9];
                     
 
