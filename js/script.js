@@ -23,7 +23,7 @@ var animation = {
 
 function calc50(lineData){
 	var index=lineData[1].findIndex(function(number) {
-	return number > 50;
+	return number >= 50;
 	});
 	return lineData[0][index];
 }
