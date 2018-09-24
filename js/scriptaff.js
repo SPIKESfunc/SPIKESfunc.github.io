@@ -231,7 +231,7 @@ function plotGraphAff(chart){
     data.push(graph);
 	data50[j] = calc50(lineData);
 	
-    Plotly.plot(chart,data,layout);
+    Plotly.plot(chart,data,layout, {responsive: true});
     }
 	var trace1 = [{
 		x: data50,
@@ -239,7 +239,7 @@ function plotGraphAff(chart){
 		mode: 'markers',
 		name: "50% effect"
 	}];
-	Plotly.plot(chart,trace1,layout);
+	Plotly.plot(chart,trace1,layout, {responsive: true});
 }
 
 plotGraphAff("alloaffin");

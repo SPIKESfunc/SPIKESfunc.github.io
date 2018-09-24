@@ -153,7 +153,7 @@ function plotGraph(chart){
     }
     data.push(graph);
 
-    Plotly.plot(chart,data,layout);
+    Plotly.plot(chart,data,layout, {responsive: true});
 	
 	var data50 = calc50(lineData);
 	var trace1 = [{
@@ -162,7 +162,7 @@ function plotGraph(chart){
 		mode: 'markers',
 		name: "50% effect"
 	}];
-	Plotly.plot(chart,trace1,layout);
+	Plotly.plot(chart,trace1,layout, {responsive: true});
 }
 plotGraph("agonist");
 

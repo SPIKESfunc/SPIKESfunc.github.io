@@ -394,7 +394,7 @@ function plotGraphCom(chart){
 		data50[j] = calc50(lineData);
 
 
-        Plotly.plot(chart,data,layout);
+        Plotly.plot(chart,data,layout, {responsive: true});
     }
 	var trace1 = [{
 		x: data50,
@@ -402,7 +402,7 @@ function plotGraphCom(chart){
 		mode: 'markers',
 		name: "50% effect"
 	}];
-	Plotly.plot(chart,trace1,layout);
+	Plotly.plot(chart,trace1,layout, {responsive: true});
 }
 plotGraphCom("quantitative");
 
@@ -467,7 +467,7 @@ function testPlot(chart){
 	}
 	data.push(trace1);
 	
-	Plotly.plot(chart, data, layout);
+	Plotly.plot(chart, data, layout, {responsive: true});
 }
 
 testPlot("schild");

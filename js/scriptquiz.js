@@ -290,7 +290,7 @@ function plotAnswerSchild(chart,rec){
 	ansPlotPoints[3]=[[lb],[lDR]]
 	//ansPlotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
 
-	Plotly.newPlot(chart,data,layout)
+	Plotly.newPlot(chart,data,layout, {responsive: true})
 	//var data = []
 	var jj
 	for(jj = 0;jj<4;jj++){
@@ -306,7 +306,7 @@ function plotAnswerSchild(chart,rec){
 		}
 		data.push(eqn1);
 		//console.log(data)
-		Plotly.plot(chart,data,layout)
+		Plotly.plot(chart,data,layout, {responsive: true})
 	}
 }
 
@@ -343,7 +343,7 @@ function PlotQuizSchild(chart){
 		}
 		data.push(eqn1);
 		//console.log(data)
-		Plotly.plot(chart,data,layout)
+		Plotly.plot(chart,data,layout, {responsive: true})
 	}
 	document.querySelector('[data-title="Autoscale"]').click()
 	
