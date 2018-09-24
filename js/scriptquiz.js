@@ -1,7 +1,4 @@
-
-var myVar;
-
-function myFunction() {
+function loadingScreen() {
     myVar = setTimeout(showPage, 1000);
 }
 
