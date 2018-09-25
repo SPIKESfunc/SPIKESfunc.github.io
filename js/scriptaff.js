@@ -190,13 +190,14 @@ function plotGraphAff(chart){
             title: "[Agonist] (log M)",
             showline: true,
             range: [-12,-2],
+            dtick: 1
             
         },
         yaxis:{
             title: "Effect (% Emax)",
             showline: true,
             range: [0,100],
-            tickvals: [0,20,40,60,80,100]
+            dtick: 10
 
         }
     }
