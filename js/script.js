@@ -120,6 +120,7 @@ function plotGraph(chart){
             tickvals: [0,20,40,60,80,100]
 
         },
+        showlegend: false
         /*sliders: [
             {
                 label: 'Slider 1',
