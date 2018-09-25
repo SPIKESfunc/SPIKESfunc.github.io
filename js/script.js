@@ -8,7 +8,6 @@ function showPage() {
   document.getElementById("page").style.position = "relative";
 }
 
-
 var affago = document.getElementById("affslider").defaultValue;
 var effago = document.getElementById("effslider").defaultValue;
 var denago = document.getElementById("denslider").defaultValue;
@@ -21,11 +20,15 @@ var animation = {
     }
 }
 
+
 function calc50(lineData){
-	var index=lineData[1].findIndex(function(number) {
-	return number >= 50;
+	var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
+	console.log(halfMaxEffect);
+	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
+	return number >= halfMaxEffect;
 	});
-	return lineData[0][index];
+	var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
+	return [halfAgoEffect, halfMaxEffect]; //return x, y
 }
 
 function updateAffinity(value){
@@ -33,8 +36,8 @@ function updateAffinity(value){
     affago = value;
     //console.log(aff)
     lineData = calcLines(affago,effago,denago,efficago);
-    calc50aff = calc50(lineData);
-
+	var calc50aff = calc50(lineData); //not calling properly
+	console.log(calc50aff[0]); //getting undefined here!
     /*var graph = {
         y: lineData[1],
         traces:[0]
@@ -43,7 +46,7 @@ function updateAffinity(value){
     newData.push(graph);*/
     
     //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]]}], traces: [0,1], layout: {}},animation)
 
 } 
 
@@ -158,10 +161,10 @@ function plotGraph(chart){
 
     Plotly.plot(chart,data,layout, {responsive: true});
 	
-	var data50 = calc50(lineData);
+	var data50 = calc50(lineData); //plot the 50% effect marker
 	var trace1 = [{
-		x: [data50],
-		y: [50],
+		x: [data50[0]],
+		y: [data50[1]],
 		mode: 'markers',
 		name: "50% effect"
 	}];
