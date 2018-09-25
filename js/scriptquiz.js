@@ -201,7 +201,8 @@ function markAnswers(){
 	$('#feedbackcontainer').show();
 	PlotQuizSchild("actualanswer")
 	console.log(ans)
-	if(ans[20].value == Ant3321[ant].type){
+	console.log(ans.length)
+	if(ans[ans.length-2].value == Ant3321[ant].type){
 		console.log("drug 5 reason is correct")
 		var reason = "Well done! You got the correct reason for why the Schild plot for ant3321 was nonlinear!";
 		antFeedback(reason)
@@ -211,8 +212,7 @@ function markAnswers(){
 		var reason = "Your reason for why the Schild plot for ant3321 is nonlinear was incorrect. This was the correct answer:";
 		antFeedback(reason)
 	}
-	//if(ans[21].value == "m"+(recep+1)){
-	if(ans[21].value == recep){
+	if(ans[ans.length-1].value == recep){
 		$('#incorrectFeedback').hide()
 		$('#correctFeedback').show()
 		document.getElementById("recCorrectFeedback").innerHTML = "Your answer of (m" + (recep + 1) + ") was correct and produced this plot:";
@@ -222,8 +222,8 @@ function markAnswers(){
 		console.log("receptor is wrong")
 		$('#correctFeedback').hide()
 		$('#incorrectFeedback').show()
-		plotAnswerSchild("youranswer",ans[21].value)
-		document.getElementById("recAnswerFeedback").innerHTML = "The receptor you chose (m" + (parseInt(ans[21].value)+1) + "), is incorrect, and produces this plot:";
+		plotAnswerSchild("youranswer",ans[ans.length-1].value)
+		document.getElementById("recAnswerFeedback").innerHTML = "The receptor you chose (m" + (parseInt(ans[ans.length-1].value)+1) + "), is incorrect, and produces this plot:";
 		document.getElementById("recIncorrectFeedback").innerHTML = "The correct answer of (m" + (recep + 1) + ") produced this plot:";
 
 
