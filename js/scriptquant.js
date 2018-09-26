@@ -438,7 +438,7 @@ function calcSchild(logval1,logval2, logval3, dr1, dr2, dr3){ //add 3 other conc
 
 }
 
-function testPlot(chart){
+function plotSchild(chart){
 	var layout = {
         xaxis:{
             title: "Log [Antagonist] (log M)",
@@ -447,7 +447,7 @@ function testPlot(chart){
             
         },
         yaxis:{
-            title: "Log(Dr-1)",
+            title: "Log(DR-1)",
             showline: true,
             range: [0,4],
             tickvals: [0, 1, 2, 3, 4]
@@ -470,4 +470,4 @@ function testPlot(chart){
 	Plotly.plot(chart, data, layout, {responsive: true});
 }
 
-testPlot("schild");
+plotSchild("schild");

@@ -44,14 +44,14 @@
 	<div id="loader"></div>
 	<div id="page" class="container box-size bg-box p-4" style="visibility: hidden; position: absolute;">
 		<br>
-		<h1 class="d-flex justify-content-center">Competitive Antagonist Model</h1>
+		<h1 class="d-flex justify-content-center">Schild Plot Generator</h1>
 		<br>
 		<div class="col col-lg-12">
 			<div class="row">
 				<div class="col-lg-6" align="center">
 					<fieldset style="width: 500px;">
 						<legend>Agonist</legend>
-						<label for="affinity">Affinity (&#8733 1/KA)</label>
+						<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
 						<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6"
 						 onchange="updateAffinityCom(this.value)">
 						<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
@@ -69,7 +69,7 @@
 					</fieldset>
 					<fieldset style="width: 500px;">
 						<legend>Competitive Antagonist</legend>
-						<label for="agoaffinity">Antagonist Affinity (&#8733 1/KB)</label>
+						<label for="agoaffinity">Antagonist Affinity (&#8733 1/K<sub>B</sub>)</label>
 						<input type="number" style="float:right;" autocomplete="off" name="agoaffinity" id="agoaffnum" min="1.00e-10" max="1.00e-6"
 						 step="1.00e-9" value="1e-9" onchange="updateAgoAffinity(this.value)">
 						<br>
@@ -80,7 +80,7 @@
 				</div>
 				<div class="col-lg-6">
 					<fieldset style="display:block;">
-						<legend>Competitive Graph</legend>
+						<legend>Effect of Competitive Antagonist on Agonist Dose Response curve</legend>
 						<div id="quantitative"></div>
 					</fieldset>
 				</div>
@@ -89,20 +89,19 @@
 			<div class="row">
 				<div class="col-lg-6" align="center">
 					<fieldset style="width:528px;">
-						<legend>Antagonist affinity table</legend>
-						Ant B
+						<legend>Schild Analysis Table</legend>
 						<label class="numbox" style="text-align: center;">[Antagonist]</label>
 						<label class="numbox" style="text-align: center;">log[B]</label>
-						<label class="numbox" style="text-align: center;">[Agonist](50% Emax)</label>
+						<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
 						<label class="numbox" style="text-align: center;">Dose Ratio</label>
 						<label class="numbox" style="text-align: center;">log(DR-1)</label>
 						<hr>
-						Ant 0
 						<input class="numbox" type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
 						<label class="numbox"></label>
 						<input class="numbox" type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
+						<label class="numbox"></label>
+						<label class="numbox"></label>
 						<br>
-						Ant 1
 						<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
 						 step="1.00e-9" value="1e-9" onchange="updateAntagonist1(this.value)">
 						<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4" step="0.1"
@@ -111,7 +110,6 @@
 						<input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
 						<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
 						<br>
-						Ant 2
 						<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
 						 step="1.00e-9" value="1e-8" onchange="updateAntagonist2(this.value)">
 						<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4" step="0.1"
@@ -120,7 +118,6 @@
 						<input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
 						<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
 						<br>
-						Ant 3
 						<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
 						 step="1.00e-9" value="1e-7" onchange="updateAntagonist3(this.value)">
 						<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4" step="0.1"
