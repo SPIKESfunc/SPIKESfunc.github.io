@@ -8,7 +8,7 @@ function showPage() {
   document.getElementById("page").style.position = "relative";
 }
 
-var agoconcarr = [0, -6, -7, -8, -9];
+var agoconcarr = [0, -9, -8, -7, -6];
                     
 
 var affcom = document.getElementById("affcomslider").defaultValue;
@@ -306,7 +306,7 @@ function updateEverything(){
 }
 
 
-function calcLinesCom(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration){
+function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
     //console.log("calclines ran")
     //console.log(affinity, efficacy, recepDensity, efficiency)
     const STEP = 0.05;
@@ -320,6 +320,7 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency, agoaffinity,
     var efcey = 10**efficiency;
     //var agoaffin = 10**agoaffinity;
     var agoaffin = 10**(-1*agoaffinity);
+
     if(agoconcentration == 0){
         //console.log("agoconc 0 activated")
         agoconc = 0;
@@ -331,13 +332,13 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency, agoaffinity,
         }
     }
     else{
-        agoconc = 10**agoconcentration;
-        for (i=-12; i<-2;i=i+STEP){
-            effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
-            data[0].push(i);
-            data[1].push(effect);
-        }
-    }
+    	agoconc = 10**agoconcentration;
+    	for (i=-12; i<-2;i=i+STEP){
+        	effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
+        	data[0].push(i);
+        	data[1].push(effect);
+    	}
+	}
     return data;
 }
 
@@ -355,47 +356,40 @@ function plotGraphCom(chart){
             range: [0,100],
             tickvals: [0,20,40,60,80,100]
 
-        },
-        /*sliders: [
-            {
-                label: 'Slider 1',
-                pad: {t: 30},
-                active: 50,
-                font:{color: 'transparent'}, 
-                tickcolor: 'transparent',
-                steps: sliderSteps
-            },
-            {
-                label: 'Slider 2',
-                pad: {t: 30},
-                active: 50,
-                font:{color: 'transparent'}, 
-                tickcolor: 'transparent',
-                steps: sliderSteps
-            }
-        ]*/
+        }
     }
     var j;
 	var data50 = [];
 
     for(j = 0; j<5; j++){
-        var data = []
-        var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[j])
-    
-        var graph = {
-            x: lineData[0],
-            y: lineData[1],
-            mode: "lines",
-            line: {
-            width: 1
-            }
-        }
-        data.push(graph);
+    	var data = []
+    	var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[j])
+   		if(j==0){
+			var graph = {
+        		x: lineData[0],
+        		y: lineData[1],
+       			mode: "lines",
+       			name: 0+"nM",
+       			line: {
+       	    	width: 1
+    	    	}
+    		}
+   		}
+   		else{
+    	var graph = {
+        		x: lineData[0],
+        		y: lineData[1],
+       			mode: "lines",
+       			name: 10**agoconcarr[j]*1000000000+"nM",
+       			line: {
+       	    	width: 1
+    	    	}
+    		}
+    	}
+    	data.push(graph);
 		data50[j] = calc50(lineData);
-
-
-        Plotly.plot(chart,data,layout, {responsive: true});
-    }
+    	Plotly.plot(chart,data,layout, {responsive: true});
+	}
 	var trace1 = [{
 		x: data50,
 		y: [50, 50, 50, 50, 50],
