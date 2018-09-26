@@ -8,7 +8,7 @@ function showPage() {
   document.getElementById("page").style.position = "relative";
 }
 
-var agoconcarr = [0, -9, -8, -7, -6];
+var agoconcarr = [0, -9, -8, -7];
                     
 
 var affcom = document.getElementById("affcomslider").defaultValue;
@@ -77,8 +77,7 @@ function updateAffinityCom(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 	
     /*var graph = {
         y: lineData[1],
@@ -90,8 +89,8 @@ function updateAffinityCom(value){
     //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4,5], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
         layout: {}
         },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
@@ -104,14 +103,13 @@ function updateEfficacyCom(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]); 
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
     //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4,5], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
         layout: {}
         },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
@@ -125,14 +123,13 @@ function updateDensityCom(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]); 
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
     //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4,5], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
         layout: {}
         },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
@@ -146,14 +143,13 @@ function updateEfficiencyCom(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 	
     //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4,5], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
         layout: {}
         },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
@@ -169,14 +165,13 @@ function updateAgoAffinity(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]); 
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
     //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4,5], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
         layout: {}
         },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
@@ -192,13 +187,12 @@ function updateAgoAffinityLog(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[4]); 
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4,5], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
         layout: {}
         },animation)
     schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
@@ -344,6 +338,7 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
 
 function plotGraphCom(chart){
     var layout = {
+		showlegend: false,
         xaxis:{
             title: "[Agonist] (log M)",
             showline: true,
@@ -361,7 +356,7 @@ function plotGraphCom(chart){
     var j;
 	var data50 = [];
 
-    for(j = 0; j<5; j++){
+    for(j = 0; j<4; j++){
     	var data = []
     	var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[j])
    		if(j==0){
@@ -392,7 +387,7 @@ function plotGraphCom(chart){
 	}
 	var trace1 = [{
 		x: data50,
-		y: [50, 50, 50, 50, 50],
+		y: [50, 50, 50, 50],
 		mode: 'markers',
 		name: "50% effect"
 	}];
