@@ -93,7 +93,7 @@ function updateAffinityCom(value){
         traces: [0,1,2,3,4], 
         layout: {}
         },animation)
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 } 
 
@@ -112,7 +112,7 @@ function updateEfficacyCom(value){
         traces: [0,1,2,3,4], 
         layout: {}
         },animation)
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
 } 
@@ -132,7 +132,7 @@ function updateDensityCom(value){
         traces: [0,1,2,3,4], 
         layout: {}
         },animation)
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
 } 
@@ -152,7 +152,7 @@ function updateEfficiencyCom(value){
         traces: [0,1,2,3,4], 
         layout: {}
         },animation)
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
 } 
@@ -174,7 +174,7 @@ function updateAgoAffinity(value){
         traces: [0,1,2,3,4], 
         layout: {}
         },animation)
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
 }
@@ -195,67 +195,137 @@ function updateAgoAffinityLog(value){
         traces: [0,1,2,3,4], 
         layout: {}
         },animation)
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
 }
 
 function updateAntagonist1(value){
     antval1 = value;
-    antlogval1 = Math.log10(value);
-    document.getElementById("antlog1").value = antlogval1.toFixed(2);
+    agoconcarr[1] = Math.log10(value);
+    document.getElementById("antlog1").value = agoconcarr[1].toFixed(2);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+
+    //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
+    Plotly.animate("quantitative",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
 }
 
 function updateAntagonistLog1(value){
-    antlogval1 = value;
+    agoconcarr[1] = value;
     antval1 = Math.pow(10, value);
     document.getElementById("ant1").value = antval1.toExponential(2);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+
+    //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
+    Plotly.animate("quantitative",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
 }
 
 function updateAntagonist2(value){
     antval2 = value;
-    antlogval2 = Math.log10(value);
-    document.getElementById("antlog2").value = antlogval2.toFixed(2);
+    agoconcarr[2] = Math.log10(value);
+    document.getElementById("antlog2").value = agoconcarr[2].toFixed(2);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+
+    //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
+    Plotly.animate("quantitative",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
 }
 
 function updateAntagonistLog2(value){
-    antlogval2 = value;
+    agoconcarr[2] = value;
     antval2 = Math.pow(10, value);
     document.getElementById("ant2").value = antval2.toExponential(2);
-    updateEverything();
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
-    Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
+    //I'm doing something wrong if I try just place lineData into newData, below works though
+    updateEverything();
+    Plotly.animate("quantitative",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
+    Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonist3(value){
     antval3 = value;
-    antlogval3 = Math.log10(value);
-    document.getElementById("antlog3").value = antlogval3.toFixed(2);
-    updateEverything();
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
-    Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    agoconcarr[3] = Math.log10(value);
+    document.getElementById("antlog3").value = agoconcarr[3].toFixed(2);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
+    //I'm doing something wrong if I try just place lineData into newData, below works though
+    updateEverything();
+    Plotly.animate("quantitative",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
+    Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonistLog3(value){
-    antlogval3 = value;
+    agoconcarr[3] = value;
     antval3 = Math.pow(10, value);
     document.getElementById("ant3").value = antval3.toExponential(2);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+
+    //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
-    schildData = calcSchild(antlogval1, antlogval2, antlogval3, logdr1, logdr2, logdr3);
+    Plotly.animate("quantitative",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
 }
