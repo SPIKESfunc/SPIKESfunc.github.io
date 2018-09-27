@@ -16,61 +16,110 @@ var animation = {
     }
 }
 
+function checkSliderMinEff(){
+    let ret = false;
+    if(document.getElementById("affeffslider").value == 4){
+        ret = true
+    }
+    if(document.getElementById("effeffslider").value == -0.3){
+        ret = true
+    }
+    if(document.getElementById("deneffslider").value == -0.3){
+        ret = true
+    }
+    if(document.getElementById("efficieffslider").value == -0.3){
+        ret = true
+    }
+    return ret
+}
+
 function updateAffinityEff(value){
     affeff = value;
-    lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[0]);
-    lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[1]);
-    lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[2]);
-    lineData3 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[3]);
-    lineData4 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[4]);
-    Plotly.animate("alloeffic",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
+    if(checkSliderMinEff()){
+        Plotly.restyle("alloeffic", 'visible', false)
+        graphAlert("effalert")
+    }
+    else{
+        graphRemoveAlert("effalert")
+        Plotly.restyle("alloeffic", 'visible', true)
+        lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[0]);
+        lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[1]);
+        lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[2]);
+        lineData3 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[3]);
+        lineData4 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[4]);
+        Plotly.animate("alloeffic",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+    }
 
 } 
 
 function updateEfficacyEff(value){
     effeff = value;
-    lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[0]);
-    lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[1]);
-    lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[2]);
-    lineData3 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[3]);
-    lineData4 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[4]);
-    Plotly.animate("alloeffic",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
+    if(checkSliderMinEff()){
+        Plotly.restyle("alloeffic", 'visible', false)
+        graphAlert("effalert")
+    }
+    else{
+        graphRemoveAlert("effalert")
+        Plotly.restyle("alloeffic", 'visible', true)
+        lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[0]);
+        lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[1]);
+        lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[2]);
+        lineData3 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[3]);
+        lineData4 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[4]);
+        Plotly.animate("alloeffic",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+    }
 } 
 
 function updateDensityEff(value){
     deneff = value;
-    lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[0]);
-    lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[1]);
-    lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[2]);
-    lineData3 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[3]);
-    lineData4 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[4]);
-    Plotly.animate("alloeffic",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
+    if(checkSliderMinEff()){
+        Plotly.restyle("alloeffic", 'visible', false)
+        graphAlert("effalert")
+    }
+    else{
+        graphRemoveAlert("effalert")
+        Plotly.restyle("alloeffic", 'visible', true)
+        lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[0]);
+        lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[1]);
+        lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[2]);
+        lineData3 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[3]);
+        lineData4 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[4]);
+        Plotly.animate("alloeffic",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+    }
 } 
 
 function updateEfficiencyEff(value){
     efficeff = value;
-    lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[0]);
-    lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[1]);
-    lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[2]);
-    lineData3 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[3]);
-    lineData4 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[4]);
-    Plotly.animate("alloeffic",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
+    if(checkSliderMinEff()){
+        Plotly.restyle("alloeffic", 'visible', false)
+        graphAlert("effalert")
+    }
+    else{
+        graphRemoveAlert("effalert")
+        Plotly.restyle("alloeffic", 'visible', true)
+        lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[0]);
+        lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[1]);
+        lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[2]);
+        lineData3 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[3]);
+        lineData4 = calcLinesEff(affeff,effeff,deneff,efficeff,agoaffeff,agoeffeff,agoconcarr[4]);
+        Plotly.animate("alloeffic",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+    }
 
 } 
 
