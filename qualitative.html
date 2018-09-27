@@ -76,7 +76,7 @@
 						<div class="col-lg-5" style="padding-top:50px">
 							<fieldset style="width: 400px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/KA)</label>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
 								<input type="range" autocomplete="off" name="affinity" id="affslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinity(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
@@ -96,7 +96,8 @@
 						</div>
 						<div class="col-lg-7">
 							<fieldset style="display:block">
-								<legend>Agonist Graph</legend>
+								<legend>Agonist Dose Response Curve</legend>
+								<h5 class="warning" id="agoalert"></h5>
 								<div id="agonist"></div>
 							</fieldset>
 							<input id="reset" type="button" class="button" value="Reset" onclick="resetAgo()" style="float:right;">
@@ -110,7 +111,7 @@
 						<div class="col-lg-5" style="padding-top: 50px;">
 							<fieldset style="width: 400px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/KA)</label>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
 								<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityCom(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
@@ -138,6 +139,7 @@
 						<div class="col-lg-7">
 							<fieldset>
 								<legend>Competitive Graph</legend>
+								<h5 class="warning" id="comalert"></h5>
 								<div id="competitive"></div>
 							</fieldset>
 							<input id="reset" type="button" class="button" value="Reset" onclick="resetCom()" style="float:right;">
@@ -151,7 +153,7 @@
 						<div class="col-lg-5" style="padding-top: 50px;">
 							<fieldset style="width: 400px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/KA)</label>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
 								<input type="range" autocomplete="off" name="affinity" id="affirrslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityIrr(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
@@ -169,7 +171,7 @@
 							</fieldset>
 							<fieldset style="width: 400px;">
 								<legend>Irreversible Antagonist</legend>
-								<label for="agoaffinity">Affinity (&#8733 1/KB)</label>
+								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04"
 								 value="9" onchange="updateAgoAffinityIrr(this.value)">
 							</fieldset>
@@ -177,6 +179,7 @@
 						<div class="col-lg-7">
 							<fieldset>
 								<legend>Irreversible Graph</legend>
+								<h5 class="warning" id="irralert"></h5>
 								<div id="irreversible"></div>
 							</fieldset>
 							<input id="reset" type="button" class="button" value="Reset" onclick="resetIrr()" style="float:right;">
@@ -190,7 +193,7 @@
 						<div class="col-lg-5" style="padding-top: 50px;">
 							<fieldset style="width: 400px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/KA)</label>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
 								<input type="range" autocomplete="off" name="affinity" id="affaffslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityAff(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
@@ -208,7 +211,7 @@
 							</fieldset>
 							<fieldset style="width: 400px;">
 								<legend>Allosteric Antagonist</legend>
-								<label for="agoaffinity">Affinity (&#8733 1/KB)</label>
+								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9"
 								 onchange="updateAgoAffinityAff(this.value)">
 								<br><label for="effect">Effect on Agonist K<sub>A</sub> (&#945)</label>
@@ -220,6 +223,7 @@
 						<div class="col-lg-7">
 							<fieldset>
 								<legend>Allosteric Graph</legend>
+								<h5 class="warning" id="affalert"></h5>
 								<div id="alloaffin"></div>
 							</fieldset>
 							<input id="reset" type="button" class="button" value="Reset" onclick="resetAff()" style="float:right;">
@@ -233,7 +237,7 @@
 						<div class="col-lg-5" style="padding-top: 50px;">
 							<fieldset style="width: 400px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/KA)</label>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
 								<input type="range" autocomplete="off" name="affinity" id="affeffslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityEff(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
@@ -251,7 +255,7 @@
 							</fieldset>
 							<fieldset style="width: 400px;">
 								<legend>Allosteric Antagonist</legend>
-								<label for="agoaffinity">Affinity (&#8733 1/KB)</label>
+								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04"
 								 value="9" onchange="updateAgoAffinityEff(this.value)">
 								<br><label for="effect">Effect on Agonist &#949 (&#946)</label>
@@ -262,6 +266,7 @@
 						<div class="col-lg-7">
 							<fieldset>
 								<legend>Allosteric Graph</legend>
+								<h5 class="warning" id="effalert"></h5>
 								<div id="alloeffic"></div>
 							</fieldset>
 							<input id="reset" type="button" class="button" value="Reset" onclick="resetEff()" style="float:right;">
@@ -275,7 +280,7 @@
 						<div class="col-lg-5" style="padding-top: 5px;">
 							<fieldset style="width: 400px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/KA)</label>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
 								<input type="range" autocomplete="off" name="affinity" id="afffunslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityFun(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
@@ -293,7 +298,7 @@
 							</fieldset>
 							<fieldset style="width: 400px;">
 								<legend>Functional Antagonist</legend>
-								<label for="agoaffinity">Affinity (&#8733 1/KB)</label>
+								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="6" max="10" step="0.04"
 								 value="8" onchange="updateAgoAffinityFun(this.value)">
 								<br><label for="effect">Intrinsic Efficacy (&#949)</label>
@@ -316,6 +321,7 @@
 						<div class="col-lg-7" style="padding-top: 40px;">
 							<fieldset>
 								<legend>Functional Graph</legend>
+								<h5 class="warning" id="funalert"></h5>
 								<div id="functional"></div>
 							</fieldset>
 							<input id="reset" type="button" class="button" value="Reset" onclick="resetFun()" style="float:right;">

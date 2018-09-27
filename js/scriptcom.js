@@ -13,66 +13,113 @@ var animation = {
     }
 }
 
+function checkSliderMinCom(){
+    let ret = false;
+    if(document.getElementById("affcomslider").value == 4){
+        ret = true
+    }
+    if(document.getElementById("effcomslider").value == -0.3){
+        ret = true
+    }
+    if(document.getElementById("dencomslider").value == -0.3){
+        ret = true
+    }
+    if(document.getElementById("effcomslider").value == -0.3){
+        ret = true
+    }
+    return ret
+}
+
 function updateAffinityCom(value){
-    //newData = [];
     affcom = value;
-    //console.log(aff)
-    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
-    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
-    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
-    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
-    
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{
-    		data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
-     		traces: [0,1,2,3,4],
-     		layout: {}
-     		},animation)
+    if(checkSliderMinCom()){
+        Plotly.restyle("competitive", 'visible', false)
+        graphAlert("comalert")
+    }
+    else{
+        graphRemoveAlert("comalert")
+        Plotly.restyle("competitive", 'visible', true)
+        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
+        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+        
+        //I'm doing something wrong if I try just place lineData into newData, below works though
+        Plotly.animate("competitive",{
+                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
+                traces: [0,1,2,3,4],
+                layout: {}
+                },animation)
+    }
 } 
 
 function updateEfficacyCom(value){
     effcom = value;
-    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
-    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
-    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
-    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{
-    		data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
-     		traces: [0,1,2,3,4],
-     		layout: {}
-     		},animation)
+    if(checkSliderMinCom()){
+        Plotly.restyle("competitive", 'visible', false)
+        graphAlert("comalert")
+    }
+    else{
+        graphRemoveAlert("comalert")
+        Plotly.restyle("competitive", 'visible', true)
+        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
+        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+        //I'm doing something wrong if I try just place lineData into newData, below works though
+        Plotly.animate("competitive",{
+                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
+                traces: [0,1,2,3,4],
+                layout: {}
+                },animation)         
+    }
 
 } 
 
 function updateDensityCom(value){
     dencom = value;
-    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
-    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
-    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
-    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{
-    		data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
-     		traces: [0,1,2,3,4],
-     		layout: {}
-     		},animation)
+    if(checkSliderMinCom()){
+        Plotly.restyle("competitive", 'visible', false)
+        graphAlert("comalert")
+    }
+    else{
+        graphRemoveAlert("comalert")
+        Plotly.restyle("competitive", 'visible', true)
+        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
+        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);    //I'm doing something wrong if I try just place lineData into newData, below works though
+        Plotly.animate("competitive",{
+                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
+                traces: [0,1,2,3,4],
+                layout: {}
+                },animation)
+    }
 } 
 
 function updateEfficiencyCom(value){
     efficcom = value;
-    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
-    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
-    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
-    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("competitive",{
-    		data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
-     		traces: [0,1,2,3,4],
-     		layout: {}
-     		},animation)
+    if(checkSliderMinCom()){
+        Plotly.restyle("competitive", 'visible', false)
+        graphAlert("comalert")
+    }
+    else{
+        graphRemoveAlert("comalert")
+        Plotly.restyle("competitive", 'visible', true)
+        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
+        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);    //I'm doing something wrong if I try just place lineData into newData, below works though
+        Plotly.animate("competitive",{
+                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
+                traces: [0,1,2,3,4],
+                layout: {}
+                },animation)
+    }
 
 } 
 
@@ -151,13 +198,14 @@ function plotGraphCom(chart){
             title: "[Agonist] (log M)",
             showline: true,
             range: [-12,-2],
+            dtick: 1
             
         },
         yaxis:{
             title: "Effect (% Emax)",
             showline: true,
             range: [0,100],
-            tickvals: [0,20,40,60,80,100]
+            dtick: 10
 
         }
     }
