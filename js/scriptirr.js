@@ -14,66 +14,110 @@ var animation = {
     }
 }
 
+function checkSliderMinIrr(){
+    let ret = false;
+    if(document.getElementById("affirrslider").value == 4){
+        ret = true
+    }
+    if(document.getElementById("effirrslider").value == -0.3){
+        ret = true
+    }
+    if(document.getElementById("denirrslider").value == -0.3){
+        ret = true
+    }
+    if(document.getElementById("efficiirrslider").value == -0.3){
+        ret = true
+    }
+    return ret
+}
+
 function updateAffinityIrr(value){
     affirr = value;
+    if(checkSliderMinIrr()){
+        Plotly.restyle("irreversible", 'visible', false)
+        graphAlert("irralert")
+    }
+    else{
+        graphRemoveAlert("irralert")
+        Plotly.restyle("irreversible", 'visible', true)
+        lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+        Plotly.animate("irreversible",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+    }
 
-    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
-    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
-    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
-    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
-    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
-    Plotly.animate("irreversible",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
-
-} 
+}
 
 function updateEfficacyIrr(value){
     effirr = value;
-
-    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
-    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
-    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
-    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
-    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
-    Plotly.animate("irreversible",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
-
+    if(checkSliderMinIrr()){
+        Plotly.restyle("irreversible", 'visible', false)
+        graphAlert("irralert")
+    }
+    else{
+        graphRemoveAlert("irralert")
+        Plotly.restyle("irreversible", 'visible', true)
+        lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+        Plotly.animate("irreversible",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+    }
 } 
 
 function updateDensityIrr(value){
     denirr = value;
-
-    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
-    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
-    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
-    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
-    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
-    Plotly.animate("irreversible",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
+    if(checkSliderMinIrr()){
+        Plotly.restyle("irreversible", 'visible', false)
+        graphAlert("irralert")
+    }
+    else{
+        graphRemoveAlert("irralert")
+        Plotly.restyle("irreversible", 'visible', true)
+        lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+        Plotly.animate("irreversible",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+    }
 } 
 
 function updateEfficiencyIrr(value){
     efficirr = value;
-
-    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
-    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
-    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
-    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
-    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
-    Plotly.animate("irreversible",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
+    if(checkSliderMinIrr()){
+        Plotly.restyle("irreversible", 'visible', false)
+        graphAlert("irralert")
+    }
+    else{
+        graphRemoveAlert("irralert")
+        Plotly.restyle("irreversible", 'visible', true)
+        lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+        Plotly.animate("irreversible",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+    }
 
 } 
 
