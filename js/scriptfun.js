@@ -22,13 +22,13 @@ function checkSliderMinFun(){
     if(document.getElementById("afffunslider").value == 4){
         ret = true
     }
-    if(document.getElementById("efffunslider").value == -0.3){
+    if(document.getElementById("efffunslider").value == 0){
         ret = true
     }
-    if(document.getElementById("denfunslider").value == -0.3){
+    if(document.getElementById("denfunslider").value == 0){
         ret = true
     }
-    if(document.getElementById("efficifunslider").value == -0.3){
+    if(document.getElementById("efficifunslider").value == 0){
         ret = true
     }
     return ret
