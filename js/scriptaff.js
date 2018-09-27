@@ -55,9 +55,7 @@ function updateAffinityAff(value){
             traces: [0,1,2,3,4,5], 
             layout: {}
             },animation)
-    }
-    
-	 
+    }	 
 }  
 
 function updateEfficacyAff(value){
