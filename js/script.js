@@ -28,52 +28,105 @@ function calc50(lineData){
 	return lineData[0][index];
 }
 
-function updateAffinity(value){
-    //newData = [];
-    affago = value;
-    //console.log(aff)
-    lineData = calcLines(affago,effago,denago,efficago);
-    calc50aff = calc50(lineData);
+function graphAlert(div){
 
-    /*var graph = {
-        y: lineData[1],
-        traces:[0]
+    document.getElementById(div).innerHTML = "Agonist property has decreased too far to sustain curve"
+}
+
+function graphRemoveAlert(div){
+    //Determine which graph to remove alert from
+    document.getElementById(div).innerHTML = ""
+}
+
+function checkSliderMinAgo(){
+    let ret = false;
+    if(document.getElementById("affslider").value == 4){
+        ret = true
     }
-    console.log(lineData)
-    newData.push(graph);*/
-    
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+    if(document.getElementById("effslider").value == -0.3){
+        ret = true
+    }
+    if(document.getElementById("denslider").value == -0.3){
+        ret = true
+    }
+    if(document.getElementById("efficislider").value == -0.3){
+        ret = true
+    }
+    return ret
+}
 
+function updateAffinity(value){
+    affago = value;
+    if(checkSliderMinAgo()){
+        Plotly.restyle("agonist", 'visible', false)
+        graphAlert("agoalert")
+    }
+    else{
+        graphRemoveAlert("agoalert")
+        Plotly.restyle("agonist", 'visible', true)
+        lineData = calcLines(affago,effago,denago,efficago);
+        calc50aff = calc50(lineData);
+
+        /*var graph = {
+            y: lineData[1],
+            traces:[0]
+        }
+        newData.push(graph);*/
+        
+        //I'm doing something wrong if I try just place lineData into newData, below works though
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+    }
 } 
 
 function updateEfficacy(value){
     effago = value;
-    lineData = calcLines(affago,effago,denago,efficago);
-    calc50aff = calc50(lineData);
+    if(checkSliderMinAgo()){
+        Plotly.restyle("agonist", 'visible', false)
+        graphAlert("agoalert")
+    }
+    else{
+        graphRemoveAlert("agoalert")
+        Plotly.restyle("agonist", 'visible', true)
+        lineData = calcLines(affago,effago,denago,efficago);
+        calc50aff = calc50(lineData);
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
-
+        //I'm doing something wrong if I try just place lineData into newData, below works though
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+    }
 } 
 
 function updateDensity(value){
     denago = value;
-    lineData = calcLines(affago,effago,denago,efficago);
-    calc50aff = calc50(lineData);
+    if(checkSliderMinAgo()){
+        Plotly.restyle("agonist", 'visible', false)
+        graphAlert("agoalert")
+    }
+    else{
+        graphRemoveAlert("agoalert")
+        Plotly.restyle("agonist", 'visible', true)
+        lineData = calcLines(affago,effago,denago,efficago);
+        calc50aff = calc50(lineData);
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+        //I'm doing something wrong if I try just place lineData into newData, below works though
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+    }
 } 
 
 function updateEfficiency(value){
     efficago = value;
-    lineData = calcLines(affago,effago,denago,efficago);
-    calc50aff = calc50(lineData);
+    if(checkSliderMinAgo()){
+        Plotly.restyle("agonist", 'visible', false)
+        graphAlert("agoalert")
+    }
+    else{
+        graphRemoveAlert("agoalert")
+        Plotly.restyle("agonist", 'visible', true)
+        lineData = calcLines(affago,effago,denago,efficago);
+        calc50aff = calc50(lineData);
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
-
+        //I'm doing something wrong if I try just place lineData into newData, below works though
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+    }
 } 
 
 function resetAgo(){
