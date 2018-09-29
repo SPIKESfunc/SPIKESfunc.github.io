@@ -17,18 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   color: #5a5a5a;
-  margin-bottom: 7.5em;
 }
-  
-/*footer{
-	margin: 2%;
-	margin-top:auto;
-    padding:10px 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height:20px;
-}*/
 
 fieldset { 
     display: inline;
@@ -284,15 +273,13 @@ input[type=range]:focus::-ms-fill-upper {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  margin-bottom: 4.5em;
 }
 
 .footer {
-  background: rgba(238, 238, 238, 0.9);
-  padding-top: 1em;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  background-color: rgba(238, 238, 238, 0.9);
+  padding: 2rem 0;
+  padding-bottom: 1rem;
 }
 
 .header {
