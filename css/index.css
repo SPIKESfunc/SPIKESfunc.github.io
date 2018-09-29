@@ -12,12 +12,9 @@
 }
 
 .footer {
-  background: rgba(238, 238, 238, 0.9);
-  padding-top: 1em;
-  position: relative;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  background-color: rgba(238, 238, 238, 0.9);
+  padding: 2rem 0;
+  padding-bottom: 1rem;
 }
 
 .header {
@@ -53,9 +50,30 @@ html {
 }
 
 .mb-6 {
-    margin-bottom: 20em;
+  margin-bottom: 20em;
+}
+
+.parallax {
+  min-height: 600px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.img1 {
+  background-image: url("../images/slide1.jpg");
+}
+
+.img2 {
+  background-image: url("../images/slide2.jpg");
+}
+
+.img3 {
+  background-image: url("../images/slide3.jpg");
 }
 
 .jumbotron {
-    background-color: #ffd0b0;
+  margin-bottom: 0;
+  background-color: rgb(255, 255, 255);
 }
