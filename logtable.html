@@ -8,81 +8,51 @@
 
 	<link rel="shortcut icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
+
 
 
 	<!-- Add in plotly.js files still to go, might put them in body -->
 
-	<link href="css/index.css" rel="stylesheet">
+	<link href="css/stylesheet.css" rel="stylesheet">
 
 </head>
 
-<body class="parallax">
-
+<body>
 	<header>
 		<nav class="navbar navbar-expand-md fixed-top header">
 			<div class="container">
-				<a class="navbar-brand nav-style active" href="index.html">SPIKEStudy</a>
+				<a class="navbar-brand nav-style" href="index.html">SPIKEStudy</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 				 aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="qualitative.html">Dose-Response Visualiser</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="quantitative.html">Schild Plot Generator</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="quiz.html">Schild Plot Analysis Quiz</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="logtable.html" target="_blank">-logK<sub>i</sub> Values</a>
-						</li>
-					</ul>
-				</div>
 			</div>
 		</nav>
 	</header>
+	<div id="page" class="container box-size bg-box p-4">
+		<div class="col-lg-12 text-center" id="quizsection">
+			<fieldset>
+				<legend>-logK<sub>i</sub> Values</legend>
+				<table class="table-responsive">
+					<tbody>
+						<tr>
+							<td>Antagonist</td>
+							<td>-logK<sub>i</sub> Values</td>
+						</tr>						
+					</tbody>
+				</table>
+			</fieldset>
+		</div>
+	</div>
 
-	<div class="container d-flex h-100">
-		<div class="col-sm-12 my-auto text-center">
-			<h1 class="display-1">SPIKEStudy</h1>
-			<h2>Drug Dose Responses Interactive Learning Tool</h2>
-		</div>
-	</div>
-	<div class="jumbotron jumbotron-fluid h-50 mb-6">
-		<div class="container">
-			<h1 class="display-4">Dose-Response Visualiser</h1>
-			<p class="lead">This tool can be used in order to learn the effects of how drugs bind to receptors using SPIKES
-				analysis to qualitatively view changes to graphs, quantitatively alter them, and an interactive test tool to check
-				your knowledge.</p>
-			<button class="button" onclick="markAnswers()">Investigate the patterns!</button>
-		</div>
-	</div>
-	<div class="jumbotron parallax img1">
-	</div>
-	<div class="jumbotron jumbotron-fluid h-50 mb-6">
-		<div class="container">
-			<h1 class="display-4">Schild Plot Generator</h1>
-			<p class="lead">Quantitative analysis of the effect of competitive antagonists on agonist-induced effects is a
-				powerful method for identifying the receptors that mediate agonist-induced effects.</p>
-			<button class="button" onclick="markAnswers()">See it at work!</button>
-		</div>
-	</div>
-	<div class="jumbotron parallax img2">
-	</div>
-	<div class="jumbotron jumbotron-fluid h-50 mb-6">
-		<div class="container">
-			<h1 class="display-4">Schild Plot Analysis Quiz</h1>
-			<p class="lead">Quiz tool that students can use to develop competencies in interpreting Schild analyses.</p>
-			<button class="button" onclick="markAnswers()">Try the Quiz!</button>
-		</div>
-	</div>
-	<div class="jumbotron parallax img3">
-	</div>
-	<footer class="footer">
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>
+	<script type="text/javascript" src="js/triangle.js"></script>
+
+	<footer id="footer" class="footer" style="visibility: hidden;">
 		<div class="container">
 			<ul class="list-inline">
 				<li class="list-inline-item">
@@ -107,7 +77,8 @@
 					</div>
 					<div class="modal-body">
 						<p>Summary about the project<br />Created by Cam, Dan, Harry, Thai - students of CITS3200 UWA 2018,
-							directed by Associate Professor Peter Henry</p>
+							directed
+							by Associate Professor Peter Henry</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -152,13 +123,6 @@
 				</div>
 			</div>
 		</div>
-	</footer>
-	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
-	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>
-	<script type="text/javascript" src="js/triangle.js"></script>
-
-</body>
-
+	</footer> 
+</body> 
 </html>

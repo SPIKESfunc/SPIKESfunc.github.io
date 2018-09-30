@@ -1,13 +1,3 @@
-function loadingScreen() {
-    myVar = setTimeout(showPage, 1000);
-}
-
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("page").style.visibility = "visible";
-  document.getElementById("page").style.position = "relative";
-}
-
 var agoconcarr = [0, -9, -8, -7];
                     
 
@@ -25,9 +15,12 @@ var antlogval1 = document.getElementById("antlog1").defaultValue;
 var antlogval2 = document.getElementById("antlog2").defaultValue;
 var antlogval3 = document.getElementById("antlog3").defaultValue;
 
-
-
-
+$(document).ready(function () {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("page").style.visibility = "visible";
+  document.getElementById("page").style.position = "relative";
+  document.getElementById("footer").style.visibility = "visible";
+})
 
 var animation = {
     transition: {

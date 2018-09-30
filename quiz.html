@@ -17,7 +17,7 @@
 	<link href="css/stylesheet.css" rel="stylesheet">
 </head>
 
-<body onload="loadingScreen()">
+<body">
 	<header>
 		<nav class="navbar navbar-expand-md fixed-top header">
 			<div class="container">
@@ -29,13 +29,16 @@
 				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="qualitative.html">Qualitative</a>
+							<a class="nav-item nav-link nav-style" href="qualitative.html">Dose-Response Visualiser</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="quantitative.html">Quantitative Schild</a>
+							<a class="nav-item nav-link nav-style" href="quantitative.html">Schild Plot Generator</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-item nav-link nav-style active" href="quiz.html">Quiz</a>
+							<a class="nav-item nav-link nav-style active" href="quiz.html">Schild Plot Analysis Quiz</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-item nav-link nav-style" href="logtable.html" target="_blank">-logK<sub>i</sub> Values</a>
 						</li>
 					</ul>
 				</div>
@@ -45,6 +48,7 @@
 	<div id="loader"></div>
 	<div id="page" class="container-fluid text-center bg-box p-4" style="visibility: hidden; position: absolute;">
 		<div id="quizcontainer">
+			<h1 class="d-flex justify-content-center">Schild Plot Analysis Quiz</h1>
 			<div class="col-lg-12" id="quizsection">
 				<div class="row" style="padding-top:20px">
 					<div class="col-lg-5">
@@ -56,7 +60,7 @@
 					<div class="col-lg-7">
 						<form id="form1" name="tableform">
 							<fieldset>
-								<legend>Questions</legend>
+								<legend>SPIKES analysis of Schild Plot</legend>
 								<table class="table-responsive">
 									<tbody>
 										<tr>
@@ -71,6 +75,7 @@
 											<td id="drug1"></td>
 											<td>
 												<select name="drug1shape" required>
+													<option style="display: none;"> </option>
 													<option value="linear">Linear</option>
 													<option value="nlinearup">Nonlinear upwards</option>
 													<option value="nlineardo">Nonlinear downwards</option>
@@ -81,6 +86,7 @@
 											</td>
 											<td>
 												<select name="drug1gradient" required>
+													<option style="display: none;"> </option>
 													<option value="=1">Gradient=1</option>
 													<option value="<1">Gradient<1</option> <option value=">1">Gradient>1</option>
 													<option value="0">Can't be sure</option>
@@ -88,6 +94,7 @@
 											</td>
 											<td>
 												<select name="drug1equal" required>
+													<option style="display: none;"> </option>
 													<option value="yes">Yes</option>
 													<option value="no">No</option>
 													<option value="0">Can't be sure</option>
@@ -110,6 +117,7 @@
 											<td id="drug2"></td>
 											<td>
 												<select name="drug2shape" required>
+													<option style="display: none;"> </option>
 													<option value="linear">Linear</option>
 													<option value="nlinearup">Nonlinear upwards</option>
 													<option value="nlineardo">Nonlinear downwards</option>
@@ -120,6 +128,7 @@
 											</td>
 											<td>
 												<select name="drug2gradient" required>
+													<option style="display: none;"> </option>
 													<option value="=1">Gradient=1</option>
 													<option value="<1">Gradient<1</option> <option value=">1">Gradient>1</option>
 													<option value="0">Can't be sure</option>
@@ -127,6 +136,7 @@
 											</td>
 											<td>
 												<select name="drug2equal" required>
+													<option style="display: none;"> </option>
 													<option value="yes">Yes</option>
 													<option value="no">No</option>
 													<option value="0">Can't be sure</option>
@@ -149,6 +159,7 @@
 											<td id="drug3"></td>
 											<td>
 												<select name="drug3shape" required>
+													<option style="display: none;"> </option>
 													<option value="linear">Linear</option>
 													<option value="nlinearup">Nonlinear upwards</option>
 													<option value="nlineardo">Nonlinear downwards</option>
@@ -159,6 +170,7 @@
 											</td>
 											<td>
 												<select name="drug3gradient" required>
+													<option style="display: none;"> </option>
 													<option value="=1">Gradient=1</option>
 													<option value="<1">Gradient<1</option> <option value=">1">Gradient>1</option>
 													<option value="0">Can't be sure</option>
@@ -166,6 +178,7 @@
 											</td>
 											<td>
 												<select name="drug3equal" required>
+													<option style="display: none;"> </option>
 													<option value="yes">Yes</option>
 													<option value="no">No</option>
 													<option value="0">Can't be sure</option>
@@ -188,6 +201,7 @@
 											<td id="drug4"></td>
 											<td>
 												<select name="drug4shape" required>
+													<option style="display: none;"> </option>
 													<option value="linear">Linear</option>
 													<option value="nlinearup">Nonlinear upwards</option>
 													<option value="nlineardo">Nonlinear downwards</option>
@@ -198,6 +212,7 @@
 											</td>
 											<td>
 												<select name="drug4gradient" required>
+													<option style="display: none;"> </option>
 													<option value="=1">Gradient=1</option>
 													<option value="<1">Gradient<1</option> <option value=">1">Gradient>1</option>
 													<option value="0">Can't be sure</option>
@@ -205,6 +220,7 @@
 											</td>
 											<td>
 												<select name="drug4equal" required>
+													<option style="display: none;"> </option>
 													<option value="yes">Yes</option>
 													<option value="no">No</option>
 													<option value="0">Can't be sure</option>
@@ -227,6 +243,7 @@
 											<td id="drug5"></td>
 											<td>
 												<select name="drug5shape" required>
+													<option style="display: none;"> </option>
 													<option value="linear">Linear</option>
 													<option value="nlinearup">Nonlinear upwards</option>
 													<option value="nlineardo">Nonlinear downwards</option>
@@ -237,6 +254,7 @@
 											</td>
 											<td>
 												<select name="drug5gradient" required>
+													<option style="display: none;"> </option>
 													<option value="=1">Gradient=1</option>
 													<option value="<1">Gradient<1</option> <option value=">1">Gradient>1</option>
 													<option value="0">Can't be sure</option>
@@ -244,6 +262,7 @@
 											</td>
 											<td>
 												<select name="drug5equal" required>
+													<option style="display: none;"> </option>
 													<option value="yes">Yes</option>
 													<option value="no">No</option>
 													<option value="0">Can't be sure</option>
@@ -268,6 +287,7 @@
 						<form id="form1" name="antagonistform">
 							<label for "drug5reason">Why might the ant3311 Schild plot shape be nonlinear &/or slope &#8800 1.0?</label>
 							<select name="drug5reason" required>
+								<option style="display: none;"> </option>
 								<option value="allosteric">Ant3321 acts allosterically</option>
 								<option value="irreversible">Ant3321 acts irreversibly</option>
 								<option value="toxic">High [Ant3321] are toxic</option>
@@ -278,10 +298,13 @@
 					</div>
 					<!-- </form> -->
 				</div>
-				<div class="row" style="padding-top:20px">
-					<div class="col-lg-8" align="left">
+				<div class="row" style="padding-top:20px;">
+					<div class="col-lg-5" align="center">
+						<button class="button" onclick="markAnswers()">Submit Answers</button>
+					</div>
+					<div class="col-lg-7">
 						<fieldset>
-							<legend>Receptor Choice</legend>
+							<legend>Your Solution</legend>
 							<form id="form1" name="receptorform" align="center">
 								<p>Based on your analysis which M receptor subtype is mediating the functional response to the agonist?</p>
 								<label for "m1">M1</label>
@@ -297,12 +320,6 @@
 								<!-- <input type="button" onclick="markAnswers()"/> -->
 							</form>
 						</fieldset>
-					</div>
-					<div class="col-lg-4" align="center">
-
-						<!-- <input type="button" form="form1" onclick="markAnswers()"> -->
-						<button class="button" onclick="markAnswers()">Submit Answers</button>
-
 					</div>
 				</div>
 			</div>
@@ -364,7 +381,7 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>
 	<script type="text/javascript" src="js/triangle.js"></script>
-	<footer class="footer">
+	<footer id="footer" class="footer" style="visibility: hidden;">
 		<div class="container">
 			<ul class="list-inline">
 				<li class="list-inline-item">
