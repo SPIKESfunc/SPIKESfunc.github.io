@@ -9,7 +9,7 @@ redraw();
 
 function redraw() {
   console.log("drawing " + document.body.clientWidth + "x" + height());
-  var pattern = t.generate(document.body.clientWidth, height());
+  var pattern = t.generate(document.body.clientWidth, (height()+300));
   document.body.setAttribute("style", "background-image: " + pattern.dataUrl);
 }
 
