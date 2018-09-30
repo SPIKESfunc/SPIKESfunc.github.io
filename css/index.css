@@ -1,0 +1,79 @@
+.nav-style {
+  border-top: 4px solid #f8f9fa;
+  transition: border-top 0.3s;
+}
+
+.nav-style:hover {
+  border-top: 4px solid rgb(255, 30, 30);
+}
+
+.nav-style.active {
+  border-top: 4px solid rgb(255, 30, 30);
+}
+
+.footer {
+  background-color: rgba(238, 238, 238, 0.9);
+  padding: 2rem 0;
+  padding-bottom: 1rem;
+}
+
+.header {
+  border-bottom: 2px solid rgb(255, 30, 30);
+  line-height: 40px;
+  box-shadow: 0 12px 6px -6px rgba(0, 0, 0, 0.2);
+  background-color: #f8f9fa;
+}
+
+nav .navbar-nav li a {
+  color: black;
+}
+
+nav .navbar-nav li a:hover {
+  color: rgb(255, 30, 30);
+}
+
+nav .navbar-nav li a.active {
+  color: rgb(255, 30, 30);
+}
+
+.navbar-brand {
+  color: black;
+}
+
+.navbar-brand:hover {
+  color: rgb(255, 30, 30);
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.mb-6 {
+  margin-bottom: 20em;
+}
+
+.parallax {
+  min-height: 600px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.img1 {
+  background-image: url("../images/slide1.jpg");
+}
+
+.img2 {
+  background-image: url("../images/slide2.jpg");
+}
+
+.img3 {
+  background-image: url("../images/slide3.jpg");
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  background-color: rgb(255, 255, 255);
+}
