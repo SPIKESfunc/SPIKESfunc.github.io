@@ -37,6 +37,7 @@ function calc50(lineData){
 }
 
 function resetQuant(){
+    agoconcarr = [0, -9, -8, -7];
     affcom = document.getElementById("affcomslider").value = document.getElementById("affcomslider").defaultValue;
     effcom = document.getElementById("effcomslider").value = document.getElementById("effcomslider").defaultValue;
     dencom = document.getElementById("dencomslider").value = document.getElementById("dencomslider").defaultValue;
@@ -62,7 +63,6 @@ function resetQuant(){
         traces: [0,1,2,3,4], 
         layout: {}
         },animation)
-    var agoconcarr = [0, -9, -8, -7];
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
