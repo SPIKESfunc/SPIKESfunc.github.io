@@ -1,13 +1,3 @@
-function loadingScreen() {
-    myVar = setTimeout(showPage, 1000);
-}
-
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("page").style.visibility = "visible";
-  document.getElementById("page").style.position = "relative";
-}
-
 var drugsmaster =[
     {name:"Pirenzepine",receptors: [8.2,6.5,6.9,7.4,7.2]},
     {name:"Methotramine",receptors: [6.7,7.7,6.0,7.0,6.3]},
@@ -45,9 +35,13 @@ $(document).ready(function () {
 	$('#incorrectFeedback').hide()
 	$('#correctFeedback').hide()
 	selectDrugs();
-	PlotQuizSchild("quizschild")
-	PlotQuizSchild("actualanswer")
-	PlotQuizSchild("correctanswer")
+	PlotQuizSchild("quizschild",0.2)
+	PlotQuizSchild("actualanswer",1.0)
+	PlotQuizSchild("correctanswer",1.0)
+	document.getElementById("loader").style.display = "none";
+  	document.getElementById("page").style.visibility = "visible";
+  	document.getElementById("page").style.position = "relative";
+  	document.getElementById("footer").style.visibility = "visible";
 	
 })
 
@@ -133,10 +127,10 @@ function selectDrugs(){
 				[[0,0,0],[0,0,0]],
 				];
 
-	for(i=0;i<3;i++){
-	lb1 = 1-drugs[i].receptors[recep];
-	lb2 = 2-drugs[i].receptors[recep];
-	lb3 = 3-drugs[i].receptors[recep];
+	for(i=0;i<4;i++){
+	lb1 = 0.5-drugs[i].receptors[recep];
+	lb2 = 1.5-drugs[i].receptors[recep];
+	lb3 = 2.5-drugs[i].receptors[recep];
 	
 	lDR1 = (drugs[i].receptors[recep]+lb1) * error[i]; //add error adjustment, keep gradient = to 1
 	lDR2 = (drugs[i].receptors[recep]+lb2) * error[i] - (error[i]-1); 
@@ -145,9 +139,9 @@ function selectDrugs(){
 	plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
 	//plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
 	}
-	lb = 1.5-drugs[3].receptors[recep];
-	lDR = (drugs[3].receptors[recep]+lb) * error[3];
-	plotPoints[3]=[[lb],[lDR]];
+	//lb = 1.5-drugs[3].receptors[recep];
+	//lDR = (drugs[3].receptors[recep]+lb) * error[3];
+	//plotPoints[3]=[[lb],[lDR]];
 	//plotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
 
 	plotPoints[4] = [Ant3321[ant][examples[example]][0],Ant3321[ant][examples[example]][1]];
@@ -199,9 +193,7 @@ function markAnswers(){
 	//antFeedback()
 	$("#quizcontainer").hide();
 	$('#feedbackcontainer').show();
-	PlotQuizSchild("actualanswer")
-	console.log(ans)
-	console.log(ans.length)
+	PlotQuizSchild("actualanswer",0.2)
 	if(ans[ans.length-2].value == Ant3321[ant].type){
 		console.log("drug 5 reason is correct")
 		var reason = "Well done! You got the correct reason for why the Schild plot for ant3321 was nonlinear!";
@@ -222,7 +214,7 @@ function markAnswers(){
 		console.log("receptor is wrong")
 		$('#correctFeedback').hide()
 		$('#incorrectFeedback').show()
-		plotAnswerSchild("youranswer",ans[ans.length-1].value)
+		plotAnswerSchild("youranswer",ans[ans.length-1].value, ans[ans.length-2].value)
 		document.getElementById("recAnswerFeedback").innerHTML = "The receptor you chose (m" + (parseInt(ans[ans.length-1].value)+1) + "), is incorrect, and produces this plot:";
 		document.getElementById("recIncorrectFeedback").innerHTML = "The correct answer of (m" + (recep + 1) + ") produced this plot:";
 
@@ -237,9 +229,9 @@ function quizReturn(){
 	$('#incorrectFeedback').hide()
 	$('#correctFeedback').hide()
 	selectDrugs();
-	PlotQuizSchild("quizschild")
-	PlotQuizSchild("actualanswer")
-	PlotQuizSchild("correctanswer")
+	PlotQuizSchild("quizschild",0.2)
+	PlotQuizSchild("actualanswer",1.0)
+	PlotQuizSchild("correctanswer",1.0)
 }
 
 // Schlid
@@ -251,7 +243,7 @@ var animation = {
 	}
 }
 
-function plotAnswerSchild(chart,rec){
+function plotAnswerSchild(chart, rec, antans){
 	console.log("red is"+rec)
 	intrec = parseInt(rec)
 	var layout = {
@@ -273,10 +265,10 @@ function plotAnswerSchild(chart,rec){
 				[[0,0,0],[0,0,0]],
 				[[0],[0]]
 				];
-	for(i=0;i<3;i++){
-		lb1 = 1-drugs[i].receptors[rec];
-		lb2 = 2-drugs[i].receptors[rec];
-		lb3 = 3-drugs[i].receptors[rec];
+	for(i=0;i<4;i++){
+		lb1 = 0.5-drugs[i].receptors[rec];
+		lb2 = 1.5-drugs[i].receptors[rec];
+		lb3 = 2.5-drugs[i].receptors[rec];
 		
 		lDR1 = drugs[i].receptors[rec]+lb1;
 		lDR2 = drugs[i].receptors[rec]+lb2;
@@ -285,15 +277,23 @@ function plotAnswerSchild(chart,rec){
 		ansPlotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
 		//ansPlotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
 	}
-	lb = 1.5-drugs[3].receptors[rec];
-	lDR = drugs[3].receptors[rec]+lb;
-	ansPlotPoints[3]=[[lb],[lDR]]
+	var ii;
+	for(ii = 0;ii<4;ii++){
+		if(antans==Ant3321[ii].type){
+			console.log("this one");
+			ansPlotPoints[4] = [Ant3321[ii][examples[example]][0],Ant3321[ant][examples[example]][1]];
+		}
+	}
+
+	//lb = 1.5-drugs[3].receptors[rec];
+	//lDR = drugs[3].receptors[rec]+lb;
+	//ansPlotPoints[3]=[[lb],[lDR]]
 	//ansPlotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
 
 	Plotly.newPlot(chart,data,layout, {responsive: true})
 	//var data = []
 	var jj
-	for(jj = 0;jj<4;jj++){
+	for(jj = 0;jj<5;jj++){
 		var data = []
 		var eqn1 = {
 			x: ansPlotPoints[jj][0],
@@ -310,21 +310,22 @@ function plotAnswerSchild(chart,rec){
 	}
 }
 
-function PlotQuizSchild(chart){
+function PlotQuizSchild(chart, ticksize){
+	console.log(ticksize)
 	var layout = {
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
 			range:[-8.0,-2.0],
-			dtick: 0.25,
-			ticks: 'outside',
-			tickwidth:4
+			dtick: ticksize,
+			ticks: 'outside'
 		},
 		yaxis:{
 			title:"Log(DR-1)",
 			showline: true,
 			range:[0.0,4.0],
 		},
+		showlegend: false
 	}
 	var data = [];
 	Plotly.newPlot(chart,data,layout)
@@ -335,11 +336,27 @@ function PlotQuizSchild(chart){
 		var eqn1 = {
 			x: plotPoints[jj][0],
 			y: plotPoints[jj][1],
-			name: drugs[jj].name,
 			mode: 'lines+markers',
 			line: {
 				width: 3
 			}
+		}
+		switch(jj){
+			case 0:
+				document.getElementById("drug"+(jj+1)).style.color='#1f77b4';
+				break;
+			case 1:
+				document.getElementById("drug"+(jj+1)).style.color='#ff7f0e';
+				break;
+			case 2:
+				document.getElementById("drug"+(jj+1)).style.color='#2ca02c';
+				break;
+			case 3:
+				document.getElementById("drug"+(jj+1)).style.color='#d62728';
+				break;
+			case 4:
+				document.getElementById("drug"+(jj+1)).style.color='#9467bd';
+				break;
 		}
 		data.push(eqn1);
 		//console.log(data)

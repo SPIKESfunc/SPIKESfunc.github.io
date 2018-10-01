@@ -9,14 +9,13 @@
 	<link rel="shortcut icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-	<!-- Add in plotly.js files still to go, might put them in body -->
+	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 
 	<link href="css/stylesheet.css" rel="stylesheet">
 
 </head>
 
-<body onload="loadingScreen()">
+<body>
 	<header>
 		<nav class="navbar navbar-expand-md fixed-top header">
 			<div class="container">
@@ -28,13 +27,16 @@
 				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="qualitative.html">Qualitative</a>
+							<a class="nav-item nav-link nav-style" href="qualitative.html">Dose-Response Visualiser</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-item nav-link nav-style active" href="quantitative.html">Quantitative Schild</a>
+							<a class="nav-item nav-link nav-style active" href="quantitative.html">Schild Plot Generator</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="quiz.html">Quiz</a>
+							<a class="nav-item nav-link nav-style" href="quiz.html">Schild Plot Analysis Quiz</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-item nav-link nav-style" href="logtable.html" target="_blank">-logK<sub>i</sub> Values</a>
 						</li>
 					</ul>
 				</div>
@@ -43,7 +45,6 @@
 	</header>
 	<div id="loader"></div>
 	<div id="page" class="container box-size bg-box p-4" style="visibility: hidden; position: absolute;">
-		<br>
 		<h1 class="d-flex justify-content-center">Schild Plot Generator</h1>
 		<br>
 		<div class="col col-lg-12">
@@ -148,7 +149,7 @@
 	<script type="text/javascript" src="js/triangle.js"></script>
 
 
-	<footer class="footer">
+	<footer id="footer" class="footer" style="visibility: hidden;">
 		<div class="container">
 			<ul class="list-inline">
 				<li class="list-inline-item">
