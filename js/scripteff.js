@@ -217,6 +217,8 @@ function calcLinesEff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
+var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"]
+
 function plotGraphEff(chart){
 
     var layout = {
@@ -247,7 +249,8 @@ function plotGraphEff(chart){
                 mode: "lines",
                 name: 0+"nM",
                 line: {
-                width: 1
+                    color: linecolours[j],
+                    width: 1
                 }
             }
         }
@@ -258,7 +261,8 @@ function plotGraphEff(chart){
                 mode: "lines",
                 name: 10**agoconcarr[j]*1000000000+"nM",
                 line: {
-                width: 1
+                    color: linecolours[j],
+                    width: 1
                 }
             }
         }

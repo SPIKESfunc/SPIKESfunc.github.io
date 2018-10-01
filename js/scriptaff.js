@@ -232,6 +232,8 @@ function calc50(lineData){
 	return lineData[0][index];
 }
 
+var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"]
+
 function plotGraphAff(chart){
 
     var layout = {
@@ -263,7 +265,8 @@ function plotGraphAff(chart){
                 mode: "lines",
                 name: 0+"nM",
                 line: {
-                width: 1
+                    color: linecolours[j],
+                    width: 1
                 }
             }
         }
@@ -274,7 +277,8 @@ function plotGraphAff(chart){
                 mode: "lines",
                 name: 10**agoconcarr[j]*1000000000+"nM",
                 line: {
-                width: 1
+                    color: linecolours[j],
+                    width: 1
                 }
             }
         }

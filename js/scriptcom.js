@@ -192,6 +192,8 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
+var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"]
+
 function plotGraphCom(chart){
     var layout = {
         xaxis:{
@@ -220,7 +222,8 @@ function plotGraphCom(chart){
        			mode: "lines",
        			name: 0+"nM",
        			line: {
-       	    	width: 1
+                    color: linecolours[j],
+                    width: 1
     	    	}
     		}
    		}
@@ -230,9 +233,10 @@ function plotGraphCom(chart){
         		y: lineData[1],
        			mode: "lines",
        			name: 10**agoconcarr[j]*1000000000+"nM",
-       			line: {
-       	    	width: 1
-    	    	}
+                line: {
+                    color: linecolours[j],
+                    width: 1
+                }
     		}
     	}
     	data.push(graph);

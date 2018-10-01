@@ -205,6 +205,7 @@ function plotGraph(chart){
         y: lineData[1],
         mode: "lines",
         line: {
+            color: '#000000',
             width: 1
         }
     }
@@ -222,41 +223,3 @@ function plotGraph(chart){
 	Plotly.plot(chart,trace1,layout, {responsive: true});
 }
 plotGraph("agonist");
-
-
-
-
-/*
-Plotly.plot('graph', [{
-    x: [-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2],
-    y: [0,]
-  }], {
-      sliders: [
-        {
-          label: 'SLider 1',
-          pad: {t: 30},
-          currentvalue: {
-            xanchor: 'right',
-            prefix: 'color: ',
-            font: {color: '#888', size: 20}
-          },
-        steps: [{
-          label: 'red',
-          method: 'restyle',
-          args: ['line.color', 'red']
-        }, {
-          label: 'green',
-          method: 'restyle',
-          args: ['line.color', 'green']
-        }, {
-          label: 'blue',
-          method: 'restyle',
-          args: ['line.color', 'blue']
-        }]
-      },
-      {
-        label: 'Slider 2',
-        pad: {t: 30},
-      }
-      ]
-    }); */
