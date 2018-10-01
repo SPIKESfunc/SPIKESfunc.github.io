@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 	<!-- Add in plotly.js files still to go, might put them in body -->
@@ -212,12 +212,29 @@
 								<input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="-0.3" max="0.7" step="0.01"
 								 value="0.2" onchange="updateEfficiencyAff(this.value)">
 							</fieldset>
-							<fieldset style="width: 400px;">
+							<fieldset style="width: 430px;">
 								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9"
 								 onchange="updateAgoAffinityAff(this.value)">
-								<br><label for="effect">Cooperativity Factor (&#945)</label>
+								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal" href="" data-target="#info1"><i class="fa fa-info"></i></a>
+								<div id="info1" class="modal fade" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title">Cooperativity Factor</h4>
+											</div>
+											<div class="modal-body">
+												<div class="box">
+												<p>The cooperativity factor indicates the maximum effect produced by the allosteric antagonist on agonist affinity – an a value of 0.1 indicates that the allosteric antagonist can produce up to a 10-fold reduction in agonist affinity. Observe the effects of changing the affinity and/or cooperativity factor (&#945) of the Allosteric Antagonist on the shape and position of the Agonist dose-response curve by moving the blue sliders to the right or left to increase or decrease the value of the characteristic, respectively.</p>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 								<input type="range" autocomplete="off" name="effect" id="agoeffaffslider" min="0" max="2" step="0.001" value="1"
 								 onchange="updateAgoEffectAff(this.value)">
 							</fieldset>
@@ -256,12 +273,29 @@
 								<input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="-0.3" max="0.7" step="0.01"
 								 value="0.2" onchange="updateEfficiencyEff(this.value)">
 							</fieldset>
-							<fieldset style="width: 400px;">
+							<fieldset style="width: 430px;">
 								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04"
 								 value="9" onchange="updateAgoAffinityEff(this.value)">
-								<br><label for="effect">Cooperativity Factor (&#946)</label>
+								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal" href="" data-target="#info2"><i class="fa fa-info"></i></a>
+								<div id="info2" class="modal fade" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title">Cooperativity Factor</h4>
+											</div>
+											<div class="modal-body">
+												<div class="box">
+												<p>The cooperativity factor indicates the maximum effect produced by the allosteric antagonist on agonist affinity – an a value of 0.1 indicates that the allosteric antagonist can produce up to a 10-fold reduction in agonist affinity. Observe the effects of changing the affinity and/or cooperativity factor (&#945) of the Allosteric Antagonist on the shape and position of the Agonist dose-response curve by moving the blue sliders to the right or left to increase or decrease the value of the characteristic, respectively.</p>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 								<input type="range" autocomplete="off" name="effect" id="agoeffeffslider" min="0" max="2" step="0.001" value="1"
 								 onchange="updateAgoEffectEff(this.value)">
 							</fieldset>

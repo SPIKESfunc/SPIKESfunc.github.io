@@ -36,30 +36,36 @@ function calc50(lineData){
 	return lineData[0][index];
 }
 
-/*
-var trace = {
-    x: [-10,-9,-8],
-    y: [10,20,30],
-    
-};
+function resetQuant(){
+    agoconcarr = [0, -9, -8, -7];
+    affcom = document.getElementById("affcomslider").value = document.getElementById("affcomslider").defaultValue;
+    effcom = document.getElementById("effcomslider").value = document.getElementById("effcomslider").defaultValue;
+    dencom = document.getElementById("dencomslider").value = document.getElementById("dencomslider").defaultValue;
+    efficcom = document.getElementById("efficicomslider").value = document.getElementById("efficicomslider").defaultValue;
+    agoaff = document.getElementById("agoaffnum").value = document.getElementById("agoaffnum").defaultValue;
+    agoafflog = document.getElementById("agoafflognum").value = document.getElementById("agoafflognum").defaultValue;
+    antval0 = document.getElementById("ant0").value = document.getElementById("ant0").defaultValue;
+    antval1 = document.getElementById("ant1").value = document.getElementById("ant1").defaultValue;
+    antval2 = document.getElementById("ant2").value = document.getElementById("ant2").defaultValue;
+    antval3 = document.getElementById("ant3").value = document.getElementById("ant3").defaultValue;
+    antlogval1 = document.getElementById("antlog1").value = document.getElementById("antlog1").defaultValue;
+    antlogval2 = document.getElementById("antlog2").value = document.getElementById("antlog2").defaultValue;
+    antlogval3 = document.getElementById("antlog3").value = document.getElementById("antlog3").defaultValue;
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
-//var data = [trace];
-var sliderSteps = [];
-for(i = -0.3;i<0.7;i+=0.01){
-    sliderSteps.push({
-        method:'animate',
-        label: i,
-              
-        args: [[i],{
-            
-            mode:'immediate',
-            transition:{duration: 100},
-            frame: {duration: 100, redraw: false},
-        }]
-    });
-    
-    
-}*/
+    updateEverything();
+    Plotly.animate("quantitative",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+        traces: [0,1,2,3,4], 
+        layout: {}
+        },animation)
+    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
+    Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+}
 
 function updateAffinityCom(value){
     //newData = [];
@@ -71,13 +77,6 @@ function updateAffinityCom(value){
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
     calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
-	
-    /*var graph = {
-        y: lineData[1],
-        traces:[0]
-    }
-    console.log(lineData)
-    newData.push(graph);*/
     
     //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();

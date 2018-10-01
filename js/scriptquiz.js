@@ -136,7 +136,8 @@ function selectDrugs(){
 	lDR2 = (drugs[i].receptors[recep]+lb2) * error[i] - (error[i]-1); 
 	lDR3 = (drugs[i].receptors[recep]+lb3) * error[i] - 2*(error[i]-1);
 	
-	plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
+	plotPoints[i] = [[lb3,lb2,lb1,-0.5+lb1],[lDR3,lDR2,lDR1,0]]
+	//plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
 	//plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
 	}
 	//lb = 1.5-drugs[3].receptors[recep];
@@ -186,8 +187,17 @@ function rand(maxval){
 
 function markAnswers(){
 	var ans = $('form').serializeArray();
+	console.log(ans)
+	if(ans.length < 22 && ans[20].value == ""){
+		alert("Please provide an answer for why the Ant3321 is non-linear and which receptor is mitigating the response")
+		return 1;
+	}
+	if(ans[20].value == ""){
+		alert("Please select a reason for the Ant3321")
+		return 1;
+	}
 	if(ans.length < 22){
-		alert("You have not filled out Question 3")
+		alert("Please select your choice of receptor which is mitigating the response")
 		return 1;
 	}
 	//antFeedback()
@@ -274,7 +284,8 @@ function plotAnswerSchild(chart, rec, antans){
 		lDR2 = drugs[i].receptors[rec]+lb2;
 		lDR3 = drugs[i].receptors[rec]+lb3;
 		
-		ansPlotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
+		ansPlotPoints[i] = [[lb3,lb2,lb1,-0.5+lb1],[lDR3,lDR2,lDR1,0]]
+		//ansPlotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
 		//ansPlotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
 	}
 	var ii;

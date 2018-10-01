@@ -165,6 +165,7 @@ input[type=range] {
   margin: 5.8px 0;
   float: right;
 }
+
 input[type=range]:focus {
   outline: none;
 }
@@ -309,6 +310,10 @@ nav .navbar-nav li a.active {
   color: rgb(255, 30, 30);
 }
 
+.navbar-brand.active {
+  color: rgb(255, 30, 30);
+}
+
 .box-size {
   max-width: 90em;
 }
@@ -362,7 +367,3 @@ nav .navbar-nav li a.active {
   from{ bottom:-100px; opacity:0 } 
   to{ bottom:0; opacity:1 }
 }
-
-
-
-
