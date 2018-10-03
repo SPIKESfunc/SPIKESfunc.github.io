@@ -285,7 +285,7 @@ input[type=range]:focus::-ms-fill-upper {
   background-color: #F8F9FA;
 }
 
-nav .navbar-nav li a {
+nav .navbar-nav li.nav-item a.nav-item.nav-link {
   color: black;
 }
 

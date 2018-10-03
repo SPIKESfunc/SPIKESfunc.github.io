@@ -24,7 +24,7 @@
   background-color: #f8f9fa;
 }
 
-nav .navbar-nav li a {
+nav .navbar-nav li.nav-item a.nav-item.nav-link {
   color: black;
 }
 
