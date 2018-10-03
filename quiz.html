@@ -11,6 +11,7 @@
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- Add in plotly.js files still to go, might put them in body -->
 
@@ -48,7 +49,27 @@
 	<div id="loader"></div>
 	<div id="page" class="container-fluid text-center bg-box p-4" style="visibility: hidden; position: absolute;">
 		<div id="quizcontainer">
-			<h1 class="d-flex justify-content-center">Schild Plot Analysis Quiz</h1>
+			<h1 class="d-flex justify-content-center" style="display: inline;">Schild Plot Analysis Quiz</h1>
+			<div style="display: inline;">
+			<a data-toggle="modal" href="" data-target="#info" class="btn btn-custom" role="button"><span class="fa fa-info-circle"></span> What to do?</a>
+			</div>
+							<div id="info" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">What to do</h4>
+										</div>
+										<div class="modal-body">
+											<div class="box">
+												<p>Observe the effects of changing the characteristics of the Agonist (affinity, intrinsic efficacy) and/or the Cell (receptor density, efficiency of coupling) by moving the blue sliders to the right or left to increase or decrease the value of the characteristic, respectively.</p>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
 			<div class="col-lg-12" id="quizsection">
 				<div class="row" style="padding-top:20px">
 					<div class="col-lg-5">
@@ -71,7 +92,7 @@
 											<td>pA2 = logKB?</td>
 											<td>Eliminated Receptors</td>
 										</tr>
-										<tr>
+										<tr id="firstdrug">
 											<td id="drug1"></td>
 											<td>
 												<select name="drug1shape" required>
@@ -300,9 +321,9 @@
 				</div>
 				<div class="row" style="padding-top:20px;">
 					<div class="col-lg-5" align="center">
-						<button class="button" onclick="markAnswers()">Submit Answers</button>
+						<button id="reset" type="button" class="btn btn-custom" onclick="markAnswers()">Submit Answers</button>
 					</div>
-					<div class="col-lg-7">
+					<div class="col-lg-7" id="solution">
 						<fieldset>
 							<legend>Your Solution</legend>
 							<form id="form1" name="receptorform" align="center">
@@ -371,7 +392,8 @@
 					</div>
 					<div class="col-lg-2">
 						<!-- <input type="button" value="1234" onclick="quizReturn()"> -->
-						<button onclick="quizReturn()" class="button">Try again?</button>
+						<button id="reset" type="button" class="btn btn-custom" onclick="quizReturn()">Ammend your answers?</button>
+						<button id="reset1" type="button" class="btn btn-custom" onclick="quizReset()">New Quiz</button>
 					</div>
 				</div>
 			</div>
