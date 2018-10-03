@@ -19,6 +19,11 @@ var Ant3321 =[
 ]
 // for ^^, make sure that we add the Feedback comment into that. 
 
+
+//saving the default value of numboxes
+
+default_value = $('#drug1pa2').val();
+
 var op = ["Methotramine","DAU-5884"] 
 
 var drugs;
@@ -247,7 +252,29 @@ function markAnswers(){
 }
 
 function resetInputs(){
-	//$('#firstdrug').find('input[type=checkbox]:checked').css.value('');
+	$('#quizsection').find('input[type=checkbox]:checked').prop('checked',false);
+	$('#drug1shape').get(0).selectedIndex = 0;
+	$('#drug1gradient').get(0).selectedIndex = 0;
+	$('#drug1equal').get(0).selectedIndex = 0;
+	$('#drug2shape').get(0).selectedIndex = 0;
+	$('#drug2gradient').get(0).selectedIndex = 0;
+	$('#drug2equal').get(0).selectedIndex = 0;
+	$('#drug3shape').get(0).selectedIndex = 0;
+	$('#drug3gradient').get(0).selectedIndex = 0;
+	$('#drug3equal').get(0).selectedIndex = 0;
+	$('#drug4shape').get(0).selectedIndex = 0;
+	$('#drug4gradient').get(0).selectedIndex = 0;
+	$('#drug4equal').get(0).selectedIndex = 0;
+	$('#drug5shape').get(0).selectedIndex = 0;
+	$('#drug5gradient').get(0).selectedIndex = 0;
+	$('#drug5equal').get(0).selectedIndex = 0;
+	$('#drug5reason').get(0).selectedIndex = 0;
+	$('#drug1pa2').val(default_value);
+	$('#drug2pa2').val(default_value);
+	$('#drug3pa2').val(default_value);
+	$('#drug4pa2').val(default_value);
+	$('#drug5pa2').val(default_value);
+	$('#solution').find('input[type=radio]:checked').prop('checked',false);
 }
 
 function quizReturn(){

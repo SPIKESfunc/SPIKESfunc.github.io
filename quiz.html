@@ -78,10 +78,10 @@
 							<div id="quizschild"></div>
 						</fieldset>
 					</div>
-					<div class="col-lg-7">
-						<form id="form1" name="tableform">
-							<fieldset>
-								<legend>SPIKES analysis of Schild Plot</legend>
+					<div class="col-lg-7" id="answerform">
+						<fieldset>
+							<legend>SPIKES analysis of Schild Plot</legend>
+							<form id="form1" name="tableform">
 								<table class="table-responsive">
 									<tbody>
 										<tr>
@@ -95,7 +95,7 @@
 										<tr id="firstdrug">
 											<td id="drug1"></td>
 											<td>
-												<select name="drug1shape" required>
+												<select id="drug1shape" name="drug1shape" required>
 													<option style="display: none;"> </option>
 													<option value="linear">Linear</option>
 													<option value="nlinearup">Nonlinear upwards</option>
@@ -103,10 +103,10 @@
 												</select>
 											</td>
 											<td>
-												<input type="number" name="drug1pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+												<input type="number" id="drug1pa2" name="drug1pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
 											</td>
 											<td>
-												<select name="drug1gradient" required>
+												<select id="drug1gradient" name="drug1gradient" required>
 													<option style="display: none;"> </option>
 													<option value="=1">Gradient=1</option>
 													<option value="<1">Gradient<1</option> <option value=">1">Gradient>1</option>
@@ -114,7 +114,7 @@
 												</select>
 											</td>
 											<td>
-												<select name="drug1equal" required>
+												<select id="drug1equal" name="drug1equal" required>
 													<option style="display: none;"> </option>
 													<option value="yes">Yes</option>
 													<option value="no">No</option>
@@ -134,10 +134,10 @@
 												<input type="checkbox" name="m5" id="drug1m5">
 											</td>
 										</tr>
-										<tr>
+										<tr id="seconddrug">
 											<td id="drug2"></td>
 											<td>
-												<select name="drug2shape" required>
+												<select id="drug2shape" name="drug2shape" required>
 													<option style="display: none;"> </option>
 													<option value="linear">Linear</option>
 													<option value="nlinearup">Nonlinear upwards</option>
@@ -145,10 +145,10 @@
 												</select>
 											</td>
 											<td>
-												<input type="number" name="drug2pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+												<input type="number" id="drug2pa2" name="drug2pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
 											</td>
 											<td>
-												<select name="drug2gradient" required>
+												<select id="drug2gradient" name="drug2gradient" required>
 													<option style="display: none;"> </option>
 													<option value="=1">Gradient=1</option>
 													<option value="<1">Gradient<1</option> <option value=">1">Gradient>1</option>
@@ -156,7 +156,7 @@
 												</select>
 											</td>
 											<td>
-												<select name="drug2equal" required>
+												<select id="drug2equal" name="drug2equal" required>
 													<option style="display: none;"> </option>
 													<option value="yes">Yes</option>
 													<option value="no">No</option>
@@ -176,10 +176,10 @@
 												<input type="checkbox" name="m5" id="drug2m5">
 											</td>
 										</tr>
-										<tr>
+										<tr id="thirddrug">
 											<td id="drug3"></td>
 											<td>
-												<select name="drug3shape" required>
+												<select id="drug3shape" name="drug3shape" required>
 													<option style="display: none;"> </option>
 													<option value="linear">Linear</option>
 													<option value="nlinearup">Nonlinear upwards</option>
@@ -187,10 +187,10 @@
 												</select>
 											</td>
 											<td>
-												<input type="number" name="drug3pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+												<input type="number" id="drug3pa2" name="drug3pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
 											</td>
 											<td>
-												<select name="drug3gradient" required>
+												<select id="drug3gradient" name="drug3gradient" required>
 													<option style="display: none;"> </option>
 													<option value="=1">Gradient=1</option>
 													<option value="<1">Gradient<1</option> <option value=">1">Gradient>1</option>
@@ -198,7 +198,7 @@
 												</select>
 											</td>
 											<td>
-												<select name="drug3equal" required>
+												<select id="drug3equal" name="drug3equal" required>
 													<option style="display: none;"> </option>
 													<option value="yes">Yes</option>
 													<option value="no">No</option>
@@ -218,10 +218,10 @@
 												<input type="checkbox" name="m5" id="drug3m5">
 											</td>
 										</tr>
-										<tr>
+										<tr id="fourthdrug">
 											<td id="drug4"></td>
 											<td>
-												<select name="drug4shape" required>
+												<select id="drug4shape" name="drug4shape" required>
 													<option style="display: none;"> </option>
 													<option value="linear">Linear</option>
 													<option value="nlinearup">Nonlinear upwards</option>
@@ -229,10 +229,10 @@
 												</select>
 											</td>
 											<td>
-												<input type="number" name="drug4pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+												<input type="number" id="drug4pa2" name="drug4pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
 											</td>
 											<td>
-												<select name="drug4gradient" required>
+												<select id="drug4gradient" name="drug4gradient" required>
 													<option style="display: none;"> </option>
 													<option value="=1">Gradient=1</option>
 													<option value="<1">Gradient<1</option> <option value=">1">Gradient>1</option>
@@ -240,7 +240,7 @@
 												</select>
 											</td>
 											<td>
-												<select name="drug4equal" required>
+												<select id="drug4equal" name="drug4equal" required>
 													<option style="display: none;"> </option>
 													<option value="yes">Yes</option>
 													<option value="no">No</option>
@@ -260,10 +260,10 @@
 												<input type="checkbox" name="m5" id="drug4m5">
 											</td>
 										</tr>
-										<tr>
+										<tr id="fifthdrug">
 											<td id="drug5"></td>
 											<td>
-												<select name="drug5shape" required>
+												<select id="drug5shape" name="drug5shape" required>
 													<option style="display: none;"> </option>
 													<option value="linear">Linear</option>
 													<option value="nlinearup">Nonlinear upwards</option>
@@ -271,10 +271,10 @@
 												</select>
 											</td>
 											<td>
-												<input type="number" name="drug5pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
+												<input type="number" id="drug5pa2" name="drug5pa2" min="5.0" max="10.0" step="0.1" value="7.0" required>
 											</td>
 											<td>
-												<select name="drug5gradient" required>
+												<select id="drug5gradient" name="drug5gradient" required>
 													<option style="display: none;"> </option>
 													<option value="=1">Gradient=1</option>
 													<option value="<1">Gradient<1</option> <option value=">1">Gradient>1</option>
@@ -282,7 +282,7 @@
 												</select>
 											</td>
 											<td>
-												<select name="drug5equal" required>
+												<select id="drug5equal" name="drug5equal" required>
 													<option style="display: none;"> </option>
 													<option value="yes">Yes</option>
 													<option value="no">No</option>
@@ -307,7 +307,7 @@
 						</form>
 						<form id="form1" name="antagonistform">
 							<label for "drug5reason">Why might the ant3311 Schild plot shape be nonlinear &/or slope &#8800 1.0?</label>
-							<select name="drug5reason" required>
+							<select id="drug5reason" name="drug5reason" required>
 								<option style="display: none;"> </option>
 								<option value="allosteric">Ant3321 acts allosterically</option>
 								<option value="irreversible">Ant3321 acts irreversibly</option>
