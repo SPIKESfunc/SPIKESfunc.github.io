@@ -3,6 +3,8 @@ var effago = document.getElementById("effslider").defaultValue;
 var denago = document.getElementById("denslider").defaultValue;
 var efficago = document.getElementById("efficislider").defaultValue;
 
+//var calc50aff;
+
 var animation = {
     transition: {
         duration: 100,
@@ -18,13 +20,18 @@ $(document).ready(function () {
 })
 
 function calc50(lineData){
-	var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
-	console.log(halfMaxEffect);
+    var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
+    //var halfMaxEffect = lineData[1][1000]/2
+	console.log("halfmaxeffect" + halfMaxEffect);
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
-	return number >= halfMaxEffect;
-	});
-	var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
-	return [halfAgoEffect, halfMaxEffect]; //return x, y
+	    return number >= halfMaxEffect;
+    });
+    console.log("maxeffectagoindex" + maxEffectAgoIndex);
+    var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
+    console.log("halfagoeffect" + halfAgoEffect)
+    var agoret = [halfAgoEffect, halfMaxEffect];
+    console.log("agoret"+ agoret)
+	return agoret; //return x, y
 }
 
 function graphAlert(div){
@@ -75,7 +82,7 @@ function updateAffinity(value){
         
         //I'm doing something wrong if I try just place lineData into newData, below works though
         //Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]], y: [calc50aff[1]]}], traces: [0,1], layout: {}},animation)
     }
 } 
 
@@ -92,7 +99,7 @@ function updateEfficacy(value){
         calc50aff = calc50(lineData);
 
         //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]], y: [calc50aff[1]]}], traces: [0,1], layout: {}},animation)
     }
 } 
 
@@ -109,7 +116,7 @@ function updateDensity(value){
         calc50aff = calc50(lineData);
 
         //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]], y: [calc50aff[1]]}], traces: [0,1], layout: {}},animation)
     }
 } 
 
@@ -126,7 +133,7 @@ function updateEfficiency(value){
         calc50aff = calc50(lineData);
 
         //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]], y: [calc50aff[1]]}], traces: [0,1], layout: {}},animation)
     }
 } 
 
@@ -213,7 +220,7 @@ function plotGraph(chart){
 
     Plotly.plot(chart,data,layout, {responsive: true});
 	
-	var data50 = calc50(lineData); //plot the 50% effect marker
+	data50 = calc50(lineData); //plot the 50% effect marker
 	var trace1 = [{
 		x: [data50[0]],
 		y: [data50[1]],

@@ -225,12 +225,12 @@ function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-function calc50(lineData){
+/*function calc50(lineData){
 	var index=lineData[1].findIndex(function(number) {
 	return number >= 49;
 	});
 	return lineData[0][index];
-}
+}*/
 
 var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"]
 
