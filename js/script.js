@@ -20,6 +20,7 @@ $(document).ready(function () {
 })
 
 function calc50(lineData){
+
     var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
     //var halfMaxEffect = lineData[1][1000]/2
 	console.log("halfmaxeffect" + halfMaxEffect);
@@ -32,6 +33,7 @@ function calc50(lineData){
     var agoret = [halfAgoEffect, halfMaxEffect];
     console.log("agoret"+ agoret)
 	return agoret; //return x, y
+
 }
 
 function graphAlert(div){
@@ -71,7 +73,7 @@ function updateAffinity(value){
         graphRemoveAlert("agoalert")
         Plotly.restyle("agonist", 'visible', true)
         lineData = calcLines(affago,effago,denago,efficago);
-        calc50aff = calc50(lineData); //not calling properly
+        calc50aff = [calc50(lineData)]; //not calling properly
         console.log(calc50aff[0]); //getting undefined here!
 
         /*var graph = {
@@ -82,7 +84,9 @@ function updateAffinity(value){
         
         //I'm doing something wrong if I try just place lineData into newData, below works though
         //Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+
         Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]], y: [calc50aff[1]]}], traces: [0,1], layout: {}},animation)
+
     }
 } 
 
