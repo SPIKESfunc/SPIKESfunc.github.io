@@ -428,7 +428,7 @@ function PlotQuizSchild(chart, ticksize){
 		//console.log(data)
 		Plotly.plot(chart,data,layout, {responsive: true})
 	}
-	document.querySelector('[data-title="Autoscale"]').click()
+	//document.querySelector('[data-title="Autoscale"]').click()
 	
 }
 
