@@ -67,85 +67,137 @@ function resetQuant(){
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
+function graphAlert(div){
+
+    document.getElementById(div).innerHTML = "Agonist property has decreased too far to sustain curve"
+}
+
+function graphRemoveAlert(div){
+    //Determine which graph to remove alert from
+    document.getElementById(div).innerHTML = ""
+}
+
+function checkSliderMinCom(){
+    let ret = false;
+    if(document.getElementById("affcomslider").value == 4){
+        ret = true
+    }
+    if(document.getElementById("effcomslider").value == 0.04){
+        ret = true
+    }
+    if(document.getElementById("dencomslider").value == 0.04){
+        ret = true
+    }
+    if(document.getElementById("efficicomslider").value == 0.04){
+        ret = true
+    }
+    return ret
+}
+
 function updateAffinityCom(value){
-    //newData = [];
     affcom = value;
-    //console.log(aff)
-    //need to put agoaff instead of agoafflog?
-    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
-    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
-    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
-    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
-    
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    updateEverything();
-    Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
-    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
-    Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    if(checkSliderMinCom()){
+        Plotly.restyle("quantitative", 'visible', false)
+        graphAlert("quantalert")
+    }
+    else{
+        graphRemoveAlert("quantalert")
+        Plotly.restyle("quantitative", 'visible', true)
+        //need to put agoaff instead of agoafflog?
+        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+        
+        updateEverything();
+        Plotly.animate("quantitative",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+        schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
+        Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    }
 } 
 
 function updateEfficacyCom(value){
     effcom = value;
-    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
-    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
-    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
-    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+    if(checkSliderMinCom()){
+        Plotly.restyle("quantitative", 'visible', false)
+        graphAlert("quantalert")
+    }
+    else{
+        graphRemoveAlert("quantalert")
+        Plotly.restyle("quantitative", 'visible', true)
+        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    updateEverything();
-    Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
-    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
-    Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
+        updateEverything();
+        Plotly.animate("quantitative",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+        schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
+        Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    }
 } 
 
 function updateDensityCom(value){
     dencom = value;
-    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
-    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
-    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
-    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+    if(checkSliderMinCom()){
+        Plotly.restyle("quantitative", 'visible', false)
+        graphAlert("quantalert")
+    }
+    else{
+        graphRemoveAlert("quantalert")
+        Plotly.restyle("quantitative", 'visible', true)
+        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    updateEverything();
-    Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
-    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
-    Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+        updateEverything();
+        Plotly.animate("quantitative",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+        schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
+        Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    }
 
 } 
 
 function updateEfficiencyCom(value){
     efficcom = value;
-    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
-    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
-    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
-    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
-	
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    updateEverything();
-    Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
-        layout: {}
-        },animation)
-    schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
-    Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    if(checkSliderMinCom()){
+        Plotly.restyle("quantitative", 'visible', false)
+        graphAlert("quantalert")
+    }
+    else{
+        graphRemoveAlert("quantalert")
+        Plotly.restyle("quantitative", 'visible', true)
+        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+        
+        updateEverything();
+        Plotly.animate("quantitative",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
+            traces: [0,1,2,3,4], 
+            layout: {}
+            },animation)
+        schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
+        Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    }
 
 } 
 
@@ -159,7 +211,6 @@ function updateAgoAffinity(value){
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
     calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
@@ -202,7 +253,6 @@ function updateAntagonist1(value){
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
     calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
@@ -224,7 +274,6 @@ function updateAntagonistLog1(value){
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
     calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
@@ -246,7 +295,6 @@ function updateAntagonist2(value){
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
     calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
@@ -268,7 +316,6 @@ function updateAntagonistLog2(value){
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
     calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
@@ -289,7 +336,6 @@ function updateAntagonist3(value){
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
     calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
@@ -310,7 +356,6 @@ function updateAntagonistLog3(value){
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
     calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
 
-    //I'm doing something wrong if I try just place lineData into newData, below works though
     updateEverything();
     Plotly.animate("quantitative",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
