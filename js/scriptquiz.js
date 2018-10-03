@@ -19,6 +19,11 @@ var Ant3321 =[
 ]
 // for ^^, make sure that we add the Feedback comment into that. 
 
+
+//saving the default value of numboxes
+
+default_value = $('#drug1pa2').val();
+
 var op = ["Methotramine","DAU-5884"] 
 
 var drugs;
@@ -188,22 +193,35 @@ function rand(maxval){
 function markAnswers(){
 	var ans = $('form').serializeArray();
 	console.log(ans)
-	if(ans.length < 22 && ans[20].value == ""){
+	var l;
+	var answer1 = 1;
+	var answer2 = 0;
+	for(l=0;l<ans.length;l++){
+		if(ans[l].name=="drug5reason"){
+			if(ans[l].value == ""){
+					answer1 = 0;
+				}
+			}
+		if(ans[l].name=="receptor"){
+			answer2 = 1;
+		}
+	}
+	if(answer1 == 0 && answer2 == 0){
 		alert("Please provide an answer for why the Ant3321 is non-linear and which receptor is mitigating the response")
 		return 1;
 	}
-	if(ans[20].value == ""){
+	if(answer1 == 0){
 		alert("Please select a reason for the Ant3321")
 		return 1;
 	}
-	if(ans.length < 22){
+	if(answer2 == 0){
 		alert("Please select your choice of receptor which is mitigating the response")
 		return 1;
 	}
 	//antFeedback()
 	$("#quizcontainer").hide();
 	$('#feedbackcontainer').show();
-	PlotQuizSchild("actualanswer",0.2)
+	PlotQuizSchild("actualanswer",1.0)
 	if(ans[ans.length-2].value == Ant3321[ant].type){
 		console.log("drug 5 reason is correct")
 		var reason = "Well done! You got the correct reason for why the Schild plot for ant3321 was nonlinear!";
@@ -233,12 +251,49 @@ function markAnswers(){
 	
 }
 
+function resetInputs(){
+	$('#quizsection').find('input[type=checkbox]:checked').prop('checked',false);
+	$('#drug1shape').get(0).selectedIndex = 0;
+	$('#drug1gradient').get(0).selectedIndex = 0;
+	$('#drug1equal').get(0).selectedIndex = 0;
+	$('#drug2shape').get(0).selectedIndex = 0;
+	$('#drug2gradient').get(0).selectedIndex = 0;
+	$('#drug2equal').get(0).selectedIndex = 0;
+	$('#drug3shape').get(0).selectedIndex = 0;
+	$('#drug3gradient').get(0).selectedIndex = 0;
+	$('#drug3equal').get(0).selectedIndex = 0;
+	$('#drug4shape').get(0).selectedIndex = 0;
+	$('#drug4gradient').get(0).selectedIndex = 0;
+	$('#drug4equal').get(0).selectedIndex = 0;
+	$('#drug5shape').get(0).selectedIndex = 0;
+	$('#drug5gradient').get(0).selectedIndex = 0;
+	$('#drug5equal').get(0).selectedIndex = 0;
+	$('#drug5reason').get(0).selectedIndex = 0;
+	$('#drug1pa2').val(default_value);
+	$('#drug2pa2').val(default_value);
+	$('#drug3pa2').val(default_value);
+	$('#drug4pa2').val(default_value);
+	$('#drug5pa2').val(default_value);
+	$('#solution').find('input[type=radio]:checked').prop('checked',false);
+}
+
 function quizReturn(){
 	$('#feedbackcontainer').hide();
 	$("#quizcontainer").show();
 	$('#incorrectFeedback').hide()
 	$('#correctFeedback').hide()
+	PlotQuizSchild("quizschild",0.2)
+	PlotQuizSchild("actualanswer",1.0)
+	PlotQuizSchild("correctanswer",1.0)
+}
+
+function quizReset(){
+	$('#feedbackcontainer').hide();
+	$("#quizcontainer").show();
+	$('#incorrectFeedback').hide()
+	$('#correctFeedback').hide()
 	selectDrugs();
+	resetInputs();
 	PlotQuizSchild("quizschild",0.2)
 	PlotQuizSchild("actualanswer",1.0)
 	PlotQuizSchild("correctanswer",1.0)
@@ -260,7 +315,7 @@ function plotAnswerSchild(chart, rec, antans){
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
-			range:[-8.0,-2.0],
+			range:[-9.0,-2.0],
 		},
 		yaxis:{
 			title:"Log(DR-1)",
@@ -327,7 +382,7 @@ function PlotQuizSchild(chart, ticksize){
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
-			range:[-8.0,-2.0],
+			range:[-9.0,-2.0],
 			dtick: ticksize,
 			ticks: 'outside'
 		},

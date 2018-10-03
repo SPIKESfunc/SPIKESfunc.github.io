@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html lang="en">
 
@@ -77,6 +78,24 @@
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top:50px">
+							<a data-toggle="modal" href="" data-target="#info" class="btn btn-custom" role="button"><span class="fa fa-info-circle"></span> What to do?</a>
+							<div id="info" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">What to do</h4>
+										</div>
+										<div class="modal-body">
+											<div class="box">
+												<p>Observe the effects of changing the characteristics of the Agonist (affinity, intrinsic efficacy) and/or the Cell (receptor density, efficiency of coupling) by moving the blue sliders to the right or left to increase or decrease the value of the characteristic, respectively.</p>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
 							<fieldset style="width: 400px;">
 								<legend>Agonist</legend>
 								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
@@ -103,7 +122,7 @@
 								<h5 class="warning" id="agoalert"></h5>
 								<div id="agonist"></div>
 							</fieldset>
-							<input id="reset" type="button" class="button" value="Reset" onclick="resetAgo()" style="float:right;">
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetAgo()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
@@ -145,7 +164,7 @@
 								<h5 class="warning" id="comalert"></h5>
 								<div id="competitive"></div>
 							</fieldset>
-							<input id="reset" type="button" class="button" value="Reset" onclick="resetCom()" style="float:right;">
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetCom()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
@@ -185,7 +204,7 @@
 								<h5 class="warning" id="irralert"></h5>
 								<div id="irreversible"></div>
 							</fieldset>
-							<input id="reset" type="button" class="button" value="Reset" onclick="resetIrr()" style="float:right;">
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetIrr()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
@@ -217,7 +236,7 @@
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9"
 								 onchange="updateAgoAffinityAff(this.value)">
-								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal" href="" data-target="#info1"><i class="fa fa-info"></i></a>
+								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal" href="" data-target="#info1"><i class="fa fa-info-circle"></i></a>
 								<div id="info1" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -246,7 +265,7 @@
 								<h5 class="warning" id="affalert"></h5>
 								<div id="alloaffin"></div>
 							</fieldset>
-							<input id="reset" type="button" class="button" value="Reset" onclick="resetAff()" style="float:right;">
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetAff()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
@@ -278,7 +297,7 @@
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04"
 								 value="9" onchange="updateAgoAffinityEff(this.value)">
-								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal" href="" data-target="#info2"><i class="fa fa-info"></i></a>
+								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal" href="" data-target="#info2"><i class="fa fa-info-circle"></i></a>
 								<div id="info2" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -306,8 +325,7 @@
 								<h5 class="warning" id="effalert"></h5>
 								<div id="alloeffic"></div>
 							</fieldset>
-							<input id="reset" type="button" class="button" value="Reset" onclick="resetEff()" style="float:right;">
-						</div>
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetEff()" style="float: right;">Reset</button>						</div>
 					</div>
 				</div>
 			</div>
@@ -339,17 +357,17 @@
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="6" max="10" step="0.04"
 								 value="8" onchange="updateAgoAffinityFun(this.value)">
 								<br><label for="effect">Intrinsic Efficacy (&#949)</label>
-								<input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667" max="0" step="0.00785"
+								<input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667" max="0" step="0.0157"
 								 value="-0.33335" onchange="updateAgoEfficacyFun(this.value)">
 								<!--value was -0.216-->
 								<fieldset>
 									<legend>Cell</legend>
 									<label for="density">Receptor Density (R<sub>T</sub>)</label>
-									<input type="range" autocomplete="off" name="density" id="agodenfunslider" min="-0.6667" max="0" step="0.00785"
+									<input type="range" autocomplete="off" name="density" id="agodenfunslider" min="-0.6667" max="0" step="0.0157"
 									 value="-0.33335" onchange="updateAgoDensityFun(this.value)">
 									<!--value was -0.216-->
 									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
-									<input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider" min="-0.6667" max="0" step="0.00785"
+									<input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider" min="-0.6667" max="0" step="0.0157"
 									 value="-0.33335" onchange="updateAgoEfficiencyFun(this.value)">
 									<!--value was -0.216-->
 								</fieldset>
@@ -361,7 +379,7 @@
 								<h5 class="warning" id="funalert"></h5>
 								<div id="functional"></div>
 							</fieldset>
-							<input id="reset" type="button" class="button" value="Reset" onclick="resetFun()" style="float:right;">
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetFun()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
