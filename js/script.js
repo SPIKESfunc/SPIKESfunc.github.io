@@ -20,10 +20,12 @@ $(document).ready(function () {
 function calc50(lineData){
 	var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
 	console.log(halfMaxEffect);
-	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
+    var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
+    console.log(halfMaxEffect);
 	return number >= halfMaxEffect;
 	});
-	var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
+    var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
+    console.log(halfAgoEffect);
 	return [halfAgoEffect, halfMaxEffect]; //return x, y
 }
 
@@ -64,7 +66,7 @@ function updateAffinity(value){
         graphRemoveAlert("agoalert")
         Plotly.restyle("agonist", 'visible', true)
         lineData = calcLines(affago,effago,denago,efficago);
-        calc50aff = calc50(lineData); //not calling properly
+        calc50aff = [calc50(lineData)]; //not calling properly
         console.log(calc50aff[0]); //getting undefined here!
 
         /*var graph = {
@@ -75,7 +77,7 @@ function updateAffinity(value){
         
         //I'm doing something wrong if I try just place lineData into newData, below works though
         //Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]-0.2]}], traces: [0,1], layout: {}},animation)
     }
 } 
 
