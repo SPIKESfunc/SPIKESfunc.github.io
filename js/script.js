@@ -73,7 +73,7 @@ function updateAffinity(value){
         graphRemoveAlert("agoalert")
         Plotly.restyle("agonist", 'visible', true)
         lineData = calcLines(affago,effago,denago,efficago);
-        calc50aff = [calc50(lineData)]; //not calling properly
+        calc50aff = calc50(lineData); //not calling properly
         console.log(calc50aff[0]); //getting undefined here!
 
         /*var graph = {
