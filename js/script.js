@@ -18,12 +18,13 @@ $(document).ready(function () {
 })
 
 function calc50(lineData){
-	var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
+	var halfMaxEffect = 40; //get the 50% value
 	console.log(halfMaxEffect);
     var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
     console.log(halfMaxEffect);
 	return number >= halfMaxEffect;
-	});
+    });
+    console.log(maxEffectAgoIndex);
     var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
     console.log(halfAgoEffect);
 	return [halfAgoEffect, halfMaxEffect]; //return x, y
@@ -66,18 +67,12 @@ function updateAffinity(value){
         graphRemoveAlert("agoalert")
         Plotly.restyle("agonist", 'visible', true)
         lineData = calcLines(affago,effago,denago,efficago);
-        calc50aff = [calc50(lineData)]; //not calling properly
+        calc50aff = calc40(affago,effago,denago,efficago); //not calling properly
         console.log(calc50aff[0]); //getting undefined here!
-
-        /*var graph = {
-            y: lineData[1],
-            traces:[0]
-        }
-        newData.push(graph);*/
         
         //I'm doing something wrong if I try just place lineData into newData, below works though
         //Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]-0.2]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]]}], traces: [0,1], layout: {}},animation)
     }
 } 
 
@@ -91,10 +86,11 @@ function updateEfficacy(value){
         graphRemoveAlert("agoalert")
         Plotly.restyle("agonist", 'visible', true)
         lineData = calcLines(affago,effago,denago,efficago);
-        calc50aff = calc50(lineData);
+        calc50aff = calc40(affago,effago,denago,efficago);
+        console.log(calc50aff[0]);
 
         //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]]}], traces: [0,1], layout: {}},animation)
     }
 } 
 
@@ -108,10 +104,10 @@ function updateDensity(value){
         graphRemoveAlert("agoalert")
         Plotly.restyle("agonist", 'visible', true)
         lineData = calcLines(affago,effago,denago,efficago);
-        calc50aff = calc50(lineData);
+        calc50aff = calc40(affago,effago,denago,efficago);
 
         //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]]}], traces: [0,1], layout: {}},animation)
     }
 } 
 
@@ -125,10 +121,10 @@ function updateEfficiency(value){
         graphRemoveAlert("agoalert")
         Plotly.restyle("agonist", 'visible', true)
         lineData = calcLines(affago,effago,denago,efficago);
-        calc50aff = calc50(lineData);
+        calc50aff = calc40(affago,effago,denago,efficago);
 
         //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]]}], traces: [0,1], layout: {}},animation)
     }
 } 
 
@@ -138,9 +134,9 @@ function resetAgo(){
     denago = document.getElementById("denslider").value = document.getElementById("denslider").defaultValue;
     efficago = document.getElementById("efficislider").value = document.getElementById("efficislider").defaultValue;
     lineData = calcLines(affago,effago,denago,efficago);
-    calc50aff = calc50(lineData);
+    calc50aff = calc40(affago,effago,denago,efficago);
 
-    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]]}], traces: [0,1], layout: {}},animation)
 }
 
 function calcLines(affinity, efficacy, recepDensity, efficiency){
@@ -158,6 +154,22 @@ function calcLines(affinity, efficacy, recepDensity, efficiency){
         data[1].push(effect);
     }
     return data;
+}
+
+function calc40(affinity, efficacy, recepDensity, efficiency) {
+    var data40 = [[],[]];
+
+    var affin = (10**(-1*affinity));
+    var efcay = 10**efficacy;
+    var recep = 10**recepDensity;
+    var efcey = 10**efficiency;
+    var ago40 = (2*affin)/((5*efcay*recep*efcey)-(2*(efcay*recep*efcey+1)));
+    ago40 = Math.log10(ago40);
+    console.log(ago40);
+
+    data40[0] = ago40;
+    data40[1] = 40;
+    return data40;
 }
 
 function plotGraph(chart){
