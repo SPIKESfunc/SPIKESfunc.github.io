@@ -47,12 +47,18 @@ function updateAffinityAff(value){
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
 	    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
 	    lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
-	    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
-        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+        lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);
 	
         Plotly.animate("alloaffin",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-            traces: [0,1,2,3,4,5], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
     }	 
@@ -72,11 +78,17 @@ function updateEfficacyAff(value){
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
         lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
-        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);
         
         Plotly.animate("alloaffin",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-            traces: [0,1,2,3,4,5], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
     }
@@ -96,11 +108,17 @@ function updateDensityAff(value){
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
         lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
-        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);
         
         Plotly.animate("alloaffin",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-            traces: [0,1,2,3,4,5], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
     }
@@ -120,11 +138,17 @@ function updateEfficiencyAff(value){
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
         lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
-        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);
 
         Plotly.animate("alloaffin",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-            traces: [0,1,2,3,4,5], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
 
@@ -139,11 +163,17 @@ function updateAgoAffinityAff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);
 
 	Plotly.animate("alloaffin",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4,5], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
 
@@ -156,11 +186,17 @@ function updateAgoEffectAff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);
 
     Plotly.animate("alloaffin",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4,5], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
 }
@@ -177,13 +213,36 @@ function resetAff(){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3), calc50(lineData4)];
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);
 
     Plotly.animate("alloaffin",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4,5], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
+}
+
+function calc50(lineData){
+
+    var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
+    //var halfMaxEffect = lineData[1][1000]/2
+	console.log("halfmaxeffect" + halfMaxEffect);
+	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
+	    return number >= halfMaxEffect;
+    });
+    console.log("maxeffectagoindex" + maxEffectAgoIndex);
+    var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
+    console.log("halfagoeffect" + halfAgoEffect)
+    var agoret = [[halfAgoEffect], [halfMaxEffect]];
+    console.log("agoret"+ agoret)
+	return agoret; //return x, y
+
 }
 
 function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoeffect, agoconcentration){
@@ -223,13 +282,6 @@ function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
         }
     }
     return data;
-}
-
-function calc50(lineData){
-	var index=lineData[1].findIndex(function(number) {
-	return number >= 49;
-	});
-	return lineData[0][index];
 }
 
 var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"]
@@ -287,13 +339,18 @@ function plotGraphAff(chart){
 	
     Plotly.plot(chart,data,layout, {responsive: true});
     }
-	var trace1 = [{
-		x: data50,
-		y: [50, 50, 50, 50, 50],
-		mode: 'markers',
-		name: "50% effect"
-	}];
-	Plotly.plot(chart,trace1,layout, {responsive: true});
+    var i;
+    for(i = 0; i<5; i++){
+        var halfData = calcLinesAff(affaff, effaff, denaff, efficaff, agoaffaff, agoeffaff, agoconcarr[i]);
+        data50 = calc50(halfData); //plot the 50% effect marker
+        var trace1 = [{
+            x: data50[0],
+            y: data50[1],
+            mode: 'markers',
+            name: "50% effect"
+        }];
+        Plotly.plot(chart,trace1,layout, {responsive: true});
+    }
 }
 
 plotGraphAff("alloaffin");

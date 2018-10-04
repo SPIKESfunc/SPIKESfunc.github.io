@@ -44,11 +44,18 @@ function updateAffinityCom(value){
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
         lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);
         
         //I'm doing something wrong if I try just place lineData into newData, below works though
         Plotly.animate("competitive",{
-                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
-                traces: [0,1,2,3,4],
+                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+                {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+                y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
+                traces: [0,1,2,3,4,5,6,7,8,9],
                 layout: {}
                 },animation)
     }
@@ -68,10 +75,17 @@ function updateEfficacyCom(value){
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
         lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);
         //I'm doing something wrong if I try just place lineData into newData, below works though
         Plotly.animate("competitive",{
-                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
-                traces: [0,1,2,3,4],
+                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+                {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+                y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
+                traces: [0,1,2,3,4,5,6,7,8,9],
                 layout: {}
                 },animation)         
     }
@@ -91,10 +105,17 @@ function updateDensityCom(value){
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);    //I'm doing something wrong if I try just place lineData into newData, below works though
+        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);    //I'm doing something wrong if I try just place lineData into newData, below works though
         Plotly.animate("competitive",{
-                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
-                traces: [0,1,2,3,4],
+                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+                {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+                y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
+                traces: [0,1,2,3,4,5,6,7,8,9],
                 layout: {}
                 },animation)
     }
@@ -113,10 +134,17 @@ function updateEfficiencyCom(value){
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);    //I'm doing something wrong if I try just place lineData into newData, below works though
+        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);    //I'm doing something wrong if I try just place lineData into newData, below works though
         Plotly.animate("competitive",{
-                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
-                traces: [0,1,2,3,4],
+                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+                {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+                y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
+                traces: [0,1,2,3,4,5,6,7,8,9],
                 layout: {}
                 },animation)
     }
@@ -129,10 +157,18 @@ function updateAgoAffinityCom(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);    //I'm doing something wrong if I try just place lineData into newData, below works though
+    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);
+    //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("competitive",{
-    		data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
-     		traces: [0,1,2,3,4],
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
+     		traces: [0,1,2,3,4,5,6,7,8,9],
      		layout: {}
      		},animation)
 
@@ -148,12 +184,37 @@ function resetCom(){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);    //I'm doing something wrong if I try just place lineData into newData, below works though
+    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);    
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);
+    //I'm doing something wrong if I try just place lineData into newData, below works though
     Plotly.animate("competitive",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}],
-            traces: [0,1,2,3,4],
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9],
             layout: {}
             },animation)
+}
+
+function calc50(lineData){
+
+    var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
+    //var halfMaxEffect = lineData[1][1000]/2
+	console.log("halfmaxeffect" + halfMaxEffect);
+	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
+	    return number >= halfMaxEffect;
+    });
+    console.log("maxeffectagoindex" + maxEffectAgoIndex);
+    var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
+    console.log("halfagoeffect" + halfAgoEffect)
+    var agoret = [[halfAgoEffect], [halfMaxEffect]];
+    console.log("agoret"+ agoret)
+    return agoret; //return x, y
+    
 }
 
 function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
@@ -214,7 +275,7 @@ function plotGraphCom(chart){
     var j;
     for(j = 0; j<5; j++){
     	var data = []
-    	var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[j])
+    	var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[j]);
    		if(j==0){
 			var graph = {
         		x: lineData[0],
@@ -240,8 +301,19 @@ function plotGraphCom(chart){
     		}
     	}
     	data.push(graph);
-
-    	Plotly.plot(chart,data,layout, {responsive: true});
-	}
+        Plotly.plot(chart,data,layout, {responsive: true}); 
+    }
+    var i;
+    for(i = 0; i<5; i++){
+        var halfData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[i]);
+        data50 = calc50(halfData);
+        var trace1 = [{
+            x: data50[0],
+            y: data50[1],
+            mode: 'markers',
+            name: "50% effect"
+        }];
+        Plotly.plot(chart,trace1,layout, {responsive: true});
+    }
 }
 plotGraphCom("competitive");
