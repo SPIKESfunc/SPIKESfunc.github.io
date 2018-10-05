@@ -1,4 +1,5 @@
-var agoconcarr = [0, -9, -8, -7];
+var agoconcarr = [0, -10, -10, -10];
+//var agoconcarr = [0, -9, -8, -7];
                     
 
 var affcom = document.getElementById("affcomslider").defaultValue;
@@ -48,7 +49,7 @@ function calc50(lineData){
 }
 
 function resetQuant(){
-    agoconcarr = [0, -9, -8, -7];
+    agoconcarr = [0, -10, -10, -10];
     affcom = document.getElementById("affcomslider").value = document.getElementById("affcomslider").defaultValue;
     effcom = document.getElementById("effcomslider").value = document.getElementById("effcomslider").defaultValue;
     dencom = document.getElementById("dencomslider").value = document.getElementById("dencomslider").defaultValue;
@@ -532,21 +533,22 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
+var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000"]
+
 function plotGraphCom(chart){
     var layout = {
-		showlegend: false,
         xaxis:{
             title: "[Agonist] (log M)",
             showline: true,
             range: [-12,-2],
-            
+            dtick: 1
         },
         yaxis:{
             title: "Effect (% Emax)",
             showline: true,
             range: [0,100],
-            tickvals: [0,20,40,60,80,100]
-
+            tickvals: [0,20,40,60,80,100],
+            dtick: 10
         }
     }
     var j;
@@ -560,9 +562,11 @@ function plotGraphCom(chart){
         		y: lineData[1],
        			mode: "lines",
        			name: 0+"nM",
-       			line: {
-       	    	width: 1
-    	    	}
+                line: {
+                    color: linecolours[j],
+                    width: 1
+                },
+                showlegend: false
     		}
    		}
    		else{
@@ -571,16 +575,19 @@ function plotGraphCom(chart){
         		y: lineData[1],
        			mode: "lines",
        			name: 10**agoconcarr[j]*1000000000+"nM",
-       			line: {
-       	    	width: 1
-    	    	}
+                line: {
+                    color: linecolours[j],
+                    width: 1
+                },
+                showlegend: false
     		}
     	}
     	data.push(graph);
     	Plotly.plot(chart,data,layout, {responsive: true});
 	}
     var i;
-    for(i = 0; i<5; i++){
+    legendview = [true, false, false, false]
+    for(i = 0; i<4; i++){
         var halfData = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[i]);
         findComHalfMaxEffect(calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[0]));
         data50 = calc50(halfData); //plot the 50% effect marker
@@ -588,7 +595,11 @@ function plotGraphCom(chart){
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "50% effect"
+            name: "EC50 Value",
+            marker: {
+                color: "orange"
+            },
+            showlegend: legendview[i]
         }];
         Plotly.plot(chart,trace1,layout, {responsive: true});
     }

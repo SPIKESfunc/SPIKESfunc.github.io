@@ -93,7 +93,7 @@
 				<div class="col-lg-6" align="center">
 					<fieldset style="width:600px;">
 						<legend>Schild Analysis Table</legend>
-						<label class="numbox" style="text-align: center;">[Antagonist]</label>
+						<label class="numbox" style="text-align: center;">[Antagonist] (M)</label>
 						<label class="numbox" style="text-align: center;">log[B]</label>
 						<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
 						<label class="numbox" style="text-align: center;">Dose Ratio</label>
@@ -106,25 +106,25 @@
 						<label class="numbox"></label>
 						<br>
 						<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
-						 step="1.00e-9" value="1e-9" onchange="updateAntagonist1(this.value)">
+						 step="1.00e-9" value="1e-10" onchange="updateAntagonist1(this.value)">
 						<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4" step="0.1"
-						 value="-9" onchange="updateAntagonistLog1(this.value)">
+						 value="-10" onchange="updateAntagonistLog1(this.value)">
 						<input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
 						<input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
 						<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
 						<br>
 						<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
-						 step="1.00e-9" value="1e-8" onchange="updateAntagonist2(this.value)">
+						 step="1.00e-9" value="1e-10" onchange="updateAntagonist2(this.value)">
 						<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4" step="0.1"
-						 value="-8" onchange="updateAntagonistLog2(this.value)">
+						 value="-10" onchange="updateAntagonistLog2(this.value)">
 						<input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
 						<input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
 						<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
 						<br>
 						<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
-						 step="1.00e-8" value="1e-7" onchange="updateAntagonist3(this.value)">
+						 step="1.00e-9" value="1e-10" onchange="updateAntagonist3(this.value)">
 						<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4" step="0.1"
-						 value="-7" onchange="updateAntagonistLog3(this.value)">
+						 value="-10" onchange="updateAntagonistLog3(this.value)">
 						<input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
 						<input class="numbox" type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
 						<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
@@ -193,7 +193,34 @@
 						<h4 class="modal-title">Instructions</h4>
 					</div>
 					<div class="modal-body">
-						<p>Will insert three tabs for 3 different tools, qual, quant, quiz</p>
+						<ul class="nav nav-pills nav-justified" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" data-toggle="tab" href="#qual">Qualitative</br></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" data-toggle="tab" href="#quant">Quantitative</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" data-toggle="tab" href="#quizz">Quiz</a>
+							</li>
+						</ul>
+					</div>
+					<div class="tab-content">
+						<div id="qual" class="container tab-pane active">
+							<div class="col col-lg-12">
+								<p>Here is how to do the Qualitative section</p>
+							</div>
+						</div>
+						<div id="quant" class="container tab-pane">
+							<div class="col col-lg-12">
+								<p>Here is how to do the Quantitative</p>
+							</div>
+						</div>
+						<div id="quizz" class="container tab-pane">
+							<div class="col col-lg-12">
+								<p>Here is how to do the Quiz</p>
+							</div>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

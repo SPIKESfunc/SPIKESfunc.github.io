@@ -29,7 +29,7 @@ function checkSliderMinCom(){
     if(document.getElementById("dencomslider").value == -0.3){
         ret = true
     }
-    if(document.getElementById("effcomslider").value == -0.3){
+    if(document.getElementById("efficicomslider").value == -0.3){
         ret = true
     }
     return ret
@@ -39,7 +39,7 @@ function updateAffinityCom(value){
     affcom = value;
     if(checkSliderMinCom()){
         Plotly.restyle("competitive", 'visible', false)
-        graphAlert("comalert")
+        graphAlert("comalert","aff")
     }
     else{
         graphRemoveAlert("comalert")
@@ -70,7 +70,7 @@ function updateEfficacyCom(value){
     effcom = value;
     if(checkSliderMinCom()){
         Plotly.restyle("competitive", 'visible', false)
-        graphAlert("comalert")
+        graphAlert("comalert","eff")
     }
     else{
         graphRemoveAlert("comalert")
@@ -101,7 +101,7 @@ function updateDensityCom(value){
     dencom = value;
     if(checkSliderMinCom()){
         Plotly.restyle("competitive", 'visible', false)
-        graphAlert("comalert")
+        graphAlert("comalert","den")
     }
     else{
         graphRemoveAlert("comalert")
@@ -130,7 +130,7 @@ function updateEfficiencyCom(value){
     efficcom = value;
     if(checkSliderMinCom()){
         Plotly.restyle("competitive", 'visible', false)
-        graphAlert("comalert")
+        graphAlert("comalert","effic")
     }
     else{
         graphRemoveAlert("comalert")
@@ -209,15 +209,11 @@ function calc50(lineData){
 
 	var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
     //var halfMaxEffect = lineData[1][1000]/2
-	console.log("halfmaxeffect" + halfMaxEffect);
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
 	    return number >= halfMaxEffect;
     });
-    console.log("maxeffectagoindex" + maxEffectAgoIndex);
     var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
-    console.log("halfagoeffect" + halfAgoEffect)
     var agoret = [[halfAgoEffect], [halfMaxEffect]];
-    console.log("agoret"+ agoret)
 	return agoret; //return x, y
     
 }
@@ -309,6 +305,7 @@ function plotGraphCom(chart){
         Plotly.plot(chart,data,layout, {responsive: true}); 
     }
     var i;
+    legendview = [true, false, false, false, false]
     for(i = 0; i<5; i++){
         var halfData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[i]);
         findComHalfMaxEffect(calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]));
@@ -317,7 +314,11 @@ function plotGraphCom(chart){
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "50% effect"
+            name: "EC50 Value",
+            marker: {
+                color: "orange"
+            },
+            showlegend: legendview[i]
         }];
         Plotly.plot(chart,trace1,layout, {responsive: true});
     }
