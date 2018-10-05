@@ -2,21 +2,26 @@ var affago = document.getElementById("affslider").defaultValue;
 var effago = document.getElementById("effslider").defaultValue;
 var denago = document.getElementById("denslider").defaultValue;
 var efficago = document.getElementById("efficislider").defaultValue;
- //var calc50aff;
- var animation = {
+
+//var calc50aff;
+
+var animation = {
     transition: {
         duration: 100,
         easing: "cubic-in-out"
     }
 }
- $(document).ready(function () {
+
+$(document).ready(function () {
   document.getElementById("loader").style.display = "none";
   document.getElementById("page").style.visibility = "visible";
   document.getElementById("page").style.position = "relative";
   document.getElementById("footer").style.visibility = "visible";
 })
- function calc50(lineData){
-     var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
+
+function calc50(lineData){
+
+    var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
     //var halfMaxEffect = lineData[1][1000]/2
 	console.log("halfmaxeffect" + halfMaxEffect);
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
@@ -25,18 +30,23 @@ var efficago = document.getElementById("efficislider").defaultValue;
     console.log("maxeffectagoindex" + maxEffectAgoIndex);
     var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
     console.log("halfagoeffect" + halfAgoEffect)
-    var agoret = [halfAgoEffect, halfMaxEffect];
+    var agoret = [[halfAgoEffect], [halfMaxEffect]];
     console.log("agoret"+ agoret)
 	return agoret; //return x, y
- }
- function graphAlert(div){
-     document.getElementById(div).innerHTML = "Agonist property has decreased too far to sustain curve"
+
 }
- function graphRemoveAlert(div){
+
+function graphAlert(div){
+
+    document.getElementById(div).innerHTML = "Agonist property has decreased too far to sustain curve"
+}
+
+function graphRemoveAlert(div){
     //Determine which graph to remove alert from
     document.getElementById(div).innerHTML = ""
 }
- function checkSliderMinAgo(){
+
+function checkSliderMinAgo(){
     let ret = false;
     if(document.getElementById("affslider").value == 4){
         ret = true
@@ -52,7 +62,8 @@ var efficago = document.getElementById("efficislider").defaultValue;
     }
     return ret
 }
- function updateAffinity(value){
+
+function updateAffinity(value){
     affago = value;
     if(checkSliderMinAgo()){
         Plotly.restyle("agonist", 'visible', false)
@@ -64,7 +75,8 @@ var efficago = document.getElementById("efficislider").defaultValue;
         lineData = calcLines(affago,effago,denago,efficago);
         calc50aff = calc50(lineData); //not calling properly
         console.log(calc50aff[0]); //getting undefined here!
-         /*var graph = {
+
+        /*var graph = {
             y: lineData[1],
             traces:[0]
         }
@@ -72,10 +84,13 @@ var efficago = document.getElementById("efficislider").defaultValue;
         
         //I'm doing something wrong if I try just place lineData into newData, below works though
         //Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
-         Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]], y: [calc50aff[1]]}], traces: [0,1], layout: {}},animation)
-     }
+
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation)
+
+    }
 } 
- function updateEfficacy(value){
+
+function updateEfficacy(value){
     effago = value;
     if(checkSliderMinAgo()){
         Plotly.restyle("agonist", 'visible', false)
@@ -86,11 +101,13 @@ var efficago = document.getElementById("efficislider").defaultValue;
         Plotly.restyle("agonist", 'visible', true)
         lineData = calcLines(affago,effago,denago,efficago);
         calc50aff = calc50(lineData);
-         //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]], y: [calc50aff[1]]}], traces: [0,1], layout: {}},animation)
+
+        //I'm doing something wrong if I try just place lineData into newData, below works though
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation)
     }
 } 
- function updateDensity(value){
+
+function updateDensity(value){
     denago = value;
     if(checkSliderMinAgo()){
         Plotly.restyle("agonist", 'visible', false)
@@ -101,11 +118,13 @@ var efficago = document.getElementById("efficislider").defaultValue;
         Plotly.restyle("agonist", 'visible', true)
         lineData = calcLines(affago,effago,denago,efficago);
         calc50aff = calc50(lineData);
-         //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]], y: [calc50aff[1]]}], traces: [0,1], layout: {}},animation)
+
+        //I'm doing something wrong if I try just place lineData into newData, below works though
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation)
     }
 } 
- function updateEfficiency(value){
+
+function updateEfficiency(value){
     efficago = value;
     if(checkSliderMinAgo()){
         Plotly.restyle("agonist", 'visible', false)
@@ -116,24 +135,29 @@ var efficago = document.getElementById("efficislider").defaultValue;
         Plotly.restyle("agonist", 'visible', true)
         lineData = calcLines(affago,effago,denago,efficago);
         calc50aff = calc50(lineData);
-         //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff[0]], y: [calc50aff[1]]}], traces: [0,1], layout: {}},animation)
+
+        //I'm doing something wrong if I try just place lineData into newData, below works though
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation)
     }
 } 
- function resetAgo(){
+
+function resetAgo(){
     affago = document.getElementById("affslider").value = document.getElementById("affslider").defaultValue;
     effago = document.getElementById("effslider").value = document.getElementById("effslider").defaultValue;
     denago = document.getElementById("denslider").value = document.getElementById("denslider").defaultValue;
     efficago = document.getElementById("efficislider").value = document.getElementById("efficislider").defaultValue;
     lineData = calcLines(affago,effago,denago,efficago);
     calc50aff = calc50(lineData);
-     Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+
+    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
 }
- function calcLines(affinity, efficacy, recepDensity, efficiency){
+
+function calcLines(affinity, efficacy, recepDensity, efficiency){
     const STEP = 0.01;
     var data = [[],[]];
     //Inverse log input values
-     var affin = (10**(-1*affinity));
+
+    var affin = (10**(-1*affinity));
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
@@ -144,8 +168,10 @@ var efficago = document.getElementById("efficislider").defaultValue;
     }
     return data;
 }
- function plotGraph(chart){
-     var layout = {
+
+function plotGraph(chart){
+
+    var layout = {
         xaxis:{
             title: "[Agonist] (log M)",
             showline: true,
@@ -159,7 +185,8 @@ var efficago = document.getElementById("efficislider").defaultValue;
             range: [0,100],
             //tickvals: [0,20,40,60,80,100],
             dtick: 10
-         },
+
+        },
         showlegend: false
         /*sliders: [
             {
@@ -194,12 +221,13 @@ var efficago = document.getElementById("efficislider").defaultValue;
         }
     }
     data.push(graph);
-     Plotly.plot(chart,data,layout, {responsive: true});
+
+    Plotly.plot(chart,data,layout, {responsive: true});
 	
 	data50 = calc50(lineData); //plot the 50% effect marker
 	var trace1 = [{
-		x: [data50[0]],
-		y: [data50[1]],
+		x: data50[0],
+		y: data50[1],
 		mode: 'markers',
 		name: "50% effect"
 	}];

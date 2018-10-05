@@ -14,6 +14,7 @@ var antval3 = document.getElementById("ant3").defaultValue;
 var antlogval1 = document.getElementById("antlog1").defaultValue;
 var antlogval2 = document.getElementById("antlog2").defaultValue;
 var antlogval3 = document.getElementById("antlog3").defaultValue;
+var comHalfMaxEffect;
 
 $(document).ready(function () {
   document.getElementById("loader").style.display = "none";
@@ -29,11 +30,21 @@ var animation = {
     }
 }
 
+function findComHalfMaxEffect(lineData){
+    comHalfMaxEffect = Math.max.apply(Math, lineData[1])/2;
+} 
+
 function calc50(lineData){
-	var index=lineData[1].findIndex(function(number) {
-	return number >= 49;
-	});
-	return lineData[0][index];
+    
+	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
+	    return number >= comHalfMaxEffect;
+    });
+    console.log("maxeffectagoindex" + maxEffectAgoIndex);
+    var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
+    console.log("halfagoeffect" + halfAgoEffect)
+    var agoret = [[halfAgoEffect], [comHalfMaxEffect]];
+    console.log("agoret"+ agoret)
+	return agoret; //return x, y
 }
 
 function resetQuant(){
@@ -55,12 +66,18 @@ function resetQuant(){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+    findComHalfMaxEffect(lineData0);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
 
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
+        traces: [0,1,2,3,4,5,6,7], 
         layout: {}
         },animation)
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -108,12 +125,18 @@ function updateAffinityCom(value){
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+        findComHalfMaxEffect(lineData0);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
         
         updateEverything();
         Plotly.animate("quantitative",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-            traces: [0,1,2,3,4], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
+            traces: [0,1,2,3,4,5,6,7], 
             layout: {}
             },animation)
         schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -134,12 +157,18 @@ function updateEfficacyCom(value){
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+        findComHalfMaxEffect(lineData0);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
 
         updateEverything();
         Plotly.animate("quantitative",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-            traces: [0,1,2,3,4], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
+            traces: [0,1,2,3,4,5,6,7], 
             layout: {}
             },animation)
         schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -160,12 +189,18 @@ function updateDensityCom(value){
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+        findComHalfMaxEffect(lineData0);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
 
         updateEverything();
         Plotly.animate("quantitative",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-            traces: [0,1,2,3,4], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
+            traces: [0,1,2,3,4,5,6,7], 
             layout: {}
             },animation)
         schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -187,12 +222,18 @@ function updateEfficiencyCom(value){
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-        calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+        findComHalfMaxEffect(lineData0);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
         
         updateEverything();
         Plotly.animate("quantitative",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-            traces: [0,1,2,3,4], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
+            traces: [0,1,2,3,4,5,6,7], 
             layout: {}
             },animation)
         schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -209,12 +250,18 @@ function updateAgoAffinity(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+    findComHalfMaxEffect(lineData0);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
 
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
+        traces: [0,1,2,3,4,5,6,7], 
         layout: {}
         },animation)
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -230,12 +277,18 @@ function updateAgoAffinityLog(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+    findComHalfMaxEffect(lineData0);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
 
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
+        traces: [0,1,2,3,4,5,6,7], 
         layout: {}
         },animation)
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -251,12 +304,18 @@ function updateAntagonist1(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+    findComHalfMaxEffect(lineData0);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
 
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
+        traces: [0,1,2,3,4,5,6,7], 
         layout: {}
         },animation)
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -272,12 +331,18 @@ function updateAntagonistLog1(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+    findComHalfMaxEffect(lineData0);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
 
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
+        traces: [0,1,2,3,4,5,6,7], 
         layout: {}
         },animation)
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -293,12 +358,18 @@ function updateAntagonist2(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+    findComHalfMaxEffect(lineData0);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
 
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
+        traces: [0,1,2,3,4,5,6,7], 
         layout: {}
         },animation)
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -314,12 +385,18 @@ function updateAntagonistLog2(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+    findComHalfMaxEffect(lineData0);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
 
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
+        traces: [0,1,2,3,4,5,6,7], 
         layout: {}
         },animation)
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -334,12 +411,18 @@ function updateAntagonist3(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+    findComHalfMaxEffect(lineData0);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
 
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
+        traces: [0,1,2,3,4,5,6,7], 
         layout: {}
         },animation)
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -354,12 +437,18 @@ function updateAntagonistLog3(value){
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
-    calc50aff = [calc50(lineData0), calc50(lineData1), calc50(lineData2), calc50(lineData3)];
+    findComHalfMaxEffect(lineData0);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
 
     updateEverything();
     Plotly.animate("quantitative",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {x: calc50aff}], 
-        traces: [0,1,2,3,4], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
+        traces: [0,1,2,3,4,5,6,7], 
         layout: {}
         },animation)
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
@@ -461,7 +550,6 @@ function plotGraphCom(chart){
         }
     }
     var j;
-	var data50 = [];
 
     for(j = 0; j<4; j++){
     	var data = []
@@ -489,16 +577,21 @@ function plotGraphCom(chart){
     		}
     	}
     	data.push(graph);
-		data50[j] = calc50(lineData);
     	Plotly.plot(chart,data,layout, {responsive: true});
 	}
-	var trace1 = [{
-		x: data50,
-		y: [50, 50, 50, 50],
-		mode: 'markers',
-		name: "50% effect"
-	}];
-	Plotly.plot(chart,trace1,layout, {responsive: true});
+    var i;
+    for(i = 0; i<5; i++){
+        var halfData = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[i]);
+        findComHalfMaxEffect(calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[0]));
+        data50 = calc50(halfData); //plot the 50% effect marker
+        var trace1 = [{
+            x: data50[0],
+            y: data50[1],
+            mode: 'markers',
+            name: "50% effect"
+        }];
+        Plotly.plot(chart,trace1,layout, {responsive: true});
+    }
 }
 plotGraphCom("quantitative");
 

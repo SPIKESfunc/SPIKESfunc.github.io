@@ -5,6 +5,7 @@ var effcom = document.getElementById("effcomslider").defaultValue;
 var dencom = document.getElementById("dencomslider").defaultValue;
 var efficcom = document.getElementById("efficicomslider").defaultValue;
 var agoaffcom = document.getElementById("agoaffcomslider").defaultValue;
+var comHalfMaxEffect;
 
 var animation = {
     transition: {
@@ -12,6 +13,10 @@ var animation = {
         easing: "exp-in-out"
     }
 }
+
+function findComHalfMaxEffect(lineData){
+    comHalfMaxEffect = Math.max.apply(Math, lineData[1])/2;
+} 
 
 function checkSliderMinCom(){
     let ret = false;
@@ -202,7 +207,7 @@ function resetCom(){
 
 function calc50(lineData){
 
-    var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
+	var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
     //var halfMaxEffect = lineData[1][1000]/2
 	console.log("halfmaxeffect" + halfMaxEffect);
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
@@ -213,7 +218,7 @@ function calc50(lineData){
     console.log("halfagoeffect" + halfAgoEffect)
     var agoret = [[halfAgoEffect], [halfMaxEffect]];
     console.log("agoret"+ agoret)
-    return agoret; //return x, y
+	return agoret; //return x, y
     
 }
 
@@ -306,6 +311,7 @@ function plotGraphCom(chart){
     var i;
     for(i = 0; i<5; i++){
         var halfData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[i]);
+        findComHalfMaxEffect(calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]));
         data50 = calc50(halfData);
         var trace1 = [{
             x: data50[0],
