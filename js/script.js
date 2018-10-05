@@ -36,9 +36,19 @@ function calc50(lineData){
 
 }
 
-function graphAlert(div){
-
-    document.getElementById(div).innerHTML = "Agonist property has decreased too far to sustain curve"
+function graphAlert(div, property){
+    if(property == "aff"){
+    document.getElementById(div).innerHTML = "Affinity is required for an agonist to bind to receptors and induce an effect – when agonist affinity = 0, agonist-induced effect = 0"
+    }
+    if(property == "eff"){
+    document.getElementById(div).innerHTML = "Intrinsic efficacy is required for an agonist to activate a receptor and induce an effect – when &#949 = 0, agonist-induced effect = 0"
+    }
+    if(property == "den"){
+    document.getElementById(div).innerHTML = "An agonist cannot induce an effect if the cell contains no functional receptors for the agonist – when R<sub>T</sub> = 0, agonist-induced effect = 0"
+    }
+    if(property == "effic"){
+    document.getElementById(div).innerHTML = "An agonist cannot induce an effect if the cell contains no functioning signalling pathways that link the activated receptor to the observed effect – when <i>f</i> = 0, agonist-induced effect = 0"
+    }
 }
 
 function graphRemoveAlert(div){
@@ -67,7 +77,7 @@ function updateAffinity(value){
     affago = value;
     if(checkSliderMinAgo()){
         Plotly.restyle("agonist", 'visible', false)
-        graphAlert("agoalert")
+        graphAlert("agoalert", "aff")
     }
     else{
         graphRemoveAlert("agoalert")
@@ -94,7 +104,7 @@ function updateEfficacy(value){
     effago = value;
     if(checkSliderMinAgo()){
         Plotly.restyle("agonist", 'visible', false)
-        graphAlert("agoalert")
+        graphAlert("agoalert","eff")
     }
     else{
         graphRemoveAlert("agoalert")
@@ -111,7 +121,7 @@ function updateDensity(value){
     denago = value;
     if(checkSliderMinAgo()){
         Plotly.restyle("agonist", 'visible', false)
-        graphAlert("agoalert")
+        graphAlert("agoalert","den")
     }
     else{
         graphRemoveAlert("agoalert")
@@ -128,7 +138,7 @@ function updateEfficiency(value){
     efficago = value;
     if(checkSliderMinAgo()){
         Plotly.restyle("agonist", 'visible', false)
-        graphAlert("agoalert")
+        graphAlert("agoalert","effic")
     }
     else{
         graphRemoveAlert("agoalert")
@@ -187,7 +197,6 @@ function plotGraph(chart){
             dtick: 10
 
         },
-        showlegend: false
         /*sliders: [
             {
                 label: 'Slider 1',
@@ -212,6 +221,7 @@ function plotGraph(chart){
 	
     //console.log(lineData)
     var graph = {
+        showlegend: false,
         x: lineData[0],
         y: lineData[1],
         mode: "lines",
@@ -229,7 +239,10 @@ function plotGraph(chart){
 		x: data50[0],
 		y: data50[1],
 		mode: 'markers',
-		name: "50% effect"
+		name: "EC50 value",
+        marker: {
+            color: "orange"
+        }
 	}];
 	Plotly.plot(chart,trace1,layout, {responsive: true});
 }

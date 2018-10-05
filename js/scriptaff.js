@@ -38,7 +38,7 @@ function updateAffinityAff(value){
     affaff = value;
     if(checkSliderMinAff()){
         Plotly.restyle("alloaffin", 'visible', false)
-        graphAlert("affalert")
+        graphAlert("affalert","aff")
     }
     else{
         graphRemoveAlert("affalert")
@@ -68,7 +68,7 @@ function updateEfficacyAff(value){
     effaff = value;
     if(checkSliderMinAff()){
         Plotly.restyle("alloaffin", 'visible', false)
-        graphAlert("affalert")
+        graphAlert("affalert","eff")
     }
     else{
         graphRemoveAlert("affalert")
@@ -98,7 +98,7 @@ function updateDensityAff(value){
     denaff = value;
     if(checkSliderMinAff()){
         Plotly.restyle("alloaffin", 'visible', false)
-        graphAlert("affalert")
+        graphAlert("affalert","den")
     }
     else{
         graphRemoveAlert("affalert")
@@ -128,7 +128,7 @@ function updateEfficiencyAff(value){
     efficaff = value;
     if(checkSliderMinAff()){
         Plotly.restyle("alloaffin", 'visible', false)
-        graphAlert("affalert")
+        graphAlert("affalert","effic")
     }
     else{
         graphRemoveAlert("affalert")
@@ -232,15 +232,11 @@ function calc50(lineData){
 
     var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
     //var halfMaxEffect = lineData[1][1000]/2
-	console.log("halfmaxeffect" + halfMaxEffect);
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
 	    return number >= halfMaxEffect;
     });
-    console.log("maxeffectagoindex" + maxEffectAgoIndex);
     var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
-    console.log("halfagoeffect" + halfAgoEffect)
     var agoret = [[halfAgoEffect], [halfMaxEffect]];
-    console.log("agoret"+ agoret)
 	return agoret; //return x, y
 
 }
@@ -340,6 +336,7 @@ function plotGraphAff(chart){
     Plotly.plot(chart,data,layout, {responsive: true});
     }
     var i;
+    legendview = [true, false, false, false, false]
     for(i = 0; i<5; i++){
         var halfData = calcLinesAff(affaff, effaff, denaff, efficaff, agoaffaff, agoeffaff, agoconcarr[i]);
         data50 = calc50(halfData); //plot the 50% effect marker
@@ -347,7 +344,11 @@ function plotGraphAff(chart){
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "50% effect"
+            name: "EC50 Value",
+            marker: {
+                color: "orange"
+            },
+            showlegend: legendview[i]
         }];
         Plotly.plot(chart,trace1,layout, {responsive: true});
     }

@@ -11,7 +11,7 @@ var drugsmaster =[
 
 //Array of objects that contain coordinates for each type. e1,e2,e3 correspond to different examples.
 // e1[0] = x, e1[1] = y 
-var Ant3321 =[
+var Ant3311 =[
 	{type:"allosteric",e1:[[-7.0,-6.0,-5.0],[0.5,1.5,1.8]],e2:[[-6.5,-5.5,-4.5],[1.0,2.0,2.3]],e3:[[-6.0,-5.0,-4.0],[1.5,2.3,2.6]]},
 	{type:"irreversible",e1:[[-7.0,-6.5,-6.0],[0.5,1.5,2.5]],e2:[[-6.5,-6.0,-5.5],[1.0,2.0,3.4]],e3:[[-6.0,-5.5,-5.0],[1.5,2.7,4.0]]},
 	{type:"toxic",e1:[[-7.0,-6.0,-5.0],[0.5,1.5,3.0]],e2:[[-6.5,-5.5,-4.5],[1.0,2.0,3.5]],e3:[[-6.0,-5.0,-4.0],[1.5,2.5,4.0]]},
@@ -64,7 +64,7 @@ function selectDrugs(){
 	//Choose receptor
 	recep = rand(5);
 
-	//Choose ant3321 version
+	//Choose ant3311 version
 	ant = rand(4);
 	example = rand(3);
 	
@@ -150,16 +150,16 @@ function selectDrugs(){
 	//plotPoints[3]=[[lb],[lDR]];
 	//plotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
 
-	plotPoints[4] = [Ant3321[ant][examples[example]][0],Ant3321[ant][examples[example]][1]];
+	plotPoints[4] = [Ant3311[ant][examples[example]][0],Ant3311[ant][examples[example]][1]];
 
 	document.getElementById("drug1").innerHTML=drugs[0].name;
 	document.getElementById("drug2").innerHTML=drugs[1].name;
 	document.getElementById("drug3").innerHTML=drugs[2].name;
 	document.getElementById("drug4").innerHTML=drugs[3].name;
-	document.getElementById("drug5").innerHTML="Ant3321";
+	document.getElementById("drug5").innerHTML="Ant3311";
 
 
-	drugs[4] = {name: "Ant3321"};			
+	drugs[4] = {name: "Ant3311"};			
 
 }
 
@@ -207,11 +207,11 @@ function markAnswers(){
 		}
 	}
 	if(answer1 == 0 && answer2 == 0){
-		alert("Please provide an answer for why the Ant3321 is non-linear and which receptor is mitigating the response")
+		alert("Please provide an answer for why the Ant3311 is non-linear and which receptor is mitigating the response")
 		return 1;
 	}
 	if(answer1 == 0){
-		alert("Please select a reason for the Ant3321")
+		alert("Please select a reason for the Ant3311")
 		return 1;
 	}
 	if(answer2 == 0){
@@ -222,14 +222,14 @@ function markAnswers(){
 	$("#quizcontainer").hide();
 	$('#feedbackcontainer').show();
 	PlotQuizSchild("actualanswer",1.0)
-	if(ans[ans.length-2].value == Ant3321[ant].type){
+	if(ans[ans.length-2].value == Ant3311[ant].type){
 		console.log("drug 5 reason is correct")
-		var reason = "Well done! You got the correct reason for why the Schild plot for ant3321 was nonlinear!";
+		var reason = "Well done! You got the correct reason for why the Schild plot for Ant3311 was nonlinear!";
 		antFeedback(reason)
 	}
 	else{
 		console.log("drug5reason is wrong")
-		var reason = "Your reason for why the Schild plot for ant3321 is nonlinear was incorrect. This was the correct answer:";
+		var reason = "Your reason for why the Schild plot for Ant3311 is nonlinear was incorrect. This was the correct answer:";
 		antFeedback(reason)
 	}
 	if(ans[ans.length-1].value == recep){
@@ -316,12 +316,14 @@ function plotAnswerSchild(chart, rec, antans){
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
 			range:[-9.0,-2.0],
+			dtick: 1.0
 		},
 		yaxis:{
 			title:"Log(DR-1)",
 			showline: true,
-			range:[0.0,4.0],
+			range:[0.0,5.0],
 		},
+		//showlegend: false
 	}
 	var data=[];
 	ansPlotPoints = [	
@@ -345,9 +347,9 @@ function plotAnswerSchild(chart, rec, antans){
 	}
 	var ii;
 	for(ii = 0;ii<4;ii++){
-		if(antans==Ant3321[ii].type){
+		if(antans==Ant3311[ii].type){
 			console.log("this one");
-			ansPlotPoints[4] = [Ant3321[ii][examples[example]][0],Ant3321[ant][examples[example]][1]];
+			ansPlotPoints[4] = [Ant3311[ii][examples[example]][0],Ant3311[ant][examples[example]][1]];
 		}
 	}
 
@@ -383,13 +385,15 @@ function PlotQuizSchild(chart, ticksize){
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
 			range:[-9.0,-2.0],
+			//tickvals: ['-9',' ',' ',' ',' ','-8',' ',' ',' ',' ','-7',' ',' ',' ',' ','-6',' ',' ',' ',' ','-5',' ',' ',' ',' ','-4',' ',' ',' ',' ','-3',' ',' ',' ',' ','-2'],
+			//showticklabels: false,
 			dtick: ticksize,
-			ticks: 'outside'
+			ticks: 'outside',
 		},
 		yaxis:{
 			title:"Log(DR-1)",
 			showline: true,
-			range:[0.0,4.0],
+			range:[0.0,5.0],
 		},
 		showlegend: false
 	}
@@ -434,27 +438,27 @@ function PlotQuizSchild(chart, ticksize){
 
 function antFeedback(reason){
 	var inequality
-	var ant3321Feedback	
-	switch(Ant3321[ant].type) {
+	var ant3311Feedback	
+	switch(Ant3311[ant].type) {
 		case "allosteric":
 			inequality = "<";
-			ant3321Feedback = "<b>allosteric antagonist.</b>";
+			ant3311Feedback = "<b>allosteric antagonist.</b>";
 			break;
 		case "irreversible":
 			inequality = ">";
-			ant3321Feedback = "<b>irreversible antagonist.</b>" 
+			ant3311Feedback = "<b>irreversible antagonist.</b>" 
 			break;
 		case "toxic":
 			inequality = ">";
-			ant3321Feedback = "<b>antagonist that produces toxicity at high concentrations.</b>" 
+			ant3311Feedback = "<b>antagonist that produces toxicity at high concentrations.</b>" 
 			break;
 		case "saturable":
 			inequality = "<";
-			ant3321Feedback = "<b>antagonist that is the substrate of a saturable uptake process.</b>"
+			ant3311Feedback = "<b>antagonist that is the substrate of a saturable uptake process.</b>"
 			break;
 
 	} 
-	document.getElementById("antFeedback").innerHTML = reason + "<br>The Schild plot for ant3321 is nonlinear with slope " + inequality + " 1.0, which is expected for an " + ant3321Feedback;
+	document.getElementById("antFeedback").innerHTML = reason + "<br>The Schild plot for Ant3311 is nonlinear with slope " + inequality + " 1.0, which is expected for an " + ant3311Feedback;
 
 }
 
