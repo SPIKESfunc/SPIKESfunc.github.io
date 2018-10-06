@@ -239,7 +239,7 @@ function plotGraph(chart){
 		x: data50[0],
 		y: data50[1],
 		mode: 'markers',
-		name: "EC50 value",
+		name: "EC<sub>50</sub> value",
         marker: {
             color: "orange"
         }
