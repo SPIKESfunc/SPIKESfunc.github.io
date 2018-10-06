@@ -341,7 +341,7 @@ function plotGraphEff(chart){
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "EC50 Value",
+            name: "EC<sub>50</sub> Value",
             marker: {
                 color: "orange"
             },
