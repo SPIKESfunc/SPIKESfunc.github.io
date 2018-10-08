@@ -71,11 +71,14 @@ function selectDrugs(){
 	//Get a random error adjustment from 1-5%
 	var error=[];
 	var i;
+	err = [0.2,0.1,-0.1,-0.2];
 	for(i=0; i<4; i++){
-	var  err = ((+ (Math.random() * 5) + 1)/100 + 1)
-	error[i] = Math.round(err * 100) / 100; //round to 2 dp.
+	/*var  err = ((+ (Math.random() * 5) + 1)/100 + 1)
+	error[i] = Math.round(err * 100) / 100; //round to 2 dp.*/
+		ran = rand(4);
+		error[i] = err[ran];
 	}
-
+	console.log(error)
 	//Determine which antagonists are to be used
 	var j=0;
 	var l=0;
@@ -137,11 +140,14 @@ function selectDrugs(){
 	lb2 = 1.5-drugs[i].receptors[recep];
 	lb3 = 2.5-drugs[i].receptors[recep];
 	
-	lDR1 = (drugs[i].receptors[recep]+lb1) * error[i]; //add error adjustment, keep gradient = to 1
+	/*lDR1 = (drugs[i].receptors[recep]+lb1) * error[i]; //add error adjustment, keep gradient = to 1
 	lDR2 = (drugs[i].receptors[recep]+lb2) * error[i] - (error[i]-1); 
-	lDR3 = (drugs[i].receptors[recep]+lb3) * error[i] - 2*(error[i]-1);
+	lDR3 = (drugs[i].receptors[recep]+lb3) * error[i] - 2*(error[i]-1);*/
+	lDR1 = (drugs[i].receptors[recep]+lb1) + error[i]; //add error adjustment, keep gradient = to 1
+	lDR2 = (drugs[i].receptors[recep]+lb2) + error[i];// - (error[i]-1); 
+	lDR3 = (drugs[i].receptors[recep]+lb3) + error[i];// - 2*(error[i]-1);
 	
-	plotPoints[i] = [[lb3,lb2,lb1,-0.5+lb1],[lDR3,lDR2,lDR1,0]]
+	plotPoints[i] = [[lb3,lb2,lb1,-0.5+lb1-error[i]],[lDR3,lDR2,lDR1,0]]
 	//plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
 	//plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
 	}
