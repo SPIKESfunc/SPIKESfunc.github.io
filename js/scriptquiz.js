@@ -40,9 +40,9 @@ $(document).ready(function () {
 	$('#incorrectFeedback').hide()
 	$('#correctFeedback').hide()
 	selectDrugs();
-	PlotQuizSchild("quizschild",0.2)
-	PlotQuizSchild("actualanswer",1.0)
-	PlotQuizSchild("correctanswer",1.0)
+	PlotQuizSchild("quizschild",0.2, false)
+	PlotQuizSchild("actualanswer",1.0, true)
+	PlotQuizSchild("correctanswer",1.0, true)
 	document.getElementById("loader").style.display = "none";
   	document.getElementById("page").style.visibility = "visible";
   	document.getElementById("page").style.position = "relative";
@@ -143,11 +143,20 @@ function selectDrugs(){
 	/*lDR1 = (drugs[i].receptors[recep]+lb1) * error[i]; //add error adjustment, keep gradient = to 1
 	lDR2 = (drugs[i].receptors[recep]+lb2) * error[i] - (error[i]-1); 
 	lDR3 = (drugs[i].receptors[recep]+lb3) * error[i] - 2*(error[i]-1);*/
-	lDR1 = (drugs[i].receptors[recep]+lb1) + error[i]; //add error adjustment, keep gradient = to 1
-	lDR2 = (drugs[i].receptors[recep]+lb2) + error[i];// - (error[i]-1); 
-	lDR3 = (drugs[i].receptors[recep]+lb3) + error[i];// - 2*(error[i]-1);
-	
-	plotPoints[i] = [[lb3,lb2,lb1,-0.5+lb1-error[i]],[lDR3,lDR2,lDR1,0]]
+	if(drugs[i].name == "Darifenacin"){
+		lDR1 = (drugs[i].receptors[recep]+lb1); //add error adjustment, keep gradient = to 1
+		lDR2 = (drugs[i].receptors[recep]+lb2);// - (error[i]-1); 
+		lDR3 = (drugs[i].receptors[recep]+lb3);// - 2*(error[i]-1);
+
+		plotPoints[i] = [[lb3,lb2,lb1,-0.5+lb1],[lDR3,lDR2,lDR1,0]]
+	}
+	else{
+		lDR1 = (drugs[i].receptors[recep]+lb1) + error[i]; //add error adjustment, keep gradient = to 1
+		lDR2 = (drugs[i].receptors[recep]+lb2) + error[i];// - (error[i]-1); 
+		lDR3 = (drugs[i].receptors[recep]+lb3) + error[i];// - 2*(error[i]-1);
+
+		plotPoints[i] = [[lb3,lb2,lb1,-0.5+lb1-error[i]],[lDR3,lDR2,lDR1,0]]
+	}
 	//plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
 	//plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
 	}
@@ -227,7 +236,7 @@ function markAnswers(){
 	//antFeedback()
 	$("#quizcontainer").hide();
 	$('#feedbackcontainer').show();
-	PlotQuizSchild("actualanswer",1.0)
+	PlotQuizSchild("actualanswer",1.0, true)
 	if(ans[ans.length-2].value == Ant3311[ant].type){
 		console.log("drug 5 reason is correct")
 		var reason = "Well done! You got the correct reason for why the Schild plot for Ant3311 was nonlinear!";
@@ -288,9 +297,9 @@ function quizReturn(){
 	$("#quizcontainer").show();
 	$('#incorrectFeedback').hide()
 	$('#correctFeedback').hide()
-	PlotQuizSchild("quizschild",0.2)
-	PlotQuizSchild("actualanswer",1.0)
-	PlotQuizSchild("correctanswer",1.0)
+	PlotQuizSchild("quizschild",0.2, false)
+	PlotQuizSchild("actualanswer",1.0, true)
+	PlotQuizSchild("correctanswer",1.0, true)
 }
 
 function quizReset(){
@@ -300,9 +309,9 @@ function quizReset(){
 	$('#correctFeedback').hide()
 	selectDrugs();
 	resetInputs();
-	PlotQuizSchild("quizschild",0.2)
-	PlotQuizSchild("actualanswer",1.0)
-	PlotQuizSchild("correctanswer",1.0)
+	PlotQuizSchild("quizschild",0.2, false)
+	PlotQuizSchild("actualanswer",1.0, true)
+	PlotQuizSchild("correctanswer",1.0, true)
 }
 
 // Schlid
@@ -384,7 +393,7 @@ function plotAnswerSchild(chart, rec, antans){
 	}
 }
 
-function PlotQuizSchild(chart, ticksize){
+function PlotQuizSchild(chart, ticksize, show){
 	console.log(ticksize)
 	var layout = {
 		xaxis:{
@@ -401,7 +410,7 @@ function PlotQuizSchild(chart, ticksize){
 			showline: true,
 			range:[0.0,5.0],
 		},
-		showlegend: false
+		showlegend: show
 	}
 	var data = [];
 	Plotly.newPlot(chart,data,layout)
@@ -413,6 +422,7 @@ function PlotQuizSchild(chart, ticksize){
 			x: plotPoints[jj][0],
 			y: plotPoints[jj][1],
 			mode: 'lines+markers',
+			name: drugs[jj].name,
 			line: {
 				width: 3
 			}
