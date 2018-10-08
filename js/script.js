@@ -247,3 +247,8 @@ function plotGraph(chart){
 	Plotly.plot(chart,trace1,layout, {responsive: true});
 }
 plotGraph("agonist");
+
+function showInstructionsQual() {
+    $('#instructions').modal('show');
+    $('.nav-tabs a[href="#qual"]').tab('show');
+};

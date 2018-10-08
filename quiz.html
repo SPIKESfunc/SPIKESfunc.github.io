@@ -50,26 +50,10 @@
 	<div id="page" class="container-fluid text-center bg-box p-4" style="visibility: hidden; position: absolute;">
 		<div id="quizcontainer">
 			<h1 class="d-flex justify-content-center" style="display: inline;">Schild Plot Analysis Quiz</h1>
-			<div style="display: inline;">
-			<a data-toggle="modal" href="" data-target="#info" class="btn btn-custom" role="button"><span class="fa fa-info-circle"></span> What to do?</a>
-			</div>
-							<div id="info" class="modal fade" role="dialog">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h4 class="modal-title">What to do</h4>
-										</div>
-										<div class="modal-body">
-											<div class="box">
-												<p>Observe the effects of changing the characteristics of the Agonist (affinity, intrinsic efficacy) and/or the Cell (receptor density, efficiency of coupling) by moving the blue sliders to the right or left to increase or decrease the value of the characteristic, respectively.</p>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-										</div>
-									</div>
-								</div>
-							</div>
+			<p align="center">
+			<button class="btn btn-custom" onclick="showInstructionsQuiz()"><span class="fa fa-info-circle"></span> What to do?</button>
+			</p>
+						
 			<div class="col-lg-12" id="quizsection">
 				<div class="row" style="padding-top:20px">
 					<div class="col-lg-5">
@@ -448,15 +432,15 @@
 						<h4 class="modal-title">Instructions</h4>
 					</div>
 					<div class="modal-body">
-						<ul class="nav nav-pills nav-justified" role="tablist">
+						<ul class="nav nav-tabs nav-pills nav-justified" role="tablist">
 							<li class="nav-item">
-								<a class="nav-link active" data-toggle="tab" href="#qual">Qualitative</br></a>
+								<a class="nav-link active" data-toggle="tab" href="#qual">Dose-Response Visualiser</br></a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" data-toggle="tab" href="#quant">Quantitative</a>
+								<a class="nav-link" data-toggle="tab" href="#quant">Schild Plot Generator</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" data-toggle="tab" href="#quizz">Quiz</a>
+								<a class="nav-link" data-toggle="tab" href="#quizz">Schild Plot Analysis Quiz</a>
 							</li>
 						</ul>
 					</div>
