@@ -671,3 +671,9 @@ function plotSchild(chart){
 }
 
 plotSchild("schild");
+
+
+function showInstructionsQuant() {
+    $('#instructions').modal('show');
+    $('.nav-tabs a[href="#quant"]').tab('show');
+};
