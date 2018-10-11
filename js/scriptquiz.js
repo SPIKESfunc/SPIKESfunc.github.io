@@ -478,3 +478,7 @@ function antFeedback(reason){
 
 }
 
+function showInstructionsQuiz() {
+    $('#instructions').modal('show');
+    $('.nav-tabs a[href="#quizz"]').tab('show');
+};
