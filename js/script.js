@@ -252,3 +252,45 @@ function showInstructionsQual() {
     $('#instructions').modal('show');
     $('.nav-tabs a[href="#qual"]').tab('show');
 };
+
+var questions = ["Does increasing agonist affinity shift the agonist dose-response curve to the RIGHT or the LEFT? <i>This can be tested using the Visualiser</i>",
+				 "Does increasing agonist affinity INCREASE or DECREASE the EC 50 value of the agonist? <i>This can be tested using the Visualiser</i>"]
+				
+var answers = ["yes", "no"];
+				
+var questionCounter = 0;
+document.getElementById("agonistQuestion").innerHTML = "<b>" + questions[questionCounter] + "</b>";
+
+function revealAnswerAgonist(){
+	document.getElementById("revealAnswer").style.display = "none";
+	document.getElementById("agonistAnswer").innerHTML = answers[questionCounter] + "<br><br>";
+	document.getElementById("agonistAnswer").style.display = "block";
+	if(questionCounter+1 == questions.length){ //end of questions
+		document.getElementById("restartMessage").style.display = "block";
+		document.getElementById("restartQuestion").style.display = "block";
+		questionCounter = 0;
+	}
+	else{
+		document.getElementById("nextQuestion").style.display = "block";
+		questionCounter++;
+	}
+}
+
+
+function nextQuestionAgonist(questionCounter){
+	document.getElementById("restartMessage").style.display = "none";
+	document.getElementById("restartQuestion").style.display = "none";
+	document.getElementById("agonistQuestion").innerHTML = "<b>" + questions[questionCounter] + "</b>";
+	document.getElementById("agonistAnswer").style.display = "none";
+	document.getElementById("revealAnswer").style.display = "block";
+	document.getElementById("nextQuestion").style.display = "none";
+}
+
+/*function restartQuestionAgonist(){
+	document.getElementById("restartQuestion").style.display = "none";
+	document.getElementById("agonistQuestion").innerHTML = "<b>" + questions[questionCounter] + "</b>";
+	document.getElementById("agonistAnswer").style.display = "none";
+	document.getElementById("revealAnswer").style.display = "block";
+	document.getElementById("nextQuestion").style.display = "none";
+}*/
+
