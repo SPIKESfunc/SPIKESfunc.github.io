@@ -363,7 +363,7 @@ nav .navbar-nav li a.active {
   to{ bottom:0; opacity:1 }
 }
 
-a {
+a{
 	color: Red;
 }
 a:hover {

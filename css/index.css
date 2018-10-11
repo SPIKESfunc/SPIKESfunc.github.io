@@ -102,3 +102,15 @@ html {
   border-color: rgba(173, 173, 173, 1); 
   color: rgba(255, 255, 255, 1);
 }
+
+/*footer red*/
+a{
+	color: Red;
+}
+a:hover {
+    color: Red;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  background-color: red;
+}
