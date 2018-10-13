@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" context="width=device-width, initial scale=1">
-	<title>SPIKEStudy</title>
+	<title>SPIKESfunc</title>
 
 	<link rel="shortcut icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
 	<header>
 		<nav class="navbar navbar-light navbar-expand-lg fixed-top header">
 			<div class="container">
-				<a class="navbar-brand nav-style" href="index.html">SPIKEStudy</a>
+				<a class="navbar-brand nav-style" href="index.html">SPIKES<i>func</i></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 				 aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -57,7 +57,7 @@
 		<br>
 		<ul class="nav nav-pills nav-justified" role="tablist">
 			<li class="nav-item">
-				<a class="nav-link active" data-toggle="tab" style="height: 100%;" href="#home">Agonist</br></a>
+				<a class="nav-link active" data-toggle="tab" href="#home">Agonist</br></a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" data-toggle="tab" href="#menu1">Competitive Antagonist</a>
@@ -102,7 +102,7 @@
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info1"><i class="fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info1"><i class="red fa fa-info-circle"></i></a>
 								<div id="info1" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -122,7 +122,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinity(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info2"><i class="fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info2"><i class="red fa fa-info-circle"></i></a>
 								<div id="info2" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -145,7 +145,7 @@
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info3"><i class="fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info3"><i class="red fa fa-info-circle"></i></a>
 								<div id="info3" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -165,7 +165,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="density" id="denslider" min="-0.3" max="0.7" step="0.01" value="0.2"
 								 onchange="updateDensity(this.value)">
-								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info4"><i class="fa fa-info-circle"></i></a>
+								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info4"><i class="red fa fa-info-circle"></i></a>
 								<div id="info4" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -224,7 +224,7 @@
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info5"><i class="fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info5"><i class="red fa fa-info-circle"></i></a>
 								<div id="info5" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -244,7 +244,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityCom(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info6"><i class="fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info6"><i class="red fa fa-info-circle"></i></a>
 								<div id="info6" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -267,7 +267,7 @@
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info7"><i class="fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info7"><i class="red fa fa-info-circle"></i></a>
 								<div id="info7" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -287,7 +287,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="density" id="dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
 								 onchange="updateDensityCom(this.value)">
-								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info8"><i class="fa fa-info-circle"></i></a>
+								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info8"><i class="red fa fa-info-circle"></i></a>
 								<div id="info8" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -311,6 +311,7 @@
 							<fieldset style="width: 430px;">
 								<legend>Competitive Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="antagocomp" id="antagocomp" style="width: 60px;" readonly>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04"
 								 value="9" onchange="updateAgoAffinityCom(this.value)">
 							</fieldset>
@@ -353,7 +354,7 @@
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info9"><i class="fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info9"><i class="red fa fa-info-circle"></i></a>
 								<div id="info9" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -373,7 +374,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affirrslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityIrr(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info10"><i class="fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info10"><i class="red fa fa-info-circle"></i></a>
 								<div id="info10" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -396,7 +397,7 @@
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info11"><i class="fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info11"><i class="red fa fa-info-circle"></i></a>
 								<div id="info11" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -416,7 +417,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="density" id="denirrslider" min="-0.3" max="0.7" step="0.01" value="0.2"
 								 onchange="updateDensityIrr(this.value)">
-								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info12"><i class="fa fa-info-circle"></i></a>
+								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info12"><i class="red fa fa-info-circle"></i></a>
 								<div id="info12" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -440,6 +441,7 @@
 							<fieldset style="width: 430px;">
 								<legend>Irreversible Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="antagoirr" id="antagoirr" style="width: 60px;" readonly>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04"
 								 value="9" onchange="updateAgoAffinityIrr(this.value)">
 							</fieldset>
@@ -480,7 +482,7 @@
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info13"><i class="fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info13"><i class="red fa fa-info-circle"></i></a>
 								<div id="info13" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -500,7 +502,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affaffslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityAff(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info14"><i class="fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info14"><i class="red fa fa-info-circle"></i></a>
 								<div id="info14" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -523,7 +525,7 @@
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info15"><i class="fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info15"><i class="red fa fa-info-circle"></i></a>
 								<div id="info15" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -543,7 +545,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="density" id="denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
 								 onchange="updateDensityAff(this.value)">
-								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info16"><i class="fa fa-info-circle"></i></a>
+								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info16"><i class="red fa fa-info-circle"></i></a>
 								<div id="info16" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -567,9 +569,11 @@
 							<fieldset style="width: 430px;">
 								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="antagoaff" id="antagoaff" style="width: 60px;" readonly>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9"
 								 onchange="updateAgoAffinityAff(this.value)">
-								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal" href="" data-target="#info17"><i class="fa fa-info-circle"></i></a>
+								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal" href="" data-target="#info17"><i class="red fa fa-info-circle"></i></a>
+								<input class="numbox" type="number" autocomplete="off" name="antcoopaff" id="antcoopaff" style="width: 65px;" readonly>
 								<div id="info17" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -628,7 +632,7 @@
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info18"><i class="fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info18"><i class="red fa fa-info-circle"></i></a>
 								<div id="info18" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -648,7 +652,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affeffslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityEff(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info19"><i class="fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info19"><i class="red fa fa-info-circle"></i></a>
 								<div id="info19" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -672,7 +676,7 @@
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info20"><i class="fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info20"><i class="red fa fa-info-circle"></i></a>
 								<div id="info20" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -692,7 +696,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="density" id="deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
 								 onchange="updateDensityEff(this.value)">
-								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info21"><i class="fa fa-info-circle"></i></a>
+								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info21"><i class="red fa fa-info-circle"></i></a>
 								<div id="info21" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -716,9 +720,11 @@
 							<fieldset style="width: 430px;">
 								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="antagoeff" id="antagoeff" style="width: 60px;" readonly>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04"
 								 value="9" onchange="updateAgoAffinityEff(this.value)">
-								<br><label for="effect">Cooperativity Factor (&#946)&nbsp</label><a data-toggle="modal" href="" data-target="#info22"><i class="fa fa-info-circle"></i></a>
+								<br><label for="effect">Cooperativity Factor (&#946)&nbsp</label><a data-toggle="modal" href="" data-target="#info22"><i class="red fa fa-info-circle"></i></a>
+								<input class="numbox" type="number" autocomplete="off" name="antcoopeff" id="antcoopeff" style="width: 65px;" readonly>
 								<div id="info22" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -774,9 +780,9 @@
 									</div>
 								</div>
 							</div>
-							<fieldset style="width: 400px;">
+							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info23"><i class="fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info23"><i class="red fa fa-info-circle"></i></a>
 								<div id="info23" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -796,7 +802,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="afffunslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityFun(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info24"><i class="fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info24"><i class="red fa fa-info-circle"></i></a>
 								<div id="info24" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -814,11 +820,11 @@
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="efficacy" id="efffunslider" min="0" max="0.6667" step="0.02487"
+								<input type="range" autocomplete="off" name="efficacy" id="efffunslider" min="0" max="0.6667" step="0.006667"
 								 value="0.33335" onchange="updateEfficacyFun(this.value)">
 								<fieldset>
 									<legend>Cell</legend>
-									<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info25"><i class="fa fa-info-circle"></i></a>
+									<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info25"><i class="red fa fa-info-circle"></i></a>
 								<div id="info25" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -836,9 +842,9 @@
 										</div>
 									</div>
 								</div>
-									<input type="range" autocomplete="off" name="density" id="denfunslider" min="0" max="0.6667" step="0.02487"
+									<input type="range" autocomplete="off" name="density" id="denfunslider" min="0" max="0.6667" step="0.006667"
 									 value="0.33335" onchange="updateDensityFun(this.value)">
-									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info26"><i class="fa fa-info-circle"></i></a>
+									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info26"><i class="red fa fa-info-circle"></i></a>
 								<div id="info26" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -856,27 +862,27 @@
 										</div>
 									</div>
 								</div>
-									<input type="range" autocomplete="off" name="efficiency" id="efficifunslider" min="0" max="0.6667" step="0.02487"
+									<input type="range" autocomplete="off" name="efficiency" id="efficifunslider" min="0" max="0.6667" step="0.006667"
 									 value="0.33335" onchange="updateEfficiencyFun(this.value)">
 								</fieldset>
 							</fieldset>
-							<fieldset style="width: 400px;">
+							<fieldset style="width: 430px;">
 								<legend>Functional Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="6" max="10" step="0.04"
 								 value="8" onchange="updateAgoAffinityFun(this.value)">
 								<br><label for="effect">Intrinsic Efficacy (&#949)&nbsp</label>
-								<input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667" max="0" step="0.0157"
+								<input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667" max="0" step="0.06667"
 								 value="-0.33335" onchange="updateAgoEfficacyFun(this.value)">
 								<!--value was -0.216-->
 								<fieldset>
 									<legend>Cell</legend>
 									<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label>
-									<input type="range" autocomplete="off" name="density" id="agodenfunslider" min="-0.6667" max="0" step="0.0157"
+									<input type="range" autocomplete="off" name="density" id="agodenfunslider" min="-0.6667" max="0" step="0.006667"
 									 value="-0.33335" onchange="updateAgoDensityFun(this.value)">
 									<!--value was -0.216-->
 									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label>
-									<input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider" min="-0.6667" max="0" step="0.0157"
+									<input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider" min="-0.6667" max="0" step="0.06667"
 									 value="-0.33335" onchange="updateAgoEfficiencyFun(this.value)">
 									<!--value was -0.216-->
 								</fieldset>
@@ -915,15 +921,15 @@
 		<div class="container">
 			<ul class="list-inline">
 				<li class="list-inline-item">
-					<a data-toggle="modal" href="" data-target="#about">About</a>
+					<a class="foot-titles" data-toggle="modal" href="" data-target="#about">About</a>
 				</li>
 				<li class="footer-menu-divider list-inline-item">⋅</li>
 				<li class="list-inline-item">
-					<a data-toggle="modal" href="" data-target="#instructions">Instructions</a>
+					<a class="foot-titles" data-toggle="modal" href="" data-target="#instructions">Instructions</a>
 				</li>
 				<li class="footer-menu-divider list-inline-item">⋅</li>
 				<li class="list-inline-item">
-					<a data-toggle="modal" href="" data-target="#contact">Contact</a>
+					<a class="foot-titles" data-toggle="modal" href="" data-target="#contact">Contact</a>
 				</li>
 			</ul>
 			<p class="cc text-muted small">Creative Commons &copy; 2018 </p>
@@ -988,7 +994,7 @@
 								<p>
 									The shape and position of agonist dose-response curves depend upon the properties of both the
 									agonist (affinity and intrinsic efficacy) and the cell (receptor density and the coupling efficiency).
-									Specific information about these parameters can be obtained by clicking the <span style="color:blue">blue <span class="fa fa-info-circle"></span> icons</span>.
+									Specific information about these parameters can be obtained by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span> icons</span>.
 								</p>
 								<p>
 									Relative values for the four agonist and cell parameters are represented by blue sliders, and can be
@@ -1168,7 +1174,7 @@
 						<div class="box">
 							<p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western Australia</p>
 							<p class="contact">Room 1.34, M Block,<br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
-							<p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESmate%20feedback">peter.henry@uwa.edu.au</a></p>
+							<p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESfunc%20feedback">peter.henry@uwa.edu.au</a></p>
 
 						</div>
 					</div>

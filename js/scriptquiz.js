@@ -250,16 +250,16 @@ function markAnswers(){
 	if(ans[ans.length-1].value == recep){
 		$('#incorrectFeedback').hide()
 		$('#correctFeedback').show()
-		document.getElementById("recCorrectFeedback").innerHTML = "Your answer of (m" + (recep + 1) + ") was correct and produced this plot:";
+		document.getElementById("recCorrectFeedback").innerHTML = "Your answer of (M" + (recep + 1) + ") was correct and produced this plot:";
 
 	}
 	else{
 		console.log("receptor is wrong")
 		$('#correctFeedback').hide()
 		$('#incorrectFeedback').show()
-		plotAnswerSchild("youranswer",ans[ans.length-1].value, ans[ans.length-2].value)
-		document.getElementById("recAnswerFeedback").innerHTML = "The receptor you chose (m" + (parseInt(ans[ans.length-1].value)+1) + "), is incorrect, and produces this plot:";
-		document.getElementById("recIncorrectFeedback").innerHTML = "The correct answer of (m" + (recep + 1) + ") produced this plot:";
+		plotAnswerSchild("youranswer",ans[ans.length-1].value)
+		document.getElementById("recAnswerFeedback").innerHTML = "The receptor you chose (M" + (parseInt(ans[ans.length-1].value)+1) + "), is incorrect, and produces this plot:";
+		document.getElementById("recIncorrectFeedback").innerHTML = "The correct answer of (M" + (recep + 1) + ") produced this plot:";
 
 
 	}
@@ -323,7 +323,7 @@ var animation = {
 	}
 }
 
-function plotAnswerSchild(chart, rec, antans){
+function plotAnswerSchild(chart, rec){
 	console.log("red is"+rec)
 	intrec = parseInt(rec)
 	var layout = {
@@ -360,13 +360,6 @@ function plotAnswerSchild(chart, rec, antans){
 		//ansPlotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
 		//ansPlotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
 	}
-	var ii;
-	for(ii = 0;ii<4;ii++){
-		if(antans==Ant3311[ii].type){
-			console.log("this one");
-			ansPlotPoints[4] = [Ant3311[ii][examples[example]][0],Ant3311[ant][examples[example]][1]];
-		}
-	}
 
 	//lb = 1.5-drugs[3].receptors[rec];
 	//lDR = drugs[3].receptors[rec]+lb;
@@ -376,7 +369,7 @@ function plotAnswerSchild(chart, rec, antans){
 	Plotly.newPlot(chart,data,layout, {responsive: true})
 	//var data = []
 	var jj
-	for(jj = 0;jj<5;jj++){
+	for(jj = 0;jj<4;jj++){
 		var data = []
 		var eqn1 = {
 			x: ansPlotPoints[jj][0],

@@ -5,7 +5,7 @@ var affirr = document.getElementById("affirrslider").defaultValue;
 var effirr = document.getElementById("effirrslider").defaultValue;
 var denirr = document.getElementById("denirrslider").defaultValue;
 var efficirr = document.getElementById("efficiirrslider").defaultValue;
-var agoaffirr = document.getElementById("agoaffirrslider").defaultValue;
+var agoaffirr =document.getElementById("antagoirr").value =  document.getElementById("agoaffirrslider").defaultValue;
 
 var animation = {
     transition: {
@@ -151,7 +151,7 @@ function updateEfficiencyIrr(value){
 } 
 
 function updateAgoAffinityIrr(value){
-    agoaffirr = value;
+    agoaffirr = document.getElementById("antagoirr").value = value;
     
     lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);

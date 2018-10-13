@@ -4,7 +4,7 @@ var affcom = document.getElementById("affcomslider").defaultValue;
 var effcom = document.getElementById("effcomslider").defaultValue;
 var dencom = document.getElementById("dencomslider").defaultValue;
 var efficcom = document.getElementById("efficicomslider").defaultValue;
-var agoaffcom = document.getElementById("agoaffcomslider").defaultValue;
+var agoaffcom = document.getElementById("antagocomp").value = document.getElementById("agoaffcomslider").defaultValue;
 var comHalfMaxEffect;
 
 var animation = {
@@ -157,7 +157,7 @@ function updateEfficiencyCom(value){
 } 
 
 function updateAgoAffinityCom(value){
-    agoaffcom = value;
+    agoaffcom = document.getElementById("antagocomp").value = value;
     lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
