@@ -3,8 +3,8 @@ var affaff = document.getElementById("affaffslider").defaultValue;
 var effaff = document.getElementById("effaffslider").defaultValue;
 var denaff = document.getElementById("denaffslider").defaultValue;
 var efficaff = document.getElementById("efficiaffslider").defaultValue;
-var agoaffaff = document.getElementById("agoaffslider").defaultValue;
-var agoeffaff = document.getElementById("agoeffaffslider").defaultValue;
+var agoaffaff = document.getElementById("antagoaff").value = document.getElementById("agoaffslider").defaultValue;
+var agoeffaff = document.getElementById("antcoopaff").value = document.getElementById("agoeffaffslider").defaultValue;
 
 
 var agoconcarr = [0, -9, -8, -7, -6];
@@ -157,7 +157,7 @@ function updateEfficiencyAff(value){
 } 
 
 function updateAgoAffinityAff(value){
-    agoaffaff = value;
+    agoaffaff = document.getElementById("antagoaff").value = value;
     lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
@@ -180,7 +180,7 @@ function updateAgoAffinityAff(value){
 }
 
 function updateAgoEffectAff(value){
-    agoeffaff = value;
+    agoeffaff = document.getElementById("antcoopaff").value = value;
     lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);

@@ -169,7 +169,7 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 8.4px;
   cursor: pointer;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #ffc137;
+  background: rgb(255, 255, 255);
   border-radius: 18.1px;
   border: 0px solid #010101;
 }
@@ -179,20 +179,20 @@ input[type=range]::-webkit-slider-thumb {
   height: 20px;
   width: 16px;
   border-radius: 3px;
-  background: #0000ff;
+  background: rgb(255, 30, 30);
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -5.8px;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #ffc951;
+  background: rgb(255, 255, 255);
 }
 input[type=range]::-moz-range-track {
   width: 200px;
   height: 8.4px;
   cursor: pointer;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #ffc137;
+  background: rgb(255, 255, 255);
   border-radius: 18.1px;
   border: 0px solid #010101;
 }
@@ -202,7 +202,7 @@ input[type=range]::-moz-range-thumb {
   height: 20px;
   width: 16px;
   border-radius: 3px;
-  background: #0000ff;
+  background: rgb(255, 30, 30);
   cursor: pointer;
 }
 input[type=range]::-ms-track {
@@ -231,7 +231,7 @@ input[type=range]::-ms-thumb {
   height: 20px;
   width: 16px;
   border-radius: 3px;
-  background: #0000ff;
+  background: rgb(255, 30, 30);
   cursor: pointer;
   height: 8.4px;
 }
@@ -313,7 +313,6 @@ nav .navbar-nav li a.active {
   max-width: 90em;
 }
 
-
 /*LOADING
   -------------------------------------------------- */
 
@@ -363,13 +362,29 @@ nav .navbar-nav li a.active {
   to{ bottom:0; opacity:1 }
 }
 
-a{
-	color: Red;
+.nav-link{
+	color: rgb(255, 30, 30);
 }
-a:hover {
-    color: Red;
+
+.nav-link:hover {
+    color: rgb(255, 30, 30);
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: rgb(255, 30, 30);
+    height: 100%;
 }
 
 .nav-tabs .nav-item .nav-link.active {
-  background-color: red;
+  background-color: rgb(255, 30, 30);
 }
+
+.red{
+  color: rgb(255, 30, 30);
+}
+
+.foot-titles{
+  color: rgb(255, 30, 30);
+}
+
