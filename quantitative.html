@@ -50,7 +50,7 @@
 		<p align="center">
 			<button class="btn btn-custom" onclick="showInstructionsQuant()"><span class="fa fa-info-circle"></span> What to do?</button>
 		</p>
-		
+
 		<div class="col col-lg-12">
 			<div class="row">
 				<div class="col-lg-6" align="center">
@@ -96,44 +96,101 @@
 				<div class="col-lg-6" align="center">
 					<fieldset style="width:600px;">
 						<legend>Schild Analysis Table</legend>
-						<label class="numbox" style="text-align: center;">[Antagonist] (M)</label>
-						<label class="numbox" style="text-align: center;">log[B]</label>
-						<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
-						<label class="numbox" style="text-align: center;">Dose Ratio</label>
-						<label class="numbox" style="text-align: center;">log(DR-1)</label>
+						<div class="row justify-content-center no-gutters">
+							<div class="col-xs-2 no-gutters">
+								<label class="numbox" style="text-align: center;">[Antagonist] (M)</label>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<label class="numbox" style="text-align: center;">log[B]</label>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<label class="numbox" style="text-align: center;">Dose Ratio</label>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<label class="numbox" style="text-align: center;">log(DR-1)</label>
+							</div>
+						</div>
 						<hr>
-						<input class="numbox" type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
-						<label class="numbox"></label>
-						<input class="numbox" type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
-						<label class="numbox"></label>
-						<label class="numbox"></label>
-						<br>
-						<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
-						 step="1.00e-9" value="1e-10" onchange="updateAntagonist1(this.value)">
-						<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4" step="0.1"
-						 value="-10" onchange="updateAntagonistLog1(this.value)">
-						<input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
-						<input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
-						<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
-						<br>
-						<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
-						 step="1.00e-9" value="1e-10" onchange="updateAntagonist2(this.value)">
-						<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4" step="0.1"
-						 value="-10" onchange="updateAntagonistLog2(this.value)">
-						<input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
-						<input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
-						<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
-						<br>
-						<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
-						 step="1.00e-9" value="1e-10" onchange="updateAntagonist3(this.value)">
-						<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4" step="0.1"
-						 value="-10" onchange="updateAntagonistLog3(this.value)">
-						<input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
-						<input class="numbox" type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
-						<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
+						<div class="row justify-content-center no-gutters">
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<label class="numbox"></label>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<label class="numbox"></label>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<label class="numbox"></label>
+							</div>
+						</div>
+						<div class="row justify-content-center no-gutters">
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
+								 step="1.00e-9" value="1e-10" onchange="updateAntagonist1(this.value)">
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4"
+								 step="0.1" value="-10" onchange="updateAntagonistLog1(this.value)">
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
+							</div>
+						</div>
+						<div class="row justify-content-center no-gutters">
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
+								 step="1.00e-9" value="1e-10" onchange="updateAntagonist2(this.value)">
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4"
+								 step="0.1" value="-10" onchange="updateAntagonistLog2(this.value)">
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
+							</div>
+						</div>
+						<div class="row justify-content-center no-gutters">
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
+								 step="1.00e-9" value="1e-10" onchange="updateAntagonist3(this.value)">
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4"
+								 step="0.1" value="-10" onchange="updateAntagonistLog3(this.value)">
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
+							</div>
+							<div class="col-xs-2 no-gutters">
+								<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
+							</div>
+						</div>
+					</fieldset>
 				</div>
-				</fieldset>
-				<div class="col-lg-6">
+				<div class="col-lg-6" align="center">
 					<fieldset style="display:block;">
 						<legend>Schild Plot</legend>
 						<div id="schild"></div>
@@ -211,8 +268,10 @@
 					<div class="tab-content">
 						<div id="qual" class="container tab-pane active">
 							<div class="col col-lg-12">
-								<p><span style="color:Red">Agonists</span> bind to and activate receptors to induce changes in the activity of the receptor-expressing
-									cells – a simple schematic of this process can be seen by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span> Agonist</span> icon. The
+								<p><span style="color:Red">Agonists</span> bind to and activate receptors to induce changes in the activity of
+									the receptor-expressing
+									cells – a simple schematic of this process can be seen by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span>
+										Agonist</span> icon. The
 									magnitude of these agonist-induced changes in cell activity are dependent on the concentration of
 									the agonist, and are typically displayed using agonist dose-response curves (see default sigmoid-
 									shaped Agonist Dose-Response Curve).
@@ -232,7 +291,8 @@
 								<p>
 									The shape and position of agonist dose-response curves depend upon the properties of both the
 									agonist (affinity and intrinsic efficacy) and the cell (receptor density and the coupling efficiency).
-									Specific information about these parameters can be obtained by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span> icons</span>.
+									Specific information about these parameters can be obtained by clicking the <span style="color:red">red <span
+										 class="fa fa-info-circle"></span> icons</span>.
 								</p>
 								<p>
 									Relative values for the four agonist and cell parameters are represented by blue sliders, and can be
@@ -248,12 +308,14 @@
 									the Answer icon.
 								</p>
 								<p>
-									<span style="color:red">Antagonists</span> bind to receptors and inhibit agonist-induced responses. There exist different classes of
+									<span style="color:red">Antagonists</span> bind to receptors and inhibit agonist-induced responses. There
+									exist different classes of
 									antagonists, including Competitive antagonists, Irreversible antagonists, Allosteric antagonists and
 									Functional antagonists. As their names suggest, these different classes of antagonist interact with
 									the receptors in distinct ways, and likewise affect agonist dose-response curves in characteristic
 									ways – thus each class of antagonist has its own visualiser. Further information about each of these
-									classes of antagonists can be obtained by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span> Antagonist</span> icon in each specific window.
+									classes of antagonists can be obtained by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span>
+										Antagonist</span> icon in each specific window.
 									The magnitude of inhibitory effects produced by an antagonist depends upon both the
 									concentration and affinity of the antagonist. By default, the effects produced by 1, 10, 100 and 1000
 									nM concentrations of antagonist on the agonist dose-response curves are displayed in red. The
@@ -293,7 +355,8 @@
 								</p>
 								<p>
 									If certain conditions are met (linearity, unity of slope), then a Schild Plot can be used to generate a
-									pA<sub>2</sub> value, which is an estimate of the affinity of the competitive antagonist (K<sub>B</sub> value) for the
+									pA<sub>2</sub> value, which is an estimate of the affinity of the competitive antagonist (K<sub>B</sub> value)
+									for the
 									receptor through which the agonist is producing the response. The pA<sub>2</sub> is determined by measuring
 									the value of the dose ratio (DR) at several antagonist concentrations, allowing an estimate of the
 									antagonist concentration at which log(DR-1) is zero.
@@ -305,7 +368,8 @@
 									the agonist-induced response identified.
 								</p>
 								<p>
-									<b><i>In the Schild Plot Generator</i></b> you can choose the characteristics of the agonist (affinity, intrinsic
+									<b><i>In the Schild Plot Generator</i></b> you can choose the characteristics of the agonist (affinity,
+									intrinsic
 									efficacy) and cell (receptor density, coupling efficiency) by moving the blue sliders along the yellow
 									bar (as per Dose-Response Visualiser). Furthermore, you can select the affinity of the antagonist (in
 									the Competitive Antagonist window) and select up to three [antagonist] (in the Schild Plot Analysis
@@ -320,7 +384,8 @@
 								<p>
 									You can enhance your understanding of the key concepts surrounding the theoretical and practical
 									aspects of Schild Analysis by working through a series of Questions (see Questions window) that
-									encourage the use of the Schild Plot Generator and the Reference Table of ‘-logK<sub>i</sub>  values’. An Answer
+									encourage the use of the Schild Plot Generator and the Reference Table of ‘-logK<sub>i</sub> values’. An
+									Answer
 									to each of the Questions posed can be obtained by clicking on the Answer icon. Completing these
 									questions, together with an understanding of the SPIKES approach to interpreting Schild plot data,
 									will prepare you well for the ‘Schild Plot Analysis Quiz’.
@@ -340,44 +405,57 @@
 									plots.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>S</b></span>hape of the Schild Plot – should be linear. Nonlinearity is indicative of key assumptions of the
+									<span style="color:red; font-size: 22px"><b>S</b></span>hape of the Schild Plot – should be linear.
+									Nonlinearity is indicative of key assumptions of the
 									Schild Analysis not being met (e.g. antagonism must be competitive) and makes the pA<sub>2</sub> values
 									potentially unreliable for K<sub>B</sub> determination. In the Quiz, analyse the shape of each Schild plot and
 									select from the drop-down options (linear, nonlinear up, nonlinear down) the most appropriate
 									description of the shape of the Schild Plot.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>P</b></span>osition of the Schild Plot provides the pA<sub>2</sub> value – i.e. x-axis intercept. If the pA<sub>2</sub> is derived from a
-									linear Schild plot with slope not significantly different from 1.0, then it can be converted to K<sub>B</sub> and be
+									<span style="color:red; font-size: 22px"><b>P</b></span>osition of the Schild Plot provides the pA<sub>2</sub>
+									value – i.e. x-axis intercept. If the pA<sub>2</sub> is derived from a
+									linear Schild plot with slope not significantly different from 1.0, then it can be converted to K<sub>B</sub>
+									and be
 									a true measure of the affinity of the antagonist for the receptor mediating the agonist-induced
 									response. In the Quiz, enter the numerical value of the pA<sub>2</sub> for each antagonist.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>I</b></span>nclination of the Schild Plot = slope of the Schild Plot, and should not be significantly different from
-									value of 1.0. If slope &lt; 1, pA<sub>2</sub> is over-estimated &amp; if slope &gt; 1, then pA<sub>2</sub> value is under-estimated. In
+									<span style="color:red; font-size: 22px"><b>I</b></span>nclination of the Schild Plot = slope of the Schild
+									Plot, and should not be significantly different from
+									value of 1.0. If slope &lt; 1, pA<sub>2</sub> is over-estimated &amp; if slope &gt; 1, then pA<sub>2</sub>
+									value is under-estimated. In
 									the Quiz, determine the slope and select from the drop-down options (Slope=1, Slope&lt;1, Slope&gt;1,
 									unsure) the most appropriate description of the slope for each antagonist Schild Plot.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>K</b></span><sub>B</sub> is the antilog of the pA<sub>2</sub> and is a direct measure of the affinity of the antagonist for the receptor
-									mediating the agonist-induce response. The K<sub>B</sub> value can be reliably derived from pA<sub>2</sub> only if the
+									<span style="color:red; font-size: 22px"><b>K</b></span><sub>B</sub> is the antilog of the pA<sub>2</sub> and
+									is a direct measure of the affinity of the antagonist for the receptor
+									mediating the agonist-induce response. The K<sub>B</sub> value can be reliably derived from pA<sub>2</sub>
+									only if the
 									Schild plot is linear with unit slope. In the Quiz, determine whether the K<sub>B</sub> value can be reliably
-									obtained from the pA<sub>2</sub> value (based on the prior analysis of Shape (linear) and Inclination (slope=1)
+									obtained from the pA<sub>2</sub> value (based on the prior analysis of Shape (linear) and Inclination
+									(slope=1)
 									of each Schild plot) by selecting the appropriate response from the drop-down list (Yes, No, Unsure).
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>E</b></span>limination. If for any antagonist, there is at least a 1.0 log unit difference between the observed
-									pA<sub>2</sub> value and the known –logK<sub>i</sub> value at any particular receptor subtype (see reference Table of
-									–logK<sub>i</sub> values), then that receptor subtype is unlikely to have mediated the agonist-induced response
+									<span style="color:red; font-size: 22px"><b>E</b></span>limination. If for any antagonist, there is at least a
+									1.0 log unit difference between the observed
+									pA<sub>2</sub> value and the known –logK<sub>i</sub> value at any particular receptor subtype (see reference
+									Table of
+									–logK<sub>i</sub> values), then that receptor subtype is unlikely to have mediated the agonist-induced
+									response
 									and can be eliminated from further analysis. In the Quiz, for each antagonist check the receptor box
 									to indicate that that receptor has been eliminated.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>S</b></span>ummation. In the Elimination process, each different antagonist is likely to have been able to
+									<span style="color:red; font-size: 22px"><b>S</b></span>ummation. In the Elimination process, each different
+									antagonist is likely to have been able to
 									eliminate one or more receptor subtypes as having mediated the agonist-induced response. By using
 									the information obtained by using ALL the antagonists, a concerted process of elimination should
 									leave just one receptor subtype as having mediated the response induced by the agonist. All
-									obtained pA<sub>2</sub> values should be close to the –logK<sub>i</sub> values for the sole non-eliminated receptor. In the
+									obtained pA<sub>2</sub> values should be close to the –logK<sub>i</sub> values for the sole non-eliminated
+									receptor. In the
 									Quiz, in the ‘Your Solution’ window select the sole receptor subtype that is mediating the response.
 								</p>
 								<p>
@@ -393,36 +471,36 @@
 								</p>
 							</div>
 						</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="contact" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title">Contact</h4>
-					</div>
-					<div class="modal-body">
-						<p>Is something not working properly?<br />Have an idea about how can we improve the
-							interactive
-							tools?
-							<br />Please contact us!</p>
-						<div class="box">
-							<p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western Australia</p>
-							<p class="contact">Room 1.34, M Block,<br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
-							<p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESfunc%20feedback">peter.henry@uwa.edu.au</a></p>
-
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						</div>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+			<div id="contact" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Contact</h4>
+						</div>
+						<div class="modal-body">
+							<p>Is something not working properly?<br />Have an idea about how can we improve the
+								interactive
+								tools?
+								<br />Please contact us!</p>
+							<div class="box">
+								<p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western Australia</p>
+								<p class="contact">Room 1.34, M Block,<br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
+								<p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESfunc%20feedback">peter.henry@uwa.edu.au</a></p>
+
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
 	</footer>
 </body>
