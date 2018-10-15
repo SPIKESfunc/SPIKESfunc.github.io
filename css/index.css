@@ -58,10 +58,10 @@ html {
 }
 
 .parallax {
-  min-height: 600px;
+  min-height: 500px;
   background-attachment: fixed;
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
