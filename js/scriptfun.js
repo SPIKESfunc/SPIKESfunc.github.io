@@ -1,4 +1,4 @@
-
+﻿
 var afffun = document.getElementById("afffunslider").defaultValue;
 var efffun = document.getElementById("efffunslider").defaultValue;
 var denfun = document.getElementById("denfunslider").defaultValue;
@@ -409,3 +409,52 @@ function plotGraphFun(chart){
 
 plotGraphFun("functional");
 
+//QUESTION BOX
+var questionsFun = ["What is the principal effect produced by a Functional Antagonist on an agonist dose-response curve?<br><i>This can be tested using the Visualiser</i>",
+    "Does a Functional Antagonist affect the maximum effect induced by the agonist?<br><i>This can be tested using the Visualiser</i>",
+    "Is the effect of a Functional Antagonist influenced by the properties of the agonist(Affinity, Intrinsic Efficacy) or the cell(R<sub>T</sub>, <i>f</i>) ?<br><i>This can be tested using the Visualiser</i>",
+    "What other factors might influence the actions of a Functional Antagonist on agonist-induced effects?<br><i>This can be tested using the Visualiser</i> ",
+    "Can a Functional Antagonist abolish agonist-induced effects?<br><i>This can be tested using the Visualiser</i>"];
+    
+var answersFun = ["Increasing concentrations of a functional antagonist may REDUCE BOTH THE POTENCY AND THE MAXIMUM EFFECT OF THE AGONIST.  That is, the functional antagonist may shift the agonist dose-response curve to the right (reduced agonist potency), while also suppressing the maximum agonist-induced response.  The extent to which agonist potency and maximum effect are reduced depends on the relative efficacies of the agonists, and the relative receptor densities (R<sub>T</sub>) and coupling efficiencies (<i>f</i>) of the respective receptor-effector systems within the cell.  This effect can be observed using the visualiser.",
+    "<b>USUALLY</b>, although this will depend upon the relative efficacies of the agonist and functional antagonist, and the relative receptor densities (R<sub>T</sub>) and coupling efficiencies (<i>f</i>) of their receptor-effector systems within the cell.  An instance where a functional antagonist may not suppress the maximum agonist-induced response might be where a high efficacy agonist acting in a cell with high R<sub>T</sub> and/or <i>f</i>, is acted upon by a functional antagonist that has low ε, and acting via a receptor-effector pathway with low R<sub>T</sub> and/or <i>f</i> – here the functional antagonist will likely shift the agonist dose-response curve to the right without suppressing the maximum effect.  This effect can be observed using the visualiser.",
+    "<b>YES</b>, the extent of the inhibitory effect produced by a functional antagonist depends on the intrinsic efficacy of the agonist, and the properties of the cell (R<sub>T</sub>, <i>f</i>).  This effect can be observed using the visualiser.",
+    "Clearly, the CONCENTRATION of the functional antagonist will impact the extent of inhibition of the agonist-induced response, although this will be limited because once the receptors for the functional allosteric site are saturated, there are no further inhibitory effects on the agonist.  This effect can be observed using the visualiser.",
+    "<b>YES</b>, but this depends on the relative intrinsic efficacies of the agonist and functional antagonist, and the relative receptor densities (R<sub>T</sub>) and coupling efficiencies (<i>f</i>) of their receptor-effector systems within the cell.  This effect can be observed using the visualiser."];
+
+var questionCounterFun = 0;
+document.getElementById("FunQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
+
+
+function revealAnswerFun() {
+    document.getElementById("FunAnswer").innerHTML = answersFun[questionCounterFun];
+    $('#FunAnswerModal').modal('show');
+}
+
+
+function nextQuestionFun() {
+    if (questionCounterFun + 1 == questionsFun.length) { //end of questions
+        document.getElementById("FunQuestion").style.display = "none";
+        document.getElementById("revealFunAnswer").style.display = "none";
+        document.getElementById("restartMessageFun").style.display = "block";
+        document.getElementById("restartQuestionFun").style.display = "block";
+        document.getElementById("nextFunQuestion").style.display = "none";
+        document.getElementById("FunQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
+        questionCounterFun = 0;
+    }
+    else {
+        questionCounterFun++;
+        document.getElementById("restartMessageFun").style.display = "none";
+        document.getElementById("restartQuestionFun").style.display = "none";
+        document.getElementById("FunQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
+    }
+}
+
+function restartQuestionFun() {
+    document.getElementById("FunQuestion").style.display = "block";
+    document.getElementById("nextFunQuestion").style.display = "block";
+    document.getElementById("restartMessageFun").style.display = "none";
+    document.getElementById("restartQuestionFun").style.display = "none";
+    document.getElementById("FunQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
+    document.getElementById("revealFunAnswer").style.display = "block";
+}
