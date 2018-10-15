@@ -186,6 +186,37 @@
 								<input type="range" autocomplete="off" name="efficiency" id="efficislider" min="-0.3" max="0.7" step="0.01"
 								 value="0.2" onchange="updateEfficiency(this.value)">
 							</fieldset>
+							<fieldset>
+                                <legend>Questions</legend>
+                                <div id="agonistQuestion"></div>
+                                <br><button id="revealAgonistAnswer" type="button" class="btn btn-custom" onclick="revealAnswerAgonist()">Reveal Answer</button>
+
+                                <div id="agonistAnswerModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Answer</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="box">
+                                                    <div id="agonistAnswer"></div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="restartMessageAgonist" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+                                <button id="restartQuestionAgonist" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionAgonist()">Restart</button>
+
+                                <div style="padding-top: 20px;">
+                                    <button id="nextAgonistQuestion" type="button" class="btn btn-custom" onclick="nextQuestionAgonist()">Next Question</button>
+                                </div>
+
+                            </fieldset>
 
 						</div>
 						<div class="col-lg-7">
@@ -316,7 +347,37 @@
 								 value="9" onchange="updateAgoAffinityCom(this.value)">
 							</fieldset>
 							<!--COLOURS OF DIFFERENT ONES-->
+							<fieldset>
+                                <legend>Questions</legend>
+                                <div id="comQuestion"></div>
+                                <br><button id="revealComAnswer" type="button" class="btn btn-custom" onclick="revealAnswerCom()">Reveal Answer</button>
 
+                                <div id="comAnswerModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Answer</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="box">
+                                                    <div id="comAnswer"></div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="restartMessageCom" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+                                <button id="restartQuestionCom" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionCom()">Restart</button>
+
+                                <div style="padding-top: 20px;">
+                                    <button id="nextComQuestion" type="button" class="btn btn-custom" onclick="nextQuestionCom()">Next Question</button>
+                                </div>
+
+                            </fieldset>
 						</div>
 						<div class="col-lg-7">
 							<fieldset>
@@ -445,6 +506,37 @@
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04"
 								 value="9" onchange="updateAgoAffinityIrr(this.value)">
 							</fieldset>
+							<fieldset>
+                                <legend>Questions</legend>
+                                <div id="IrrQuestion"></div>
+                                <br><button id="revealIrrAnswer" type="button" class="btn btn-custom" onclick="revealAnswerIrr()">Reveal Answer</button>
+
+                                <div id="IrrAnswerModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Answer</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="box">
+                                                    <div id="IrrAnswer"></div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="restartMessageIrr" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+                                <button id="restartQuestionIrr" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionIrr()">Restart</button>
+
+                                <div style="padding-top: 20px;">
+                                    <button id="nextIrrQuestion" type="button" class="btn btn-custom" onclick="nextQuestionIrr()">Next Question</button>
+                                </div>
+
+                            </fieldset>
 						</div>
 						<div class="col-lg-7">
 							<fieldset>
@@ -594,6 +686,37 @@
 								<input type="range" autocomplete="off" name="effect" id="agoeffaffslider" min="0" max="2" step="0.001" value="1"
 								 onchange="updateAgoEffectAff(this.value)">
 							</fieldset>
+							<fieldset>
+                                <legend>Questions</legend>
+                                <div id="AffQuestion"></div>
+                                <br><button id="revealAffAnswer" type="button" class="btn btn-custom" onclick="revealAnswerAff()">Reveal Answer</button>
+
+                                <div id="AffAnswerModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Answer</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="box">
+                                                    <div id="AffAnswer"></div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="restartMessageAff" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+                                <button id="restartQuestionAff" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionAff()">Restart</button>
+
+                                <div style="padding-top: 20px;">
+                                    <button id="nextAffQuestion" type="button" class="btn btn-custom" onclick="nextQuestionAff()">Next Question</button>
+                                </div>
+
+                            </fieldset>
 
 						</div>
 						<div class="col-lg-7">
@@ -745,6 +868,37 @@
 								<input type="range" autocomplete="off" name="effect" id="agoeffeffslider" min="0" max="2" step="0.001" value="1"
 								 onchange="updateAgoEffectEff(this.value)">
 							</fieldset>
+							<fieldset>
+                                <legend>Questions</legend>
+                                <div id="EffQuestion"></div>
+                                <br><button id="revealEffAnswer" type="button" class="btn btn-custom" onclick="revealAnswerEff()">Reveal Answer</button>
+
+                                <div id="EffAnswerModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Answer</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="box">
+                                                    <div id="EffAnswer"></div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="restartMessageEff" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+                                <button id="restartQuestionEff" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionEff()">Restart</button>
+
+                                <div style="padding-top: 20px;">
+                                    <button id="nextEffQuestion" type="button" class="btn btn-custom" onclick="nextQuestionEff()">Next Question</button>
+                                </div>
+
+                            </fieldset>
 						</div>
 						<div class="col-lg-7">
 							<fieldset>
@@ -887,6 +1041,37 @@
 									<!--value was -0.216-->
 								</fieldset>
 							</fieldset>
+							<fieldset>
+                                <legend>Questions</legend>
+                                <div id="FunQuestion"></div>
+                                <br><button id="revealFunAnswer" type="button" class="btn btn-custom" onclick="revealAnswerFun()">Reveal Answer</button>
+
+                                <div id="FunAnswerModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Answer</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="box">
+                                                    <div id="FunAnswer"></div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="restartMessageFun" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+                                <button id="restartQuestionFun" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionFun()">Restart</button>
+
+                                <div style="padding-top: 20px;">
+                                    <button id="nextFunQuestion" type="button" class="btn btn-custom" onclick="nextQuestionFun()">Next Question</button>
+                                </div>
+
+                            </fieldset>
 						</div>
 						<div class="col-lg-7" style="padding-top: 40px;">
 							<fieldset>
