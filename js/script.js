@@ -252,3 +252,59 @@ function showInstructionsQual() {
     $('#instructions').modal('show');
     $('.nav-tabs a[href="#qual"]').tab('show');
 };
+
+
+//QUESTION BOX
+var questions = ["What is agonism? <br><br><img src=\"images/agonistchart.png\" alt=\"Ago1 Answer\" style=\"max-height:100%; max-width:100%;\">",
+    "What is a PARTIAL agonist?",
+    "What is a FULL agonist?",
+    "For a partial agonist, increasing which of the following variables will increase the maximum effect produced – intrinsic efficacy (ε), receptor density (R<sub>T</sub>) or coupling efficiency (<i>f</i>)? <br><i>This can be tested using the Visualiser</i>",
+    "For a full agonist, does INCREASING intrinsic efficacy (ε), receptor density (R<sub>T</sub>) and/or coupling efficiency (<i>f</i>) produce a noticeable INCREASE in maximum effect produced? <br><i>This can be tested using the Visualiser</i>", 
+    "Can a full agonist produce a maximum response when occupying and activating only a fraction of the total receptor population?<br><i>This can be tested using the Visualiser</i>",
+    "Can an agonist be a partial agonist in one cell type, be a full agonist in a different cell type?"];
+				
+var answers = ["It is represented by the red ball on the agonist dose-response curve.  The pD<sub>2</sub> is another measure of agonist potency, and is simply the –logEC<sub>50</sub>.",
+    "An agonist that in a given tissue, under specified conditions, cannot elicit as large an effect as can another agonist acting through the same receptors in the same cell or tissue (even when applied at high concentration, so that all the receptors should be occupied).  The default agonist shown is a partial agonist.",
+    "An agonist that in a given tissue, under specified conditions, elicits the largest possible effect (100%Emax).  Increase ε, R<sub>T</sub> and/or <i>f</i>  to change a partial agonist into a full agonist.",
+    "For a partial agonist, increasing any of the following variables – intrinsic efficacy (ε), receptor density (R<sub>T</sub>) or coupling efficiency (<i>f</i>) – will increase the maximum effect produced.  Increasing these variables may change a partial agonist into a full agonist. This effect can be observed using the visualiser.",
+    "<b>NO</b>, increasing intrinsic efficacy (ε), receptor density (R<sub>T</sub>) and/or coupling efficiency (<i>f</i>) will not produce a noticeable increase in the maximum effect produced by a full agonist. However, an increase in any of these variables will cause an increase in agonist potency, as indicated by a leftward shift of the agonist dose-response curve (decrease in EC<sub>50</sub> value). This effect can be observed using the visualiser.",
+    "<b>YES</b>, a full agonist can produce a maximum response when occupying only a fraction of the total receptor population (less than 100%).  That is, not all of the receptors in the tissue are required to achieve a maximal response with some high efficacy agonists. This has been amply demonstrated experimentally in that reducing the number of functional receptors (e.g. by using irreversible antagonist) may result in a decrease in agonist potency without a decreased maximal response. At sufficiently high degrees of receptor inactivation, the maximum response even to full agonists is finally reduced.  This is often referred to as the cell having ‘spare receptors’ or a ‘receptor reserve’ (not all receptors are required to induce a maximal response). This effect can be observed using the visualiser.",
+    "<b>YES</b>.  Agonists with low-moderate efficacy may act as full agonists in cells with high R<sub>T</sub> and/or <i>f</i>, but act as partial agonists in cells with low R<sub>T</sub> and/or <i>f</i>.  Test the effects of increasing or decreasing R<sub>T</sub> and/or <i>f</i> on agonist-induced effects. This effect can be observed using the visualiser."];
+
+var questionCounter = 0;
+document.getElementById("agonistQuestion").innerHTML = "<b>" + questions[questionCounter] + "</b>";
+
+
+function revealAnswerAgonist(){
+	document.getElementById("agonistAnswer").innerHTML = answers[questionCounter];
+    $('#agonistAnswerModal').modal('show');
+}
+
+
+function nextQuestionAgonist() {
+    if (questionCounter + 1 == questions.length) { //end of questions
+        document.getElementById("agonistQuestion").style.display = "none";
+        document.getElementById("revealAgonistAnswer").style.display = "none";
+        document.getElementById("restartMessage").style.display = "block";
+        document.getElementById("restartQuestion").style.display = "block";
+        document.getElementById("nextAgonistQuestion").style.display = "none";
+        document.getElementById("agonistQuestion").innerHTML = "<b>" + questions[questionCounter] + "</b>";
+        questionCounter = 0;
+    }
+    else {
+        questionCounter++; 
+        document.getElementById("restartMessage").style.display = "none";
+        document.getElementById("restartQuestion").style.display = "none";
+        document.getElementById("agonistQuestion").innerHTML = "<b>" + questions[questionCounter] + "</b>";
+    }
+}
+
+function restartQuestionAgonist() {
+    document.getElementById("agonistQuestion").style.display = "block";
+    document.getElementById("nextAgonistQuestion").style.display = "block";
+    document.getElementById("restartMessage").style.display = "none";
+	document.getElementById("restartQuestion").style.display = "none";
+	document.getElementById("agonistQuestion").innerHTML = "<b>" + questions[questionCounter] + "</b>";
+	document.getElementById("revealAgonistAnswer").style.display = "block";
+}
+
