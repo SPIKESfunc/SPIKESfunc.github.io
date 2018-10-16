@@ -28,11 +28,11 @@ nav .navbar-nav li.nav-item a.nav-item.nav-link {
   color: black;
 }
 
-nav .navbar-nav li a:hover {
+nav .navbar-nav li.nav-item a.nav-item.nav-link:hover {
   color: rgb(255, 30, 30);
 }
 
-nav .navbar-nav li a.active {
+nav .navbar-nav li.nav-item a.nav-item.nav-link.active {
   color: rgb(255, 30, 30);
 }
 
@@ -58,10 +58,10 @@ html {
 }
 
 .parallax {
-  min-height: 600px;
+  min-height: 500px;
   background-attachment: fixed;
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
