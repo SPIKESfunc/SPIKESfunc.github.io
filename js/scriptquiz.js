@@ -148,14 +148,14 @@ function selectDrugs(){
 		lDR2 = (drugs[i].receptors[recep]+lb2);// - (error[i]-1); 
 		lDR3 = (drugs[i].receptors[recep]+lb3);// - 2*(error[i]-1);
 
-		plotPoints[i] = [[lb3,lb2,lb1,-0.5+lb1],[lDR3,lDR2,lDR1,0]]
+		plotPoints[i] = [[lb3,lb2,lb1],[lDR3,lDR2,lDR1]]
 	}
 	else{
 		lDR1 = (drugs[i].receptors[recep]+lb1) + error[i]; //add error adjustment, keep gradient = to 1
 		lDR2 = (drugs[i].receptors[recep]+lb2) + error[i];// - (error[i]-1); 
 		lDR3 = (drugs[i].receptors[recep]+lb3) + error[i];// - 2*(error[i]-1);
 
-		plotPoints[i] = [[lb3,lb2,lb1,-0.5+lb1-error[i]],[lDR3,lDR2,lDR1,0]]
+		plotPoints[i] = [[lb3,lb2,lb1],[lDR3,lDR2,lDR1]]
 	}
 	//plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
 	//plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
@@ -356,15 +356,8 @@ function plotAnswerSchild(chart, rec){
 		lDR2 = drugs[i].receptors[rec]+lb2;
 		lDR3 = drugs[i].receptors[rec]+lb3;
 		
-		ansPlotPoints[i] = [[lb3,lb2,lb1,-0.5+lb1],[lDR3,lDR2,lDR1,0]]
-		//ansPlotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
-		//ansPlotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
+		ansPlotPoints[i] = [[lb3,lb2,lb1],[lDR3,lDR2,lDR1]]
 	}
-
-	//lb = 1.5-drugs[3].receptors[rec];
-	//lDR = drugs[3].receptors[rec]+lb;
-	//ansPlotPoints[3]=[[lb],[lDR]]
-	//ansPlotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
 
 	Plotly.newPlot(chart,data,layout, {responsive: true})
 	//var data = []
@@ -387,14 +380,11 @@ function plotAnswerSchild(chart, rec){
 }
 
 function PlotQuizSchild(chart, ticksize, show){
-	console.log(ticksize)
 	var layout = {
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
 			range:[-9.0,-2.0],
-			//tickvals: ['-9',' ',' ',' ',' ','-8',' ',' ',' ',' ','-7',' ',' ',' ',' ','-6',' ',' ',' ',' ','-5',' ',' ',' ',' ','-4',' ',' ',' ',' ','-3',' ',' ',' ',' ','-2'],
-			//showticklabels: false,
 			dtick: ticksize,
 			ticks: 'outside',
 		},
@@ -438,10 +428,8 @@ function PlotQuizSchild(chart, ticksize, show){
 				break;
 		}
 		data.push(eqn1);
-		//console.log(data)
 		Plotly.plot(chart,data,layout, {responsive: true})
 	}
-	//document.querySelector('[data-title="Autoscale"]').click()
 	
 }
 
