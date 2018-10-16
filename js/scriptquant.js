@@ -465,7 +465,7 @@ function calcAgoHalfEffect(affinity, efficacy, recepDensity, efficiency, agoaffi
     var efcey = 10**efficiency;
     var agoaffin = 10**(-1*agoaffinity);
     var antconc = antagconc;
-    ago = (50*affin*(1+antconc/agoaffin))/((efcay*recep*efcey*100)-(efcay*recep*efcey+1));
+    ago = (comHalfMaxEffect*(affin*(1+antconc/agoaffin)))/((efcay*recep*efcey*100)-(comHalfMaxEffect*(efcay*recep*efcey+1)));
     return ago;
 }
 
