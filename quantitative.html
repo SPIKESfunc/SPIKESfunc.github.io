@@ -82,6 +82,37 @@
 						<input type="number" style="float:right; width:138px;" autocomplete="off" name="agoafflog" id="agoafflognum" min="4"
 						 max="10" step="0.1" value="9.0" onchange="updateAgoAffinityLog(this.value)">
 					</fieldset>
+					<fieldset style="width: 500px;">
+                                <legend>Questions</legend>
+                                <div id="SchildQuestion"></div>
+                                <br><button id="revealSchildAnswer" type="button" class="btn btn-custom" onclick="revealAnswerSchild()">Reveal Answer</button>
+
+                                <div id="SchildAnswerModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Answer</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="box">
+                                                    <div id="SchildAnswer"></div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="restartMessageSchild" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+                                <button id="restartQuestionSchild" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionSchild()">Restart</button>
+
+                                <div style="padding-top: 20px;">
+                                    <button id="nextSchildQuestion" type="button" class="btn btn-custom" onclick="nextQuestionSchild()">Next Question</button>
+                                </div>
+
+                    </fieldset>
 				</div>
 				<div class="col-lg-6">
 					<fieldset style="display:block;">
@@ -91,7 +122,7 @@
 					</fieldset>
 				</div>
 			</div>
-
+			<br><br>
 			<div class="row">
 				<div class="col-lg-6" align="center">
 					<fieldset style="width:600px;">
