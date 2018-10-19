@@ -104,13 +104,19 @@ html {
 }
 
 /*footer red*/
-a{
+footer a{
 	color: Red;
 }
-a:hover {
+
+footer a:hover {
     color: Red;
 }
 
 .nav-tabs .nav-item .nav-link.active {
   background-color: red;
+}
+
+a.btn:hover {
+  color: #fff;
+  background-color: #ff5252  !important;
 }
