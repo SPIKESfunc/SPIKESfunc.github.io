@@ -8,7 +8,6 @@
 
 	<link rel="shortcut icon" href="images/favicon-256x256.png">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/button.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -58,7 +57,7 @@
 		<div class="container">
 			<h1 class="display-4">Dose-Response Visualiser</h1>
 			<p class="lead">This tool is used to visualise how changes in the characteristics of agonists, receptors and cells influences the agonist dose-response relationship. This tool can also be used to visualise how different classes of antagonist can dose-dependently change the shape and position of agonist dose-response curves.</p>
-			<a href="qualitative.html" class="btn waves-effect waves-light red" role="button">Investigate the patterns!</a>
+			<a href="qualitative.html" class="btn btn-custom" role="button">Investigate the patterns!</a>
 		</div>
 	</div>
 	<div class="jumbotron parallax img1">
@@ -67,7 +66,7 @@
 		<div class="container">
 			<h1 class="display-4">Schild Plot Generator</h1>
 			<p class="lead">This tool is used to develop competencies in the quantitative analysis of the effect of competitive antagonists on agonist-induced effects in functional assays – the powerful Schild Analysis.</p>
-			<a href="quantitative.html" class="btn waves-effect waves-light red" role="button">See it at work!</a>
+			<a href="quantitative.html" class="btn btn-custom" role="button">See it at work!</a>
 		</div>
 	</div>
 	<div class="jumbotron parallax img2">
@@ -76,7 +75,7 @@
 		<div class="container">
 			<h1 class="display-4">Schild Plot Analysis Quiz</h1>
 			<p class="lead">In the Quiz tool, users apply their understanding of the Schild approach together with the SPIKES mnemonic to test their competencies in identifying receptors that mediate agonist-induced functional effects.</p>
-			<a href="quiz.html" class="btn waves-effect waves-light red" role="button">Try the Quiz!</a>
+			<a href="quiz.html" class="btn btn-custom" role="button">Try the Quiz!</a>
 		</div>
 	</div>
 	<div class="jumbotron parallax img3">
@@ -105,9 +104,9 @@
 						<h4 class="modal-title">About</h4>
 					</div>
 					<div class="modal-body">
-						<p>Summary about the project<br />Created by Cam, Dan, Harry, Thai - students of CITS3200 UWA 2018,
-							directed
-							by Associate Professor Peter Henry</p>
+						<p><b>Summary about the project</b><br />Agonists produce effects in cells by activating receptors and downstream signalling pathways. This app contains an interactive “Dose Response Visualiser” which allows users to alter agonist-dependent factors (affinity, intrinsic efficacy) and/or cell-dependent factors (receptor density, coupling efficiency) and observe in real time how this changes the agonist dose-response relationship.  Agonist-induced effects can be blocked by drugs called antagonists, which are amongst the most widely used class of drug in medicine.  There exist many different types of antagonists, named on the basis of how they block the agonist-induced effect: competitive, irreversible, allosteric and functional antagonists.  Within the “Dose Response Visualiser”, users can observe the different patterns of effect produced by each of these antagonists (and the influence of antagonist concentrations and affinity) on the agonist dose-response relationship.  Quantitative analysis of the effect of competitive antagonists on agonist-induced effects is a powerful method for identifying the receptors that mediate agonist-induced effects (Schild analysis), and is used in drug discovery and receptor characterisation.  The app contains a “Schild Plot Generator”, where users can select the properties of agonists and antagonists and generate Schild Plots, and work through a series of theoretical questions and experimental scenarios that build proficiency and enhance understanding of key Schild concepts. These newly developed proficiencies and understandings can then be tested using the “Schild Analysis Quiz” tool within the app, were users are provided with a series of Schild Plots obtained to 5 antagonists acting on a single receptor subtype within a common cell, and users are challenged to analyse each of the Schild Plots using the SPIKES approach to deduce which single receptor subtype is mediating the agonist-induced response.  Feedback is provided for each of the literally 1000s of different quiz questions.  Thus SPIKESfunc is an interactive, educational application that boosts proficiency in the interpretation of functional pharmacological data through the visual and quantitative analysis of agonist and antagonist dose-response relationships.  SPIKESfunc can be used in conjunction with SPIKESbind (or SPIKESmate), a complementary interactive educational app designed to enhance the proficiency in the interpretation of binding pharmacological data.
+ 
+The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Brooker and Thai Nguyen, undergraduate students of the Professional Computing unit (CITS3200) at The University of Western Australia, as directed by Associate Professor Peter Henry of the Division of Pharmacology, School of Biomedical Sciences, UWA.   </p>
 						<p><b>References</b></p>
 						<p> - Black JW, Leff P. (1983)  Operational models of pharmacological agonism.  Proc R Soc Lond B Biol Sci. 220(1219):141-62.<br/><br/>
 						 - Christopoulos A, Kenakin T (2002) G protein-coupled receptor allosterism and complexing. Pharmacol Rev. 54(2):323-74.<br/><br/>
@@ -368,7 +367,6 @@
 		</div>
 	</footer> 
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>

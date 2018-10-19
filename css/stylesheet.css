@@ -380,7 +380,7 @@ nav .navbar-nav li.nav-item a.nav-item.nav-link.active {
   background-color: rgb(255, 30, 30);
 }
 
-.red1 {
+.red{
   color: rgb(255, 30, 30);
 }
 
@@ -388,12 +388,3 @@ nav .navbar-nav li.nav-item a.nav-item.nav-link.active {
   color: rgb(255, 30, 30);
 }
 
-a.btn:hover {
-  color: #fff;
-  background-color: #ff5252  !important;
-}
-
-.btn:hover {
-  color: #fff;
-  background-color: #ff5252  !important;
-}
