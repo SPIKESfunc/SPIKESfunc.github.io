@@ -8,7 +8,6 @@
 
 	<link rel="shortcut icon" href="images/favicon-256x256.png">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/button.css">
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,7 +48,7 @@
 	<div id="page" class="container box-size bg-box p-4" style="visibility: hidden; position: absolute;">
 		<h1 class="d-flex justify-content-center">Schild Plot Generator</h1>
 		<p align="center">
-			<button class="btn waves-effect waves-light red" onclick="showInstructionsQuant()"><span class="fa fa-info-circle"></span> What to do?</button>
+			<button class="btn btn-custom" onclick="showInstructionsQuant()"><span class="fa fa-info-circle"></span> What to do?</button>
 		</p>
 
 		<div class="col col-lg-12">
@@ -86,7 +85,7 @@
 					<fieldset style="width: 500px;">
                                 <legend>Questions</legend>
                                 <div id="SchildQuestion"></div>
-                                <br><button id="revealSchildAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerSchild()">Reveal Answer</button>
+                                <br><button id="revealSchildAnswer" type="button" class="btn btn-custom" onclick="revealAnswerSchild()">Reveal Answer</button>
 
                                 <div id="SchildAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -107,10 +106,10 @@
                                 </div>
 
                                 <div id="restartMessageSchild" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionSchild" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionSchild()">Restart</button>
+                                <button id="restartQuestionSchild" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionSchild()">Restart</button>
 
                                 <div style="padding-top: 20px;">
-                                    <button id="nextSchildQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionSchild()">Next Question</button>
+                                    <button id="nextSchildQuestion" type="button" class="btn btn-custom" onclick="nextQuestionSchild()">Next Question</button>
                                 </div>
 
                     </fieldset>
@@ -227,7 +226,7 @@
 						<legend>Schild Plot</legend>
 						<div id="schild"></div>
 					</fieldset>
-					<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetQuant()" style="float: right;">Reset</button>
+					<button id="reset" type="button" class="btn btn-custom" onclick="resetQuant()" style="float: right;">Reset</button>
 				</div>
 			</div>
 
@@ -238,7 +237,6 @@
 	<script type="text/javascript" src="js/scriptquant.js"></script>
 
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>
@@ -269,9 +267,9 @@
 						<h4 class="modal-title">About</h4>
 					</div>
 					<div class="modal-body">
-						<p>Summary about the project<br />Created by Cam, Dan, Harry, Thai - students of
-							CITS3200
-							UWA 2018, directed by Associate Professor Peter Henry</p>
+						<p><b>Summary about the project</b><br />Agonists produce effects in cells by activating receptors and downstream signalling pathways. This app contains an interactive “Dose Response Visualiser” which allows users to alter agonist-dependent factors (affinity, intrinsic efficacy) and/or cell-dependent factors (receptor density, coupling efficiency) and observe in real time how this changes the agonist dose-response relationship.  Agonist-induced effects can be blocked by drugs called antagonists, which are amongst the most widely used class of drug in medicine.  There exist many different types of antagonists, named on the basis of how they block the agonist-induced effect: competitive, irreversible, allosteric and functional antagonists.  Within the “Dose Response Visualiser”, users can observe the different patterns of effect produced by each of these antagonists (and the influence of antagonist concentrations and affinity) on the agonist dose-response relationship.  Quantitative analysis of the effect of competitive antagonists on agonist-induced effects is a powerful method for identifying the receptors that mediate agonist-induced effects (Schild analysis), and is used in drug discovery and receptor characterisation.  The app contains a “Schild Plot Generator”, where users can select the properties of agonists and antagonists and generate Schild Plots, and work through a series of theoretical questions and experimental scenarios that build proficiency and enhance understanding of key Schild concepts. These newly developed proficiencies and understandings can then be tested using the “Schild Analysis Quiz” tool within the app, were users are provided with a series of Schild Plots obtained to 5 antagonists acting on a single receptor subtype within a common cell, and users are challenged to analyse each of the Schild Plots using the SPIKES approach to deduce which single receptor subtype is mediating the agonist-induced response.  Feedback is provided for each of the literally 1000s of different quiz questions.  Thus SPIKESfunc is an interactive, educational application that boosts proficiency in the interpretation of functional pharmacological data through the visual and quantitative analysis of agonist and antagonist dose-response relationships.  SPIKESfunc can be used in conjunction with SPIKESbind (or SPIKESmate), a complementary interactive educational app designed to enhance the proficiency in the interpretation of binding pharmacological data.
+ 
+The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Brooker and Thai Nguyen, undergraduate students of the Professional Computing unit (CITS3200) at The University of Western Australia, as directed by Associate Professor Peter Henry of the Division of Pharmacology, School of Biomedical Sciences, UWA.   </p>
 							<p><b>References</b></p>
 						<p> - Black JW, Leff P. (1983)  Operational models of pharmacological agonism.  Proc R Soc Lond B Biol Sci. 220(1219):141-62.<br/><br/>
 						 - Christopoulos A, Kenakin T (2002) G protein-coupled receptor allosterism and complexing. Pharmacol Rev. 54(2):323-74.<br/><br/>

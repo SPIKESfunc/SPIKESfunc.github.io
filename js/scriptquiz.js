@@ -324,21 +324,21 @@ var animation = {
 }
 
 function plotAnswerSchild(chart, rec){
-	console.log("red is"+rec)
 	intrec = parseInt(rec)
 	var layout = {
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
 			range:[-9.0,-2.0],
-			dtick: 1.0
+			dtick: 1.0,
+			ticks: 'outside'
 		},
 		yaxis:{
 			title:"Log(DR-1)",
 			showline: true,
 			range:[0.0,5.0],
 		},
-		//showlegend: false
+		showlegend: true
 	}
 	var data=[];
 	ansPlotPoints = [	
@@ -360,7 +360,6 @@ function plotAnswerSchild(chart, rec){
 	}
 
 	Plotly.newPlot(chart,data,layout, {responsive: true})
-	//var data = []
 	var jj
 	for(jj = 0;jj<4;jj++){
 		var data = []
@@ -374,7 +373,6 @@ function plotAnswerSchild(chart, rec){
 			}
 		}
 		data.push(eqn1);
-		//console.log(data)
 		Plotly.plot(chart,data,layout, {responsive: true})
 	}
 }
@@ -386,7 +384,7 @@ function PlotQuizSchild(chart, ticksize, show){
 			showline: true,
 			range:[-9.0,-2.0],
 			dtick: ticksize,
-			ticks: 'outside',
+			ticks: 'outside'
 		},
 		yaxis:{
 			title:"Log(DR-1)",
@@ -396,8 +394,7 @@ function PlotQuizSchild(chart, ticksize, show){
 		showlegend: show
 	}
 	var data = [];
-	Plotly.newPlot(chart,data,layout)
-	//var data = []
+	Plotly.newPlot(chart,data,layout, {responsive: true})
 	var jj
 	for(jj = 0;jj<5;jj++){
 		var data = []
@@ -456,7 +453,7 @@ function antFeedback(reason){
 
 	} 
 	document.getElementById("antFeedback").innerHTML = reason + "<br>The Schild plot for Ant3311 is nonlinear with slope " + inequality + " 1.0, which is expected for an " + ant3311Feedback;
-
+	document.getElementById("antFeedback1").innerHTML = document.getElementById("antFeedback").innerHTML;
 }
 
 function showInstructionsQuiz() {

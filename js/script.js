@@ -269,7 +269,7 @@ var questionsAgonist = ["What is agonism?",
     "Can a full agonist produce a maximum response when occupying and activating only a fraction of the total receptor population?<br><i>This can be tested using the Visualiser</i>",
     "Can an agonist be a partial agonist in one cell type, be a full agonist in a different cell type?"];
 				
-var answersAgonist = ["<br><br><img src=\"images/agonistchart.png\" alt=\"Ago1 Answer\" style=\"max-height:100%; max-width:100%;\">",
+var answersAgonist = ["Agonism is the process via which a ligand called the agonist binds to a receptor and alters the receptor state resulting in a biological response.<img src=\"images/agonistchart.png\" alt=\"Ago1 Answer\" style=\"max-height:100%; max-width:100%;\">",
     "Increasing agonist affinity will shift the agonist dose-response curve to the <b>LEFT</b>.  Increasing affinity increases the number of receptors that are bound and activated by the agonist. Increasing affinity is associated with a reduction in the K<sub>A</sub> value, as a lower [agonist] will be required to occupy 50% of receptors. This effect can be observed using the visualiser.",
     "The EC<sub>50</sub> is the [agonist] that produces 50% of the maximum effect produced by that agonist.  Increasing agonist affinity will <b>DECREASE</b> the EC<sub>50</sub> value because agonists with higher affinity require a <b>LOWER</b> [agonist] to achieve receptor binding and activation, and to produce an effect. This effect can be observed using the visualiser.",
     "<b>YES</b>, at least some level of affinity is required for an agonist to bind to receptors and induce an effect – when agonist affinity = 0, agonist-induced effect = 0.  This effect can be observed using the visualiser.",
