@@ -14,7 +14,7 @@ var animation = {
         duration: 100,
         easing: "cubic-in-out"
     }
-}
+};
 
 function checkSliderMinEff(){
     let ret = false;
