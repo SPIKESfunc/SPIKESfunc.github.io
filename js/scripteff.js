@@ -47,6 +47,7 @@ function calcLinesEff(
 ) {
   const STEP = 0.05;
   var data = [[], []];
+  var i, effect;
 
   //Inverse log input values
 
@@ -57,8 +58,8 @@ function calcLinesEff(
   var agoaffin = 10 ** (-1 * agoaffinity);
   var agoeff = 10 ** (-1 * agoeffect);
 
-  if (agoconcentration == 0) {
-    agoconc = 0;
+  if (agoconcentration === 0) {
+    var agoconc = 0;
     agoaffin = 0;
     for (i = -12; i < -2; i = i + STEP) {
       effect =
@@ -79,7 +80,7 @@ function calcLinesEff(
       var effect4 =
         (aconc * agoeff * efcay * recep * efcey) /
         (aconc * (agoeff * efcay * recep * efcey + 1) + affin);
-      var effect = effect1 * (effect2 + effect3 * effect4);
+      effect = effect1 * (effect2 + effect3 * effect4);
       data[0].push(i);
       data[1].push(effect);
     }
@@ -713,7 +714,7 @@ function plotGraphEff(chart) {
       agoconcarr[j]
     );
 
-    if (j == 0) {
+    if (j === 0) {
       var graph = {
         x: lineData[0],
         y: lineData[1],
@@ -797,7 +798,7 @@ function revealAnswerEff() {
 }
 
 function nextQuestionEff() {
-  if (questionCounterEff + 1 == questionsEff.length) {
+  if (questionCounterEff + 1 === questionsEff.length) {
     //end of questions
     document.getElementById("EffQuestion").style.display = "none";
     document.getElementById("revealEffAnswer").style.display = "none";
