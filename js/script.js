@@ -72,14 +72,14 @@ function checkSliderMinAgo(){
 function calcLines(affinity, efficacy, recepDensity, efficiency){
     const STEP = 0.01;
     var data = [[],[]];
-    let i;
+
     //Inverse log input values
 
     var affin = (10**(-1*affinity));
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
-    for (i=-12; i<-2;i=i+STEP){
+    for(var i=-12; i<-2;i=i+STEP){
         //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
         data[0].push(i);
         data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
