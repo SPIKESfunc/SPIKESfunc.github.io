@@ -1,24 +1,5 @@
+/*global Trianglify d3*/
 var t = new Trianglify();
-var prevheight = height();
-
-window.onresize = function() {
-  redraw();
-};
-
-redraw();
-
-function redraw() {
-  console.log("drawing " + document.body.clientWidth + "x" + height());
-  var pattern = t.generate(document.body.clientWidth, (height()+300));
-  document.body.setAttribute("style", "background-image: " + pattern.dataUrl);
-}
-
-function recolor() {
-  t.options.x_gradient = Trianglify.randomColor();
-  t.options.y_gradient = t.options.x_gradient.map(function(c) {
-    return d3.rgb(c).brighter(0.5);
-  });
-}
 
 function height() {
   return Math.max(
@@ -30,3 +11,22 @@ function height() {
     document.documentElement.clientHeight
   );
 }
+
+function redraw() {
+  var pattern = t.generate(document.body.clientWidth, height() + 300);
+  document.body.setAttribute("style", "background-image: " + pattern.dataUrl);
+}
+
+function recolor() {
+  t.options.xGradient = Trianglify.randomColor();
+  t.options.yGradient = t.options.xGradient.map(function(c) {
+    return d3.rgb(c).brighter(0.5);
+  });
+}
+
+var prevheight = height();
+
+window.onresize = function() {
+  redraw();
+};
+redraw();
