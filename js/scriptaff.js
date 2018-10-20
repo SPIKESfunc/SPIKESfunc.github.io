@@ -24,24 +24,24 @@ var animation = {
         duration: 100,
         easing: "cubic-in-out"
     }
-}
+};
 
 
 function checkSliderMinAff(){
     let ret = false;
     if(document.getElementById("affaffslider").value === "4"){
-        ret = true
+        ret = true;
     }
     if(document.getElementById("effaffslider").value === "-0.3"){
-        ret = true
+        ret = true;
     }
     if(document.getElementById("denaffslider").value === "-0.3"){
-        ret = true
+        ret = true;
     }
     if(document.getElementById("efficiaffslider").value === "-0.3"){
-        ret = true
+        ret = true;
     }
-    return ret
+    return ret;
 }
 
 function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoeffect, agoconcentration){
@@ -55,10 +55,12 @@ function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     var efcey = 10**efficiency;
     var agoaffin = 10**(-1*agoaffinity);
     var agoeff = 10**(-1*agoeffect);
+    var agoconc;
 
     if(agoconcentration === 0){
         agoconc = 0;
         agoaffin = 0;
+        var i;
         for (i=-12; i<-2;i=i+STEP){
             //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
@@ -67,6 +69,7 @@ function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     }
     else{
         agoconc = 10**agoconcentration;
+        var i;
         for (i=-12; i<-2;i=i+STEP){
             //effect = ((10**i)*efcay*recep*efcey*100)/((10**i)*(efcay*recep*efcey+1)+((affin*(agoconc/agoaffin + 1))/(1+((agoeff*agoconc)/agoaffin))));
             data[0].push(i);
@@ -79,7 +82,7 @@ function calc50(lineData){
 
     var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
-	    return number >= halfMaxEffect;
+        return number >= halfMaxEffect;
     });
     var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
     var agoret = [[halfAgoEffect], [halfMaxEffect]];
@@ -90,12 +93,12 @@ function calc50(lineData){
 function updateAffinityAff(value){
     affaff = value;
     if(checkSliderMinAff()){
-        Plotly.restyle("alloaffin", "visible", false)
-        graphAlert("affalert","aff")
+        Plotly.restyle("alloaffin", "visible", false);
+        graphAlert("affalert","aff");
     }
     else{
-        graphRemoveAlert("affalert")
-        Plotly.restyle("alloaffin", "visible", true)
+        graphRemoveAlert("affalert");
+        Plotly.restyle("alloaffin", "visible", true);
         lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
 	    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
@@ -113,19 +116,19 @@ function updateAffinityAff(value){
             y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
             traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
-            },animation)
+            },animation);
     }	 
 }  
 
 function updateEfficacyAff(value){
     effaff = value;
     if(checkSliderMinAff()){
-        Plotly.restyle("alloaffin", "visible", false)
-        graphAlert("affalert","eff")
+        Plotly.restyle("alloaffin", "visible", false);
+        graphAlert("affalert","eff");
     }
     else{
-        graphRemoveAlert("affalert")
-        Plotly.restyle("alloaffin", "visible", true)
+        graphRemoveAlert("affalert");
+        Plotly.restyle("alloaffin", "visible", true);
         lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
@@ -143,19 +146,19 @@ function updateEfficacyAff(value){
             y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
             traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
-            },animation)
+            },animation);
     }
 } 
 
 function updateDensityAff(value){
     denaff = value;
     if(checkSliderMinAff()){
-        Plotly.restyle("alloaffin", "visible", false)
-        graphAlert("affalert","den")
+        Plotly.restyle("alloaffin", "visible", false);
+        graphAlert("affalert","den");
     }
     else{
-        graphRemoveAlert("affalert")
-        Plotly.restyle("alloaffin", "visible", true)
+        graphRemoveAlert("affalert");
+        Plotly.restyle("alloaffin", "visible", true);
         lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
@@ -173,19 +176,19 @@ function updateDensityAff(value){
             y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
             traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
-            },animation)
+            },animation);
     }
 } 
 
 function updateEfficiencyAff(value){
     efficaff = value;
     if(checkSliderMinAff()){
-        Plotly.restyle("alloaffin", "visible", false)
-        graphAlert("affalert","effic")
+        Plotly.restyle("alloaffin", "visible", false);
+        graphAlert("affalert","effic");
     }
     else{
-        graphRemoveAlert("affalert")
-        Plotly.restyle("alloaffin", "visible", true)
+        graphRemoveAlert("affalert");
+        Plotly.restyle("alloaffin", "visible", true);
         lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
@@ -203,7 +206,7 @@ function updateEfficiencyAff(value){
             y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
             traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
-            },animation)
+            },animation);
 
     }
 
@@ -228,7 +231,7 @@ function updateAgoAffinityAff(value){
         y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
         traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
-        },animation)
+        },animation);
 
 }
 
@@ -251,7 +254,7 @@ function updateAgoEffectAff(value){
         y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
         traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
-        },animation)
+        },animation);
 }
 
 function resetAff(){
@@ -278,7 +281,7 @@ function resetAff(){
         y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
         traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
-        },animation)
+        },animation);
 }
 
 function plotGraphAff(chart){
@@ -303,10 +306,10 @@ function plotGraphAff(chart){
 	var data50 = [];
     for(j = 0; j<5; j++){
         var data= [];
-        var lineData = calcLinesAff(affaff, effaff, denaff, efficaff, agoaffaff, agoeffaff, agoconcarr[j])
-
+        var lineData = calcLinesAff(affaff, effaff, denaff, efficaff, agoaffaff, agoeffaff, agoconcarr[j]);
+        var graph;
         if(j==0){
-            var graph = {
+            graph = {
                 x: lineData[0],
                 y: lineData[1],
                 mode: "lines",
@@ -318,7 +321,7 @@ function plotGraphAff(chart){
             }
         }
         else{
-        var graph = {
+            graph = {
                 x: lineData[0],
                 y: lineData[1],
                 mode: "lines",
