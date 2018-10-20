@@ -9,7 +9,6 @@
 
 	<link rel="shortcut icon" href="images/favicon-256x256.png">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/button.css">
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -53,7 +52,7 @@
 	<div id="page" class="container box-size bg-box p-4" style="visibility: hidden; position: absolute;">
 		<h1 class="d-flex justify-content-center">Dose-Response Visualiser</h1>
 		<p align="center">
-			<button class="btn waves-effect waves-light red" onclick="showInstructionsQual()"><span class="fa fa-info-circle"></span> What to do?</button>
+			<button class="btn btn-custom" onclick="showInstructionsQual()"><span class="fa fa-info-circle"></span> What to do?</button>
 		</p>
 		<br>
 		<ul class="nav nav-pills nav-justified" role="tablist">
@@ -82,7 +81,7 @@
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top:50px">
-							<a data-toggle="modal" href="" data-target="#whattodo1" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspAgonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo1" class="btn btn-custom" role="button"><span class="fa fa-info-circle"></span>&nbspAgonist</a>
 							<div id="whattodo1" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -103,7 +102,7 @@
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info1"><i class="red11 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info1"><i class="red fa fa-info-circle"></i></a>
 								<div id="info1" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -123,7 +122,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinity(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info2"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info2"><i class="red fa fa-info-circle"></i></a>
 								<div id="info2" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -146,7 +145,7 @@
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info3"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info3"><i class="red fa fa-info-circle"></i></a>
 								<div id="info3" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -166,7 +165,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="density" id="denslider" min="-0.3" max="0.7" step="0.01" value="0.2"
 								 onchange="updateDensity(this.value)">
-								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info4"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info4"><i class="red fa fa-info-circle"></i></a>
 								<div id="info4" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -190,7 +189,7 @@
 							<fieldset>
                                 <legend>Questions</legend>
                                 <div id="agonistQuestion"></div>
-                                <br><button id="revealAgonistAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerAgonist()">Reveal Answer</button>
+                                <br><button id="revealAgonistAnswer" type="button" class="btn btn-custom" onclick="revealAnswerAgonist()">Reveal Answer</button>
 
                                 <div id="agonistAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -211,10 +210,10 @@
                                 </div>
 
                                 <div id="restartMessageAgonist" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionAgonist" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionAgonist()">Restart</button>
+                                <button id="restartQuestionAgonist" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionAgonist()">Restart</button>
 
                                 <div style="padding-top: 20px;">
-                                    <button id="nextAgonistQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionAgonist()">Next Question</button>
+                                    <button id="nextAgonistQuestion" type="button" class="btn btn-custom" onclick="nextQuestionAgonist()">Next Question</button>
                                 </div>
 
                             </fieldset>
@@ -226,7 +225,7 @@
 								<h5 class="warning" id="agoalert"></h5>
 								<div id="agonist"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetAgo()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetAgo()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
@@ -235,7 +234,7 @@
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top: 50px;">
-							<a data-toggle="modal" href="" data-target="#whattodo2" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspCompetitive Antagonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo2" class="btn btn-custom" role="button"><span class="fa fa-info-circle"></span>&nbspCompetitive Antagonist</a>
 							<div id="whattodo2" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -256,7 +255,7 @@
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info5"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info5"><i class="red fa fa-info-circle"></i></a>
 								<div id="info5" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -276,7 +275,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityCom(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info6"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info6"><i class="red fa fa-info-circle"></i></a>
 								<div id="info6" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -299,7 +298,7 @@
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info7"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info7"><i class="red fa fa-info-circle"></i></a>
 								<div id="info7" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -319,7 +318,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="density" id="dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
 								 onchange="updateDensityCom(this.value)">
-								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info8"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info8"><i class="red fa fa-info-circle"></i></a>
 								<div id="info8" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -343,15 +342,16 @@
 							<fieldset style="width: 430px;">
 								<legend>Competitive Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
-								<input class="numbox" type="number" autocomplete="off" name="antagocomp" id="antagocomp" style="width: 60px;" readonly>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04"
-								 value="9" onchange="updateAgoAffinityCom(this.value)">
+								 value="9" onchange="updateAgoAffinityCom(this.value)"><br/>
+								 <label for="antagocomp">-logK<sub>B</sub> =&nbsp</label>
+								 <input class="numbox" type="number" autocomplete="off" name="antagocomp" id="antagocomp" style="width: 60px;" readonly>
 							</fieldset>
 							<!--COLOURS OF DIFFERENT ONES-->
 							<fieldset>
                                 <legend>Questions</legend>
                                 <div id="comQuestion"></div>
-                                <br><button id="revealComAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerCom()">Reveal Answer</button>
+                                <br><button id="revealComAnswer" type="button" class="btn btn-custom" onclick="revealAnswerCom()">Reveal Answer</button>
 
                                 <div id="comAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -372,10 +372,10 @@
                                 </div>
 
                                 <div id="restartMessageCom" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionCom" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionCom()">Restart</button>
+                                <button id="restartQuestionCom" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionCom()">Restart</button>
 
                                 <div style="padding-top: 20px;">
-                                    <button id="nextComQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionCom()">Next Question</button>
+                                    <button id="nextComQuestion" type="button" class="btn btn-custom" onclick="nextQuestionCom()">Next Question</button>
                                 </div>
 
                             </fieldset>
@@ -386,7 +386,7 @@
 								<h5 class="warning" id="comalert"></h5>
 								<div id="competitive"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetCom()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetCom()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
@@ -395,7 +395,7 @@
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top: 50px;">
-							<a data-toggle="modal" href="" data-target="#whattodo3" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspIrreversible Antagonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo3" class="btn btn-custom" role="button"><span class="fa fa-info-circle"></span>&nbspIrreversible Antagonist</a>
 							<div id="whattodo3" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -416,7 +416,7 @@
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info9"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info9"><i class="red fa fa-info-circle"></i></a>
 								<div id="info9" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -436,7 +436,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affirrslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityIrr(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info10"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info10"><i class="red fa fa-info-circle"></i></a>
 								<div id="info10" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -459,7 +459,7 @@
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info11"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info11"><i class="red fa fa-info-circle"></i></a>
 								<div id="info11" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -479,7 +479,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="density" id="denirrslider" min="-0.3" max="0.7" step="0.01" value="0.2"
 								 onchange="updateDensityIrr(this.value)">
-								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info12"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info12"><i class="red fa fa-info-circle"></i></a>
 								<div id="info12" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -503,14 +503,15 @@
 							<fieldset style="width: 430px;">
 								<legend>Irreversible Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
-								<input class="numbox" type="number" autocomplete="off" name="antagoirr" id="antagoirr" style="width: 60px;" readonly>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04"
-								 value="9" onchange="updateAgoAffinityIrr(this.value)">
+								 value="9" onchange="updateAgoAffinityIrr(this.value)"><br/>
+								 <label for="antagoirr">-logK<sub>B</sub> =&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="antagoirr" id="antagoirr" style="width: 60px;" readonly>
 							</fieldset>
 							<fieldset>
                                 <legend>Questions</legend>
                                 <div id="IrrQuestion"></div>
-                                <br><button id="revealIrrAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerIrr()">Reveal Answer</button>
+                                <br><button id="revealIrrAnswer" type="button" class="btn btn-custom" onclick="revealAnswerIrr()">Reveal Answer</button>
 
                                 <div id="IrrAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -531,10 +532,10 @@
                                 </div>
 
                                 <div id="restartMessageIrr" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionIrr" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionIrr()">Restart</button>
+                                <button id="restartQuestionIrr" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionIrr()">Restart</button>
 
                                 <div style="padding-top: 20px;">
-                                    <button id="nextIrrQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionIrr()">Next Question</button>
+                                    <button id="nextIrrQuestion" type="button" class="btn btn-custom" onclick="nextQuestionIrr()">Next Question</button>
                                 </div>
 
                             </fieldset>
@@ -545,7 +546,7 @@
 								<h5 class="warning" id="irralert"></h5>
 								<div id="irreversible"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetIrr()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetIrr()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
@@ -554,7 +555,7 @@
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top: 50px;">
-							<a data-toggle="modal" href="" data-target="#whattodo4" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspAllosteric Antagonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo4" class="btn btn-custom" role="button"><span class="fa fa-info-circle"></span>&nbspAllosteric Antagonist</a>
 							<div id="whattodo4" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -575,7 +576,7 @@
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info13"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info13"><i class="red fa fa-info-circle"></i></a>
 								<div id="info13" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -595,7 +596,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affaffslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityAff(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info14"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info14"><i class="red fa fa-info-circle"></i></a>
 								<div id="info14" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -618,7 +619,7 @@
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info15"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info15"><i class="red fa fa-info-circle"></i></a>
 								<div id="info15" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -638,7 +639,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="density" id="denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
 								 onchange="updateDensityAff(this.value)">
-								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info16"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info16"><i class="red fa fa-info-circle"></i></a>
 								<div id="info16" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -662,11 +663,11 @@
 							<fieldset style="width: 430px;">
 								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
-								<input class="numbox" type="number" autocomplete="off" name="antagoaff" id="antagoaff" style="width: 60px;" readonly>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9"
-								 onchange="updateAgoAffinityAff(this.value)">
+								 onchange="updateAgoAffinityAff(this.value)"><br/>
+								<label for="antagoaff">-logK<sub>B</sub> =&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="antagoaff" id="antagoaff" style="width: 60px;" readonly>
 								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal" href="" data-target="#info17"><i class="red1 fa fa-info-circle"></i></a>
-								<input class="numbox" type="number" autocomplete="off" name="antcoopaff" id="antcoopaff" style="width: 65px;" readonly>
 								<div id="info17" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -686,11 +687,14 @@
 								</div>
 								<input type="range" autocomplete="off" name="effect" id="agoeffaffslider" min="0" max="2" step="0.001" value="1"
 								 onchange="updateAgoEffectAff(this.value)">
+								<br/>
+								<label for="antcoopaff">&#945 =&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="antcoopaff" id="antcoopaff" style="width: 65px;" readonly>
 							</fieldset>
 							<fieldset>
                                 <legend>Questions</legend>
                                 <div id="AffQuestion"></div>
-                                <br><button id="revealAffAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerAff()">Reveal Answer</button>
+                                <br><button id="revealAffAnswer" type="button" class="btn btn-custom" onclick="revealAnswerAff()">Reveal Answer</button>
 
                                 <div id="AffAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -711,10 +715,10 @@
                                 </div>
 
                                 <div id="restartMessageAff" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionAff" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionAff()">Restart</button>
+                                <button id="restartQuestionAff" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionAff()">Restart</button>
 
                                 <div style="padding-top: 20px;">
-                                    <button id="nextAffQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionAff()">Next Question</button>
+                                    <button id="nextAffQuestion" type="button" class="btn btn-custom" onclick="nextQuestionAff()">Next Question</button>
                                 </div>
 
                             </fieldset>
@@ -726,7 +730,7 @@
 								<h5 class="warning" id="affalert"></h5>
 								<div id="alloaffin"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetAff()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetAff()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
@@ -735,7 +739,7 @@
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top: 50px;">
-							<a data-toggle="modal" href="" data-target="#whattodo5" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspAllosteric Antagonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo5" class="btn btn-custom" role="button"><span class="fa fa-info-circle"></span>&nbspAllosteric Antagonist</a>
 							<div id="whattodo5" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -756,7 +760,7 @@
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info18"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info18"><i class="red fa fa-info-circle"></i></a>
 								<div id="info18" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -776,7 +780,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affeffslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityEff(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info19"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info19"><i class="red fa fa-info-circle"></i></a>
 								<div id="info19" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -800,7 +804,7 @@
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info20"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info20"><i class="red fa fa-info-circle"></i></a>
 								<div id="info20" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -820,7 +824,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="density" id="deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
 								 onchange="updateDensityEff(this.value)">
-								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info21"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info21"><i class="red fa fa-info-circle"></i></a>
 								<div id="info21" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -844,11 +848,11 @@
 							<fieldset style="width: 430px;">
 								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
-								<input class="numbox" type="number" autocomplete="off" name="antagoeff" id="antagoeff" style="width: 60px;" readonly>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04"
-								 value="9" onchange="updateAgoAffinityEff(this.value)">
+								 value="9" onchange="updateAgoAffinityEff(this.value)"><br/>
+								<label for="antagoeff">-logK<sub>B</sub> =&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="antagoeff" id="antagoeff" style="width: 60px;" readonly>
 								<br><label for="effect">Cooperativity Factor (&#946)&nbsp</label><a data-toggle="modal" href="" data-target="#info22"><i class="red1 fa fa-info-circle"></i></a>
-								<input class="numbox" type="number" autocomplete="off" name="antcoopeff" id="antcoopeff" style="width: 65px;" readonly>
 								<div id="info22" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -867,12 +871,14 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="effect" id="agoeffeffslider" min="0" max="2" step="0.001" value="1"
-								 onchange="updateAgoEffectEff(this.value)">
+								 onchange="updateAgoEffectEff(this.value)"><br/>
+								<label for="antcoopeff">&#945 =&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="antcoopeff" id="antcoopeff" style="width: 65px;" readonly>
 							</fieldset>
 							<fieldset>
                                 <legend>Questions</legend>
                                 <div id="EffQuestion"></div>
-                                <br><button id="revealEffAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerEff()">Reveal Answer</button>
+                                <br><button id="revealEffAnswer" type="button" class="btn btn-custom" onclick="revealAnswerEff()">Reveal Answer</button>
 
                                 <div id="EffAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -893,10 +899,10 @@
                                 </div>
 
                                 <div id="restartMessageEff" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionEff" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionEff()">Restart</button>
+                                <button id="restartQuestionEff" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionEff()">Restart</button>
 
                                 <div style="padding-top: 20px;">
-                                    <button id="nextEffQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionEff()">Next Question</button>
+                                    <button id="nextEffQuestion" type="button" class="btn btn-custom" onclick="nextQuestionEff()">Next Question</button>
                                 </div>
 
                             </fieldset>
@@ -907,7 +913,7 @@
 								<h5 class="warning" id="effalert"></h5>
 								<div id="alloeffic"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetEff()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetEff()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
@@ -916,7 +922,7 @@
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top: 5px;">
-							<a data-toggle="modal" href="" data-target="#whattodo6" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspFunctional Antagonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo6" class="btn btn-custom" role="button"><span class="fa fa-info-circle"></span>&nbspFunctional Antagonist</a>
 							<div id="whattodo6" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -937,7 +943,7 @@
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info23"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info23"><i class="red fa fa-info-circle"></i></a>
 								<div id="info23" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -957,7 +963,7 @@
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="afffunslider" min="4" max="8" step="0.04" value="6"
 								 onchange="updateAffinityFun(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info24"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info24"><i class="red fa fa-info-circle"></i></a>
 								<div id="info24" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -979,7 +985,7 @@
 								 value="0.33335" onchange="updateEfficacyFun(this.value)">
 								<fieldset>
 									<legend>Cell</legend>
-									<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info25"><i class="red1 fa fa-info-circle"></i></a>
+									<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info25"><i class="red fa fa-info-circle"></i></a>
 								<div id="info25" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -999,7 +1005,7 @@
 								</div>
 									<input type="range" autocomplete="off" name="density" id="denfunslider" min="0" max="0.6667" step="0.006667"
 									 value="0.33335" onchange="updateDensityFun(this.value)">
-									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info26"><i class="red1 fa fa-info-circle"></i></a>
+									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info26"><i class="red fa fa-info-circle"></i></a>
 								<div id="info26" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -1045,7 +1051,7 @@
 							<fieldset>
                                 <legend>Questions</legend>
                                 <div id="FunQuestion"></div>
-                                <br><button id="revealFunAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerFun()">Reveal Answer</button>
+                                <br><button id="revealFunAnswer" type="button" class="btn btn-custom" onclick="revealAnswerFun()">Reveal Answer</button>
 
                                 <div id="FunAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -1066,10 +1072,10 @@
                                 </div>
 
                                 <div id="restartMessageFun" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionFun" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionFun()">Restart</button>
+                                <button id="restartQuestionFun" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionFun()">Restart</button>
 
                                 <div style="padding-top: 20px;">
-                                    <button id="nextFunQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionFun()">Next Question</button>
+                                    <button id="nextFunQuestion" type="button" class="btn btn-custom" onclick="nextQuestionFun()">Next Question</button>
                                 </div>
 
                             </fieldset>
@@ -1080,7 +1086,7 @@
 								<h5 class="warning" id="funalert"></h5>
 								<div id="functional"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetFun()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn btn-custom" onclick="resetFun()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
@@ -1098,7 +1104,6 @@
 	<script type="text/javascript" src="js/scripteff.js"></script>
 	<script type="text/javascript" src="js/scriptfun.js"></script>
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>
@@ -1128,9 +1133,9 @@
 						<h4 class="modal-title">About</h4>
 					</div>
 					<div class="modal-body">
-						<p>Summary about the project<br />Created by Cam, Dan, Harry, Thai - students of CITS3200 UWA 2018,
-							directed
-							by Associate Professor Peter Henry</p>
+						<p><b>Summary about the project</b><br />Agonists produce effects in cells by activating receptors and downstream signalling pathways. This app contains an interactive “Dose Response Visualiser” which allows users to alter agonist-dependent factors (affinity, intrinsic efficacy) and/or cell-dependent factors (receptor density, coupling efficiency) and observe in real time how this changes the agonist dose-response relationship.  Agonist-induced effects can be blocked by drugs called antagonists, which are amongst the most widely used class of drug in medicine.  There exist many different types of antagonists, named on the basis of how they block the agonist-induced effect: competitive, irreversible, allosteric and functional antagonists.  Within the “Dose Response Visualiser”, users can observe the different patterns of effect produced by each of these antagonists (and the influence of antagonist concentrations and affinity) on the agonist dose-response relationship.  Quantitative analysis of the effect of competitive antagonists on agonist-induced effects is a powerful method for identifying the receptors that mediate agonist-induced effects (Schild analysis), and is used in drug discovery and receptor characterisation.  The app contains a “Schild Plot Generator”, where users can select the properties of agonists and antagonists and generate Schild Plots, and work through a series of theoretical questions and experimental scenarios that build proficiency and enhance understanding of key Schild concepts. These newly developed proficiencies and understandings can then be tested using the “Schild Analysis Quiz” tool within the app, were users are provided with a series of Schild Plots obtained to 5 antagonists acting on a single receptor subtype within a common cell, and users are challenged to analyse each of the Schild Plots using the SPIKES approach to deduce which single receptor subtype is mediating the agonist-induced response.  Feedback is provided for each of the literally 1000s of different quiz questions.  Thus SPIKESfunc is an interactive, educational application that boosts proficiency in the interpretation of functional pharmacological data through the visual and quantitative analysis of agonist and antagonist dose-response relationships.  SPIKESfunc can be used in conjunction with SPIKESbind (or SPIKESmate), a complementary interactive educational app designed to enhance the proficiency in the interpretation of binding pharmacological data.
+ 
+The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Brooker and Thai Nguyen, undergraduate students of the Professional Computing unit (CITS3200) at The University of Western Australia, as directed by Associate Professor Peter Henry of the Division of Pharmacology, School of Biomedical Sciences, UWA.   </p>
 							<p><b>References</b></p>
 						<p> - Black JW, Leff P. (1983)  Operational models of pharmacological agonism.  Proc R Soc Lond B Biol Sci. 220(1219):141-62.<br/><br/>
 						 - Christopoulos A, Kenakin T (2002) G protein-coupled receptor allosterism and complexing. Pharmacol Rev. 54(2):323-74.<br/><br/>

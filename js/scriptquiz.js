@@ -324,21 +324,21 @@ var animation = {
 }
 
 function plotAnswerSchild(chart, rec){
-	console.log("red is"+rec)
 	intrec = parseInt(rec)
 	var layout = {
 		xaxis:{
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
 			range:[-9.0,-2.0],
-			dtick: 1.0
+			dtick: 1.0,
+			ticks: 'outside'
 		},
 		yaxis:{
 			title:"Log(DR-1)",
 			showline: true,
 			range:[0.0,5.0],
 		},
-		//showlegend: false
+		showlegend: true
 	}
 	var data=[];
 	ansPlotPoints = [	
@@ -360,7 +360,6 @@ function plotAnswerSchild(chart, rec){
 	}
 
 	Plotly.newPlot(chart,data,layout, {responsive: true})
-	//var data = []
 	var jj
 	for(jj = 0;jj<4;jj++){
 		var data = []
@@ -374,7 +373,6 @@ function plotAnswerSchild(chart, rec){
 			}
 		}
 		data.push(eqn1);
-		//console.log(data)
 		Plotly.plot(chart,data,layout, {responsive: true})
 	}
 }
@@ -385,8 +383,15 @@ function PlotQuizSchild(chart, ticksize, show){
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
 			range:[-9.0,-2.0],
-			dtick: ticksize,
-			ticks: 'outside',
+			//dtick: ticksize,
+			tickvals: ["-9.0","-8.9","-8.8","-8.7","-8.6","-8.5","-8.4","-8.3","-8.2","-8.1","-8.0","-7.9","-7.8","-7.7",
+"-7.6","-7.5","-7.4","-7.3","-7.2","-7.1","-7.0","-6.9","-6.8","-6.7","-6.6","-6.5","-6.4","-6.3","-6.2","-6.1","-6.0","-5.9","-5.8",
+"-5.7","-5.6","-5.5","-5.4","-5.3","-5.2","-5.1","-5.0","-4.9","-4.8","-4.7","-4.6","-4.5","-4.4","-4.3","-4.2","-4.1","-4.0","-3.9",
+"-3.8","-3.7","-3.6","-3.5","-3.4","-3.3","-3.2","-3.1","-3.0","-2.9","-2.8","-2.7","-2.6","-2.5","-2.4","-2.3","-2.2","-2.1","-2.0"],
+			ticktext: ["-9","","","","","-8.5","","","","","-8","","","","","-7.5","","","","","-7","","","","","-6.5","","","","","-6",
+"","","","","-5.5","","","","","-5","","","","","-4.5","","","","","-4","","","","","-3.5","","","","","-3","","","","","-2.5","","","",
+"","-2"],
+			ticks: 'outside'
 		},
 		yaxis:{
 			title:"Log(DR-1)",
@@ -396,8 +401,7 @@ function PlotQuizSchild(chart, ticksize, show){
 		showlegend: show
 	}
 	var data = [];
-	Plotly.newPlot(chart,data,layout)
-	//var data = []
+	Plotly.newPlot(chart,data,layout, {responsive: true})
 	var jj
 	for(jj = 0;jj<5;jj++){
 		var data = []
@@ -456,7 +460,7 @@ function antFeedback(reason){
 
 	} 
 	document.getElementById("antFeedback").innerHTML = reason + "<br>The Schild plot for Ant3311 is nonlinear with slope " + inequality + " 1.0, which is expected for an " + ant3311Feedback;
-
+	document.getElementById("antFeedback1").innerHTML = document.getElementById("antFeedback").innerHTML;
 }
 
 function showInstructionsQuiz() {
