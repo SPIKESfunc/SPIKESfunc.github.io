@@ -1,4 +1,4 @@
-/*global Plotly graphAlert*/
+/*global Plotly graphAlert graphRemoveAlert*/
 var affeff = document.getElementById("affeffslider").defaultValue;
 var effeff = document.getElementById("effeffslider").defaultValue;
 var deneff = document.getElementById("deneffslider").defaultValue;
@@ -704,6 +704,7 @@ function plotGraphEff(chart) {
   var j;
   for (j = 0; j < 5; j++) {
     var data = [];
+    var graph;
     var lineData = calcLinesEff(
       affeff,
       effeff,
@@ -715,7 +716,7 @@ function plotGraphEff(chart) {
     );
 
     if (j === 0) {
-      var graph = {
+      graph = {
         x: lineData[0],
         y: lineData[1],
         mode: "lines",
@@ -726,7 +727,7 @@ function plotGraphEff(chart) {
         }
       };
     } else {
-      var graph = {
+      graph = {
         x: lineData[0],
         y: lineData[1],
         mode: "lines",
@@ -753,7 +754,7 @@ function plotGraphEff(chart) {
       agoeffeff,
       agoconcarr[i]
     );
-    data50 = calc50(halfData); //plot the 50% effect marker
+    var data50 = calc50(halfData); //plot the 50% effect marker
     var trace1 = [
       {
         x: data50[0],
