@@ -21,16 +21,16 @@ var animation = {
 
 function checkSliderMinEff() {
   let ret = false;
-  if (document.getElementById("affeffslider").value === 4) {
+  if (Number(document.getElementById("affeffslider").value === 4)) {
     ret = true;
   }
-  if (document.getElementById("effeffslider").value === -0.3) {
+  if (Number(document.getElementById("effeffslider").value === -0.3)) {
     ret = true;
   }
-  if (document.getElementById("deneffslider").value === -0.3) {
+  if (Number(document.getElementById("deneffslider").value === -0.3)) {
     ret = true;
   }
-  if (document.getElementById("efficieffslider").value === -0.3) {
+  if (Number(document.getElementById("efficieffslider").value === -0.3)) {
     ret = true;
   }
   return ret;
