@@ -8,9 +8,7 @@
 
 	<link rel="shortcut icon" href="images/favicon-256x256.png">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
-	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<link rel="stylesheet" href="css/button.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- Add in plotly.js files still to go, might put them in body -->
@@ -51,7 +49,7 @@
 		<div id="quizcontainer">
 			<h1 class="d-flex justify-content-center" style="display: inline;">Schild Plot Analysis Quiz</h1>
 			<p align="center">
-			<button class="btn btn-custom" onclick="showInstructionsQuiz()"><span class="fa fa-info-circle"></span> What to do?</button>
+			<button class="btn waves-effect waves-light red" onclick="showInstructionsQuiz()"><span class="fa fa-info-circle"></span> What to do?</button>
 			</p>
 						
 			<div class="col-lg-12" id="quizsection">
@@ -310,7 +308,7 @@
 				</div>
 				<div class="row" style="padding-top:20px;">
 					<div class="col-lg-5" align="center">
-						<button id="reset" type="button" class="btn btn-custom" onclick="markAnswers()">Submit Answers</button>
+						<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="markAnswers()">Submit Answers</button>
 					</div>
 					<div class="col-lg-7" id="solution">
 						<fieldset>
@@ -366,8 +364,8 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-12">
-							<button id="reset" type="button" class="btn btn-custom" onclick="quizReturn()">Ammend Your Answers?</button>
-							<button id="reset1" type="button" class="btn btn-custom" onclick="quizReset()">New Quiz</button>
+							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="quizReturn()">Ammend Your Answers?</button>
+							<button id="reset1" type="button" class="btn waves-effect waves-light red" onclick="quizReset()">New Quiz</button>
 						</div>
 					</div>
 				</div>
@@ -392,13 +390,16 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-12">
-							<button id="reset1" type="button" class="btn btn-custom" onclick="quizReset()">New Quiz</button>
+							<button id="reset1" type="button" class="btn waves-effect waves-light red" onclick="quizReset()">New Quiz</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	<script type="text/javascript" src="js/scriptquiz.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>

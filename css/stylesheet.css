@@ -399,10 +399,15 @@ nav .navbar-nav li.nav-item a.nav-item.nav-link.active {
   background-color: rgb(255, 30, 30);
 }
 
-.red {
+.red1 {
   color: rgb(255, 30, 30);
 }
 
 .foot-titles {
   color: rgb(255, 30, 30);
 }
+
+.btn:hover {
+  color: #fff;
+  background-color: #ff5252 !important;
+} 
