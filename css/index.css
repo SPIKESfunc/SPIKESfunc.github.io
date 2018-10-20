@@ -104,10 +104,10 @@ html {
 }
 
 /*footer red*/
-a{
+footer a{
 	color: Red;
 }
-a:hover {
+footer a:hover {
     color: Red;
 }
 
@@ -117,5 +117,5 @@ a:hover {
 
 a.btn:hover {
   color: #fff;
-  background-color: #ff5252;
+  background-color: #ff5252 !important;
 }
