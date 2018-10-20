@@ -59,8 +59,7 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     if(agoconcentration === 0){
         agoconc = 0;
         agoaffin = 0;
-        var i;
-        for (i=-12; i<-2;i=i+STEP){
+        for (var i=-12; i<-2;i=i+STEP){
             //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
             data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
@@ -68,8 +67,7 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     }
     else{
         agoconc = 10**agoconcentration;
-        var i;
-    	for (i=-12; i<-2;i=i+STEP){
+        for (var i=-12; i<-2;i=i+STEP){
             //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
             data[0].push(i);
             data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin)));
@@ -116,19 +114,19 @@ function updateAffinityCom(value){
                 y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
                 traces: [0,1,2,3,4,5,6,7,8,9],
                 layout: {}
-                },animation)
+                },animation);
     }
 } 
 
 function updateEfficacyCom(value){
     effcom = value;
     if(checkSliderMinCom()){
-        Plotly.restyle("competitive", "visible", false)
-        graphAlert("comalert","eff")
+        Plotly.restyle("competitive", "visible", false);
+        graphAlert("comalert","eff");
     }
     else{
-        graphRemoveAlert("comalert")
-        Plotly.restyle("competitive", "visible", true)
+        graphRemoveAlert("comalert");
+        Plotly.restyle("competitive", "visible", true);
         lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
@@ -277,12 +275,12 @@ function plotGraphCom(chart){
 
         }
     }
-    var j;
-    for(j = 0; j<5; j++){
-    	var data = []
-    	var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[j]);
-   		if(j === 0){
-			var graph = {
+    for(var j = 0; j<5; j++){
+        var data = [];
+        var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[j]);
+        var graph;
+        if(j === 0){
+			graph = {
         		x: lineData[0],
         		y: lineData[1],
        			mode: "lines",
@@ -294,23 +292,22 @@ function plotGraphCom(chart){
     		}
    		}
    		else{
-    	var graph = {
+    	    graph = {
         		x: lineData[0],
         		y: lineData[1],
        			mode: "lines",
-       			name: 10**agoconcarr[j]*1000000000+"nM",
+                name: 10**agoconcarr[j]*1000000000+"nM",
                 line: {
                     color: linecolours[j],
                     width: 1
                 }
     		}
-    	}
-    	data.push(graph);
+        }
+        data.push(graph);
         Plotly.plot(chart,data,layout, {responsive: true}); 
     }
-    var i;
     legendview = [true, false, false, false, false]
-    for(i = 0; i<5; i++){
+    for(var i = 0; i<5; i++){
         var halfData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[i]);
         findComHalfMaxEffect(calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]));
         data50 = calc50(halfData);
