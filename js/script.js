@@ -21,10 +21,10 @@ function calc50(lineData){
 
     var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
-        return number >= halfMaxEffect
+        return number >= halfMaxEffect;
     });
-    var halfAgoEffect = lineData[0][maxEffectAgoIndex] //get the x value corresponding to 50% value
-    var agoret = [[halfAgoEffect], [halfMaxEffect]]
+    var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
+    var agoret = [[halfAgoEffect], [halfMaxEffect]];
 	return agoret; //return x, y
 
 }
@@ -66,20 +66,37 @@ function checkSliderMinAgo(){
     return ret
 }
 
+function calcLines(affinity, efficacy, recepDensity, efficiency){
+    const STEP = 0.01;
+    var data = [[],[]];
+    let i;
+    //Inverse log input values
+
+    var affin = (10**(-1*affinity));
+    var efcay = 10**efficacy;
+    var recep = 10**recepDensity;
+    var efcey = 10**efficiency;
+    for (i=-12; i<-2;i=i+STEP){
+        //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
+        data[0].push(i);
+        data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+    }
+    return data;
+}
+
 function updateAffinity(value){
     affago = value;
     if(checkSliderMinAgo()){
-        Plotly.restyle("agonist", "visible", false)
-        graphAlert("agoalert", "aff")
+        Plotly.restyle("agonist", "visible", false);
+        graphAlert("agoalert", "aff");
     }
     else{
-        graphRemoveAlert("agoalert")
-        Plotly.restyle("agonist", "visible", true)
+        graphRemoveAlert("agoalert");
+        Plotly.restyle("agonist", "visible", true);
         let lineData = calcLines(affago,effago,denago,efficago);
         let calc50aff = calc50(lineData);
-        console.log(calc50aff[0]);
 
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation);
 
     }
 } 
@@ -143,23 +160,7 @@ function resetAgo(){
     Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
 }
 
-function calcLines(affinity, efficacy, recepDensity, efficiency){
-    const STEP = 0.01;
-    var data = [[],[]];
-    let i;
-    //Inverse log input values
 
-    var affin = (10**(-1*affinity));
-    var efcay = 10**efficacy;
-    var recep = 10**recepDensity;
-    var efcey = 10**efficiency;
-    for (i=-12; i<-2;i=i+STEP){
-        //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
-        data[0].push(i);
-        data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
-    }
-    return data;
-}
 
 function plotGraph(chart){
 
@@ -175,33 +176,12 @@ function plotGraph(chart){
             title: "Effect (% Emax)",
             showline: true,
             range: [0,100],
-            //tickvals: [0,20,40,60,80,100],
             dtick: 10
 
         },
-        /*sliders: [
-            {
-                label: 'Slider 1',
-                pad: {t: 30},
-                active: 50,
-                font:{color: 'transparent'}, 
-                tickcolor: 'transparent',
-                steps: sliderSteps
-            },
-            {
-                label: 'Slider 2',
-                pad: {t: 30},
-                active: 50,
-                font:{color: 'transparent'}, 
-                tickcolor: 'transparent',
-                steps: sliderSteps
-            }
-        ]*/
     }
     var data = []
     var lineData = calcLines(affago, effago, denago, efficago)
-	
-    //console.log(lineData)
     var graph = {
         showlegend: false,
         x: lineData[0],

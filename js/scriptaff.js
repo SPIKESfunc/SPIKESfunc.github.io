@@ -8,6 +8,16 @@ var agoeffaff = document.getElementById("antcoopaff").value = document.getElemen
 var agoconcarr = [0, -9, -8, -7, -6];
 var calc50aff;
 var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"];
+var lineData0;
+var lineData1;
+var lineData2;
+var lineData3;
+var lineData4;
+var halfData0;
+var halfData1;
+var halfData2;
+var halfData3;
+var halfData4;
 
 var animation = {
     transition: {
