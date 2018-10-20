@@ -1,2 +1,2 @@
 # Link to site
-[spikesfunc.github.io](https://spikesfunc.github.io/)
+[SPIKESfunc.github.io](https://spikesfunc.github.io/)
