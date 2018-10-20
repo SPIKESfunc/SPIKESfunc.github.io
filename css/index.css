@@ -114,3 +114,13 @@ a:hover {
 .nav-tabs .nav-item .nav-link.active {
   background-color: red;
 }
+
+a.btn:hover {
+  color: #fff;
+  background-color: #ff5252  !important;
+}
+
+b.btn:hover {
+  color: #fff;
+  background-color: #ff5252  !important;
+}
