@@ -190,7 +190,7 @@ function updateEfficacyEff(value) {
   } else {
     graphRemoveAlert("effalert");
     Plotly.restyle("alloeffic", "visible", true);
-    lineData0 = calcLinesEff(
+    var lineData0 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -199,7 +199,7 @@ function updateEfficacyEff(value) {
       agoeffeff,
       agoconcarr[0]
     );
-    lineData1 = calcLinesEff(
+    var lineData1 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -208,7 +208,7 @@ function updateEfficacyEff(value) {
       agoeffeff,
       agoconcarr[1]
     );
-    lineData2 = calcLinesEff(
+    var lineData2 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -217,7 +217,7 @@ function updateEfficacyEff(value) {
       agoeffeff,
       agoconcarr[2]
     );
-    lineData3 = calcLinesEff(
+    var lineData3 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -226,7 +226,7 @@ function updateEfficacyEff(value) {
       agoeffeff,
       agoconcarr[3]
     );
-    lineData4 = calcLinesEff(
+    var lineData4 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -235,11 +235,11 @@ function updateEfficacyEff(value) {
       agoeffeff,
       agoconcarr[4]
     );
-    halfData0 = calc50(lineData0);
-    halfData1 = calc50(lineData1);
-    halfData2 = calc50(lineData2);
-    halfData3 = calc50(lineData3);
-    halfData4 = calc50(lineData4);
+    var halfData0 = calc50(lineData0);
+    var halfData1 = calc50(lineData1);
+    var halfData2 = calc50(lineData2);
+    var halfData3 = calc50(lineData3);
+    var halfData4 = calc50(lineData4);
     Plotly.animate(
       "alloeffic",
       {
@@ -274,7 +274,7 @@ function updateDensityEff(value) {
   } else {
     graphRemoveAlert("effalert");
     Plotly.restyle("alloeffic", "visible", true);
-    lineData0 = calcLinesEff(
+    var lineData0 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -283,7 +283,7 @@ function updateDensityEff(value) {
       agoeffeff,
       agoconcarr[0]
     );
-    lineData1 = calcLinesEff(
+    var lineData1 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -292,7 +292,7 @@ function updateDensityEff(value) {
       agoeffeff,
       agoconcarr[1]
     );
-    lineData2 = calcLinesEff(
+    var lineData2 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -301,7 +301,7 @@ function updateDensityEff(value) {
       agoeffeff,
       agoconcarr[2]
     );
-    lineData3 = calcLinesEff(
+    var lineData3 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -310,7 +310,7 @@ function updateDensityEff(value) {
       agoeffeff,
       agoconcarr[3]
     );
-    lineData4 = calcLinesEff(
+    var lineData4 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -319,11 +319,11 @@ function updateDensityEff(value) {
       agoeffeff,
       agoconcarr[4]
     );
-    halfData0 = calc50(lineData0);
-    halfData1 = calc50(lineData1);
-    halfData2 = calc50(lineData2);
-    halfData3 = calc50(lineData3);
-    halfData4 = calc50(lineData4);
+    var halfData0 = calc50(lineData0);
+    var halfData1 = calc50(lineData1);
+    var halfData2 = calc50(lineData2);
+    var halfData3 = calc50(lineData3);
+    var halfData4 = calc50(lineData4);
     Plotly.animate(
       "alloeffic",
       {
@@ -358,7 +358,7 @@ function updateEfficiencyEff(value) {
   } else {
     graphRemoveAlert("effalert");
     Plotly.restyle("alloeffic", "visible", true);
-    lineData0 = calcLinesEff(
+    var lineData0 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -367,7 +367,7 @@ function updateEfficiencyEff(value) {
       agoeffeff,
       agoconcarr[0]
     );
-    lineData1 = calcLinesEff(
+    var lineData1 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -376,7 +376,7 @@ function updateEfficiencyEff(value) {
       agoeffeff,
       agoconcarr[1]
     );
-    lineData2 = calcLinesEff(
+    var lineData2 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -385,7 +385,7 @@ function updateEfficiencyEff(value) {
       agoeffeff,
       agoconcarr[2]
     );
-    lineData3 = calcLinesEff(
+    var lineData3 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -394,7 +394,7 @@ function updateEfficiencyEff(value) {
       agoeffeff,
       agoconcarr[3]
     );
-    lineData4 = calcLinesEff(
+    var lineData4 = calcLinesEff(
       affeff,
       effeff,
       deneff,
@@ -403,11 +403,11 @@ function updateEfficiencyEff(value) {
       agoeffeff,
       agoconcarr[4]
     );
-    halfData0 = calc50(lineData0);
-    halfData1 = calc50(lineData1);
-    halfData2 = calc50(lineData2);
-    halfData3 = calc50(lineData3);
-    halfData4 = calc50(lineData4);
+    var halfData0 = calc50(lineData0);
+    var halfData1 = calc50(lineData1);
+    var halfData2 = calc50(lineData2);
+    var halfData3 = calc50(lineData3);
+    var halfData4 = calc50(lineData4);
     Plotly.animate(
       "alloeffic",
       {
@@ -436,7 +436,7 @@ function updateEfficiencyEff(value) {
 
 function updateAgoAffinityEff(value) {
   agoaffeff = document.getElementById("antagoeff").value = value;
-  lineData0 = calcLinesEff(
+  var lineData0 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -445,7 +445,7 @@ function updateAgoAffinityEff(value) {
     agoeffeff,
     agoconcarr[0]
   );
-  lineData1 = calcLinesEff(
+  var lineData1 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -454,7 +454,7 @@ function updateAgoAffinityEff(value) {
     agoeffeff,
     agoconcarr[1]
   );
-  lineData2 = calcLinesEff(
+  var lineData2 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -463,7 +463,7 @@ function updateAgoAffinityEff(value) {
     agoeffeff,
     agoconcarr[2]
   );
-  lineData3 = calcLinesEff(
+  var lineData3 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -472,7 +472,7 @@ function updateAgoAffinityEff(value) {
     agoeffeff,
     agoconcarr[3]
   );
-  lineData4 = calcLinesEff(
+  var lineData4 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -481,11 +481,11 @@ function updateAgoAffinityEff(value) {
     agoeffeff,
     agoconcarr[4]
   );
-  halfData0 = calc50(lineData0);
-  halfData1 = calc50(lineData1);
-  halfData2 = calc50(lineData2);
-  halfData3 = calc50(lineData3);
-  halfData4 = calc50(lineData4);
+  var halfData0 = calc50(lineData0);
+  var halfData1 = calc50(lineData1);
+  var halfData2 = calc50(lineData2);
+  var halfData3 = calc50(lineData3);
+  var halfData4 = calc50(lineData4);
   Plotly.animate(
     "alloeffic",
     {
@@ -513,7 +513,7 @@ function updateAgoAffinityEff(value) {
 
 function updateAgoEffectEff(value) {
   agoeffeff = document.getElementById("antcoopeff").value = value;
-  lineData0 = calcLinesEff(
+  var lineData0 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -522,7 +522,7 @@ function updateAgoEffectEff(value) {
     agoeffeff,
     agoconcarr[0]
   );
-  lineData1 = calcLinesEff(
+  var lineData1 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -531,7 +531,7 @@ function updateAgoEffectEff(value) {
     agoeffeff,
     agoconcarr[1]
   );
-  lineData2 = calcLinesEff(
+  var lineData2 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -540,7 +540,7 @@ function updateAgoEffectEff(value) {
     agoeffeff,
     agoconcarr[2]
   );
-  lineData3 = calcLinesEff(
+  var lineData3 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -549,7 +549,7 @@ function updateAgoEffectEff(value) {
     agoeffeff,
     agoconcarr[3]
   );
-  lineData4 = calcLinesEff(
+  var lineData4 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -558,11 +558,11 @@ function updateAgoEffectEff(value) {
     agoeffeff,
     agoconcarr[4]
   );
-  halfData0 = calc50(lineData0);
-  halfData1 = calc50(lineData1);
-  halfData2 = calc50(lineData2);
-  halfData3 = calc50(lineData3);
-  halfData4 = calc50(lineData4);
+  var halfData0 = calc50(lineData0);
+  var halfData1 = calc50(lineData1);
+  var halfData2 = calc50(lineData2);
+  var halfData3 = calc50(lineData3);
+  var halfData4 = calc50(lineData4);
   Plotly.animate(
     "alloeffic",
     {
@@ -607,7 +607,7 @@ function resetEff() {
   agoeffeff = document.getElementById(
     "agoeffeffslider"
   ).value = document.getElementById("agoeffeffslider").defaultValue;
-  lineData0 = calcLinesEff(
+  var lineData0 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -616,7 +616,7 @@ function resetEff() {
     agoeffeff,
     agoconcarr[0]
   );
-  lineData1 = calcLinesEff(
+  var lineData1 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -625,7 +625,7 @@ function resetEff() {
     agoeffeff,
     agoconcarr[1]
   );
-  lineData2 = calcLinesEff(
+  var lineData2 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -634,7 +634,7 @@ function resetEff() {
     agoeffeff,
     agoconcarr[2]
   );
-  lineData3 = calcLinesEff(
+  var lineData3 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -643,7 +643,7 @@ function resetEff() {
     agoeffeff,
     agoconcarr[3]
   );
-  lineData4 = calcLinesEff(
+  var lineData4 = calcLinesEff(
     affeff,
     effeff,
     deneff,
@@ -652,11 +652,11 @@ function resetEff() {
     agoeffeff,
     agoconcarr[4]
   );
-  halfData0 = calc50(lineData0);
-  halfData1 = calc50(lineData1);
-  halfData2 = calc50(lineData2);
-  halfData3 = calc50(lineData3);
-  halfData4 = calc50(lineData4);
+  var halfData0 = calc50(lineData0);
+  var halfData1 = calc50(lineData1);
+  var halfData2 = calc50(lineData2);
+  var halfData3 = calc50(lineData3);
+  var halfData4 = calc50(lineData4);
   //console.log(lineData0)
   Plotly.animate(
     "alloeffic",
@@ -741,7 +741,7 @@ function plotGraphEff(chart) {
     Plotly.plot(chart, data, layout, { responsive: true });
   }
   var i;
-  legendview = [true, false, false, false, false];
+  var legendview = [true, false, false, false, false];
   for (i = 0; i < 5; i++) {
     var halfData = calcLinesEff(
       affeff,
