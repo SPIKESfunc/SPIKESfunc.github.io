@@ -6,6 +6,7 @@ var dencom = document.getElementById("dencomslider").defaultValue;
 var efficcom = document.getElementById("efficicomslider").defaultValue;
 var agoaffcom = document.getElementById("antagocomp").value = document.getElementById("agoaffcomslider").defaultValue;
 var comHalfMaxEffect;
+var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"];
 
 var animation = {
     transition: {
@@ -20,30 +21,72 @@ function findComHalfMaxEffect(lineData){
 
 function checkSliderMinCom(){
     let ret = false;
-    if(document.getElementById("affcomslider").value == 4){
+    if(document.getElementById("affcomslider").value === 4){
         ret = true
     }
-    if(document.getElementById("effcomslider").value == -0.3){
+    if(document.getElementById("effcomslider").value === -0.3){
         ret = true
     }
-    if(document.getElementById("dencomslider").value == -0.3){
+    if(document.getElementById("dencomslider").value === -0.3){
         ret = true
     }
-    if(document.getElementById("efficicomslider").value == -0.3){
+    if(document.getElementById("efficicomslider").value === -0.3){
         ret = true
     }
     return ret
 }
 
+function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
+    const STEP = 0.05;
+    var data = [[],[]];
+
+    var affin = 10**(-1*affinity);
+    var efcay = 10**efficacy;
+    var recep = 10**recepDensity;
+    var efcey = 10**efficiency;
+    var agoaffin = 10**(-1*agoaffinity);
+
+    if(agoconcentration === 0){
+        agoconc = 0;
+        agoaffin = 0;
+        for (i=-12; i<-2;i=i+STEP){
+            //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
+            data[0].push(i);
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+        }
+    }
+    else{
+    	agoconc = 10**agoconcentration;
+    	for (i=-12; i<-2;i=i+STEP){
+        	//effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
+        	data[0].push(i);
+        	data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin)));
+    	}
+	}
+    return data;
+}
+
+function calc50(lineData){
+
+	var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
+	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
+	    return number >= halfMaxEffect;
+    });
+    var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
+    var agoret = [[halfAgoEffect], [halfMaxEffect]];
+	return agoret; //return x, y
+    
+}
+
 function updateAffinityCom(value){
     affcom = value;
     if(checkSliderMinCom()){
-        Plotly.restyle("competitive", 'visible', false)
+        Plotly.restyle("competitive", "visible", false)
         graphAlert("comalert","aff")
     }
     else{
         graphRemoveAlert("comalert")
-        Plotly.restyle("competitive", 'visible', true)
+        Plotly.restyle("competitive", "visible", true)
         lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
@@ -54,8 +97,7 @@ function updateAffinityCom(value){
         halfData2 = calc50(lineData2);
         halfData3 = calc50(lineData3);
         halfData4 = calc50(lineData4);
-        
-        //I'm doing something wrong if I try just place lineData into newData, below works though
+
         Plotly.animate("competitive",{
                 data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
                 {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
@@ -69,12 +111,12 @@ function updateAffinityCom(value){
 function updateEfficacyCom(value){
     effcom = value;
     if(checkSliderMinCom()){
-        Plotly.restyle("competitive", 'visible', false)
+        Plotly.restyle("competitive", "visible", false)
         graphAlert("comalert","eff")
     }
     else{
         graphRemoveAlert("comalert")
-        Plotly.restyle("competitive", 'visible', true)
+        Plotly.restyle("competitive", "visible", true)
         lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
@@ -85,7 +127,7 @@ function updateEfficacyCom(value){
         halfData2 = calc50(lineData2);
         halfData3 = calc50(lineData3);
         halfData4 = calc50(lineData4);
-        //I'm doing something wrong if I try just place lineData into newData, below works though
+
         Plotly.animate("competitive",{
                 data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
                 {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
@@ -100,12 +142,12 @@ function updateEfficacyCom(value){
 function updateDensityCom(value){
     dencom = value;
     if(checkSliderMinCom()){
-        Plotly.restyle("competitive", 'visible', false)
+        Plotly.restyle("competitive", "visible", false)
         graphAlert("comalert","den")
     }
     else{
         graphRemoveAlert("comalert")
-        Plotly.restyle("competitive", 'visible', true)
+        Plotly.restyle("competitive", "visible", true)
         lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
@@ -115,7 +157,8 @@ function updateDensityCom(value){
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
         halfData3 = calc50(lineData3);
-        halfData4 = calc50(lineData4);    //I'm doing something wrong if I try just place lineData into newData, below works though
+        halfData4 = calc50(lineData4);    
+        
         Plotly.animate("competitive",{
                 data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
                 {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
@@ -129,12 +172,12 @@ function updateDensityCom(value){
 function updateEfficiencyCom(value){
     efficcom = value;
     if(checkSliderMinCom()){
-        Plotly.restyle("competitive", 'visible', false)
+        Plotly.restyle("competitive", "visible", false)
         graphAlert("comalert","effic")
     }
     else{
         graphRemoveAlert("comalert")
-        Plotly.restyle("competitive", 'visible', true)
+        Plotly.restyle("competitive", "visible", true)
         lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
@@ -144,7 +187,7 @@ function updateEfficiencyCom(value){
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
         halfData3 = calc50(lineData3);
-        halfData4 = calc50(lineData4);    //I'm doing something wrong if I try just place lineData into newData, below works though
+        halfData4 = calc50(lineData4);   
         Plotly.animate("competitive",{
                 data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
                 {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
@@ -168,7 +211,7 @@ function updateAgoAffinityCom(value){
     halfData2 = calc50(lineData2);
     halfData3 = calc50(lineData3);
     halfData4 = calc50(lineData4);
-    //I'm doing something wrong if I try just place lineData into newData, below works though
+
     Plotly.animate("competitive",{
             data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
             {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
@@ -195,7 +238,7 @@ function resetCom(){
     halfData2 = calc50(lineData2);
     halfData3 = calc50(lineData3);
     halfData4 = calc50(lineData4);
-    //I'm doing something wrong if I try just place lineData into newData, below works though
+
     Plotly.animate("competitive",{
             data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
             {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
@@ -204,57 +247,6 @@ function resetCom(){
             layout: {}
             },animation)
 }
-
-function calc50(lineData){
-
-	var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
-    //var halfMaxEffect = lineData[1][1000]/2
-	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
-	    return number >= halfMaxEffect;
-    });
-    var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
-    var agoret = [[halfAgoEffect], [halfMaxEffect]];
-	return agoret; //return x, y
-    
-}
-
-function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
-    //console.log("calclines ran")
-    //console.log(affinity, efficacy, recepDensity, efficiency)
-    const STEP = 0.05;
-    var data = [[],[]];
-    //Inverse log input values
-
-    //var affin = 10**affinity;
-    var affin = 10**(-1*affinity);
-    var efcay = 10**efficacy;
-    var recep = 10**recepDensity;
-    var efcey = 10**efficiency;
-    //var agoaffin = 10**agoaffinity;
-    var agoaffin = 10**(-1*agoaffinity);
-
-    if(agoconcentration == 0){
-        //console.log("agoconc 0 activated")
-        agoconc = 0;
-        agoaffin = 0;
-        for (i=-12; i<-2;i=i+STEP){
-            effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
-            data[0].push(i);
-            data[1].push(effect);
-        }
-    }
-    else{
-    	agoconc = 10**agoconcentration;
-    	for (i=-12; i<-2;i=i+STEP){
-        	effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
-        	data[0].push(i);
-        	data[1].push(effect);
-    	}
-	}
-    return data;
-}
-
-var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"]
 
 function plotGraphCom(chart){
     var layout = {
@@ -277,7 +269,7 @@ function plotGraphCom(chart){
     for(j = 0; j<5; j++){
     	var data = []
     	var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[j]);
-   		if(j==0){
+   		if(j === 0){
 			var graph = {
         		x: lineData[0],
         		y: lineData[1],
@@ -351,7 +343,7 @@ function revealAnswerCom() {
 
 
 function nextQuestionCom() {
-    if (questionCounterCom + 1 == questionsCom.length) { //end of questions
+    if (questionCounterCom + 1 === questionsCom.length) { //end of questions
         document.getElementById("comQuestion").style.display = "none";
         document.getElementById("revealComAnswer").style.display = "none";
         document.getElementById("restartMessageCom").style.display = "block";
