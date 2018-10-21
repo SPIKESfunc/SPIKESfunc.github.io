@@ -57,29 +57,29 @@
 						<legend>Agonist</legend>
 						<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
 						<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6"
-						 onchange="updateAffinityCom(this.value)">
+						 oninput="updateAffinityCom(this.value)">
 						<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
 						<input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="0.04" max="0.74" step="0.01" value="0.39"
-						 onchange="updateEfficacyCom(this.value)">
+						 oninput="updateEfficacyCom(this.value)">
 					</fieldset>
 					<fieldset style="width: 500px;">
 						<legend>Cell</legend>
 						<label for="density">Receptor Density (R<sub>T</sub>)</label>
 						<input type="range" autocomplete="off" name="density" id="dencomslider" min="0.04" max="0.74" step="0.01" value="0.39"
-						 onchange="updateDensityCom(this.value)">
+						 oninput="updateDensityCom(this.value)">
 						<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
 						<input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="0.04" max="0.74" step="0.01"
-						 value="0.39" onchange="updateEfficiencyCom(this.value)">
+						 value="0.39" oninput="updateEfficiencyCom(this.value)">
 					</fieldset>
 					<fieldset style="width: 500px;">
 						<legend>Competitive Antagonist</legend>
 						<label for="agoaffinity">Antagonist Affinity (&#8733 1/K<sub>B</sub>)</label>
 						<input type="number" style="float:right;" autocomplete="off" name="agoaffinity" id="agoaffnum" min="1.00e-10" max="1.00e-6"
-						 step="1.00e-9" value="1e-9" onchange="updateAgoAffinity(this.value)">
+						 step="1.00e-9" value="1e-9" oninput="updateAgoAffinity(this.value)">
 						<br>
 						<label for="neglog">-logK<sub>B</sub></label>
 						<input type="number" style="float:right; width:138px;" autocomplete="off" name="agoafflog" id="agoafflognum" min="4"
-						 max="10" step="0.1" value="9.0" onchange="updateAgoAffinityLog(this.value)">
+						 max="10" step="0.1" value="9.0" oninput="updateAgoAffinityLog(this.value)">
 					</fieldset>
 					<fieldset style="width: 500px;">
 						<legend>Questions</legend>
@@ -167,11 +167,11 @@
 						<div class="row justify-content-center no-gutters">
 							<div class="col-xs-2 no-gutters">
 								<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
-								 step="1.00e-9" value="1e-10" onchange="updateAntagonist1(this.value)">
+								 step="1.00e-9" value="1e-10" oninput="updateAntagonist1(this.value)">
 							</div>
 							<div class="col-xs-2 no-gutters">
 								<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4"
-								 step="0.1" value="-10" onchange="updateAntagonistLog1(this.value)">
+								 step="0.1" value="-10" oninput="updateAntagonistLog1(this.value)">
 							</div>
 							<div class="col-xs-2 no-gutters">
 								<input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
@@ -186,11 +186,11 @@
 						<div class="row justify-content-center no-gutters">
 							<div class="col-xs-2 no-gutters">
 								<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
-								 step="1.00e-9" value="1e-10" onchange="updateAntagonist2(this.value)">
+								 step="1.00e-9" value="1e-10" oninput="updateAntagonist2(this.value)">
 							</div>
 							<div class="col-xs-2 no-gutters">
 								<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4"
-								 step="0.1" value="-10" onchange="updateAntagonistLog2(this.value)">
+								 step="0.1" value="-10" oninput="updateAntagonistLog2(this.value)">
 							</div>
 							<div class="col-xs-2 no-gutters">
 								<input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
@@ -205,11 +205,11 @@
 						<div class="row justify-content-center no-gutters">
 							<div class="col-xs-2 no-gutters">
 								<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
-								 step="1.00e-9" value="1e-10" onchange="updateAntagonist3(this.value)">
+								 step="1.00e-9" value="1e-10" oninput="updateAntagonist3(this.value)">
 							</div>
 							<div class="col-xs-2 no-gutters">
 								<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4"
-								 step="0.1" value="-10" onchange="updateAntagonistLog3(this.value)">
+								 step="0.1" value="-10" oninput="updateAntagonistLog3(this.value)">
 							</div>
 							<div class="col-xs-2 no-gutters">
 								<input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
