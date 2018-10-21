@@ -2,100 +2,104 @@ var affago = document.getElementById("affslider").defaultValue;
 var effago = document.getElementById("effslider").defaultValue;
 var denago = document.getElementById("denslider").defaultValue;
 var efficago = document.getElementById("efficislider").defaultValue;
-
-//var calc50aff;
+var lineData;
+var data50;
+var calc50aff;
 
 var animation = {
     transition: {
         duration: 100,
         easing: "cubic-in-out"
     }
-}
+};
 
 $(document).ready(function () {
   document.getElementById("loader").style.display = "none";
   document.getElementById("page").style.visibility = "visible";
   document.getElementById("page").style.position = "relative";
   document.getElementById("footer").style.visibility = "visible";
-})
+});
 
 function calc50(lineData){
 
     var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
-    //var halfMaxEffect = lineData[1][1000]/2
-	console.log("halfmaxeffect" + halfMaxEffect);
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
-	    return number >= halfMaxEffect;
+        return number >= halfMaxEffect;
     });
-    console.log("maxeffectagoindex" + maxEffectAgoIndex);
     var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
-    console.log("halfagoeffect" + halfAgoEffect)
     var agoret = [[halfAgoEffect], [halfMaxEffect]];
-    console.log("agoret"+ agoret)
 	return agoret; //return x, y
 
 }
 
 function graphAlert(div, property){
-    if(property == "aff"){
-    document.getElementById(div).innerHTML = "Affinity is required for an agonist to bind to receptors and induce an effect – when agonist affinity = 0, agonist-induced effect = 0"
+    if(property === "aff"){
+    document.getElementById(div).innerHTML = "Affinity is required for an agonist to bind to receptors and induce an effect – when agonist affinity = 0, agonist-induced effect = 0";
     }
-    if(property == "eff"){
-    document.getElementById(div).innerHTML = "Intrinsic efficacy is required for an agonist to activate a receptor and induce an effect – when &#949 = 0, agonist-induced effect = 0"
+    if(property === "eff"){
+    document.getElementById(div).innerHTML = "Intrinsic efficacy is required for an agonist to activate a receptor and induce an effect – when &#949 = 0, agonist-induced effect = 0";
     }
-    if(property == "den"){
-    document.getElementById(div).innerHTML = "An agonist cannot induce an effect if the cell contains no functional receptors for the agonist – when R<sub>T</sub> = 0, agonist-induced effect = 0"
+    if(property === "den"){
+    document.getElementById(div).innerHTML = "An agonist cannot induce an effect if the cell contains no functional receptors for the agonist – when R<sub>T</sub> = 0, agonist-induced effect = 0";
     }
-    if(property == "effic"){
-    document.getElementById(div).innerHTML = "An agonist cannot induce an effect if the cell contains no functioning signalling pathways that link the activated receptor to the observed effect – when <i>f</i> = 0, agonist-induced effect = 0"
+    if(property === "effic"){
+    document.getElementById(div).innerHTML = "An agonist cannot induce an effect if the cell contains no functioning signalling pathways that link the activated receptor to the observed effect – when <i>f</i> = 0, agonist-induced effect = 0";
     }
 }
 
 function graphRemoveAlert(div){
     //Determine which graph to remove alert from
-    document.getElementById(div).innerHTML = ""
+    document.getElementById(div).innerHTML = "";
 }
 
 function checkSliderMinAgo(){
     let ret = false;
-    if(document.getElementById("affslider").value == 4){
-        ret = true
+    if(document.getElementById("affslider").value === "4"){
+        ret = true;
     }
-    if(document.getElementById("effslider").value == -0.3){
-        ret = true
+    if(document.getElementById("effslider").value === "-0.3"){
+        ret = true;
     }
-    if(document.getElementById("denslider").value == -0.3){
-        ret = true
+    if(document.getElementById("denslider").value === "-0.3"){
+        ret = true;
     }
-    if(document.getElementById("efficislider").value == -0.3){
-        ret = true
+    if(document.getElementById("efficislider").value === "-0.3"){
+        ret = true;
     }
-    return ret
+    return ret;
+}
+
+function calcLines(affinity, efficacy, recepDensity, efficiency){
+    const STEP = 0.01;
+    var data = [[],[]];
+
+    //Inverse log input values
+
+    var affin = (10**(-1*affinity));
+    var efcay = 10**efficacy;
+    var recep = 10**recepDensity;
+    var efcey = 10**efficiency;
+    for(var i=-12; i<-2;i=i+STEP){
+        //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
+        data[0].push(i);
+        data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+    }
+    return data;
 }
 
 function updateAffinity(value){
     affago = value;
     if(checkSliderMinAgo()){
-        Plotly.restyle("agonist", 'visible', false)
-        graphAlert("agoalert", "aff")
+        Plotly.restyle("agonist", "visible", false);
+        graphAlert("agoalert", "aff");
     }
     else{
-        graphRemoveAlert("agoalert")
-        Plotly.restyle("agonist", 'visible', true)
+        graphRemoveAlert("agoalert");
+        Plotly.restyle("agonist", "visible", true);
         lineData = calcLines(affago,effago,denago,efficago);
-        calc50aff = calc50(lineData); //not calling properly
-        console.log(calc50aff[0]); //getting undefined here!
+        calc50aff = calc50(lineData);
 
-        /*var graph = {
-            y: lineData[1],
-            traces:[0]
-        }
-        newData.push(graph);*/
-        
-        //I'm doing something wrong if I try just place lineData into newData, below works though
-        //Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
-
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation);
 
     }
 } 
@@ -103,51 +107,48 @@ function updateAffinity(value){
 function updateEfficacy(value){
     effago = value;
     if(checkSliderMinAgo()){
-        Plotly.restyle("agonist", 'visible', false)
-        graphAlert("agoalert","eff")
+        Plotly.restyle("agonist", "visible", false);
+        graphAlert("agoalert","eff");
     }
     else{
-        graphRemoveAlert("agoalert")
-        Plotly.restyle("agonist", 'visible', true)
+        graphRemoveAlert("agoalert");
+        Plotly.restyle("agonist", "visible", true);
         lineData = calcLines(affago,effago,denago,efficago);
         calc50aff = calc50(lineData);
 
-        //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation);
     }
 } 
 
 function updateDensity(value){
     denago = value;
     if(checkSliderMinAgo()){
-        Plotly.restyle("agonist", 'visible', false)
-        graphAlert("agoalert","den")
+        Plotly.restyle("agonist", "visible", false);
+        graphAlert("agoalert","den");
     }
     else{
-        graphRemoveAlert("agoalert")
-        Plotly.restyle("agonist", 'visible', true)
+        graphRemoveAlert("agoalert");
+        Plotly.restyle("agonist", "visible", true);
         lineData = calcLines(affago,effago,denago,efficago);
         calc50aff = calc50(lineData);
 
-        //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation);
     }
 } 
 
 function updateEfficiency(value){
     efficago = value;
     if(checkSliderMinAgo()){
-        Plotly.restyle("agonist", 'visible', false)
-        graphAlert("agoalert","effic")
+        Plotly.restyle("agonist", "visible", false);
+        graphAlert("agoalert","effic");
     }
     else{
-        graphRemoveAlert("agoalert")
-        Plotly.restyle("agonist", 'visible', true)
+        graphRemoveAlert("agoalert");
+        Plotly.restyle("agonist", "visible", true);
         lineData = calcLines(affago,effago,denago,efficago);
         calc50aff = calc50(lineData);
 
-        //I'm doing something wrong if I try just place lineData into newData, below works though
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation);
     }
 } 
 
@@ -159,25 +160,10 @@ function resetAgo(){
     lineData = calcLines(affago,effago,denago,efficago);
     calc50aff = calc50(lineData);
 
-    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation);
 }
 
-function calcLines(affinity, efficacy, recepDensity, efficiency){
-    const STEP = 0.01;
-    var data = [[],[]];
-    //Inverse log input values
 
-    var affin = (10**(-1*affinity));
-    var efcay = 10**efficacy;
-    var recep = 10**recepDensity;
-    var efcey = 10**efficiency;
-    for (i=-12; i<-2;i=i+STEP){
-        effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
-        data[0].push(i);
-        data[1].push(effect);
-    }
-    return data;
-}
 
 function plotGraph(chart){
 
@@ -193,40 +179,19 @@ function plotGraph(chart){
             title: "Effect (% Emax)",
             showline: true,
             range: [0,100],
-            //tickvals: [0,20,40,60,80,100],
             dtick: 10
 
         },
-        /*sliders: [
-            {
-                label: 'Slider 1',
-                pad: {t: 30},
-                active: 50,
-                font:{color: 'transparent'}, 
-                tickcolor: 'transparent',
-                steps: sliderSteps
-            },
-            {
-                label: 'Slider 2',
-                pad: {t: 30},
-                active: 50,
-                font:{color: 'transparent'}, 
-                tickcolor: 'transparent',
-                steps: sliderSteps
-            }
-        ]*/
-    }
-    var data = []
-    var lineData = calcLines(affago, effago, denago, efficago)
-	
-    //console.log(lineData)
+    };
+    var data = [];
+    lineData = calcLines(affago, effago, denago, efficago);
     var graph = {
         showlegend: false,
         x: lineData[0],
         y: lineData[1],
         mode: "lines",
         line: {
-            color: '#000000',
+            color: "#000000",
             width: 1
         }
     }
@@ -238,7 +203,7 @@ function plotGraph(chart){
 	var trace1 = [{
 		x: data50[0],
 		y: data50[1],
-		mode: 'markers',
+		mode: "markers",
 		name: "EC<sub>50</sub> value",
         marker: {
             color: "orange"
@@ -249,9 +214,9 @@ function plotGraph(chart){
 plotGraph("agonist");
 
 function showInstructionsQual() {
-    $('#instructions').modal('show');
-    $('.nav-tabs a[href="#qual"]').tab('show');
-};
+    $("#instructions").modal("show");
+    $('.nav-tabs a[href="#qual"]').tab("show");
+}
 
 //QUESTION BOX
 var questionsAgonist = ["What is agonism?",
@@ -290,12 +255,12 @@ document.getElementById("agonistQuestion").innerHTML = "<b>" + questionsAgonist[
 
 function revealAnswerAgonist(){
     document.getElementById("agonistAnswer").innerHTML = answersAgonist[questionCounterAgonist];
-    $('#agonistAnswerModal').modal('show');
+    $("#agonistAnswerModal").modal("show");
 }
 
 
 function nextQuestionAgonist() {
-    if (questionCounterAgonist + 1 == questionsAgonist.length) { //end of questions
+    if (questionCounterAgonist + 1 === questionsAgonist.length) { //end of questions
         document.getElementById("agonistQuestion").style.display = "none";
         document.getElementById("revealAgonistAnswer").style.display = "none";
         document.getElementById("restartMessageAgonist").style.display = "block";

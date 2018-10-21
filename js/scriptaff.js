@@ -7,47 +7,104 @@ var agoaffaff = document.getElementById("antagoaff").value = document.getElement
 var agoeffaff = document.getElementById("agoeffaffslider").defaultValue;
 document.getElementById("antcoopaff").value = Math.round(10**(-agoeffaff) * Math.pow(10,3)) / Math.pow(10,3);
 
-
 var agoconcarr = [0, -9, -8, -7, -6];
+var calc50aff;
+var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"];
+var lineData0;
+var lineData1;
+var lineData2;
+var lineData3;
+var lineData4;
+var halfData0;
+var halfData1;
+var halfData2;
+var halfData3;
+var halfData4;
 
 var animation = {
     transition: {
         duration: 100,
         easing: "cubic-in-out"
     }
-}
-var calc50aff;
+};
+
 
 function checkSliderMinAff(){
     let ret = false;
-    if(document.getElementById("affaffslider").value == 4){
-        ret = true
+    if(document.getElementById("affaffslider").value === "4"){
+        ret = true;
     }
-    if(document.getElementById("effaffslider").value == -0.3){
-        ret = true
+    if(document.getElementById("effaffslider").value === "-0.3"){
+        ret = true;
     }
-    if(document.getElementById("denaffslider").value == -0.3){
-        ret = true
+    if(document.getElementById("denaffslider").value === "-0.3"){
+        ret = true;
     }
-    if(document.getElementById("efficiaffslider").value == -0.3){
-        ret = true
+    if(document.getElementById("efficiaffslider").value === "-0.3"){
+        ret = true;
     }
-    return ret
+    return ret;
+}
+
+function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoeffect, agoconcentration){
+    const STEP = 0.05;
+    var data = [[],[]];
+    //Inverse log input values
+
+    var affin = 10**(-1*affinity);
+    var efcay = 10**efficacy;
+    var recep = 10**recepDensity;
+    var efcey = 10**efficiency;
+    var agoaffin = 10**(-1*agoaffinity);
+    var agoeff = 10**(-1*agoeffect);
+    var agoconc;
+
+    if(agoconcentration === 0){
+        agoconc = 0;
+        agoaffin = 0;
+        var i;
+        for (i=-12; i<-2;i=i+STEP){
+            //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
+            data[0].push(i);
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+        }
+    }
+    else{
+        agoconc = 10**agoconcentration;
+        var i;
+        for (i=-12; i<-2;i=i+STEP){
+            //effect = ((10**i)*efcay*recep*efcey*100)/((10**i)*(efcay*recep*efcey+1)+((affin*(agoconc/agoaffin + 1))/(1+((agoeff*agoconc)/agoaffin))));
+            data[0].push(i);
+            data[1].push(((10**i)*efcay*recep*efcey*100)/((10**i)*(efcay*recep*efcey+1)+((affin*(agoconc/agoaffin + 1))/(1+((agoeff*agoconc)/agoaffin)))));
+        }
+    }
+    return data;
+}
+function calc50(lineData){
+
+    var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
+	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
+        return number >= halfMaxEffect;
+    });
+    var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
+    var agoret = [[halfAgoEffect], [halfMaxEffect]];
+	return agoret; //return x, y
+
 }
 
 function updateAffinityAff(value){
     affaff = value;
     if(checkSliderMinAff()){
-        Plotly.restyle("alloaffin", 'visible', false)
-        graphAlert("affalert","aff")
+        Plotly.restyle("alloaffin", "visible", false);
+        graphAlert("affalert","aff");
     }
     else{
-        graphRemoveAlert("affalert")
-        Plotly.restyle("alloaffin", 'visible', true)
+        graphRemoveAlert("affalert");
+        Plotly.restyle("alloaffin", "visible", true);
         lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
-	    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
-	    lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
+        lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
+        lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
         lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
@@ -61,19 +118,19 @@ function updateAffinityAff(value){
             y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
             traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
-            },animation)
+            },animation);
     }	 
 }  
 
 function updateEfficacyAff(value){
     effaff = value;
     if(checkSliderMinAff()){
-        Plotly.restyle("alloaffin", 'visible', false)
-        graphAlert("affalert","eff")
+        Plotly.restyle("alloaffin", "visible", false);
+        graphAlert("affalert","eff");
     }
     else{
-        graphRemoveAlert("affalert")
-        Plotly.restyle("alloaffin", 'visible', true)
+        graphRemoveAlert("affalert");
+        Plotly.restyle("alloaffin", "visible", true);
         lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
@@ -91,19 +148,19 @@ function updateEfficacyAff(value){
             y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
             traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
-            },animation)
+            },animation);
     }
 } 
 
 function updateDensityAff(value){
     denaff = value;
     if(checkSliderMinAff()){
-        Plotly.restyle("alloaffin", 'visible', false)
-        graphAlert("affalert","den")
+        Plotly.restyle("alloaffin", "visible", false);
+        graphAlert("affalert","den");
     }
     else{
-        graphRemoveAlert("affalert")
-        Plotly.restyle("alloaffin", 'visible', true)
+        graphRemoveAlert("affalert");
+        Plotly.restyle("alloaffin", "visible", true);
         lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
@@ -121,19 +178,19 @@ function updateDensityAff(value){
             y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
             traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
-            },animation)
+            },animation);
     }
 } 
 
 function updateEfficiencyAff(value){
     efficaff = value;
     if(checkSliderMinAff()){
-        Plotly.restyle("alloaffin", 'visible', false)
-        graphAlert("affalert","effic")
+        Plotly.restyle("alloaffin", "visible", false);
+        graphAlert("affalert","effic");
     }
     else{
-        graphRemoveAlert("affalert")
-        Plotly.restyle("alloaffin", 'visible', true)
+        graphRemoveAlert("affalert");
+        Plotly.restyle("alloaffin", "visible", true);
         lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
@@ -151,7 +208,7 @@ function updateEfficiencyAff(value){
             y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
             traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
-            },animation)
+            },animation);
 
     }
 
@@ -176,7 +233,7 @@ function updateAgoAffinityAff(value){
         y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
         traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
-        },animation)
+        },animation);
 
 }
 
@@ -200,7 +257,7 @@ function updateAgoEffectAff(value){
         y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
         traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
-        },animation)
+        },animation);
 }
 
 function resetAff(){
@@ -227,62 +284,8 @@ function resetAff(){
         y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],  
         traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
-        },animation)
+        },animation);
 }
-
-function calc50(lineData){
-
-    var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
-    //var halfMaxEffect = lineData[1][1000]/2
-	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
-	    return number >= halfMaxEffect;
-    });
-    var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
-    var agoret = [[halfAgoEffect], [halfMaxEffect]];
-	return agoret; //return x, y
-
-}
-
-function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoeffect, agoconcentration){
-    //console.log("calclines ran")
-    //console.log(affinity, efficacy, recepDensity, efficiency)
-    const STEP = 0.05;
-    var data = [[],[]];
-    //Inverse log input values
-
-    var affin = 10**(-1*affinity);
-    var efcay = 10**efficacy;
-    var recep = 10**recepDensity;
-    var efcey = 10**efficiency;
-    var agoaffin = 10**(-1*agoaffinity);
-
-
-    //var agoeff = 10**(agoeffect)
-    var agoeff = 10**(-1*agoeffect);
-
-    if(agoconcentration == 0){
-        //console.log("agoconc 0 activated")
-        agoconc = 0;
-        agoaffin = 0;
-        for (i=-12; i<-2;i=i+STEP){
-            effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
-            data[0].push(i);
-            data[1].push(effect);
-        }
-    }
-    else{
-        //console.log("agoconc not 0 activated")
-        agoconc = 10**agoconcentration;
-        for (i=-12; i<-2;i=i+STEP){
-            effect = ((10**i)*efcay*recep*efcey*100)/((10**i)*(efcay*recep*efcey+1)+((affin*(agoconc/agoaffin + 1))/(1+((agoeff*agoconc)/agoaffin))));
-            data[0].push(i);
-            data[1].push(effect);
-        }
-    }
-    return data;
-}
-
-var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"]
 
 function plotGraphAff(chart){
 
@@ -301,15 +304,14 @@ function plotGraphAff(chart){
             dtick: 10
 
         }
-    }
-    var j;
+    };
 	var data50 = [];
-    for(j = 0; j<5; j++){
+    for(var j = 0; j<5; j++){
         var data= [];
-        var lineData = calcLinesAff(affaff, effaff, denaff, efficaff, agoaffaff, agoeffaff, agoconcarr[j])
-
-        if(j==0){
-            var graph = {
+        var lineData = calcLinesAff(affaff, effaff, denaff, efficaff, agoaffaff, agoeffaff, agoconcarr[j]);
+        var graph;
+        if(j === 0){
+            graph = {
                 x: lineData[0],
                 y: lineData[1],
                 mode: "lines",
@@ -321,7 +323,7 @@ function plotGraphAff(chart){
             }
         }
         else{
-        var graph = {
+            graph = {
                 x: lineData[0],
                 y: lineData[1],
                 mode: "lines",
@@ -338,14 +340,14 @@ function plotGraphAff(chart){
     Plotly.plot(chart,data,layout, {responsive: true});
     }
     var i;
-    legendview = [true, false, false, false, false]
+    var legendview = [true, false, false, false, false];
     for(i = 0; i<5; i++){
         var halfData = calcLinesAff(affaff, effaff, denaff, efficaff, agoaffaff, agoeffaff, agoconcarr[i]);
         data50 = calc50(halfData); //plot the 50% effect marker
         var trace1 = [{
             x: data50[0],
             y: data50[1],
-            mode: 'markers',
+            mode: "markers",
             name: "EC<sub>50</sub> Value",
             marker: {
                 color: "orange"
@@ -376,12 +378,12 @@ document.getElementById("AffQuestion").innerHTML = "<b>" + questionsAff[question
 
 function revealAnswerAff() {
     document.getElementById("AffAnswer").innerHTML = answersAff[questionCounterAff];
-    $('#AffAnswerModal').modal('show');
+    $("#AffAnswerModal").modal("show");
 }
 
 
 function nextQuestionAff() {
-    if (questionCounterAff + 1 == questionsAff.length) { //end of questions
+    if (questionCounterAff + 1 === questionsAff.length) { //end of questions
         document.getElementById("AffQuestion").style.display = "none";
         document.getElementById("revealAffAnswer").style.display = "none";
         document.getElementById("restartMessageAff").style.display = "block";
