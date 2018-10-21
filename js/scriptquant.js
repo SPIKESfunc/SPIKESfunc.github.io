@@ -1,7 +1,5 @@
 var agoconcarr = [0, -10, -10, -10];
 //var agoconcarr = [0, -9, -8, -7];
-                    
-
 var affcom = document.getElementById("affcomslider").defaultValue;
 var effcom = document.getElementById("effcomslider").defaultValue;
 var dencom = document.getElementById("dencomslider").defaultValue;
