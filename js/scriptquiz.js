@@ -318,9 +318,13 @@ function quizReset(){
 
 var animation = {
 	transition: {
-		duration: 100,
-		easing: "cubic-in-out"
-	}
+        duration: 0,
+        easing: "cubic-in-out"
+    },
+    frame: {
+        duration: 0,
+        redraw: false,
+ }
 }
 
 function plotAnswerSchild(chart, rec){

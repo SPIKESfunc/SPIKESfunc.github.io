@@ -8,9 +8,13 @@ var calc50aff;
 
 var animation = {
     transition: {
-        duration: 100,
+        duration: 0,
         easing: "cubic-in-out"
-    }
+    },
+    frame: {
+        duration: 0,
+        redraw: false,
+ }
 };
 
 $(document).ready(function () {
