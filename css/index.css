@@ -9,6 +9,7 @@
 
 .nav-style.active {
   border-top: 4px solid rgb(255, 30, 30);
+  color: red !important;
 }
 
 .footer {
@@ -37,15 +38,15 @@ nav .navbar-nav li.nav-item a.nav-item.nav-link.active {
 }
 
 .navbar-brand {
-  color: black;
+  color: black !important;
 }
 
 .navbar-brand:hover {
-  color: rgb(255, 30, 30);
+  color: rgb(255, 30, 30) !important;
 }
 
 .navbar-brand.active {
-  color: rgb(255, 30, 30);
+  color: rgb(255, 30, 30) !important;
 }
 
 body,
@@ -118,4 +119,9 @@ footer a:hover {
 a.btn:hover {
   color: #fff;
   background-color: #ff5252 !important;
+}
+
+nav a:hover {
+  color: Red !important;
+  text-decoration: none;
 }

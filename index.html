@@ -8,56 +8,65 @@
 
 	<link rel="shortcut icon" href="images/favicon-196x196.png">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/button.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-	<!-- Add in plotly.js files still to go, might put them in body -->
-
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/index.css" rel="stylesheet">
-
 </head>
 
 <body class="parallax">
 
 	<header>
 		<nav class="navbar navbar-light navbar-expand-lg fixed-top header">
-			<div class="container">
-				<a class="navbar-brand nav-style active" href="index.html">SPIKES<i>func</i></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-				 aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="qualitative.html">Dose-Response Visualiser</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="quantitative.html">Schild Plot Generator</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="quiz.html">Schild Plot Analysis Quiz</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="logtable.html" target="_blank">-logK<sub>i</sub> Values</a>
-						</li>
-					</ul>
-				</div>
+			<div class="container nav-wrapper">
+				<i><a class="brand-logo black-text nav-style active" href="index.html"> <span style="font-style: normal;">SPIKE</span>func</a></i>
+				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+				<ul class="navbar-nav ml-auto right hide-on-med-and-down">
+					<li class="nav-item">
+						<a class="nav-item nav-link nav-style" href="qualitative.html">Dose-Response Visualiser</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-item nav-link nav-style" href="quantitative.html">Schild Plot Generator</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-item nav-link nav-style" href="quiz.html">Schild Plot Analysis Quiz</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-item nav-link nav-style" href="logtable.html" target="_blank">-logK<sub>i</sub> Values</a>
+					</li>
+				</ul>
 			</div>
 		</nav>
+		<ul class="sidenav" id="mobile-demo">
+				<li class="nav-item">
+					<a class="nav-item nav-link nav-style" href="qualitative.html">Dose-Response Visualiser</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-item nav-link nav-style" href="quantitative.html">Schild Plot Generator</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-item nav-link nav-style" href="quiz.html">Schild Plot Analysis Quiz</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-item nav-link nav-style" href="logtable.html" target="_blank">-logK<sub>i</sub> Values</a>
+				</li>
+			</ul>
 	</header>
 
 	<div class="container d-flex h-100">
 		<div class="col-sm-12 my-auto text-center">
 			<h1 class="display-1">SPIKES<i>func</i></h1>
-			<h2>An interactive, educational application that boosts proficiency in the interpretation of functional pharmacological data through the visual and quantitative analysis of agonist and antagonist dose-response relationships.</h2>
+			<h2>An interactive, educational application that boosts proficiency in the interpretation of functional
+				pharmacological data through the visual and quantitative analysis of agonist and antagonist dose-response
+				relationships.</h2>
 		</div>
 	</div>
 	<div class="jumbotron jumbotron-fluid h-50 mb-6">
 		<div class="container">
 			<h1 class="display-4">Dose-Response Visualiser</h1>
-			<p class="lead">This tool is used to visualise how changes in the characteristics of agonists, receptors and cells influences the agonist dose-response relationship. This tool can also be used to visualise how different classes of antagonist can dose-dependently change the shape and position of agonist dose-response curves.</p>
+			<p class="lead">This tool is used to visualise how changes in the characteristics of agonists, receptors and cells
+				influences the agonist dose-response relationship. This tool can also be used to visualise how different classes of
+				antagonist can dose-dependently change the shape and position of agonist dose-response curves.</p>
 			<a href="qualitative.html" class="btn waves-effect waves-light red" role="button">Investigate the patterns!</a>
 		</div>
 	</div>
@@ -66,7 +75,8 @@
 	<div class="jumbotron jumbotron-fluid h-50 mb-6">
 		<div class="container">
 			<h1 class="display-4">Schild Plot Generator</h1>
-			<p class="lead">This tool is used to develop competencies in the quantitative analysis of the effect of competitive antagonists on agonist-induced effects in functional assays – the powerful Schild Analysis.</p>
+			<p class="lead">This tool is used to develop competencies in the quantitative analysis of the effect of competitive
+				antagonists on agonist-induced effects in functional assays – the powerful Schild Analysis.</p>
 			<a href="quantitative.html" class="btn waves-effect waves-light red" role="button">See it at work!</a>
 		</div>
 	</div>
@@ -75,7 +85,8 @@
 	<div class="jumbotron jumbotron-fluid h-50 mb-6">
 		<div class="container">
 			<h1 class="display-4">Schild Plot Analysis Quiz</h1>
-			<p class="lead">In the Quiz tool, users apply their understanding of the Schild approach together with the SPIKES mnemonic to test their competencies in identifying receptors that mediate agonist-induced functional effects.</p>
+			<p class="lead">In the Quiz tool, users apply their understanding of the Schild approach together with the SPIKES
+				mnemonic to test their competencies in identifying receptors that mediate agonist-induced functional effects.</p>
 			<a href="quiz.html" class="btn waves-effect waves-light red" role="button">Try the Quiz!</a>
 		</div>
 	</div>
@@ -105,25 +116,66 @@
 						<h4 class="modal-title">About</h4>
 					</div>
 					<div class="modal-body">
-						<p><b>Summary about the project</b><br />Agonists produce effects in cells by activating receptors and downstream signalling pathways. This app contains an interactive “Dose Response Visualiser” which allows users to alter agonist-dependent factors (affinity, intrinsic efficacy) and/or cell-dependent factors (receptor density, coupling efficiency) and observe in real time how this changes the agonist dose-response relationship.<br/><br/>Agonist-induced effects can be blocked by drugs called antagonists, which are amongst the most widely used class of drug in medicine.  There exist many different types of antagonists, named on the basis of how they block the agonist-induced effect: competitive, irreversible, allosteric and functional antagonists.  Within the “Dose Response Visualiser”, users can observe the different patterns of effect produced by each of these antagonists (and the influence of antagonist concentrations and affinity) on the agonist dose-response relationship.  Quantitative analysis of the effect of competitive antagonists on agonist-induced effects is a powerful method for identifying the receptors that mediate agonist-induced effects (Schild analysis), and is used in drug discovery and receptor characterisation.  The app contains a “Schild Plot Generator”, where users can select the properties of agonists and antagonists and generate Schild Plots, and work through a series of theoretical questions and experimental scenarios that build proficiency and enhance understanding of key Schild concepts. These newly developed proficiencies and understandings can then be tested using the “Schild Analysis Quiz” tool within the app, were users are provided with a series of Schild Plots obtained to 5 antagonists acting on a single receptor subtype within a common cell, and users are challenged to analyse each of the Schild Plots using the SPIKES approach to deduce which single receptor subtype is mediating the agonist-induced response.  Feedback is provided for each of the literally 1000s of different quiz questions.<br/><br/>Thus, SPIKESfunc is an interactive, educational application that boosts proficiency in the interpretation of functional pharmacological data through the visual and quantitative analysis of agonist and antagonist dose-response relationships.  SPIKESfunc can be used in conjunction with SPIKESbind (or SPIKESmate), a complementary interactive educational app designed to enhance the proficiency in the interpretation of binding pharmacological data.<br/><br/>The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Brooker and Thai Nguyen, undergraduate students of the Professional Computing unit (CITS3200) at The University of Western Australia, as directed by Associate Professor Peter Henry of the Division of Pharmacology, School of Biomedical Sciences, UWA.</p>
+						<p><b>Summary about the project</b><br />Agonists produce effects in cells by activating receptors and downstream
+							signalling pathways. This app contains an interactive “Dose Response Visualiser” which allows users to alter
+							agonist-dependent factors (affinity, intrinsic efficacy) and/or cell-dependent factors (receptor density,
+							coupling efficiency) and observe in real time how this changes the agonist dose-response relationship.<br /><br />Agonist-induced
+							effects can be blocked by drugs called antagonists, which are amongst the most widely used class of drug in
+							medicine. There exist many different types of antagonists, named on the basis of how they block the
+							agonist-induced effect: competitive, irreversible, allosteric and functional antagonists. Within the “Dose
+							Response Visualiser”, users can observe the different patterns of effect produced by each of these antagonists
+							(and the influence of antagonist concentrations and affinity) on the agonist dose-response relationship.
+							Quantitative analysis of the effect of competitive antagonists on agonist-induced effects is a powerful method
+							for identifying the receptors that mediate agonist-induced effects (Schild analysis), and is used in drug
+							discovery and receptor characterisation. The app contains a “Schild Plot Generator”, where users can select the
+							properties of agonists and antagonists and generate Schild Plots, and work through a series of theoretical
+							questions and experimental scenarios that build proficiency and enhance understanding of key Schild concepts.
+							These newly developed proficiencies and understandings can then be tested using the “Schild Analysis Quiz” tool
+							within the app, were users are provided with a series of Schild Plots obtained to 5 antagonists acting on a
+							single receptor subtype within a common cell, and users are challenged to analyse each of the Schild Plots using
+							the SPIKES approach to deduce which single receptor subtype is mediating the agonist-induced response. Feedback
+							is provided for each of the literally 1000s of different quiz questions.<br /><br />Thus, SPIKESfunc is an
+							interactive, educational application that boosts proficiency in the interpretation of functional pharmacological
+							data through the visual and quantitative analysis of agonist and antagonist dose-response relationships.
+							SPIKESfunc can be used in conjunction with SPIKESbind (or SPIKESmate), a complementary interactive educational
+							app designed to enhance the proficiency in the interpretation of binding pharmacological data.<br /><br />The
+							SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Brooker and Thai Nguyen, undergraduate
+							students of the Professional Computing unit (CITS3200) at The University of Western Australia, as directed by
+							Associate Professor Peter Henry of the Division of Pharmacology, School of Biomedical Sciences, UWA.</p>
 						<p><b>References</b></p>
-						<p> - Black JW, Leff P. (1983)  Operational models of pharmacological agonism.  Proc R Soc Lond B Biol Sci. 220(1219):141-62.<br/><br/>
-						 - Christopoulos A, Kenakin T (2002) G protein-coupled receptor allosterism and complexing. Pharmacol Rev. 54(2):323-74.<br/><br/>
-						 - Christopoulos A (2014)  Advances in G protein-coupled receptor allostery: from function to structure.  Mol Pharmacol. 86(5):463-78. <br/><br/>
-						 - Ehlert FJ. (2015) Functional studies cast light on receptor states. Trends Pharmacol Sci. 36(9):596-604.<br/><br/>
-						 - Kenakin, T.P. (2004) A Pharmacology Primer: Theory, Application, and Methods. First Edn. Elsevier Academic Press, San Diego, CA, USA.<br/><br/>
-						 - Kenakin T. (2006) Data-driven analysis in drug discovery. J Recept Signal Transduct Res. 26(4):299-327.<br/><br/>
-						 - Kenakin T, Jenkinson S, Watson C. (2006)  Determining the potency and molecular mechanism of action of insurmountable antagonists.  J Pharmacol Exp Ther. 319(2):710-23.<br/><br/>
-						 - Kenakin T, Watson C, Muniz-Medina V, Christopoulos A, Novick S. (2012) A simple method for quantifying functional selectivity and agonist bias.  ACS Chem Neurosci. 3(3):193-203.<br/><br/>
-						 - Kenakin T. (2017) A Scale of Agonism and Allosteric Modulation for Assessment of Selectivity, Bias, and Receptor Mutation. Mol Pharmacol 92(4):414-424.<br/><br/>
-						 - Keov P, Sexton PM, Christopoulos A (2011) Allosteric modulation of G protein-coupled receptors: a pharmacological perspective. Neuropharmacology 60(1):24-35.<br/><br/>
-						 - Leff P, Martin GR, Morse JM. (1985) Application of the operational model of agonism to establish conditions when functional antagonism may be used to estimate agonist dissociation constants.  Br J Pharmacol. 85(3):655-63.<br/><br/>
-						 - Lew MJ (1995) Extended concentration-response curves used to reflect full agonist efficacies and receptor occupancy-response coupling ranges. Br J Pharmacol. 115(5):745-52.<br/><br/>
-						 - Neubig RR, Spedding M, Kenakin T, Christopoulos A; International Union of Pharmacology Committee on Receptor Nomenclature and Drug Classification. (2003) International Union of Pharmacology Committee on Receptor Nomenclature and Drug Classification. XXXVIII. Update on terms and symbols in quantitative pharmacology. Pharmacol Rev. 55(4):597-606.<br/><br/>
-						 - Offermeier J, van den Brink FG. (1974) The antagonism between cholinomimetic agonists and beta-adrenoceptor stimulants. The differentiation between functional and metaffinoid antagonism. Eur J Pharmacol. 27(2):206-13.<br/><br/>
-						 - van den Brink FG (1973) The model of functional interaction. I. Development and first check of a new model of functional synergism and antagonism. Eur J Pharmacol. 22(3):270-8.<br/><br/>
-						 - van den Brink FG. (1973) The model of functional interaction. II. Experimental verification of a new model: the antagonism of beta-adrenoceptor stimulants and other agonists. Eur J Pharmacol. 22(3):279-86.<br/><br/>
-						 - Wyllie DJ, Chen PE. (2007) Taking the time to study competitive antagonism. Br J Pharmacol. 150(5):541-51.</p>
+						<p> - Black JW, Leff P. (1983) Operational models of pharmacological agonism. Proc R Soc Lond B Biol Sci.
+							220(1219):141-62.<br /><br />
+							- Christopoulos A, Kenakin T (2002) G protein-coupled receptor allosterism and complexing. Pharmacol Rev.
+							54(2):323-74.<br /><br />
+							- Christopoulos A (2014) Advances in G protein-coupled receptor allostery: from function to structure. Mol
+							Pharmacol. 86(5):463-78. <br /><br />
+							- Ehlert FJ. (2015) Functional studies cast light on receptor states. Trends Pharmacol Sci. 36(9):596-604.<br /><br />
+							- Kenakin, T.P. (2004) A Pharmacology Primer: Theory, Application, and Methods. First Edn. Elsevier Academic
+							Press, San Diego, CA, USA.<br /><br />
+							- Kenakin T. (2006) Data-driven analysis in drug discovery. J Recept Signal Transduct Res. 26(4):299-327.<br /><br />
+							- Kenakin T, Jenkinson S, Watson C. (2006) Determining the potency and molecular mechanism of action of
+							insurmountable antagonists. J Pharmacol Exp Ther. 319(2):710-23.<br /><br />
+							- Kenakin T, Watson C, Muniz-Medina V, Christopoulos A, Novick S. (2012) A simple method for quantifying
+							functional selectivity and agonist bias. ACS Chem Neurosci. 3(3):193-203.<br /><br />
+							- Kenakin T. (2017) A Scale of Agonism and Allosteric Modulation for Assessment of Selectivity, Bias, and
+							Receptor Mutation. Mol Pharmacol 92(4):414-424.<br /><br />
+							- Keov P, Sexton PM, Christopoulos A (2011) Allosteric modulation of G protein-coupled receptors: a
+							pharmacological perspective. Neuropharmacology 60(1):24-35.<br /><br />
+							- Leff P, Martin GR, Morse JM. (1985) Application of the operational model of agonism to establish conditions
+							when functional antagonism may be used to estimate agonist dissociation constants. Br J Pharmacol. 85(3):655-63.<br /><br />
+							- Lew MJ (1995) Extended concentration-response curves used to reflect full agonist efficacies and receptor
+							occupancy-response coupling ranges. Br J Pharmacol. 115(5):745-52.<br /><br />
+							- Neubig RR, Spedding M, Kenakin T, Christopoulos A; International Union of Pharmacology Committee on Receptor
+							Nomenclature and Drug Classification. (2003) International Union of Pharmacology Committee on Receptor
+							Nomenclature and Drug Classification. XXXVIII. Update on terms and symbols in quantitative pharmacology.
+							Pharmacol Rev. 55(4):597-606.<br /><br />
+							- Offermeier J, van den Brink FG. (1974) The antagonism between cholinomimetic agonists and beta-adrenoceptor
+							stimulants. The differentiation between functional and metaffinoid antagonism. Eur J Pharmacol. 27(2):206-13.<br /><br />
+							- van den Brink FG (1973) The model of functional interaction. I. Development and first check of a new model of
+							functional synergism and antagonism. Eur J Pharmacol. 22(3):270-8.<br /><br />
+							- van den Brink FG. (1973) The model of functional interaction. II. Experimental verification of a new model:
+							the antagonism of beta-adrenoceptor stimulants and other agonists. Eur J Pharmacol. 22(3):279-86.<br /><br />
+							- Wyllie DJ, Chen PE. (2007) Taking the time to study competitive antagonism. Br J Pharmacol. 150(5):541-51.</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -153,8 +205,10 @@
 					<div class="tab-content">
 						<div id="qual" class="container tab-pane active">
 							<div class="col col-lg-12">
-								<p><span style="color:Red">Agonists</span> bind to and activate receptors to induce changes in the activity of the receptor-expressing
-									cells – a simple schematic of this process can be seen by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span> Agonist</span> icon. The
+								<p><span style="color:Red">Agonists</span> bind to and activate receptors to induce changes in the activity of
+									the receptor-expressing
+									cells – a simple schematic of this process can be seen by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span>
+										Agonist</span> icon. The
 									magnitude of these agonist-induced changes in cell activity are dependent on the concentration of
 									the agonist, and are typically displayed using agonist dose-response curves (see default sigmoid-
 									shaped Agonist Dose-Response Curve).
@@ -174,7 +228,8 @@
 								<p>
 									The shape and position of agonist dose-response curves depend upon the properties of both the
 									agonist (affinity and intrinsic efficacy) and the cell (receptor density and the coupling efficiency).
-									Specific information about these parameters can be obtained by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span> icons</span>.
+									Specific information about these parameters can be obtained by clicking the <span style="color:red">red <span
+										 class="fa fa-info-circle"></span> icons</span>.
 								</p>
 								<p>
 									Relative values for the four agonist and cell parameters are represented by red and grey sliders, and can be
@@ -190,17 +245,20 @@
 									the Answer icon.
 								</p>
 								<p>
-									<span style="color:red">Antagonists</span> bind to receptors and inhibit agonist-induced responses. There exist different classes of
+									<span style="color:red">Antagonists</span> bind to receptors and inhibit agonist-induced responses. There
+									exist different classes of
 									antagonists, including Competitive antagonists, Irreversible antagonists, Allosteric antagonists and
 									Functional antagonists. As their names suggest, these different classes of antagonist interact with
 									the receptors in distinct ways, and likewise affect agonist dose-response curves in characteristic
 									ways – thus each class of antagonist has its own visualiser. Further information about each of these
-									classes of antagonists can be obtained by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span> Antagonist</span> icon in each specific window.
+									classes of antagonists can be obtained by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span>
+										Antagonist</span> icon in each specific window.
 									The magnitude of inhibitory effects produced by an antagonist depends upon both the
 									concentration and affinity of the antagonist. By default, the effects produced by 1, 10, 100 and 1000
 									nM concentrations of antagonist on the agonist dose-response curves are displayed in red. The
 									effect of changing the affinity of the antagonist on these effects can also be visualised by moving the
-									red and grey sliders in the Antagonist window to the left (to decrease antagonist affinity) or to the right (to
+									red and grey sliders in the Antagonist window to the left (to decrease antagonist affinity) or to the right
+									(to
 									increase antagonist affinity) along the yellow bar. The extent to which the actions of the antagonist
 									is dependent on the characteristics of the agonist (affinity, intrinsic efficacy) and/or cell (receptor
 									density, coupling efficiency) can also be displayed by moving the appropriate sliders in the Agonist or
@@ -235,19 +293,22 @@
 								</p>
 								<p>
 									If certain conditions are met (linearity, unity of slope), then a Schild Plot can be used to generate a
-									pA<sub>2</sub> value, which is an estimate of the affinity of the competitive antagonist (K<sub>B</sub> value) for the
+									pA<sub>2</sub> value, which is an estimate of the affinity of the competitive antagonist (K<sub>B</sub> value)
+									for the
 									receptor through which the agonist is producing the response. The pA<sub>2</sub> is determined by measuring
 									the value of the dose ratio (DR) at several antagonist concentrations, allowing an estimate of the
 									antagonist concentration at which log(DR-1) is zero.
 								</p>
 								<p>
-									The calculated –logK<sub>B</sub> value of the antagonist can then be compared to known –logK<sub>i</sub> values of the
+									The calculated –logK<sub>B</sub> value of the antagonist can then be compared to known –logK<sub>i</sub>
+									values of the
 									antagonist obtained from the binding of the antagonist to pure populations of receptor subtypes,
 									and through a process of elimination (incorporating the SPIKES approach), the receptor mediating
 									the agonist-induced response identified.
 								</p>
 								<p>
-									<b><i>In the Schild Plot Generator</i></b> you can choose the characteristics of the agonist (affinity, intrinsic
+									<b><i>In the Schild Plot Generator</i></b> you can choose the characteristics of the agonist (affinity,
+									intrinsic
 									efficacy) and cell (receptor density, coupling efficiency) by moving the red and grey sliders along the yellow
 									bar (as per Dose-Response Visualiser). Furthermore, you can select the affinity of the antagonist (in
 									the Competitive Antagonist window) and select up to three [antagonist] (in the Schild Plot Analysis
@@ -262,7 +323,8 @@
 								<p>
 									You can enhance your understanding of the key concepts surrounding the theoretical and practical
 									aspects of Schild Analysis by working through a series of Questions (see Questions window) that
-									encourage the use of the Schild Plot Generator and the Reference Table of ‘-logK<sub>i</sub>  values’. An Answer
+									encourage the use of the Schild Plot Generator and the Reference Table of ‘-logK<sub>i</sub> values’. An
+									Answer
 									to each of the Questions posed can be obtained by clicking on the Answer icon. Completing these
 									questions, together with an understanding of the SPIKES approach to interpreting Schild plot data,
 									will prepare you well for the ‘Schild Plot Analysis Quiz’.
@@ -282,44 +344,57 @@
 									plots.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>S</b></span>hape of the Schild Plot – should be linear. Nonlinearity is indicative of key assumptions of the
+									<span style="color:red; font-size: 22px"><b>S</b></span>hape of the Schild Plot – should be linear.
+									Nonlinearity is indicative of key assumptions of the
 									Schild Analysis not being met (e.g. antagonism must be competitive) and makes the pA<sub>2</sub> values
 									potentially unreliable for K<sub>B</sub> determination. In the Quiz, analyse the shape of each Schild plot and
 									select from the drop-down options (linear, nonlinear up, nonlinear down) the most appropriate
 									description of the shape of the Schild Plot.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>P</b></span>osition of the Schild Plot provides the pA<sub>2</sub> value – i.e. x-axis intercept. If the pA<sub>2</sub> is derived from a
-									linear Schild plot with slope not significantly different from 1.0, then it can be converted to K<sub>B</sub> and be
+									<span style="color:red; font-size: 22px"><b>P</b></span>osition of the Schild Plot provides the pA<sub>2</sub>
+									value – i.e. x-axis intercept. If the pA<sub>2</sub> is derived from a
+									linear Schild plot with slope not significantly different from 1.0, then it can be converted to K<sub>B</sub>
+									and be
 									a true measure of the affinity of the antagonist for the receptor mediating the agonist-induced
 									response. In the Quiz, enter the numerical value of the pA<sub>2</sub> for each antagonist.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>I</b></span>nclination of the Schild Plot = slope of the Schild Plot, and should not be significantly different from
-									value of 1.0. If slope &lt; 1, pA<sub>2</sub> is over-estimated &amp; if slope &gt; 1, then pA<sub>2</sub> value is under-estimated. In
+									<span style="color:red; font-size: 22px"><b>I</b></span>nclination of the Schild Plot = slope of the Schild
+									Plot, and should not be significantly different from
+									value of 1.0. If slope &lt; 1, pA<sub>2</sub> is over-estimated &amp; if slope &gt; 1, then pA<sub>2</sub>
+									value is under-estimated. In
 									the Quiz, determine the slope and select from the drop-down options (Slope=1, Slope&lt;1, Slope&gt;1,
 									unsure) the most appropriate description of the slope for each antagonist Schild Plot.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>K</b></span><sub>B</sub> is the antilog of the pA<sub>2</sub> and is a direct measure of the affinity of the antagonist for the receptor
-									mediating the agonist-induce response. The K<sub>B</sub> value can be reliably derived from pA<sub>2</sub> only if the
+									<span style="color:red; font-size: 22px"><b>K</b></span><sub>B</sub> is the antilog of the pA<sub>2</sub> and
+									is a direct measure of the affinity of the antagonist for the receptor
+									mediating the agonist-induce response. The K<sub>B</sub> value can be reliably derived from pA<sub>2</sub>
+									only if the
 									Schild plot is linear with unit slope. In the Quiz, determine whether the K<sub>B</sub> value can be reliably
-									obtained from the pA<sub>2</sub> value (based on the prior analysis of Shape (linear) and Inclination (slope=1)
+									obtained from the pA<sub>2</sub> value (based on the prior analysis of Shape (linear) and Inclination
+									(slope=1)
 									of each Schild plot) by selecting the appropriate response from the drop-down list (Yes, No, Unsure).
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>E</b></span>limination. If for any antagonist, there is at least a 1.0 log unit difference between the observed
-									pA<sub>2</sub> value and the known –logK<sub>i</sub> value at any particular receptor subtype (see reference Table of
-									–logK<sub>i</sub> values), then that receptor subtype is unlikely to have mediated the agonist-induced response
+									<span style="color:red; font-size: 22px"><b>E</b></span>limination. If for any antagonist, there is at least a
+									1.0 log unit difference between the observed
+									pA<sub>2</sub> value and the known –logK<sub>i</sub> value at any particular receptor subtype (see reference
+									Table of
+									–logK<sub>i</sub> values), then that receptor subtype is unlikely to have mediated the agonist-induced
+									response
 									and can be eliminated from further analysis. In the Quiz, for each antagonist check the receptor box
 									to indicate that that receptor has been eliminated.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>S</b></span>ummation. In the Elimination process, each different antagonist is likely to have been able to
+									<span style="color:red; font-size: 22px"><b>S</b></span>ummation. In the Elimination process, each different
+									antagonist is likely to have been able to
 									eliminate one or more receptor subtypes as having mediated the agonist-induced response. By using
 									the information obtained by using ALL the antagonists, a concerted process of elimination should
 									leave just one receptor subtype as having mediated the response induced by the agonist. All
-									obtained pA<sub>2</sub> values should be close to the –logK<sub>i</sub> values for the sole non-eliminated receptor. In the
+									obtained pA<sub>2</sub> values should be close to the –logK<sub>i</sub> values for the sole non-eliminated
+									receptor. In the
 									Quiz, in the ‘Your Solution’ window select the sole receptor subtype that is mediating the response.
 								</p>
 								<p>
@@ -364,13 +439,14 @@
 				</div>
 			</div>
 		</div>
-	</footer> 
+	</footer>
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>
 	<script type="text/javascript" src="js/triangle.js"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="js/navbar.js"></script>
 </body>
 
 </html>
