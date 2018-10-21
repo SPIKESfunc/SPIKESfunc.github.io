@@ -21,8 +21,12 @@ var calc50;
 
 var animation = {
     transition: {
-        duration: 100,
+        duration: 0,
         easing: "exp-in-out"
+    },
+    frame: {
+        duration: 0,
+        redraw: false,
     }
 };
 

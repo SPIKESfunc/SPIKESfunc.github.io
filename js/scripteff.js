@@ -11,9 +11,13 @@ var agoconcarr = [0, -9, -8, -7, -6];
 
 var animation = {
   transition: {
-    duration: 100,
+    duration: 0,
     easing: "cubic-in-out"
-  }
+  },
+  frame: {
+    duration: 0,
+    redraw: false,
+}
 };
 
 function checkSliderMinEff() {
