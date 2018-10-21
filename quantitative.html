@@ -117,123 +117,116 @@
 						</div>
 
 					</fieldset>
+					<fieldset style="width:500px;">
+							<legend class="text-center">Schild Analysis Table</legend>
+							<div class="row justify-content-center no-gutters">
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox" style="text-align: center;">[Antagonist] (M)</label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox" style="text-align: center;">log[B]</label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox" style="text-align: center;">Dose Ratio</label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox" style="text-align: center;">log(DR-1)</label>
+								</div>
+							</div>
+							<hr>
+							<div class="row justify-content-center no-gutters">
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox"></label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox"></label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox"></label>
+								</div>
+							</div>
+							<div class="row justify-content-center no-gutters">
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
+									 step="1.00e-9" value="1e-10" oninput="updateAntagonist1(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4"
+									 step="0.1" value="-10" oninput="updateAntagonistLog1(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
+								</div>
+							</div>
+							<div class="row justify-content-center no-gutters">
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
+									 step="1.00e-9" value="1e-10" oninput="updateAntagonist2(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4"
+									 step="0.1" value="-10" oninput="updateAntagonistLog2(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
+								</div>
+							</div>
+							<div class="row justify-content-center no-gutters">
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
+									 step="1.00e-9" value="1e-10" oninput="updateAntagonist3(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4"
+									 step="0.1" value="-10" oninput="updateAntagonistLog3(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
+								</div>
+							</div>
+						</fieldset>
 				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-6 py-1 text-center">
 					<fieldset style="display:block;">
 						<legend>Effect of Competitive Antagonist on Agonist Dose Response curve</legend>
 						<h5 class="warning" id="quantalert"></h5>
 						<div id="quantitative"></div>
 					</fieldset>
-				</div>
-			</div>
-			<br><br>
-			<div class="row">
-				<div class="col-lg-6" align="center">
-					<fieldset style="width:600px;">
-						<legend>Schild Analysis Table</legend>
-						<div class="row justify-content-center no-gutters">
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox" style="text-align: center;">[Antagonist] (M)</label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox" style="text-align: center;">log[B]</label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox" style="text-align: center;">Dose Ratio</label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox" style="text-align: center;">log(DR-1)</label>
-							</div>
-						</div>
-						<hr>
-						<div class="row justify-content-center no-gutters">
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox"></label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox"></label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox"></label>
-							</div>
-						</div>
-						<div class="row justify-content-center no-gutters">
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
-								 step="1.00e-9" value="1e-10" oninput="updateAntagonist1(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4"
-								 step="0.1" value="-10" oninput="updateAntagonistLog1(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
-							</div>
-						</div>
-						<div class="row justify-content-center no-gutters">
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
-								 step="1.00e-9" value="1e-10" oninput="updateAntagonist2(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4"
-								 step="0.1" value="-10" oninput="updateAntagonistLog2(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
-							</div>
-						</div>
-						<div class="row justify-content-center no-gutters">
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
-								 step="1.00e-9" value="1e-10" oninput="updateAntagonist3(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4"
-								 step="0.1" value="-10" oninput="updateAntagonistLog3(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
-							</div>
-						</div>
-					</fieldset>
-				</div>
-				<div class="col-lg-6 text-center">
 					<fieldset style="display:block;">
-						<legend>Schild Plot</legend>
-						<div id="schild"></div>
+							<legend>Schild Plot</legend>
+							<div id="schild"></div>
 					</fieldset>
 					<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetQuant()" style="float: right;">Reset</button>
 				</div>
 			</div>
-
+			<br><br>
 		</div>
 	</div>
 
