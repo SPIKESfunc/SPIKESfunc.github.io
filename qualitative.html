@@ -91,7 +91,7 @@
 										</div>
 										<div class="modal-body">
 											<div class="box">
-												<p>Observe the effects of changing the characteristics of the Agonist (affinity, intrinsic efficacy) and/or the Cell (receptor density, efficiency of coupling) by moving the blue sliders to the right or left to increase or decrease the value of the characteristic, respectively.</p>
+												<p>Observe the effects of changing the characteristics of the Agonist (affinity, intrinsic efficacy) and/or the Cell (receptor density, efficiency of coupling) by moving the red and grey sliders to the right or left to increase or decrease the value of the characteristic, respectively.</p>
 												<img src="images/agonistchart.png" alt="Agonist Chart" style="max-height: 100%; max-width: 100%;" />
 											</div>
 										</div>
@@ -677,7 +677,7 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p>The <b>Cooperativity Factor &#945</b> indicates the maximum effect produced by the allosteric antagonist on agonist affinity – an a value of 0.1 indicates that the allosteric antagonist can produce up to a 10-fold reduction in agonist affinity. Observe the effects of changing the affinity and/or cooperativity factor (&#945) of the Allosteric Antagonist on the shape and position of the Agonist dose-response curve by moving the blue sliders to the right or left to increase or decrease the value of the characteristic, respectively.</p>
+												<p>The <b>Cooperativity Factor &#945</b> indicates the maximum effect produced by the allosteric antagonist on agonist affinity – an a value of 0.1 indicates that the allosteric antagonist can produce up to a 10-fold reduction in agonist affinity. Observe the effects of changing the affinity and/or cooperativity factor (&#945) of the Allosteric Antagonist on the shape and position of the Agonist dose-response curve by moving the red and grey sliders to the right or left to increase or decrease the value of the characteristic, respectively.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
@@ -690,7 +690,7 @@
 								 onchange="updateAgoEffectAff(this.value)">
 								<br/>
 								<label for="antcoopaff">&#945 =&nbsp</label>
-								<input class="numbox" type="number" autocomplete="off" name="antcoopaff" id="antcoopaff" style="width: 65px;" readonly>
+								<input class="numbox" type="number" autocomplete="off" name="antcoopaff" id="antcoopaff" readonly>
 							</fieldset>
 							<fieldset>
                                 <legend>Questions</legend>
@@ -862,7 +862,7 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p>The <b>Cooperativity Factor &#946</b> indicates the maximum effect produced by the allosteric antagonist on agonist efficacy.  Observe the effects of changing the affinity and/or cooperativity factor (&#946) of the Allosteric Antagonist on the shape and position of the Agonist dose-response curve by moving the blue sliders to the right or left to increase or decrease the value of the characteristic, respectively.</p>
+												<p>The <b>Cooperativity Factor &#946</b> indicates the maximum effect produced by the allosteric antagonist on agonist efficacy.  Observe the effects of changing the affinity and/or cooperativity factor (&#946) of the Allosteric Antagonist on the shape and position of the Agonist dose-response curve by moving the red and grey sliders to the right or left to increase or decrease the value of the characteristic, respectively.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
@@ -1209,7 +1209,7 @@ The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Br
 									Specific information about these parameters can be obtained by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span> icons</span>.
 								</p>
 								<p>
-									Relative values for the four agonist and cell parameters are represented by blue sliders, and can be
+									Relative values for the four agonist and cell parameters are represented by red and grey sliders, and can be
 									changed by moving the sliders to the left (to decrease parameter value) or to the right (to increase
 									parameter value) along the yellow bar. Thus, this agonist dose-response visualiser enables you to
 									visualise how the position and shape of the agonist dose-response curve changes in response to
@@ -1232,7 +1232,7 @@ The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Br
 									concentration and affinity of the antagonist. By default, the effects produced by 1, 10, 100 and 1000
 									nM concentrations of antagonist on the agonist dose-response curves are displayed in red. The
 									effect of changing the affinity of the antagonist on these effects can also be visualised by moving the
-									blue sliders in the Antagonist window to the left (to decrease antagonist affinity) or to the right (to
+									red and grey sliders in the Antagonist window to the left (to decrease antagonist affinity) or to the right (to
 									increase antagonist affinity) along the yellow bar. The extent to which the actions of the antagonist
 									is dependent on the characteristics of the agonist (affinity, intrinsic efficacy) and/or cell (receptor
 									density, coupling efficiency) can also be displayed by moving the appropriate sliders in the Agonist or
@@ -1273,14 +1273,14 @@ The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Br
 									antagonist concentration at which log(DR-1) is zero.
 								</p>
 								<p>
-									The calculated –logK<sub>B</sub> value of the antagonist can then be compared to known –logKi values of the
+									The calculated –logK<sub>B</sub> value of the antagonist can then be compared to known –logK<sub>i</sub> values of the
 									antagonist obtained from the binding of the antagonist to pure populations of receptor subtypes,
 									and through a process of elimination (incorporating the SPIKES approach), the receptor mediating
 									the agonist-induced response identified.
 								</p>
 								<p>
 									<b><i>In the Schild Plot Generator</i></b> you can choose the characteristics of the agonist (affinity, intrinsic
-									efficacy) and cell (receptor density, coupling efficiency) by moving the blue sliders along the yellow
+									efficacy) and cell (receptor density, coupling efficiency) by moving the red and grey sliders along the yellow
 									bar (as per Dose-Response Visualiser). Furthermore, you can select the affinity of the antagonist (in
 									the Competitive Antagonist window) and select up to three [antagonist] (in the Schild Plot Analysis
 									window) for use in the Schild Analysis, by entering specific values or by using the up/down arrows.
