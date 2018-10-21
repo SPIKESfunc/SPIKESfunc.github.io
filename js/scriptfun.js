@@ -14,6 +14,10 @@ var animation = {
     transition: {
         duration: 100,
         easing: "exp-in-out"
+    },
+    frame: {
+        duration: 0,
+        redraw: false,
     }
 }
 
