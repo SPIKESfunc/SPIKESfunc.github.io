@@ -8,6 +8,7 @@
 
 	<link rel="shortcut icon" href="images/favicon-256x256.png">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/button.css">
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,7 +49,7 @@
 	<div id="page" class="container box-size bg-box p-4" style="visibility: hidden; position: absolute;">
 		<h1 class="d-flex justify-content-center">Schild Plot Generator</h1>
 		<p align="center">
-			<button class="btn btn-custom" onclick="showInstructionsQuant()"><span class="fa fa-info-circle"></span> What to do?</button>
+			<button class="btn waves-effect waves-light red" onclick="showInstructionsQuant()"><span class="fa fa-info-circle"></span> What to do?</button>
 		</p>
 
 		<div class="col col-lg-12">
@@ -78,14 +79,14 @@
 						<input type="number" style="float:right;" autocomplete="off" name="agoaffinity" id="agoaffnum" min="1.00e-10" max="1.00e-6"
 						 step="1.00e-9" value="1e-9" onchange="updateAgoAffinity(this.value)">
 						<br>
-						<label for="neglog">-logKB</label>
+						<label for="neglog">-logK<sub>B</sub></label>
 						<input type="number" style="float:right; width:138px;" autocomplete="off" name="agoafflog" id="agoafflognum" min="4"
 						 max="10" step="0.1" value="9.0" onchange="updateAgoAffinityLog(this.value)">
 					</fieldset>
 					<fieldset style="width: 500px;">
                                 <legend>Questions</legend>
                                 <div id="SchildQuestion"></div>
-                                <br><button id="revealSchildAnswer" type="button" class="btn btn-custom" onclick="revealAnswerSchild()">Reveal Answer</button>
+                                <br><button id="revealSchildAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerSchild()">Reveal Answer</button>
 
                                 <div id="SchildAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -99,17 +100,17 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div id="restartMessageSchild" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionSchild" style="display:none" type="button" class="btn btn-custom" onclick="restartQuestionSchild()">Restart</button>
+                                <button id="restartQuestionSchild" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionSchild()">Restart</button>
 
                                 <div style="padding-top: 20px;">
-                                    <button id="nextSchildQuestion" type="button" class="btn btn-custom" onclick="nextQuestionSchild()">Next Question</button>
+                                    <button id="nextSchildQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionSchild()">Next Question</button>
                                 </div>
 
                     </fieldset>
@@ -226,7 +227,7 @@
 						<legend>Schild Plot</legend>
 						<div id="schild"></div>
 					</fieldset>
-					<button id="reset" type="button" class="btn btn-custom" onclick="resetQuant()" style="float: right;">Reset</button>
+					<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetQuant()" style="float: right;">Reset</button>
 				</div>
 			</div>
 
@@ -235,7 +236,6 @@
 
 
 	<script type="text/javascript" src="js/scriptquant.js"></script>
-
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
@@ -290,7 +290,7 @@ The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Br
 						 - Wyllie DJ, Chen PE. (2007) Taking the time to study competitive antagonism. Br J Pharmacol. 150(5):541-51.</p>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
@@ -344,7 +344,7 @@ The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Br
 										 class="fa fa-info-circle"></span> icons</span>.
 								</p>
 								<p>
-									Relative values for the four agonist and cell parameters are represented by blue sliders, and can be
+									Relative values for the four agonist and cell parameters are represented by red and grey sliders, and can be
 									changed by moving the sliders to the left (to decrease parameter value) or to the right (to increase
 									parameter value) along the yellow bar. Thus, this agonist dose-response visualiser enables you to
 									visualise how the position and shape of the agonist dose-response curve changes in response to
@@ -369,7 +369,7 @@ The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Br
 									concentration and affinity of the antagonist. By default, the effects produced by 1, 10, 100 and 1000
 									nM concentrations of antagonist on the agonist dose-response curves are displayed in red. The
 									effect of changing the affinity of the antagonist on these effects can also be visualised by moving the
-									blue sliders in the Antagonist window to the left (to decrease antagonist affinity) or to the right (to
+									red and grey sliders in the Antagonist window to the left (to decrease antagonist affinity) or to the right (to
 									increase antagonist affinity) along the yellow bar. The extent to which the actions of the antagonist
 									is dependent on the characteristics of the agonist (affinity, intrinsic efficacy) and/or cell (receptor
 									density, coupling efficiency) can also be displayed by moving the appropriate sliders in the Agonist or
@@ -411,7 +411,7 @@ The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Br
 									antagonist concentration at which log(DR-1) is zero.
 								</p>
 								<p>
-									The calculated –logK<sub>B</sub> value of the antagonist can then be compared to known –logKi values of the
+									The calculated –logK<sub>B</sub> value of the antagonist can then be compared to known –logK<sub>i</sub> values of the
 									antagonist obtained from the binding of the antagonist to pure populations of receptor subtypes,
 									and through a process of elimination (incorporating the SPIKES approach), the receptor mediating
 									the agonist-induced response identified.
@@ -419,7 +419,7 @@ The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Br
 								<p>
 									<b><i>In the Schild Plot Generator</i></b> you can choose the characteristics of the agonist (affinity,
 									intrinsic
-									efficacy) and cell (receptor density, coupling efficiency) by moving the blue sliders along the yellow
+									efficacy) and cell (receptor density, coupling efficiency) by moving the red and grey sliders along the yellow
 									bar (as per Dose-Response Visualiser). Furthermore, you can select the affinity of the antagonist (in
 									the Competitive Antagonist window) and select up to three [antagonist] (in the Schild Plot Analysis
 									window) for use in the Schild Analysis, by entering specific values or by using the up/down arrows.
@@ -522,7 +522,7 @@ The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Br
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
@@ -544,7 +544,7 @@ The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Br
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
