@@ -185,6 +185,7 @@ function resetIrr(){
     denirr = document.getElementById("denirrslider").value;
     efficirr = document.getElementById("denirrslider").value = document.getElementById("efficiirrslider").defaultValue;
     agoaffirr = document.getElementById("agoaffirrslider").value = document.getElementById("agoaffirrslider").defaultValue;
+    document.getElementById("antagoirr").value = document.getElementById("agoaffirrslider").defaultValue;
     lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);

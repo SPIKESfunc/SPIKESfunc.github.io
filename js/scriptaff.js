@@ -271,6 +271,8 @@ function resetAff(){
     efficaff = document.getElementById("efficiaffslider").value = document.getElementById("efficiaffslider").defaultValue;
     agoaffaff = document.getElementById("agoaffslider").value = document.getElementById("agoaffslider").defaultValue;
     agoeffaff = document.getElementById("agoeffaffslider").value = document.getElementById("agoeffaffslider").defaultValue;
+    document.getElementById("antagoaff").value = document.getElementById("agoaffslider").defaultValue;
+    document.getElementById("antcoopaff").value = Math.round(10**(-agoeffaff) * Math.pow(10,3)) / Math.pow(10,3);
     lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);

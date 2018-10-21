@@ -243,7 +243,8 @@ function resetCom(){
 	effcom = document.getElementById("effcomslider").value = document.getElementById("effcomslider").defaultValue;
 	dencom = document.getElementById("dencomslider").value = document.getElementById("dencomslider").defaultValue;
 	efficcom = document.getElementById("efficicomslider").value = document.getElementById("efficicomslider").defaultValue;
-	agoaffcom = document.getElementById("agoaffcomslider").value = document.getElementById("agoaffcomslider").defaultValue;
+    agoaffcom = document.getElementById("agoaffcomslider").value = document.getElementById("agoaffcomslider").defaultValue;
+    document.getElementById("antagocomp").value = document.getElementById("agoaffcomslider").defaultValue;
     lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);

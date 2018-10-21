@@ -3,9 +3,12 @@ var affeff = document.getElementById("affeffslider").defaultValue;
 var effeff = document.getElementById("effeffslider").defaultValue;
 var deneff = document.getElementById("deneffslider").defaultValue;
 var efficeff = document.getElementById("efficieffslider").defaultValue;
-var agoaffeff = (document.getElementById("antagoeff").value = document.getElementById("agoaffeffslider").defaultValue);
+var agoaffeff = (document.getElementById(
+  "antagoeff"
+).value = document.getElementById("agoaffeffslider").defaultValue);
 var agoeffeff = document.getElementById("agoeffeffslider").defaultValue;
-document.getElementById("antcoopeff").value = Math.round(10**(-agoeffeff) * Math.pow(10,3)) / Math.pow(10,3);
+document.getElementById("antcoopeff").value =
+  Math.round(10 ** -agoeffeff * Math.pow(10, 3)) / Math.pow(10, 3);
 
 var agoconcarr = [0, -9, -8, -7, -6];
 
@@ -16,8 +19,8 @@ var animation = {
   },
   frame: {
     duration: 0,
-    redraw: false,
-}
+    redraw: false
+  }
 };
 
 function checkSliderMinEff() {
@@ -515,7 +518,8 @@ function updateAgoAffinityEff(value) {
 
 function updateAgoEffectEff(value) {
   agoeffeff = value;
-  document.getElementById("antcoopeff").value = Math.round(10**(-value) * Math.pow(10,3)) / Math.pow(10,3);
+  document.getElementById("antcoopeff").value =
+    Math.round(10 ** -value * Math.pow(10, 3)) / Math.pow(10, 3);
   var lineData0 = calcLinesEff(
     affeff,
     effeff,
@@ -610,6 +614,11 @@ function resetEff() {
   agoeffeff = document.getElementById(
     "agoeffeffslider"
   ).value = document.getElementById("agoeffeffslider").defaultValue;
+  document.getElementById("antagoeff").value = document.getElementById(
+    "agoaffeffslider"
+  ).defaultValue;
+  document.getElementById("antcoopeff").value =
+    Math.round(10 ** -agoeffeff * Math.pow(10, 3)) / Math.pow(10, 3);
   var lineData0 = calcLinesEff(
     affeff,
     effeff,
