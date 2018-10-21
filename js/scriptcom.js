@@ -16,6 +16,8 @@ var halfData1;
 var halfData2;
 var halfData3;
 var halfData4;
+var data50;
+var calc50;
 
 var animation = {
     transition: {
@@ -204,7 +206,7 @@ function updateEfficiencyCom(value){
                 y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
                 traces: [0,1,2,3,4,5,6,7,8,9],
                 layout: {}
-                },animation)
+                },animation);
     }
 
 } 
@@ -274,7 +276,7 @@ function plotGraphCom(chart){
             dtick: 10
 
         }
-    }
+    };
     for(var j = 0; j<5; j++){
         var data = [];
         var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[j]);
@@ -306,7 +308,7 @@ function plotGraphCom(chart){
         data.push(graph);
         Plotly.plot(chart,data,layout, {responsive: true}); 
     }
-    legendview = [true, false, false, false, false]
+    var legendview = [true, false, false, false, false];
     for(var i = 0; i<5; i++){
         var halfData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[i]);
         findComHalfMaxEffect(calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]));
@@ -314,7 +316,7 @@ function plotGraphCom(chart){
         var trace1 = [{
             x: data50[0],
             y: data50[1],
-            mode: 'markers',
+            mode: "markers",
             name: "EC<sub>50</sub> Value",
             marker: {
                 color: "orange"
@@ -347,7 +349,7 @@ document.getElementById("comQuestion").innerHTML = "<b>" + questionsCom[question
 
 function revealAnswerCom() {
     document.getElementById("comAnswer").innerHTML = answersCom[questionCounterCom];
-    $('#comAnswerModal').modal('show');
+    $("#comAnswerModal").modal("show");
 }
 
 

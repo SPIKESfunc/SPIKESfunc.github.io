@@ -103,8 +103,8 @@ function updateAffinityAff(value){
         Plotly.restyle("alloaffin", "visible", true);
         lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[0]);
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[1]);
-	    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
-	    lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
+        lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[2]);
+        lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[3]);
         lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoaffaff,agoeffaff,agoconcarr[4]);
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
@@ -304,14 +304,13 @@ function plotGraphAff(chart){
             dtick: 10
 
         }
-    }
-    var j;
+    };
 	var data50 = [];
-    for(j = 0; j<5; j++){
+    for(var j = 0; j<5; j++){
         var data= [];
         var lineData = calcLinesAff(affaff, effaff, denaff, efficaff, agoaffaff, agoeffaff, agoconcarr[j]);
         var graph;
-        if(j==0){
+        if(j === 0){
             graph = {
                 x: lineData[0],
                 y: lineData[1],
@@ -341,14 +340,14 @@ function plotGraphAff(chart){
     Plotly.plot(chart,data,layout, {responsive: true});
     }
     var i;
-    legendview = [true, false, false, false, false]
+    var legendview = [true, false, false, false, false];
     for(i = 0; i<5; i++){
         var halfData = calcLinesAff(affaff, effaff, denaff, efficaff, agoaffaff, agoeffaff, agoconcarr[i]);
         data50 = calc50(halfData); //plot the 50% effect marker
         var trace1 = [{
             x: data50[0],
             y: data50[1],
-            mode: 'markers',
+            mode: "markers",
             name: "EC<sub>50</sub> Value",
             marker: {
                 color: "orange"
@@ -379,7 +378,7 @@ document.getElementById("AffQuestion").innerHTML = "<b>" + questionsAff[question
 
 function revealAnswerAff() {
     document.getElementById("AffAnswer").innerHTML = answersAff[questionCounterAff];
-    $('#AffAnswerModal').modal('show');
+    $("#AffAnswerModal").modal("show");
 }
 
 

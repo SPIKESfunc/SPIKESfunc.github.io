@@ -132,7 +132,7 @@ function updateDensity(value){
         lineData = calcLines(affago,effago,denago,efficago);
         calc50aff = calc50(lineData);
 
-        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation)
+        Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation);
     }
 } 
 
@@ -160,7 +160,7 @@ function resetAgo(){
     lineData = calcLines(affago,effago,denago,efficago);
     calc50aff = calc50(lineData);
 
-    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation)
+    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation);
 }
 
 
@@ -182,7 +182,7 @@ function plotGraph(chart){
             dtick: 10
 
         },
-    }
+    };
     var data = [];
     lineData = calcLines(affago, effago, denago, efficago);
     var graph = {
@@ -216,7 +216,7 @@ plotGraph("agonist");
 function showInstructionsQual() {
     $("#instructions").modal("show");
     $('.nav-tabs a[href="#qual"]').tab("show");
-};
+}
 
 //QUESTION BOX
 var questionsAgonist = ["What is agonism?",
