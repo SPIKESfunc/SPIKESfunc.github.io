@@ -36,15 +36,15 @@ nav .navbar-nav li.nav-item a.nav-item.nav-link.active {
   color: rgb(255, 30, 30);
 }
 
-.navbar-brand {
+nav a.logo-brand {
   color: black;
 }
 
-.navbar-brand:hover {
+nav a.logo-brand:hover {
   color: rgb(255, 30, 30);
 }
 
-.navbar-brand.active {
+nav a.logo-brand.active {
   color: rgb(255, 30, 30);
 }
 
