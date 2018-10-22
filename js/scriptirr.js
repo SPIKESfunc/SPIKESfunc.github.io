@@ -178,8 +178,8 @@ function updateAgoAffinityIrr(value){
 function resetIrr(){
     affirr = document.getElementById("affirrslider").value = document.getElementById("affirrslider").defaultValue;
     effirr = document.getElementById("effirrslider").value = document.getElementById("effirrslider").defaultValue;
-    denirr = document.getElementById("denirrslider").value;
-    efficirr = document.getElementById("denirrslider").value = document.getElementById("efficiirrslider").defaultValue;
+    denirr = document.getElementById("denirrslider").value = document.getElementById("denirrslider").defaultValue;
+    efficirr = document.getElementById("efficiirrslider").value = document.getElementById("efficiirrslider").defaultValue;
     agoaffirr = document.getElementById("agoaffirrslider").value = document.getElementById("agoaffirrslider").defaultValue;
     document.getElementById("antagoirr").value = document.getElementById("agoaffirrslider").defaultValue;
     lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);

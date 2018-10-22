@@ -596,29 +596,14 @@ function updateAgoEffectEff(value) {
 }
 
 function resetEff() {
-  affeff = document.getElementById(
-    "affeffslider"
-  ).value = document.getElementById("affeffslider").defaultValue;
-  effeff = document.getElementById(
-    "effeffslider"
-  ).value = document.getElementById("effeffslider").defaultValue;
-  deneff = document.getElementById(
-    "deneffslider"
-  ).value = document.getElementById("deneffslider").defaultValue;
-  efficeff = document.getElementById(
-    "efficieffslider"
-  ).value = document.getElementById("efficieffslider").defaultValue;
-  agoaffeff = document.getElementById(
-    "agoaffeffslider"
-  ).value = document.getElementById("agoaffeffslider").defaultValue;
-  agoeffeff = document.getElementById(
-    "agoeffeffslider"
-  ).value = document.getElementById("agoeffeffslider").defaultValue;
-  document.getElementById("antagoeff").value = document.getElementById(
-    "agoaffeffslider"
-  ).defaultValue;
-  document.getElementById("antcoopeff").value =
-    Math.round(10 ** -agoeffeff * Math.pow(10, 3)) / Math.pow(10, 3);
+  affeff = document.getElementById("affeffslider").value = document.getElementById("affeffslider").defaultValue;
+  effeff = document.getElementById("effeffslider").value = document.getElementById("effeffslider").defaultValue;
+  deneff = document.getElementById("deneffslider").value = document.getElementById("deneffslider").defaultValue;
+  efficeff = document.getElementById("efficieffslider").value = document.getElementById("efficieffslider").defaultValue;
+  agoaffeff = document.getElementById("agoaffeffslider").value = document.getElementById("agoaffeffslider").defaultValue;
+  agoeffeff = document.getElementById("agoeffeffslider").value = document.getElementById("agoeffeffslider").defaultValue;
+  document.getElementById("antagoeff").value = document.getElementById("agoaffeffslider").defaultValue;
+  document.getElementById("antcoopeff").value = Math.round(10 ** -agoeffeff * Math.pow(10, 3)) / Math.pow(10, 3);
   var lineData0 = calcLinesEff(
     affeff,
     effeff,
