@@ -51,7 +51,7 @@ function checkSliderMinAff(){
 }
 
 function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoeffect, agoconcentration){
-    const STEP = 0.05;
+    const STEP = 0.01;
     var data = [[],[]];
     //Inverse log input values
 

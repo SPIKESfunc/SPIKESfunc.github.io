@@ -164,7 +164,7 @@ function resetAgo(){
     lineData = calcLines(affago,effago,denago,efficago);
     calc50aff = calc50(lineData);
 
-    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: [calc50aff]}], traces: [0,1], layout: {}},animation);
+    Plotly.animate("agonist",{data: [{y: lineData[1]}, {x: calc50aff[0], y: calc50aff[1]}], traces: [0,1], layout: {}},animation);
 }
 
 

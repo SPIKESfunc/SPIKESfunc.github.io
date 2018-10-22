@@ -54,7 +54,6 @@ function updateAffinityIrr(value){
         halfData2 = calc50(lineData2);
         halfData3 = calc50(lineData3);
         halfData4 = calc50(lineData4);
-        console.log(halfData0);
         Plotly.animate("irreversible",{
             data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
             {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
@@ -174,16 +173,13 @@ function updateAgoAffinityIrr(value){
         traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    //I'm doing something wrong if I try just place lineData into newData, below works though
-    
-
 }
 
 function resetIrr(){
     affirr = document.getElementById("affirrslider").value = document.getElementById("affirrslider").defaultValue;
     effirr = document.getElementById("effirrslider").value = document.getElementById("effirrslider").defaultValue;
-    denirr = document.getElementById("denirrslider").value;
-    efficirr = document.getElementById("denirrslider").value = document.getElementById("efficiirrslider").defaultValue;
+    denirr = document.getElementById("denirrslider").value = document.getElementById("denirrslider").defaultValue;
+    efficirr = document.getElementById("efficiirrslider").value = document.getElementById("efficiirrslider").defaultValue;
     agoaffirr = document.getElementById("agoaffirrslider").value = document.getElementById("agoaffirrslider").defaultValue;
     document.getElementById("antagoirr").value = document.getElementById("agoaffirrslider").defaultValue;
     lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
@@ -208,7 +204,6 @@ function resetIrr(){
 function calc50(lineData){
 
     var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
-    //var halfMaxEffect = lineData[1][1000]/2
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
 	    return number >= halfMaxEffect;
     });
@@ -219,9 +214,7 @@ function calc50(lineData){
 }
 
 function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
-    console.log("calclinesirr ran")
-    //console.log(affinity, efficacy, recepDensity, efficiency)
-    const STEP = 0.05;
+    const STEP = 0.01;
     var data = [[],[]];
     //Inverse log input values
 
@@ -232,22 +225,18 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     var agoaffin = 10**(-1*agoaffinity);
 
     if(agoconcentration == 0){
-        //console.log("agoconc 0 activated")
         agoconc = 0;
         agoaffin = 0;
         for (i=-12; i<-2;i=i+STEP){
-            effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
-            data[1].push(effect);
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
         }
     }
     else{
-        //console.log("agoconc not 0 activated")
         agoconc = 10**agoconcentration;
         for (i=-12; i<-2;i=i+STEP){
-            effect = (((10**i)/affin)*efcay*recep*efcey*100)/(((10**i)/affin)*(efcay*recep*efcey+1+(agoconc/agoaffin))+1+(agoconc/agoaffin));
             data[0].push(i);
-            data[1].push(effect);
+            data[1].push((((10**i)/affin)*efcay*recep*efcey*100)/(((10**i)/affin)*(efcay*recep*efcey+1+(agoconc/agoaffin))+1+(agoconc/agoaffin)));
         }
     }
     
