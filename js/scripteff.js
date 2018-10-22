@@ -49,7 +49,7 @@ function calcLinesEff(
   agoeffect,
   agoconcentration
 ) {
-  const STEP = 0.05;
+  const STEP = 0.01;
   var data = [[], []];
   var i, effect;
 
