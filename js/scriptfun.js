@@ -273,7 +273,6 @@ function resetFun(){
 function calc50(lineData){
 
     var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
-    //var halfMaxEffect = lineData[1][1000]/2
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
 	    return number >= halfMaxEffect;
     });
@@ -284,9 +283,7 @@ function calc50(lineData){
 }
 
 function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoefficacy, agoconcentration, agodensity, agoefficiency){
-    //console.log("calclines ran")
-    //console.log(affinity, efficacy, recepDensity, efficiency)
-    const STEP = 0.05;
+    const STEP = 0.01;
     var data = [[],[]];
     //Inverse log input values
 
