@@ -300,26 +300,18 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     var emaxb = 100;
 
     if(agoconcentration == 0){
-        //console.log("agoconc 0 activated")
         agoconc = 0;
         agoaffin = 0;
         for (i=-12; i<-2;i=i+STEP){
-            effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
+            //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
-            data[1].push(effect);
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
         }
     }
     else{
-        //console.log("agoconc not 0 activated")
         agoconc = 10**agoconcentration;
         for (i=-12; i<-2;i=i+STEP){
             var aconc = 10**i;
-            /*effect1 = (100/((agoconc/agoaffin) +1));
-            effect2 = aconc*efcay*recep*efcey;
-            effect3 = (aconc*((efcay*recep*efcey)+1))+affin;
-            effect4 = agoconc*aconc*agoeff*agoden*agoeffic;
-            effect5 = agoaffin*((aconc*((agoeff*agoden*agoeffic)+1))+affin);
-            effect = effect1*((effect2/effect3)+(effect4/effect5));*/
 
             effect1 = aconc*efcay*recep*efcey*emaxa;
             effect2 = (aconc*((efcay*recep*efcey)+1))+affin;
@@ -328,7 +320,6 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
 
             effect = ((effect1/effect2)-(effect3/effect4));
 
-            //effect = (100/((agoconc/agoaffin)+1))*(((aconc*efcay*recep*efcey)/((aconc*((efcay*recep*efcey)+1))+affin))+((agoconc*aconc*(agoeff*agoden*agoeffic))/(agoaffin*aconc*((agoeff*agoden*agoeffic)+1)+affin)));
             data[0].push(i);
             data[1].push(effect);
         }
