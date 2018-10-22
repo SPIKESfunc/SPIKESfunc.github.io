@@ -52,7 +52,7 @@ function checkSliderMinCom(){
 }
 
 function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
-    const STEP = 0.05;
+    const STEP = 0.01;
     var data = [[],[]];
 
     var affin = 10**(-1*affinity);
