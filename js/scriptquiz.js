@@ -17,7 +17,6 @@ var Ant3311 =[
 	{type:"toxic",e1:[[-7.0,-6.0,-5.0],[0.5,1.5,3.0]],e2:[[-6.5,-5.5,-4.5],[1.0,2.0,3.5]],e3:[[-6.0,-5.0,-4.0],[1.5,2.5,4.0]]},
 	{type:"saturable",e1:[[-7.0,-6.0,-5.0],[0.5,1.2,1.9]],e2:[[-6.5,-5.5,-4.5],[1.0,1.7,2.4]],e3:[[-6.0,-7.0,-5.0],[1.5,2.2,2.9]]}
 ]
-// for ^^, make sure that we add the Feedback comment into that. 
 
 
 //saving the default value of numboxes
@@ -73,12 +72,9 @@ function selectDrugs(){
 	var i;
 	err = [0.2,0.1,-0.1,-0.2];
 	for(i=0; i<4; i++){
-	/*var  err = ((+ (Math.random() * 5) + 1)/100 + 1)
-	error[i] = Math.round(err * 100) / 100; //round to 2 dp.*/
 		ran = rand(4);
 		error[i] = err[ran];
 	}
-	console.log(error)
 	//Determine which antagonists are to be used
 	var j=0;
 	var l=0;
@@ -136,34 +132,26 @@ function selectDrugs(){
 				];
 
 	for(i=0;i<4;i++){
-	lb1 = 0.5-drugs[i].receptors[recep];
-	lb2 = 1.5-drugs[i].receptors[recep];
-	lb3 = 2.5-drugs[i].receptors[recep];
+		lb1 = 0.5-drugs[i].receptors[recep];
+		lb2 = 1.5-drugs[i].receptors[recep];
+		lb3 = 2.5-drugs[i].receptors[recep];
 	
-	/*lDR1 = (drugs[i].receptors[recep]+lb1) * error[i]; //add error adjustment, keep gradient = to 1
-	lDR2 = (drugs[i].receptors[recep]+lb2) * error[i] - (error[i]-1); 
-	lDR3 = (drugs[i].receptors[recep]+lb3) * error[i] - 2*(error[i]-1);*/
-	if(drugs[i].name == "Darifenacin"){
-		lDR1 = (drugs[i].receptors[recep]+lb1); //add error adjustment, keep gradient = to 1
-		lDR2 = (drugs[i].receptors[recep]+lb2);// - (error[i]-1); 
-		lDR3 = (drugs[i].receptors[recep]+lb3);// - 2*(error[i]-1);
+		if(drugs[i].name == "Darifenacin"){
+			lDR1 = (drugs[i].receptors[recep]+lb1); //add error adjustment, keep gradient = to 1
+			lDR2 = (drugs[i].receptors[recep]+lb2);// - (error[i]-1); 
+			lDR3 = (drugs[i].receptors[recep]+lb3);// - 2*(error[i]-1);
 
-		plotPoints[i] = [[lb3,lb2,lb1],[lDR3,lDR2,lDR1]]
-	}
-	else{
-		lDR1 = (drugs[i].receptors[recep]+lb1) + error[i]; //add error adjustment, keep gradient = to 1
-		lDR2 = (drugs[i].receptors[recep]+lb2) + error[i];// - (error[i]-1); 
-		lDR3 = (drugs[i].receptors[recep]+lb3) + error[i];// - 2*(error[i]-1);
+			plotPoints[i] = [[lb3,lb2,lb1],[lDR3,lDR2,lDR1]]
+		}
+		else{
+			lDR1 = (drugs[i].receptors[recep]+lb1) + error[i]; //add error adjustment, keep gradient = to 1
+			lDR2 = (drugs[i].receptors[recep]+lb2) + error[i];// - (error[i]-1); 
+			lDR3 = (drugs[i].receptors[recep]+lb3) + error[i];// - 2*(error[i]-1);
 
-		plotPoints[i] = [[lb3,lb2,lb1],[lDR3,lDR2,lDR1]]
+			plotPoints[i] = [[lb3,lb2,lb1],[lDR3,lDR2,lDR1]]
+		}
 	}
-	//plotPoints[i] = [[lb1,lb2,lb3],[lDR1,lDR2,lDR3]]
-	//plotPoints[i] = [[lb3,lb2,lb1,-1+lb1],[lDR3,lDR2,lDR1,0]]
-	}
-	//lb = 1.5-drugs[3].receptors[recep];
-	//lDR = (drugs[3].receptors[recep]+lb) * error[3];
-	//plotPoints[3]=[[lb],[lDR]];
-	//plotPoints[3]=[[lb, -1.5+lb],[lDR, 0]]
+
 
 	plotPoints[4] = [Ant3311[ant][examples[example]][0],Ant3311[ant][examples[example]][1]];
 
@@ -207,7 +195,6 @@ function rand(maxval){
 
 function markAnswers(){
 	var ans = $('form').serializeArray();
-	console.log(ans)
 	var l;
 	var answer1 = 1;
 	var answer2 = 0;
@@ -238,12 +225,10 @@ function markAnswers(){
 	$('#feedbackcontainer').show();
 	PlotQuizSchild("actualanswer",1.0, true)
 	if(ans[ans.length-2].value == Ant3311[ant].type){
-		console.log("drug 5 reason is correct")
 		var reason = "Well done! You got the correct reason for why the Schild plot for Ant3311 was nonlinear!";
 		antFeedback(reason)
 	}
 	else{
-		console.log("drug5reason is wrong")
 		var reason = "Your reason for why the Schild plot for Ant3311 is nonlinear was incorrect. This was the correct answer:";
 		antFeedback(reason)
 	}
@@ -254,7 +239,6 @@ function markAnswers(){
 
 	}
 	else{
-		console.log("receptor is wrong")
 		$('#correctFeedback').hide()
 		$('#incorrectFeedback').show()
 		plotAnswerSchild("youranswer",ans[ans.length-1].value)
@@ -318,9 +302,13 @@ function quizReset(){
 
 var animation = {
 	transition: {
-		duration: 100,
-		easing: "cubic-in-out"
-	}
+        duration: 0,
+        easing: "cubic-in-out"
+    },
+    frame: {
+        duration: 0,
+        redraw: false,
+ }
 }
 
 function plotAnswerSchild(chart, rec){
@@ -383,7 +371,6 @@ function PlotQuizSchild(chart, ticksize, show){
 			title:"Log [ Antagonist ] (log M)",
 			showline: true,
 			range:[-9.0,-2.0],
-			//dtick: ticksize,
 			tickvals: ["-9.0","-8.9","-8.8","-8.7","-8.6","-8.5","-8.4","-8.3","-8.2","-8.1","-8.0","-7.9","-7.8","-7.7",
 "-7.6","-7.5","-7.4","-7.3","-7.2","-7.1","-7.0","-6.9","-6.8","-6.7","-6.6","-6.5","-6.4","-6.3","-6.2","-6.1","-6.0","-5.9","-5.8",
 "-5.7","-5.6","-5.5","-5.4","-5.3","-5.2","-5.1","-5.0","-4.9","-4.8","-4.7","-4.6","-4.5","-4.4","-4.3","-4.2","-4.1","-4.0","-3.9",

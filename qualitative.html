@@ -25,7 +25,9 @@
 	<header>
 		<nav class="navbar navbar-light navbar-expand-lg fixed-top header">
 			<div class="container">
-				<a class="navbar-brand nav-style" href="index.html">SPIKES<i>func</i></a>
+				<a class="navbar-brand nav-style" href="index.html">
+				<img src="images/favicon-196x196.png" width="30" height="30" class="d-inline-block align-center" alt="">
+					SPIKES<i>func</i></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 				 aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -122,7 +124,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affslider" min="4" max="8" step="0.04" value="6"
-								 onchange="updateAffinity(this.value)">
+								 oninput="updateAffinity(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info2"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info2" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -142,7 +144,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="efficacy" id="effslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 onchange="updateEfficacy(this.value)">
+								 oninput="updateEfficacy(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
@@ -165,7 +167,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="density" id="denslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 onchange="updateDensity(this.value)">
+								 oninput="updateDensity(this.value)">
 								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info4"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info4" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -185,7 +187,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="efficiency" id="efficislider" min="-0.3" max="0.7" step="0.01"
-								 value="0.2" onchange="updateEfficiency(this.value)">
+								 value="0.2" oninput="updateEfficiency(this.value)">
 							</fieldset>
 							<fieldset>
                                 <legend>Questions</legend>
@@ -275,7 +277,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6"
-								 onchange="updateAffinityCom(this.value)">
+								 oninput="updateAffinityCom(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info6"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info6" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -295,7 +297,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 onchange="updateEfficacyCom(this.value)">
+								 oninput="updateEfficacyCom(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
@@ -318,7 +320,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="density" id="dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 onchange="updateDensityCom(this.value)">
+								 oninput="updateDensityCom(this.value)">
 								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info8"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info8" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -338,13 +340,13 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="-0.3" max="0.7" step="0.01"
-								 value="0.2" onchange="updateEfficiencyCom(this.value)">
+								 value="0.2" oninput="updateEfficiencyCom(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Competitive Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04"
-								 value="9" onchange="updateAgoAffinityCom(this.value)"><br/>
+								 value="9" oninput="updateAgoAffinityCom(this.value)"><br/>
 								 <label for="antagocomp">-logK<sub>B</sub> =&nbsp</label>
 								 <input class="numbox" type="number" autocomplete="off" name="antagocomp" id="antagocomp" style="width: 60px;" readonly>
 							</fieldset>
@@ -436,7 +438,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affirrslider" min="4" max="8" step="0.04" value="6"
-								 onchange="updateAffinityIrr(this.value)">
+								 oninput="updateAffinityIrr(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info10"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info10" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -456,7 +458,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="efficacy" id="effirrslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 onchange="updateEfficacyIrr(this.value)">
+								 oninput="updateEfficacyIrr(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
@@ -479,7 +481,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="density" id="denirrslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 onchange="updateDensityIrr(this.value)">
+								 oninput="updateDensityIrr(this.value)">
 								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info12"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info12" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -499,13 +501,13 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="efficiency" id="efficiirrslider" min="-0.3" max="0.7" step="0.01"
-								 value="0.2" onchange="updateEfficiencyIrr(this.value)">
+								 value="0.2" oninput="updateEfficiencyIrr(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Irreversible Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04"
-								 value="9" onchange="updateAgoAffinityIrr(this.value)"><br/>
+								 value="9" oninput="updateAgoAffinityIrr(this.value)"><br/>
 								 <label for="antagoirr">-logK<sub>B</sub> =&nbsp</label>
 								<input class="numbox" type="number" autocomplete="off" name="antagoirr" id="antagoirr" style="width: 60px;" readonly>
 							</fieldset>
@@ -596,7 +598,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affaffslider" min="4" max="8" step="0.04" value="6"
-								 onchange="updateAffinityAff(this.value)">
+								 oninput="updateAffinityAff(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info14"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info14" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -616,7 +618,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="efficacy" id="effaffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 onchange="updateEfficacyAff(this.value)">
+								 oninput="updateEfficacyAff(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
@@ -639,7 +641,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="density" id="denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 onchange="updateDensityAff(this.value)">
+								 oninput="updateDensityAff(this.value)">
 								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info16"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info16" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -659,13 +661,13 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="-0.3" max="0.7" step="0.01"
-								 value="0.2" onchange="updateEfficiencyAff(this.value)">
+								 value="0.2" oninput="updateEfficiencyAff(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9"
-								 onchange="updateAgoAffinityAff(this.value)"><br>
+								 oninput="updateAgoAffinityAff(this.value)"><br>
 								<label for="antagoaff">-logK<sub>B</sub> =&nbsp</label>
 								<input class="numbox" type="number" autocomplete="off" name="antagoaff" id="antagoaff" style="width: 60px;" readonly>
 								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal" href="" data-target="#info17"><i class="red1 fa fa-info-circle"></i></a>
@@ -687,7 +689,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="effect" id="agoeffaffslider" min="0" max="2" step="0.001" value="1"
-								 onchange="updateAgoEffectAff(this.value)">
+								 oninput="updateAgoEffectAff(this.value)">
 								<br/>
 								<label for="antcoopaff">&#945 =&nbsp</label>
 								<input class="numbox" type="number" autocomplete="off" name="antcoopaff" id="antcoopaff" readonly>
@@ -780,7 +782,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="affeffslider" min="4" max="8" step="0.04" value="6"
-								 onchange="updateAffinityEff(this.value)">
+								 oninput="updateAffinityEff(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info19"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info19" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -801,7 +803,7 @@
 								</div>
 
 								<input type="range" autocomplete="off" name="efficacy" id="effeffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 onchange="updateEfficacyEff(this.value)">
+								 oninput="updateEfficacyEff(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
@@ -824,7 +826,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="density" id="deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 onchange="updateDensityEff(this.value)">
+								 oninput="updateDensityEff(this.value)">
 								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info21"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info21" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -844,13 +846,13 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="-0.3" max="0.7" step="0.01"
-								 value="0.2" onchange="updateEfficiencyEff(this.value)">
+								 value="0.2" oninput="updateEfficiencyEff(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04"
-								 value="9" onchange="updateAgoAffinityEff(this.value)"><br/>
+								 value="9" oninput="updateAgoAffinityEff(this.value)"><br/>
 								<label for="antagoeff">-logK<sub>B</sub> =&nbsp</label>
 								<input class="numbox" type="number" autocomplete="off" name="antagoeff" id="antagoeff" style="width: 60px;" readonly>
 								<br><label for="effect">Cooperativity Factor (&#946)&nbsp</label><a data-toggle="modal" href="" data-target="#info22"><i class="red1 fa fa-info-circle"></i></a>
@@ -872,7 +874,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="effect" id="agoeffeffslider" min="0" max="2" step="0.001" value="1"
-								 onchange="updateAgoEffectEff(this.value)"><br/>
+								 oninput="updateAgoEffectEff(this.value)"><br/>
 								<label for="antcoopeff">&#945 =&nbsp</label>
 								<input class="numbox" type="number" autocomplete="off" name="antcoopeff" id="antcoopeff" style="width: 65px;" readonly>
 							</fieldset>
@@ -963,7 +965,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="affinity" id="afffunslider" min="4" max="8" step="0.04" value="6"
-								 onchange="updateAffinityFun(this.value)">
+								 oninput="updateAffinityFun(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info24"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info24" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -983,7 +985,7 @@
 									</div>
 								</div>
 								<input type="range" autocomplete="off" name="efficacy" id="efffunslider" min="0" max="0.6667" step="0.006667"
-								 value="0.33335" onchange="updateEfficacyFun(this.value)">
+								 value="0.33335" oninput="updateEfficacyFun(this.value)">
 								<fieldset>
 									<legend>Cell</legend>
 									<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info25"><i class="red1 fa fa-info-circle"></i></a>
@@ -1005,7 +1007,7 @@
 									</div>
 								</div>
 									<input type="range" autocomplete="off" name="density" id="denfunslider" min="0" max="0.6667" step="0.006667"
-									 value="0.33335" onchange="updateDensityFun(this.value)">
+									 value="0.33335" oninput="updateDensityFun(this.value)">
 									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info26"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info26" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -1025,27 +1027,27 @@
 									</div>
 								</div>
 									<input type="range" autocomplete="off" name="efficiency" id="efficifunslider" min="0" max="0.6667" step="0.006667"
-									 value="0.33335" onchange="updateEfficiencyFun(this.value)">
+									 value="0.33335" oninput="updateEfficiencyFun(this.value)">
 								</fieldset>
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Functional Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
 								<input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="6" max="10" step="0.04"
-								 value="8" onchange="updateAgoAffinityFun(this.value)">
+								 value="8" oninput="updateAgoAffinityFun(this.value)">
 								<br><label for="effect">Intrinsic Efficacy (&#949)&nbsp</label>
 								<input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667" max="0" step="0.06667"
-								 value="-0.33335" onchange="updateAgoEfficacyFun(this.value)">
+								 value="-0.33335" oninput="updateAgoEfficacyFun(this.value)">
 								<!--value was -0.216-->
 								<fieldset>
 									<legend>Cell</legend>
 									<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label>
 									<input type="range" autocomplete="off" name="density" id="agodenfunslider" min="-0.6667" max="0" step="0.006667"
-									 value="-0.33335" onchange="updateAgoDensityFun(this.value)">
+									 value="-0.33335" oninput="updateAgoDensityFun(this.value)">
 									<!--value was -0.216-->
 									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label>
 									<input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider" min="-0.6667" max="0" step="0.06667"
-									 value="-0.33335" onchange="updateAgoEfficiencyFun(this.value)">
+									 value="-0.33335" oninput="updateAgoEfficiencyFun(this.value)">
 									<!--value was -0.216-->
 								</fieldset>
 							</fieldset>

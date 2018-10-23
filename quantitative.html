@@ -5,23 +5,22 @@
 	<meta charset="utf-8">
 	<meta name="viewport" context="width=device-width, initial scale=1">
 	<title>SPIKESfunc</title>
-
 	<link rel="shortcut icon" href="images/favicon-196x196.png">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/button.css">
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 	<link href="css/stylesheet.css" rel="stylesheet">
-
 </head>
 
 <body>
 	<header>
 		<nav class="navbar navbar-light navbar-expand-lg fixed-top header">
 			<div class="container">
-				<a class="navbar-brand nav-style" href="index.html">SPIKES<i>func</i></a>
+				<a class="navbar-brand nav-style" href="index.html">
+				<img src="images/favicon-196x196.png" width="30" height="30" class="d-inline-block align-center" alt="">
+					SPIKES<i>func</i></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 				 aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -48,8 +47,9 @@
 	<div id="loader"></div>
 	<div id="page" class="container box-size bg-box p-4" style="visibility: hidden; position: absolute;">
 		<h1 class="d-flex justify-content-center">Schild Plot Generator</h1>
-		<p align="center">
-			<button class="btn waves-effect waves-light red" onclick="showInstructionsQuant()"><span class="fa fa-info-circle"></span> What to do?</button>
+		<p class="d-flex justify-content-center">
+			<button class="btn waves-effect waves-light red" onclick="showInstructionsQuant()"><span class="fa fa-info-circle"></span>
+				What to do?</button>
 		</p>
 
 		<div class="col col-lg-12">
@@ -59,178 +59,174 @@
 						<legend>Agonist</legend>
 						<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
 						<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6"
-						 onchange="updateAffinityCom(this.value)">
+						 oninput="updateAffinityCom(this.value)">
 						<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
 						<input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="0.04" max="0.74" step="0.01" value="0.39"
-						 onchange="updateEfficacyCom(this.value)">
+						 oninput="updateEfficacyCom(this.value)">
 					</fieldset>
 					<fieldset style="width: 500px;">
 						<legend>Cell</legend>
 						<label for="density">Receptor Density (R<sub>T</sub>)</label>
 						<input type="range" autocomplete="off" name="density" id="dencomslider" min="0.04" max="0.74" step="0.01" value="0.39"
-						 onchange="updateDensityCom(this.value)">
+						 oninput="updateDensityCom(this.value)">
 						<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
 						<input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="0.04" max="0.74" step="0.01"
-						 value="0.39" onchange="updateEfficiencyCom(this.value)">
+						 value="0.39" oninput="updateEfficiencyCom(this.value)">
 					</fieldset>
 					<fieldset style="width: 500px;">
 						<legend>Competitive Antagonist</legend>
 						<label for="agoaffinity">Antagonist Affinity (&#8733 1/K<sub>B</sub>)</label>
 						<input type="number" style="float:right;" autocomplete="off" name="agoaffinity" id="agoaffnum" min="1.00e-10" max="1.00e-6"
-						 step="1.00e-9" value="1e-9" onchange="updateAgoAffinity(this.value)">
+						 step="1.00e-9" value="1e-9" oninput="updateAgoAffinity(this.value)">
 						<br>
 						<label for="neglog">-logK<sub>B</sub></label>
 						<input type="number" style="float:right; width:138px;" autocomplete="off" name="agoafflog" id="agoafflognum" min="4"
-						 max="10" step="0.1" value="9.0" onchange="updateAgoAffinityLog(this.value)">
+						 max="10" step="0.1" value="9.0" oninput="updateAgoAffinityLog(this.value)">
 					</fieldset>
 					<fieldset style="width: 500px;">
-                                <legend>Questions</legend>
-                                <div id="SchildQuestion"></div>
-                                <br><button id="revealSchildAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerSchild()">Reveal Answer</button>
+						<legend>Questions</legend>
+						<div id="SchildQuestion"></div>
+						<br><button id="revealSchildAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerSchild()">Reveal
+							Answer</button>
 
-                                <div id="SchildAnswerModal" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Answer</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="box">
-                                                    <div id="SchildAnswer"></div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+						<div id="SchildAnswerModal" class="modal fade" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title">Answer</h4>
+									</div>
+									<div class="modal-body">
+										<div class="box">
+											<div id="SchildAnswer"></div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+							</div>
+						</div>
 
-                                <div id="restartMessageSchild" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionSchild" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionSchild()">Restart</button>
+						<div id="restartMessageSchild" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+						<button id="restartQuestionSchild" style="display:none" type="button" class="btn waves-effect waves-light red"
+						 onclick="restartQuestionSchild()">Restart</button>
 
-                                <div style="padding-top: 20px;">
-                                    <button id="nextSchildQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionSchild()">Next Question</button>
-                                </div>
+						<div style="padding-top: 20px;">
+							<button id="nextSchildQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionSchild()">Next
+								Question</button>
+						</div>
 
-                    </fieldset>
+					</fieldset>
+					<fieldset style="width:500px;">
+							<legend class="text-center">Schild Analysis Table</legend>
+							<div class="row justify-content-center no-gutters">
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox" style="text-align: center;">[Antagonist] (M)</label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox" style="text-align: center;">log[B]</label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox" style="text-align: center;">Dose Ratio</label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox" style="text-align: center;">log(DR-1)</label>
+								</div>
+							</div>
+							<hr>
+							<div class="row justify-content-center no-gutters">
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox"></label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox"></label>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<label class="numbox"></label>
+								</div>
+							</div>
+							<div class="row justify-content-center no-gutters">
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
+									 step="1.00e-9" value="1e-10" oninput="updateAntagonist1(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4"
+									 step="0.1" value="-10" oninput="updateAntagonistLog1(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
+								</div>
+							</div>
+							<div class="row justify-content-center no-gutters">
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
+									 step="1.00e-9" value="1e-10" oninput="updateAntagonist2(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4"
+									 step="0.1" value="-10" oninput="updateAntagonistLog2(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
+								</div>
+							</div>
+							<div class="row justify-content-center no-gutters">
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
+									 step="1.00e-9" value="1e-10" oninput="updateAntagonist3(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4"
+									 step="0.1" value="-10" oninput="updateAntagonistLog3(this.value)">
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
+								</div>
+								<div class="col-xs-2 no-gutters">
+									<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
+								</div>
+							</div>
+						</fieldset>
 				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-6 py-1 text-center">
 					<fieldset style="display:block;">
 						<legend>Effect of Competitive Antagonist on Agonist Dose Response curve</legend>
 						<h5 class="warning" id="quantalert"></h5>
 						<div id="quantitative"></div>
 					</fieldset>
-				</div>
-			</div>
-			<br><br>
-			<div class="row">
-				<div class="col-lg-6" align="center">
-					<fieldset style="width:600px;">
-						<legend>Schild Analysis Table</legend>
-						<div class="row justify-content-center no-gutters">
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox" style="text-align: center;">[Antagonist] (M)</label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox" style="text-align: center;">log[B]</label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox" style="text-align: center;">Dose Ratio</label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox" style="text-align: center;">log(DR-1)</label>
-							</div>
-						</div>
-						<hr>
-						<div class="row justify-content-center no-gutters">
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox"></label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox"></label>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<label class="numbox"></label>
-							</div>
-						</div>
-						<div class="row justify-content-center no-gutters">
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
-								 step="1.00e-9" value="1e-10" onchange="updateAntagonist1(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4"
-								 step="0.1" value="-10" onchange="updateAntagonistLog1(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
-							</div>
-						</div>
-						<div class="row justify-content-center no-gutters">
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
-								 step="1.00e-9" value="1e-10" onchange="updateAntagonist2(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4"
-								 step="0.1" value="-10" onchange="updateAntagonistLog2(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
-							</div>
-						</div>
-						<div class="row justify-content-center no-gutters">
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
-								 step="1.00e-9" value="1e-10" onchange="updateAntagonist3(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4"
-								 step="0.1" value="-10" onchange="updateAntagonistLog3(this.value)">
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
-							</div>
-							<div class="col-xs-2 no-gutters">
-								<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
-							</div>
-						</div>
-					</fieldset>
-				</div>
-				<div class="col-lg-6" align="center">
 					<fieldset style="display:block;">
-						<legend>Schild Plot</legend>
-						<div id="schild"></div>
+							<legend>Schild Plot</legend>
+							<div id="schild"></div>
 					</fieldset>
 					<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetQuant()" style="float: right;">Reset</button>
 				</div>
 			</div>
-
+			<br><br>
 		</div>
 	</div>
 
@@ -267,25 +263,66 @@
 						<h4 class="modal-title">About</h4>
 					</div>
 					<div class="modal-body">
-						<p><b>Summary about the project</b><br />Agonists produce effects in cells by activating receptors and downstream signalling pathways. This app contains an interactive “Dose Response Visualiser” which allows users to alter agonist-dependent factors (affinity, intrinsic efficacy) and/or cell-dependent factors (receptor density, coupling efficiency) and observe in real time how this changes the agonist dose-response relationship.<br/><br/>Agonist-induced effects can be blocked by drugs called antagonists, which are amongst the most widely used class of drug in medicine.  There exist many different types of antagonists, named on the basis of how they block the agonist-induced effect: competitive, irreversible, allosteric and functional antagonists.  Within the “Dose Response Visualiser”, users can observe the different patterns of effect produced by each of these antagonists (and the influence of antagonist concentrations and affinity) on the agonist dose-response relationship.  Quantitative analysis of the effect of competitive antagonists on agonist-induced effects is a powerful method for identifying the receptors that mediate agonist-induced effects (Schild analysis), and is used in drug discovery and receptor characterisation.  The app contains a “Schild Plot Generator”, where users can select the properties of agonists and antagonists and generate Schild Plots, and work through a series of theoretical questions and experimental scenarios that build proficiency and enhance understanding of key Schild concepts. These newly developed proficiencies and understandings can then be tested using the “Schild Analysis Quiz” tool within the app, were users are provided with a series of Schild Plots obtained to 5 antagonists acting on a single receptor subtype within a common cell, and users are challenged to analyse each of the Schild Plots using the SPIKES approach to deduce which single receptor subtype is mediating the agonist-induced response.  Feedback is provided for each of the literally 1000s of different quiz questions.<br/><br/>Thus, SPIKESfunc is an interactive, educational application that boosts proficiency in the interpretation of functional pharmacological data through the visual and quantitative analysis of agonist and antagonist dose-response relationships.  SPIKESfunc can be used in conjunction with SPIKESbind (or SPIKESmate), a complementary interactive educational app designed to enhance the proficiency in the interpretation of binding pharmacological data.<br/><br/>The SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Brooker and Thai Nguyen, undergraduate students of the Professional Computing unit (CITS3200) at The University of Western Australia, as directed by Associate Professor Peter Henry of the Division of Pharmacology, School of Biomedical Sciences, UWA.</p>
+						<p><b>Summary about the project</b><br />Agonists produce effects in cells by activating receptors and downstream
+							signalling pathways. This app contains an interactive “Dose Response Visualiser” which allows users to alter
+							agonist-dependent factors (affinity, intrinsic efficacy) and/or cell-dependent factors (receptor density,
+							coupling efficiency) and observe in real time how this changes the agonist dose-response relationship.<br /><br />Agonist-induced
+							effects can be blocked by drugs called antagonists, which are amongst the most widely used class of drug in
+							medicine. There exist many different types of antagonists, named on the basis of how they block the
+							agonist-induced effect: competitive, irreversible, allosteric and functional antagonists. Within the “Dose
+							Response Visualiser”, users can observe the different patterns of effect produced by each of these antagonists
+							(and the influence of antagonist concentrations and affinity) on the agonist dose-response relationship.
+							Quantitative analysis of the effect of competitive antagonists on agonist-induced effects is a powerful method
+							for identifying the receptors that mediate agonist-induced effects (Schild analysis), and is used in drug
+							discovery and receptor characterisation. The app contains a “Schild Plot Generator”, where users can select the
+							properties of agonists and antagonists and generate Schild Plots, and work through a series of theoretical
+							questions and experimental scenarios that build proficiency and enhance understanding of key Schild concepts.
+							These newly developed proficiencies and understandings can then be tested using the “Schild Analysis Quiz” tool
+							within the app, were users are provided with a series of Schild Plots obtained to 5 antagonists acting on a
+							single receptor subtype within a common cell, and users are challenged to analyse each of the Schild Plots using
+							the SPIKES approach to deduce which single receptor subtype is mediating the agonist-induced response. Feedback
+							is provided for each of the literally 1000s of different quiz questions.<br /><br />Thus, SPIKESfunc is an
+							interactive, educational application that boosts proficiency in the interpretation of functional pharmacological
+							data through the visual and quantitative analysis of agonist and antagonist dose-response relationships.
+							SPIKESfunc can be used in conjunction with SPIKESbind (or SPIKESmate), a complementary interactive educational
+							app designed to enhance the proficiency in the interpretation of binding pharmacological data.<br /><br />The
+							SPIKESfunc application was created by Cameron Turner, Daniel Brown, Harry Brooker and Thai Nguyen, undergraduate
+							students of the Professional Computing unit (CITS3200) at The University of Western Australia, as directed by
+							Associate Professor Peter Henry of the Division of Pharmacology, School of Biomedical Sciences, UWA.</p>
 						<p><b>References</b></p>
-						<p> - Black JW, Leff P. (1983)  Operational models of pharmacological agonism.  Proc R Soc Lond B Biol Sci. 220(1219):141-62.<br/><br/>
-						 - Christopoulos A, Kenakin T (2002) G protein-coupled receptor allosterism and complexing. Pharmacol Rev. 54(2):323-74.<br/><br/>
-						 - Christopoulos A (2014)  Advances in G protein-coupled receptor allostery: from function to structure.  Mol Pharmacol. 86(5):463-78. <br/><br/>
-						 - Ehlert FJ. (2015) Functional studies cast light on receptor states. Trends Pharmacol Sci. 36(9):596-604.<br/><br/>
-						 - Kenakin, T.P. (2004) A Pharmacology Primer: Theory, Application, and Methods. First Edn. Elsevier Academic Press, San Diego, CA, USA.<br/><br/>
-						 - Kenakin T. (2006) Data-driven analysis in drug discovery. J Recept Signal Transduct Res. 26(4):299-327.<br/><br/>
-						 - Kenakin T, Jenkinson S, Watson C. (2006)  Determining the potency and molecular mechanism of action of insurmountable antagonists.  J Pharmacol Exp Ther. 319(2):710-23.<br/><br/>
-						 - Kenakin T, Watson C, Muniz-Medina V, Christopoulos A, Novick S. (2012) A simple method for quantifying functional selectivity and agonist bias.  ACS Chem Neurosci. 3(3):193-203.<br/><br/>
-						 - Kenakin T. (2017) A Scale of Agonism and Allosteric Modulation for Assessment of Selectivity, Bias, and Receptor Mutation. Mol Pharmacol 92(4):414-424.<br/><br/>
-						 - Keov P, Sexton PM, Christopoulos A (2011) Allosteric modulation of G protein-coupled receptors: a pharmacological perspective. Neuropharmacology 60(1):24-35.<br/><br/>
-						 - Leff P, Martin GR, Morse JM. (1985) Application of the operational model of agonism to establish conditions when functional antagonism may be used to estimate agonist dissociation constants.  Br J Pharmacol. 85(3):655-63.<br/><br/>
-						 - Lew MJ (1995) Extended concentration-response curves used to reflect full agonist efficacies and receptor occupancy-response coupling ranges. Br J Pharmacol. 115(5):745-52.<br/><br/>
-						 - Neubig RR, Spedding M, Kenakin T, Christopoulos A; International Union of Pharmacology Committee on Receptor Nomenclature and Drug Classification. (2003) International Union of Pharmacology Committee on Receptor Nomenclature and Drug Classification. XXXVIII. Update on terms and symbols in quantitative pharmacology. Pharmacol Rev. 55(4):597-606.<br/><br/>
-						 - Offermeier J, van den Brink FG. (1974) The antagonism between cholinomimetic agonists and beta-adrenoceptor stimulants. The differentiation between functional and metaffinoid antagonism. Eur J Pharmacol. 27(2):206-13.<br/><br/>
-						 - van den Brink FG (1973) The model of functional interaction. I. Development and first check of a new model of functional synergism and antagonism. Eur J Pharmacol. 22(3):270-8.<br/><br/>
-						 - van den Brink FG. (1973) The model of functional interaction. II. Experimental verification of a new model: the antagonism of beta-adrenoceptor stimulants and other agonists. Eur J Pharmacol. 22(3):279-86.<br/><br/>
-						 - Wyllie DJ, Chen PE. (2007) Taking the time to study competitive antagonism. Br J Pharmacol. 150(5):541-51.</p>
+						<p> - Black JW, Leff P. (1983) Operational models of pharmacological agonism. Proc R Soc Lond B Biol Sci.
+							220(1219):141-62.<br /><br />
+							- Christopoulos A, Kenakin T (2002) G protein-coupled receptor allosterism and complexing. Pharmacol Rev.
+							54(2):323-74.<br /><br />
+							- Christopoulos A (2014) Advances in G protein-coupled receptor allostery: from function to structure. Mol
+							Pharmacol. 86(5):463-78. <br /><br />
+							- Ehlert FJ. (2015) Functional studies cast light on receptor states. Trends Pharmacol Sci. 36(9):596-604.<br /><br />
+							- Kenakin, T.P. (2004) A Pharmacology Primer: Theory, Application, and Methods. First Edn. Elsevier Academic
+							Press, San Diego, CA, USA.<br /><br />
+							- Kenakin T. (2006) Data-driven analysis in drug discovery. J Recept Signal Transduct Res. 26(4):299-327.<br /><br />
+							- Kenakin T, Jenkinson S, Watson C. (2006) Determining the potency and molecular mechanism of action of
+							insurmountable antagonists. J Pharmacol Exp Ther. 319(2):710-23.<br /><br />
+							- Kenakin T, Watson C, Muniz-Medina V, Christopoulos A, Novick S. (2012) A simple method for quantifying
+							functional selectivity and agonist bias. ACS Chem Neurosci. 3(3):193-203.<br /><br />
+							- Kenakin T. (2017) A Scale of Agonism and Allosteric Modulation for Assessment of Selectivity, Bias, and
+							Receptor Mutation. Mol Pharmacol 92(4):414-424.<br /><br />
+							- Keov P, Sexton PM, Christopoulos A (2011) Allosteric modulation of G protein-coupled receptors: a
+							pharmacological perspective. Neuropharmacology 60(1):24-35.<br /><br />
+							- Leff P, Martin GR, Morse JM. (1985) Application of the operational model of agonism to establish conditions
+							when functional antagonism may be used to estimate agonist dissociation constants. Br J Pharmacol. 85(3):655-63.<br /><br />
+							- Lew MJ (1995) Extended concentration-response curves used to reflect full agonist efficacies and receptor
+							occupancy-response coupling ranges. Br J Pharmacol. 115(5):745-52.<br /><br />
+							- Neubig RR, Spedding M, Kenakin T, Christopoulos A; International Union of Pharmacology Committee on Receptor
+							Nomenclature and Drug Classification. (2003) International Union of Pharmacology Committee on Receptor
+							Nomenclature and Drug Classification. XXXVIII. Update on terms and symbols in quantitative pharmacology.
+							Pharmacol Rev. 55(4):597-606.<br /><br />
+							- Offermeier J, van den Brink FG. (1974) The antagonism between cholinomimetic agonists and beta-adrenoceptor
+							stimulants. The differentiation between functional and metaffinoid antagonism. Eur J Pharmacol. 27(2):206-13.<br /><br />
+							- van den Brink FG (1973) The model of functional interaction. I. Development and first check of a new model of
+							functional synergism and antagonism. Eur J Pharmacol. 22(3):270-8.<br /><br />
+							- van den Brink FG. (1973) The model of functional interaction. II. Experimental verification of a new model:
+							the antagonism of beta-adrenoceptor stimulants and other agonists. Eur J Pharmacol. 22(3):279-86.<br /><br />
+							- Wyllie DJ, Chen PE. (2007) Taking the time to study competitive antagonism. Br J Pharmacol. 150(5):541-51.</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
@@ -367,7 +404,8 @@
 									concentration and affinity of the antagonist. By default, the effects produced by 1, 10, 100 and 1000
 									nM concentrations of antagonist on the agonist dose-response curves are displayed in red. The
 									effect of changing the affinity of the antagonist on these effects can also be visualised by moving the
-									red and grey sliders in the Antagonist window to the left (to decrease antagonist affinity) or to the right (to
+									red and grey sliders in the Antagonist window to the left (to decrease antagonist affinity) or to the right
+									(to
 									increase antagonist affinity) along the yellow bar. The extent to which the actions of the antagonist
 									is dependent on the characteristics of the agonist (affinity, intrinsic efficacy) and/or cell (receptor
 									density, coupling efficiency) can also be displayed by moving the appropriate sliders in the Agonist or
@@ -409,7 +447,8 @@
 									antagonist concentration at which log(DR-1) is zero.
 								</p>
 								<p>
-									The calculated –logK<sub>B</sub> value of the antagonist can then be compared to known –logK<sub>i</sub> values of the
+									The calculated –logK<sub>B</sub> value of the antagonist can then be compared to known –logK<sub>i</sub>
+									values of the
 									antagonist obtained from the binding of the antagonist to pure populations of receptor subtypes,
 									and through a process of elimination (incorporating the SPIKES approach), the receptor mediating
 									the agonist-induced response identified.
@@ -533,7 +572,7 @@
 					</div>
 					<div class="modal-body">
 						<p>Is something not working properly?<br />Have an idea about how can we improve the interactive tools?<br />Please
-						contact us!</p>
+							contact us!</p>
 						<div class="box">
 							<p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western Australia</p>
 							<p class="contact">Room 1.34, M Block,<br>School of Biomedical Sciences,<br>QEII Medical Centre</p>

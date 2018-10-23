@@ -1,7 +1,4 @@
 var agoconcarr = [0, -10, -10, -10];
-//var agoconcarr = [0, -9, -8, -7];
-                    
-
 var affcom = document.getElementById("affcomslider").defaultValue;
 var effcom = document.getElementById("effcomslider").defaultValue;
 var dencom = document.getElementById("dencomslider").defaultValue;
@@ -26,9 +23,13 @@ $(document).ready(function () {
 
 var animation = {
     transition: {
-        duration: 100,
+        duration: 0,
         easing: "cubic-in-out"
-    }
+    },
+    frame: {
+        duration: 0,
+        redraw: false,
+ }
 }
 
 function findComHalfMaxEffect(lineData){
@@ -40,11 +41,8 @@ function calc50(lineData){
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
 	    return number >= comHalfMaxEffect;
     });
-    console.log("maxeffectagoindex" + maxEffectAgoIndex);
     var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
-    console.log("halfagoeffect" + halfAgoEffect)
     var agoret = [[halfAgoEffect], [comHalfMaxEffect]];
-    console.log("agoret"+ agoret)
 	return agoret; //return x, y
 }
 
@@ -91,7 +89,6 @@ function graphAlert(div){
 }
 
 function graphRemoveAlert(div){
-    //Determine which graph to remove alert from
     document.getElementById(div).innerHTML = ""
 }
 
@@ -121,7 +118,6 @@ function updateAffinityCom(value){
     else{
         graphRemoveAlert("quantalert")
         Plotly.restyle("quantitative", 'visible', true)
-        //need to put agoaff instead of agoafflog?
         lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
         lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
         lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
@@ -498,36 +494,29 @@ function updateEverything(){
 
 
 function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
-    //console.log("calclines ran")
-    //console.log(affinity, efficacy, recepDensity, efficiency)
-    const STEP = 0.05;
+    const STEP = 0.01;
     var data = [[],[]];
     //Inverse log input values
 
-    //var affin = 10**affinity;
     var affin = 10**(-1*affinity);
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
-    //var agoaffin = 10**agoaffinity;
     var agoaffin = 10**(-1*agoaffinity);
 
     if(agoconcentration == 0){
-        //console.log("agoconc 0 activated")
         agoconc = 0;
         agoaffin = 0;
         for (i=-12; i<-2;i=i+STEP){
-            effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
-            data[1].push(effect);
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
         }
     }
     else{
     	agoconc = 10**agoconcentration;
     	for (i=-12; i<-2;i=i+STEP){
-        	effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
         	data[0].push(i);
-        	data[1].push(effect);
+        	data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin)));
     	}
 	}
     return data;

@@ -300,11 +300,11 @@ nav .navbar-nav li.nav-item a.nav-item.nav-link.active {
 }
 
 .navbar-brand:hover {
-  color: rgb(255, 30, 30);
+  color: rgb(255, 30, 30) !important;
 }
 
 .navbar-brand.active {
-  color: rgb(255, 30, 30);
+  color: rgb(255, 30, 30) !important;
 }
 
 .box-size {
