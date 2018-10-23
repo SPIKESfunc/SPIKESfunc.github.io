@@ -46,6 +46,10 @@ table tr {
   border-bottom: 1px solid black;
 }
 
+.noHover {
+  pointer-events: none;
+}
+
 /* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */
 
