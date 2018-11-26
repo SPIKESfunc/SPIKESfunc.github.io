@@ -405,7 +405,7 @@ plotGraphFun("functional");
 //QUESTION BOX
 var questionsFun = ["What is the principal effect produced by a Functional Antagonist on an agonist dose-response curve?<br><i>This can be tested using the Visualiser</i>",
     "Does a Functional Antagonist affect the maximum effect induced by the agonist?<br><i>This can be tested using the Visualiser</i>",
-    "Is the effect of a Functional Antagonist influenced by the properties of the agonist(Affinity, Intrinsic Efficacy) or the cell(R<sub>T</sub>, <i>f</i>) ?<br><i>This can be tested using the Visualiser</i>",
+    "Is the effect of a Functional Antagonist influenced by the properties of the agonist (Affinity, Intrinsic Efficacy) or the cell (R<sub>T</sub>, <i>f</i>) ?<br><i>This can be tested using the Visualiser</i>",
     "What other factors might influence the actions of a Functional Antagonist on agonist-induced effects?<br><i>This can be tested using the Visualiser</i> ",
     "Can a Functional Antagonist abolish agonist-induced effects?<br><i>This can be tested using the Visualiser</i>"];
     
