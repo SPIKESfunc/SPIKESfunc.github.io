@@ -370,12 +370,12 @@ plotGraphAff("alloaffin");
 //QUESTION BOX
 var questionsAff = ["What is the principal effect produced by an Allosteric Antagonist (affecting agonist affinity) antagonist on an agonist dose-response curve?<br><i>This can be tested using the Visualiser</i>",
     "Does an Allosteric Antagonist (affecting agonist affinity) affect the maximum effect induced by the agonist?<br><i>This can be tested using the Visualiser</i>",
-    "Is the effect of an Allosteric Antagonist (affecting agonist affinity) dependent upon the agonist?<br><i>This can be tested using the Visualiser</i>",
+    "Is the effect of an Allosteric Antagonist (affecting agonist affinity) dependent upon the agonist?",
     "Can an Allosteric Antagonist (affecting agonist affinity) abolish agonist-induced effects?<br><i>This can be tested using the Visualiser</i>"];
 
 var answersAff = ["Allosteric antagonists (affecting only agonist affinity) cause dose-dependent parallel shifts of the agonist dose-response to the right (since the antagonist has reduced the affinity of the agonist for the receptor, higher [agonist] must be used to achieve the same level of agonist binding). A feature of allosteric antagonists is their effect is SATURABLE, and the extent of the rightward shift of the agonist dose-response curve is LIMITED (up to a dose ratio of 1/α where α is the cooperativity factor). This is in contrast to a competitive antagonist where the rightward shift of the agonist dose-response curve is theoretically unlimited. This effect can be observed using the visualiser.",
     "<b>NO</b>, since the allosteric antagonist (affecting only agonist affinity) will not significant affect those factors that determine the maximum agonist-induced effect (ε, R<sub>T</sub> or <i>f</i> ). This effect can be observed using the visualiser.",
-    "<b>YES</b>, the effect of an allosteric ligand is dependent on the nature of the agonist.  An allosteric antagonist-induced change in the conformation of the binding site of the receptor that increases the affinity of the receptor for one agonist may have a DIFFERENT effect on the affinity of another agonist (no effect, decrease affinity).  This effect can be observed using the visualiser.",
+    "<b>YES</b>, the effect of an allosteric ligand is dependent on the nature of the agonist.  An allosteric antagonist-induced change in the conformation of the binding site of the receptor that increases the affinity of the receptor for one agonist may have a DIFFERENT effect on the affinity of another agonist (no effect, decrease affinity).",
     "<b>NO</b>, the inhibitory effects produced by an allosteric antagonists (affecting agonist affinity) are LIMITED and can always be overcome by increasing the [agonist].  This effect can be observed using the visualiser."];
 
 var questionCounterAff = 0;
