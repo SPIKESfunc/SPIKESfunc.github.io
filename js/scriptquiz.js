@@ -453,7 +453,7 @@ function antFeedback(reason){
 			ant3311Feedback = "<b>antagonist that produces toxicity at high concentrations.</b>" 
 			break;
 		case "substrate":
-			inequality = "<";
+			inequality = ">";
 			ant3311Feedback = "<b>antagonist that is the substrate of a substrate uptake process.</b>"
 			break;
 
