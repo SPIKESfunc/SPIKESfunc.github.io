@@ -24,7 +24,7 @@ var Ant3311 =[
 	{type:"allosteric",e1:[[-9.0,-8.0,-7.0],[0.0,1.0,1.4]],e2:[[-8.5,-7.5,-6.5],[0.0,1.0,1.4]],e3:[[-8.0,-7.0,-6.0],[0.0,1.0,1.4]]},
 	{type:"irreversible",e1:[[-9.0,-8.5,-8.0],[0.0,1.0,2.0]],e2:[[-8.5,-8.0,-7.5],[0.0,1.0,2.0]],e3:[[-8.0,-7.5,-7.0],[0.0,1.0,2.0]]},
 	{type:"toxic",e1:[[-9.0,-8.0,-7.0],[0.0,1.0,2.6]],e2:[[-8.5,-7.5,-6.5],[0.0,1.0,2.6]],e3:[[-8.0,-7.0,-6.0],[0.0,1.0,2.6]]},
-	{type:"saturable",e1:[[-9.0,-8.0,-7.0],[0.0,1.5,2.5]],e2:[[-8.5,-7.5,-6.5],[0.0,1.5,2.5]],e3:[[-8.0,-7.0,-6.0],[0.0,1.5,2.5]]}
+	{type:"substrate",e1:[[-9.0,-8.0,-7.0],[0.0,1.5,2.5]],e2:[[-8.5,-7.5,-6.5],[0.0,1.5,2.5]],e3:[[-8.0,-7.0,-6.0],[0.0,1.5,2.5]]}
 ]
 
 //saving the default value of numboxes
@@ -233,6 +233,7 @@ function markAnswers(){
 	$("#quizcontainer").hide();
 	$('#feedbackcontainer').show();
 	PlotQuizSchild("actualanswer",1.0, true)
+	console.log(ans[ans.length-2].value + "," + Ant3311[ant].type)
 	if(ans[ans.length-2].value == Ant3311[ant].type){
 		var reason = "Well done! You got the correct reason for why the Schild plot for Ant3311 was nonlinear!";
 		antFeedback(reason)
@@ -293,6 +294,7 @@ function quizReturn(){
 	PlotQuizSchild("quizschild",0.2, false)
 	PlotQuizSchild("actualanswer",1.0, true)
 	PlotQuizSchild("correctanswer",1.0, true)
+	document.querySelector('[data-title="Autoscale"]').click();
 }
 
 function quizReset(){
@@ -305,6 +307,7 @@ function quizReset(){
 	PlotQuizSchild("quizschild",0.2, false)
 	PlotQuizSchild("actualanswer",1.0, true)
 	PlotQuizSchild("correctanswer",1.0, true)
+	document.querySelector('[data-title="Autoscale"]').click();
 }
 
 // Schlid
@@ -449,9 +452,9 @@ function antFeedback(reason){
 			inequality = ">";
 			ant3311Feedback = "<b>antagonist that produces toxicity at high concentrations.</b>" 
 			break;
-		case "saturable":
-			inequality = "<";
-			ant3311Feedback = "<b>antagonist that is the substrate of a saturable uptake process.</b>"
+		case "substrate":
+			inequality = ">";
+			ant3311Feedback = "<b>antagonist that is the substrate of a substrate uptake process.</b>"
 			break;
 
 	} 
