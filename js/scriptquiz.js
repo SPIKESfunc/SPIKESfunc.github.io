@@ -169,6 +169,7 @@ function selectDrugs(){
 	document.getElementById("drug3").innerHTML=drugs[2].name;
 	document.getElementById("drug4").innerHTML=drugs[3].name;
 	document.getElementById("drug5").innerHTML="Ant3311";
+	//console.log(drugs);
 
 
 	drugs[4] = {name: "Ant3311"};			
