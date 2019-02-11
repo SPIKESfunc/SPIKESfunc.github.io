@@ -164,12 +164,22 @@ function selectDrugs(){
 
 	plotPoints[4] = [Ant3311[ant][examples[example]][0],Ant3311[ant][examples[example]][1]];
 
-	document.getElementById("drug1").innerHTML=drugs[0].name;
+	for(var i = 0;i < 4; i++){
+		console.log(drugs)
+		document.getElementById("drug"+(i+1)).innerHTML=drugs[i].name;
+		for(var j = 0; j < 5;j++){
+			if(drugs[i].receptors[j].toString().length === 1) document.getElementById("drug"+(i+1)+"log"+(j+1)).innerHTML=drugs[i].receptors[j] + ".0";
+			else document.getElementById("drug"+(i+1)+"log"+(j+1)).innerHTML=drugs[i].receptors[j];
+		}
+	}
+	/*document.getElementById("drug1").innerHTML=drugs[0].name;
 	document.getElementById("drug2").innerHTML=drugs[1].name;
 	document.getElementById("drug3").innerHTML=drugs[2].name;
-	document.getElementById("drug4").innerHTML=drugs[3].name;
+	document.getElementById("drug4").innerHTML=drugs[3].name;*/
 	document.getElementById("drug5").innerHTML="Ant3311";
-	//console.log(drugs);
+
+
+	console.log(drugs);
 
 
 	drugs[4] = {name: "Ant3311"};			
