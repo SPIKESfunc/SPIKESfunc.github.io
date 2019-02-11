@@ -443,7 +443,6 @@ function PlotQuizSchild(chart, ticksize, show){
 				break;
 			case 4:
 				document.getElementById("drug"+(jj+1)).style.color='#9467bd';
-				document.getElementById("drug"+(jj+1)+"logs").style.color='#9467bd';
 				break;
 		}
 		data.push(eqn1);
