@@ -427,18 +427,23 @@ function PlotQuizSchild(chart, ticksize, show){
 		switch(jj){
 			case 0:
 				document.getElementById("drug"+(jj+1)).style.color='#1f77b4';
+				document.getElementById("drug"+(jj+1)+"logs").style.color='#1f77b4';
 				break;
 			case 1:
 				document.getElementById("drug"+(jj+1)).style.color='#ff7f0e';
+				document.getElementById("drug"+(jj+1)+"logs").style.color='#ff7f0e';
 				break;
 			case 2:
 				document.getElementById("drug"+(jj+1)).style.color='#2ca02c';
+				document.getElementById("drug"+(jj+1)+"logs").style.color='#2ca02c';
 				break;
 			case 3:
 				document.getElementById("drug"+(jj+1)).style.color='#d62728';
+				document.getElementById("drug"+(jj+1)+"logs").style.color='#d62728';
 				break;
 			case 4:
 				document.getElementById("drug"+(jj+1)).style.color='#9467bd';
+				document.getElementById("drug"+(jj+1)+"logs").style.color='#9467bd';
 				break;
 		}
 		data.push(eqn1);
