@@ -53,179 +53,201 @@
 		</p>
 
 		<div class="col col-lg-12">
-			<div class="row">
-				<div class="col-lg-6" style="padding-left: 100px;">
-					<fieldset style="width: 500px;">
-						<legend>Agonist</legend>
-						<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
-						<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6"
-						 oninput="updateAffinityCom(this.value)">
-						<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
-						<input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="0.04" max="0.74" step="0.01" value="0.39"
-						 oninput="updateEfficacyCom(this.value)">
-					</fieldset>
-					<fieldset style="width: 500px;">
-						<legend>Cell</legend>
-						<label for="density">Receptor Density (R<sub>T</sub>)</label>
-						<input type="range" autocomplete="off" name="density" id="dencomslider" min="0.04" max="0.74" step="0.01" value="0.39"
-						 oninput="updateDensityCom(this.value)">
-						<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
-						<input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="0.04" max="0.74" step="0.01"
-						 value="0.39" oninput="updateEfficiencyCom(this.value)">
-					</fieldset>
-					<fieldset style="width: 500px;">
-						<legend>Competitive Antagonist</legend>
-						<label for="agoaffinity">Antagonist Affinity (&#8733 1/K<sub>B</sub>)</label>
-						<input type="number" style="float:right;" autocomplete="off" name="agoaffinity" id="agoaffnum" min="1.00e-10" max="1.00e-6"
-						 step="1.00e-9" value="1e-9" oninput="updateAgoAffinity(this.value)">
-						<br>
-						<label for="neglog">-logK<sub>B</sub></label>
-						<input type="number" style="float:right; width:138px;" autocomplete="off" name="agoafflog" id="agoafflognum" min="4"
-						 max="10" step="0.1" value="9.0" oninput="updateAgoAffinityLog(this.value)">
-					</fieldset>
-					<fieldset style="width: 500px;">
-						<legend>Questions</legend>
-						<div id="SchildQuestion"></div>
-						<br><button id="revealSchildAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerSchild()">Reveal
-							Answer</button>
-
-						<div id="SchildAnswerModal" class="modal fade" role="dialog">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h4 class="modal-title">Answer</h4>
-									</div>
-									<div class="modal-body">
-										<div class="box">
-											<div id="SchildAnswer"></div>
+			<!-- <div class="row"> -->
+				<div class="row">
+					<div class="col-lg-4">
+						<!-- Agonist slider goes here -->
+						<fieldset style="width: 450px;">
+							<legend>Agonist</legend>
+							<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
+							<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6"
+							 oninput="updateAffinityCom(this.value)">
+							<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
+							<input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="0.04" max="0.74" step="0.01" value="0.39"
+							 oninput="updateEfficacyCom(this.value)">
+						</fieldset>
+					</div>
+					<div class="col-lg-4">
+						<!-- Cell slider goes here -->
+						<fieldset style="width: 450px;">
+							<legend>Cell</legend>
+							<label for="density">Receptor Density (R<sub>T</sub>)</label>
+							<input type="range" autocomplete="off" name="density" id="dencomslider" min="0.04" max="0.74" step="0.01" value="0.39"
+							 oninput="updateDensityCom(this.value)">
+							<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+							<input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="0.04" max="0.74" step="0.01"
+							 value="0.39" oninput="updateEfficiencyCom(this.value)">
+						</fieldset>
+					</div>
+					<div class="col-lg-4">
+						<!-- Comp antag slider goes ehre -->
+						<fieldset style="width: 450px;">
+							<legend>Competitive Antagonist</legend>
+							<label for="agoaffinity">Antagonist Affinity (&#8733 1/K<sub>B</sub>)</label>
+							<input type="number" style="float:right;" autocomplete="off" name="agoaffinity" id="agoaffnum" min="1.00e-10" max="1.00e-6"
+							 step="1.00e-9" value="1e-9" oninput="updateAgoAffinity(this.value)">
+							<br>
+							<label for="neglog">-logK<sub>B</sub></label>
+							<input type="number" style="float:right; width:138px;" autocomplete="off" name="agoafflog" id="agoafflognum" min="4"
+							 max="10" step="0.1" value="9.0" oninput="updateAgoAffinityLog(this.value)">
+						</fieldset>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<!-- Effect of comp antag goes ehre -->
+						<fieldset style="display:block;">
+								<legend>Effect of Competitive Antagonist on Agonist Dose Response curve</legend>
+								<h5 class="warning" id="quantalert"></h5>
+								<div id="quantitative"></div>
+						</fieldset>
+					</div>
+					<div class="col-lg-6">
+						<!-- Schild plot goes here -->
+						<fieldset style="display:block;">
+								<legend>Schild Plot</legend>
+								<div id="schild"></div>
+						</fieldset>
+						<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetQuant()" style="float: right;">Reset</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<!-- Questions go here -->
+						<fieldset style="width: 500px;">
+							<legend>Questions</legend>
+							<div id="SchildQuestion"></div>
+							<br><button id="revealSchildAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerSchild()">Reveal
+								Answer</button>
+		
+							<div id="SchildAnswerModal" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">Answer</h4>
+										</div>
+										<div class="modal-body">
+											<div class="box">
+												<div id="SchildAnswer"></div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
 										</div>
 									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+		
+							<div id="restartMessageSchild" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+							<button id="restartQuestionSchild" style="display:none" type="button" class="btn waves-effect waves-light red"
+							 onclick="restartQuestionSchild()">Restart</button>
+		
+							<div style="padding-top: 20px;">
+								<button id="nextSchildQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionSchild()">Next
+									Question</button>
+							</div>
+		
+						</fieldset>
+					</div>
+					<div class="col-lg-6">
+						<!-- Schild analysis table goes here -->
+						<fieldset style="width:500px;">
+								<legend class="text-center">Schild Analysis Table</legend>
+								<div class="row justify-content-center no-gutters">
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox" style="text-align: center;">[Antagonist] (M)</label>
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox" style="text-align: center;">log[B]</label>
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox" style="text-align: center;">Dose Ratio</label>
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox" style="text-align: center;">log(DR-1)</label>
 									</div>
 								</div>
-							</div>
-						</div>
-
-						<div id="restartMessageSchild" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-						<button id="restartQuestionSchild" style="display:none" type="button" class="btn waves-effect waves-light red"
-						 onclick="restartQuestionSchild()">Restart</button>
-
-						<div style="padding-top: 20px;">
-							<button id="nextSchildQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionSchild()">Next
-								Question</button>
-						</div>
-
-					</fieldset>
-					<fieldset style="width:500px;">
-							<legend class="text-center">Schild Analysis Table</legend>
-							<div class="row justify-content-center no-gutters">
-								<div class="col-xs-2 no-gutters">
-									<label class="numbox" style="text-align: center;">[Antagonist] (M)</label>
+								<hr>
+								<div class="row justify-content-center no-gutters">
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox"></label>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox"></label>
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox"></label>
+									</div>
 								</div>
-								<div class="col-xs-2 no-gutters">
-									<label class="numbox" style="text-align: center;">log[B]</label>
+								<div class="row justify-content-center no-gutters">
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
+										 step="1.00e-9" value="1e-10" oninput="updateAntagonist1(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4"
+										 step="0.1" value="-10" oninput="updateAntagonistLog1(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
+									</div>
 								</div>
-								<div class="col-xs-2 no-gutters">
-									<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
+								<div class="row justify-content-center no-gutters">
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
+										 step="1.00e-9" value="1e-10" oninput="updateAntagonist2(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4"
+										 step="0.1" value="-10" oninput="updateAntagonistLog2(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
+									</div>
 								</div>
-								<div class="col-xs-2 no-gutters">
-									<label class="numbox" style="text-align: center;">Dose Ratio</label>
+								<div class="row justify-content-center no-gutters">
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
+										 step="1.00e-9" value="1e-10" oninput="updateAntagonist3(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4"
+										 step="0.1" value="-10" oninput="updateAntagonistLog3(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
+									</div>
 								</div>
-								<div class="col-xs-2 no-gutters">
-									<label class="numbox" style="text-align: center;">log(DR-1)</label>
-								</div>
-							</div>
-							<hr>
-							<div class="row justify-content-center no-gutters">
-								<div class="col-xs-2 no-gutters">
-									<input class="numbox" type="number" autocomplete="off" name="antagonist0" id="ant0" value="0" readonly>
-								</div>
-								<div class="col-xs-2 no-gutters">
-									<label class="numbox"></label>
-								</div>
-								<div class="col-xs-2 no-gutters noHover">
-									<input class="numbox" type="number" autocomplete="off" name="antagonisteff0" id="anteff0" readonly>
-								</div>
-								<div class="col-xs-2 no-gutters">
-									<label class="numbox"></label>
-								</div>
-								<div class="col-xs-2 no-gutters">
-									<label class="numbox"></label>
-								</div>
-							</div>
-							<div class="row justify-content-center no-gutters">
-								<div class="col-xs-2 no-gutters">
-									<input class="numbox" type="number" autocomplete="off" name="antagonist1" id="ant1" min="1.00e-10" max="1.00e-6"
-									 step="1.00e-9" value="1e-10" oninput="updateAntagonist1(this.value)">
-								</div>
-								<div class="col-xs-2 no-gutters">
-									<input class="numbox" type="number" autocomplete="off" name="antagonistlog1" id="antlog1" min="-10" max="-4"
-									 step="0.1" value="-10" oninput="updateAntagonistLog1(this.value)">
-								</div>
-								<div class="col-xs-2 no-gutters noHover">
-									<input class="numbox" type="number" autocomplete="off" name="antagonisteff1" id="anteff1" readonly>
-								</div>
-								<div class="col-xs-2 no-gutters noHover">
-									<input class="numbox" type="number" autocomplete="off" name="antagonistdose1" id="antdose1" readonly>
-								</div>
-								<div class="col-xs-2 no-gutters noHover">
-									<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr1" id="antlogdr1" readonly>
-								</div>
-							</div>
-							<div class="row justify-content-center no-gutters">
-								<div class="col-xs-2 no-gutters">
-									<input class="numbox" type="number" autocomplete="off" name="antagonist2" id="ant2" min="1.00e-10" max="1.00e-6"
-									 step="1.00e-9" value="1e-10" oninput="updateAntagonist2(this.value)">
-								</div>
-								<div class="col-xs-2 no-gutters">
-									<input class="numbox" type="number" autocomplete="off" name="antagonistlog2" id="antlog2" min="-10" max="-4"
-									 step="0.1" value="-10" oninput="updateAntagonistLog2(this.value)">
-								</div>
-								<div class="col-xs-2 no-gutters noHover">
-									<input class="numbox" type="number" autocomplete="off" name="antagonisteff2" id="anteff2" readonly>
-								</div>
-								<div class="col-xs-2 no-gutters noHover">
-									<input class="numbox" type="number" autocomplete="off" name="antagonistdose2" id="antdose2" readonly>
-								</div>
-								<div class="col-xs-2 no-gutters noHover">
-									<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr2" id="antlogdr2" readonly>
-								</div>
-							</div>
-							<div class="row justify-content-center no-gutters">
-								<div class="col-xs-2 no-gutters">
-									<input class="numbox" type="number" autocomplete="off" name="antagonist3" id="ant3" min="1.00e-10" max="1.00e-6"
-									 step="1.00e-9" value="1e-10" oninput="updateAntagonist3(this.value)">
-								</div>
-								<div class="col-xs-2 no-gutters">
-									<input class="numbox" type="number" autocomplete="off" name="antagonistlog3" id="antlog3" min="-10" max="-4"
-									 step="0.1" value="-10" oninput="updateAntagonistLog3(this.value)">
-								</div>
-								<div class="col-xs-2 no-gutters noHover">
-									<input class="numbox" type="number" autocomplete="off" name="antagonisteff3" id="anteff3" readonly>
-								</div>
-								<div class="col-xs-2 no-gutters noHover">
-									<input class="numbox" type="number" autocomplete="off" name="antagonistdose3" id="antdose3" readonly>
-								</div>
-								<div class="col-xs-2 no-gutters noHover">
-									<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3" id="antlogdr3" readonly>
-								</div>
-							</div>
-						</fieldset>
+							</fieldset>
+					</div>
 				</div>
-				<div class="col-lg-6 py-1 text-center">
-					<fieldset style="display:block;">
-						<legend>Effect of Competitive Antagonist on Agonist Dose Response curve</legend>
-						<h5 class="warning" id="quantalert"></h5>
-						<div id="quantitative"></div>
-					</fieldset>
-					<fieldset style="display:block;">
-							<legend>Schild Plot</legend>
-							<div id="schild"></div>
-					</fieldset>
-					<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetQuant()" style="float: right;">Reset</button>
-				</div>
-			</div>
 			<br><br>
 		</div>
 	</div>
