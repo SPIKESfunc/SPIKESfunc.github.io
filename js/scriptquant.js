@@ -1,4 +1,4 @@
-var agoconcarr = [0, -10, -10, -10];
+var agoconcarr = [0, -9, -8, -7];
 var affcom = document.getElementById("affcomslider").defaultValue;
 var effcom = document.getElementById("effcomslider").defaultValue;
 var dencom = document.getElementById("dencomslider").defaultValue;
@@ -47,7 +47,7 @@ function calc50(lineData){
 }
 
 function resetQuant(){
-    agoconcarr = [0, -10, -10, -10];
+    agoconcarr = [0, -9, -8, -7];
     affcom = document.getElementById("affcomslider").value = document.getElementById("affcomslider").defaultValue;
     effcom = document.getElementById("effcomslider").value = document.getElementById("effcomslider").defaultValue;
     dencom = document.getElementById("dencomslider").value = document.getElementById("dencomslider").defaultValue;
