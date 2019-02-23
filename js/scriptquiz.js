@@ -169,7 +169,7 @@ function selectDrugs(){
 		document.getElementById("drug"+(i+1)).innerHTML=drugs[i].name;
 		for(var j = 0; j < 5;j++){
 			if(drugs[i].receptors[j].toString().length === 1) document.getElementById("drug"+(i+1)+"log"+(j+1)).innerHTML=drugs[i].receptors[j] + ".0";
-			else document.getElementById("drug"+(i+1)+"log"+(j+1)).innerHTML=drugs[i].receptors[j];
+			else document.getElementById("drug"+(i+1)+"log"+(j+1)).innerHTML=(drugs[i].receptors[j]).toFixed(1);
 		}
 	}
 	/*document.getElementById("drug1").innerHTML=drugs[0].name;

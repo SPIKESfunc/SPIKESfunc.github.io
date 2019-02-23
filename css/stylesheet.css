@@ -46,6 +46,22 @@ table tr {
   border-bottom: 1px solid black;
 }
 
+#drug1logs tr{
+  border-bottom: 1px solid #1f77b4;
+}
+
+#drug2logs tr{
+  border-bottom: 1px solid #ff7f0e;
+}
+
+#drug3logs tr{
+  border-bottom: 1px solid #2ca02c;
+}
+
+#drug4logs tr{
+  border-bottom: 1px solid #d62728;
+}
+
 .noHover {
   pointer-events: none;
 }
