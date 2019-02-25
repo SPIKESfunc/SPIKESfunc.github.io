@@ -366,7 +366,7 @@ function nextQuestionCom() {
         document.getElementById("restartQuestionCom").style.display = "block";
         document.getElementById("nextComQuestion").style.display = "none";
         document.getElementById("comQuestion").innerHTML = "<b>" + questionsCom[questionCounterCom] + "</b>";
-        questionCounterCom = 0;
+
     }
     else {
         questionCounterCom++;
@@ -376,7 +376,28 @@ function nextQuestionCom() {
     }
 }
 
+function prevQuestionCom() {
+    if (!questionCounterCom) { //beginning of questions
+        alert("Already at beginning of questions");
+    }
+    else if(questionCounterCom + 1 == questionsCom.length){
+        document.getElementById("comQuestion").style.display = "inline-block";
+        document.getElementById("nextComQuestion").style.display = "inline-block";
+        document.getElementById("restartMessageCom").style.display = "none";
+        document.getElementById("restartQuestionCom").style.display = "none";
+        document.getElementById("comQuestion").innerHTML = "<b>" + questionsCom[questionCounterCom] + "</b>";
+        document.getElementById("revealComAnswer").style.display = "inline-block";
+    }
+    else {
+        questionCounterCom--;
+        document.getElementById("restartMessageCom").style.display = "none";
+        document.getElementById("restartQuestionCom").style.display = "none";
+        document.getElementById("comQuestion").innerHTML = "<b>" + questionsCom[questionCounterCom] + "</b>";
+    }
+}
+
 function restartQuestionCom() {
+    questionCounterCom = 0;
     document.getElementById("comQuestion").style.display = "block";
     document.getElementById("nextComQuestion").style.display = "block";
     document.getElementById("restartMessageCom").style.display = "none";

@@ -416,38 +416,58 @@ var answersFun = ["Increasing concentrations of a functional antagonist may REDU
     "<b>YES</b>, but this depends on the relative intrinsic efficacies of the agonist and functional antagonist, and the relative receptor densities (R<sub>T</sub>) and coupling efficiencies (<i>f</i>) of their receptor-effector systems within the cell.  This effect can be observed using the visualiser."];
 
 var questionCounterFun = 0;
-document.getElementById("FunQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
+document.getElementById("funQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
 
 
 function revealAnswerFun() {
-    document.getElementById("FunAnswer").innerHTML = answersFun[questionCounterFun];
-    $('#FunAnswerModal').modal('show');
+    document.getElementById("funAnswer").innerHTML = answersFun[questionCounterFun];
+    $('#funAnswerModal').modal('show');
 }
 
 
 function nextQuestionFun() {
     if (questionCounterFun + 1 == questionsFun.length) { //end of questions
-        document.getElementById("FunQuestion").style.display = "none";
+        document.getElementById("funQuestion").style.display = "none";
         document.getElementById("revealFunAnswer").style.display = "none";
         document.getElementById("restartMessageFun").style.display = "block";
         document.getElementById("restartQuestionFun").style.display = "block";
         document.getElementById("nextFunQuestion").style.display = "none";
-        document.getElementById("FunQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
-        questionCounterFun = 0;
+        document.getElementById("funQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
     }
     else {
         questionCounterFun++;
         document.getElementById("restartMessageFun").style.display = "none";
         document.getElementById("restartQuestionFun").style.display = "none";
-        document.getElementById("FunQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
+        document.getElementById("funQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
+    }
+}
+
+function prevQuestionFun() {
+    if (!questionCounterFun) { //beginning of questions
+        alert("Already at beginning of questions");
+    }
+    else if(questionCounterFun + 1 == questionsFun.length){
+        document.getElementById("funQuestion").style.display = "inline-block";
+        document.getElementById("nextFunQuestion").style.display = "inline-block";
+        document.getElementById("restartMessageFun").style.display = "none";
+        document.getElementById("restartQuestionFun").style.display = "none";
+        document.getElementById("funQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
+        document.getElementById("revealFunAnswer").style.display = "inline-block";
+    }
+    else {
+        questionCounterFun--;
+        document.getElementById("restartMessageFun").style.display = "none";
+        document.getElementById("restartQuestionFun").style.display = "none";
+        document.getElementById("funQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
     }
 }
 
 function restartQuestionFun() {
-    document.getElementById("FunQuestion").style.display = "block";
+    questionCounterFun = 0;
+    document.getElementById("funQuestion").style.display = "block";
     document.getElementById("nextFunQuestion").style.display = "block";
     document.getElementById("restartMessageFun").style.display = "none";
     document.getElementById("restartQuestionFun").style.display = "none";
-    document.getElementById("FunQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
+    document.getElementById("funQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
     document.getElementById("revealFunAnswer").style.display = "block";
 }

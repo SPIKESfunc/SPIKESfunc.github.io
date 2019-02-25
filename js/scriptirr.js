@@ -334,38 +334,59 @@ var answersIrr = ["The effect produced by irreversible antagonists is AGONIST-DE
     "<b>YES</b>, if used at sufficiently high concentration or for a sufficiently long time then the irreversible antagonist can reduce the number of functional receptors to zero, and thereby abolish agonist-induced responses.  This is a point of different between irreversible antagonists and competitive or allosteric antagonists. This effect can be observed using the visualiser."];
 
 var questionCounterIrr = 0;
-document.getElementById("IrrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
+document.getElementById("irrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
 
 
 function revealAnswerIrr() {
-    document.getElementById("IrrAnswer").innerHTML = answersIrr[questionCounterIrr];
-    $('#IrrAnswerModal').modal('show');
+    document.getElementById("irrAnswer").innerHTML = answersIrr[questionCounterIrr];
+    $('#irrAnswerModal').modal('show');
 }
 
 
 function nextQuestionIrr() {
     if (questionCounterIrr + 1 == questionsIrr.length) { //end of questions
-        document.getElementById("IrrQuestion").style.display = "none";
+        document.getElementById("irrQuestion").style.display = "none";
         document.getElementById("revealIrrAnswer").style.display = "none";
         document.getElementById("restartMessageIrr").style.display = "block";
         document.getElementById("restartQuestionIrr").style.display = "block";
         document.getElementById("nextIrrQuestion").style.display = "none";
-        document.getElementById("IrrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
-        questionCounterIrr = 0;
+        document.getElementById("irrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
+        
     }
     else {
         questionCounterIrr++;
         document.getElementById("restartMessageIrr").style.display = "none";
         document.getElementById("restartQuestionIrr").style.display = "none";
-        document.getElementById("IrrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
+        document.getElementById("irrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
+    }
+}
+
+function prevQuestionIrr() {
+    if (!questionCounterIrr) { //beginning of questions
+        alert("Already at beginning of questions");
+    }
+    else if(questionCounterIrr + 1 == questionsIrr.length){
+        document.getElementById("irrQuestion").style.display = "inline-block";
+        document.getElementById("nextIrrQuestion").style.display = "inline-block";
+        document.getElementById("restartMessageIrr").style.display = "none";
+        document.getElementById("restartQuestionIrr").style.display = "none";
+        document.getElementById("irrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
+        document.getElementById("revealIrrAnswer").style.display = "inline-block";
+    }
+    else {
+        questionCounterIrr--;
+        document.getElementById("restartMessageIrr").style.display = "none";
+        document.getElementById("restartQuestionIrr").style.display = "none";
+        document.getElementById("irrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
     }
 }
 
 function restartQuestionIrr() {
-    document.getElementById("IrrQuestion").style.display = "block";
+    questionCounterIrr = 0;
+    document.getElementById("irrQuestion").style.display = "block";
     document.getElementById("nextIrrQuestion").style.display = "block";
     document.getElementById("restartMessageIrr").style.display = "none";
     document.getElementById("restartQuestionIrr").style.display = "none";
-    document.getElementById("IrrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
+    document.getElementById("irrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
     document.getElementById("revealIrrAnswer").style.display = "block";
 }

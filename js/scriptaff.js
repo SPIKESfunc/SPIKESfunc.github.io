@@ -379,38 +379,58 @@ var answersAff = ["Allosteric antagonists (affecting only agonist affinity) caus
     "<b>NO</b>, the inhibitory effects produced by an allosteric antagonists (affecting agonist affinity) are LIMITED and can always be overcome by increasing the [agonist].  This effect can be observed using the visualiser."];
 
 var questionCounterAff = 0;
-document.getElementById("AffQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
+document.getElementById("affQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
 
 
 function revealAnswerAff() {
-    document.getElementById("AffAnswer").innerHTML = answersAff[questionCounterAff];
-    $("#AffAnswerModal").modal("show");
+    document.getElementById("affAnswer").innerHTML = answersAff[questionCounterAff];
+    $("#affAnswerModal").modal("show");
 }
 
 
 function nextQuestionAff() {
     if (questionCounterAff + 1 === questionsAff.length) { //end of questions
-        document.getElementById("AffQuestion").style.display = "none";
+        document.getElementById("affQuestion").style.display = "none";
         document.getElementById("revealAffAnswer").style.display = "none";
         document.getElementById("restartMessageAff").style.display = "block";
         document.getElementById("restartQuestionAff").style.display = "block";
         document.getElementById("nextAffQuestion").style.display = "none";
-        document.getElementById("AffQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
-        questionCounterAff = 0;
+        document.getElementById("affQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
     }
     else {
         questionCounterAff++;
         document.getElementById("restartMessageAff").style.display = "none";
         document.getElementById("restartQuestionAff").style.display = "none";
-        document.getElementById("AffQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
+        document.getElementById("affQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
+    }
+}
+
+function prevQuestionAff() {
+    if (!questionCounterAff) { //beginning of questions
+        alert("Already at beginning of questions");
+    }
+    else if(questionCounterAff + 1 == questionsAff.length){
+        document.getElementById("affQuestion").style.display = "inline-block";
+        document.getElementById("nextAffQuestion").style.display = "inline-block";
+        document.getElementById("restartMessageAff").style.display = "none";
+        document.getElementById("restartQuestionAff").style.display = "none";
+        document.getElementById("affQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
+        document.getElementById("revealAffAnswer").style.display = "inline-block";
+    }
+    else {
+        questionCounterAff--;
+        document.getElementById("restartMessageAff").style.display = "none";
+        document.getElementById("restartQuestionAff").style.display = "none";
+        document.getElementById("affQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
     }
 }
 
 function restartQuestionAff() {
-    document.getElementById("AffQuestion").style.display = "block";
+    questionCounterAff = 0;
+    document.getElementById("affQuestion").style.display = "block";
     document.getElementById("nextAffQuestion").style.display = "block";
     document.getElementById("restartMessageAff").style.display = "none";
     document.getElementById("restartQuestionAff").style.display = "none";
-    document.getElementById("AffQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
+    document.getElementById("affQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
     document.getElementById("revealAffAnswer").style.display = "block";
 }
