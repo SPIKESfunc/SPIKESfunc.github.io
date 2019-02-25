@@ -116,11 +116,11 @@
 						<!-- Questions go here -->
 						<fieldset style="width: 500px;">
 							<legend>Questions</legend>
-							<div id="SchildQuestion"></div>
+							<div id="schildQuestion"></div>
 							<br><button id="revealSchildAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerSchild()">Reveal
 								Answer</button>
 		
-							<div id="SchildAnswerModal" class="modal fade" role="dialog">
+							<div id="schildAnswerModal" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -128,7 +128,7 @@
 										</div>
 										<div class="modal-body">
 											<div class="box">
-												<div id="SchildAnswer"></div>
+												<div id="schildAnswer"></div>
 											</div>
 										</div>
 										<div class="modal-footer">
@@ -146,7 +146,9 @@
 								<button id="nextSchildQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionSchild()">Next
 									Question</button>
 							</div>
-		
+							<div style="padding-top: 20px;">
+								<button id="prevSchildQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionSchild()">Previous Question</button>
+							</div>
 						</fieldset>
 					</div>
 					<div class="col-lg-6">

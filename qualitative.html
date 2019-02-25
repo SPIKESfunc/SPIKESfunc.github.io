@@ -218,8 +218,10 @@
 
                                 <div style="padding-top: 20px;">
                                     <button id="nextAgonistQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionAgonist()">Next Question</button>
+								</div>
+								<div style="padding-top: 20px;">
+                                    <button id="prevAgonistQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionAgonist()">Previous Question</button>
                                 </div>
-
                             </fieldset>
 
 						</div>
@@ -382,7 +384,9 @@
                                 <div style="padding-top: 20px;">
                                     <button id="nextComQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionCom()">Next Question</button>
                                 </div>
-
+								<div style="padding-top: 20px;">
+									<button id="prevComQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionCom()">Previous Question</button>
+								</div>
                             </fieldset>
 						</div>
 						<div class="col-lg-7">
@@ -516,10 +520,10 @@
 							</fieldset>
 							<fieldset>
                                 <legend>Questions</legend>
-                                <div id="IrrQuestion"></div>
+                                <div id="irrQuestion"></div>
                                 <br><button id="revealIrrAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerIrr()">Reveal Answer</button>
 
-                                <div id="IrrAnswerModal" class="modal fade" role="dialog">
+                                <div id="irrAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -527,7 +531,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="box">
-                                                    <div id="IrrAnswer"></div>
+                                                    <div id="irrAnswer"></div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -543,7 +547,9 @@
                                 <div style="padding-top: 20px;">
                                     <button id="nextIrrQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionIrr()">Next Question</button>
                                 </div>
-
+								<div style="padding-top: 20px;">
+									<button id="prevIrrQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionIrr()">Previous Question</button>
+								</div>
                             </fieldset>
 						</div>
 						<div class="col-lg-7">
@@ -700,10 +706,10 @@
 							</fieldset>
 							<fieldset>
                                 <legend>Questions</legend>
-                                <div id="AffQuestion"></div>
+                                <div id="affQuestion"></div>
                                 <br><button id="revealAffAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerAff()">Reveal Answer</button>
 
-                                <div id="AffAnswerModal" class="modal fade" role="dialog">
+                                <div id="affAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -711,7 +717,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="box">
-                                                    <div id="AffAnswer"></div>
+                                                    <div id="affAnswer"></div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -727,7 +733,9 @@
                                 <div style="padding-top: 20px;">
                                     <button id="nextAffQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionAff()">Next Question</button>
                                 </div>
-
+								<div style="padding-top: 20px;">
+									<button id="prevAffQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionAff()">Previous Question</button>
+								</div>
                             </fieldset>
 
 						</div>
@@ -884,10 +892,10 @@
 							</fieldset>
 							<fieldset>
                                 <legend>Questions</legend>
-                                <div id="EffQuestion"></div>
+                                <div id="effQuestion"></div>
                                 <br><button id="revealEffAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerEff()">Reveal Answer</button>
 
-                                <div id="EffAnswerModal" class="modal fade" role="dialog">
+                                <div id="effAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -895,7 +903,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="box">
-                                                    <div id="EffAnswer"></div>
+                                                    <div id="effAnswer"></div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -911,7 +919,9 @@
                                 <div style="padding-top: 20px;">
                                     <button id="nextEffQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionEff()">Next Question</button>
                                 </div>
-
+								<div style="padding-top: 20px;">
+									<button id="prevEffQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionEff()">Previous Question</button>
+								</div>
                             </fieldset>
 						</div>
 						<div class="col-lg-7">
@@ -1058,10 +1068,10 @@
 							</fieldset>
 							<fieldset>
                                 <legend>Questions</legend>
-                                <div id="FunQuestion"></div>
+                                <div id="funQuestion"></div>
                                 <br><button id="revealFunAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerFun()">Reveal Answer</button>
 
-                                <div id="FunAnswerModal" class="modal fade" role="dialog">
+                                <div id="funAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -1069,7 +1079,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="box">
-                                                    <div id="FunAnswer"></div>
+                                                    <div id="funAnswer"></div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -1084,7 +1094,10 @@
 
                                 <div style="padding-top: 20px;">
                                     <button id="nextFunQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionFun()">Next Question</button>
-                                </div>
+								</div>
+								<div style="padding-top: 20px;">
+									<button id="prevFunQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionFun()">Previous Question</button>
+								</div>
 
                             </fieldset>
 						</div>
