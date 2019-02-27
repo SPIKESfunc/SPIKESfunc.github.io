@@ -427,12 +427,12 @@ function revealAnswerFun() {
 
 function nextQuestionFun() {
     if (questionCounterFun + 1 == questionsFun.length) { //end of questions
+        questionCounterFun++;
         document.getElementById("funQuestion").style.display = "none";
         document.getElementById("revealFunAnswer").style.display = "none";
         document.getElementById("restartMessageFun").style.display = "block";
         document.getElementById("restartQuestionFun").style.display = "block";
         document.getElementById("nextFunQuestion").style.display = "none";
-        document.getElementById("funQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
     }
     else {
         questionCounterFun++;
@@ -446,17 +446,11 @@ function prevQuestionFun() {
     if (!questionCounterFun) { //beginning of questions
         alert("Already at beginning of questions");
     }
-    else if(questionCounterFun + 1 == questionsFun.length){
-        questionCounterFun--;
-        document.getElementById("funQuestion").style.display = "inline-block";
-        document.getElementById("nextFunQuestion").style.display = "inline-block";
-        document.getElementById("restartMessageFun").style.display = "none";
-        document.getElementById("restartQuestionFun").style.display = "none";
-        document.getElementById("funQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
-        document.getElementById("revealFunAnswer").style.display = "inline-block";
-    }
     else {
         questionCounterFun--;
+        document.getElementById("funQuestion").style.display = "block";
+        document.getElementById("nextFunQuestion").style.display = "block";
+        document.getElementById("revealFunAnswer").style.display = "block";
         document.getElementById("restartMessageFun").style.display = "none";
         document.getElementById("restartQuestionFun").style.display = "none";
         document.getElementById("funQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";

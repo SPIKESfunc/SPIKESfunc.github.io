@@ -738,12 +738,12 @@ function revealAnswerSchild() {
 
 function nextQuestionSchild() {
     if (questionCounterSchild + 1 == questionsSchild.length) { //end of questions
+        questionCounterSchild++;
         document.getElementById("schildQuestion").style.display = "none";
         document.getElementById("revealSchildAnswer").style.display = "none";
         document.getElementById("restartMessageSchild").style.display = "block";
         document.getElementById("restartQuestionSchild").style.display = "block";
         document.getElementById("nextSchildQuestion").style.display = "none";
-        document.getElementById("schildQuestion").innerHTML = "<b>" + questionsSchild[questionCounterSchild] + "</b>";
     }
     else {
         questionCounterSchild++;
@@ -757,17 +757,11 @@ function prevQuestionSchild() {
     if (!questionCounterSchild) { //beginning of questions
         alert("Already at beginning of questions");
     }
-    else if(questionCounterSchild + 1 == questionsSchild.length){
-        questionCounterFun--;
-        document.getElementById("schildQuestion").style.display = "inline-block";
-        document.getElementById("nextSchildQuestion").style.display = "inline-block";
-        document.getElementById("restartMessageSchild").style.display = "none";
-        document.getElementById("restartQuestionSchild").style.display = "none";
-        document.getElementById("schildQuestion").innerHTML = "<b>" + questionsSchild[questionCounterSchild] + "</b>";
-        document.getElementById("revealSchildAnswer").style.display = "inline-block";
-    }
     else {
         questionCounterSchild--;
+        document.getElementById("schildQuestion").style.display = "block";
+        document.getElementById("nextSchildQuestion").style.display = "block";
+        document.getElementById("revealSchildAnswer").style.display = "block";
         document.getElementById("restartMessageSchild").style.display = "none";
         document.getElementById("restartQuestionSchild").style.display = "none";
         document.getElementById("schildQuestion").innerHTML = "<b>" + questionsSchild[questionCounterSchild] + "</b>";

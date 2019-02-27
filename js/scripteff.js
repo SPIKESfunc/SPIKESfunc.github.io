@@ -797,19 +797,18 @@ function revealAnswerEff() {
 function nextQuestionEff() {
   if (questionCounterEff + 1 === questionsEff.length) {
     //end of questions
+    questionCounterEff++;
     document.getElementById("effQuestion").style.display = "none";
     document.getElementById("revealEffAnswer").style.display = "none";
     document.getElementById("restartMessageEff").style.display = "block";
     document.getElementById("restartQuestionEff").style.display = "block";
     document.getElementById("nextEffQuestion").style.display = "none";
-    document.getElementById("effQuestion").innerHTML =
-      "<b>" + questionsEff[questionCounterEff] + "</b>";
-  } else {
+  } 
+  else {
     questionCounterEff++;
     document.getElementById("restartMessageEff").style.display = "none";
     document.getElementById("restartQuestionEff").style.display = "none";
-    document.getElementById("effQuestion").innerHTML =
-      "<b>" + questionsEff[questionCounterEff] + "</b>";
+    document.getElementById("effQuestion").innerHTML ="<b>" + questionsEff[questionCounterEff] + "</b>";
   }
 }
 
@@ -817,17 +816,11 @@ function prevQuestionEff() {
   if (!questionCounterEff) { //beginning of questions
       alert("Already at beginning of questions");
   }
-  else if(questionCounterEff + 1 == questionsEff.length){
-      questionCounterFun--;
-      document.getElementById("effQuestion").style.display = "inline-block";
-      document.getElementById("nextEffQuestion").style.display = "inline-block";
-      document.getElementById("restartMessageEff").style.display = "none";
-      document.getElementById("restartQuestionEff").style.display = "none";
-      document.getElementById("effQuestion").innerHTML = "<b>" + questionsEff[questionCounterEff] + "</b>";
-      document.getElementById("revealEffAnswer").style.display = "inline-block";
-  }
   else {
       questionCounterEff--;
+      document.getElementById("effQuestion").style.display = "block";
+      document.getElementById("nextEffQuestion").style.display = "block";
+      document.getElementById("revealEffAnswer").style.display = "block";
       document.getElementById("restartMessageEff").style.display = "none";
       document.getElementById("restartQuestionEff").style.display = "none";
       document.getElementById("effQuestion").innerHTML = "<b>" + questionsEff[questionCounterEff] + "</b>";
@@ -840,7 +833,6 @@ function restartQuestionEff() {
   document.getElementById("nextEffQuestion").style.display = "block";
   document.getElementById("restartMessageEff").style.display = "none";
   document.getElementById("restartQuestionEff").style.display = "none";
-  document.getElementById("effQuestion").innerHTML =
-    "<b>" + questionsEff[questionCounterEff] + "</b>";
+  document.getElementById("effQuestion").innerHTML = "<b>" + questionsEff[questionCounterEff] + "</b>";
   document.getElementById("revealEffAnswer").style.display = "block";
 }

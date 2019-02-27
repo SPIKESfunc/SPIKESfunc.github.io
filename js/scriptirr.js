@@ -345,13 +345,12 @@ function revealAnswerIrr() {
 
 function nextQuestionIrr() {
     if (questionCounterIrr + 1 == questionsIrr.length) { //end of questions
+        questionCounterIrr++;
         document.getElementById("irrQuestion").style.display = "none";
         document.getElementById("revealIrrAnswer").style.display = "none";
         document.getElementById("restartMessageIrr").style.display = "block";
         document.getElementById("restartQuestionIrr").style.display = "block";
-        document.getElementById("nextIrrQuestion").style.display = "none";
-        document.getElementById("irrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
-        
+        document.getElementById("nextIrrQuestion").style.display = "none";        
     }
     else {
         questionCounterIrr++;
@@ -365,17 +364,11 @@ function prevQuestionIrr() {
     if (!questionCounterIrr) { //beginning of questions
         alert("Already at beginning of questions");
     }
-    else if(questionCounterIrr + 1 == questionsIrr.length){
-        questionCounterFun--;
-        document.getElementById("irrQuestion").style.display = "inline-block";
-        document.getElementById("nextIrrQuestion").style.display = "inline-block";
-        document.getElementById("restartMessageIrr").style.display = "none";
-        document.getElementById("restartQuestionIrr").style.display = "none";
-        document.getElementById("irrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
-        document.getElementById("revealIrrAnswer").style.display = "inline-block";
-    }
     else {
         questionCounterIrr--;
+        document.getElementById("irrQuestion").style.display = "block";
+        document.getElementById("nextIrrQuestion").style.display = "block";
+        document.getElementById("revealIrrAnswer").style.display = "block";
         document.getElementById("restartMessageIrr").style.display = "none";
         document.getElementById("restartQuestionIrr").style.display = "none";
         document.getElementById("irrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
