@@ -285,6 +285,7 @@ function prevQuestionAgonist() {
         alert("Already at beginning of questions");
     }
     else if(questionCounterAgonist + 1 == questionsAgonist.length){
+        questionCounterFun--;
         document.getElementById("agonistQuestion").style.display = "inline-block";
         document.getElementById("nextAgonistQuestion").style.display = "inline-block";
         document.getElementById("restartMessageAgonist").style.display = "none";

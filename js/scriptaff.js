@@ -410,6 +410,7 @@ function prevQuestionAff() {
         alert("Already at beginning of questions");
     }
     else if(questionCounterAff + 1 == questionsAff.length){
+        questionCounterFun--;
         document.getElementById("affQuestion").style.display = "inline-block";
         document.getElementById("nextAffQuestion").style.display = "inline-block";
         document.getElementById("restartMessageAff").style.display = "none";

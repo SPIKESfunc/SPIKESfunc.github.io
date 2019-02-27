@@ -381,6 +381,7 @@ function prevQuestionCom() {
         alert("Already at beginning of questions");
     }
     else if(questionCounterCom + 1 == questionsCom.length){
+        questionCounterFun--;
         document.getElementById("comQuestion").style.display = "inline-block";
         document.getElementById("nextComQuestion").style.display = "inline-block";
         document.getElementById("restartMessageCom").style.display = "none";

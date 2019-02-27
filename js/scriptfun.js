@@ -447,6 +447,7 @@ function prevQuestionFun() {
         alert("Already at beginning of questions");
     }
     else if(questionCounterFun + 1 == questionsFun.length){
+        questionCounterFun--;
         document.getElementById("funQuestion").style.display = "inline-block";
         document.getElementById("nextFunQuestion").style.display = "inline-block";
         document.getElementById("restartMessageFun").style.display = "none";

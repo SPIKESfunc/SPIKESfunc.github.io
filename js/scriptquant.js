@@ -758,6 +758,7 @@ function prevQuestionSchild() {
         alert("Already at beginning of questions");
     }
     else if(questionCounterSchild + 1 == questionsSchild.length){
+        questionCounterFun--;
         document.getElementById("schildQuestion").style.display = "inline-block";
         document.getElementById("nextSchildQuestion").style.display = "inline-block";
         document.getElementById("restartMessageSchild").style.display = "none";

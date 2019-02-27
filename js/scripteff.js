@@ -818,6 +818,7 @@ function prevQuestionEff() {
       alert("Already at beginning of questions");
   }
   else if(questionCounterEff + 1 == questionsEff.length){
+      questionCounterFun--;
       document.getElementById("effQuestion").style.display = "inline-block";
       document.getElementById("nextEffQuestion").style.display = "inline-block";
       document.getElementById("restartMessageEff").style.display = "none";

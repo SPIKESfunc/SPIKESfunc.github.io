@@ -366,6 +366,7 @@ function prevQuestionIrr() {
         alert("Already at beginning of questions");
     }
     else if(questionCounterIrr + 1 == questionsIrr.length){
+        questionCounterFun--;
         document.getElementById("irrQuestion").style.display = "inline-block";
         document.getElementById("nextIrrQuestion").style.display = "inline-block";
         document.getElementById("restartMessageIrr").style.display = "none";
