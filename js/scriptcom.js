@@ -360,13 +360,12 @@ function revealAnswerCom() {
 
 function nextQuestionCom() {
     if (questionCounterCom + 1 === questionsCom.length) { //end of questions
+        questionCounterCom++;
         document.getElementById("comQuestion").style.display = "none";
         document.getElementById("revealComAnswer").style.display = "none";
         document.getElementById("restartMessageCom").style.display = "block";
         document.getElementById("restartQuestionCom").style.display = "block";
         document.getElementById("nextComQuestion").style.display = "none";
-        document.getElementById("comQuestion").innerHTML = "<b>" + questionsCom[questionCounterCom] + "</b>";
-
     }
     else {
         questionCounterCom++;
@@ -380,16 +379,11 @@ function prevQuestionCom() {
     if (!questionCounterCom) { //beginning of questions
         alert("Already at beginning of questions");
     }
-    else if(questionCounterCom + 1 == questionsCom.length){
-        document.getElementById("comQuestion").style.display = "inline-block";
-        document.getElementById("nextComQuestion").style.display = "inline-block";
-        document.getElementById("restartMessageCom").style.display = "none";
-        document.getElementById("restartQuestionCom").style.display = "none";
-        document.getElementById("comQuestion").innerHTML = "<b>" + questionsCom[questionCounterCom] + "</b>";
-        document.getElementById("revealComAnswer").style.display = "inline-block";
-    }
     else {
         questionCounterCom--;
+        document.getElementById("comQuestion").style.display = "block";
+        document.getElementById("nextComQuestion").style.display = "block";
+        document.getElementById("revealComAnswer").style.display = "block";
         document.getElementById("restartMessageCom").style.display = "none";
         document.getElementById("restartQuestionCom").style.display = "none";
         document.getElementById("comQuestion").innerHTML = "<b>" + questionsCom[questionCounterCom] + "</b>";
