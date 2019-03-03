@@ -190,7 +190,7 @@
 								<input type="range" autocomplete="off" name="efficiency" id="efficislider" min="-0.3" max="0.7" step="0.01"
 								 value="0.2" oninput="updateEfficiency(this.value)">
 							</fieldset>
-							<fieldset style="width:430px; text-align:center">
+							<fieldset style="width:430px;text-align:center">
                                 <legend>Questions</legend>
 								<div id="agonistQuestion" style="margin-bottom:20px;"></div>
 								<div id="restartMessageAgonist" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
@@ -213,11 +213,10 @@
                                     </div>
                                 </div>
 
-                                <button id="restartQuestionAgonist" style="display:none; margin-bottom:10px;" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionAgonist()">Restart</button>
+                                <button id="restartQuestionAgonist" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionAgonist()">Restart</button>
                                 <button id="prevAgonistQuestion" style="float:left" type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionAgonist()">Previous Question</button>
 								<button id="revealAgonistAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerAgonist()">Reveal Answer</button>								
                                 <button id="nextAgonistQuestion" style="float:right" type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionAgonist()">Next Question</button>
-								
                             </fieldset>
 
 						</div>
@@ -351,10 +350,11 @@
 								 <input class="numbox" type="number" autocomplete="off" name="antagocomp" id="antagocomp" style="width: 60px;" readonly>
 							</fieldset>
 							<!--COLOURS OF DIFFERENT ONES-->
-							<fieldset>
+							<fieldset style="width:430px;text-align:center">
                                 <legend>Questions</legend>
-                                <div id="comQuestion"></div>
-                                <br><button id="revealComAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerCom()">Reveal Answer</button>
+                                <div id="comQuestion" style="margin-bottom:20px;"></div>
+								<div id="restartMessageCom" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+
 
                                 <div id="comAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -374,16 +374,12 @@
                                     </div>
                                 </div>
 
-                                <div id="restartMessageCom" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionCom" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionCom()">Restart</button>
-
-                                <div style="padding-top: 20px;">
-                                    <button id="nextComQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionCom()">Next Question</button>
-                                </div>
-								<div style="padding-top: 20px;">
-									<button id="prevComQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionCom()">Previous Question</button>
-								</div>
-                            </fieldset>
+                                <button id="restartQuestionCom" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionCom()">Restart</button>
+								<button id="prevComQuestion" style="float:left" type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionCom()">Previous Question</button>
+								<button id="revealComAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerCom()">Reveal Answer</button>
+                                <button id="nextComQuestion" style= "float:right"type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionCom()">Next Question</button>
+							</fieldset>
+							
 						</div>
 						<div class="col-lg-7">
 							<fieldset>
@@ -514,10 +510,11 @@
 								 <label for="antagoirr">-logK<sub>B</sub> =&nbsp</label>
 								<input class="numbox" type="number" autocomplete="off" name="antagoirr" id="antagoirr" style="width: 60px;" readonly>
 							</fieldset>
-							<fieldset>
+							<fieldset style="width:430px; text-align:center">
                                 <legend>Questions</legend>
-                                <div id="irrQuestion"></div>
-                                <br><button id="revealIrrAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerIrr()">Reveal Answer</button>
+                                <div id="irrQuestion" style="margin-bottom:20px;"></div>
+								<div id="restartMessageIrr" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+
 
                                 <div id="irrAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -537,15 +534,10 @@
                                     </div>
                                 </div>
 
-                                <div id="restartMessageIrr" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionIrr" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionIrr()">Restart</button>
-
-                                <div style="padding-top: 20px;">
-                                    <button id="nextIrrQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionIrr()">Next Question</button>
-                                </div>
-								<div style="padding-top: 20px;">
-									<button id="prevIrrQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionIrr()">Previous Question</button>
-								</div>
+                                <button id="restartQuestionIrr" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionIrr()">Restart</button>
+								<button id="prevIrrQuestion" style="float:left"type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionIrr()">Previous Question</button>
+								<button id="revealIrrAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerIrr()">Reveal Answer</button>
+                                <button id="nextIrrQuestion" style="float:right"type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionIrr()">Next Question</button>
                             </fieldset>
 						</div>
 						<div class="col-lg-7">
@@ -700,10 +692,10 @@
 								<label for="antcoopaff">&#945 =&nbsp</label>
 								<input class="numbox" type="number" autocomplete="off" name="antcoopaff" id="antcoopaff" readonly>
 							</fieldset>
-							<fieldset>
+							<fieldset style="width:430px;text-align:center">
                                 <legend>Questions</legend>
-                                <div id="affQuestion"></div>
-                                <br><button id="revealAffAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerAff()">Reveal Answer</button>
+								<div id="affQuestion" style="margin-bottom:20px"></div>
+								<div id="restartMessageAff" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
 
                                 <div id="affAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -723,15 +715,10 @@
                                     </div>
                                 </div>
 
-                                <div id="restartMessageAff" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionAff" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionAff()">Restart</button>
-
-                                <div style="padding-top: 20px;">
-                                    <button id="nextAffQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionAff()">Next Question</button>
-                                </div>
-								<div style="padding-top: 20px;">
-									<button id="prevAffQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionAff()">Previous Question</button>
-								</div>
+                                <button id="restartQuestionAff" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionAff()">Restart</button>
+								<button id="prevAffQuestion" style="float:left" type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionAff()">Previous Question</button>
+								<button id="revealAffAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerAff()">Reveal Answer</button>
+								<button id="nextAffQuestion" style="float:right" type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionAff()">Next Question</button>
                             </fieldset>
 
 						</div>
@@ -886,10 +873,11 @@
 								<label for="antcoopeff">&#946 =&nbsp</label>
 								<input class="numbox" type="number" autocomplete="off" name="antcoopeff" id="antcoopeff" style="width: 65px;" readonly>
 							</fieldset>
-							<fieldset>
+							<fieldset style="width:430px;text-align:center">
                                 <legend>Questions</legend>
-                                <div id="effQuestion"></div>
-                                <br><button id="revealEffAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerEff()">Reveal Answer</button>
+                                <div id="effQuestion" style="margin-bottom:20px"></div>
+								<div id="restartMessageEff" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+
 
                                 <div id="effAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -909,15 +897,10 @@
                                     </div>
                                 </div>
 
-                                <div id="restartMessageEff" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionEff" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionEff()">Restart</button>
-
-                                <div style="padding-top: 20px;">
-                                    <button id="nextEffQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionEff()">Next Question</button>
-                                </div>
-								<div style="padding-top: 20px;">
-									<button id="prevEffQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionEff()">Previous Question</button>
-								</div>
+                                <button id="restartQuestionEff" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionEff()">Restart</button>
+								<button id="prevEffQuestion" style="float:left" type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionEff()">Previous Question</button>
+								<button id="revealEffAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerEff()">Reveal Answer</button>
+                    		    <button id="nextEffQuestion" style="float:right"type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionEff()">Next Question</button>
                             </fieldset>
 						</div>
 						<div class="col-lg-7">
@@ -1062,10 +1045,11 @@
 									<!--value was -0.216-->
 								</fieldset>
 							</fieldset>
-							<fieldset>
+							<fieldset style="width:430px;text-align:center">
                                 <legend>Questions</legend>
-                                <div id="funQuestion"></div>
-                                <br><button id="revealFunAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerFun()">Reveal Answer</button>
+                                <div id="funQuestion" style="margin-bottom:20px;"></div>
+								<div id="restartMessageFun" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+
 
                                 <div id="funAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -1085,16 +1069,10 @@
                                     </div>
                                 </div>
 
-                                <div id="restartMessageFun" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionFun" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionFun()">Restart</button>
-
-                                <div style="padding-top: 20px;">
-                                    <button id="nextFunQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionFun()">Next Question</button>
-								</div>
-								<div style="padding-top: 20px;">
-									<button id="prevFunQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionFun()">Previous Question</button>
-								</div>
-
+                                <button id="restartQuestionFun" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionFun()">Restart</button>
+								<button id="prevFunQuestion" style="float:left"type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionFun()">Previous Question</button>								
+								<button id="revealFunAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerFun()">Reveal Answer</button>
+                    	        <button id="nextFunQuestion" style="float:right" type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionFun()">Next Question</button>
                             </fieldset>
 						</div>
 						<div class="col-lg-7" style="padding-top: 40px;">
