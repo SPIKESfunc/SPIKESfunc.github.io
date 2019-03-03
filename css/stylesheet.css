@@ -431,3 +431,7 @@ nav .navbar-nav li.nav-item a.nav-item.nav-link.active {
   color: #fff;
   background-color: #ff5252 !important;
 } 
+
+.qbutton{
+  padding: 0 2px;
+}

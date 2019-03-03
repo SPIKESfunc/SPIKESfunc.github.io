@@ -190,10 +190,10 @@
 								<input type="range" autocomplete="off" name="efficiency" id="efficislider" min="-0.3" max="0.7" step="0.01"
 								 value="0.2" oninput="updateEfficiency(this.value)">
 							</fieldset>
-							<fieldset>
+							<fieldset style="width:430px; text-align:center">
                                 <legend>Questions</legend>
-                                <div id="agonistQuestion"></div>
-                                <br><button id="revealAgonistAnswer" type="button" class="btn waves-effect waves-light red" onclick="revealAnswerAgonist()">Reveal Answer</button>
+								<div id="agonistQuestion" style="margin-bottom:20px;"></div>
+								<div id="restartMessageAgonist" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
 
                                 <div id="agonistAnswerModal" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -213,15 +213,11 @@
                                     </div>
                                 </div>
 
-                                <div id="restartMessageAgonist" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
-                                <button id="restartQuestionAgonist" style="display:none" type="button" class="btn waves-effect waves-light red" onclick="restartQuestionAgonist()">Restart</button>
-
-                                <div style="padding-top: 20px;">
-                                    <button id="nextAgonistQuestion" type="button" class="btn waves-effect waves-light red" onclick="nextQuestionAgonist()">Next Question</button>
-								</div>
-								<div style="padding-top: 20px;">
-                                    <button id="prevAgonistQuestion" type="button" class="btn waves-effect waves-light red" onclick="prevQuestionAgonist()">Previous Question</button>
-                                </div>
+                                <button id="restartQuestionAgonist" style="display:none; margin-bottom:10px;" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionAgonist()">Restart</button>
+                                <button id="prevAgonistQuestion" style="float:left" type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionAgonist()">Previous Question</button>
+								<button id="revealAgonistAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerAgonist()">Reveal Answer</button>								
+                                <button id="nextAgonistQuestion" style="float:right" type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionAgonist()">Next Question</button>
+								
                             </fieldset>
 
 						</div>
