@@ -800,8 +800,8 @@ function nextQuestionEff() {
     questionCounterEff++;
     document.getElementById("effQuestion").style.display = "none";
     document.getElementById("revealEffAnswer").style.display = "none";
-    document.getElementById("restartMessageEff").style.display = "block";
-    document.getElementById("restartQuestionEff").style.display = "block";
+    document.getElementById("restartMessageEff").style.display = "inline-block";
+    document.getElementById("restartQuestionEff").style.display = "inline-block";
     document.getElementById("nextEffQuestion").style.display = "none";
   } 
   else {
@@ -819,8 +819,8 @@ function prevQuestionEff() {
   else {
       questionCounterEff--;
       document.getElementById("effQuestion").style.display = "block";
-      document.getElementById("nextEffQuestion").style.display = "block";
-      document.getElementById("revealEffAnswer").style.display = "block";
+      document.getElementById("nextEffQuestion").style.display = "inline-block";
+      document.getElementById("revealEffAnswer").style.display = "inline-block";
       document.getElementById("restartMessageEff").style.display = "none";
       document.getElementById("restartQuestionEff").style.display = "none";
       document.getElementById("effQuestion").innerHTML = "<b>" + questionsEff[questionCounterEff] + "</b>";
@@ -830,9 +830,9 @@ function prevQuestionEff() {
 function restartQuestionEff() {
   questionCounterEff = 0;
   document.getElementById("effQuestion").style.display = "block";
-  document.getElementById("nextEffQuestion").style.display = "block";
+  document.getElementById("nextEffQuestion").style.display = "inline-block";
   document.getElementById("restartMessageEff").style.display = "none";
   document.getElementById("restartQuestionEff").style.display = "none";
   document.getElementById("effQuestion").innerHTML = "<b>" + questionsEff[questionCounterEff] + "</b>";
-  document.getElementById("revealEffAnswer").style.display = "block";
+  document.getElementById("revealEffAnswer").style.display = "inline-block";
 }

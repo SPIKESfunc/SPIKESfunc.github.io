@@ -430,8 +430,8 @@ function nextQuestionFun() {
         questionCounterFun++;
         document.getElementById("funQuestion").style.display = "none";
         document.getElementById("revealFunAnswer").style.display = "none";
-        document.getElementById("restartMessageFun").style.display = "block";
-        document.getElementById("restartQuestionFun").style.display = "block";
+        document.getElementById("restartMessageFun").style.display = "inline-block";
+        document.getElementById("restartQuestionFun").style.display = "inline-block";
         document.getElementById("nextFunQuestion").style.display = "none";
     }
     else {
@@ -449,8 +449,8 @@ function prevQuestionFun() {
     else {
         questionCounterFun--;
         document.getElementById("funQuestion").style.display = "block";
-        document.getElementById("nextFunQuestion").style.display = "block";
-        document.getElementById("revealFunAnswer").style.display = "block";
+        document.getElementById("nextFunQuestion").style.display = "inline-block";
+        document.getElementById("revealFunAnswer").style.display = "inline-block";
         document.getElementById("restartMessageFun").style.display = "none";
         document.getElementById("restartQuestionFun").style.display = "none";
         document.getElementById("funQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
@@ -460,9 +460,9 @@ function prevQuestionFun() {
 function restartQuestionFun() {
     questionCounterFun = 0;
     document.getElementById("funQuestion").style.display = "block";
-    document.getElementById("nextFunQuestion").style.display = "block";
+    document.getElementById("nextFunQuestion").style.display = "inline-block";
     document.getElementById("restartMessageFun").style.display = "none";
     document.getElementById("restartQuestionFun").style.display = "none";
     document.getElementById("funQuestion").innerHTML = "<b>" + questionsFun[questionCounterFun] + "</b>";
-    document.getElementById("revealFunAnswer").style.display = "block";
+    document.getElementById("revealFunAnswer").style.display = "inline-block";
 }

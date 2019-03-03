@@ -268,8 +268,8 @@ function nextQuestionAgonist() {
         questionCounterAgonist++;
         document.getElementById("agonistQuestion").style.display = "none";
         document.getElementById("revealAgonistAnswer").style.display = "none";
-        document.getElementById("restartMessageAgonist").style.display = "block";
-        document.getElementById("restartQuestionAgonist").style.display = "block";
+        document.getElementById("restartMessageAgonist").style.display = "inline-block";
+        document.getElementById("restartQuestionAgonist").style.display = "inline-block";
         document.getElementById("nextAgonistQuestion").style.display = "none";    }
     else {
         questionCounterAgonist++; 
@@ -286,8 +286,8 @@ function prevQuestionAgonist() {
     else {
         questionCounterAgonist--;
         document.getElementById("agonistQuestion").style.display = "block";
-        document.getElementById("nextAgonistQuestion").style.display = "block";
-        document.getElementById("revealAgonistAnswer").style.display = "block";
+        document.getElementById("nextAgonistQuestion").style.display = "inline-block";
+        document.getElementById("revealAgonistAnswer").style.display = "inline-block";
         document.getElementById("restartMessageAgonist").style.display = "none";
         document.getElementById("restartQuestionAgonist").style.display = "none";
         document.getElementById("agonistQuestion").innerHTML = "<b>" + questionsAgonist[questionCounterAgonist] + "</b>";
@@ -297,10 +297,10 @@ function prevQuestionAgonist() {
 function restartQuestionAgonist() {
     questionCounterAgonist = 0;    
     document.getElementById("agonistQuestion").style.display = "block";
-    document.getElementById("nextAgonistQuestion").style.display = "block";
+    document.getElementById("nextAgonistQuestion").style.display = "inline-block";
     document.getElementById("restartMessageAgonist").style.display = "none";
     document.getElementById("restartQuestionAgonist").style.display = "none";
     document.getElementById("agonistQuestion").innerHTML = "<b>" + questionsAgonist[questionCounterAgonist] + "</b>";
-	document.getElementById("revealAgonistAnswer").style.display = "block";
+	document.getElementById("revealAgonistAnswer").style.display = "inline-block";
 }
 

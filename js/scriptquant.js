@@ -741,8 +741,8 @@ function nextQuestionSchild() {
         questionCounterSchild++;
         document.getElementById("schildQuestion").style.display = "none";
         document.getElementById("revealSchildAnswer").style.display = "none";
-        document.getElementById("restartMessageSchild").style.display = "block";
-        document.getElementById("restartQuestionSchild").style.display = "block";
+        document.getElementById("restartMessageSchild").style.display = "inline-block";
+        document.getElementById("restartQuestionSchild").style.display = "inline-block";
         document.getElementById("nextSchildQuestion").style.display = "none";
     }
     else {
@@ -760,8 +760,8 @@ function prevQuestionSchild() {
     else {
         questionCounterSchild--;
         document.getElementById("schildQuestion").style.display = "block";
-        document.getElementById("nextSchildQuestion").style.display = "block";
-        document.getElementById("revealSchildAnswer").style.display = "block";
+        document.getElementById("nextSchildQuestion").style.display = "inline-block";
+        document.getElementById("revealSchildAnswer").style.display = "inline-block";
         document.getElementById("restartMessageSchild").style.display = "none";
         document.getElementById("restartQuestionSchild").style.display = "none";
         document.getElementById("schildQuestion").innerHTML = "<b>" + questionsSchild[questionCounterSchild] + "</b>";
@@ -771,9 +771,9 @@ function prevQuestionSchild() {
 function restartQuestionSchild() {
     questionCounterSchild = 0;
     document.getElementById("schildQuestion").style.display = "block";
-    document.getElementById("nextSchildQuestion").style.display = "block";
+    document.getElementById("nextSchildQuestion").style.display = "inline-block";
     document.getElementById("restartMessageSchild").style.display = "none";
     document.getElementById("restartQuestionSchild").style.display = "none";
     document.getElementById("schildQuestion").innerHTML = "<b>" + questionsSchild[questionCounterSchild] + "</b>";
-    document.getElementById("revealSchildAnswer").style.display = "block";
+    document.getElementById("revealSchildAnswer").style.display = "inline-block";
 }

@@ -393,8 +393,8 @@ function nextQuestionAff() {
         questionCounterAff++;
         document.getElementById("affQuestion").style.display = "none";
         document.getElementById("revealAffAnswer").style.display = "none";
-        document.getElementById("restartMessageAff").style.display = "block";
-        document.getElementById("restartQuestionAff").style.display = "block";
+        document.getElementById("restartMessageAff").style.display = "inline-block";
+        document.getElementById("restartQuestionAff").style.display = "inline-block";
         document.getElementById("nextAffQuestion").style.display = "none";
     }
     else {
@@ -412,8 +412,8 @@ function prevQuestionAff() {
     else {
         questionCounterAff--;
         document.getElementById("affQuestion").style.display = "block";
-        document.getElementById("nextAffQuestion").style.display = "block";
-        document.getElementById("revealAffAnswer").style.display = "block";
+        document.getElementById("nextAffQuestion").style.display = "inline-block";
+        document.getElementById("revealAffAnswer").style.display = "inline-block";
         document.getElementById("restartMessageAff").style.display = "none";
         document.getElementById("restartQuestionAff").style.display = "none";
         document.getElementById("affQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
@@ -423,9 +423,9 @@ function prevQuestionAff() {
 function restartQuestionAff() {
     questionCounterAff = 0;
     document.getElementById("affQuestion").style.display = "block";
-    document.getElementById("nextAffQuestion").style.display = "block";
+    document.getElementById("nextAffQuestion").style.display = "inline-block";
     document.getElementById("restartMessageAff").style.display = "none";
     document.getElementById("restartQuestionAff").style.display = "none";
     document.getElementById("affQuestion").innerHTML = "<b>" + questionsAff[questionCounterAff] + "</b>";
-    document.getElementById("revealAffAnswer").style.display = "block";
+    document.getElementById("revealAffAnswer").style.display = "inline-block";
 }

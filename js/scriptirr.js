@@ -348,8 +348,8 @@ function nextQuestionIrr() {
         questionCounterIrr++;
         document.getElementById("irrQuestion").style.display = "none";
         document.getElementById("revealIrrAnswer").style.display = "none";
-        document.getElementById("restartMessageIrr").style.display = "block";
-        document.getElementById("restartQuestionIrr").style.display = "block";
+        document.getElementById("restartMessageIrr").style.display = "inline-block";
+        document.getElementById("restartQuestionIrr").style.display = "inline-block";
         document.getElementById("nextIrrQuestion").style.display = "none";        
     }
     else {
@@ -367,8 +367,8 @@ function prevQuestionIrr() {
     else {
         questionCounterIrr--;
         document.getElementById("irrQuestion").style.display = "block";
-        document.getElementById("nextIrrQuestion").style.display = "block";
-        document.getElementById("revealIrrAnswer").style.display = "block";
+        document.getElementById("nextIrrQuestion").style.display = "inline-block";
+        document.getElementById("revealIrrAnswer").style.display = "inline-block";
         document.getElementById("restartMessageIrr").style.display = "none";
         document.getElementById("restartQuestionIrr").style.display = "none";
         document.getElementById("irrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
@@ -378,9 +378,9 @@ function prevQuestionIrr() {
 function restartQuestionIrr() {
     questionCounterIrr = 0;
     document.getElementById("irrQuestion").style.display = "block";
-    document.getElementById("nextIrrQuestion").style.display = "block";
+    document.getElementById("nextIrrQuestion").style.display = "inline-block";
     document.getElementById("restartMessageIrr").style.display = "none";
     document.getElementById("restartQuestionIrr").style.display = "none";
     document.getElementById("irrQuestion").innerHTML = "<b>" + questionsIrr[questionCounterIrr] + "</b>";
-    document.getElementById("revealIrrAnswer").style.display = "block";
+    document.getElementById("revealIrrAnswer").style.display = "inline-block";
 }
