@@ -48,7 +48,7 @@ $(document).ready(function () {
 	$('#correctFeedback').hide()
 	selectDrugs();
 	PlotQuizSchild("quizschild",0.2, false)
-	document.querySelector('[data-title="Autoscale"]').click();
+	//document.querySelector('[data-title="Autoscale"]').click();
 	PlotQuizSchild("actualanswer",1.0, true)
 	PlotQuizSchild("correctanswer",1.0, true)
 	document.getElementById("loader").style.display = "none";
