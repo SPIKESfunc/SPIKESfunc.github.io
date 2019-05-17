@@ -348,12 +348,14 @@ function plotAnswerSchild(chart, rec){
 			ticktext: ["-9","","","","","-8.5","","","","","-8","","","","","-7.5","","","","","-7","","","","","-6.5","","","","","-6",
 "","","","","-5.5","","","","","-5","","","","","-4.5","","","","","-4","","","","","-3.5","","","","","-3","","","","","-2.5","","","",
 "","-2"],
-			ticks: 'outside'
+			ticks: 'outside',
+			autorange: true
 		},
 		yaxis:{
 			title:"Log(DR-1)",
 			showline: true,
 			range:[0.0,5.0],
+			autorange: true
 		},
 		showlegend: true
 	}
@@ -407,12 +409,14 @@ function PlotQuizSchild(chart, ticksize, show){
 			ticktext: ["-9","","","","","-8.5","","","","","-8","","","","","-7.5","","","","","-7","","","","","-6.5","","","","","-6",
 "","","","","-5.5","","","","","-5","","","","","-4.5","","","","","-4","","","","","-3.5","","","","","-3","","","","","-2.5","","","",
 "","-2"],
-			ticks: 'outside'
+			ticks: 'outside',
+			autorange: true
 		},
 		yaxis:{
 			title:"Log(DR-1)",
 			showline: true,
 			range:[0.0,5.0],
+			autorange: true
 		},
 		showlegend: show
 	}
