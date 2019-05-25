@@ -305,7 +305,7 @@ function quizReturn(){
 	PlotQuizSchild("quizschild",0.2, false)
 	PlotQuizSchild("actualanswer",1.0, true)
 	PlotQuizSchild("correctanswer",1.0, true)
-	document.querySelector('[data-title="Autoscale"]').click();
+	//document.querySelector('[data-title="Autoscale"]').click();
 }
 
 function quizReset(){
@@ -318,7 +318,7 @@ function quizReset(){
 	PlotQuizSchild("quizschild",0.2, false)
 	PlotQuizSchild("actualanswer",1.0, true)
 	PlotQuizSchild("correctanswer",1.0, true)
-	document.querySelector('[data-title="Autoscale"]').click();
+	//document.querySelector('[data-title="Autoscale"]').click();
 }
 
 // Schlid
