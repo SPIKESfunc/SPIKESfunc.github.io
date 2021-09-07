@@ -87,7 +87,7 @@ function resetQuantIrr(){
         layout: {}
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
-    Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
 function graphAlertIrr(div){
