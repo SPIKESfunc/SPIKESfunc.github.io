@@ -836,3 +836,4 @@ function restartQuestionEff() {
   document.getElementById("effQuestion").innerHTML = "<b>" + questionsEff[questionCounterEff] + "</b>";
   document.getElementById("revealEffAnswer").style.display = "inline-block";
 }
+/*EOF*/
