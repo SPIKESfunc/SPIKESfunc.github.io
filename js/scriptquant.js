@@ -32,6 +32,9 @@ var animation = {
  }
 }
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 function findComHalfMaxEffect(lineData){
     comHalfMaxEffect = Math.max.apply(Math, lineData[1])/2;
 } 
@@ -586,7 +589,8 @@ function plotGraphCom(chart){
             mode: 'markers',
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "orange"
+                color: "orange",
+                size: dotsize
             },
             showlegend: legendview[i]
         }];
