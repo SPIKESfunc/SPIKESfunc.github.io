@@ -17,6 +17,9 @@ var animation = {
  }
 };
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 $(document).ready(function () {
   document.getElementById("loader").style.display = "none";
   document.getElementById("page").style.visibility = "visible";
@@ -210,7 +213,9 @@ function plotGraph(chart){
 		mode: "markers",
 		name: "EC<sub>50</sub> value",
         marker: {
-            color: "orange"
+            color: "orange",
+            size: dotsize
+
         }
 	}];
 	Plotly.plot(chart,trace1,layout, {responsive: true});

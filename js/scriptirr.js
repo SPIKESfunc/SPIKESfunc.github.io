@@ -18,6 +18,10 @@ var animation = {
     }
 }
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
+
 /**
  * Checks if the input value is zero and returns the value 
  * @returns 
@@ -324,7 +328,8 @@ function plotGraphIrr(chart) {
             mode: 'markers',
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "orange"
+                color: "orange",
+                size: dotsize
             },
             showlegend: legendview[i]
         }];

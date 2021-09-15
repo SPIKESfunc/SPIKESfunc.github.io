@@ -21,6 +21,9 @@ var animation = {
     }
 }
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 function checkSliderMinFun(){
     let ret = false;
     if(document.getElementById("afffunslider").value == 4){
@@ -391,7 +394,8 @@ function plotGraphFun(chart){
             mode: 'markers',
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "orange"
+                color: "orange",
+                size: dotsize
             },
             showlegend: legendview[i]
         }];

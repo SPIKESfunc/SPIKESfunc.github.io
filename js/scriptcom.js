@@ -19,6 +19,9 @@ var halfData4;
 var data50;
 var calc50;
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 var animation = {
     transition: {
         duration: 0,
@@ -324,7 +327,8 @@ function plotGraphCom(chart){
             mode: "markers",
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "orange"
+                color: "orange",
+                size: dotsize
             },
             showlegend: legendview[i]
         }];

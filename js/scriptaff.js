@@ -32,6 +32,8 @@ var animation = {
  }
 };
 
+//new vars
+var dotsize = 10 // defines 50% dot size
 
 function checkSliderMinAff(){
     let ret = false;
@@ -356,7 +358,8 @@ function plotGraphAff(chart){
             mode: "markers",
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "orange"
+                color: "orange",
+                size: dotsize
             },
             showlegend: legendview[i]
         }];
