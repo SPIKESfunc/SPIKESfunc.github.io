@@ -93,8 +93,15 @@
 										</div>
 										<div class="modal-body">
 											<div class="box">
-												<p>Observe the effects of changing the characteristics of the Agonist (affinity, intrinsic efficacy) and/or the Cell (receptor density, efficiency of coupling) by moving the red slider along the grey bar to the right or left to increase or decrease the value of the characteristic, respectively.</p>
+												<p>Below is a short animation illustrating the action of agonists on receptors:</p>
+												<div style='text-align:center'>
+													<video width="320" height="240" controls>
+														<source src="images/Agonist binding.mp4" type="video/mp4">
+													</video>
+												</div>
+												<p>A general schema of how agonists interact with receptors to produce a change in cellular activity is shown below.</p>
 												<img src="images/agonistchart.png" alt="Agonist Chart" style="max-height: 100%; max-width: 100%;" /><br/>
+												<p>Observe the effects of changing the characteristics of the Agonist (affinity, intrinsic efficacy) and/or the Cell (receptor density, signal amplification) by moving the red slider along the grey bar to the right or left to increase or decrease the value of the characteristic, respectively.</p>
 												<p>Some clinically-used drugs act as agonists – e.g. salbutamol at the &#946<sub>2</sub>-adrenoceptor, adrenaline at various adrenoceptors, morphine at opioid receptors, etc.</p>
 											</div>
 										</div>
@@ -115,7 +122,7 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Affinity</b> is a measure of the strength of binding of a drug to a receptor (both agonists and antagonists have affinity), and depends on the existence of chemical forces of attraction between the agonist and the receptor binding site (e.g. most commonly ionic bonds, hydrogen bonds, van der Waals forces). The strength of binding (affinity) depends upon the respective 3-D structures of the agonist and binding site – the strength of binding dissipates markedly as the distance between the agonist and binding site increases. High affinity agonists bind to binding sites at low concentrations, whereas low affinity agonists bind at higher concentrations. The affinity of ligands (agonists and antagonists) can be quantitated using the Equilibrium Dissociation Constant (K<sub>A</sub>), which is the concentration of ligand needed to occupy (bind to) 50% of receptors. K<sub>A</sub> is also the ratio of the rate the ligand (agonist or antagonist) leaves the receptor binding site (k<sub>off</sub>) and the rate it approaches the receptor binding site (k<sub>on</sub>). The K<sub>A</sub> value is inversely proportional to the affinity (high affinity ligands have low K<sub>A</sub> values) and is typically measured in drug binding assays (plots of [ligand] versus fractional receptor occupancy). As the [ligand] increases the fraction of receptor bound increases nonlinearly (rectangular hyperbolic function) to form a maximal asymptote (from which R<sub>T</sub> can be determined). Colloquially, “affinity is what brings the drug to the receptor”.</p>
+												<p><b>Affinity</b> is a measure of the strength of binding of a drug to a receptor (both agonists and antagonists have affinity), and depends on the existence of chemical forces of attraction between the agonist and the receptor binding site (e.g. most commonly ionic bonds, hydrogen bonds, van der Waals forces). The strength of binding (affinity) depends upon the respective 3-D structures of the agonist and binding site – the strength of binding dissipates markedly as the distance between the agonist and binding site increases. High affinity agonists bind to binding sites at low concentrations, whereas low affinity agonists bind at higher concentrations. The affinity of ligands (agonists and antagonists) can be quantitated using the Equilibrium Dissociation Constant (K<sub>A</sub>), which is the concentration of ligand needed to occupy (bind to) 50% of receptors (in the absence of any competing ligands). K<sub>A</sub> is also the ratio of the rate the ligand (agonist or antagonist) leaves the receptor binding site (k<sub>off</sub>) and the rate it approaches the receptor binding site (k<sub>on</sub>). The K<sub>A</sub> value is inversely proportional to the affinity (high affinity ligands have low K<sub>A</sub> values, and vice versa) and is typically measured in drug binding assays (plots of [ligand] versus fractional receptor occupancy). As the [ligand] increases the fraction of receptor bound increases nonlinearly (rectangular hyperbolic function) to form a maximal asymptote (from which R<sub>T</sub> can be determined). Colloquially speaking, “affinity is what brings the drug to the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
@@ -135,7 +142,7 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Intrinsic Efficacy</b> is the property of the agonist that enables it, once bound, to change the conformation of the receptor (activation), such that it alters the activity of downstream signalling pathways to produce a change in cellular activity. Efficacy is measured in relative terms, having no absolute scale – but different ligands have clearly different efficacies – full agonists have higher efficacies than partial agonists, and antagonists typically have no efficacy (bind to but don’t activate the receptor). Thus, different agonists have different inherent capacities to induce a response, and equal cellular responses can be achieved by different fractional receptor occupancies. Colloquially, efficacy is “what the drug does once it binds to the receptor”.</p>
+												<p><b>Intrinsic Efficacy</b> is the property of the agonist that enables it, once bound, to change the conformation of the receptor (activation), such that it alters the activity of downstream signalling pathways to produce a change in cellular activity. Efficacy is measured in relative terms, having no absolute scale – but different ligands have clearly different efficacies – full agonists have higher efficacies than partial agonists, and antagonists typically have no efficacy (bind to but don’t activate the receptor). Thus, different agonists have different inherent capacities to induce a response, and equal cellular responses can be achieved by different fractional receptor occupancies. Colloquially speaking, efficacy is “what the drug does once it binds to the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
@@ -169,16 +176,16 @@
 								</div>
 								<input type="range" autocomplete="off" name="density" id="denslider" min="-0.3" max="0.7" step="0.01" value="0.2"
 								 oninput="updateDensity(this.value)">
-								<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info4"><i class="red1 fa fa-info-circle"></i></a>
+								<br><label for="efficiency">Signal Amplification (<i>f</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info4"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info4" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h4 class="modal-title">Coupling Efficiency</h4>
+												<h4 class="modal-title">Signal Amplification</h4> <!--Note: Coupling Efficacy has been replaced by Signal Amplification as per the new model. Variable names remain the same-->
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Coupling Efficiency</b> is a cell-dependent parameter describing the efficiency of the signalling pathways that couple (link) the activated receptor to the measured effect. Some cells have high coupling efficiencies, meaning that activation of a relatively small number of receptors can lead to a large cellular response. Other cells may have low coupling efficiencies (perhaps due to low expression / activity of a key signalling pathway component) and high levels of receptor activation may produce relatively small cellular responses.</p>
+												<p><b>Signal Amplification </b> Signal amplification is a cell-dependent parameter describing the efficiency of the signalling pathways that couple (link) the activated receptor to the measured effect. Some cells have high signal amplification capacities, meaning that activation of a relatively small number of receptors can lead to a large cellular response. Other cells may have low signal amplification capacities (perhaps due to low expression / activity of a key signalling pathway component) and high levels of receptor activation may produce relatively small cellular responses.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
