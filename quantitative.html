@@ -1276,15 +1276,14 @@
 									the agonist-induced response identified.
 								</p>
 								<p>
-									<b><i>In the Schild Plot Generator</i></b> you can choose the characteristics of the agonist (affinity,
-									intrinsic
-									efficacy) and cell (receptor density, coupling efficiency) by moving the red slider along the grey
-									bar (as per Dose-Response Visualiser). Furthermore, you can select the affinity of the antagonist (in
-									the Competitive Antagonist window) and select up to three [antagonist] (in the Schild Plot Analysis
-									window) for use in the Schild Analysis, by entering specific values or by using the up/down arrows.
+									<b><i>In the Schild Plot Generator</i></b> you can choose the characteristics of the agonist (affinity, intrinsic
+									efficacy) and cell (receptor density, signal amplification) by moving the red sliders along the grey
+									bar (as per Dose-Response Visualiser). Furthermore, you can select the characteristics of the antagonist
+									 (e.g. affinity in the Competitive Antagonist window) and select up to four [antagonist] (in the Schild Plot Analysis
+									window) for use in the Schild Analysis, by entering specific values or by using the up/down chevrons.
 									The Schild Plot Generator determines the [Agonist] that produces 50%Emax for each agonist dose-
 									response curve to calculate the dose ratio and log(DR-1) values, which are presented within the
-									Schild Analysis Table. The log(DR-1) values for the 3 [antagonist] are then plotted to generate the
+									Schild Analysis Table. The log(DR-1) values for the 4 [antagonist] are then plotted to generate the
 									idealised Schild Plot. Any of the agonist, cell of antagonist parameters can be changed at any time
 									and the effect on the Schild plot shown in real time. A return to default parameter values can be
 									accomplished by clicking on the <b>RESET</b> button.
@@ -1297,6 +1296,26 @@
 									to each of the Questions posed can be obtained by clicking on the Reveal Answer icon. Completing these
 									questions, together with an understanding of the SPIKES approach to interpreting Schild plot data,
 									will prepare you well for the ‘Schild Plot Analysis Quiz’.
+								</p>
+								<p>
+									The first (default) page you will see in the Schild Plot Generator is the “Schild Plot Generator for Competitive 
+									Antagonist”.  In addition, you can also investigate how non-competitive antagonists, such as irreversible, 
+									allosteric and functional antagonists produce Schild Plots that are typically nonlinear and/or have a slope 
+									not equal to 1.0.  You will notice that the different types of antagonist produce quite distinct types of 
+									Schild Plot.  For example, whereas irreversible antagonists always produce Schild plots with a slope > 1.0, 
+									allosteric antagonists will generally produce Schild Plots with a slope < 1.0.  The inclusion of these 
+									non-competitive antagonists in the Schild plot generator is primarily for illustrative purposes, 
+									and not to suggest that such non-ideal Schild plots can be used to generate legitimate –logK<sub>B</sub> 
+									values from the pA<sub>2</sub> value.  
+								</p>
+								<p>
+									Although Schild Plots for competitive antagonists should be linear with a slope not significantly different 
+									from 1.0 (ideal), there are many instances in the published scientific literature of ‘non-ideal’ Schild Plots, 
+									where the plot is nonlinear or has a slope different from 1.0.  ‘Non-ideal’ Schild Plots to competitive 
+									antagonists typically reflect non-ideal experimental conditions.  In the “Schild Plot Generator”, the 
+									‘Non-Ideal Schild Plot’ page provides illustrations of some of the ways that Schild Plots can deviate 
+									from being ideal (e.g. nonlinear with a slope < 1.0 at low concentrations of the antagonist), while also 
+									providing mechanistic insights and potential remedies. 
 								</p>
 							</div>
 						</div>
@@ -1312,7 +1331,16 @@
 									the SPIKES approach. SPIKES is a mnemonic that provides a stepwise approach for analysing Schild
 									plots.
 								</p>
-								<p>
+
+								SPIKES Approach 1:</br>
+																	
+								<div style='text-align:center'>
+									<video width="320" height="240" controls>
+										<source src="images\Initial steps in SPIKES approach.mp4" type="video/mp4">
+									</video>
+								</div>
+
+								<br><p>
 									<span style="color:red; font-size: 22px"><b>S</b></span>hape of the Schild Plot – should be linear.
 									Nonlinearity is indicative of key assumptions of the
 									Schild Analysis not being met (e.g. antagonism must be competitive) and makes the pA<sub>2</sub> values
@@ -1346,7 +1374,16 @@
 									(slope=1)
 									of each Schild plot) by selecting the appropriate response from the drop-down list (Yes, No, Unsure).
 								</p>
-								<p>
+
+								SPIKES Approach 2:</br>
+																	
+								<div style='text-align:center'>
+									<video width="320" height="240" controls>
+										<source src="images\Elimination and Summation steps in SPIKES.mp4" type="video/mp4">
+									</video>
+								</div>
+
+								<br><p>
 									<span style="color:red; font-size: 22px"><b>E</b></span>limination. If for any antagonist, there is at least a
 									1.0 log unit difference between the observed
 									pA<sub>2</sub> value and the known –logK<sub>i</sub> value at any particular receptor subtype (see reference
