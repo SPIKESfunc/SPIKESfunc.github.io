@@ -61,16 +61,16 @@ function graphRemoveAlert(div){
 
 function checkSliderMinAgo(){
     let ret = false;
-    if(document.getElementById("affslider").value === "4"){
+    if(document.getElementById("affslider").value === "5"){
         ret = true;
     }
-    if(document.getElementById("effslider").value === "-0.3"){
+    if(document.getElementById("effslider").value === "-0.7"){
         ret = true;
     }
-    if(document.getElementById("denslider").value === "-0.3"){
+    if(document.getElementById("denslider").value === "-1"){
         ret = true;
     }
-    if(document.getElementById("efficislider").value === "-0.3"){
+    if(document.getElementById("efficislider").value === "0"){
         ret = true;
     }
     return ret;
