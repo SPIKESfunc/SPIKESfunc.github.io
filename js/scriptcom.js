@@ -39,16 +39,16 @@ function findComHalfMaxEffect(lineData){
 
 function checkSliderMinCom(){
     let ret = false;
-    if(document.getElementById("affcomslider").value === "4"){
+    if(document.getElementById("affcomslider").value === "5"){
         ret = true;
     }
-    if(document.getElementById("effcomslider").value === "-0.3"){
+    if(document.getElementById("effcomslider").value === "-0.7"){
         ret = true;
     }
-    if(document.getElementById("dencomslider").value === "-0.3"){
+    if(document.getElementById("dencomslider").value === "-1"){
         ret = true;
     }
-    if(document.getElementById("efficicomslider").value === "-0.3"){
+    if(document.getElementById("efficicomslider").value === "0"){
         ret = true;
     }
     return ret;
