@@ -196,10 +196,11 @@ function plotGraph(chart){
         showlegend: false,
         x: lineData[0],
         y: lineData[1],
+        name: "Curve",
         mode: "lines",
         line: {
             color: "#000000",
-            width: 1
+            width: 1,
         }
     }
     data.push(graph);
