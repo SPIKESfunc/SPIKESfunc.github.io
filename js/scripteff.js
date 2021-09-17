@@ -28,16 +28,16 @@ var dotsize = 10 // defines 50% dot size
 
 function checkSliderMinEff() {
   let ret = false;
-  if (document.getElementById("affeffslider").value === "4") {
+  if (document.getElementById("affeffslider").value === "5") {
     ret = true;
   }
-  if (document.getElementById("effeffslider").value === "-0.3") {
+  if (document.getElementById("effeffslider").value === "-0.7") {
     ret = true;
   }
-  if (document.getElementById("deneffslider").value === "-0.3") {
+  if (document.getElementById("deneffslider").value === "-1") {
     ret = true;
   }
-  if (document.getElementById("efficieffslider").value === "-0.3") {
+  if (document.getElementById("efficieffslider").value === "0") {
     ret = true;
   }
   return ret;

@@ -28,16 +28,16 @@ var dotsize = 10 // defines 50% dot size
  */
 function checkSliderMinIrr() {
     let ret = false;
-    if (document.getElementById("affirrslider").value == 4) {
+    if (document.getElementById("affirrslider").value == 5) {
         ret = true
     }
-    if (document.getElementById("effirrslider").value == -0.3) {
+    if (document.getElementById("effirrslider").value == -0.7) {
         ret = true
     }
-    if (document.getElementById("denirrslider").value == -0.3) {
+    if (document.getElementById("denirrslider").value == -1) {
         ret = true
     }
-    if (document.getElementById("efficiirrslider").value == -0.3) {
+    if (document.getElementById("efficiirrslider").value == 0) {
         ret = true
     }
     return ret
