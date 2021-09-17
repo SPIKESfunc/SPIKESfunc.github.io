@@ -358,8 +358,12 @@ function plotGraphAff(chart){
             mode: "markers",
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "orange",
-                size: dotsize
+                color: "red",
+                size: dotsize,
+                line: {
+                    color: 'black',
+                    width: 1
+                  }
             },
             showlegend: legendview[i]
         }];

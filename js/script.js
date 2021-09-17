@@ -214,8 +214,11 @@ function plotGraph(chart){
 		name: "EC<sub>50</sub> value",
         marker: {
             color: "red",
-            size: dotsize
-
+            size: dotsize,
+            line: {
+                color: 'black',
+                width: 1
+              }
         }
 	}];
 	Plotly.plot(chart,trace1,layout, {responsive: true});
