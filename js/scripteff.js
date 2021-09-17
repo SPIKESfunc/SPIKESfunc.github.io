@@ -69,11 +69,8 @@ function calcLinesEff(
     var agoconc = 0;
     agoaffin = 0;
     for (i = -12; i < -2; i = i + STEP) {
-      effect =
-        (10 ** i * efcay * recep * efcey * 100) /
-        (10 ** i * (efcay * recep * efcey + 1) + affin);
       data[0].push(i);
-      data[1].push(effect);
+      data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
     }
   } else {
     agoconc = 10 ** agoconcentration;

@@ -90,7 +90,6 @@ function calcLines(affinity, efficacy, recepDensity, efficiency){
         //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
         data[0].push(i);
         data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
-        console.log(affin)
     }
     return data;
 }

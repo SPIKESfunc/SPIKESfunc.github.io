@@ -65,15 +65,17 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     var agoaffin = 10**(-1*agoaffinity);
     var agoconc;
 
+    // graphs base line
     if(agoconcentration === 0){
         agoconc = 0;
         agoaffin = 0;
         for (var i=-12; i<-2;i=i+STEP){
             //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
         }
     }
+    //graphs other lines
     else{
         agoconc = 10**agoconcentration;
         for (var i=-12; i<-2;i=i+STEP){
