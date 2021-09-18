@@ -1598,7 +1598,7 @@
 										</div>
 									</div>
 									<input type="range" autocomplete="off" name="density" id="denfunslider" min="-1"
-										max="-1" step="0.01" value="0"
+										max="1" step="0.01" value="0"
 										oninput="updateDensityFun(this.value)">
 									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label><a
 										data-toggle="modal" href="" data-target="#info26"><i
@@ -1638,22 +1638,22 @@
 							<fieldset style="width: 430px;">
 								<legend>Functional Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
-								<input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="6"
-									max="10" step="0.04" value="8" oninput="updateAgoAffinityFun(this.value)">
+								<input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="5"
+									max="9" step="0.04" value="7" oninput="updateAgoAffinityFun(this.value)">
 								<br><label for="effect">Intrinsic Efficacy (&#949)&nbsp</label>
-								<input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667"
-									max="0" step="0.06667" value="-0.33335" oninput="updateAgoEfficacyFun(this.value)">
+								<input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.7"
+									max="0" step="0.01" value="-0.35" oninput="updateAgoEfficacyFun(this.value)">
 								<!--value was -0.216-->
 								<fieldset>
 									<legend>Cell</legend>
 									<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label>
 									<input type="range" autocomplete="off" name="density" id="agodenfunslider"
-										min="-0.6667" max="0" step="0.006667" value="-0.33335"
+										min="-1" max="1" step="0.01" value="0"
 										oninput="updateAgoDensityFun(this.value)">
 									<!--value was -0.216-->
 									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)&nbsp</label>
 									<input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider"
-										min="-0.6667" max="0" step="0.06667" value="-0.33335"
+										min="0" max="2" step="0.01" value="1"
 										oninput="updateAgoEfficiencyFun(this.value)">
 									<!--value was -0.216-->
 								</fieldset>

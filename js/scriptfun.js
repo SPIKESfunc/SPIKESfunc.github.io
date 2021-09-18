@@ -26,13 +26,13 @@ var dotsize = 10 // defines 50% dot size
 
 function checkSliderMinFun(){
     let ret = false;
-    if(document.getElementById("afffunslider").value == 4){
+    if(document.getElementById("afffunslider").value == 5){
         ret = true
     }
-    if(document.getElementById("efffunslider").value == 0){
+    if(document.getElementById("efffunslider").value == -0.7){
         ret = true
     }
-    if(document.getElementById("denfunslider").value == 0){
+    if(document.getElementById("denfunslider").value == -1){
         ret = true
     }
     if(document.getElementById("efficifunslider").value == 0){
