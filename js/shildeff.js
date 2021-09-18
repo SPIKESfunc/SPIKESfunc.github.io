@@ -6,6 +6,9 @@ var efficeff = document.getElementById("efficieffslider").defaultValue;
 var agoaffeff = document.getElementById("agoeffnumeff").defaultValue;
 var agoefflogeff = document.getElementById("agoefflognumeff").defaultValue;
 var agoeffeff = document.getElementById("agoeffeff").defaultValue;
+var effleveleff = document.getElementById("effleveleff").defaultValue;
+document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixed(2);
+document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
 
 var antval0eff = document.getElementById("ant0eff").defaultValue;
 var antval1eff = document.getElementById("ant1eff").defaultValue;
@@ -39,7 +42,7 @@ function titleEff(){
 }
 
 function findEffHalfMaxEffect(lineData){
-    effHalfMaxEffect = Math.max.apply(Math, lineData[1])/2;
+    effHalfMaxEffect = Math.max.apply(Math, lineData[1])*effleveleff;
 } 
 
 function calc50Eff(lineData){
@@ -59,6 +62,10 @@ function resetQuantEff(){
     deneff = document.getElementById("deneffslider").value = document.getElementById("deneffslider").defaultValue;
     efficeff = document.getElementById("efficieffslider").value = document.getElementById("efficieffslider").defaultValue;
     agoaffeff = document.getElementById("agoeffnumeff").value = document.getElementById("agoeffnumeff").defaultValue;
+    effleveleff = document.getElementById("effleveleff").value = document.getElementById("effleveleff").defaultValue;
+    document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixed(2);
+    document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
+    
     agoefflogeff = document.getElementById("agoefflognumeff").value = document.getElementById("agoefflognumeff").defaultValue;
     antval0eff = document.getElementById("ant0eff").value = document.getElementById("ant0eff").defaultValue;
     antval1eff = document.getElementById("ant1eff").value = document.getElementById("ant1eff").defaultValue;
@@ -110,6 +117,9 @@ function checkSliderMinEff(){
         ret = true
     }
     if(document.getElementById("efficieffslider").value == 0.04){
+        ret = true
+    }
+    if(document.getElementById("effleveleff").value == 0){
         ret = true
     }
     return ret
@@ -271,6 +281,41 @@ function updateAgoAffinityEff(value){
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
 }
+
+function updateefflevelEff(value){
+    effleveleff = value;
+    document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixed(2);
+    document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
+    if(checkSliderMinEff()){
+        Plotly.restyle("quantitativeEff", 'visible', false)
+        graphAlertEff("quantalertEff")
+    }
+    else{
+        graphRemoveAlertEff("quantalertEff")
+        Plotly.restyle("quantitativeEff", 'visible', true)
+        lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+        lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[1]);
+        lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[2]);
+        lineData3 = calcLinesEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[3]);
+        findEffHalfMaxEffect(lineData0);
+        halfData0 = calc50Eff(lineData0);
+        halfData1 = calc50Eff(lineData1);
+        halfData2 = calc50Eff(lineData2);
+        halfData3 = calc50Eff(lineData3);
+
+        updateEverythingEff();
+        Plotly.animate("quantitativeEff",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
+            traces: [0,1,2,3,4,5,6,7], 
+            layout: {}
+            },animation)
+        schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], logdr1eff, logdr2eff, logdr3eff);
+        Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    }
+
+} 
 
 function updateAgoAffinityLogEff(value){
     agoefflogeff = value;
@@ -631,7 +676,7 @@ function plotGraphEff(chart){
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "EC<sub>50</sub> Value",
+            name: "EC Value",
             marker: {
                 color: "orange"
             },

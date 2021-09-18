@@ -5,6 +5,11 @@ var dencom = document.getElementById("dencomslider").defaultValue;
 var efficcom = document.getElementById("efficicomslider").defaultValue;
 var agoaff = document.getElementById("agoaffnum").defaultValue;
 var agoafflog = document.getElementById("agoafflognum").defaultValue;
+var efflevelcom = document.getElementById("efflevelcom").defaultValue;
+document.getElementById("displayeffectcom").innerHTML = (efflevelcom*100).toFixed(2);
+document.getElementById("efftablecom").innerHTML = (efflevelcom*100).toFixed(2);
+
+
 var antval0 = document.getElementById("ant0").defaultValue;
 var antval1 = document.getElementById("ant1").defaultValue;
 var antval2 = document.getElementById("ant2").defaultValue;
@@ -37,7 +42,7 @@ function titleCom(){
 }
 
 function findComHalfMaxEffect(lineData){
-    comHalfMaxEffect = Math.max.apply(Math, lineData[1])/2;
+    comHalfMaxEffect = Math.max.apply(Math, lineData[1])* efflevelcom;
 } 
 
 function calc50(lineData){
@@ -58,6 +63,10 @@ function resetQuant(){
     efficcom = document.getElementById("efficicomslider").value = document.getElementById("efficicomslider").defaultValue;
     agoaff = document.getElementById("agoaffnum").value = document.getElementById("agoaffnum").defaultValue;
     agoafflog = document.getElementById("agoafflognum").value = document.getElementById("agoafflognum").defaultValue;
+    efflevelcom = document.getElementById("efflevelcom").value = document.getElementById("efflevelcom").defaultValue;
+    document.getElementById("displayeffectcom").innerHTML = (efflevelcom*100).toFixed(2);
+    document.getElementById("efftablecom").innerHTML = (efflevelcom*100).toFixed(2);
+    
     antval0 = document.getElementById("ant0").value = document.getElementById("ant0").defaultValue;
     antval1 = document.getElementById("ant1").value = document.getElementById("ant1").defaultValue;
     antval2 = document.getElementById("ant2").value = document.getElementById("ant2").defaultValue;
@@ -108,6 +117,9 @@ function checkSliderMinCom(){
         ret = true
     }
     if(document.getElementById("efficicomslider").value == 0.04){
+        ret = true
+    }
+    if(document.getElementById("efflevelcom").value == 0){
         ret = true
     }
     return ret
@@ -295,6 +307,40 @@ function updateAgoAffinityLog(value){
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
     Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
+}
+
+function updateefflevelCom(value){
+    efflevelcom = value;
+    document.getElementById("displayeffectcom").innerHTML = (efflevelcom*100).toFixed(2);
+    document.getElementById("efftablecom").innerHTML = (efflevelcom*100).toFixed(2);
+    if(checkSliderMinCom()){
+        Plotly.restyle("quantitative", 'visible', false)
+        graphAlert("quantalert")
+    }
+    else{
+        graphRemoveAlert("quantalert")
+        Plotly.restyle("quantitative", 'visible', true)
+        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoafflog, agoconcarr[3]);
+        findComHalfMaxEffect(lineData0);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+
+        updateEverything();
+        Plotly.animate("quantitative",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
+            traces: [0,1,2,3,4,5,6,7], 
+            layout: {}
+            },animation)
+        schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], logdr1, logdr2, logdr3);
+        Plotly.animate("schild",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    }
 }
 
 function updateAntagonist1(value){
@@ -588,7 +634,7 @@ function plotGraphCom(chart){
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "EC<sub>50</sub> Value",
+            name: "EC Value",
             marker: {
                 color: "orange"
             },

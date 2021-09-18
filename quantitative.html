@@ -135,6 +135,13 @@
 						</div>
 						<div class="row">
 							<div class="col-lg-6">
+								<fieldset style="width: 100%">
+									<label for="levelofeffectcom">Level of effect(%Emax)</label>
+									<input type="range" style="float:right;" autocomplete="off" name="levelofeffectcom" id="efflevelcom" min="0" max="1"
+									step="0.0001" value="0.5" oninput="updateefflevelCom(this.value)">
+									<br>
+									<p>Current Level of effect(%Emax) is <b id="displayeffectcom"></b>%</p>
+								</fieldset>
 								<!-- Questions go here -->
 								<fieldset style="width: 500px;text-align:center">
 									<legend>Questions</legend>
@@ -206,7 +213,7 @@
 												<label class="numbox" style="text-align: center;">log[B]</label>
 											</div>
 											<div class="col-xs-2 no-gutters">
-												<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
+												<label class="numbox" style="text-align: center;">[Agonist]<br><b id="efftablecom"></b>% Emax</label>
 											</div>
 											<div class="col-xs-2 no-gutters">
 												<label class="numbox" style="text-align: center;">Dose Ratio</label>
@@ -366,7 +373,7 @@
 										<input type="range" style="float:right;" autocomplete="off" name="levelofeffectirr" id="efflevelirr" min="0" max="1"
 										 step="0.0001" value="0.5" oninput="updateefflevelIrr(this.value)">
 										<br>
-										<p>Current %Emax is <b id="displayeffectirr"></b>%</p>
+										<p>Current Level of effect(%Emax) is <b id="displayeffectirr"></b>%</p>
 									</fieldset>
 								<!-- Questions go here -->
 								<fieldset style="width: 500px;text-align:center">
@@ -410,7 +417,7 @@
 												<label class="numbox" style="text-align: center;">log[B]</label>
 											</div>
 											<div class="col-xs-2 no-gutters">
-												<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
+												<label class="numbox" style="text-align: center;">[Agonist]<br><b id="efftableirr"></b>% Emax</label>
 											</div>
 											<div class="col-xs-2 no-gutters">
 												<label class="numbox" style="text-align: center;">Dose Ratio</label>
@@ -594,6 +601,14 @@
 						</div>
 						<div class="row">
 							<div class="col-lg-6">
+								<!-- level of effect silder goes here-->
+								<fieldset style="width: 100%">
+									<label for="levelofeffectaff">Level of effect(%Emax)</label>
+									<input type="range" style="float:right;" autocomplete="off" name="levelofeffectaff" id="efflevelaff" min="0" max="1"
+									step="0.0001" value="0.5" oninput="updateefflevelAff(this.value)">
+									<br>
+									<p>Current Level of effect(%Emax) is <b id="displayeffectaff"></b>%</p>
+								</fieldset>
 								<!-- Questions go here -->
 								<fieldset style="width: 500px;text-align:center">
 									<legend>Questions</legend>
@@ -636,7 +651,7 @@
 												<label class="numbox" style="text-align: center;">log[B]</label>
 											</div>
 											<div class="col-xs-2 no-gutters">
-												<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
+												<label class="numbox" style="text-align: center;">[Agonist]<br><b id="efftableaff"></b> %Emax</label>
 											</div>
 											<div class="col-xs-2 no-gutters">
 												<label class="numbox" style="text-align: center;">Dose Ratio</label>
@@ -820,6 +835,14 @@
 						</div>
 						<div class="row">
 							<div class="col-lg-6">
+								<!-- level of effect silder goes here-->
+								<fieldset style="width: 100%">
+									<label for="levelofeffecteff">Level of effect(%Emax)</label>
+									<input type="range" style="float:right;" autocomplete="off" name="levelofeffecteff" id="effleveleff" min="0" max="1"
+									step="0.0001" value="0.5" oninput="updateefflevelEff(this.value)">
+									<br>
+									<p>Current Level of effect(%Emax) is <b id="displayeffecteff"></b>%</p>
+								</fieldset>
 								<!-- Questions go here -->
 								<fieldset style="width: 500px;text-align:center">
 									<legend>Questions</legend>
@@ -862,7 +885,7 @@
 												<label class="numbox" style="text-align: center;">log[B]</label>
 											</div>
 											<div class="col-xs-2 no-gutters">
-												<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
+												<label class="numbox" style="text-align: center;">[Agonist]<br><b id="efftableeff"></b>% Emax</label>
 											</div>
 											<div class="col-xs-2 no-gutters">
 												<label class="numbox" style="text-align: center;">Dose Ratio</label>
@@ -1044,6 +1067,13 @@
 						</div>
 						<div class="row">
 							<div class="col-lg-6">
+								<fieldset style="width: 100%">
+									<label for="levelofeffectfun">Level of effect(%Emax)</label>
+									<input type="range" style="float:right;" autocomplete="off" name="levelofeffectfun" id="efflevelfun" min="0" max="1"
+									step="0.0001" value="0.5" oninput="updateefflevelfun(this.value)">
+									<br>
+									<p>Current Level of effect(%Emax) is <b id="displayeffectfun"></b>%</p>
+								</fieldset>
 								<!-- Questions go here -->
 								<fieldset style="width: 500px;text-align:center">
 									<legend>Questions</legend>
@@ -1086,7 +1116,7 @@
 												<label class="numbox" style="text-align: center;">log[B]</label>
 											</div>
 											<div class="col-xs-2 no-gutters">
-												<label class="numbox" style="text-align: center;">[Agonist]<br>50% Emax</label>
+												<label class="numbox" style="text-align: center;">[Agonist]<br><b id=efftablefun></b> % Emax</label>
 											</div>
 											<div class="col-xs-2 no-gutters">
 												<label class="numbox" style="text-align: center;">Dose Ratio</label>

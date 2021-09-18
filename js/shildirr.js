@@ -6,7 +6,9 @@ var efficirr = document.getElementById("efficiirrslider").defaultValue;
 var agoaffirr = document.getElementById("agoaffirrnum").defaultValue;
 var agoafflogirr = document.getElementById("agoafflogirrnum").defaultValue;
 var efflevelirr = document.getElementById("efflevelirr").defaultValue;
-document.getElementById("displayeffectirr").innerHTML = efflevelirr*100;
+document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
+document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
+
 
 var antval0irr = document.getElementById("ant0irr").defaultValue;
 var antval1irr = document.getElementById("ant1irr").defaultValue;
@@ -41,7 +43,7 @@ function titleIrr(){
 }
 //
 function findIrrHalfMaxEffect(lineData){
-    irrHalfMaxEffect = Math.max.apply(Math, lineData[1])/2;
+    irrHalfMaxEffect = Math.max.apply(Math, lineData[1]) * efflevelirr;
 }
 //
 function calc50Irr(lineData){
@@ -62,6 +64,10 @@ function resetQuantIrr(){
     efficirr = document.getElementById("efficiirrslider").value = document.getElementById("efficiirrslider").defaultValue;
     agoaffirr = document.getElementById("agoaffirrnum").value = document.getElementById("agoaffirrnum").defaultValue;
     agoafflogirr = document.getElementById("agoafflogirrnum").value = document.getElementById("agoafflogirrnum").defaultValue;
+    efflevelirr = document.getElementById("efflevelirr").value = document.getElementById("efflevelirr").defaultValue;
+    document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
+    document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
+    
     antval0irr = document.getElementById("ant0irr").value = document.getElementById("ant0irr").defaultValue;
     antval1irr = document.getElementById("ant1irr").value = document.getElementById("ant1irr").defaultValue;
     antval2irr = document.getElementById("ant2irr").value = document.getElementById("ant2irr").defaultValue;
@@ -111,6 +117,9 @@ function checkSliderMinIrr(){
         ret = true
     }
     if(document.getElementById("efficiirrslider").value == 0.04){
+        ret = true
+    }
+    if(document.getElementById("effleveleff").value == 0){
         ret = true
     }
     return ret
@@ -272,6 +281,40 @@ function updateAgoAffinityIrr(value){
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 
 }
+//
+function updateefflevelIrr(value){
+    efflevelirr = value;
+    document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
+    document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
+    if(checkSliderMinIrr()){
+        Plotly.restyle("quantitativeIrr", 'visible', false)
+        graphAlert("quantalertIrr")
+    }
+    else{
+        graphRemoveAlert("quantalertIrr")
+        Plotly.restyle("quantitativeIrr", 'visible', true)
+        lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[0]);
+        lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
+        lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
+        lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+        findIrrHalfMaxEffect(lineData0);
+        halfData0 = calc50Irr(lineData0);
+        halfData1 = calc50Irr(lineData1);
+        halfData2 = calc50Irr(lineData2);
+        halfData3 = calc50Irr(lineData3);
+
+        updateEverythingIrr();
+        Plotly.animate("quantitativeIrr",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
+            traces: [0,1,2,3,4,5,6,7], 
+            layout: {}
+            },animation)
+        schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+        Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    }
+} 
 //
 function updateAgoAffinityLogIrr(value){
     agoafflogirr = value;
@@ -591,7 +634,7 @@ function plotGraphIrr(chart){
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "EC<sub>50</sub> Value",
+            name: "EC Value",
             marker: {
                 color: "orange"
             },

@@ -9,6 +9,9 @@ var efffun2 = document.getElementById("efffunslider2").defaultValue;
 var denfun2 = document.getElementById("denfunslider2").defaultValue;
 var efficfun2 = document.getElementById("efficifunslider2").defaultValue;
 var agoafflogfun = -1*Math.log10(afffun2);
+var efflevelfun = document.getElementById("efflevelfun").defaultValue;
+document.getElementById("displayeffectfun").innerHTML = (efflevelfun*100).toFixed(2);
+document.getElementById("efftablefun").innerHTML = (efflevelfun*100).toFixed(2);
 
 var antval0fun = document.getElementById("ant0fun").defaultValue;
 var antval1fun = document.getElementById("ant1fun").defaultValue;
@@ -43,7 +46,7 @@ function titleFun(){
 }
 //
 function findFunHalfMaxEffect(lineData){
-    funHalfMaxEffect = Math.max.apply(Math, lineData[1])/2;
+    funHalfMaxEffect = Math.max.apply(Math, lineData[1])* efflevelfun;
 }
 //
 function calc50Fun(lineData){
@@ -66,7 +69,10 @@ function resetQuantFun(){
     efffun2 = document.getElementById("efffunslider2").value = document.getElementById("efffunslider2").defaultValue;
     denfun2 = document.getElementById("denfunslider2").value = document.getElementById("denfunslider2").defaultValue;
     efficfun2 = document.getElementById("efficifunslider2").value = document.getElementById("efficifunslider2").defaultValue;
-    
+    efflevelfun = document.getElementById("efflevelfun").value = document.getElementById("efflevelfun").defaultValue;
+    document.getElementById("displayeffectfun").innerHTML = (efflevelfun*100).toFixed(2);
+    document.getElementById("efftablefun").innerHTML = (efflevelfun*100).toFixed(2);
+
     antval0fun = document.getElementById("ant0fun").value = document.getElementById("ant0fun").defaultValue;
     antval1fun = document.getElementById("ant1fun").value = document.getElementById("ant1fun").defaultValue;
     antval2fun = document.getElementById("ant2fun").value = document.getElementById("ant2fun").defaultValue;
@@ -75,9 +81,9 @@ function resetQuantFun(){
     antlogval2fun = document.getElementById("antlog2fun").value = document.getElementById("antlog2fun").defaultValue;
     antlogval3fun = document.getElementById("antlog3fun").value = document.getElementById("antlog3fun").defaultValue;
     lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
@@ -116,6 +122,9 @@ function checkSliderMinFun(){
         ret = true
     }
     if(document.getElementById("efficifunslider1").value == 0.04){
+        ret = true
+    }
+    if(document.getElementById("efflevelfun").value == 0){
         ret = true
     }
     return ret
@@ -382,6 +391,41 @@ function updateEfficiencyFun2(value){
 
 } 
 //
+
+function updateefflevelfun(value){
+    efflevelfun = value;
+    document.getElementById("displayeffectfun").innerHTML = (efflevelfun*100).toFixed(2);
+    document.getElementById("efftablefun").innerHTML = (efflevelfun*100).toFixed(2);
+    if(checkSliderMinFun()){
+        Plotly.restyle("quantitativeFun", 'visible', false)
+        graphAlert("quantalertFun")
+    }
+    else{
+        graphRemoveAlert("quantalertFun")
+        Plotly.restyle("quantitativeFun", 'visible', true)
+        lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+        findFunHalfMaxEffect(lineData0);
+        halfData0 = calc50Fun(lineData0);
+        halfData1 = calc50Fun(lineData1);
+        halfData2 = calc50Fun(lineData2);
+        halfData3 = calc50Fun(lineData3);
+        
+        updateEverythingFun();
+        Plotly.animate("quantitativeFun",{
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
+            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
+            traces: [0,1,2,3,4,5,6,7], 
+            layout: {}
+            },animation)
+        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+        Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    }
+} 
+
 function updateAntagonist1Fun(value){
     antval1fun = value;
     agoconcarrfun[1] = Math.log10(value);
@@ -690,7 +734,7 @@ function plotGraphFun(chart){
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "EC<sub>50</sub> Value",
+            name: "EC Value",
             marker: {
                 color: "orange"
             },
