@@ -1,5 +1,4 @@
 var agoconcarrirr = [0, -9, -8, -7];
-//var for irreversible antagonist
 var affirr= document.getElementById("affirrslider").defaultValue;
 var effirr = document.getElementById("effirrslider").defaultValue;
 var denirr = document.getElementById("denirrslider").defaultValue;
@@ -15,11 +14,6 @@ var antlogval1irr = document.getElementById("antlog1irr").defaultValue;
 var antlogval2irr = document.getElementById("antlog2irr").defaultValue;
 var antlogval3irr = document.getElementById("antlog3irr").defaultValue;
 var irrHalfMaxEffect;
-//var for allosteric antagonist(affinity)
-//var for allosteric antagonist(efficacy)
-//var for functional antagonist
-
-//new functions in 2021 project
 
 $(document).ready(function () {
     document.getElementById("loader").style.display = "none";
@@ -37,6 +31,10 @@ var animation = {
           duration: 0,
           redraw: false,
    }
+}
+//
+function titleIrr(){
+    document.getElementById("tabtitle").innerHTML = "Schild Plot Generator for Irreversible Antagonist"
 }
 //
 function findIrrHalfMaxEffect(lineData){

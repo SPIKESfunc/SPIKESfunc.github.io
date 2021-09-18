@@ -34,6 +34,10 @@ var animation = {
  }
 }
 
+function titleAff(){
+    document.getElementById("tabtitle").innerHTML = "Schild Plot Generator for Allosteric Antagonist (Affinity)"
+}
+
 function findAffHalfMaxEffect(lineData){
     affHalfMaxEffect = Math.max.apply(Math, lineData[1])/2;
 } 

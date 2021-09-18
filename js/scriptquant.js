@@ -32,6 +32,10 @@ var animation = {
  }
 }
 
+function titleCom(){
+    document.getElementById("tabtitle").innerHTML = "Schild Plot Generator for Competitive Antagonist"
+}
+
 function findComHalfMaxEffect(lineData){
     comHalfMaxEffect = Math.max.apply(Math, lineData[1])/2;
 } 

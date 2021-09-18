@@ -97,7 +97,6 @@ function resetQuantFun(){
 }
 //
 function graphAlertFun(div){
-
     document.getElementById(div).innerHTML = "Agonist property has decreased too far to sustain curve"
 }
 //
