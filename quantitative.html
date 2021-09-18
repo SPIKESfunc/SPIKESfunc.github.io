@@ -360,6 +360,14 @@
 						</div>
 						<div class="row">
 							<div class="col-lg-6">
+									<!-- level of effect silder goes here-->
+									<fieldset style="width: 100%">
+										<label for="levelofeffectirr">Level of effect(%Emax)</label>
+										<input type="range" style="float:right;" autocomplete="off" name="levelofeffectirr" id="efflevelirr" min="0" max="1"
+										 step="0.0001" value="0.5" oninput="updateefflevelIrr(this.value)">
+										<br>
+										<p>Current %Emax is <b id="displayeffectirr"></b>%</p>
+									</fieldset>
 								<!-- Questions go here -->
 								<fieldset style="width: 500px;text-align:center">
 									<legend>Questions</legend>

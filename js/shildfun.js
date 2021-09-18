@@ -48,7 +48,7 @@ function findFunHalfMaxEffect(lineData){
 //
 function calc50Fun(lineData){
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
-	    return number >= comHalfMaxEffect;
+	    return number >= funHalfMaxEffect;
     });
     var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
     var agoret = [[halfAgoEffect], [funHalfMaxEffect]];

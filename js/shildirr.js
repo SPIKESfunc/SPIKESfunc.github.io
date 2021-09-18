@@ -5,6 +5,8 @@ var denirr = document.getElementById("denirrslider").defaultValue;
 var efficirr = document.getElementById("efficiirrslider").defaultValue;
 var agoaffirr = document.getElementById("agoaffirrnum").defaultValue;
 var agoafflogirr = document.getElementById("agoafflogirrnum").defaultValue;
+var efflevelirr = document.getElementById("efflevelirr").defaultValue;
+document.getElementById("displayeffectirr").innerHTML = efflevelirr*100;
 
 var antval0irr = document.getElementById("ant0irr").defaultValue;
 var antval1irr = document.getElementById("ant1irr").defaultValue;
@@ -14,6 +16,7 @@ var antlogval1irr = document.getElementById("antlog1irr").defaultValue;
 var antlogval2irr = document.getElementById("antlog2irr").defaultValue;
 var antlogval3irr = document.getElementById("antlog3irr").defaultValue;
 var irrHalfMaxEffect;
+
 
 $(document).ready(function () {
     document.getElementById("loader").style.display = "none";
@@ -43,7 +46,7 @@ function findIrrHalfMaxEffect(lineData){
 //
 function calc50Irr(lineData){
 	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
-	    return number >= comHalfMaxEffect;
+	    return number >= irrHalfMaxEffect;
     });
     var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
     var agoret = [[halfAgoEffect], [irrHalfMaxEffect]];
