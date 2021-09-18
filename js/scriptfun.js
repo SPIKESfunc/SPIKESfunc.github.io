@@ -317,9 +317,9 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
             var aconc = 10**i;
 
             effect1 = aconc*efcay*recep*efcey*emaxa;
-            effect2 = (aconc*((efcay*recep*efcey)+1))+affin;
+            effect2 = (aconc*((efcay*recep*efcey)+1-efcay))+affin;
             effect3 = agoconc*agoeff*agoden*agoeffic*emaxb;
-            effect4 = (agoconc*((agoeff*agoden*agoeffic)+1))+agoaffin;
+            effect4 = (agoconc*((agoeff*agoden*agoeffic)+1-agoeff))+agoaffin;
 
             effect = ((effect1/effect2)-(effect3/effect4));
 
