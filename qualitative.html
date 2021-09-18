@@ -612,25 +612,23 @@
 							<!-- NEW - ALLOW CHANGING OF nM Values-->
 
 							<fieldset style="width: 430px;">
-								<legend>Concentration (nM)</legend>
-								<p>Line 1: cannot be changed.</p>
-								<label>line 2  :  </label>
+								<legend>Concentration (M)</legend>
+								<p>[Agonist] 1: cannot be changed.</p>
+								<label>[Agonist] 2  :  1.0e</label>
 								<input class="numbox" type="number" autocomplete="off" id="comline2"
-									style="width: 100px;" value="1"></br>
+									style="width: 100px;" value="-9" oninput="updateConcentrationCom(this.value, 1)"></br>
 
-								<label>line 3  :  </label>
+								<label>[Agonist] 3  :  1.0e</label>
 								<input class="numbox" type="number" autocomplete="off" id="comline3"
-									style="width: 100px;" value="10"></br>
+									style="width: 100px;" value="-8" oninput="updateConcentrationCom(this.value, 2)"></br>
 								
-								<label>line 4  :  </label>
+								<label>[Agonist] 4  :  1.0e</label>
 								<input class="numbox" type="number" autocomplete="off" id="comline4"
-									style="width: 100px;" value="100"></br>
+									style="width: 100px;" value="-7" oninput="updateConcentrationCom(this.value, 3)"></br>
 
-								<label>line 5  :  </label>
+								<label>[Agonist] 5  :  1.0e</label>
 								<input class="numbox" type="number" autocomplete="off" id="comline5"
-									style="width: 100px;" value="1000"></br>
-								
-
+									style="width: 100px;" value="-6" oninput="updateConcentrationCom(this.value, 4)"></br>
 							</fieldset>
 						</div>
 					</div>
