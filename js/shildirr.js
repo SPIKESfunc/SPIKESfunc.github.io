@@ -89,7 +89,6 @@ function resetQuantIrr(){
 }
 //
 function graphAlertIrr(div){
-
     document.getElementById(div).innerHTML = "Agonist property has decreased too far to sustain curve"
 }
 //
@@ -608,7 +607,7 @@ var anthalfeff3irr = document.getElementById("anteff3irr").value = calcAgoHalfEf
 
 var doseratio1irr = document.getElementById("antdose1irr").value = calcDoseRatioIrr(anthalfeff1irr, anthalfeff0irr).toFixed(2);
 var doseratio2irr = document.getElementById("antdose2irr").value = calcDoseRatioIrr(anthalfeff2irr, anthalfeff0irr).toFixed(2);
-var doseratio3irr = document.getElementById("antdose3").value = calcDoseRatioIrr(anthalfeff3irr, anthalfeff0irr).toFixed(2);
+var doseratio3irr = document.getElementById("antdose3irr").value = calcDoseRatioIrr(anthalfeff3irr, anthalfeff0irr).toFixed(2);
 
 var logdr1irr = document.getElementById("antlogdr1irr").value = calcLogDRIrr(doseratio1irr).toFixed(2);
 var logdr2irr = document.getElementById("antlogdr2irr").value = calcLogDRIrr(doseratio2irr).toFixed(2);
@@ -622,7 +621,7 @@ function calcSchildIrr(logval1,logval2, logval3, dr1, dr2, dr3){ //add 3 other c
     logDr2 = dr2;
     logDr3 = dr3;
 	var data = [[],[]];
-	var xLogs = [-agoafflog, logB1, logB2, logB3] //x values for the schild
+	var xLogs = [-agoafflogirr, logB1, logB2, logB3] //x values for the schild
 	var logDr1 = [0, logDr1, logDr2, logDr3]
 	
 

@@ -131,9 +131,9 @@ function updateAffinityFun1(value){
         graphRemoveAlert("quantalertFun")
         Plotly.restyle("quantitativeFun", 'visible', true)
         lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
@@ -163,9 +163,9 @@ function updateEfficacyFun1(value){
         graphRemoveAlert("quantalertFun")
         Plotly.restyle("quantitativeFun", 'visible', true)
         lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
@@ -195,9 +195,9 @@ function updateDensityFun1(value){
         graphRemoveAlert("quantalertFun")
         Plotly.restyle("quantitativeFun", 'visible', true)
         lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
@@ -228,9 +228,9 @@ function updateEfficiencyFun1(value){
         graphRemoveAlert("quantalertFun")
         Plotly.restyle("quantitativeFun", 'visible', true)
         lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
@@ -262,9 +262,9 @@ function updateAffinityFun2(value){
         graphRemoveAlert("quantalertFun")
         Plotly.restyle("quantitativeFun", 'visible', true)
         lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
@@ -294,9 +294,9 @@ function updateEfficacyFun2(value){
         graphRemoveAlert("quantalertFun")
         Plotly.restyle("quantitativeFun", 'visible', true)
         lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
@@ -326,9 +326,9 @@ function updateDensityFun2(value){
         graphRemoveAlert("quantalertFun")
         Plotly.restyle("quantitativeFun", 'visible', true)
         lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
@@ -359,9 +359,9 @@ function updateEfficiencyFun2(value){
         graphRemoveAlert("quantalertFun")
         Plotly.restyle("quantitativeFun", 'visible', true)
         lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+        lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+        lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+        lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
@@ -387,9 +387,9 @@ function updateAntagonist1Fun(value){
     agoconcarrfun[1] = Math.log10(value);
     document.getElementById("antlog1fun").value = agoconcarrfun[1].toFixed(2);
     lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
@@ -414,9 +414,9 @@ function updateAntagonistLog1Fun(value){
     antval1fun = Math.pow(10, value);
     document.getElementById("ant1fun").value = antval1fun.toExponential(2);
     lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
@@ -441,9 +441,9 @@ function updateAntagonist2Fun(value){
     agoconcarrfun[2] = Math.log10(value);
     document.getElementById("antlog2fun").value = agoconcarrfun[2].toFixed(2);
     lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
@@ -468,9 +468,9 @@ function updateAntagonistLog2Fun(value){
     antval2fun = Math.pow(10, value);
     document.getElementById("ant2fun").value = antval2fun.toExponential(2);
     lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
@@ -494,9 +494,9 @@ function updateAntagonist3Fun(value){
     agoconcarrfun[3] = Math.log10(value);
     document.getElementById("antlog3fun").value = agoconcarrfun[3].toFixed(2);
     lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
@@ -520,9 +520,9 @@ function updateAntagonistLog3Fun(value){
     antval3fun = Math.pow(10, value);
     document.getElementById("ant3fun").value = antval3fun.toExponential(2);
     lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
-    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
@@ -551,7 +551,6 @@ function calcAgoHalfEffectFun(affinity, efficacy, recepDensity, efficiency, agoa
     var agoaffin = 10**(-1*agoaffinity);
     var antconc = antagconc;
     ago = (funHalfMaxEffect*(affin*(antconc/agoaffin)))/((efcay*recep*efcey*100)-(funHalfMaxEffect*(efcay*recep*efcey+1)));
-    console.log(ago);
     return ago;
 }
 //
@@ -710,7 +709,7 @@ var anthalfeff3fun = document.getElementById("anteff3fun").value = calcAgoHalfEf
 
 var doseratio1fun = document.getElementById("antdose1fun").value = calcDoseRatioFun(anthalfeff1fun, anthalfeff0fun).toFixed(2);
 var doseratio2fun = document.getElementById("antdose2fun").value = calcDoseRatioFun(anthalfeff2fun, anthalfeff0fun).toFixed(2);
-var doseratio3fun = document.getElementById("antdose3").value = calcDoseRatioFun(anthalfeff3fun, anthalfeff0fun).toFixed(2);
+var doseratio3fun = document.getElementById("antdose3fun").value = calcDoseRatioFun(anthalfeff3fun, anthalfeff0fun).toFixed(2);
 
 var logdr1fun = document.getElementById("antlogdr1fun").value = calcLogDRFun(doseratio1fun).toFixed(2);
 var logdr2fun = document.getElementById("antlogdr2fun").value = calcLogDRFun(doseratio2fun).toFixed(2);
