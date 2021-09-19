@@ -160,6 +160,36 @@ function updateEfficacyCom(value){
 
 } 
 
+
+// This is used to update the Concentration Values Table
+function updateConcentrationCom(value, index){
+    // use this to reference the id of the box
+    //let line_id = "comline" + index;
+    agoconcarr[index] = value;
+
+    // used from existing functions below. (updateDensityCom())
+    Plotly.restyle("competitive", "visible", true);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);    
+        
+    Plotly.animate("competitive",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9],
+        layout: {}
+        },animation);
+
+}
+
 function updateDensityCom(value){
     dencom = value;
     if(checkSliderMinCom()){
@@ -308,7 +338,10 @@ function plotGraphCom(chart){
         		x: lineData[0],
         		y: lineData[1],
        			mode: "lines",
-                name: 10**agoconcarr[j]*1000000000+"nM",
+                //old 
+                //name: 10**agoconcarr[j]*1000000000+"nM",
+                //new
+                name: "[Agonist] #" + j,
                 line: {
                     color: linecolours[j],
                     width: 1
