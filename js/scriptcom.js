@@ -349,7 +349,7 @@ function plotGraphCom(chart){
                 //old 
                 //name: 10**agoconcarr[j]*1000000000+"nM",
                 //new
-                name: "[Agonist] #" + j,
+                name: "[Antagonist] #" + j,
                 line: {
                     color: linecolours[j],
                     width: 1

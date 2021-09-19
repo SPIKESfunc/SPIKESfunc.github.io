@@ -374,7 +374,7 @@ function plotGraphAff(chart){
                 y: lineData[1],
                 mode: "lines",
                 //name: 10**agoconcarr[j]*1000000000+"nM",
-                name: "[Agonist] #" + j,
+                name: "[Antagonist] #" + j,
                 line: {
                     color: linecolours[j],
                     width: 1
