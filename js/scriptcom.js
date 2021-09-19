@@ -334,19 +334,19 @@ function plotGraphCom(chart){
 plotGraphCom("competitive");
 
 //QUESTION BOX
-var questionsCom = ["What is the principal effect produced by a competitive receptor antagonist on an agonist dose-response curve?<br><i>This can be tested using the Visualiser</i>",
-    "What effect does a competitive antagonist with a higher affinity have on the position of the agonist dose-response curve?<br><i>This can be tested using the Visualiser</i>",
+var questionsCom = ["What is the principal effect produced by a competitive receptor antagonist on an agonist dose-response curve?<br><i>Test this using the Dose Response Visualiser.</i>",
+    "What effect does a competitive antagonist with a higher affinity have on the position of the agonist dose-response curve?<br><i>Test this using the Dose Response Visualiser.</i>",
     "Does a competitive antagonist affect the maximum effect induced by the agonist?<br><i>This can be tested using the Visualiser</i>",
-    "Is the effect of the competitive antagonist likely to be influenced by the properties of the agonist (Affinity, Intrinsic Efficacy) or the cell (R<sub>T</sub>, <i>&#947</i> )?<br><i>This can be tested using the Visualiser</i>",
+    "Is the effect of the competitive antagonist likely to be influenced by the properties of the agonist (Affinity, Intrinsic Efficacy) or the cell (R<sub>T</sub>, <i>&#947</i>)?<br><i>Test this using the Dose Response Visualiser.</i>",
     "Why might the actions of competitive antagonists be best demonstrated using agonists with high potency?<br><i>This can be tested using the Visualiser</i>",
     "Why do competitive antagonists produce unlimited rightward shifts of the agonist dose-response curve?"];
 
-var answersCom = ["The principal effect of a competitive antagonist is to produce a PARALLEL, RIGHTWARD SHIFT OF THE AGONIST DOSE-RESPONSE CURVE with no reduction in the maximum agonist-induced effect. The magnitude of the rightward shift increase as the [competitive antagonist] increases.  Experimentally the magnitude of the shift can be used to measure the affinity of the competitive antagonist for the receptor (Schild analysis). This effect can be observed using the visualiser.",
+var answersCom = ["The principal effect of a competitive antagonist is to produce a PARALLEL, RIGHTWARD SHIFT OF THE AGONIST DOSE-RESPONSE CURVE with no reduction in the maximum agonist-induced effect. <br> For more information, see the Comp. Antagonist – agonist DR effect video in the videos tab. <br> The magnitude of the rightward shift increase as the [competitive antagonist] increases.  Experimentally the magnitude of the shift can be used to measure the affinity of the competitive antagonist for the receptor (Schild analysis). This effect can be observed using the visualiser.",
     "A competitive antagonist with a higher affinity will cause a LARGER RIGHTWARD SHIFT of the agonist dose-response curve, compared to a lower affinity antagonist (when used at the same concentration), as the higher affinity antagonist will occupy a greater proportion of receptors. This effect can be observed using the visualiser.",
     "<b>NO</b>, a competitive antagonist should cause a parallel rightward shift of the agonist dose-response curve WITHOUT ANY CHANGE IN THE MAXIMUM EFFECT produced by the agonist.  This is because theoretically the agonist (if used at a sufficiently high concentration) should always be able to out-compete the antagonist. This effect can be observed using the visualiser.",
-    "<b>NO</b>, a competitive antagonist should cause the SAME EXTENT OF RIGHTWARD SHIFT IRRESPECTIVE OF THE PROPERTIES OF THE AGONIST OR CELL. This effect can be observed using the visualiser.",
+    "<b>NO</b>, a competitive antagonist should cause the SAME EXTENT OF RIGHTWARD SHIFT IRRESPECTIVE OF THE PROPERTIES OF THE AGONIST OR CELL. Test this using the Dose Response Visualiser.",
     "The major effect produced by a competitive antagonist is the production of a parallel, rightward shift of the agonist dose-response curve.  The greater the potency of the agonist, the more easily the rightward shift of the agonist dose-response curve can be demonstrated before the agonists effects are limited by properties such as solubility or toxicity. This effect can be observed using the visualiser.",
-    "A key factor is that both the agonist and the antagonist bind REVERSIBLY to the same binding site.  The probability of the receptor binding site is being bound by the agonist or antagonist is determined by just two factors – the relative affinities and concentrations of the agonist and antagonist."];
+    "A key factor is that both the agonist and the antagonist bind REVERSIBLY to the same binding site. The probability of the receptor binding site is being bound by the agonist or antagonist is determined by just two factors – the relative affinities and concentrations of the agonist and antagonist. <br> For more information, see the to Comp. Antagonist – agonist DR effect video in the videos tab."];
 
 var questionCounterCom = 0;
 document.getElementById("comQuestion").innerHTML = "<b>" + questionsCom[questionCounterCom] + "</b>";
