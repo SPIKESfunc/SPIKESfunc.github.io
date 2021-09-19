@@ -41,6 +41,35 @@ function checkSliderMinFun(){
     return ret
 }
 
+// This is used to update the Concentration Values Table
+function updateConcentrationFun(value, index){
+    // use this to reference the id of the box
+    //let line_id = "comline" + index;
+    agoconcarr[index] = value;
+
+    // used from existing functions below. (updateEfficacyFun())
+    Plotly.restyle("functional", 'visible', true)
+    lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
+    lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
+    lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
+    lineData3 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[3],agodenfun,agoefficfun);
+    lineData4 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[4],agodenfun,agoefficfun);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);
+    Plotly.animate("functional",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, 
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
+        layout: {}
+        },animation)
+
+}
+
+
 function updateAffinityFun(value){
     afffun = value;
     if(checkSliderMinFun()){
@@ -254,6 +283,15 @@ function resetFun(){
     agoefffun = document.getElementById("agoefffunslider").value = document.getElementById("agoefffunslider").defaultValue;
     agodenfun = document.getElementById("agodenfunslider").value = document.getElementById("agodenfunslider").defaultValue;
     agoefficfun = document.getElementById("agoefficifunslider").value = document.getElementById("agoefficifunslider").defaultValue;
+
+    //updates lines concentration
+    document.getElementById("funline2").value = document.getElementById("funline2").defaultValue;
+    document.getElementById("funline3").value = document.getElementById("funline3").defaultValue;
+    document.getElementById("funline4").value = document.getElementById("funline4").defaultValue;
+    document.getElementById("funline5").value = document.getElementById("funline5").defaultValue;
+    agoconcarr = [0, -9, -8, -7, -6]; // need this to reset values
+
+
     lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
     lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
     lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
@@ -372,7 +410,8 @@ function plotGraphFun(chart){
                 x: lineData[0],
                 y: lineData[1],
                 mode: "lines",
-                name: 10**agoconcarr[j]*1000000000+"nM",
+                //name: 10**agoconcarr[j]*1000000000+"nM",
+                name: "[Antagonist] #" + j,
                 line: {
                     color: linecolours[j],
                     width: 1
