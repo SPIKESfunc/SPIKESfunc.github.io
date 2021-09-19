@@ -337,7 +337,7 @@ plotGraphCom("competitive");
 var questionsCom = ["What is the principal effect produced by a competitive receptor antagonist on an agonist dose-response curve?<br><i>This can be tested using the Visualiser</i>",
     "What effect does a competitive antagonist with a higher affinity have on the position of the agonist dose-response curve?<br><i>This can be tested using the Visualiser</i>",
     "Does a competitive antagonist affect the maximum effect induced by the agonist?<br><i>This can be tested using the Visualiser</i>",
-    "Is the effect of the competitive antagonist likely to be influenced by the properties of the agonist (Affinity, Intrinsic Efficacy) or the cell (R<sub>T</sub>, <i>f</i> )?<br><i>This can be tested using the Visualiser</i>",
+    "Is the effect of the competitive antagonist likely to be influenced by the properties of the agonist (Affinity, Intrinsic Efficacy) or the cell (R<sub>T</sub>, <i>&#947</i> )?<br><i>This can be tested using the Visualiser</i>",
     "Why might the actions of competitive antagonists be best demonstrated using agonists with high potency?<br><i>This can be tested using the Visualiser</i>",
     "Why do competitive antagonists produce unlimited rightward shifts of the agonist dose-response curve?"];
 
