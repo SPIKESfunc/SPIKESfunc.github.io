@@ -280,6 +280,14 @@ function resetCom(){
 	efficcom = document.getElementById("efficicomslider").value = document.getElementById("efficicomslider").defaultValue;
     agoaffcom = document.getElementById("agoaffcomslider").value = document.getElementById("agoaffcomslider").defaultValue;
     document.getElementById("antagocomp").value = document.getElementById("agoaffcomslider").defaultValue;
+
+    //updates lines concentration
+    document.getElementById("comline2").value = document.getElementById("comline2").defaultValue;
+    document.getElementById("comline3").value = document.getElementById("comline3").defaultValue;
+    document.getElementById("comline4").value = document.getElementById("comline4").defaultValue;
+    document.getElementById("comline5").value = document.getElementById("comline5").defaultValue;
+    agoconcarr = [0, -9, -8, -7, -6]; // need this to reset values
+    
     lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
