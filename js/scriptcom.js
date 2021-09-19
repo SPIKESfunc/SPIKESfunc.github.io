@@ -336,9 +336,9 @@ plotGraphCom("competitive");
 //QUESTION BOX
 var questionsCom = ["What is the principal effect produced by a competitive receptor antagonist on an agonist dose-response curve?<br><i>Test this using the Dose Response Visualiser.</i>",
     "What effect does a competitive antagonist with a higher affinity have on the position of the agonist dose-response curve?<br><i>Test this using the Dose Response Visualiser.</i>",
-    "Does a competitive antagonist affect the maximum effect induced by the agonist?<br><i>This can be tested using the Visualiser</i>",
+    "Does a competitive antagonist affect the maximum effect induced by the agonist?<br><i>Test this using the Dose Response Visualiser.</i>",
     "Is the effect of the competitive antagonist likely to be influenced by the properties of the agonist (Affinity, Intrinsic Efficacy) or the cell (R<sub>T</sub>, <i>&#947</i>)?<br><i>Test this using the Dose Response Visualiser.</i>",
-    "Why might the actions of competitive antagonists be best demonstrated using agonists with high potency?<br><i>This can be tested using the Visualiser</i>",
+    "Why might the actions of competitive antagonists be best demonstrated using agonists with high potency?<br><i>Test this using the Dose Response Visualiser.</i>",
     "Why do competitive antagonists produce unlimited rightward shifts of the agonist dose-response curve?"];
 
 var answersCom = ["The principal effect of a competitive antagonist is to produce a PARALLEL, RIGHTWARD SHIFT OF THE AGONIST DOSE-RESPONSE CURVE with no reduction in the maximum agonist-induced effect. <br> For more information, see the Comp. Antagonist – agonist DR effect video in the videos tab. <br> The magnitude of the rightward shift increase as the [competitive antagonist] increases.  Experimentally the magnitude of the shift can be used to measure the affinity of the competitive antagonist for the receptor (Schild analysis). This effect can be observed using the visualiser.",
