@@ -94,7 +94,7 @@
 									<label for="density">Receptor Density (R<sub>T</sub>)</label>
 									<input type="range" autocomplete="off" name="density" id="dencomslider" min="0.04" max="0.74" step="0.01" value="0.39"
 									 oninput="updateDensityCom(this.value)">
-									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+									<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 									<input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="0.04" max="0.74" step="0.01"
 									 value="0.39" oninput="updateEfficiencyCom(this.value)">
 								</fieldset>
@@ -326,7 +326,7 @@
 									<label for="density">Receptor Density (R<sub>T</sub>)</label>
 									<input type="range" autocomplete="off" name="density" id="denirrslider" min="0.04" max="0.74" step="0.01" value="0.39"
 									 oninput="updateDensityIrr(this.value)">
-									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+									<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 									<input type="range" autocomplete="off" name="efficiency" id="efficiirrslider" min="0.04" max="0.74" step="0.01"
 									 value="0.39" oninput="updateEfficiencyIrr(this.value)">
 								</fieldset>
@@ -555,7 +555,7 @@
 									<label for="density">Receptor Density (R<sub>T</sub>)</label>
 									<input type="range" autocomplete="off" name="density" id="denaffslider" min="0.04" max="0.74" step="0.01" value="0.39"
 									 oninput="updateDensityAff(this.value)">
-									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+									<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 									<input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="0.04" max="0.74" step="0.01"
 									 value="0.39" oninput="updateEfficiencyAff(this.value)">
 								</fieldset>
@@ -789,7 +789,7 @@
 									<label for="density">Receptor Density (R<sub>T</sub>)</label>
 									<input type="range" autocomplete="off" name="density" id="deneffslider" min="0.04" max="0.74" step="0.01" value="0.39"
 									 oninput="updateDensityEff(this.value)">
-									<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+									<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 									<input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="0.04" max="0.74" step="0.01"
 									 value="0.39" oninput="updateEfficiencyEff(this.value)">
 								</fieldset>
@@ -1019,7 +1019,7 @@
 										<label for="density">Receptor Density (R<sub>T</sub>)</label>
 										<input type="range" autocomplete="off" name="density" id="denfunslider1" min="0.04" max="0.74" step="0.01" value="0.39"
 										 oninput="updateDensityFun1(this.value)">
-										<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+										<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 										<input type="range" autocomplete="off" name="efficiency" id="efficifunslider1" min="0.04" max="0.74" step="0.01"
 										 value="0.39" oninput="updateEfficiencyFun1(this.value)">
 									</fieldset>
@@ -1040,7 +1040,7 @@
 										<label for="density">Receptor Density (R<sub>T</sub>)</label>
 										<input type="range" autocomplete="off" name="density" id="denfunslider2" min="-0.74" max="-0.04" step="0.01" value="-0.39"
 										 oninput="updateDensityFun2(this.value)">
-										<br><label for="efficiency">Coupling Efficiency (<i>f</i>)</label>
+										<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 										<input type="range" autocomplete="off" name="efficiency" id="efficifunslider2" min="-0.74" max="-0.04" step="0.01"
 										 value="-0.39" oninput="updateEfficiencyFun2(this.value)">
 									</fieldset>
@@ -1342,7 +1342,7 @@
 							<div class="col col-lg-12">
 								<p><span style="color:Red">Agonists</span> bind to and activate receptors to induce changes in the activity of
 									the receptor-expressing
-									cells – a simple schematic of this process can be seen by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span>
+									cells – a simple schematic of this process, together with a short animation, can be seen by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span>
 										Agonist</span> icon. The
 									magnitude of these agonist-induced changes in cell activity are dependent on the concentration of
 									the agonist, and are typically displayed using agonist dose-response curves (see default sigmoid-
@@ -1362,7 +1362,7 @@
 								</p>
 								<p>
 									The shape and position of agonist dose-response curves depend upon the properties of both the
-									agonist (affinity and intrinsic efficacy) and the cell (receptor density and the coupling efficiency).
+									agonist (affinity and intrinsic efficacy) and the cell (receptor density and the signal amplification).
 									Specific information about these parameters can be obtained by clicking the <span style="color:red">red <span
 										 class="fa fa-info-circle"></span> icons</span>.
 								</p>
@@ -1371,7 +1371,7 @@
 									changed by moving the sliders to the left (to decrease parameter value) or to the right (to increase
 									parameter value) along the grey bar. Thus, this agonist dose-response visualiser enables you to
 									visualise how the position and shape of the agonist dose-response curve changes in response to
-									increases or decreases in agonist affinity or efficacy or in cell receptor density or coupling efficiency.
+									increases or decreases in agonist affinity or efficacy or in cell receptor density or signal amplification.
 								</p>
 								<p>
 									You can enhance your understanding of these key concepts of agonism by working through a series
@@ -1382,21 +1382,21 @@
 								<p>
 									<span style="color:red">Antagonists</span> bind to receptors and inhibit agonist-induced responses. There
 									exist different classes of
-									antagonists, including Competitive antagonists, Irreversible antagonists, Allosteric antagonists and
-									Functional antagonists. As their names suggest, these different classes of antagonist interact with
+									antagonists, including Competitive antagonists, Irreversible antagonists, Allosteric antagonists, 
+									Functional antagonists and Inverse Agonists. As their names suggest, these different classes of antagonist interact with
 									the receptors in distinct ways, and likewise affect agonist dose-response curves in characteristic
 									ways – thus each class of antagonist has its own visualiser. Further information about each of these
 									classes of antagonists can be obtained by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span>
-										Antagonist</span> icon in each specific window.
+									Antagonist</span> icon in each specific window, to reveal a mechanistic overview and a short animation.
 									The magnitude of inhibitory effects produced by an antagonist depends upon both the
 									concentration and affinity of the antagonist. By default, the effects produced by 1, 10, 100 and 1000
-									nM concentrations of antagonist on the agonist dose-response curves are displayed in red. The
-									effect of changing the affinity of the antagonist on these effects can also be visualised by moving the
-									red slider in the Antagonist window to the left (to decrease antagonist affinity) or to the right
-									(to
-									increase antagonist affinity) along the grey bar. The extent to which the actions of the antagonist
+									nM concentrations of antagonist on the agonist dose-response curves are displayed in red. These default 
+									concentrations of antagonist can be individually altered by clicking on the up/down chevrons in the Table 
+									located below the dose-response curves. The effect of changing the affinity of the antagonist on these effects 
+									can also be visualised by moving the red sliders in the Antagonist window to the left (to decrease antagonist affinity) or to the right
+									(to	increase antagonist affinity) along the grey bar. The extent to which the actions of the antagonist
 									is dependent on the characteristics of the agonist (affinity, intrinsic efficacy) and/or cell (receptor
-									density, coupling efficiency) can also be displayed by moving the appropriate sliders in the Agonist or
+									density, signal amplification) can also be displayed by moving the appropriate sliders in the Agonist or
 									Cell windows.
 								</p>
 								<p>
