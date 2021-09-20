@@ -8,6 +8,7 @@ var agoafflogirr = document.getElementById("agoafflogirrnum").defaultValue;
 var efflevelirr = document.getElementById("efflevelirr").defaultValue;
 document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
 document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
+var isPointValidirr = [true, true, true, false];
 
 
 var antval0irr = document.getElementById("ant0irr").defaultValue;
@@ -84,6 +85,7 @@ function resetQuantIrr(){
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
+    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
@@ -143,6 +145,7 @@ function updateAffinityIrr(value){
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
         halfData3 = calc50Irr(lineData3);
+        updateValidIrr(halfData0, halfData1, halfData2, halfData3);
         
         updateEverythingIrr();
         Plotly.animate("quantitativeIrr",{
@@ -175,6 +178,7 @@ function updateEfficacyIrr(value){
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
         halfData3 = calc50Irr(lineData3);
+        updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
         updateEverythingIrr();
         Plotly.animate("quantitativeIrr",{
@@ -207,6 +211,7 @@ function updateDensityIrr(value){
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
         halfData3 = calc50Irr(lineData3);
+        updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
         updateEverythingIrr();
         Plotly.animate("quantitativeIrr",{
@@ -240,6 +245,7 @@ function updateEfficiencyIrr(value){
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
         halfData3 = calc50Irr(lineData3);
+        updateValidIrr(halfData0, halfData1, halfData2, halfData3);
         
         updateEverythingIrr();
         Plotly.animate("quantitativeIrr",{
@@ -268,6 +274,7 @@ function updateAgoAffinityIrr(value){
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
+    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
@@ -302,6 +309,7 @@ function updateefflevelIrr(value){
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
         halfData3 = calc50Irr(lineData3);
+        updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
         updateEverythingIrr();
         Plotly.animate("quantitativeIrr",{
@@ -328,6 +336,7 @@ function updateAgoAffinityLogIrr(value){
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
+    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
@@ -355,6 +364,7 @@ function updateAntagonist1Irr(value){
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
+    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
@@ -382,6 +392,7 @@ function updateAntagonistLog1Irr(value){
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
+    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
@@ -409,6 +420,7 @@ function updateAntagonist2Irr(value){
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
+    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
@@ -436,6 +448,7 @@ function updateAntagonistLog2Irr(value){
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
+    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
@@ -462,6 +475,7 @@ function updateAntagonist3Irr(value){
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
+    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
@@ -488,6 +502,7 @@ function updateAntagonistLog3Irr(value){
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
+    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
@@ -510,7 +525,7 @@ function calcAgoHalfEffectIrr(affinity, efficacy, recepDensity, efficiency, agoa
     var efcey = 10**efficiency;
     var agoaffin = 10**(-1*agoaffinity);
     var antconc = antagconc;
-    ago = (irrHalfMaxEffect*(affin*(1+antconc/agoaffin)))/((efcay*recep*efcey*100)-(comHalfMaxEffect*(efcay*recep*efcey+1)));
+    ago = (irrHalfMaxEffect*(affin*(1+antconc/agoaffin)))/((efcay*recep*efcey*100)-(irrHalfMaxEffect*(efcay*recep*efcey+1)));
     return ago;
 }
 //
@@ -659,22 +674,39 @@ var logdr1irr = document.getElementById("antlogdr1irr").value = calcLogDRIrr(dos
 var logdr2irr = document.getElementById("antlogdr2irr").value = calcLogDRIrr(doseratio2irr).toFixed(2);
 var logdr3irr = document.getElementById("antlogdr3irr").value = calcLogDRIrr(doseratio3irr).toFixed(2);
 
+function updateValidIrr(data0, data1, data2, data3){
+    var validdata = [data0[0], data1[0], data2[0], data3[0]];
+
+    for(i = 0; i<4; i++){
+        if(validdata[i]>=-12 && validdata[i]<=-2){
+            isPointValidirr[i] = true;
+        }
+        else{
+            isPointValidirr[i] = false;
+        }
+    }
+}
+
 function calcSchildIrr(logval1,logval2, logval3, dr1, dr2, dr3){ //add 3 other concentrations as args
-	logB1 = logval1;
-	logB2 = logval2;
-    logB3 = logval3;
-    logDr1 = dr1;
-    logDr2 = dr2;
-    logDr3 = dr3;
-	var data = [[],[]];
-	var xLogs = [-agoafflogirr, logB1, logB2, logB3] //x values for the schild
-	var logDr1 = [0, logDr1, logDr2, logDr3]
-	
+    var data = [[],[]];
+	var allxLogs = [-agoafflog, logval1, logval2, logval3] //x values for the schild
+	var alllogDr1 = [0, dr1, dr2, dr3]
+    var xLogs = [];
+    var logDr1 = [];
+    var j = 0;
+
+    for(i = 0; i<4; i++){
+        if(isPointValidirr[i]){
+            xLogs[j] =  allxLogs[i];
+            logDr1[j] = alllogDr1[i];
+            j++;
+        }
+    }
 
 	data[0] = xLogs;
 	data[1] = logDr1;
-	
-	return data;
+
+    return data;
 
 }
 
