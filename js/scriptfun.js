@@ -21,15 +21,18 @@ var animation = {
     }
 }
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 function checkSliderMinFun(){
     let ret = false;
-    if(document.getElementById("afffunslider").value == 4){
+    if(document.getElementById("afffunslider").value == 5){
         ret = true
     }
-    if(document.getElementById("efffunslider").value == 0){
+    if(document.getElementById("efffunslider").value == -0.7){
         ret = true
     }
-    if(document.getElementById("denfunslider").value == 0){
+    if(document.getElementById("denfunslider").value == -1){
         ret = true
     }
     if(document.getElementById("efficifunslider").value == 0){
@@ -37,6 +40,35 @@ function checkSliderMinFun(){
     }
     return ret
 }
+
+// This is used to update the Concentration Values Table
+function updateConcentrationFun(value, index){
+    // use this to reference the id of the box
+    //let line_id = "comline" + index;
+    agoconcarr[index] = value;
+
+    // used from existing functions below. (updateEfficacyFun())
+    Plotly.restyle("functional", 'visible', true)
+    lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
+    lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
+    lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
+    lineData3 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[3],agodenfun,agoefficfun);
+    lineData4 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[4],agodenfun,agoefficfun);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);
+    Plotly.animate("functional",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]}, 
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
+        layout: {}
+        },animation)
+
+}
+
 
 function updateAffinityFun(value){
     afffun = value;
@@ -251,6 +283,15 @@ function resetFun(){
     agoefffun = document.getElementById("agoefffunslider").value = document.getElementById("agoefffunslider").defaultValue;
     agodenfun = document.getElementById("agodenfunslider").value = document.getElementById("agodenfunslider").defaultValue;
     agoefficfun = document.getElementById("agoefficifunslider").value = document.getElementById("agoefficifunslider").defaultValue;
+
+    //updates lines concentration
+    document.getElementById("funline2").value = document.getElementById("funline2").defaultValue;
+    document.getElementById("funline3").value = document.getElementById("funline3").defaultValue;
+    document.getElementById("funline4").value = document.getElementById("funline4").defaultValue;
+    document.getElementById("funline5").value = document.getElementById("funline5").defaultValue;
+    agoconcarr = [0, -9, -8, -7, -6]; // need this to reset values
+
+
     lineData0 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[0],agodenfun,agoefficfun);
     lineData1 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[1],agodenfun,agoefficfun);
     lineData2 = calcLinesFun(afffun,efffun,denfun,efficfun,agoafffun,agoefffun,agoconcarr[2],agodenfun,agoefficfun);
@@ -305,7 +346,7 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
         for (i=-12; i<-2;i=i+STEP){
             //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
         }
     }
     else{
@@ -314,9 +355,9 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
             var aconc = 10**i;
 
             effect1 = aconc*efcay*recep*efcey*emaxa;
-            effect2 = (aconc*((efcay*recep*efcey)+1))+affin;
+            effect2 = (aconc*((efcay*recep*efcey)+1-efcay))+affin;
             effect3 = agoconc*agoeff*agoden*agoeffic*emaxb;
-            effect4 = (agoconc*((agoeff*agoden*agoeffic)+1))+agoaffin;
+            effect4 = (agoconc*((agoeff*agoden*agoeffic)+1-agoeff))+agoaffin;
 
             effect = ((effect1/effect2)-(effect3/effect4));
 
@@ -369,7 +410,8 @@ function plotGraphFun(chart){
                 x: lineData[0],
                 y: lineData[1],
                 mode: "lines",
-                name: 10**agoconcarr[j]*1000000000+"nM",
+                //name: 10**agoconcarr[j]*1000000000+"nM",
+                name: "[Antagonist] #" + j,
                 line: {
                     color: linecolours[j],
                     width: 1
@@ -391,7 +433,12 @@ function plotGraphFun(chart){
             mode: 'markers',
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "orange"
+                color: "red",
+                size: dotsize,
+                line: {
+                    color: 'black',
+                    width: 1
+                  }
             },
             showlegend: legendview[i]
         }];

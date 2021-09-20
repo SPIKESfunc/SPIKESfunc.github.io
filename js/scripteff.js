@@ -23,18 +23,21 @@ var animation = {
   }
 };
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 function checkSliderMinEff() {
   let ret = false;
-  if (document.getElementById("affeffslider").value === "4") {
+  if (document.getElementById("affeffslider").value === "5") {
     ret = true;
   }
-  if (document.getElementById("effeffslider").value === "-0.3") {
+  if (document.getElementById("effeffslider").value === "-0.7") {
     ret = true;
   }
-  if (document.getElementById("deneffslider").value === "-0.3") {
+  if (document.getElementById("deneffslider").value === "-1") {
     ret = true;
   }
-  if (document.getElementById("efficieffslider").value === "-0.3") {
+  if (document.getElementById("efficieffslider").value === "0") {
     ret = true;
   }
   return ret;
@@ -66,11 +69,8 @@ function calcLinesEff(
     var agoconc = 0;
     agoaffin = 0;
     for (i = -12; i < -2; i = i + STEP) {
-      effect =
-        (10 ** i * efcay * recep * efcey * 100) /
-        (10 ** i * (efcay * recep * efcey + 1) + affin);
       data[0].push(i);
-      data[1].push(effect);
+      data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
     }
   } else {
     agoconc = 10 ** agoconcentration;
@@ -101,6 +101,91 @@ function calc50(lineData) {
   var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
   var agoret = [[halfAgoEffect], [halfMaxEffect]];
   return agoret; //return x, y
+}
+
+
+// This is used to update the Concentration Values Table
+function updateConcentrationEff(value, index){
+  // use this to reference the id of the box
+  //let line_id = "comline" + index;
+  agoconcarr[index] = value;
+
+  // used existing functions (updateAffinityEff())
+  Plotly.restyle("alloeffic", "visible", true);
+  var lineData0 = calcLinesEff(
+    affeff,
+    effeff,
+    deneff,
+    efficeff,
+    agoaffeff,
+    agoeffeff,
+    agoconcarr[0]
+  );
+  var lineData1 = calcLinesEff(
+    affeff,
+    effeff,
+    deneff,
+    efficeff,
+    agoaffeff,
+    agoeffeff,
+    agoconcarr[1]
+  );
+  var lineData2 = calcLinesEff(
+    affeff,
+    effeff,
+    deneff,
+    efficeff,
+    agoaffeff,
+    agoeffeff,
+    agoconcarr[2]
+  );
+  var lineData3 = calcLinesEff(
+    affeff,
+    effeff,
+    deneff,
+    efficeff,
+    agoaffeff,
+    agoeffeff,
+    agoconcarr[3]
+  );
+  var lineData4 = calcLinesEff(
+    affeff,
+    effeff,
+    deneff,
+    efficeff,
+    agoaffeff,
+    agoeffeff,
+    agoconcarr[4]
+  );
+  var halfData0 = calc50(lineData0);
+  var halfData1 = calc50(lineData1);
+  var halfData2 = calc50(lineData2);
+  var halfData3 = calc50(lineData3);
+  var halfData4 = calc50(lineData4);
+  Plotly.animate(
+    "alloeffic",
+    {
+      data: [
+        { y: lineData0[1] },
+        { y: lineData1[1] },
+        { y: lineData2[1] },
+        { y: lineData3[1] },
+        { y: lineData4[1] },
+        { x: halfData0[0], y: halfData0[1] },
+        { x: halfData1[0], y: halfData1[1] },
+        {
+          x: halfData2[0],
+          y: halfData2[1]
+        },
+        { x: halfData3[0], y: halfData3[1] },
+        { x: halfData4[0], y: halfData4[1] }
+      ],
+      traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      layout: {}
+    },
+    animation
+  );
+
 }
 
 function updateAffinityEff(value) {
@@ -604,6 +689,14 @@ function resetEff() {
   agoeffeff = document.getElementById("agoeffeffslider").value = document.getElementById("agoeffeffslider").defaultValue;
   document.getElementById("antagoeff").value = document.getElementById("agoaffeffslider").defaultValue;
   document.getElementById("antcoopeff").value = Math.round(10 ** -agoeffeff * Math.pow(10, 3)) / Math.pow(10, 3);
+
+  //updates lines concentration
+  document.getElementById("effline2").value = document.getElementById("effline2").defaultValue;
+  document.getElementById("effline3").value = document.getElementById("effline3").defaultValue;
+  document.getElementById("effline4").value = document.getElementById("effline4").defaultValue;
+  document.getElementById("effline5").value = document.getElementById("effline5").defaultValue;
+  agoconcarr = [0, -9, -8, -7, -6]; // need this to reset values
+
   var lineData0 = calcLinesEff(
     affeff,
     effeff,
@@ -727,7 +820,8 @@ function plotGraphEff(chart) {
         x: lineData[0],
         y: lineData[1],
         mode: "lines",
-        name: 10 ** agoconcarr[j] * 1000000000 + "nM",
+        //name: 10 ** agoconcarr[j] * 1000000000 + "nM",
+        name:"[Antagonist] #" + j,
         line: {
           color: linecolours[j],
           width: 1
@@ -758,8 +852,13 @@ function plotGraphEff(chart) {
         mode: "markers",
         name: "EC<sub>50</sub> Value",
         marker: {
-          color: "orange"
-        },
+          color: "red",
+          size: dotsize,
+          line: {
+              color: 'black',
+              width: 1
+            }
+      },
         showlegend: legendview[i]
       }
     ];

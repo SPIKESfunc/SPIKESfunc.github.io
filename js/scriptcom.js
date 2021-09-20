@@ -19,6 +19,9 @@ var halfData4;
 var data50;
 var calc50;
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 var animation = {
     transition: {
         duration: 0,
@@ -36,16 +39,16 @@ function findComHalfMaxEffect(lineData){
 
 function checkSliderMinCom(){
     let ret = false;
-    if(document.getElementById("affcomslider").value === "4"){
+    if(document.getElementById("affcomslider").value === "5"){
         ret = true;
     }
-    if(document.getElementById("effcomslider").value === "-0.3"){
+    if(document.getElementById("effcomslider").value === "-0.7"){
         ret = true;
     }
-    if(document.getElementById("dencomslider").value === "-0.3"){
+    if(document.getElementById("dencomslider").value === "-1"){
         ret = true;
     }
-    if(document.getElementById("efficicomslider").value === "-0.3"){
+    if(document.getElementById("efficicomslider").value === "0"){
         ret = true;
     }
     return ret;
@@ -62,21 +65,23 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     var agoaffin = 10**(-1*agoaffinity);
     var agoconc;
 
+    // graphs base line
     if(agoconcentration === 0){
         agoconc = 0;
         agoaffin = 0;
         for (var i=-12; i<-2;i=i+STEP){
             //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
         }
     }
+    //graphs other lines
     else{
         agoconc = 10**agoconcentration;
         for (var i=-12; i<-2;i=i+STEP){
             //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
             data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin)));
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin*(1+agoconc/agoaffin)));
         }
 	}
     return data;
@@ -154,6 +159,36 @@ function updateEfficacyCom(value){
     }
 
 } 
+
+
+// This is used to update the Concentration Values Table
+function updateConcentrationCom(value, index){
+    // use this to reference the id of the box
+    //let line_id = "comline" + index;
+    agoconcarr[index] = value;
+
+    // used from existing functions below. (updateDensityCom())
+    Plotly.restyle("competitive", "visible", true);
+    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);    
+        
+    Plotly.animate("competitive",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
+        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9],
+        layout: {}
+        },animation);
+
+}
 
 function updateDensityCom(value){
     dencom = value;
@@ -245,6 +280,14 @@ function resetCom(){
 	efficcom = document.getElementById("efficicomslider").value = document.getElementById("efficicomslider").defaultValue;
     agoaffcom = document.getElementById("agoaffcomslider").value = document.getElementById("agoaffcomslider").defaultValue;
     document.getElementById("antagocomp").value = document.getElementById("agoaffcomslider").defaultValue;
+
+    //updates lines concentration
+    document.getElementById("comline2").value = document.getElementById("comline2").defaultValue;
+    document.getElementById("comline3").value = document.getElementById("comline3").defaultValue;
+    document.getElementById("comline4").value = document.getElementById("comline4").defaultValue;
+    document.getElementById("comline5").value = document.getElementById("comline5").defaultValue;
+    agoconcarr = [0, -9, -8, -7, -6]; // need this to reset values
+    
     lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
@@ -303,7 +346,10 @@ function plotGraphCom(chart){
         		x: lineData[0],
         		y: lineData[1],
        			mode: "lines",
-                name: 10**agoconcarr[j]*1000000000+"nM",
+                //old 
+                //name: 10**agoconcarr[j]*1000000000+"nM",
+                //new
+                name: "[Antagonist] #" + j,
                 line: {
                     color: linecolours[j],
                     width: 1
@@ -324,7 +370,12 @@ function plotGraphCom(chart){
             mode: "markers",
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "orange"
+                color: "red",
+                size: dotsize,
+                line: {
+                    color: 'black',
+                    width: 1
+                  }
             },
             showlegend: legendview[i]
         }];
