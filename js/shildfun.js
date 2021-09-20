@@ -12,6 +12,7 @@ var agoafflogfun = -1*Math.log10(afffun2);
 var efflevelfun = document.getElementById("efflevelfun").defaultValue;
 document.getElementById("displayeffectfun").innerHTML = (efflevelfun*100).toFixed(2);
 document.getElementById("efftablefun").innerHTML = (efflevelfun*100).toFixed(2);
+var isPointValidfun = [true, true, true, true];
 
 var antval0fun = document.getElementById("ant0fun").defaultValue;
 var antval1fun = document.getElementById("ant1fun").defaultValue;
@@ -89,6 +90,7 @@ function resetQuantFun(){
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
+    updateValidFun(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
@@ -148,6 +150,7 @@ function updateAffinityFun1(value){
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
+        updateValidFun(halfData0, halfData1, halfData2, halfData3);
         
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
@@ -180,6 +183,7 @@ function updateEfficacyFun1(value){
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
+        updateValidFun(halfData0, halfData1, halfData2, halfData3);
 
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
@@ -212,6 +216,7 @@ function updateDensityFun1(value){
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
+        updateValidFun(halfData0, halfData1, halfData2, halfData3);
 
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
@@ -245,6 +250,7 @@ function updateEfficiencyFun1(value){
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
+        updateValidFun(halfData0, halfData1, halfData2, halfData3);
         
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
@@ -279,6 +285,7 @@ function updateAffinityFun2(value){
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
+        updateValidFun(halfData0, halfData1, halfData2, halfData3);
         
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
@@ -311,6 +318,7 @@ function updateEfficacyFun2(value){
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
+        updateValidFun(halfData0, halfData1, halfData2, halfData3);
 
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
@@ -343,6 +351,7 @@ function updateDensityFun2(value){
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
+        updateValidFun(halfData0, halfData1, halfData2, halfData3);
 
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
@@ -376,6 +385,7 @@ function updateEfficiencyFun2(value){
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
+        updateValidFun(halfData0, halfData1, halfData2, halfData3);
         
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
@@ -412,6 +422,7 @@ function updateefflevelfun(value){
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
+        updateValidFun(halfData0, halfData1, halfData2, halfData3);
         
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
@@ -439,6 +450,7 @@ function updateAntagonist1Fun(value){
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
+    updateValidFun(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
@@ -466,6 +478,7 @@ function updateAntagonistLog1Fun(value){
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
+    updateValidFun(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
@@ -493,6 +506,7 @@ function updateAntagonist2Fun(value){
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
+    updateValidFun(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
@@ -520,6 +534,7 @@ function updateAntagonistLog2Fun(value){
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
+    updateValidFun(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
@@ -546,6 +561,7 @@ function updateAntagonist3Fun(value){
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
+    updateValidFun(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
@@ -572,6 +588,7 @@ function updateAntagonistLog3Fun(value){
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
+    updateValidFun(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
@@ -759,22 +776,38 @@ var logdr1fun = document.getElementById("antlogdr1fun").value = calcLogDRFun(dos
 var logdr2fun = document.getElementById("antlogdr2fun").value = calcLogDRFun(doseratio2fun).toFixed(2);
 var logdr3fun = document.getElementById("antlogdr3fun").value = calcLogDRFun(doseratio3fun).toFixed(2);
 
+function updateValidFun(data0, data1, data2, data3){
+    var validdata = [data0[0], data1[0], data2[0], data3[0]];
+    for(i = 0; i<4; i++){
+        if(validdata[i]>=-12 && validdata[i]<=-2){
+            isPointValidfun[i] = true;
+        }
+        else{
+            isPointValidfun[i] = false;
+        }
+    }
+}
+
 function calcSchildFun(logval1,logval2, logval3, dr1, dr2, dr3){ //add 3 other concentrations as args
-	logB1 = logval1;
-	logB2 = logval2;
-    logB3 = logval3;
-    logDr1 = dr1;
-    logDr2 = dr2;
-    logDr3 = dr3;
-	var data = [[],[]];
-	var xLogs = [-agoafflog, logB1, logB2, logB3] //x values for the schild
-	var logDr1 = [0, logDr1, logDr2, logDr3]
-	
+    var data = [[],[]];
+	var allxLogs = [-agoafflog, logval1, logval2, logval3] //x values for the schild
+	var alllogDr1 = [0, dr1, dr2, dr3]
+    var xLogs = [];
+    var logDr1 = [];
+    var j = 0;
+
+    for(i = 0; i<4; i++){
+        if(isPointValidfun[i]){
+            xLogs[j] =  allxLogs[i];
+            logDr1[j] = alllogDr1[i];
+            j++;
+        }
+    }
 
 	data[0] = xLogs;
 	data[1] = logDr1;
-	
-	return data;
+
+    return data;
 
 }
 

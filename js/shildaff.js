@@ -9,6 +9,7 @@ var agoeffaff = document.getElementById("agoeffaff").defaultValue;
 var efflevelaff = document.getElementById("efflevelaff").defaultValue;
 document.getElementById("displayeffectaff").innerHTML = (efflevelaff*100).toFixed(2);
 document.getElementById("efftableaff").innerHTML = (efflevelaff*100).toFixed(2);
+var isPointValidaff = [true, true, true, true];
 
 var antval0aff = document.getElementById("ant0aff").defaultValue;
 var antval1aff = document.getElementById("ant1aff").defaultValue;
@@ -83,6 +84,7 @@ function resetQuantAff(){
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
+    updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
@@ -143,6 +145,7 @@ function updateAffinityAff(value){
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
         halfData3 = calc50Aff(lineData3);
+        updateValidAff(halfData0, halfData1, halfData2, halfData3);
         
         updateEverythingAff();
         Plotly.animate("quantitativeAff",{
@@ -175,6 +178,7 @@ function updateEfficacyAff(value){
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
         halfData3 = calc50Aff(lineData3);
+        updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
         updateEverythingAff();
         Plotly.animate("quantitativeAff",{
@@ -207,6 +211,7 @@ function updateDensityAff(value){
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
         halfData3 = calc50Aff(lineData3);
+        updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
         updateEverythingAff();
         Plotly.animate("quantitativeAff",{
@@ -240,6 +245,7 @@ function updateEfficiencyAff(value){
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
         halfData3 = calc50Aff(lineData3);
+        updateValidAff(halfData0, halfData1, halfData2, halfData3);
         
         updateEverythingAff();
         Plotly.animate("quantitativeAff",{
@@ -268,6 +274,7 @@ function updateAgoAffinityAff(value){
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
+    updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
@@ -295,6 +302,7 @@ function updateAgoAffinityLogAff(value){
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
+    updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
@@ -320,6 +328,7 @@ function updateAgoEffAff(value){
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
+    updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
@@ -347,6 +356,7 @@ function updateAntagonist1Aff(value){
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
+    updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
@@ -381,6 +391,7 @@ function updateefflevelAff(value){
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
         halfData3 = calc50Aff(lineData3);
+        updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
         updateEverythingAff();
         Plotly.animate("quantitativeAff",{
@@ -408,6 +419,7 @@ function updateAntagonistLog1Aff(value){
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
+    updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
@@ -435,6 +447,7 @@ function updateAntagonist2Aff(value){
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
+    updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
@@ -462,6 +475,7 @@ function updateAntagonistLog2Aff(value){
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
+    updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
@@ -488,6 +502,7 @@ function updateAntagonist3Aff(value){
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
+    updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
@@ -514,6 +529,7 @@ function updateAntagonistLog3Aff(value){
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
+    updateValidAff(halfData0, halfData1, halfData2, halfData3);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
@@ -689,22 +705,39 @@ var logdr1aff = document.getElementById("antlogdr1aff").value = calcLogDRAff(dos
 var logdr2aff = document.getElementById("antlogdr2aff").value = calcLogDRAff(doseratio2aff).toFixed(2);
 var logdr3aff = document.getElementById("antlogdr3aff").value = calcLogDRAff(doseratio3aff).toFixed(2);
 
+function updateValidAff(data0, data1, data2, data3){
+    var validdata = [data0[0], data1[0], data2[0], data3[0]];
+
+    for(i = 0; i<4; i++){
+        if(validdata[i]>=-12 && validdata[i]<=-2){
+            isPointValidaff[i] = true;
+        }
+        else{
+            isPointValidaff[i] = false;
+        }
+    }
+}
+
 function calcSchildAff(logval1,logval2, logval3, dr1, dr2, dr3){ //add 3 other concentrations as args
-	logB1 = logval1;
-	logB2 = logval2;
-    logB3 = logval3;
-    logdr1aff = dr1;
-    logdr2aff = dr2;
-    logdr3aff = dr3;
-	var data = [[],[]];
-	var xLogs = [-agoafflogaff, logB1, logB2, logB3] //x values for the schildAff
-	var logdr1aff = [0, logdr1aff, logdr2aff, logdr3aff]
-	
+    var data = [[],[]];
+	var allxLogs = [-agoafflog, logval1, logval2, logval3] //x values for the schild
+	var alllogDr1 = [0, dr1, dr2, dr3]
+    var xLogs = [];
+    var logDr1 = [];
+    var j = 0;
+
+    for(i = 0; i<4; i++){
+        if(isPointValidaff[i]){
+            xLogs[j] =  allxLogs[i];
+            logDr1[j] = alllogDr1[i];
+            j++;
+        }
+    }
 
 	data[0] = xLogs;
-	data[1] = logdr1aff;
-	
-	return data;
+	data[1] = logDr1;
+
+    return data;
 
 }
 
