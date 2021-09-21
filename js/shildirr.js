@@ -38,6 +38,10 @@ var animation = {
           redraw: false,
    }
 }
+
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 //
 function titleIrr(){
     document.getElementById("tabtitle").innerHTML = "Schild Plot Generator for Irreversible Antagonist"
@@ -651,7 +655,12 @@ function plotGraphIrr(chart){
             mode: 'markers',
             name: "EC Value",
             marker: {
-                color: "orange"
+                color: "red",
+                size: dotsize,
+                line: {
+                    color: 'black',
+                    width: 1
+                  }
             },
             showlegend: legendview[i]
         }];

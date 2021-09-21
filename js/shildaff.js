@@ -38,6 +38,9 @@ var animation = {
  }
 }
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 function titleAff(){
     document.getElementById("tabtitle").innerHTML = "Schild Plot Generator for Allosteric Antagonist (Affinity)"
 }
@@ -683,7 +686,12 @@ function plotGraphAff(chart){
             mode: 'markers',
             name: "EC Value",
             marker: {
-                color: "orange"
+                color: "red",
+                size: dotsize,
+                line: {
+                    color: 'black',
+                    width: 1
+                  }
             },
             showlegend: legendview[i]
         }];

@@ -41,6 +41,10 @@ var animation = {
           redraw: false,
    }
 }
+
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 //
 function titleFun(){
     document.getElementById("tabtitle").innerHTML = "Schild Plot Generator for Functional Antagonist"
@@ -753,7 +757,12 @@ function plotGraphFun(chart){
             mode: 'markers',
             name: "EC Value",
             marker: {
-                color: "orange"
+                color: "red",
+                size: dotsize,
+                line: {
+                    color: 'black',
+                    width: 1
+                  }
             },
             showlegend: legendview[i]
         }];
