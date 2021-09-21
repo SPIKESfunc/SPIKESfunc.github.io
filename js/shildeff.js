@@ -38,6 +38,9 @@ var animation = {
  }
 }
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 function titleEff(){
     document.getElementById("tabtitle").innerHTML = "Schild Plot Generator for Allosteric Antagonist (Efficacy)"
 }
@@ -694,7 +697,8 @@ function plotGraphEff(chart){
             mode: 'markers',
             name: "EC Value",
             marker: {
-                color: "orange"
+                color: "orange",
+                size: dotsize
             },
             showlegend: legendview[i]
         }];
