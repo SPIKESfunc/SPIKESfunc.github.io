@@ -588,48 +588,54 @@ function updateEverythingEff(){
 }
 
 
-function calcLinesEff(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoeffect, agoconcentration){
+function calcLinesEff(
+    affinity,
+    efficacy,
+    recepDensity,
+    efficiency,
+    agoaffinity,
+    agoeffect,
+    agoconcentration
+  ) {
     const STEP = 0.01;
-    var data = [[],[]];
+    var data = [[], []];
     var i, effect;
+  
     //Inverse log input values
-
+  
     var affin = 10 ** (-1 * affinity);
     var efcay = 10 ** efficacy;
     var recep = 10 ** recepDensity;
     var efcey = 10 ** efficiency;
     var agoaffin = 10 ** (-1 * agoaffinity);
     var agoeff = 10 ** (-1 * agoeffect);
-
+  
     if (agoconcentration === 0) {
-        var agoconc = 0;
-        agoaffin = 0;
-        for (i = -12; i < -2; i = i + STEP) {
-          effect =
-            (10 ** i * efcay * recep * efcey * 100) /
-            (10 ** i * (efcay * recep * efcey + 1) + affin);
-          data[0].push(i);
-          data[1].push(effect);
-        }
-      } else {
-        agoconc = 10 ** agoconcentration;
-        for (i = -12; i < -2; i = i + STEP) {
-          var aconc = 10 ** i;
-          var effect1 = 100 / (agoconc / agoaffin + 1);
-          var effect2 =
-            (aconc * efcay * recep * efcey) /
-            (aconc * (efcay * recep * efcey + 1) + affin);
-          var effect3 = agoconc / agoaffin;
-          var effect4 =
-            (aconc * agoeff * efcay * recep * efcey) /
-            (aconc * (agoeff * efcay * recep * efcey + 1) + affin);
-          effect = effect1 * (effect2 + effect3 * effect4);
-          data[0].push(i);
-          data[1].push(effect);
-        }
+      var agoconc = 0;
+      agoaffin = 0;
+      for (i = -12; i < -2; i = i + STEP) {
+        data[0].push(i);
+        data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
       }
+    } else {
+      agoconc = 10 ** agoconcentration;
+      for (i = -12; i < -2; i = i + STEP) {
+        var aconc = 10 ** i;
+        var effect1 = 100 / (agoconc / agoaffin + 1);
+        var effect2 =
+          (aconc * efcay * recep * efcey) /
+          (aconc * (efcay * recep * efcey + 1) + affin);
+        var effect3 = agoconc / agoaffin;
+        var effect4 =
+          (aconc * agoeff * efcay * recep * efcey) /
+          (aconc * (agoeff * efcay * recep * efcey + 1) + affin);
+        effect = effect1 * (effect2 + effect3 * effect4);
+        data[0].push(i);
+        data[1].push(effect);
+      }
+    }
     return data;
-}
+  }
 
 var linecolourseff = ["#000000", "#ff6666", "#ff3333", "#ff0000"]
 

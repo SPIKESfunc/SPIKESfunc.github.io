@@ -645,8 +645,7 @@ function updateEverythingFun(){
     logdr2fun = document.getElementById("antlogdr2fun").value = calcLogDRFun(doseratio2fun).toFixed(2);
     logdr3fun = document.getElementById("antlogdr3fun").value = calcLogDRFun(doseratio3fun).toFixed(2);
 }
-//done
-function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoefficacy, agodensity, agoefficiency, agoconcentration){
+function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoefficacy, agoconcentration, agodensity, agoefficiency){
     const STEP = 0.01;
     var data = [[],[]];
     //Inverse log input values
@@ -669,7 +668,7 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
         for (i=-12; i<-2;i=i+STEP){
             //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
         }
     }
     else{
@@ -678,14 +677,14 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
             var aconc = 10**i;
 
             effect1 = aconc*efcay*recep*efcey*emaxa;
-            effect2 = (aconc*((efcay*recep*efcey)+1))+affin;
+            effect2 = (aconc*((efcay*recep*efcey)+1-efcay))+affin;
             effect3 = agoconc*agoeff*agoden*agoeffic*emaxb;
-            effect4 = (agoconc*((agoeff*agoden*agoeffic)+1))+agoaffin;
+            effect4 = (agoconc*((agoeff*agoden*agoeffic)+1-agoeff))+agoaffin;
 
             effect = ((effect1/effect2)-(effect3/effect4));
 
             data[0].push(i);
-            data[1].push(effect);   
+            data[1].push(effect);
         }
     }
     return data;
