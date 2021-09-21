@@ -725,7 +725,7 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-//Define a function to calculate ideal line, formulas need to be modified here, haven't finished yet.
+//Define a function to calculate ideal line, the formulas need to be modified here, this part hasn't been finished yet.
 function calcLinesIdealFun(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration){
     const STEP = 0.01;
     var data = [[],[]];
@@ -921,7 +921,7 @@ function plotSchildFun(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
-        name: 'Line',
+        name: 'Actual Line',
 		line: {
 			width: 1
 		}
@@ -949,6 +949,11 @@ function plotSchildFun(chart){
 }
 
 plotSchildFun("schildFun");
+
+//Define functions to calculate actual line values for Actual Line Table, the formulas need to be modified here, this part hasn't been finished yet.
+var slopevaluefun = document.getElementById("slopevaluefun").innerHTML = 1;
+var pA2valuefun = document.getElementById("pA2valuefun").innerHTML = -9;
+var r2valuefun = document.getElementById("r2valuefun").innerHTML = 1;
 
 //QUESTION BOX
 var questionsSchildfun = ["Will the Schild plot for a functional antagonist be linear with a slope = 1.0?",

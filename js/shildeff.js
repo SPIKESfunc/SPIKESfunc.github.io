@@ -676,7 +676,7 @@ function calcLinesEff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-//Define a function to calculate ideal line, formulas need to be modified here, haven't finished yet.
+//Define a function to calculate ideal line, the formulas need to be modified here, this part hasn't been finished yet.
 function calcLinesIdealEff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration){
     const STEP = 0.01;
     var data = [[],[]];
@@ -869,7 +869,7 @@ function plotSchildEff(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
-        name: 'Line',
+        name: 'Actual Line',
 		line: {
 			width: 1
 		}
@@ -902,6 +902,12 @@ function showInstructionsQuant() {
     $('#instructions').modal('show');
     $('.nav-tabs a[href="#quant"]').tab('show');
 };
+
+
+//Define functions to calculate actual line values for Actual Line Table, the formulas need to be modified here, this part hasn't been finished yet.
+var slopevalueeff = document.getElementById("slopevalueeff").innerHTML = 1;
+var pA2valueeff = document.getElementById("pA2valueeff").innerHTML = -9;
+var r2valueeff = document.getElementById("r2valueeff").innerHTML = 1;
 
 //QUESTION BOX
 var questionsSchildeff = ["For an allosteric antagonist that reduces agonist efficacy only, is a Schild plot likely to be linear with a slope equal to one?",

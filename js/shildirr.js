@@ -606,7 +606,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-//Define a function to calculate ideal line, formulas need to be modified here, haven't finished yet.
+//Define a function to calculate ideal line, the formulas need to be modified here, this part hasn't been finished yet.
 function calcLinesIdealIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration){
     const STEP = 0.01;
     var data = [[],[]];
@@ -800,7 +800,7 @@ function plotSchildIrr(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
-        name: 'Line',
+        name: 'Actual Line',
 		line: {
 			width: 1
 		}
@@ -831,6 +831,11 @@ function showInstructionsQuant() {
     $('#instructions').modal('show');
     $('.nav-tabs a[href="#quant"]').tab('show');
 };
+
+//Define functions to calculate actual line values for Actual Line Table, the formulas need to be modified here, this part hasn't been finished yet.
+var slopevalueirr = document.getElementById("slopevalueirr").innerHTML = 1;
+var pA2valueirr = document.getElementById("pA2valueirr").innerHTML = -9;
+var r2valueirr = document.getElementById("r2valueirr").innerHTML = 1;
 
 //QUESTION BOX
 var questionsSchildirr = ["Will the Schild plot for an irreversible antagonist be linear with a slope = 1.0?", 
