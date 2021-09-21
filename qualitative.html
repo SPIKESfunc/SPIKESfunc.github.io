@@ -1,3 +1,4 @@
+<!-- This file corresponds to the Dose-Response Visualiser section of the page -->
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -22,20 +23,23 @@
 </head>
 
 <body>
+	<!-- This is the header section of the page -->
 	<header>
 		<nav class="navbar navbar-light navbar-expand-lg fixed-top header">
 			<div class="container">
 				<a class="navbar-brand nav-style" href="index.html">
-				<img src="images/favicon-196x196.png" width="30" height="30" class="d-inline-block align-center" alt="">
+					<img src="images/favicon-196x196.png" width="30" height="30" class="d-inline-block align-center"
+						alt="">
 					SPIKES<i>func</i></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-				 aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a class="nav-item nav-link nav-style active" href="qualitative.html">Dose-Response Visualiser</a>
+							<a class="nav-item nav-link nav-style active" href="qualitative.html">Dose-Response
+								Visualiser</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-item nav-link nav-style" href="quantitative.html">Schild Plot Generator</a>
@@ -44,7 +48,8 @@
 							<a class="nav-item nav-link nav-style" href="quiz.html">Schild Plot Analysis Quiz</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-item nav-link nav-style" href="logtable.html" target="_blank">-logK<sub>i</sub> Values</a>
+							<a class="nav-item nav-link nav-style" href="logtable.html"
+								target="_blank">-logK<sub>i</sub> Values</a>
 						</li>
 					</ul>
 				</div>
@@ -52,12 +57,18 @@
 		</nav>
 	</header>
 	<div id="loader"></div>
+
+	<!-- This is the navbar section of the page where it has the Agonist Competitve Antagonist etc.. section -->
+
 	<div id="page" class="container box-size bg-box p-4" style="visibility: hidden; position: absolute;">
 		<h1 class="d-flex justify-content-center">Dose-Response Visualiser</h1>
 		<p align="center">
-			<button class="btn waves-effect waves-light red" onclick="showInstructionsQual()"><span class="fa fa-info-circle"></span> What to do?</button>
+			<button class="btn waves-effect waves-light red" onclick="showInstructionsQual()"><span
+					class="fa fa-info-circle"></span> What to do?</button>
 		</p>
 		<br>
+		<!-- The list of 6 different -->
+
 		<ul class="nav nav-pills nav-justified" role="tablist">
 			<li class="nav-item">
 				<a class="nav-link active" data-toggle="tab" href="#home">Agonist</br></a>
@@ -79,20 +90,28 @@
 			</li>
 		</ul>
 		<hr>
+		<!-- This is the content below the visualisations -->
+
 		<div class="tab-content">
 			<div id="home" class="container tab-pane active">
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top:50px">
-							<a data-toggle="modal" href="" data-target="#whattodo1" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspAgonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo1"
+								class="btn waves-effect waves-light red" role="button"><span
+									class="fa fa-info-circle"></span>&nbspAgonist</a>
 							<div id="whattodo1" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
+										<!-- The AGONIST button -->
 										<div class="modal-header">
 											<h4 class="modal-title">Agonist</h4>
 										</div>
 										<div class="modal-body">
+											<!-- The contents once Agonist button is clicked -->
+
 											<div class="box">
+
 												<p>Below is a short animation illustrating the action of agonists on receptors:</p>
 
 												<div style='text-align:center'>
@@ -107,17 +126,23 @@
 												<br>
 												<p>Observe the effects of changing the characteristics of the Agonist (affinity, intrinsic efficacy) and/or the Cell (receptor density, signal amplification) by moving the red slider along the grey bar to the right or left to increase or decrease the value of the characteristic, respectively.</p>
 												<p>Some clinically-used drugs act as agonists – e.g. salbutamol at the &#946<sub>2</sub>-adrenoceptor, adrenaline at various adrenoceptors, morphine at opioid receptors, etc.</p>
+
 											</div>
 										</div>
 										<div class="modal-footer">
-											<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+											<button type="button" class="btn waves-effect waves-light red"
+												data-dismiss="modal">Close</button>
 										</div>
 									</div>
 								</div>
 							</div>
 							<fieldset style="width: 430px;">
+								<!-- This is all the content inside the Aginist box -->
+
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info1"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a
+									data-toggle="modal" href="" data-target="#info1"><i
+										class="red1 fa fa-info-circle"></i></a>
 								<div id="info1" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -126,18 +151,41 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Affinity</b> is a measure of the strength of binding of a drug to a receptor (both agonists and antagonists have affinity), and depends on the existence of chemical forces of attraction between the agonist and the receptor binding site (e.g. most commonly ionic bonds, hydrogen bonds, van der Waals forces). The strength of binding (affinity) depends upon the respective 3-D structures of the agonist and binding site – the strength of binding dissipates markedly as the distance between the agonist and binding site increases. High affinity agonists bind to binding sites at low concentrations, whereas low affinity agonists bind at higher concentrations. The affinity of ligands (agonists and antagonists) can be quantitated using the Equilibrium Dissociation Constant (K<sub>A</sub>), which is the concentration of ligand needed to occupy (bind to) 50% of receptors (in the absence of any competing ligands). K<sub>A</sub> is also the ratio of the rate the ligand (agonist or antagonist) leaves the receptor binding site (k<sub>off</sub>) and the rate it approaches the receptor binding site (k<sub>on</sub>). The K<sub>A</sub> value is inversely proportional to the affinity (high affinity ligands have low K<sub>A</sub> values, and vice versa) and is typically measured in drug binding assays (plots of [ligand] versus fractional receptor occupancy). As the [ligand] increases the fraction of receptor bound increases nonlinearly (rectangular hyperbolic function) to form a maximal asymptote (from which R<sub>T</sub> can be determined). Colloquially speaking, “affinity is what brings the drug to the receptor”.</p>
+
+												<p><b>Affinity</b> is a measure of the strength of binding of a drug to a receptor 
+                          (both agonists and antagonists have affinity), and depends on the existence of chemical 
+                          forces of attraction between the agonist and the receptor binding site (e.g. most
+                          commonly ionic bonds, hydrogen bonds, van der Waals forces). The strength of binding 
+                          (affinity) depends upon the respective 3-D structures of the agonist and binding site – 
+                          the strength of binding dissipates markedly as the distance between the agonist and 
+                          binding site increases. High affinity agonists bind to binding sites at low concentrations, 
+                          whereas low affinity agonists bind at higher concentrations. The affinity of ligands 
+                          (agonists and antagonists) can be quantitated using the Equilibrium Dissociation 
+                          Constant (K<sub>A</sub>), which is the concentration of ligand needed to occupy 
+                          (bind to) 50% of receptors (in the absence of any competing ligands). K<sub>A</sub> 
+                          is also the ratio of the rate the ligand (agonist or antagonist) leaves the receptor 
+                          binding site (k<sub>off</sub>) and the rate it approaches the receptor binding site 
+                          (k<sub>on</sub>). The K<sub>A</sub> value is inversely proportional to the affinity 
+                          (high affinity ligands have low K<sub>A</sub> values, and vice versa) and is 
+                          typically measured in drug binding assays (plots of [ligand] versus fractional 
+                          receptor occupancy). As the [ligand] increases the fraction of receptor bound 
+                          increases nonlinearly (rectangular hyperbolic function) to form a maximal asymptote 
+                          (from which R<sub>T</sub> can be determined). Colloquially speaking, “affinity is 
+                          what brings the drug to the receptor”.</p>
+
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="affinity" id="affslider" min="4" max="8" step="0.04" value="6"
-								 oninput="updateAffinity(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info2"><i class="red1 fa fa-info-circle"></i></a>
+								<input type="range" autocomplete="off" name="affinity" id="affslider" min="5" max="9"
+									step="0.04" value="7" oninput="updateAffinity(this.value)">
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info2"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info2" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -146,21 +194,37 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Intrinsic Efficacy</b> is the property of the agonist that enables it, once bound, to change the conformation of the receptor (activation), such that it alters the activity of downstream signalling pathways to produce a change in cellular activity. Efficacy is measured in relative terms, having no absolute scale – but different ligands have clearly different efficacies – full agonists have higher efficacies than partial agonists, and antagonists typically have no efficacy (bind to but don’t activate the receptor). Thus, different agonists have different inherent capacities to induce a response, and equal cellular responses can be achieved by different fractional receptor occupancies. Colloquially speaking, efficacy is “what the drug does once it binds to the receptor”.</p>
+
+												<p><b>Intrinsic Efficacy</b> is the property of the agonist that 
+                          enables it, once bound, to change the conformation of the receptor 
+                          (activation), such that it alters the activity of downstream signaling 
+                          pathways to produce a change in cellular activity. Efficacy is measured in 
+                          relative terms, having no absolute scale – but different ligands have clearly 
+                          different efficacies – full agonists have higher efficacies than partial agonists, 
+                          and antagonists typically have no efficacy (bind to but don’t activate the receptor). 
+                          Thus, different agonists have different inherent capacities to induce a response, 
+                          and equal cellular responses can be achieved by different fractional receptor 
+                          occupancies. Colloquially speaking, efficacy is “what the drug does once it 
+                          binds to the receptor”.</p>
+
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="efficacy" id="effslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 oninput="updateEfficacy(this.value)">
+								<input type="range" autocomplete="off" name="efficacy" id="effslider" min="-0.7"
+									max="0" step="0.01" value="-0.35" oninput="updateEfficacy(this.value)">
 							</fieldset>
+							<!-- The contents inside the Cell box -->
+
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info3"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info3"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info3" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -169,18 +233,33 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Receptor Density</b> is the total number of receptors, expressed in terms of unit area of membrane, or per cell, or per unit mass of protein. Proportional to the quantity B<sub>max</sub> (the maximal specific binding of a ligand, often expressed in units of mol ligand/mg protein, or ligands bound/cell) measured in radioligand binding studies.  The relationship between B<sub>max</sub> and N is influenced by the number of ligand binding sites possessed by each receptor. For most receptors there is one binding site for the endogenous agonist, although for ligand-gated ion channels (e.g. nicotinic acetylcholine receptor), this is generally more than one.</p>
+													<p><b>Receptor Density</b> is the total number of receptors,
+														expressed in terms of unit area of membrane, or per cell, or per
+														unit mass of protein. Proportional to the quantity
+														B<sub>max</sub> (the maximal specific binding of a ligand, often
+														expressed in units of mol ligand/mg protein, or ligands
+														bound/cell) measured in radioligand binding studies. The
+														relationship between B<sub>max</sub> and N is influenced by the
+														number of ligand binding sites possessed by each receptor. For
+														most receptors there is one binding site for the endogenous
+														agonist, although for ligand-gated ion channels (e.g. nicotinic
+														acetylcholine receptor), this is generally more than one.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="density" id="denslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 oninput="updateDensity(this.value)">
-								<br><label for="efficiency">Signal Amplification (<i>&#947</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info4"><i class="red1 fa fa-info-circle"></i></a>
+
+								<input type="range" autocomplete="off" name="density" id="denslider" min="-1"
+									max="1" step="0.01" value="0" oninput="updateDensity(this.value)">
+								<br><label for="efficiency">Signal Amplification (<i>&#947</i>)&nbsp</label><a
+									data-toggle="modal" href="" data-target="#info4"><i
+										class="red1 fa fa-info-circle"></i></a>
+
 								<div id="info4" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -189,64 +268,96 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Signal Amplification </b> is a cell-dependent parameter describing the efficiency of the signalling pathways that couple (link) the activated receptor to the measured effect. Some cells have high signal amplification capacities, meaning that activation of a relatively small number of receptors can lead to a large cellular response. Other cells may have low signal amplification capacities (perhaps due to low expression / activity of a key signalling pathway component) and high levels of receptor activation may produce relatively small cellular responses.</p>
+
+												<p><b>Signal Amplification </b> is a cell-dependent parameter 
+                          describing the efficiency of the signalling pathways that 
+                          couple (link) the activated receptor to the measured effect. 
+                          Some cells have high signal amplification capacities, meaning 
+                          that activation of a relatively small number of receptors can 
+                          lead to a large cellular response. Other cells may have low 
+                          signal amplification capacities (perhaps due to low 
+                          expression / activity of a key signalling pathway component) 
+                          and high levels of receptor activation may produce relatively 
+                          small cellular responses.</p>
+
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="efficiency" id="efficislider" min="-0.3" max="0.7" step="0.01"
-								 value="0.2" oninput="updateEfficiency(this.value)">
+								<input type="range" autocomplete="off" name="efficiency" id="efficislider" min="0"
+									max="2" step="0.01" value="1" oninput="updateEfficiency(this.value)">
 							</fieldset>
+							<!-- The contents inside the quiz box -->
+
 							<fieldset style="width:430px;text-align:center">
-                                <legend>Questions</legend>
+								<legend>Questions</legend>
 								<div id="agonistQuestion" style="margin-bottom:20px;"></div>
-								<div id="restartMessageAgonist" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+								<div id="restartMessageAgonist" style="display:none">There are no more questions. Would
+									you like to try again?<br><br></div>
 
-                                <div id="agonistAnswerModal" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Answer</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="box">
-                                                    <div id="agonistAnswer"></div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+								<div id="agonistAnswerModal" class="modal fade" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title">Answer</h4>
+											</div>
+											<div class="modal-body">
+												<div class="box">
+													<div id="agonistAnswer"></div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 
-                                <button id="restartQuestionAgonist" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionAgonist()">Restart</button>
-                                <button id="prevAgonistQuestion" style="float:left" type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionAgonist()">Previous Question</button>
-								<button id="revealAgonistAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerAgonist()">Reveal Answer</button>								
-                                <button id="nextAgonistQuestion" style="float:right" type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionAgonist()">Next Question</button>
-                            </fieldset>
+								<button id="restartQuestionAgonist" style="display:none" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="restartQuestionAgonist()">Restart</button>
+								<button id="prevAgonistQuestion" style="float:left" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="prevQuestionAgonist()">Previous Question</button>
+								<button id="revealAgonistAnswer" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="revealAnswerAgonist()">Reveal Answer</button>
+								<button id="nextAgonistQuestion" style="float:right" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="nextQuestionAgonist()">Next Question</button>
+							</fieldset>
 
 						</div>
+						<!-- The Agonist box -->
+
 						<div class="col-lg-7">
 							<fieldset style="display:block">
 								<legend>Agonist Dose Response Curve</legend>
 								<h5 class="warning" id="agoalert"></h5>
 								<div id="agonist"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetAgo()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn waves-effect waves-light red"
+								onclick="resetAgo()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<!-- This section relates to the Competitive Antagonist section -->
+
 			<div id="menu1" class="container tab-pane fade">
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top: 50px;">
-							<a data-toggle="modal" href="" data-target="#whattodo2" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspCompetitive Antagonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo2"
+								class="btn waves-effect waves-light red" role="button"><span
+									class="fa fa-info-circle"></span>&nbspCompetitive Antagonist</a>
 							<div id="whattodo2" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -255,6 +366,7 @@
 										</div>
 										<div class="modal-body">
 											<div class="box">
+
 												<p>Competitive antagonists bind reversibly to the same binding site on the receptor as the agonist (orthosteric binding).  
 													
 													<div style='text-align:center'>
@@ -287,17 +399,21 @@
 
 												<img src="images/competitivechart.png" alt="Competitive Chart" style="max-height: 100%; max-width: 100%;" /><br/>
 												<p>The vast majority of clinically-used receptor antagonists are considered to act competitively – e.g. metoprolol at the &#946-adrenoceptor, atropine at the muscarinic cholinoceptor, losartan at the angiotensin AT1 receptor, etc.</p>
+
 											</div>
 										</div>
 										<div class="modal-footer">
-											<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+											<button type="button" class="btn waves-effect waves-light red"
+												data-dismiss="modal">Close</button>
 										</div>
 									</div>
 								</div>
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info5"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a
+									data-toggle="modal" href="" data-target="#info5"><i
+										class="red1 fa fa-info-circle"></i></a>
 								<div id="info5" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -306,18 +422,45 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Affinity</b> is a measure of the strength of binding of a drug to a receptor (both agonists and antagonists have affinity), and depends on the existence of chemical forces of attraction between the agonist and the receptor binding site (e.g. most commonly ionic bonds, hydrogen bonds, van der Waals forces). The strength of binding (affinity) depends upon the respective 3-D structures of the agonist and binding site – the strength of binding dissipates markedly as the distance between the agonist and binding site increases. High affinity agonists bind to binding sites at low concentrations, whereas low affinity agonists bind at higher concentrations. The affinity of ligands (agonists and antagonists) can be quantitated using the Equilibrium Dissociation Constant (K<sub>A</sub>), which is the concentration of ligand needed to occupy (bind to) 50% of receptors. K<sub>A</sub> is also the ratio of the rate the ligand (agonist or antagonist) leaves the receptor binding site (k<sub>off</sub>) and the rate it approaches the receptor binding site (k<sub>on</sub>). The K<sub>A</sub> value is inversely proportional to the affinity (high affinity ligands have low K<sub>A</sub> values) and is typically measured in drug binding assays (plots of [ligand] versus fractional receptor occupancy). As the [ligand] increases the fraction of receptor bound increases nonlinearly (rectangular hyperbolic function) to form a maximal asymptote (from which R<sub>T</sub> can be determined). Colloquially, “affinity is what brings the drug to the receptor”.</p>
+													<p><b>Affinity</b> is a measure of the strength of binding of a drug
+														to a receptor (both agonists and antagonists have affinity), and
+														depends on the existence of chemical forces of attraction
+														between the agonist and the receptor binding site (e.g. most
+														commonly ionic bonds, hydrogen bonds, van der Waals forces). The
+														strength of binding (affinity) depends upon the respective 3-D
+														structures of the agonist and binding site – the strength of
+														binding dissipates markedly as the distance between the agonist
+														and binding site increases. High affinity agonists bind to
+														binding sites at low concentrations, whereas low affinity
+														agonists bind at higher concentrations. The affinity of ligands
+														(agonists and antagonists) can be quantitated using the
+														Equilibrium Dissociation Constant (K<sub>A</sub>), which is the
+														concentration of ligand needed to occupy (bind to) 50% of
+														receptors. K<sub>A</sub> is also the ratio of the rate the
+														ligand (agonist or antagonist) leaves the receptor binding site
+														(k<sub>off</sub>) and the rate it approaches the receptor
+														binding site (k<sub>on</sub>). The K<sub>A</sub> value is
+														inversely proportional to the affinity (high affinity ligands
+														have low K<sub>A</sub> values) and is typically measured in drug
+														binding assays (plots of [ligand] versus fractional receptor
+														occupancy). As the [ligand] increases the fraction of receptor
+														bound increases nonlinearly (rectangular hyperbolic function) to
+														form a maximal asymptote (from which R<sub>T</sub> can be
+														determined). Colloquially, “affinity is what brings the drug to
+														the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="4" max="8" step="0.04" value="6"
-								 oninput="updateAffinityCom(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info6"><i class="red1 fa fa-info-circle"></i></a>
+								<input type="range" autocomplete="off" name="affinity" id="affcomslider" min="5" max="9"
+									step="0.04" value="7" oninput="updateAffinityCom(this.value)">
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info6"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info6" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -326,21 +469,35 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Intrinsic Efficacy</b> is the property of the agonist that enables it, once bound, to change the conformation of the receptor (activation), such that it alters the activity of downstream signalling pathways to produce a change in cellular activity. Efficacy is measured in relative terms, having no absolute scale – but different ligands have clearly different efficacies – full agonists have higher efficacies than partial agonists, and antagonists typically have no efficacy (bind to but don’t activate the receptor). Thus, different agonists have different inherent capacities to induce a response, and equal cellular responses can be achieved by different fractional receptor occupancies. Colloquially, efficacy is “what the drug does once it binds to the receptor”.</p>
+													<p><b>Intrinsic Efficacy</b> is the property of the agonist that
+														enables it, once bound, to change the conformation of the
+														receptor (activation), such that it alters the activity of
+														downstream signalling pathways to produce a change in cellular
+														activity. Efficacy is measured in relative terms, having no
+														absolute scale – but different ligands have clearly different
+														efficacies – full agonists have higher efficacies than partial
+														agonists, and antagonists typically have no efficacy (bind to
+														but don’t activate the receptor). Thus, different agonists have
+														different inherent capacities to induce a response, and equal
+														cellular responses can be achieved by different fractional
+														receptor occupancies. Colloquially, efficacy is “what the drug
+														does once it binds to the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 oninput="updateEfficacyCom(this.value)">
+								<input type="range" autocomplete="off" name="efficacy" id="effcomslider" min="-0.7"
+									max="0" step="0.01" value="-0.35" oninput="updateEfficacyCom(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info7"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info7"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info7" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -349,18 +506,33 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Receptor Density</b> is the total number of receptors, expressed in terms of unit area of membrane, or per cell, or per unit mass of protein. Proportional to the quantity B<sub>max</sub> (the maximal specific binding of a ligand, often expressed in units of mol ligand/mg protein, or ligands bound/cell) measured in radioligand binding studies.  The relationship between B<sub>max</sub> and N is influenced by the number of ligand binding sites possessed by each receptor. For most receptors there is one binding site for the endogenous agonist, although for ligand-gated ion channels (e.g. nicotinic acetylcholine receptor), this is generally more than one.</p>
+													<p><b>Receptor Density</b> is the total number of receptors,
+														expressed in terms of unit area of membrane, or per cell, or per
+														unit mass of protein. Proportional to the quantity
+														B<sub>max</sub> (the maximal specific binding of a ligand, often
+														expressed in units of mol ligand/mg protein, or ligands
+														bound/cell) measured in radioligand binding studies. The
+														relationship between B<sub>max</sub> and N is influenced by the
+														number of ligand binding sites possessed by each receptor. For
+														most receptors there is one binding site for the endogenous
+														agonist, although for ligand-gated ion channels (e.g. nicotinic
+														acetylcholine receptor), this is generally more than one.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="density" id="dencomslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 oninput="updateDensityCom(this.value)">
-								<br><label for="efficiency">Signal Amplification(<i>&#947</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info8"><i class="red1 fa fa-info-circle"></i></a>
+
+								<input type="range" autocomplete="off" name="density" id="dencomslider" min="-1"
+									max="1" step="0.01" value="0" oninput="updateDensityCom(this.value)">
+								<br><label for="efficiency">Signal Amplification (<i>&#947</i>)&nbsp</label><a
+									data-toggle="modal" href="" data-target="#info8"><i
+										class="red1 fa fa-info-circle"></i></a>
+
 								<div id="info8" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -369,57 +541,82 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Signal Amplification</b> is a cell-dependent parameter describing the efficiency of the signalling pathways that couple (link) the activated receptor to the measured effect. Some cells have high coupling efficiencies, meaning that activation of a relatively small number of receptors can lead to a large cellular response. Other cells may have low coupling efficiencies (perhaps due to low expression / activity of a key signalling pathway component) and high levels of receptor activation may produce relatively small cellular responses.</p>
+
+												<p><b>Signal Amplification</b> is a cell-dependent parameter describing 
+                          the efficiency of the signalling pathways that couple (link) 
+                          the activated receptor to the measured effect. Some cells have 
+                          high coupling efficiencies, meaning that activation of a relatively 
+                          small number of receptors can lead to a large cellular response. 
+                          Other cells may have low coupling efficiencies (perhaps due to low 
+                          expression / activity of a key signalling pathway component) and 
+                          high levels of receptor activation may produce relatively small cellular responses.</p>
+
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="-0.3" max="0.7" step="0.01"
-								 value="0.2" oninput="updateEfficiencyCom(this.value)">
+								<input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="0"
+									max="2" step="0.01" value="1" oninput="updateEfficiencyCom(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Competitive Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
-								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7" max="11" step="0.04"
-								 value="9" oninput="updateAgoAffinityCom(this.value)"><br/>
-								 <label for="antagocomp">-logK<sub>B</sub> =&nbsp</label>
-								 <input class="numbox" type="number" autocomplete="off" name="antagocomp" id="antagocomp" style="width: 60px;" readonly>
+
+								<!-- COMPETATIVE ANAGONIST 1/KB SLIDER -->
+
+								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffcomslider" min="7"
+									max="11" step="0.04" value="9" oninput="updateAgoAffinityCom(this.value)"><br />
+								<label for="antagocomp">-logK<sub>B</sub> =&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="antagocomp" id="antagocomp"
+									style="width: 60px;" readonly>
 							</fieldset>
+
 							<!--COLOURS OF DIFFERENT ONES-->
 							<fieldset style="width:430px;text-align:center">
-                                <legend>Questions</legend>
-                                <div id="comQuestion" style="margin-bottom:20px;"></div>
-								<div id="restartMessageCom" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+								<legend>Questions</legend>
+								<div id="comQuestion" style="margin-bottom:20px;"></div>
+								<div id="restartMessageCom" style="display:none">There are no more questions. Would you
+									like to try again?<br><br></div>
 
 
-                                <div id="comAnswerModal" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Answer</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="box">
-                                                    <div id="comAnswer"></div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+								<div id="comAnswerModal" class="modal fade" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title">Answer</h4>
+											</div>
+											<div class="modal-body">
+												<div class="box">
+													<div id="comAnswer"></div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 
-                                <button id="restartQuestionCom" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionCom()">Restart</button>
-								<button id="prevComQuestion" style="float:left" type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionCom()">Previous Question</button>
-								<button id="revealComAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerCom()">Reveal Answer</button>
-                                <button id="nextComQuestion" style= "float:right"type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionCom()">Next Question</button>
+								<button id="restartQuestionCom" style="display:none" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="restartQuestionCom()">Restart</button>
+								<button id="prevComQuestion" style="float:left" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="prevQuestionCom()">Previous Question</button>
+								<button id="revealComAnswer" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="revealAnswerCom()">Reveal
+									Answer</button>
+								<button id="nextComQuestion" style="float:right" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="nextQuestionCom()">Next
+									Question</button>
 							</fieldset>
-							
+
 						</div>
 						<div class="col-lg-7">
 							<fieldset>
@@ -427,16 +624,43 @@
 								<h5 class="warning" id="comalert"></h5>
 								<div id="competitive"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetCom()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn waves-effect waves-light red"
+								onclick="resetCom()" style="float: right;">Reset</button>
+
+							<!-- NEW - ALLOW CHANGING OF nM Values-->
+
+							<fieldset style="width: 430px;">
+								<legend>Concentration (M)</legend>
+								<p>[Agonist] #1  : cannot be changed.</p>
+								<label>[Agonist] #2  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="comline2" min="-12" max="0"
+									style="width: 100px;" value="-9" step="0.1" oninput="updateConcentrationCom(this.value, 1)"></br>
+
+								<label>[Agonist] #3  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="comline3" min="-12" max="0"
+									style="width: 100px;" value="-8" step="0.1" oninput="updateConcentrationCom(this.value, 2)"></br>
+								
+								<label>[Agonist] #4  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="comline4" min="-12" max="0"
+									style="width: 100px;" value="-7" step="0.1" oninput="updateConcentrationCom(this.value, 3)"></br>
+
+								<label>[Agonist] #5  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="comline5" min="-12" max="0"
+									style="width: 100px;" value="-6" step="0.1" oninput="updateConcentrationCom(this.value, 4)"></br>
+							</fieldset>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- This section relates to the Irreversible Antagonist -->
+
 			<div id="menu2" class="container tab-pane fade">
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top: 50px;">
-							<a data-toggle="modal" href="" data-target="#whattodo3" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspIrreversible Antagonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo3"
+								class="btn waves-effect waves-light red" role="button"><span
+									class="fa fa-info-circle"></span>&nbspIrreversible Antagonist</a>
 							<div id="whattodo3" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -445,6 +669,7 @@
 										</div>
 										<div class="modal-body">
 											<div class="box">
+
 												<p>An irreversible antagonist binds <b>covalently</b> (not reversibly) to the same binding site on the receptor as the agonist (orthosteric binding), without activating the receptor.
 													
 													<div style='text-align:center'>
@@ -467,17 +692,22 @@
 												<img src="images/irreversiblechart.png" alt="Irreversible Chart" style="max-height: 100%; max-width: 100%;" />
 												<br>
 												<p>Relatively few clinically-used receptor antagonists are considered to act irreversibly – e.g. naloxazone at the opioid mu receptor, phenoxybenzamine at the &#945 adrenoceptor.  Some drugs act ‘pseudoirreversibly’ and occupy the orthosteric binding site for relatively long periods without forming a covalent bond e.g. tiotropium at the muscarinic cholinoceptor.</p>
+
+												
 											</div>
 										</div>
 										<div class="modal-footer">
-											<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+											<button type="button" class="btn waves-effect waves-light red"
+												data-dismiss="modal">Close</button>
 										</div>
 									</div>
 								</div>
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info9"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a
+									data-toggle="modal" href="" data-target="#info9"><i
+										class="red1 fa fa-info-circle"></i></a>
 								<div id="info9" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -486,18 +716,45 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Affinity</b> is a measure of the strength of binding of a drug to a receptor (both agonists and antagonists have affinity), and depends on the existence of chemical forces of attraction between the agonist and the receptor binding site (e.g. most commonly ionic bonds, hydrogen bonds, van der Waals forces). The strength of binding (affinity) depends upon the respective 3-D structures of the agonist and binding site – the strength of binding dissipates markedly as the distance between the agonist and binding site increases. High affinity agonists bind to binding sites at low concentrations, whereas low affinity agonists bind at higher concentrations. The affinity of ligands (agonists and antagonists) can be quantitated using the Equilibrium Dissociation Constant (K<sub>A</sub>), which is the concentration of ligand needed to occupy (bind to) 50% of receptors. K<sub>A</sub> is also the ratio of the rate the ligand (agonist or antagonist) leaves the receptor binding site (k<sub>off</sub>) and the rate it approaches the receptor binding site (k<sub>on</sub>). The K<sub>A</sub> value is inversely proportional to the affinity (high affinity ligands have low K<sub>A</sub> values) and is typically measured in drug binding assays (plots of [ligand] versus fractional receptor occupancy). As the [ligand] increases the fraction of receptor bound increases nonlinearly (rectangular hyperbolic function) to form a maximal asymptote (from which R<sub>T</sub> can be determined). Colloquially, “affinity is what brings the drug to the receptor”.</p>
+													<p><b>Affinity</b> is a measure of the strength of binding of a drug
+														to a receptor (both agonists and antagonists have affinity), and
+														depends on the existence of chemical forces of attraction
+														between the agonist and the receptor binding site (e.g. most
+														commonly ionic bonds, hydrogen bonds, van der Waals forces). The
+														strength of binding (affinity) depends upon the respective 3-D
+														structures of the agonist and binding site – the strength of
+														binding dissipates markedly as the distance between the agonist
+														and binding site increases. High affinity agonists bind to
+														binding sites at low concentrations, whereas low affinity
+														agonists bind at higher concentrations. The affinity of ligands
+														(agonists and antagonists) can be quantitated using the
+														Equilibrium Dissociation Constant (K<sub>A</sub>), which is the
+														concentration of ligand needed to occupy (bind to) 50% of
+														receptors. K<sub>A</sub> is also the ratio of the rate the
+														ligand (agonist or antagonist) leaves the receptor binding site
+														(k<sub>off</sub>) and the rate it approaches the receptor
+														binding site (k<sub>on</sub>). The K<sub>A</sub> value is
+														inversely proportional to the affinity (high affinity ligands
+														have low K<sub>A</sub> values) and is typically measured in drug
+														binding assays (plots of [ligand] versus fractional receptor
+														occupancy). As the [ligand] increases the fraction of receptor
+														bound increases nonlinearly (rectangular hyperbolic function) to
+														form a maximal asymptote (from which R<sub>T</sub> can be
+														determined). Colloquially, “affinity is what brings the drug to
+														the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="affinity" id="affirrslider" min="4" max="8" step="0.04" value="6"
-								 oninput="updateAffinityIrr(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info10"><i class="red1 fa fa-info-circle"></i></a>
+								<input type="range" autocomplete="off" name="affinity" id="affirrslider" min="5" max="9"
+									step="0.04" value="7" oninput="updateAffinityIrr(this.value)">
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info10"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info10" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -506,21 +763,35 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Intrinsic Efficacy</b> is the property of the agonist that enables it, once bound, to change the conformation of the receptor (activation), such that it alters the activity of downstream signalling pathways to produce a change in cellular activity. Efficacy is measured in relative terms, having no absolute scale – but different ligands have clearly different efficacies – full agonists have higher efficacies than partial agonists, and antagonists typically have no efficacy (bind to but don’t activate the receptor). Thus, different agonists have different inherent capacities to induce a response, and equal cellular responses can be achieved by different fractional receptor occupancies. Colloquially, efficacy is “what the drug does once it binds to the receptor”.</p>
+													<p><b>Intrinsic Efficacy</b> is the property of the agonist that
+														enables it, once bound, to change the conformation of the
+														receptor (activation), such that it alters the activity of
+														downstream signalling pathways to produce a change in cellular
+														activity. Efficacy is measured in relative terms, having no
+														absolute scale – but different ligands have clearly different
+														efficacies – full agonists have higher efficacies than partial
+														agonists, and antagonists typically have no efficacy (bind to
+														but don’t activate the receptor). Thus, different agonists have
+														different inherent capacities to induce a response, and equal
+														cellular responses can be achieved by different fractional
+														receptor occupancies. Colloquially, efficacy is “what the drug
+														does once it binds to the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="efficacy" id="effirrslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 oninput="updateEfficacyIrr(this.value)">
+								<input type="range" autocomplete="off" name="efficacy" id="effirrslider" min="-0.7"
+									max="0" step="0.01" value="-0.35" oninput="updateEfficacyIrr(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info11"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info11"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info11" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -529,18 +800,33 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Receptor Density</b> is the total number of receptors, expressed in terms of unit area of membrane, or per cell, or per unit mass of protein. Proportional to the quantity B<sub>max</sub> (the maximal specific binding of a ligand, often expressed in units of mol ligand/mg protein, or ligands bound/cell) measured in radioligand binding studies.  The relationship between B<sub>max</sub> and N is influenced by the number of ligand binding sites possessed by each receptor. For most receptors there is one binding site for the endogenous agonist, although for ligand-gated ion channels (e.g. nicotinic acetylcholine receptor), this is generally more than one.</p>
+													<p><b>Receptor Density</b> is the total number of receptors,
+														expressed in terms of unit area of membrane, or per cell, or per
+														unit mass of protein. Proportional to the quantity
+														B<sub>max</sub> (the maximal specific binding of a ligand, often
+														expressed in units of mol ligand/mg protein, or ligands
+														bound/cell) measured in radioligand binding studies. The
+														relationship between B<sub>max</sub> and N is influenced by the
+														number of ligand binding sites possessed by each receptor. For
+														most receptors there is one binding site for the endogenous
+														agonist, although for ligand-gated ion channels (e.g. nicotinic
+														acetylcholine receptor), this is generally more than one.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="density" id="denirrslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 oninput="updateDensityIrr(this.value)">
-								<br><label for="efficiency">Signal Amplification(<i>&#947</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info12"><i class="red1 fa fa-info-circle"></i></a>
+
+								<input type="range" autocomplete="off" name="density" id="denirrslider" min="-1"
+									max="1" step="0.01" value="0" oninput="updateDensityIrr(this.value)">
+								<br><label for="efficiency">Signal Amplification (<i>&#947</i>)&nbsp</label><a
+									data-toggle="modal" href="" data-target="#info12"><i
+										class="red1 fa fa-info-circle"></i></a>
+
 								<div id="info12" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -549,55 +835,78 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Signal Amplification</b> is a cell-dependent parameter describing the efficiency of the signalling pathways that couple (link) the activated receptor to the measured effect. Some cells have high coupling efficiencies, meaning that activation of a relatively small number of receptors can lead to a large cellular response. Other cells may have low coupling efficiencies (perhaps due to low expression / activity of a key signalling pathway component) and high levels of receptor activation may produce relatively small cellular responses.</p>
+
+												<p><b>Signal Amplification</b> is a cell-dependent parameter 
+                          describing the efficiency of the signalling pathways that 
+                          couple (link) the activated receptor to the measured effect. 
+                          Some cells have high coupling efficiencies, meaning that 
+                          activation of a relatively small number of receptors can 
+                          lead to a large cellular response. Other cells may have low 
+                          coupling efficiencies (perhaps due to low expression / activity 
+                          of a key signalling pathway component) and high levels of 
+                          receptor activation may produce relatively small cellular responses.</p>
+
+													
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="efficiency" id="efficiirrslider" min="-0.3" max="0.7" step="0.01"
-								 value="0.2" oninput="updateEfficiencyIrr(this.value)">
+								<input type="range" autocomplete="off" name="efficiency" id="efficiirrslider" min="0"
+									max="2" step="0.01" value="1" oninput="updateEfficiencyIrr(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Irreversible Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
-								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7" max="11" step="0.04"
-								 value="9" oninput="updateAgoAffinityIrr(this.value)"><br/>
-								 <label for="antagoirr">-logK<sub>B</sub> =&nbsp</label>
-								<input class="numbox" type="number" autocomplete="off" name="antagoirr" id="antagoirr" style="width: 60px;" readonly>
+								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffirrslider" min="7"
+									max="11" step="0.04" value="9" oninput="updateAgoAffinityIrr(this.value)"><br />
+								<label for="antagoirr">-logK<sub>B</sub> =&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="antagoirr" id="antagoirr"
+									style="width: 60px;" readonly>
 							</fieldset>
 							<fieldset style="width:430px; text-align:center">
-                                <legend>Questions</legend>
-                                <div id="irrQuestion" style="margin-bottom:20px;"></div>
-								<div id="restartMessageIrr" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+								<legend>Questions</legend>
+								<div id="irrQuestion" style="margin-bottom:20px;"></div>
+								<div id="restartMessageIrr" style="display:none">There are no more questions. Would you
+									like to try again?<br><br></div>
 
 
-                                <div id="irrAnswerModal" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Answer</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="box">
-                                                    <div id="irrAnswer"></div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+								<div id="irrAnswerModal" class="modal fade" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title">Answer</h4>
+											</div>
+											<div class="modal-body">
+												<div class="box">
+													<div id="irrAnswer"></div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 
-                                <button id="restartQuestionIrr" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionIrr()">Restart</button>
-								<button id="prevIrrQuestion" style="float:left"type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionIrr()">Previous Question</button>
-								<button id="revealIrrAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerIrr()">Reveal Answer</button>
-                                <button id="nextIrrQuestion" style="float:right"type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionIrr()">Next Question</button>
-                            </fieldset>
+								<button id="restartQuestionIrr" style="display:none" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="restartQuestionIrr()">Restart</button>
+								<button id="prevIrrQuestion" style="float:left" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="prevQuestionIrr()">Previous Question</button>
+								<button id="revealIrrAnswer" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="revealAnswerIrr()">Reveal
+									Answer</button>
+								<button id="nextIrrQuestion" style="float:right" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="nextQuestionIrr()">Next
+									Question</button>
+							</fieldset>
 						</div>
 						<div class="col-lg-7">
 							<fieldset>
@@ -605,16 +914,43 @@
 								<h5 class="warning" id="irralert"></h5>
 								<div id="irreversible"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetIrr()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn waves-effect waves-light red"
+								onclick="resetIrr()" style="float: right;">Reset</button>
+
+							<!-- NEW - ALLOW CHANGING OF nM Values-->
+
+							<fieldset style="width: 430px;">
+								<legend>Concentration (M)</legend>
+								<p>[Agonist] #1  : cannot be changed.</p>
+								<label>[Agonist] #2  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="irrline2" min="-12" max="0"
+									style="width: 100px;" value="-9" step="0.1" oninput="updateConcentrationIrr(this.value, 1)"></br>
+
+								<label>[Agonist] #3  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="irrline3" min="-12" max="0"
+									style="width: 100px;" value="-8" step="0.1" oninput="updateConcentrationIrr(this.value, 2)"></br>
+								
+								<label>[Agonist] #4  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="irrline4" min="-12" max="0"
+									style="width: 100px;" value="-7" step="0.1" oninput="updateConcentrationIrr(this.value, 3)"></br>
+
+								<label>[Agonist] #5  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="irrline5" min="-12" max="0"
+									style="width: 100px;" value="-6" step="0.1" oninput="updateConcentrationIrr(this.value, 4)"></br>
+							</fieldset>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- This section relates to Allosteric Antagonist -->
+
 			<div id="menu3" class="container tab-pane fade">
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top: 50px;">
-							<a data-toggle="modal" href="" data-target="#whattodo4" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspAllosteric Antagonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo4"
+								class="btn waves-effect waves-light red" role="button"><span
+									class="fa fa-info-circle"></span>&nbspAllosteric Antagonist</a>
 							<div id="whattodo4" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -623,6 +959,7 @@
 										</div>
 										<div class="modal-body">
 											<div class="box">
+
 												<p>Allosteric antagonists bind reversibly to receptors, without activating the receptor, at a site that is <b>different</b> from the agonist binding site.  
 													
 													<div style='text-align:center'>
@@ -645,17 +982,21 @@
 												<img src="images/allostericchart.png" alt="Affinity Chart" style="max-height: 100%; max-width: 100%;" /><br/>
 												<br>
 												<p>Relatively few clinically-used receptor antagonists are considered to act as negative allosteric modulators although this is an active area of research, e.g. maraviroc at the CCR5 receptor is an allosteric antagonist.  In contrast, drugs such as the benzodiazepines act as positive allosteric modulators and enhance the binding affinity of the agonist</p>
+
 											</div>
 										</div>
 										<div class="modal-footer">
-											<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+											<button type="button" class="btn waves-effect waves-light red"
+												data-dismiss="modal">Close</button>
 										</div>
 									</div>
 								</div>
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info13"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a
+									data-toggle="modal" href="" data-target="#info13"><i
+										class="red1 fa fa-info-circle"></i></a>
 								<div id="info13" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -664,18 +1005,45 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Affinity</b> is a measure of the strength of binding of a drug to a receptor (both agonists and antagonists have affinity), and depends on the existence of chemical forces of attraction between the agonist and the receptor binding site (e.g. most commonly ionic bonds, hydrogen bonds, van der Waals forces). The strength of binding (affinity) depends upon the respective 3-D structures of the agonist and binding site – the strength of binding dissipates markedly as the distance between the agonist and binding site increases. High affinity agonists bind to binding sites at low concentrations, whereas low affinity agonists bind at higher concentrations. The affinity of ligands (agonists and antagonists) can be quantitated using the Equilibrium Dissociation Constant (K<sub>A</sub>), which is the concentration of ligand needed to occupy (bind to) 50% of receptors. K<sub>A</sub> is also the ratio of the rate the ligand (agonist or antagonist) leaves the receptor binding site (k<sub>off</sub>) and the rate it approaches the receptor binding site (k<sub>on</sub>). The K<sub>A</sub> value is inversely proportional to the affinity (high affinity ligands have low K<sub>A</sub> values) and is typically measured in drug binding assays (plots of [ligand] versus fractional receptor occupancy). As the [ligand] increases the fraction of receptor bound increases nonlinearly (rectangular hyperbolic function) to form a maximal asymptote (from which R<sub>T</sub> can be determined). Colloquially, “affinity is what brings the drug to the receptor”.</p>
+													<p><b>Affinity</b> is a measure of the strength of binding of a drug
+														to a receptor (both agonists and antagonists have affinity), and
+														depends on the existence of chemical forces of attraction
+														between the agonist and the receptor binding site (e.g. most
+														commonly ionic bonds, hydrogen bonds, van der Waals forces). The
+														strength of binding (affinity) depends upon the respective 3-D
+														structures of the agonist and binding site – the strength of
+														binding dissipates markedly as the distance between the agonist
+														and binding site increases. High affinity agonists bind to
+														binding sites at low concentrations, whereas low affinity
+														agonists bind at higher concentrations. The affinity of ligands
+														(agonists and antagonists) can be quantitated using the
+														Equilibrium Dissociation Constant (K<sub>A</sub>), which is the
+														concentration of ligand needed to occupy (bind to) 50% of
+														receptors. K<sub>A</sub> is also the ratio of the rate the
+														ligand (agonist or antagonist) leaves the receptor binding site
+														(k<sub>off</sub>) and the rate it approaches the receptor
+														binding site (k<sub>on</sub>). The K<sub>A</sub> value is
+														inversely proportional to the affinity (high affinity ligands
+														have low K<sub>A</sub> values) and is typically measured in drug
+														binding assays (plots of [ligand] versus fractional receptor
+														occupancy). As the [ligand] increases the fraction of receptor
+														bound increases nonlinearly (rectangular hyperbolic function) to
+														form a maximal asymptote (from which R<sub>T</sub> can be
+														determined). Colloquially, “affinity is what brings the drug to
+														the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="affinity" id="affaffslider" min="4" max="8" step="0.04" value="6"
-								 oninput="updateAffinityAff(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info14"><i class="red1 fa fa-info-circle"></i></a>
+								<input type="range" autocomplete="off" name="affinity" id="affaffslider" min="5" max="9"
+									step="0.04" value="7" oninput="updateAffinityAff(this.value)">
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info14"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info14" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -684,21 +1052,35 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Intrinsic Efficacy</b> is the property of the agonist that enables it, once bound, to change the conformation of the receptor (activation), such that it alters the activity of downstream signalling pathways to produce a change in cellular activity. Efficacy is measured in relative terms, having no absolute scale – but different ligands have clearly different efficacies – full agonists have higher efficacies than partial agonists, and antagonists typically have no efficacy (bind to but don’t activate the receptor). Thus, different agonists have different inherent capacities to induce a response, and equal cellular responses can be achieved by different fractional receptor occupancies. Colloquially, efficacy is “what the drug does once it binds to the receptor”.</p>
+													<p><b>Intrinsic Efficacy</b> is the property of the agonist that
+														enables it, once bound, to change the conformation of the
+														receptor (activation), such that it alters the activity of
+														downstream signalling pathways to produce a change in cellular
+														activity. Efficacy is measured in relative terms, having no
+														absolute scale – but different ligands have clearly different
+														efficacies – full agonists have higher efficacies than partial
+														agonists, and antagonists typically have no efficacy (bind to
+														but don’t activate the receptor). Thus, different agonists have
+														different inherent capacities to induce a response, and equal
+														cellular responses can be achieved by different fractional
+														receptor occupancies. Colloquially, efficacy is “what the drug
+														does once it binds to the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="efficacy" id="effaffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 oninput="updateEfficacyAff(this.value)">
+								<input type="range" autocomplete="off" name="efficacy" id="effaffslider" min="-0.7"
+									max="0" step="0.01" value="-0.35" oninput="updateEfficacyAff(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info15"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info15"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info15" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -707,18 +1089,33 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Receptor Density</b> is the total number of receptors, expressed in terms of unit area of membrane, or per cell, or per unit mass of protein. Proportional to the quantity B<sub>max</sub> (the maximal specific binding of a ligand, often expressed in units of mol ligand/mg protein, or ligands bound/cell) measured in radioligand binding studies.  The relationship between B<sub>max</sub> and N is influenced by the number of ligand binding sites possessed by each receptor. For most receptors there is one binding site for the endogenous agonist, although for ligand-gated ion channels (e.g. nicotinic acetylcholine receptor), this is generally more than one.</p>
+													<p><b>Receptor Density</b> is the total number of receptors,
+														expressed in terms of unit area of membrane, or per cell, or per
+														unit mass of protein. Proportional to the quantity
+														B<sub>max</sub> (the maximal specific binding of a ligand, often
+														expressed in units of mol ligand/mg protein, or ligands
+														bound/cell) measured in radioligand binding studies. The
+														relationship between B<sub>max</sub> and N is influenced by the
+														number of ligand binding sites possessed by each receptor. For
+														most receptors there is one binding site for the endogenous
+														agonist, although for ligand-gated ion channels (e.g. nicotinic
+														acetylcholine receptor), this is generally more than one.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="density" id="denaffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 oninput="updateDensityAff(this.value)">
-								<br><label for="efficiency">Signal Amplification(<i>&#947</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info16"><i class="red1 fa fa-info-circle"></i></a>
+
+								<input type="range" autocomplete="off" name="density" id="denaffslider" min="-1"
+									max="1" step="0.01" value="0" oninput="updateDensityAff(this.value)">
+								<br><label for="efficiency">Signal Amplification (<i>&#947</i>)&nbsp</label><a
+									data-toggle="modal" href="" data-target="#info16"><i
+										class="red1 fa fa-info-circle"></i></a>
+
 								<div id="info16" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -727,26 +1124,38 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Signal Amplification</b> is a cell-dependent parameter describing the efficiency of the signalling pathways that couple (link) the activated receptor to the measured effect. Some cells have high coupling efficiencies, meaning that activation of a relatively small number of receptors can lead to a large cellular response. Other cells may have low coupling efficiencies (perhaps due to low expression / activity of a key signalling pathway component) and high levels of receptor activation may produce relatively small cellular responses.</p>
+
+												<p><b>Signal Amplification</b> is a cell-dependent parameter 
+                          describing the efficiency of the signalling pathways that couple 
+                          (link) the activated receptor to the measured effect. Some cells 
+                          have high coupling efficiencies, meaning that activation of a 
+                          relatively small number of receptors can lead to a large cellular 
+                          response. Other cells may have low coupling efficiencies (perhaps 
+                          due to low expression / activity of a key signalling pathway component) 
+                          and high levels of receptor activation may produce relatively small cellular responses.</p>
+
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="-0.3" max="0.7" step="0.01"
-								 value="0.2" oninput="updateEfficiencyAff(this.value)">
+								<input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="0"
+									max="2" step="0.01" value="1" oninput="updateEfficiencyAff(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
-								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7" max="11" step="0.04" value="9"
-								 oninput="updateAgoAffinityAff(this.value)"><br>
+								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffslider" min="7"
+									max="11" step="0.04" value="9" oninput="updateAgoAffinityAff(this.value)"><br>
 								<label for="antagoaff">-logK<sub>B</sub> =&nbsp</label>
-								<input class="numbox" type="number" autocomplete="off" name="antagoaff" id="antagoaff" style="width: 60px;" readonly>
-								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal" href="" data-target="#info17"><i class="red1 fa fa-info-circle"></i></a>
+								<input class="numbox" type="number" autocomplete="off" name="antagoaff" id="antagoaff"
+									style="width: 60px;" readonly>
+								<br><label for="effect">Cooperativity Factor (&#945)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info17"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info17" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -755,49 +1164,69 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p>The <b>Cooperativity Factor &#945</b> indicates the maximum effect produced by the allosteric antagonist on agonist affinity – a value of 0.1 indicates that the allosteric antagonist can produce up to a 10-fold reduction in agonist affinity. Observe the effects of changing the affinity and/or cooperativity factor (&#945) of the Allosteric Antagonist on the shape and position of the Agonist dose-response curve by moving the red slider along the grey bar to the right or left to increase or decrease the value of the characteristic, respectively.</p>
+													<p>The <b>Cooperativity Factor &#945</b> indicates the maximum
+														effect produced by the allosteric antagonist on agonist affinity
+														– a value of 0.1 indicates that the allosteric antagonist can
+														produce up to a 10-fold reduction in agonist affinity. Observe
+														the effects of changing the affinity and/or cooperativity factor
+														(&#945) of the Allosteric Antagonist on the shape and position
+														of the Agonist dose-response curve by moving the red slider
+														along the grey bar to the right or left to increase or decrease
+														the value of the characteristic, respectively.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="effect" id="agoeffaffslider" min="0" max="2" step="0.001" value="1"
-								 oninput="updateAgoEffectAff(this.value)">
-								<br/>
+								<input type="range" autocomplete="off" name="effect" id="agoeffaffslider" min="0"
+									max="2" step="0.001" value="1" oninput="updateAgoEffectAff(this.value)">
+								<br />
 								<label for="antcoopaff">&#945 =&nbsp</label>
-								<input class="numbox" type="number" autocomplete="off" name="antcoopaff" id="antcoopaff" readonly>
+								<input class="numbox" type="number" autocomplete="off" name="antcoopaff" id="antcoopaff"
+									readonly>
 							</fieldset>
 							<fieldset style="width:430px;text-align:center">
-                                <legend>Questions</legend>
+								<legend>Questions</legend>
 								<div id="affQuestion" style="margin-bottom:20px"></div>
-								<div id="restartMessageAff" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+								<div id="restartMessageAff" style="display:none">There are no more questions. Would you
+									like to try again?<br><br></div>
 
-                                <div id="affAnswerModal" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Answer</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="box">
-                                                    <div id="affAnswer"></div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+								<div id="affAnswerModal" class="modal fade" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title">Answer</h4>
+											</div>
+											<div class="modal-body">
+												<div class="box">
+													<div id="affAnswer"></div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 
-                                <button id="restartQuestionAff" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionAff()">Restart</button>
-								<button id="prevAffQuestion" style="float:left" type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionAff()">Previous Question</button>
-								<button id="revealAffAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerAff()">Reveal Answer</button>
-								<button id="nextAffQuestion" style="float:right" type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionAff()">Next Question</button>
-                            </fieldset>
+								<button id="restartQuestionAff" style="display:none" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="restartQuestionAff()">Restart</button>
+								<button id="prevAffQuestion" style="float:left" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="prevQuestionAff()">Previous Question</button>
+								<button id="revealAffAnswer" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="revealAnswerAff()">Reveal
+									Answer</button>
+								<button id="nextAffQuestion" style="float:right" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="nextQuestionAff()">Next
+									Question</button>
+							</fieldset>
 
 						</div>
 						<div class="col-lg-7">
@@ -806,16 +1235,43 @@
 								<h5 class="warning" id="affalert"></h5>
 								<div id="alloaffin"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetAff()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn waves-effect waves-light red"
+								onclick="resetAff()" style="float: right;">Reset</button>
+
+							<!-- NEW - ALLOW CHANGING OF nM Values-->
+
+							<fieldset style="width: 430px;">
+								<legend>Concentration (M)</legend>
+								<p>[Agonist] #1  : cannot be changed.</p>
+								<label>[Agonist] #2  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="affline2" min="-12" max="0"
+									style="width: 100px;" value="-9" step="0.1" oninput="updateConcentrationAff(this.value, 1)"></br>
+
+								<label>[Agonist] #3  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="affline3" min="-12" max="0"
+									style="width: 100px;" value="-8" step="0.1" oninput="updateConcentrationAff(this.value, 2)"></br>
+								
+								<label>[Agonist] #4  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="affline4" min="-12" max="0"
+									style="width: 100px;" value="-7" step="0.1" oninput="updateConcentrationAff(this.value, 3)"></br>
+
+								<label>[Agonist] #5  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="affline5" min="-12" max="0"
+									style="width: 100px;" value="-6" step="0.1" oninput="updateConcentrationAff(this.value, 4)"></br>
+							</fieldset>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- Allosteric Antagonist Efficacy -->
+
 			<div id="menu4" class="container tab-pane fade">
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top: 50px;">
-							<a data-toggle="modal" href="" data-target="#whattodo5" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspAllosteric Antagonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo5"
+								class="btn waves-effect waves-light red" role="button"><span
+									class="fa fa-info-circle"></span>&nbspAllosteric Antagonist</a>
 							<div id="whattodo5" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -824,6 +1280,7 @@
 										</div>
 										<div class="modal-body">
 											<div class="box">
+
 												<p>Allosteric antagonists bind reversibly to receptors, without activating the receptor, at a site that is different from the agonist binding site. Some allosteric antagonists primarily reduce agonist efficacy (without changing affinity), thereby inhibiting agonist-induced effects.
 													
 													<div style='text-align:center'>
@@ -835,17 +1292,21 @@
 													
 													They are also referred to as negative allosteric modulators (NAMs). Unlike competitive antagonists, the effects of an allosteric antagonist are saturable – this is because once the allosteric site is saturated, there are no further allosteric effects on the agonist.  Allosteric antagonism is another form of non-competitive antagonism, as a receptor can bind both the agonist and the allosteric antagonist simultaneously.</p>
 												<img src="images/allostericeffchart.png" alt="Efficacy Chart" style="max-height: 100%; max-width: 100%;" />
+
 											</div>
 										</div>
 										<div class="modal-footer">
-											<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+											<button type="button" class="btn waves-effect waves-light red"
+												data-dismiss="modal">Close</button>
 										</div>
 									</div>
 								</div>
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info18"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a
+									data-toggle="modal" href="" data-target="#info18"><i
+										class="red1 fa fa-info-circle"></i></a>
 								<div id="info18" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -854,18 +1315,45 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Affinity</b> is a measure of the strength of binding of a drug to a receptor (both agonists and antagonists have affinity), and depends on the existence of chemical forces of attraction between the agonist and the receptor binding site (e.g. most commonly ionic bonds, hydrogen bonds, van der Waals forces). The strength of binding (affinity) depends upon the respective 3-D structures of the agonist and binding site – the strength of binding dissipates markedly as the distance between the agonist and binding site increases. High affinity agonists bind to binding sites at low concentrations, whereas low affinity agonists bind at higher concentrations. The affinity of ligands (agonists and antagonists) can be quantitated using the Equilibrium Dissociation Constant (K<sub>A</sub>), which is the concentration of ligand needed to occupy (bind to) 50% of receptors. K<sub>A</sub> is also the ratio of the rate the ligand (agonist or antagonist) leaves the receptor binding site (k<sub>off</sub>) and the rate it approaches the receptor binding site (k<sub>on</sub>). The K<sub>A</sub> value is inversely proportional to the affinity (high affinity ligands have low K<sub>A</sub> values) and is typically measured in drug binding assays (plots of [ligand] versus fractional receptor occupancy). As the [ligand] increases the fraction of receptor bound increases nonlinearly (rectangular hyperbolic function) to form a maximal asymptote (from which R<sub>T</sub> can be determined). Colloquially, “affinity is what brings the drug to the receptor”.</p>
+													<p><b>Affinity</b> is a measure of the strength of binding of a drug
+														to a receptor (both agonists and antagonists have affinity), and
+														depends on the existence of chemical forces of attraction
+														between the agonist and the receptor binding site (e.g. most
+														commonly ionic bonds, hydrogen bonds, van der Waals forces). The
+														strength of binding (affinity) depends upon the respective 3-D
+														structures of the agonist and binding site – the strength of
+														binding dissipates markedly as the distance between the agonist
+														and binding site increases. High affinity agonists bind to
+														binding sites at low concentrations, whereas low affinity
+														agonists bind at higher concentrations. The affinity of ligands
+														(agonists and antagonists) can be quantitated using the
+														Equilibrium Dissociation Constant (K<sub>A</sub>), which is the
+														concentration of ligand needed to occupy (bind to) 50% of
+														receptors. K<sub>A</sub> is also the ratio of the rate the
+														ligand (agonist or antagonist) leaves the receptor binding site
+														(k<sub>off</sub>) and the rate it approaches the receptor
+														binding site (k<sub>on</sub>). The K<sub>A</sub> value is
+														inversely proportional to the affinity (high affinity ligands
+														have low K<sub>A</sub> values) and is typically measured in drug
+														binding assays (plots of [ligand] versus fractional receptor
+														occupancy). As the [ligand] increases the fraction of receptor
+														bound increases nonlinearly (rectangular hyperbolic function) to
+														form a maximal asymptote (from which R<sub>T</sub> can be
+														determined). Colloquially, “affinity is what brings the drug to
+														the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="affinity" id="affeffslider" min="4" max="8" step="0.04" value="6"
-								 oninput="updateAffinityEff(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info19"><i class="red1 fa fa-info-circle"></i></a>
+								<input type="range" autocomplete="off" name="affinity" id="affeffslider" min="5" max="9"
+									step="0.04" value="7" oninput="updateAffinityEff(this.value)">
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info19"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info19" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -874,22 +1362,36 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Intrinsic Efficacy</b> is the property of the agonist that enables it, once bound, to change the conformation of the receptor (activation), such that it alters the activity of downstream signalling pathways to produce a change in cellular activity. Efficacy is measured in relative terms, having no absolute scale – but different ligands have clearly different efficacies – full agonists have higher efficacies than partial agonists, and antagonists typically have no efficacy (bind to but don’t activate the receptor). Thus, different agonists have different inherent capacities to induce a response, and equal cellular responses can be achieved by different fractional receptor occupancies. Colloquially, efficacy is “what the drug does once it binds to the receptor”.</p>
+													<p><b>Intrinsic Efficacy</b> is the property of the agonist that
+														enables it, once bound, to change the conformation of the
+														receptor (activation), such that it alters the activity of
+														downstream signalling pathways to produce a change in cellular
+														activity. Efficacy is measured in relative terms, having no
+														absolute scale – but different ligands have clearly different
+														efficacies – full agonists have higher efficacies than partial
+														agonists, and antagonists typically have no efficacy (bind to
+														but don’t activate the receptor). Thus, different agonists have
+														different inherent capacities to induce a response, and equal
+														cellular responses can be achieved by different fractional
+														receptor occupancies. Colloquially, efficacy is “what the drug
+														does once it binds to the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
 
-								<input type="range" autocomplete="off" name="efficacy" id="effeffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 oninput="updateEfficacyEff(this.value)">
+								<input type="range" autocomplete="off" name="efficacy" id="effeffslider" min="-0.7"
+									max="0" step="0.01" value="-0.35" oninput="updateEfficacyEff(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Cell</legend>
-								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info20"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info20"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info20" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -898,18 +1400,33 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Receptor Density</b> is the total number of receptors, expressed in terms of unit area of membrane, or per cell, or per unit mass of protein. Proportional to the quantity B<sub>max</sub> (the maximal specific binding of a ligand, often expressed in units of mol ligand/mg protein, or ligands bound/cell) measured in radioligand binding studies.  The relationship between B<sub>max</sub> and N is influenced by the number of ligand binding sites possessed by each receptor. For most receptors there is one binding site for the endogenous agonist, although for ligand-gated ion channels (e.g. nicotinic acetylcholine receptor), this is generally more than one.</p>
+													<p><b>Receptor Density</b> is the total number of receptors,
+														expressed in terms of unit area of membrane, or per cell, or per
+														unit mass of protein. Proportional to the quantity
+														B<sub>max</sub> (the maximal specific binding of a ligand, often
+														expressed in units of mol ligand/mg protein, or ligands
+														bound/cell) measured in radioligand binding studies. The
+														relationship between B<sub>max</sub> and N is influenced by the
+														number of ligand binding sites possessed by each receptor. For
+														most receptors there is one binding site for the endogenous
+														agonist, although for ligand-gated ion channels (e.g. nicotinic
+														acetylcholine receptor), this is generally more than one.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="density" id="deneffslider" min="-0.3" max="0.7" step="0.01" value="0.2"
-								 oninput="updateDensityEff(this.value)">
-								<br><label for="efficiency">Signal Amplification(<i>&#947</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info21"><i class="red1 fa fa-info-circle"></i></a>
+
+								<input type="range" autocomplete="off" name="density" id="deneffslider" min="-1"
+									max="1" step="0.01" value="0" oninput="updateDensityEff(this.value)">
+								<br><label for="efficiency">Signal Amplification (<i>&#947</i>)&nbsp</label><a
+									data-toggle="modal" href="" data-target="#info21"><i
+										class="red1 fa fa-info-circle"></i></a>
+
 								<div id="info21" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -918,26 +1435,39 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Signal Amplification</b> is a cell-dependent parameter describing the efficiency of the signalling pathways that couple (link) the activated receptor to the measured effect. Some cells have high coupling efficiencies, meaning that activation of a relatively small number of receptors can lead to a large cellular response. Other cells may have low coupling efficiencies (perhaps due to low expression / activity of a key signalling pathway component) and high levels of receptor activation may produce relatively small cellular responses.</p>
+
+												<p><b>Signal Amplification</b> is a cell-dependent parameter 
+                          describing the efficiency of the signalling pathways that couple 
+                          (link) the activated receptor to the measured effect. Some 
+                          cells have high coupling efficiencies, meaning that activation 
+                          of a relatively small number of receptors can lead to a large 
+                          cellular response. Other cells may have low coupling efficiencies 
+                          (perhaps due to low expression / activity of a key signalling 
+                          pathway component) and high levels of receptor activation may 
+                          produce relatively small cellular responses.</p>
+                          
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="-0.3" max="0.7" step="0.01"
-								 value="0.2" oninput="updateEfficiencyEff(this.value)">
+								<input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="0"
+									max="2" step="0.01" value="1" oninput="updateEfficiencyEff(this.value)">
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
-								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7" max="11" step="0.04"
-								 value="9" oninput="updateAgoAffinityEff(this.value)"><br/>
+								<input type="range" autocomplete="off" name="agoaffinity" id="agoaffeffslider" min="7"
+									max="11" step="0.04" value="9" oninput="updateAgoAffinityEff(this.value)"><br />
 								<label for="antagoeff">-logK<sub>B</sub> =&nbsp</label>
-								<input class="numbox" type="number" autocomplete="off" name="antagoeff" id="antagoeff" style="width: 60px;" readonly>
-								<br><label for="effect">Cooperativity Factor (&#946)&nbsp</label><a data-toggle="modal" href="" data-target="#info22"><i class="red1 fa fa-info-circle"></i></a>
+								<input class="numbox" type="number" autocomplete="off" name="antagoeff" id="antagoeff"
+									style="width: 60px;" readonly>
+								<br><label for="effect">Cooperativity Factor (&#946)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info22"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info22" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -946,49 +1476,68 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p>The <b>Cooperativity Factor &#946</b> indicates the maximum effect produced by the allosteric antagonist on agonist efficacy.  Observe the effects of changing the affinity and/or cooperativity factor (&#946) of the Allosteric Antagonist on the shape and position of the Agonist dose-response curve by moving the red slider along the grey bar to the right or left to increase or decrease the value of the characteristic, respectively.</p>
+													<p>The <b>Cooperativity Factor &#946</b> indicates the maximum
+														effect produced by the allosteric antagonist on agonist
+														efficacy. Observe the effects of changing the affinity and/or
+														cooperativity factor (&#946) of the Allosteric Antagonist on the
+														shape and position of the Agonist dose-response curve by moving
+														the red slider along the grey bar to the right or left to
+														increase or decrease the value of the characteristic,
+														respectively.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="effect" id="agoeffeffslider" min="0" max="2" step="0.001" value="1"
-								 oninput="updateAgoEffectEff(this.value)"><br/>
+								<input type="range" autocomplete="off" name="effect" id="agoeffeffslider" min="0"
+									max="2" step="0.001" value="1" oninput="updateAgoEffectEff(this.value)"><br />
 								<label for="antcoopeff">&#946 =&nbsp</label>
-								<input class="numbox" type="number" autocomplete="off" name="antcoopeff" id="antcoopeff" style="width: 65px;" readonly>
+								<input class="numbox" type="number" autocomplete="off" name="antcoopeff" id="antcoopeff"
+									style="width: 65px;" readonly>
 							</fieldset>
 							<fieldset style="width:430px;text-align:center">
-                                <legend>Questions</legend>
-                                <div id="effQuestion" style="margin-bottom:20px"></div>
-								<div id="restartMessageEff" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+								<legend>Questions</legend>
+								<div id="effQuestion" style="margin-bottom:20px"></div>
+								<div id="restartMessageEff" style="display:none">There are no more questions. Would you
+									like to try again?<br><br></div>
 
 
-                                <div id="effAnswerModal" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Answer</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="box">
-                                                    <div id="effAnswer"></div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+								<div id="effAnswerModal" class="modal fade" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title">Answer</h4>
+											</div>
+											<div class="modal-body">
+												<div class="box">
+													<div id="effAnswer"></div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 
-                                <button id="restartQuestionEff" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionEff()">Restart</button>
-								<button id="prevEffQuestion" style="float:left" type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionEff()">Previous Question</button>
-								<button id="revealEffAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerEff()">Reveal Answer</button>
-                    		    <button id="nextEffQuestion" style="float:right"type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionEff()">Next Question</button>
-                            </fieldset>
+								<button id="restartQuestionEff" style="display:none" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="restartQuestionEff()">Restart</button>
+								<button id="prevEffQuestion" style="float:left" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="prevQuestionEff()">Previous Question</button>
+								<button id="revealEffAnswer" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="revealAnswerEff()">Reveal
+									Answer</button>
+								<button id="nextEffQuestion" style="float:right" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="nextQuestionEff()">Next
+									Question</button>
+							</fieldset>
 						</div>
 						<div class="col-lg-7">
 							<fieldset>
@@ -996,16 +1545,44 @@
 								<h5 class="warning" id="effalert"></h5>
 								<div id="alloeffic"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetEff()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn waves-effect waves-light red"
+								onclick="resetEff()" style="float: right;">Reset</button>
+							
+							<!-- NEW - ALLOW CHANGING OF nM Values-->
+
+							<fieldset style="width: 430px;">
+								<legend>Concentration (M)</legend>
+								<p>[Agonist] #1  : cannot be changed.</p>
+								<label>[Agonist] #2  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="effline2" min="-12" max="0"
+									style="width: 100px;" value="-9" step="0.1" oninput="updateConcentrationEff(this.value, 1)"></br>
+
+								<label>[Agonist] #3  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="effline3" min="-12" max="0"
+									style="width: 100px;" value="-8" step="0.1" oninput="updateConcentrationEff(this.value, 2)"></br>
+								
+								<label>[Agonist] #4  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="effline4" min="-12" max="0"
+									style="width: 100px;" value="-7" step="0.1" oninput="updateConcentrationEff(this.value, 3)"></br>
+
+								<label>[Agonist] #5  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="effline5" min="-12" max="0"
+									style="width: 100px;" value="-6" step="0.1" oninput="updateConcentrationEff(this.value, 4)"></br>
+							</fieldset>
+							
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- This section corresponds to the Functional Antagonist -->
+
 			<div id="menu5" class="container tab-pane fade">
 				<div class="col col-lg-12">
 					<div class="row">
 						<div class="col-lg-5" style="padding-top: 5px;">
-							<a data-toggle="modal" href="" data-target="#whattodo6" class="btn waves-effect waves-light red" role="button"><span class="fa fa-info-circle"></span>&nbspFunctional Antagonist</a>
+							<a data-toggle="modal" href="" data-target="#whattodo6"
+								class="btn waves-effect waves-light red" role="button"><span
+									class="fa fa-info-circle"></span>&nbspFunctional Antagonist</a>
 							<div id="whattodo6" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -1014,6 +1591,7 @@
 										</div>
 										<div class="modal-body">
 											<div class="box">
+
 												<p>Functional antagonists are agonists that produce a functional effect in the cell that is the opposite of that produced by another agonist (e.g. agonist A constricts smooth muscle, whereas agonist B relaxes smooth muscle). 
 													
 													<div style='text-align:center'>
@@ -1028,17 +1606,21 @@
 												<img src="images/functionalchart.png" alt="Functional Chart" style="max-height: 100%; max-width: 100%;" /><br/>
 												<br>
 												<p>An example of a functional antagonist would be salbutamol, which by activating &#946<sub>2</sub>-adrenoceptors on airway smooth muscle and producing relaxation can functionally antagonise airway smooth muscle contraction induced by a wide array of spasmogenic agonists including acetylcholine, histamine and leukotrienes, each acting through their own specific receptors.</p>
+
 											</div>
 										</div>
 										<div class="modal-footer">
-											<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+											<button type="button" class="btn waves-effect waves-light red"
+												data-dismiss="modal">Close</button>
 										</div>
 									</div>
 								</div>
 							</div>
 							<fieldset style="width: 430px;">
 								<legend>Agonist</legend>
-								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info23"><i class="red1 fa fa-info-circle"></i></a>
+								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)&nbsp</label><a
+									data-toggle="modal" href="" data-target="#info23"><i
+										class="red1 fa fa-info-circle"></i></a>
 								<div id="info23" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -1047,18 +1629,45 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Affinity</b> is a measure of the strength of binding of a drug to a receptor (both agonists and antagonists have affinity), and depends on the existence of chemical forces of attraction between the agonist and the receptor binding site (e.g. most commonly ionic bonds, hydrogen bonds, van der Waals forces). The strength of binding (affinity) depends upon the respective 3-D structures of the agonist and binding site – the strength of binding dissipates markedly as the distance between the agonist and binding site increases. High affinity agonists bind to binding sites at low concentrations, whereas low affinity agonists bind at higher concentrations. The affinity of ligands (agonists and antagonists) can be quantitated using the Equilibrium Dissociation Constant (K<sub>A</sub>), which is the concentration of ligand needed to occupy (bind to) 50% of receptors. K<sub>A</sub> is also the ratio of the rate the ligand (agonist or antagonist) leaves the receptor binding site (k<sub>off</sub>) and the rate it approaches the receptor binding site (k<sub>on</sub>). The K<sub>A</sub> value is inversely proportional to the affinity (high affinity ligands have low K<sub>A</sub> values) and is typically measured in drug binding assays (plots of [ligand] versus fractional receptor occupancy). As the [ligand] increases the fraction of receptor bound increases nonlinearly (rectangular hyperbolic function) to form a maximal asymptote (from which R<sub>T</sub> can be determined). Colloquially, “affinity is what brings the drug to the receptor”.</p>
+													<p><b>Affinity</b> is a measure of the strength of binding of a drug
+														to a receptor (both agonists and antagonists have affinity), and
+														depends on the existence of chemical forces of attraction
+														between the agonist and the receptor binding site (e.g. most
+														commonly ionic bonds, hydrogen bonds, van der Waals forces). The
+														strength of binding (affinity) depends upon the respective 3-D
+														structures of the agonist and binding site – the strength of
+														binding dissipates markedly as the distance between the agonist
+														and binding site increases. High affinity agonists bind to
+														binding sites at low concentrations, whereas low affinity
+														agonists bind at higher concentrations. The affinity of ligands
+														(agonists and antagonists) can be quantitated using the
+														Equilibrium Dissociation Constant (K<sub>A</sub>), which is the
+														concentration of ligand needed to occupy (bind to) 50% of
+														receptors. K<sub>A</sub> is also the ratio of the rate the
+														ligand (agonist or antagonist) leaves the receptor binding site
+														(k<sub>off</sub>) and the rate it approaches the receptor
+														binding site (k<sub>on</sub>). The K<sub>A</sub> value is
+														inversely proportional to the affinity (high affinity ligands
+														have low K<sub>A</sub> values) and is typically measured in drug
+														binding assays (plots of [ligand] versus fractional receptor
+														occupancy). As the [ligand] increases the fraction of receptor
+														bound increases nonlinearly (rectangular hyperbolic function) to
+														form a maximal asymptote (from which R<sub>T</sub> can be
+														determined). Colloquially, “affinity is what brings the drug to
+														the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="affinity" id="afffunslider" min="4" max="8" step="0.04" value="6"
-								 oninput="updateAffinityFun(this.value)">
-								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal" href="" data-target="#info24"><i class="red1 fa fa-info-circle"></i></a>
+								<input type="range" autocomplete="off" name="affinity" id="afffunslider" min="5" max="9"
+									step="0.04" value="7" oninput="updateAffinityFun(this.value)">
+								<br><label for="efficacy">Intrinsic Efficacy (&#949)&nbsp</label><a data-toggle="modal"
+									href="" data-target="#info24"><i class="red1 fa fa-info-circle"></i></a>
 								<div id="info24" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -1067,111 +1676,165 @@
 											</div>
 											<div class="modal-body">
 												<div class="box">
-												<p><b>Intrinsic Efficacy</b> is the property of the agonist that enables it, once bound, to change the conformation of the receptor (activation), such that it alters the activity of downstream signalling pathways to produce a change in cellular activity. Efficacy is measured in relative terms, having no absolute scale – but different ligands have clearly different efficacies – full agonists have higher efficacies than partial agonists, and antagonists typically have no efficacy (bind to but don’t activate the receptor). Thus, different agonists have different inherent capacities to induce a response, and equal cellular responses can be achieved by different fractional receptor occupancies. Colloquially, efficacy is “what the drug does once it binds to the receptor”.</p>
+													<p><b>Intrinsic Efficacy</b> is the property of the agonist that
+														enables it, once bound, to change the conformation of the
+														receptor (activation), such that it alters the activity of
+														downstream signalling pathways to produce a change in cellular
+														activity. Efficacy is measured in relative terms, having no
+														absolute scale – but different ligands have clearly different
+														efficacies – full agonists have higher efficacies than partial
+														agonists, and antagonists typically have no efficacy (bind to
+														but don’t activate the receptor). Thus, different agonists have
+														different inherent capacities to induce a response, and equal
+														cellular responses can be achieved by different fractional
+														receptor occupancies. Colloquially, efficacy is “what the drug
+														does once it binds to the receptor”.</p>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="range" autocomplete="off" name="efficacy" id="efffunslider" min="0" max="0.6667" step="0.006667"
-								 value="0.33335" oninput="updateEfficacyFun(this.value)">
+								<input type="range" autocomplete="off" name="efficacy" id="efffunslider" min="-0.7"
+									max="0" step="0.01" value="-0.35"
+									oninput="updateEfficacyFun(this.value)">
 								<fieldset>
 									<legend>Cell</legend>
-									<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a data-toggle="modal" href="" data-target="#info25"><i class="red1 fa fa-info-circle"></i></a>
-								<div id="info25" class="modal fade" role="dialog">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h4 class="modal-title">Receptor Density</h4>
-											</div>
-											<div class="modal-body">
-												<div class="box">
-												<p><b>Receptor Density</b> is the total number of receptors, expressed in terms of unit area of membrane, or per cell, or per unit mass of protein. Proportional to the quantity B<sub>max</sub> (the maximal specific binding of a ligand, often expressed in units of mol ligand/mg protein, or ligands bound/cell) measured in radioligand binding studies.  The relationship between B<sub>max</sub> and N is influenced by the number of ligand binding sites possessed by each receptor. For most receptors there is one binding site for the endogenous agonist, although for ligand-gated ion channels (e.g. nicotinic acetylcholine receptor), this is generally more than one.</p>
+									<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label><a
+										data-toggle="modal" href="" data-target="#info25"><i
+											class="red1 fa fa-info-circle"></i></a>
+									<div id="info25" class="modal fade" role="dialog">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h4 class="modal-title">Receptor Density</h4>
 												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<div class="modal-body">
+													<div class="box">
+														<p><b>Receptor Density</b> is the total number of receptors,
+															expressed in terms of unit area of membrane, or per cell, or
+															per unit mass of protein. Proportional to the quantity
+															B<sub>max</sub> (the maximal specific binding of a ligand,
+															often expressed in units of mol ligand/mg protein, or
+															ligands bound/cell) measured in radioligand binding studies.
+															The relationship between B<sub>max</sub> and N is influenced
+															by the number of ligand binding sites possessed by each
+															receptor. For most receptors there is one binding site for
+															the endogenous agonist, although for ligand-gated ion
+															channels (e.g. nicotinic acetylcholine receptor), this is
+															generally more than one.</p>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn waves-effect waves-light red"
+														data-dismiss="modal">Close</button>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-									<input type="range" autocomplete="off" name="density" id="denfunslider" min="0" max="0.6667" step="0.006667"
-									 value="0.33335" oninput="updateDensityFun(this.value)">
-									<br><label for="efficiency">Signal Amplification(<i>&#947</i>)&nbsp</label><a data-toggle="modal" href="" data-target="#info26"><i class="red1 fa fa-info-circle"></i></a>
-								<div id="info26" class="modal fade" role="dialog">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h4 class="modal-title">Signal Amplification</h4>
-											</div>
-											<div class="modal-body">
-												<div class="box">
-												<p><b>Signal Amplification</b> is a cell-dependent parameter describing the efficiency of the signalling pathways that couple (link) the activated receptor to the measured effect. Some cells have high coupling efficiencies, meaning that activation of a relatively small number of receptors can lead to a large cellular response. Other cells may have low coupling efficiencies (perhaps due to low expression / activity of a key signalling pathway component) and high levels of receptor activation may produce relatively small cellular responses.</p>
+
+									<input type="range" autocomplete="off" name="density" id="denfunslider" min="-1"
+										max="1" step="0.01" value="0"
+										oninput="updateDensityFun(this.value)">
+									<br><label for="efficiency">Signal Amplification (<i>&#947</i>)&nbsp</label><a
+										data-toggle="modal" href="" data-target="#info26"><i
+											class="red1 fa fa-info-circle"></i></a>
+									<div id="info26" class="modal fade" role="dialog">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h4 class="modal-title">Coupling Efficiency</h4>
 												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+												<div class="modal-body">
+													<div class="box">
+														<p><b>Signal Amplification</b> is a cell-dependent parameter describing the 
+                          efficiency of the signalling pathways that couple (link) the activated 
+                          receptor to the measured effect. Some cells have high coupling efficiencies, 
+                          meaning that activation of a relatively small number of receptors can lead to 
+                          a large cellular response. Other cells may have low coupling efficiencies 
+                          (perhaps due to low expression / activity of a key signalling pathway component) 
+                          and high levels of receptor activation may produce relatively small cellular responses.</p>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn waves-effect waves-light red"
+														data-dismiss="modal">Close</button>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-									<input type="range" autocomplete="off" name="efficiency" id="efficifunslider" min="0" max="0.6667" step="0.006667"
-									 value="0.33335" oninput="updateEfficiencyFun(this.value)">
+									<input type="range" autocomplete="off" name="efficiency" id="efficifunslider"
+										min="0" max="2" step="0.01" value="1"
+										oninput="updateEfficiencyFun(this.value)">
 								</fieldset>
 							</fieldset>
 							<fieldset style="width: 430px;">
 								<legend>Functional Antagonist</legend>
 								<label for="agoaffinity">Affinity (&#8733 1/K<sub>B</sub>)&nbsp</label>
-								<input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="6" max="10" step="0.04"
-								 value="8" oninput="updateAgoAffinityFun(this.value)">
+								<input type="range" autocomplete="off" name="agoaffinity" id="agoafffunslider" min="5"
+									max="9" step="0.04" value="7" oninput="updateAgoAffinityFun(this.value)">
 								<br><label for="effect">Intrinsic Efficacy (&#949)&nbsp</label>
-								<input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.6667" max="0" step="0.06667"
-								 value="-0.33335" oninput="updateAgoEfficacyFun(this.value)">
+								<input type="range" autocomplete="off" name="effect" id="agoefffunslider" min="-0.7"
+									max="0" step="0.01" value="-0.35" oninput="updateAgoEfficacyFun(this.value)">
 								<!--value was -0.216-->
 								<fieldset>
 									<legend>Cell</legend>
 									<label for="density">Receptor Density (R<sub>T</sub>)&nbsp</label>
-									<input type="range" autocomplete="off" name="density" id="agodenfunslider" min="-0.6667" max="0" step="0.006667"
-									 value="-0.33335" oninput="updateAgoDensityFun(this.value)">
+									<input type="range" autocomplete="off" name="density" id="agodenfunslider"
+										min="-1" max="1" step="0.01" value="0"
+										oninput="updateAgoDensityFun(this.value)">
 									<!--value was -0.216-->
+
 									<br><label for="efficiency">Signal Amplification(<i>&#947</i>)&nbsp</label>
-									<input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider" min="-0.6667" max="0" step="0.06667"
-									 value="-0.33335" oninput="updateAgoEfficiencyFun(this.value)">
+									<input type="range" autocomplete="off" name="efficiency" id="agoefficifunslider"
+										min="0" max="2" step="0.01" value="1"
+										oninput="updateAgoEfficiencyFun(this.value)">
+
 									<!--value was -0.216-->
 								</fieldset>
 							</fieldset>
 							<fieldset style="width:430px;text-align:center">
-                                <legend>Questions</legend>
-                                <div id="funQuestion" style="margin-bottom:20px;"></div>
-								<div id="restartMessageFun" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+								<legend>Questions</legend>
+								<div id="funQuestion" style="margin-bottom:20px;"></div>
+								<div id="restartMessageFun" style="display:none">There are no more questions. Would you
+									like to try again?<br><br></div>
 
 
-                                <div id="funAnswerModal" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Answer</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="box">
-                                                    <div id="funAnswer"></div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+								<div id="funAnswerModal" class="modal fade" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title">Answer</h4>
+											</div>
+											<div class="modal-body">
+												<div class="box">
+													<div id="funAnswer"></div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn waves-effect waves-light red"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 
-                                <button id="restartQuestionFun" style="display:none" type="button" class="btn waves-effect waves-light red qbutton" onclick="restartQuestionFun()">Restart</button>
-								<button id="prevFunQuestion" style="float:left"type="button" class="btn waves-effect waves-light red qbutton" onclick="prevQuestionFun()">Previous Question</button>								
-								<button id="revealFunAnswer" type="button" class="btn waves-effect waves-light red qbutton" onclick="revealAnswerFun()">Reveal Answer</button>
-                    	        <button id="nextFunQuestion" style="float:right" type="button" class="btn waves-effect waves-light red qbutton" onclick="nextQuestionFun()">Next Question</button>
-                            </fieldset>
+								<button id="restartQuestionFun" style="display:none" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="restartQuestionFun()">Restart</button>
+								<button id="prevFunQuestion" style="float:left" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="prevQuestionFun()">Previous Question</button>
+								<button id="revealFunAnswer" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="revealAnswerFun()">Reveal
+									Answer</button>
+								<button id="nextFunQuestion" style="float:right" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="nextQuestionFun()">Next
+									Question</button>
+							</fieldset>
 						</div>
 						<div class="col-lg-7" style="padding-top: 40px;">
 							<fieldset>
@@ -1179,7 +1842,30 @@
 								<h5 class="warning" id="funalert"></h5>
 								<div id="functional"></div>
 							</fieldset>
-							<button id="reset" type="button" class="btn waves-effect waves-light red" onclick="resetFun()" style="float: right;">Reset</button>
+							<button id="reset" type="button" class="btn waves-effect waves-light red"
+								onclick="resetFun()" style="float: right;">Reset</button>
+
+							<!-- NEW - ALLOW CHANGING OF nM Values-->
+
+							<fieldset style="width: 430px;">
+								<legend>Concentration (M)</legend>
+								<p>[Agonist] #1  : cannot be changed.</p>
+								<label>[Agonist] #2  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="funline2" min="-12" max="0"
+									style="width: 100px;" value="-9" step="0.1" oninput="updateConcentrationFun(this.value, 1)"></br>
+
+								<label>[Agonist] #3  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="funline3" min="-12" max="0"
+									style="width: 100px;" value="-8" step="0.1" oninput="updateConcentrationFun(this.value, 2)"></br>
+								
+								<label>[Agonist] #4  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="funline4" min="-12" max="0"
+									style="width: 100px;" value="-7" step="0.1" oninput="updateConcentrationFun(this.value, 3)"></br>
+
+								<label>[Agonist] #5  :  1.0e</label>
+								<input class="numbox" type="number" autocomplete="off" id="funline5" min="-12" max="0"
+									style="width: 100px;" value="-6" step="0.1" oninput="updateConcentrationFun(this.value, 4)"></br>
+							</fieldset>
 						</div>
 					</div>
 				</div>
@@ -1189,7 +1875,7 @@
 
 
 	</div>
-	</div>	
+	</div>
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript" src="js/scriptcom.js"></script>
 	<script type="text/javascript" src="js/scriptirr.js"></script>
@@ -1201,7 +1887,7 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>
 	<script type="text/javascript" src="js/triangle.js"></script>
-	
+
 
 	<footer id="footer" class="footer" style="visibility: hidden;">
 		<div class="container">
@@ -1227,6 +1913,7 @@
 						<h4 class="modal-title">About</h4>
 					</div>
 					<div class="modal-body">
+
 						<p><b>Summary about the project</b><br/>Agonists produce effects in cells by activating receptors and downstream signalling pathways. This app contains an interactive “Dose Response Visualiser” which allows users to alter agonist-dependent factors (affinity, intrinsic efficacy) and/or cell-dependent factors (receptor density, signal amplification) and observe in real time how this changes the agonist dose-response relationship.<br/>
 							<br/>Agonist-induced effects can be blocked by drugs called antagonists, which are amongst the most widely used class of drug in medicine. There exist many different types of antagonists, named on the basis of how they inhibit the agonist-induced effect: competitive, irreversible, allosteric and functional antagonists, and inverse agonists. Within the “Dose Response Visualiser”, users can observe the different patterns of effect produced by each of these antagonists (and the influence of antagonist concentrations and affinity) on the agonist dose-response relationship.<br/>
 							<br/>Quantitative analysis of the effect of competitive antagonists on agonist-induced effects is a powerful method for identifying the receptors that mediate agonist-induced effects (Schild analysis), and is used in drug discovery and receptor characterisation. The app contains a “Schild Plot Generator”, where users can select the properties of agonists and antagonists and generate Schild Plots, and work through a series of theoretical questions and experimental scenarios that build proficiency and enhance understanding of key Schild concepts.  The “Schild Plot Generator” also introduces users to a wide array of ‘non-ideal’ Schild Plots (e.g. nonlinear and/or slope different from unity), and moreover, provides users with information that can be used to identify and remedy the underlying causes of each form of ‘non-ideal’ Schild plot.<br/>
@@ -1265,9 +1952,11 @@
 							- Wyllie DJ, Chen PE (2007) Taking the time to study competitive antagonism. Br J Pharmacol 150:541-51.</br>
 							- Zhao P, Furness SGB (2019) The nature of efficacy at G protein-coupled receptors. Biochem Pharmacol 170:113647.</br>
 							</p>
+
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+						<button type="button" class="btn waves-effect waves-light red"
+							data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
@@ -1281,7 +1970,8 @@
 					<div class="modal-body">
 						<ul class="nav nav-tabs nav-pills nav-justified" role="tablist">
 							<li class="nav-item">
-								<a class="nav-link active" data-toggle="tab" href="#qual">Dose-Response Visualiser</br></a>
+								<a class="nav-link active" data-toggle="tab" href="#qual">Dose-Response
+									Visualiser</br></a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" data-toggle="tab" href="#quant">Schild Plot Generator</a>
@@ -1294,25 +1984,31 @@
 					<div class="tab-content">
 						<div id="qual" class="container tab-pane active">
 							<div class="col col-lg-12">
+
 								<p><span style="color:Red">Agonists</span> bind to and activate receptors to induce changes in the activity of the receptor-expressing
 									cells – a simple schematic of this process, together with a short animation, can be seen by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span> Agonist</span> icon. The
 									magnitude of these agonist-induced changes in cell activity are dependent on the concentration of
 									the agonist, and are typically displayed using agonist dose-response curves (see default sigmoid-
+
 									shaped Agonist Dose-Response Curve).
 								</p>
 								<p>
 									Agonist dose response curves provide important information regarding:
 								</p>
 								<p>
-									<b>1.</b> The maximum level of effect (response) induced by the highest concentrations of agonist
+									<b>1.</b> The maximum level of effect (response) induced by the highest
+									concentrations of agonist
 									(expressed as a percentage of the maximum change in cell activity, %Emax), and
 								</p>
 								<p>
-									<b>2.</b> The potency of the agonist, which is the concentration of the agonist producing a particular level
-									of effect (response), usually expressed as the molar concentration of agonist producing 50% of the
+									<b>2.</b> The potency of the agonist, which is the concentration of the agonist
+									producing a particular level
+									of effect (response), usually expressed as the molar concentration of agonist
+									producing 50% of the
 									agonist’s maximum response (EC<sub>50</sub> value).
 								</p>
 								<p>
+
 									The shape and position of agonist dose-response curves depend upon the properties of both the
 									agonist (affinity and intrinsic efficacy) and the cell (receptor density and the signal amplification).
 									Specific information about these parameters can be obtained by clicking the <span style="color:red">red <span class="fa fa-info-circle"></span> icons</span>.
@@ -1323,14 +2019,19 @@
 									parameter value) along the grey bar. Thus, this agonist dose-response visualiser enables you to
 									visualise how the position and shape of the agonist dose-response curve changes in response to
 									increases or decreases in agonist affinity or efficacy or in cell receptor density or signal amplification.
+
 								</p>
 								<p>
-									You can enhance your understanding of these key concepts of agonism by working through a series
-									of Questions (see Questions window) that encourage the use of the Dose-Response Visualiser (see
-									the ‘Question’ window). An Answer to each of the Questions posed can be obtained by clicking on
+									You can enhance your understanding of these key concepts of agonism by working
+									through a series
+									of Questions (see Questions window) that encourage the use of the Dose-Response
+									Visualiser (see
+									the ‘Question’ window). An Answer to each of the Questions posed can be obtained by
+									clicking on
 									the Reveal Answer icon.
 								</p>
 								<p>
+
 									<span style="color:red">Antagonists</span> bind to receptors and inhibit agonist-induced responses. There exist different classes of
 									antagonists, including Competitive antagonists, Irreversible antagonists, Allosteric antagonists, 
 									Functional antagonists and Inverse Agonists. As their names suggest, these different classes of antagonist interact with
@@ -1346,15 +2047,21 @@
 									(to	increase antagonist affinity) along the grey bar. The extent to which the actions of the antagonist
 									is dependent on the characteristics of the agonist (affinity, intrinsic efficacy) and/or cell (receptor
 									density, signal amplification) can also be displayed by moving the appropriate sliders in the Agonist or
+
+									
 									Cell windows.
 								</p>
 								<p>
-									A return to default parameter values can be accomplished by clicking on the <b>RESET</b> button.
+									A return to default parameter values can be accomplished by clicking on the
+									<b>RESET</b> button.
 								</p>
 								<p>
-									You can enhance your understanding of these key concepts of antagonism by working through a
-									series of Questions (see Questions window) that encourage the use of the Dose-Response Visualiser
-									(see the ‘Question’ window). An Answer to each of the Questions posed can be obtained by clicking
+									You can enhance your understanding of these key concepts of antagonism by working
+									through a
+									series of Questions (see Questions window) that encourage the use of the
+									Dose-Response Visualiser
+									(see the ‘Question’ window). An Answer to each of the Questions posed can be
+									obtained by clicking
 									on the Reveal Answer icon.
 								</p>
 							</div>
@@ -1362,11 +2069,15 @@
 						<div id="quant" class="container tab-pane">
 							<div class="col col-lg-12">
 								<p>
-									Schild analyses enable the determination of the affinity (K<sub>B</sub>) of a competitive antagonist at a
-									particular receptor that is mediating the response produced by an agonist. Thus, the Schild analysis
-									is a particularly powerful approach for classifying and identifying the functional roles played by
+									Schild analyses enable the determination of the affinity (K<sub>B</sub>) of a
+									competitive antagonist at a
+									particular receptor that is mediating the response produced by an agonist. Thus, the
+									Schild analysis
+									is a particularly powerful approach for classifying and identifying the functional
+									roles played by
 									various receptor subtypes.
 								</p>
+
 
 								How to create a Schild Plot:</br>
 																	
@@ -1389,15 +2100,20 @@
 									pA<sub>2</sub> value, which is an estimate of the affinity of the competitive antagonist (K<sub>B</sub> value) for the
 									receptor through which the agonist is producing the response. The pA<sub>2</sub> is determined by measuring
 									the value of the dose ratio (DR) at several antagonist concentrations, allowing an estimate of the
+
 									antagonist concentration at which log(DR-1) is zero.
 								</p>
 								<p>
-									The calculated –logK<sub>B</sub> value of the antagonist can then be compared to known –logK<sub>i</sub> values of the
-									antagonist obtained from the binding of the antagonist to pure populations of receptor subtypes,
-									and through a process of elimination (incorporating the SPIKES approach), the receptor mediating
+									The calculated –logK<sub>B</sub> value of the antagonist can then be compared to
+									known –logK<sub>i</sub> values of the
+									antagonist obtained from the binding of the antagonist to pure populations of
+									receptor subtypes,
+									and through a process of elimination (incorporating the SPIKES approach), the
+									receptor mediating
 									the agonist-induced response identified.
 								</p>
 								<p>
+
 									<b><i>In the Schild Plot Generator</i></b> you can choose the characteristics of the agonist (affinity, intrinsic
 									efficacy) and cell (receptor density, signal amplification) by moving the red sliders along the grey
 									bar (as per Dose-Response Visualiser). Furthermore, you can select the characteristics of the antagonist
@@ -1408,14 +2124,19 @@
 									Schild Analysis Table. The log(DR-1) values for the 4 [antagonist] are then plotted to generate the
 									idealised Schild Plot. Any of the agonist, cell of antagonist parameters can be changed at any time
 									and the effect on the Schild plot shown in real time. A return to default parameter values can be
-									accomplished by clicking on the <b>RESET</b> button.
+                  accomplished by clicking on the <b>RESET</b> button.
 								</p>
 								<p>
-									You can enhance your understanding of the key concepts surrounding the theoretical and practical
-									aspects of Schild Analysis by working through a series of Questions (see Questions window) that
-									encourage the use of the Schild Plot Generator and the Reference Table of ‘-logK<sub>i</sub>  values’. An Answer
-									to each of the Questions posed can be obtained by clicking on the Reveal Answer icon. Completing these
-									questions, together with an understanding of the SPIKES approach to interpreting Schild plot data,
+									You can enhance your understanding of the key concepts surrounding the theoretical
+									and practical
+									aspects of Schild Analysis by working through a series of Questions (see Questions
+									window) that
+									encourage the use of the Schild Plot Generator and the Reference Table of
+									‘-logK<sub>i</sub> values’. An Answer
+									to each of the Questions posed can be obtained by clicking on the Reveal Answer
+									icon. Completing these
+									questions, together with an understanding of the SPIKES approach to interpreting
+									Schild plot data,
 									will prepare you well for the ‘Schild Plot Analysis Quiz’.
 								</p>
 								<p>
@@ -1443,13 +2164,18 @@
 						<div id="quizz" class="container tab-pane">
 							<div class="col col-lg-12">
 								<p>
-									The ‘Schild Plot Analysis Quiz’ presents you with a series of Schild Plots obtained to 5 antagonists
-									acting on a single receptor subtype within a common cell. The challenge is to analyse each of the
-									Schild Plots to deduce which single receptor subtype is mediating the agonist-induced response.
+									The ‘Schild Plot Analysis Quiz’ presents you with a series of Schild Plots obtained
+									to 5 antagonists
+									acting on a single receptor subtype within a common cell. The challenge is to
+									analyse each of the
+									Schild Plots to deduce which single receptor subtype is mediating the
+									agonist-induced response.
 								</p>
 								<p>
-									A key factor in determining which receptor subtype is mediating the response is the application of
-									the SPIKES approach. SPIKES is a mnemonic that provides a stepwise approach for analysing Schild
+									A key factor in determining which receptor subtype is mediating the response is the
+									application of
+									the SPIKES approach. SPIKES is a mnemonic that provides a stepwise approach for
+									analysing Schild
 									plots.
 								</p>
 
@@ -1469,23 +2195,38 @@
 									description of the shape of the Schild Plot.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>P</b></span>osition of the Schild Plot provides the pA<sub>2</sub> value – i.e. x-axis intercept. If the pA<sub>2</sub> is derived from a
-									linear Schild plot with slope not significantly different from 1.0, then it can be converted to K<sub>B</sub> and be
-									a true measure of the affinity of the antagonist for the receptor mediating the agonist-induced
-									response. In the Quiz, enter the numerical value of the pA<sub>2</sub> for each antagonist.
+									<span style="color:red; font-size: 22px"><b>P</b></span>osition of the Schild Plot
+									provides the pA<sub>2</sub> value – i.e. x-axis intercept. If the pA<sub>2</sub> is
+									derived from a
+									linear Schild plot with slope not significantly different from 1.0, then it can be
+									converted to K<sub>B</sub> and be
+									a true measure of the affinity of the antagonist for the receptor mediating the
+									agonist-induced
+									response. In the Quiz, enter the numerical value of the pA<sub>2</sub> for each
+									antagonist.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>I</b></span>nclination of the Schild Plot = slope of the Schild Plot, and should not be significantly different from
-									value of 1.0. If slope &lt; 1, pA<sub>2</sub> is over-estimated &amp; if slope &gt; 1, then pA<sub>2</sub> value is under-estimated. In
-									the Quiz, determine the slope and select from the drop-down options (Slope=1, Slope&lt;1, Slope&gt;1,
-									unsure) the most appropriate description of the slope for each antagonist Schild Plot.
+									<span style="color:red; font-size: 22px"><b>I</b></span>nclination of the Schild
+									Plot = slope of the Schild Plot, and should not be significantly different from
+									value of 1.0. If slope &lt; 1, pA<sub>2</sub> is over-estimated &amp; if slope &gt;
+									1, then pA<sub>2</sub> value is under-estimated. In
+									the Quiz, determine the slope and select from the drop-down options (Slope=1,
+									Slope&lt;1, Slope&gt;1,
+									unsure) the most appropriate description of the slope for each antagonist Schild
+									Plot.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>K</b></span><sub>B</sub> is the antilog of the pA<sub>2</sub> and is a direct measure of the affinity of the antagonist for the receptor
-									mediating the agonist-induce response. The K<sub>B</sub> value can be reliably derived from pA<sub>2</sub> only if the
-									Schild plot is linear with unit slope. In the Quiz, determine whether the K<sub>B</sub> value can be reliably
-									obtained from the pA<sub>2</sub> value (based on the prior analysis of Shape (linear) and Inclination (slope=1)
-									of each Schild plot) by selecting the appropriate response from the drop-down list (Yes, No, Unsure).
+									<span style="color:red; font-size: 22px"><b>K</b></span><sub>B</sub> is the antilog
+									of the pA<sub>2</sub> and is a direct measure of the affinity of the antagonist for
+									the receptor
+									mediating the agonist-induce response. The K<sub>B</sub> value can be reliably
+									derived from pA<sub>2</sub> only if the
+									Schild plot is linear with unit slope. In the Quiz, determine whether the
+									K<sub>B</sub> value can be reliably
+									obtained from the pA<sub>2</sub> value (based on the prior analysis of Shape
+									(linear) and Inclination (slope=1)
+									of each Schild plot) by selecting the appropriate response from the drop-down list
+									(Yes, No, Unsure).
 								</p>
 
 								SPIKES Approach 2:</br>
@@ -1504,14 +2245,21 @@
 									to indicate that that receptor has been eliminated.
 								</p>
 								<p>
-									<span style="color:red; font-size: 22px"><b>S</b></span>ummation. In the Elimination process, each different antagonist is likely to have been able to
-									eliminate one or more receptor subtypes as having mediated the agonist-induced response. By using
-									the information obtained by using ALL the antagonists, a concerted process of elimination should
-									leave just one receptor subtype as having mediated the response induced by the agonist. All
-									obtained pA<sub>2</sub> values should be close to the –logK<sub>i</sub> values for the sole non-eliminated receptor. In the
-									Quiz, in the ‘Your Solution’ window select the sole receptor subtype that is mediating the response.
+									<span style="color:red; font-size: 22px"><b>S</b></span>ummation. In the Elimination
+									process, each different antagonist is likely to have been able to
+									eliminate one or more receptor subtypes as having mediated the agonist-induced
+									response. By using
+									the information obtained by using ALL the antagonists, a concerted process of
+									elimination should
+									leave just one receptor subtype as having mediated the response induced by the
+									agonist. All
+									obtained pA<sub>2</sub> values should be close to the –logK<sub>i</sub> values for
+									the sole non-eliminated receptor. In the
+									Quiz, in the ‘Your Solution’ window select the sole receptor subtype that is
+									mediating the response.
 								</p>
 								<p>
+
 									An additional feature of the Quiz is the inclusion of a hypothetical antagonist called Ant3311. 
 									The Schild plot for Ant3311 will not satisfy the requirements of linearity and/or unity of slope. 
 									In the Quiz, based on your analysis of the Ant3311 Schild plot and your understanding of why Schild 
@@ -1549,12 +2297,14 @@
 									many replicates of the Schild plot that have been obtained experimentally.  For the purposes of the Schild 
 									Plot Analysis Quiz, a –logKi values is assumed to be different from a –logKB value if there is a difference 
 									of 1.0 log unit of more. 
+
 								</p>
 							</div>
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+						<button type="button" class="btn waves-effect waves-light red"
+							data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
@@ -1566,21 +2316,28 @@
 						<h4 class="modal-title">Contact</h4>
 					</div>
 					<div class="modal-body">
-						<p>Is something not working properly?<br />Have an idea about how can we improve the interactive tools?<br />Please
+						<p>Is something not working properly?<br />Have an idea about how can we improve the interactive
+							tools?<br />Please
 							contact us!</p>
 						<div class="box">
-							<p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of Western Australia</p>
-							<p class="contact">Room 1.34, M Block,<br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
-							<p class="contact"><a href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESfunc%20feedback">peter.henry@uwa.edu.au</a></p>
+							<p class="contact"><b>Peter Henry</b><br />Associate Professor<br />The University of
+								Western Australia</p>
+							<p class="contact">Room 1.34, M Block,<br>School of Biomedical Sciences,<br>QEII Medical
+								Centre</p>
+							<p class="contact"><a
+									href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESfunc%20feedback">peter.henry@uwa.edu.au</a>
+							</p>
 
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn waves-effect waves-light red" data-dismiss="modal">Close</button>
+						<button type="button" class="btn waves-effect waves-light red"
+							data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
 		</div>
-	</footer> 
-</body> 
+	</footer>
+</body>
+
 </html>

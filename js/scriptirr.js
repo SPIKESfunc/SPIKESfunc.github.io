@@ -5,7 +5,7 @@ var affirr = document.getElementById("affirrslider").defaultValue;
 var effirr = document.getElementById("effirrslider").defaultValue;
 var denirr = document.getElementById("denirrslider").defaultValue;
 var efficirr = document.getElementById("efficiirrslider").defaultValue;
-var agoaffirr =document.getElementById("antagoirr").value =  document.getElementById("agoaffirrslider").defaultValue;
+var agoaffirr = document.getElementById("antagoirr").value = document.getElementById("agoaffirrslider").defaultValue;
 
 var animation = {
     transition: {
@@ -18,275 +18,335 @@ var animation = {
     }
 }
 
-function checkSliderMinIrr(){
+//new vars
+var dotsize = 10 // defines 50% dot size
+
+
+/**
+ * Checks if the input value is zero and returns the value 
+ * @returns 
+ */
+function checkSliderMinIrr() {
     let ret = false;
-    if(document.getElementById("affirrslider").value == 4){
+    if (document.getElementById("affirrslider").value == 5) {
         ret = true
     }
-    if(document.getElementById("effirrslider").value == -0.3){
+    if (document.getElementById("effirrslider").value == -0.7) {
         ret = true
     }
-    if(document.getElementById("denirrslider").value == -0.3){
+    if (document.getElementById("denirrslider").value == -1) {
         ret = true
     }
-    if(document.getElementById("efficiirrslider").value == -0.3){
+    if (document.getElementById("efficiirrslider").value == 0) {
         ret = true
     }
     return ret
 }
 
-function updateAffinityIrr(value){
+function updateAffinityIrr(value) {
     affirr = value;
-    if(checkSliderMinIrr()){
+    if (checkSliderMinIrr()) {
         Plotly.restyle("irreversible", 'visible', false)
-        graphAlert("irralert","aff")
+        graphAlert("irralert", "aff")
     }
-    else{
+    else {
         graphRemoveAlert("irralert")
         Plotly.restyle("irreversible", 'visible', true)
-        lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
-        lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
-        lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
-        lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
-        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+        lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
         halfData3 = calc50(lineData3);
         halfData4 = calc50(lineData4);
-        Plotly.animate("irreversible",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}], 
-            traces: [0,1,2,3,4,5,6,7,8,9], 
+        Plotly.animate("irreversible", {
+            data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+            { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+                x: halfData2[0],
+                y: halfData2[1]
+            }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+            traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
             layout: {}
-            },animation)
+        }, animation)
     }
 
 }
 
-function updateEfficacyIrr(value){
-    effirr = value;
-    if(checkSliderMinIrr()){
-        Plotly.restyle("irreversible", 'visible', false)
-        graphAlert("irralert","eff")
-    }
-    else{
-        graphRemoveAlert("irralert")
-        Plotly.restyle("irreversible", 'visible', true)
-        lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
-        lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
-        lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
-        lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
-        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
-        halfData0 = calc50(lineData0);
-        halfData1 = calc50(lineData1);
-        halfData2 = calc50(lineData2);
-        halfData3 = calc50(lineData3);
-        halfData4 = calc50(lineData4);
-        Plotly.animate("irreversible",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}], 
-            traces: [0,1,2,3,4,5,6,7,8,9], 
-            layout: {}
-            },animation)
-    }
-} 
 
-function updateDensityIrr(value){
-    denirr = value;
-    if(checkSliderMinIrr()){
-        Plotly.restyle("irreversible", 'visible', false)
-        graphAlert("irralert","den")
-    }
-    else{
-        graphRemoveAlert("irralert")
-        Plotly.restyle("irreversible", 'visible', true)
-        lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
-        lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
-        lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
-        lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
-        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
-        halfData0 = calc50(lineData0);
-        halfData1 = calc50(lineData1);
-        halfData2 = calc50(lineData2);
-        halfData3 = calc50(lineData3);
-        halfData4 = calc50(lineData4);
-        Plotly.animate("irreversible",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}], 
-            traces: [0,1,2,3,4,5,6,7,8,9], 
-            layout: {}
-            },animation)
-    }
-} 
+// This is used to update the Concentration Values Table
+function updateConcentrationIrr(value, index){
+    // use this to reference the id of the box
+    //let line_id = "comline" + index;
+    agoconcarr[index] = value;
 
-function updateEfficiencyIrr(value){
-    efficirr = value;
-    if(checkSliderMinIrr()){
-        Plotly.restyle("irreversible", 'visible', false)
-        graphAlert("irralert","effic")
-    }
-    else{
-        graphRemoveAlert("irralert")
-        Plotly.restyle("irreversible", 'visible', true)
-        lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
-        lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
-        lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
-        lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
-        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
-        halfData0 = calc50(lineData0);
-        halfData1 = calc50(lineData1);
-        halfData2 = calc50(lineData2);
-        halfData3 = calc50(lineData3);
-        halfData4 = calc50(lineData4);
-        Plotly.animate("irreversible",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}], 
-            traces: [0,1,2,3,4,5,6,7,8,9], 
-            layout: {}
-            },animation)
-    }
-
-} 
-
-function updateAgoAffinityIrr(value){
-    agoaffirr = document.getElementById("antagoirr").value = value;
-    
-    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
-    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
-    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
-    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
-    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+    // used from existing functions below. (updateEfficacyIrr())
+    Plotly.restyle("irreversible", 'visible', true)
+    lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+    lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+    lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+    lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+    lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
     halfData3 = calc50(lineData3);
     halfData4 = calc50(lineData4);
-    Plotly.animate("irreversible",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}], 
-        traces: [0,1,2,3,4,5,6,7,8,9], 
+    Plotly.animate("irreversible", {
+        data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+        { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+            x: halfData2[0],
+            y: halfData2[1]
+        }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+        traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
         layout: {}
-        },animation)
+    }, animation)
+
 }
 
-function resetIrr(){
+function updateEfficacyIrr(value) {
+    effirr = value;
+    if (checkSliderMinIrr()) {
+        Plotly.restyle("irreversible", 'visible', false)
+        graphAlert("irralert", "eff")
+    }
+    else {
+        graphRemoveAlert("irralert")
+        Plotly.restyle("irreversible", 'visible', true)
+        lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);
+        Plotly.animate("irreversible", {
+            data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+            { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+                x: halfData2[0],
+                y: halfData2[1]
+            }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+            traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+            layout: {}
+        }, animation)
+    }
+}
+
+function updateDensityIrr(value) {
+    denirr = value;
+    if (checkSliderMinIrr()) {
+        Plotly.restyle("irreversible", 'visible', false)
+        graphAlert("irralert", "den")
+    }
+    else {
+        graphRemoveAlert("irralert")
+        Plotly.restyle("irreversible", 'visible', true)
+        lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);
+        Plotly.animate("irreversible", {
+            data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+            { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+                x: halfData2[0],
+                y: halfData2[1]
+            }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+            traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+            layout: {}
+        }, animation)
+    }
+}
+
+function updateEfficiencyIrr(value) {
+    efficirr = value;
+    if (checkSliderMinIrr()) {
+        Plotly.restyle("irreversible", 'visible', false)
+        graphAlert("irralert", "effic")
+    }
+    else {
+        graphRemoveAlert("irralert")
+        Plotly.restyle("irreversible", 'visible', true)
+        lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);
+        Plotly.animate("irreversible", {
+            data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+            { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+                x: halfData2[0],
+                y: halfData2[1]
+            }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+            traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+            layout: {}
+        }, animation)
+    }
+
+}
+
+function updateAgoAffinityIrr(value) {
+    agoaffirr = document.getElementById("antagoirr").value = value;
+
+    lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+    lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+    lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+    lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+    lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);
+    Plotly.animate("irreversible", {
+        data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+        { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+            x: halfData2[0],
+            y: halfData2[1]
+        }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+        traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        layout: {}
+    }, animation)
+}
+
+function resetIrr() {
     affirr = document.getElementById("affirrslider").value = document.getElementById("affirrslider").defaultValue;
     effirr = document.getElementById("effirrslider").value = document.getElementById("effirrslider").defaultValue;
     denirr = document.getElementById("denirrslider").value = document.getElementById("denirrslider").defaultValue;
     efficirr = document.getElementById("efficiirrslider").value = document.getElementById("efficiirrslider").defaultValue;
     agoaffirr = document.getElementById("agoaffirrslider").value = document.getElementById("agoaffirrslider").defaultValue;
     document.getElementById("antagoirr").value = document.getElementById("agoaffirrslider").defaultValue;
-    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
-    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
-    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
-    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
-    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+
+    //updates lines concentration
+    document.getElementById("irrline2").value = document.getElementById("irrline2").defaultValue;
+    document.getElementById("irrline3").value = document.getElementById("irrline3").defaultValue;
+    document.getElementById("irrline4").value = document.getElementById("irrline4").defaultValue;
+    document.getElementById("irrline5").value = document.getElementById("irrline5").defaultValue;
+    agoconcarr = [0, -9, -8, -7, -6]; // need this to reset values
+
+    lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+    lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+    lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+    lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+    lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
     halfData3 = calc50(lineData3);
     halfData4 = calc50(lineData4);
-    Plotly.animate("irreversible",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}], 
-        traces: [0,1,2,3,4,5,6,7,8,9], 
+    Plotly.animate("irreversible", {
+        data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+        { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+            x: halfData2[0],
+            y: halfData2[1]
+        }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+        traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
         layout: {}
-        },animation)
+    }, animation)
 }
 
-function calc50(lineData){
+function calc50(lineData) {
 
-    var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
-	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
-	    return number >= halfMaxEffect;
+    var halfMaxEffect = Math.max.apply(Math, lineData[1]) / 2; //get the 50% value
+    var maxEffectAgoIndex = lineData[1].findIndex(function (number) { //get the x-index for the 50% value
+        return number >= halfMaxEffect;
     });
     var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
     var agoret = [[halfAgoEffect], [halfMaxEffect]];
-	return agoret; //return x, y
+    return agoret; //return x, y
 
 }
 
-function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
+function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration) {
     const STEP = 0.01;
-    var data = [[],[]];
+    var data = [[], []];
     //Inverse log input values
 
-    var affin = 10**(-1*affinity);
-    var efcay = 10**efficacy;
-    var recep = 10**recepDensity;
-    var efcey = 10**efficiency;
-    var agoaffin = 10**(-1*agoaffinity);
+    var affin = 10 ** (-1 * affinity);
+    var efcay = 10 ** efficacy;
+    var recep = 10 ** recepDensity;
+    var efcey = 10 ** efficiency;
+    var agoaffin = 10 ** (-1 * agoaffinity);
 
-    if(agoconcentration == 0){
+    if (agoconcentration == 0) {
         agoconc = 0;
         agoaffin = 0;
-        for (i=-12; i<-2;i=i+STEP){
+        for (i = -12; i < -2; i = i + STEP) {
             data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
         }
     }
-    else{
-        agoconc = 10**agoconcentration;
-        for (i=-12; i<-2;i=i+STEP){
+    else {
+        agoconc = 10 ** agoconcentration;
+        for (i = -12; i < -2; i = i + STEP) {
             data[0].push(i);
-            data[1].push((((10**i)/affin)*efcay*recep*efcey*100)/(((10**i)/affin)*(efcay*recep*efcey+1+(agoconc/agoaffin))+1+(agoconc/agoaffin)));
+            data[1].push((((10 ** i)) * efcay * recep * efcey * 100) / (((10 ** i)) * (efcay * recep * efcey + 1 - efcay + (agoconc / agoaffin)) + affin));
         }
     }
-    
+
     return data;
 }
 
 var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"]
 
-function plotGraphIrr(chart){
+function plotGraphIrr(chart) {
 
     var layout = {
-        xaxis:{
+        xaxis: {
             title: "[Agonist] (log M)",
             showline: true,
-            range: [-12,-2],
+            range: [-12, -2],
             dtick: 1
-            
+
         },
-        yaxis:{
+        yaxis: {
             title: "Effect (% Emax)",
             showline: true,
-            range: [0,100],
+            range: [0, 100],
             dtick: 10
 
         }
     }
 
     var j;
-    for(j = 0; j<5; j++){
-        var data= [];
+    for (j = 0; j < 5; j++) {
+        var data = [];
         var lineData = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[j])
 
-        if(j==0){
+        if (j == 0) {
             var graph = {
                 x: lineData[0],
                 y: lineData[1],
                 mode: "lines",
-                name: 0+"nM",
+                name: 0 + "nM",
                 line: {
                     color: linecolours[j],
                     width: 1
                 }
             }
         }
-        else{
-        var graph = {
+        else {
+            var graph = {
                 x: lineData[0],
                 y: lineData[1],
                 mode: "lines",
-                name: 10**agoconcarr[j]*1000000000+"nM",
+                //name: 10 ** agoconcarr[j] * 1000000000 + "nM",
+                name: "[Antagonist] #" + j,
                 line: {
                     color: linecolours[j],
                     width: 1
@@ -295,11 +355,11 @@ function plotGraphIrr(chart){
         }
         data.push(graph);
 
-        Plotly.plot(chart,data,layout, {responsive: true});
+        Plotly.plot(chart, data, layout, { responsive: true });
     }
     var i;
     legendview = [true, false, false, false, false]
-    for(i = 0; i<5; i++){
+    for (i = 0; i < 5; i++) {
         var halfData = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[i]);
         data50 = calc50(halfData); //plot the 50% effect marker
         var trace1 = [{
@@ -308,11 +368,16 @@ function plotGraphIrr(chart){
             mode: 'markers',
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "orange"
+                color: "red",
+                size: dotsize,
+                line: {
+                    color: 'black',
+                    width: 1
+                  }
             },
             showlegend: legendview[i]
         }];
-        Plotly.plot(chart,trace1,layout, {responsive: true});
+        Plotly.plot(chart, trace1, layout, { responsive: true });
     }
 }
 plotGraphIrr("irreversible");
@@ -350,7 +415,7 @@ function nextQuestionIrr() {
         document.getElementById("revealIrrAnswer").style.display = "none";
         document.getElementById("restartMessageIrr").style.display = "inline-block";
         document.getElementById("restartQuestionIrr").style.display = "inline-block";
-        document.getElementById("nextIrrQuestion").style.display = "none";        
+        document.getElementById("nextIrrQuestion").style.display = "none";
     }
     else {
         questionCounterIrr++;

@@ -17,6 +17,9 @@ var animation = {
  }
 };
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 $(document).ready(function () {
   document.getElementById("loader").style.display = "none";
   document.getElementById("page").style.visibility = "visible";
@@ -58,16 +61,16 @@ function graphRemoveAlert(div){
 
 function checkSliderMinAgo(){
     let ret = false;
-    if(document.getElementById("affslider").value === "4"){
+    if(document.getElementById("affslider").value === "5"){
         ret = true;
     }
-    if(document.getElementById("effslider").value === "-0.3"){
+    if(document.getElementById("effslider").value === "-0.7"){
         ret = true;
     }
-    if(document.getElementById("denslider").value === "-0.3"){
+    if(document.getElementById("denslider").value === "-1"){
         ret = true;
     }
-    if(document.getElementById("efficislider").value === "-0.3"){
+    if(document.getElementById("efficislider").value === "0"){
         ret = true;
     }
     return ret;
@@ -86,7 +89,7 @@ function calcLines(affinity, efficacy, recepDensity, efficiency){
     for(var i=-12; i<-2;i=i+STEP){
         //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
         data[0].push(i);
-        data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+        data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
     }
     return data;
 }
@@ -193,10 +196,11 @@ function plotGraph(chart){
         showlegend: false,
         x: lineData[0],
         y: lineData[1],
+        name: "Curve",
         mode: "lines",
         line: {
             color: "#000000",
-            width: 1
+            width: 1,
         }
     }
     data.push(graph);
@@ -210,7 +214,12 @@ function plotGraph(chart){
 		mode: "markers",
 		name: "EC<sub>50</sub> value",
         marker: {
-            color: "orange"
+            color: "red",
+            size: dotsize,
+            line: {
+                color: 'black',
+                width: 1
+              }
         }
 	}];
 	Plotly.plot(chart,trace1,layout, {responsive: true});
