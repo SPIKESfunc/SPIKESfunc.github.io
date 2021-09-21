@@ -912,11 +912,11 @@
 							<fieldset style="width: 90%;">
 								<legend>Agonist</legend>
 								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
-								<input type="range" autocomplete="off" name="affinity" id="affeffslider" min="4" max="8"
-									step="0.04" value="6" oninput="updateAffinityEff(this.value)">
+								<input type="range" autocomplete="off" name="affinity" id="affeffslider" min="5" max="9"
+									step="0.04" value="7" oninput="updateAffinityEff(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
-								<input type="range" autocomplete="off" name="efficacy" id="effeffslider" min="0.04"
-									max="0.74" step="0.01" value="0.39" oninput="updateEfficacyEff(this.value)">
+								<input type="range" autocomplete="off" name="efficacy" id="effeffslider" min="-0.7"
+									max="0" step="0.01" value="-0.35" oninput="updateEfficacyEff(this.value)">
 							</fieldset>
 						</div>
 						<div class="col-lg-6">
@@ -924,11 +924,11 @@
 							<fieldset style="width: 90%;">
 								<legend>Cell</legend>
 								<label for="density">Receptor Density (R<sub>T</sub>)</label>
-								<input type="range" autocomplete="off" name="density" id="deneffslider" min="0.04"
-									max="0.74" step="0.01" value="0.39" oninput="updateDensityEff(this.value)">
+								<input type="range" autocomplete="off" name="density" id="deneffslider" min="-1"
+									max="1" step="0.01" value="0" oninput="updateDensityEff(this.value)">
 								<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
-								<input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="0.04"
-									max="0.74" step="0.01" value="0.39" oninput="updateEfficiencyEff(this.value)">
+								<input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="0"
+									max="2" step="0.01" value="1" oninput="updateEfficiencyEff(this.value)">
 							</fieldset>
 						</div>
 					</div>
@@ -1179,19 +1179,19 @@
 							<fieldset style="width: 90%;">
 								<legend>Agonist</legend>
 								<label for="affinity">Affinity (&#8733 1/K<sub>A</sub>)</label>
-								<input type="range" autocomplete="off" name="affinity" id="afffunslider1" min="4"
-									max="8" step="0.04" value="6" oninput="updateAffinityFun1(this.value)">
+								<input type="range" autocomplete="off" name="affinity" id="afffunslider1" min="5"
+									max="9" step="0.04" value="7" oninput="updateAffinityFun1(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
-								<input type="range" autocomplete="off" name="efficacy" id="efffunslider1" min="0.04"
-									max="0.74" step="0.01" value="0.39" oninput="updateEfficacyFun1(this.value)">
+								<input type="range" autocomplete="off" name="efficacy" id="efffunslider1" min="-0.7"
+									max="0" step="0.01" value="-0.35" oninput="updateEfficacyFun1(this.value)">
 								<fieldset style="max-width: fit-content;">
 									<legend>Cell</legend>
 									<label for="density">Receptor Density (R<sub>T</sub>)</label>
-									<input type="range" autocomplete="off" name="density" id="denfunslider1" min="0.04"
-										max="0.74" step="0.01" value="0.39" oninput="updateDensityFun1(this.value)">
+									<input type="range" autocomplete="off" name="density" id="denfunslider1" min="-1"
+										max="1" step="0.01" value="0" oninput="updateDensityFun1(this.value)">
 									<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 									<input type="range" autocomplete="off" name="efficiency" id="efficifunslider1"
-										min="0.04" max="0.74" step="0.01" value="0.39"
+										min="0" max="2" step="0.01" value="1"
 										oninput="updateEfficiencyFun1(this.value)">
 								</fieldset>
 							</fieldset>
@@ -1201,19 +1201,19 @@
 							<fieldset style="width: 90%;">
 								<legend>Functional Antagonist</legend>
 								<label for="affinity">Affinity (&#8733 1/K<sub>B</sub>)</label>
-								<input type="range" autocomplete="off" name="affinity" id="afffunslider2" min="6"
-									max="10" step="0.04" value="8" oninput="updateAffinityFun2(this.value)">
+								<input type="range" autocomplete="off" name="affinity" id="afffunslider2" min="5"
+									max="9" step="0.04" value="7" oninput="updateAffinityFun2(this.value)">
 								<br><label for="efficacy">Intrinsic Efficacy (&#949)</label>
-								<input type="range" autocomplete="off" name="efficacy" id="efffunslider2" min="-0.74"
-									max="-0.04" step="0.01" value="-0.39" oninput="updateEfficacyFun2(this.value)">
+								<input type="range" autocomplete="off" name="efficacy" id="efffunslider2" min="-0.7"
+									max="0" step="0.01" value="-0.35" oninput="updateEfficacyFun2(this.value)">
 								<fieldset style="max-width: fit-content;">
 									<legend>Cell</legend>
 									<label for="density">Receptor Density (R<sub>T</sub>)</label>
-									<input type="range" autocomplete="off" name="density" id="denfunslider2" min="-0.74"
-										max="-0.04" step="0.01" value="-0.39" oninput="updateDensityFun2(this.value)">
+									<input type="range" autocomplete="off" name="density" id="denfunslider2" min="-1"
+										max="1" step="0.01" value="0" oninput="updateDensityFun2(this.value)">
 									<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 									<input type="range" autocomplete="off" name="efficiency" id="efficifunslider2"
-										min="-0.74" max="-0.04" step="0.01" value="-0.39"
+										min="0" max="2" step="0.01" value="1"
 										oninput="updateEfficiencyFun2(this.value)">
 								</fieldset>
 							</fieldset>
