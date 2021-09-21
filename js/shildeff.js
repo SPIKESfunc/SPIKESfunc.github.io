@@ -96,6 +96,12 @@ function resetQuantEff(){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], logdr1eff, logdr2eff, logdr3eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function graphAlertEff(div){
@@ -286,7 +292,12 @@ function updateAgoAffinityEff(value){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], logdr1eff, logdr2eff, logdr3eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function updateefflevelEff(value){
@@ -350,7 +361,12 @@ function updateAgoAffinityLogEff(value){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], logdr1eff, logdr2eff, logdr3eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function updateAgoAffEff(value){
@@ -404,7 +420,12 @@ function updateAntagonist1Eff(value){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], logdr1eff, logdr2eff, logdr3eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function updateAntagonistLog1Eff(value){
@@ -432,7 +453,12 @@ function updateAntagonistLog1Eff(value){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], logdr1eff, logdr2eff, logdr3eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function updateAntagonist2Eff(value){
@@ -460,7 +486,12 @@ function updateAntagonist2Eff(value){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], logdr1eff, logdr2eff, logdr3eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function updateAntagonistLog2Eff(value){
@@ -488,6 +519,12 @@ function updateAntagonistLog2Eff(value){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], logdr1eff, logdr2eff, logdr3eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function updateAntagonist3Eff(value){
@@ -515,6 +552,12 @@ function updateAntagonist3Eff(value){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], logdr1eff, logdr2eff, logdr3eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function updateAntagonistLog3Eff(value){
@@ -542,7 +585,12 @@ function updateAntagonistLog3Eff(value){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], logdr1eff, logdr2eff, logdr3eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function calcAgoHalfEffectEff(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc){
@@ -625,6 +673,36 @@ function calcLinesEff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
           data[1].push(effect);
         }
       }
+    return data;
+}
+
+//Define a function to calculate ideal line, formulas need to be modified here, haven't finished yet.
+function calcLinesIdealEff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration){
+    const STEP = 0.01;
+    var data = [[],[]];
+    //Inverse log input values
+
+    var affin = 10**(-1*affinity);
+    var efcay = 10**efficacy;
+    var recep = 10**recepDensity;
+    var efcey = 10**efficiency;
+    var agoaffin = 10**(-1*agoaffinity);
+
+    if(agoconcentration == 0){
+        agoconc = 0;
+        agoaffin = 0;
+        for (i=-12; i<-2;i=i+STEP){
+            data[0].push(i);
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+        }
+    }
+    else{
+    	agoconc = 10**agoconcentration;
+    	for (i=-12; i<-2;i=i+STEP){
+        	data[0].push(i);
+        	data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin)));
+    	}
+	}
     return data;
 }
 
@@ -716,6 +794,20 @@ var logdr1eff = document.getElementById("antlogdr1eff").value = calcLogDREff(dos
 var logdr2eff = document.getElementById("antlogdr2eff").value = calcLogDREff(doseratio2eff).toFixed(2);
 var logdr3eff = document.getElementById("antlogdr3eff").value = calcLogDREff(doseratio3eff).toFixed(2);
 
+//Define variables for plotting ideal line.
+var idealanthalfeff0eff = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval0eff).toExponential(2);
+var idealanthalfeff1eff = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval0eff).toExponential(2);
+var idealanthalfeff2eff = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval0eff).toExponential(2);
+var idealanthalfeff3eff = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval0eff).toExponential(2);
+
+var idealdoseratio1eff = calcDoseRatioEff(idealanthalfeff1eff, idealanthalfeff0eff).toFixed(2);
+var idealdoseratio2eff = calcDoseRatioEff(idealanthalfeff2eff, idealanthalfeff0eff).toFixed(2);
+var idealdoseratio3eff = calcDoseRatioEff(idealanthalfeff3eff, idealanthalfeff0eff).toFixed(2)
+
+var ideallogdr1eff = calcLogDREff(idealdoseratio1eff).toFixed(2);
+var ideallogdr2eff = calcLogDREff(idealdoseratio2eff).toFixed(2);
+var ideallogdr3eff = calcLogDREff(idealdoseratio3eff).toFixed(2);
+
 function updateValidEff(data0, data1, data2, data3){
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
 
@@ -777,11 +869,27 @@ function plotSchildEff(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
+        name: 'Line',
 		line: {
 			width: 1
 		}
 	}
 	data.push(trace1);
+
+    //Add a ideal line on Schild plot.
+    var lineData2 = calcSchildEff(antlogval1eff, antlogval2eff, antlogval3eff, ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    var trace2 = {
+        x: lineData2[0],
+        y: lineData2[1],
+        mode: 'lines',
+        name: 'Ideal Line',
+        line: {
+            dash: 'dot',
+            color:'black',
+            width: 1
+        }
+    }
+    data.push(trace2)
 	
 	Plotly.plot(chart, data, layout, {responsive: true});
 }
