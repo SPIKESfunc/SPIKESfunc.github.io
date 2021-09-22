@@ -107,6 +107,7 @@ function resetQuantIrr(){
     idealSchildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], ideallogdr1irr, ideallogdr2irr, ideallogdr3irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
     */
+
 }
 //
 function graphAlertIrr(div){
@@ -303,6 +304,7 @@ function updateAgoAffinityIrr(value){
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
     */
 }
+
 //
 function updateefflevelIrr(value){
     efflevelirr = value;
