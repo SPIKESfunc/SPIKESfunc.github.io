@@ -38,6 +38,9 @@ var animation = {
  }
 }
 
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 function titleAff(){
     document.getElementById("tabtitle").innerHTML = "Schild Plot Generator for Allosteric Antagonist (Affinity)"
 }
@@ -645,23 +648,25 @@ function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     var agoeff = 10**(-1*agoeffect);
     var agoconc;
 
-    if(agoconcentration == 0){
+    if(agoconcentration === 0){
         agoconc = 0;
         agoaffin = 0;
+        var i;
         for (i=-12; i<-2;i=i+STEP){
+            //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
-            //data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
         }
     }
     else{
-    	agoconc = 10**agoconcentration;
-    	for (i=-12; i<-2;i=i+STEP){
-        	data[0].push(i);
-        	//data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin)));
-            data[1].push(((10**i)*efcay*recep*efcey*100)/((10**i)*(efcay*recep*efcey+1)+((affin*(agoconc/agoaffin + 1))/(1+((agoeff*agoconc)/agoaffin)))));
-    	}
-	}
+        agoconc = 10**agoconcentration;
+        var i;
+        for (i=-12; i<-2;i=i+STEP){
+            //effect = ((10**i)*efcay*recep*efcey*100)/((10**i)*(efcay*recep*efcey+1)+((affin*(agoconc/agoaffin + 1))/(1+((agoeff*agoconc)/agoaffin))));
+            data[0].push(i);
+            data[1].push(((10**i)*efcay*recep*efcey*100)/((10**i)*(efcay*recep*efcey+1-efcay)+((affin*(agoconc/agoaffin + 1))/(1+((agoeff*agoconc)/agoaffin)))));
+        }
+    }
     return data;
 }
 
@@ -761,7 +766,12 @@ function plotGraphAff(chart){
             mode: 'markers',
             name: "EC Value",
             marker: {
-                color: "orange"
+                color: "red",
+                size: dotsize,
+                line: {
+                    color: 'black',
+                    width: 1
+                  }
             },
             showlegend: legendview[i]
         }];

@@ -562,32 +562,35 @@ function updateEverything(){
     logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3).toFixed(2);
 }
 
-
 function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
     const STEP = 0.01;
     var data = [[],[]];
-    //Inverse log input values
 
     var affin = 10**(-1*affinity);
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
     var efcey = 10**efficiency;
     var agoaffin = 10**(-1*agoaffinity);
+    var agoconc;
 
-    if(agoconcentration == 0){
+    // graphs base line
+    if(agoconcentration === 0){
         agoconc = 0;
         agoaffin = 0;
-        for (i=-12; i<-2;i=i+STEP){
+        for (var i=-12; i<-2;i=i+STEP){
+            //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
         }
     }
+    //graphs other lines
     else{
-    	agoconc = 10**agoconcentration;
-    	for (i=-12; i<-2;i=i+STEP){
-        	data[0].push(i);
-        	data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin)));
-    	}
+        agoconc = 10**agoconcentration;
+        for (var i=-12; i<-2;i=i+STEP){
+            //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
+            data[0].push(i);
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin*(1+agoconc/agoaffin)));
+        }
 	}
     return data;
 }
@@ -659,8 +662,12 @@ function plotGraphCom(chart){
             mode: 'markers',
             name: "EC Value",
             marker: {
-                color: "orange",
-                size: dotsize
+                color: "red",
+                size: dotsize,
+                line: {
+                    color: 'black',
+                    width: 1
+                  }
             },
             showlegend: legendview[i]
         }];

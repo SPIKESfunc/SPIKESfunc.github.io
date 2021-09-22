@@ -38,6 +38,10 @@ var animation = {
           redraw: false,
    }
 }
+
+//new vars
+var dotsize = 10 // defines 50% dot size
+
 //
 function titleIrr(){
     document.getElementById("tabtitle").innerHTML = "Schild Plot Generator for Irreversible Antagonist"
@@ -577,32 +581,33 @@ function updateEverythingIrr(){
     logdr3irr = document.getElementById("antlogdr3irr").value = calcLogDRIrr(doseratio3irr).toFixed(2);
 }
 // f
-function calcLinesIrr(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
+function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration) {
     const STEP = 0.01;
-    var data = [[],[]];
+    var data = [[], []];
     //Inverse log input values
 
-    var affin = 10**(-1*affinity);
-    var efcay = 10**efficacy;
-    var recep = 10**recepDensity;
-    var efcey = 10**efficiency;
-    var agoaffin = 10**(-1*agoaffinity);
+    var affin = 10 ** (-1 * affinity);
+    var efcay = 10 ** efficacy;
+    var recep = 10 ** recepDensity;
+    var efcey = 10 ** efficiency;
+    var agoaffin = 10 ** (-1 * agoaffinity);
 
-    if(agoconcentration == 0){
+    if (agoconcentration == 0) {
         agoconc = 0;
         agoaffin = 0;
-        for (i=-12; i<-2;i=i+STEP){
+        for (i = -12; i < -2; i = i + STEP) {
             data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
         }
     }
-    else{
-    	agoconc = 10**agoconcentration;
-    	for (i=-12; i<-2;i=i+STEP){
-        	data[0].push(i);
-            data[1].push((((10**i)/affin)*efcay*recep*efcey*100)/(((10**i)/affin)*(efcay*recep*efcey+1+(agoconc/agoaffin))+1+(agoconc/agoaffin)));
-    	}
-	}
+    else {
+        agoconc = 10 ** agoconcentration;
+        for (i = -12; i < -2; i = i + STEP) {
+            data[0].push(i);
+            data[1].push((((10 ** i)) * efcay * recep * efcey * 100) / (((10 ** i)) * (efcay * recep * efcey + 1 - efcay + (agoconc / agoaffin)) + affin));
+        }
+    }
+
     return data;
 }
 
@@ -702,7 +707,12 @@ function plotGraphIrr(chart){
             mode: 'markers',
             name: "EC Value",
             marker: {
-                color: "orange"
+                color: "red",
+                size: dotsize,
+                line: {
+                    color: 'black',
+                    width: 1
+                  }
             },
             showlegend: legendview[i]
         }];
