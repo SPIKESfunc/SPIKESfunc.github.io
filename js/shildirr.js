@@ -1,4 +1,4 @@
-var agoconcarrirr = [0, -9, -8, -7];
+var agoconcarrirr = [0, -9, -8, -7, -6];
 var affirr= document.getElementById("affirrslider").defaultValue;
 var effirr = document.getElementById("effirrslider").defaultValue;
 var denirr = document.getElementById("denirrslider").defaultValue;
@@ -8,16 +8,18 @@ var agoafflogirr = document.getElementById("agoafflogirrnum").defaultValue;
 var efflevelirr = document.getElementById("efflevelirr").defaultValue;
 document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
 document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
-var isPointValidirr = [true, true, true, false];
+var isPointValidirr = [true, false, false, false];
 
 
 var antval0irr = document.getElementById("ant0irr").defaultValue;
 var antval1irr = document.getElementById("ant1irr").defaultValue;
 var antval2irr = document.getElementById("ant2irr").defaultValue;
 var antval3irr = document.getElementById("ant3irr").defaultValue;
+var antval4irr = document.getElementById("ant4irr").defaultValue;
 var antlogval1irr = document.getElementById("antlog1irr").defaultValue;
 var antlogval2irr = document.getElementById("antlog2irr").defaultValue;
 var antlogval3irr = document.getElementById("antlog3irr").defaultValue;
+var antlogval4irr = document.getElementById("antlog4irr").defaultValue;
 var irrHalfMaxEffect;
 
 
@@ -62,7 +64,7 @@ function calc50Irr(lineData){
 }
 //
 function resetQuantIrr(){
-    agoconcarrirr = [0, -9, -8, -7];
+    agoconcarrirr = [0, -9, -8, -7, -6];
     affirr = document.getElementById("affirrslider").value = document.getElementById("affirrslider").defaultValue;
     effirr = document.getElementById("effirrslider").value = document.getElementById("effirrslider").defaultValue;
     denirr = document.getElementById("denirrslider").value = document.getElementById("denirrslider").defaultValue;
@@ -77,29 +79,36 @@ function resetQuantIrr(){
     antval1irr = document.getElementById("ant1irr").value = document.getElementById("ant1irr").defaultValue;
     antval2irr = document.getElementById("ant2irr").value = document.getElementById("ant2irr").defaultValue;
     antval3irr = document.getElementById("ant3irr").value = document.getElementById("ant3irr").defaultValue;
+    antval4irr = document.getElementById("ant4irr").value = document.getElementById("ant4irr").defaultValue;
     antlogval1irr = document.getElementById("antlog1irr").value = document.getElementById("antlog1irr").defaultValue;
     antlogval2irr = document.getElementById("antlog2irr").value = document.getElementById("antlog2irr").defaultValue;
     antlogval3irr = document.getElementById("antlog3irr").value = document.getElementById("antlog3irr").defaultValue;
+    antlogval4irr = document.getElementById("antlog4irr").value = document.getElementById("antlog4irr").defaultValue;
     lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[0]);
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
     findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
-    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Irr(lineData4);
+    updateValidIrr(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
@@ -144,22 +153,27 @@ function updateAffinityIrr(value){
         lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
         findIrrHalfMaxEffect(lineData0);
         halfData0 = calc50Irr(lineData0);
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
         halfData3 = calc50Irr(lineData3);
-        updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-        
+        halfData4 = calc50Irr(lineData4);
+        updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingIrr();
         Plotly.animate("quantitativeIrr",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+        schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
         Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -177,22 +191,27 @@ function updateEfficacyIrr(value){
         lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
         findIrrHalfMaxEffect(lineData0);
         halfData0 = calc50Irr(lineData0);
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
         halfData3 = calc50Irr(lineData3);
-        updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-
+        halfData4 = calc50Irr(lineData4);
+        updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingIrr();
         Plotly.animate("quantitativeIrr",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+        schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
         Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -210,25 +229,29 @@ function updateDensityIrr(value){
         lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
         findIrrHalfMaxEffect(lineData0);
         halfData0 = calc50Irr(lineData0);
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
         halfData3 = calc50Irr(lineData3);
-        updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-
+        halfData4 = calc50Irr(lineData4);
+        updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingIrr();
         Plotly.animate("quantitativeIrr",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+        schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
         Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
-
 } 
 //
 function updateEfficiencyIrr(value){
@@ -244,25 +267,29 @@ function updateEfficiencyIrr(value){
         lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
         findIrrHalfMaxEffect(lineData0);
         halfData0 = calc50Irr(lineData0);
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
         halfData3 = calc50Irr(lineData3);
-        updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-        
+        halfData4 = calc50Irr(lineData4);
+        updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingIrr();
         Plotly.animate("quantitativeIrr",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+        schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
         Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
-
 } 
 //
 function updateAgoAffinityIrr(value){
@@ -273,24 +300,28 @@ function updateAgoAffinityIrr(value){
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
     findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
-    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-
+    halfData4 = calc50Irr(lineData4);
+    updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
 }
 //
 function updateefflevelIrr(value){
@@ -308,22 +339,27 @@ function updateefflevelIrr(value){
         lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+        lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
         findIrrHalfMaxEffect(lineData0);
         halfData0 = calc50Irr(lineData0);
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
         halfData3 = calc50Irr(lineData3);
-        updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-
+        halfData4 = calc50Irr(lineData4);
+        updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingIrr();
         Plotly.animate("quantitativeIrr",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+        schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
         Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -336,23 +372,28 @@ function updateAgoAffinityLogIrr(value){
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
+    findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
-    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-
+    halfData4 = calc50Irr(lineData4);
+    updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
 }
 //
 function updateAntagonist1Irr(value){
@@ -363,24 +404,28 @@ function updateAntagonist1Irr(value){
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
     findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
-    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-
+    halfData4 = calc50Irr(lineData4);
+    updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
 }
 //
 function updateAntagonistLog1Irr(value){
@@ -391,24 +436,28 @@ function updateAntagonistLog1Irr(value){
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
     findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
-    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-
+    halfData4 = calc50Irr(lineData4);
+    updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
 }
 
 function updateAntagonist2Irr(value){
@@ -419,24 +468,28 @@ function updateAntagonist2Irr(value){
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
     findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
-    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-
+    halfData4 = calc50Irr(lineData4);
+    updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
 }
 //
 function updateAntagonistLog2Irr(value){
@@ -447,22 +500,27 @@ function updateAntagonistLog2Irr(value){
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
     findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
-    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-
+    halfData4 = calc50Irr(lineData4);
+    updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
@@ -474,22 +532,27 @@ function updateAntagonist3Irr(value){
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
     findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
-    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-
+    halfData4 = calc50Irr(lineData4);
+    updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
@@ -501,26 +564,94 @@ function updateAntagonistLog3Irr(value){
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
     findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
     halfData3 = calc50Irr(lineData3);
-    updateValidIrr(halfData0, halfData1, halfData2, halfData3);
-
+    halfData4 = calc50Irr(lineData4);
+    updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
     updateEverythingIrr();
     Plotly.animate("quantitativeIrr",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], logdr1irr, logdr2, logdr3);
+    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
 }
-// f
+
+function updateAntagonist4Irr(value){
+    antval4irr = value;
+    agoconcarrirr[4] = Math.log10(value);
+    document.getElementById("antlog4irr").value = agoconcarrirr[4].toFixed(2);
+    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[0]);
+    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
+    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
+    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
+    findIrrHalfMaxEffect(lineData0);
+    halfData0 = calc50Irr(lineData0);
+    halfData1 = calc50Irr(lineData1);
+    halfData2 = calc50Irr(lineData2);
+    halfData3 = calc50Irr(lineData3);
+    halfData4 = calc50Irr(lineData4);
+    updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
+    updateEverythingIrr();
+    Plotly.animate("quantitativeIrr",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
+        layout: {}
+        },animation)
+    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+}
+//
+function updateAntagonistLog4Irr(value){
+    agoconcarrirr[4] = value;
+    antval4irr = Math.pow(10, value);
+    document.getElementById("ant4irr").value = antval4irr.toExponential(2);
+    lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[0]);
+    lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
+    lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
+    lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
+    lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
+    findIrrHalfMaxEffect(lineData0);
+    halfData0 = calc50Irr(lineData0);
+    halfData1 = calc50Irr(lineData1);
+    halfData2 = calc50Irr(lineData2);
+    halfData3 = calc50Irr(lineData3);
+    halfData4 = calc50Irr(lineData4);
+    updateValidIrr(halfData1, halfData2, halfData3, halfData4);
+    
+    updateEverythingIrr();
+    Plotly.animate("quantitativeIrr",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
+        layout: {}
+        },animation)
+    schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+}
+//
 function calcAgoHalfEffectIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc){
     var ago;
     var affin = 10**(-1*affinity);
@@ -550,16 +681,19 @@ function updateEverythingIrr(){
     anthalfeff1irr = document.getElementById("anteff1irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval1irr).toExponential(2);
     anthalfeff2irr = document.getElementById("anteff2irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval2irr).toExponential(2);
     anthalfeff3irr = document.getElementById("anteff3irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval3irr).toExponential(2);
+    anthalfeff4irr = document.getElementById("anteff4irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval4irr).toExponential(2);
     
     doseratio1irr = document.getElementById("antdose1irr").value = calcDoseRatioIrr(anthalfeff1irr, anthalfeff0irr).toFixed(2);
     doseratio2irr = document.getElementById("antdose2irr").value = calcDoseRatioIrr(anthalfeff2irr, anthalfeff0irr).toFixed(2);
     doseratio3irr = document.getElementById("antdose3irr").value = calcDoseRatioIrr(anthalfeff3irr, anthalfeff0irr).toFixed(2);
+    doseratio4irr = document.getElementById("antdose4irr").value = calcDoseRatioIrr(anthalfeff4irr, anthalfeff0irr).toFixed(2);
     
     logdr1irr = document.getElementById("antlogdr1irr").value = calcLogDRIrr(doseratio1irr).toFixed(2);
     logdr2irr = document.getElementById("antlogdr2irr").value = calcLogDRIrr(doseratio2irr).toFixed(2);
     logdr3irr = document.getElementById("antlogdr3irr").value = calcLogDRIrr(doseratio3irr).toFixed(2);
+    logdr4irr = document.getElementById("antlogdr4irr").value = calcLogDRIrr(doseratio4irr).toFixed(2);
 }
-// f
+//
 function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration) {
     const STEP = 0.01;
     var data = [[], []];
@@ -590,7 +724,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity,
     return data;
 }
 
-var linecoloursirr = ["#000000", "#ff6666", "#ff3333", "#ff0000"]
+var linecoloursirr = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#ff0000"]
 //
 function plotGraphIrr(chart){
     var layout = {
@@ -612,7 +746,7 @@ function plotGraphIrr(chart){
     }
     var j;
 
-    for(j = 0; j<4; j++){
+    for(j = 0; j<5; j++){
     	var data = []
     	var lineData = calcLinesIrr(affirr, effirr, denirr, efficirr, agoafflogirr, agoconcarrirr[j])
    		if(j==0){
@@ -645,8 +779,8 @@ function plotGraphIrr(chart){
     	Plotly.plot(chart,data,layout, {responsive: true});
 	}
     var i;
-    legendview = [true, false, false, false]
-    for(i = 0; i<4; i++){
+    legendview = [true, false, false, false, false]
+    for(i = 0; i<5; i++){
         var halfData = calcLinesIrr(affirr, effirr, denirr, efficirr, agoafflogirr, agoconcarrirr[i]);
         findIrrHalfMaxEffect(calcLinesIrr(affirr, effirr, denirr, efficirr, agoafflogirr, agoconcarrirr[0]));
         data50 = calc50Irr(halfData); //plot the 50% effect marker
@@ -675,14 +809,17 @@ var anthalfeff0irr = document.getElementById("anteff0irr").value = calcAgoHalfEf
 var anthalfeff1irr = document.getElementById("anteff1irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval1irr).toExponential(2);
 var anthalfeff2irr = document.getElementById("anteff2irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval2irr).toExponential(2);
 var anthalfeff3irr = document.getElementById("anteff3irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval3irr).toExponential(2);
+var anthalfeff4irr = document.getElementById("anteff4irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval4irr).toExponential(2);
 
 var doseratio1irr = document.getElementById("antdose1irr").value = calcDoseRatioIrr(anthalfeff1irr, anthalfeff0irr).toFixed(2);
 var doseratio2irr = document.getElementById("antdose2irr").value = calcDoseRatioIrr(anthalfeff2irr, anthalfeff0irr).toFixed(2);
 var doseratio3irr = document.getElementById("antdose3irr").value = calcDoseRatioIrr(anthalfeff3irr, anthalfeff0irr).toFixed(2);
+var doseratio4irr = document.getElementById("antdose4irr").value = calcDoseRatioIrr(anthalfeff4irr, anthalfeff0irr).toFixed(2);
 
 var logdr1irr = document.getElementById("antlogdr1irr").value = calcLogDRIrr(doseratio1irr).toFixed(2);
 var logdr2irr = document.getElementById("antlogdr2irr").value = calcLogDRIrr(doseratio2irr).toFixed(2);
 var logdr3irr = document.getElementById("antlogdr3irr").value = calcLogDRIrr(doseratio3irr).toFixed(2);
+var logdr4irr = document.getElementById("antlogdr4irr").value = calcLogDRIrr(doseratio4irr).toFixed(2);
 
 function updateValidIrr(data0, data1, data2, data3){
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
@@ -697,10 +834,10 @@ function updateValidIrr(data0, data1, data2, data3){
     }
 }
 
-function calcSchildIrr(logval1,logval2, logval3, dr1, dr2, dr3){ //add 3 other concentrations as args
+function calcSchildIrr(logval1,logval2, logval3, logval4, dr1, dr2, dr3, dr4){ //add 3 other concentrations as args
     var data = [[],[]];
-	var allxLogs = [-agoafflog, logval1, logval2, logval3] //x values for the schild
-	var alllogDr1 = [0, dr1, dr2, dr3]
+	var allxLogs = [logval1, logval2, logval3, logval4] //x values for the schild
+	var alllogDr1 = [dr1, dr2, dr3, dr4]
     var xLogs = [];
     var logDr1 = [];
     var j = 0;
@@ -740,7 +877,7 @@ function plotSchildIrr(chart){
 	}	
 	var data = []
 
-    var lineData = calcSchildIrr(antlogval1irr, antlogval2irr, antlogval3irr, logdr1irr, logdr2irr, logdr3irr);
+    var lineData = calcSchildIrr(antlogval1irr, antlogval2irr, antlogval3irr, antlogval4irr, logdr1irr, logdr2irr, logdr3irr, logdr4irr);
 	var trace1 = {
 		x: lineData[0],
 		y: lineData[1],

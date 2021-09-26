@@ -1,4 +1,4 @@
-var agoconcarrfun = [0, -9, -8, -7];
+var agoconcarrfun = [0, -9, -8, -7, -6];
 
 var afffun1= document.getElementById("afffunslider1").defaultValue;
 var efffun1 = document.getElementById("efffunslider1").defaultValue;
@@ -18,9 +18,11 @@ var antval0fun = document.getElementById("ant0fun").defaultValue;
 var antval1fun = document.getElementById("ant1fun").defaultValue;
 var antval2fun = document.getElementById("ant2fun").defaultValue;
 var antval3fun = document.getElementById("ant3fun").defaultValue;
+var antval4fun = document.getElementById("ant4fun").defaultValue;
 var antlogval1fun = document.getElementById("antlog1fun").defaultValue;
 var antlogval2fun = document.getElementById("antlog2fun").defaultValue;
 var antlogval3fun = document.getElementById("antlog3fun").defaultValue;
+var antlogval4fun = document.getElementById("antlog4fun").defaultValue;
 var funHalfMaxEffect;
 
 
@@ -65,7 +67,7 @@ function calc50Fun(lineData){
 }
 //
 function resetQuantFun(){
-    agoconcarrfun = [0, -9, -8, -7];
+    agoconcarrfun = [0, -9, -8, -7, -6];
     afffun1 = document.getElementById("afffunslider1").value = document.getElementById("afffunslider1").defaultValue;
     efffun1 = document.getElementById("efffunslider1").value = document.getElementById("efffunslider1").defaultValue;
     denfun1 = document.getElementById("denfunslider1").value = document.getElementById("denfunslider1").defaultValue;
@@ -82,29 +84,36 @@ function resetQuantFun(){
     antval1fun = document.getElementById("ant1fun").value = document.getElementById("ant1fun").defaultValue;
     antval2fun = document.getElementById("ant2fun").value = document.getElementById("ant2fun").defaultValue;
     antval3fun = document.getElementById("ant3fun").value = document.getElementById("ant3fun").defaultValue;
+    antval4fun = document.getElementById("ant4fun").value = document.getElementById("ant4fun").defaultValue;
     antlogval1fun = document.getElementById("antlog1fun").value = document.getElementById("antlog1fun").defaultValue;
     antlogval2fun = document.getElementById("antlog2fun").value = document.getElementById("antlog2fun").defaultValue;
     antlogval3fun = document.getElementById("antlog3fun").value = document.getElementById("antlog3fun").defaultValue;
+    antlogval4fun = document.getElementById("antlog4fun").value = document.getElementById("antlog4fun").defaultValue;
     lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
     lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
     lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+    lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
-    updateValidFun(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Fun(lineData4);
+    updateValidFun(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
     Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
@@ -149,22 +158,27 @@ function updateAffinityFun1(value){
         lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
         lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+        lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
-        updateValidFun(halfData0, halfData1, halfData2, halfData3);
-        
+        halfData4 = calc50Fun(lineData4);
+        updateValidFun(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
         Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -182,22 +196,27 @@ function updateEfficacyFun1(value){
         lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
         lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+        lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
-        updateValidFun(halfData0, halfData1, halfData2, halfData3);
-
+        halfData4 = calc50Fun(lineData4);
+        updateValidFun(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
         Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -215,22 +234,27 @@ function updateDensityFun1(value){
         lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
         lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+        lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
-        updateValidFun(halfData0, halfData1, halfData2, halfData3);
-
+        halfData4 = calc50Fun(lineData4);
+        updateValidFun(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
         Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 
@@ -249,22 +273,27 @@ function updateEfficiencyFun1(value){
         lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
         lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+        lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
-        updateValidFun(halfData0, halfData1, halfData2, halfData3);
-        
+        halfData4 = calc50Fun(lineData4);
+        updateValidFun(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
         Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 
@@ -284,22 +313,27 @@ function updateAffinityFun2(value){
         lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
         lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+        lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
-        updateValidFun(halfData0, halfData1, halfData2, halfData3);
-        
+        halfData4 = calc50Fun(lineData4);
+        updateValidFun(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
         Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -317,22 +351,27 @@ function updateEfficacyFun2(value){
         lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
         lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+        lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
-        updateValidFun(halfData0, halfData1, halfData2, halfData3);
-
+        halfData4 = calc50Fun(lineData4);
+        updateValidFun(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
         Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -350,25 +389,29 @@ function updateDensityFun2(value){
         lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
         lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+        lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
-        updateValidFun(halfData0, halfData1, halfData2, halfData3);
-
+        halfData4 = calc50Fun(lineData4);
+        updateValidFun(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
         Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
-
 } 
 //
 function updateEfficiencyFun2(value){
@@ -384,25 +427,29 @@ function updateEfficiencyFun2(value){
         lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
         lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+        lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
-        updateValidFun(halfData0, halfData1, halfData2, halfData3);
-        
+        halfData4 = calc50Fun(lineData4);
+        updateValidFun(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
         Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
-
 } 
 //
 
@@ -421,22 +468,27 @@ function updateefflevelfun(value){
         lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
         lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+        lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
         findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
         halfData3 = calc50Fun(lineData3);
-        updateValidFun(halfData0, halfData1, halfData2, halfData3);
-        
+        halfData4 = calc50Fun(lineData4);
+        updateValidFun(halfData1, halfData2, halfData3, halfData4);
+    
         updateEverythingFun();
         Plotly.animate("quantitativeFun",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+        schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
         Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -449,24 +501,28 @@ function updateAntagonist1Fun(value){
     lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
     lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+    lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
-    updateValidFun(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Fun(lineData4);
+    updateValidFun(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
     Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
 }
 //
 function updateAntagonistLog1Fun(value){
@@ -477,24 +533,28 @@ function updateAntagonistLog1Fun(value){
     lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
     lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+    lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
-    updateValidFun(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Fun(lineData4);
+    updateValidFun(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
     Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
 }
 
 function updateAntagonist2Fun(value){
@@ -505,24 +565,28 @@ function updateAntagonist2Fun(value){
     lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
     lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+    lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
-    updateValidFun(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Fun(lineData4);
+    updateValidFun(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
     Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
 }
 //
 function updateAntagonistLog2Fun(value){
@@ -533,22 +597,27 @@ function updateAntagonistLog2Fun(value){
     lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
     lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+    lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
-    updateValidFun(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Fun(lineData4);
+    updateValidFun(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
     Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
@@ -560,22 +629,27 @@ function updateAntagonist3Fun(value){
     lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
     lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+    lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
-    updateValidFun(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Fun(lineData4);
+    updateValidFun(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
     Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
@@ -587,26 +661,94 @@ function updateAntagonistLog3Fun(value){
     lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
     lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+    lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
     findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
     halfData3 = calc50Fun(lineData3);
-    updateValidFun(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Fun(lineData4);
+    updateValidFun(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingFun();
     Plotly.animate("quantitativeFun",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], logdr1fun, logdr2fun, logdr3fun);
+    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
     Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
 }
-// didn't done yet
+
+function updateAntagonist4Fun(value){
+    antval4fun = value;
+    agoconcarrfun[4] = Math.log10(value);
+    document.getElementById("antlog4fun").value = agoconcarrfun[4].toFixed(2);
+    lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+    lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
+    findFunHalfMaxEffect(lineData0);
+    halfData0 = calc50Fun(lineData0);
+    halfData1 = calc50Fun(lineData1);
+    halfData2 = calc50Fun(lineData2);
+    halfData3 = calc50Fun(lineData3);
+    halfData4 = calc50Fun(lineData4);
+    updateValidFun(halfData1, halfData2, halfData3, halfData4);
+
+    updateEverythingFun();
+    Plotly.animate("quantitativeFun",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
+        layout: {}
+        },animation)
+    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
+    Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+}
+//
+function updateAntagonistLog4Fun(value){
+    agoconcarrfun[4] = value;
+    antval4fun = Math.pow(10, value);
+    document.getElementById("ant4fun").value = antval4fun.toExponential(2);
+    lineData0 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]);
+    lineData1 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]);
+    lineData2 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]);
+    lineData3 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]);
+    lineData4 = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]);
+    findFunHalfMaxEffect(lineData0);
+    halfData0 = calc50Fun(lineData0);
+    halfData1 = calc50Fun(lineData1);
+    halfData2 = calc50Fun(lineData2);
+    halfData3 = calc50Fun(lineData3);
+    halfData4 = calc50Fun(lineData4);
+    updateValidFun(halfData1, halfData2, halfData3, halfData4);
+
+    updateEverythingFun();
+    Plotly.animate("quantitativeFun",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
+        layout: {}
+        },animation)
+    schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
+    Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+}
+// 
 function calcAgoHalfEffectFun(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc){
     var ago;
     var affin = 10**(-1*affinity);
@@ -636,15 +778,19 @@ function updateEverythingFun(){
     anthalfeff1fun = document.getElementById("anteff1fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval1fun).toExponential(2);
     anthalfeff2fun = document.getElementById("anteff2fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval2fun).toExponential(2);
     anthalfeff3fun = document.getElementById("anteff3fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval3fun).toExponential(2);
+    anthalfeff4fun = document.getElementById("anteff4fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval4fun).toExponential(2);
 
     doseratio1fun = document.getElementById("antdose1fun").value = calcDoseRatioFun(anthalfeff1fun, anthalfeff0fun).toFixed(2);
     doseratio2fun = document.getElementById("antdose2fun").value = calcDoseRatioFun(anthalfeff2fun, anthalfeff0fun).toFixed(2);
     doseratio3fun = document.getElementById("antdose3fun").value = calcDoseRatioFun(anthalfeff3fun, anthalfeff0fun).toFixed(2);
+    doseratio4fun = document.getElementById("antdose4fun").value = calcDoseRatioFun(anthalfeff4fun, anthalfeff0fun).toFixed(2);
     
     logdr1fun = document.getElementById("antlogdr1fun").value = calcLogDRFun(doseratio1fun).toFixed(2);
     logdr2fun = document.getElementById("antlogdr2fun").value = calcLogDRFun(doseratio2fun).toFixed(2);
     logdr3fun = document.getElementById("antlogdr3fun").value = calcLogDRFun(doseratio3fun).toFixed(2);
+    logdr4fun = document.getElementById("antlogdr4fun").value = calcLogDRFun(doseratio4fun).toFixed(2);
 }
+
 function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoefficacy, agoconcentration, agodensity, agoefficiency){
     const STEP = 0.01;
     var data = [[],[]];
@@ -690,7 +836,7 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-var linecoloursfun = ["#000000", "#ff6666", "#ff3333", "#ff0000"]
+var linecoloursfun = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#ff0000"]
 //
 function plotGraphFun(chart){
     var layout = {
@@ -712,7 +858,7 @@ function plotGraphFun(chart){
     }
     var j;
 
-    for(j = 0; j<4; j++){
+    for(j = 0; j<5; j++){
     	var data = []
     	var lineData = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[j])
    		if(j==0){
@@ -745,8 +891,8 @@ function plotGraphFun(chart){
     	Plotly.plot(chart,data,layout, {responsive: true});
 	}
     var i;
-    legendview = [true, false, false, false]
-    for(i = 0; i<4; i++){
+    legendview = [true, false, false, false, false]
+    for(i = 0; i<5; i++){
         var halfData = calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[i]);
         findFunHalfMaxEffect(calcLinesFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]));
         data50 = calc50Fun(halfData); //plot the 50% effect marker
@@ -775,14 +921,17 @@ var anthalfeff0fun = document.getElementById("anteff0fun").value = calcAgoHalfEf
 var anthalfeff1fun = document.getElementById("anteff1fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval1fun).toExponential(2);
 var anthalfeff2fun = document.getElementById("anteff2fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval2fun).toExponential(2);
 var anthalfeff3fun = document.getElementById("anteff3fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval3fun).toExponential(2);
+var anthalfeff4fun = document.getElementById("anteff4fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval4fun).toExponential(2);
 
 var doseratio1fun = document.getElementById("antdose1fun").value = calcDoseRatioFun(anthalfeff1fun, anthalfeff0fun).toFixed(2);
 var doseratio2fun = document.getElementById("antdose2fun").value = calcDoseRatioFun(anthalfeff2fun, anthalfeff0fun).toFixed(2);
 var doseratio3fun = document.getElementById("antdose3fun").value = calcDoseRatioFun(anthalfeff3fun, anthalfeff0fun).toFixed(2);
+var doseratio4fun = document.getElementById("antdose4fun").value = calcDoseRatioFun(anthalfeff4fun, anthalfeff0fun).toFixed(2);
 
 var logdr1fun = document.getElementById("antlogdr1fun").value = calcLogDRFun(doseratio1fun).toFixed(2);
 var logdr2fun = document.getElementById("antlogdr2fun").value = calcLogDRFun(doseratio2fun).toFixed(2);
 var logdr3fun = document.getElementById("antlogdr3fun").value = calcLogDRFun(doseratio3fun).toFixed(2);
+var logdr4fun = document.getElementById("antlogdr4fun").value = calcLogDRFun(doseratio4fun).toFixed(2);
 
 function updateValidFun(data0, data1, data2, data3){
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
@@ -796,10 +945,10 @@ function updateValidFun(data0, data1, data2, data3){
     }
 }
 
-function calcSchildFun(logval1,logval2, logval3, dr1, dr2, dr3){ //add 3 other concentrations as args
+function calcSchildFun(logval1,logval2, logval3, logval4, dr1, dr2, dr3, dr4){ //add 3 other concentrations as args
     var data = [[],[]];
-	var allxLogs = [-agoafflog, logval1, logval2, logval3] //x values for the schild
-	var alllogDr1 = [0, dr1, dr2, dr3]
+	var allxLogs = [-logval1, logval2, logval3, logval4] //x values for the schild
+	var alllogDr1 = [dr1, dr2, dr3, dr4]
     var xLogs = [];
     var logDr1 = [];
     var j = 0;
@@ -839,7 +988,7 @@ function plotSchildFun(chart){
 	}	
 	var data = []
 
-    var lineData = calcSchildFun(antlogval1fun, antlogval2fun, antlogval3fun, logdr1fun, logdr2fun, logdr3fun);
+    var lineData = calcSchildFun(antlogval1fun, antlogval2fun, antlogval3fun, antlogval4fun, logdr1fun, logdr2fun, logdr3fun, logdr3fun);
 	var trace1 = {
 		x: lineData[0],
 		y: lineData[1],
