@@ -654,13 +654,15 @@ function updateAntagonistLog4Irr(value){
 //
 function calcAgoHalfEffectIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc){
     var ago;
-    var affin = 10**(-1*affinity);
-    var efcay = 10**efficacy;
-    var recep = 10**recepDensity;
-    var efcey = 10**efficiency;
-    var agoaffin = 10**(-1*agoaffinity);
-    var antconc = antagconc;
-    ago = (irrHalfMaxEffect*(affin*(1+antconc/agoaffin)))/((efcay*recep*efcey*100)-(irrHalfMaxEffect*(efcay*recep*efcey+1)));
+    var affin = 10**(-1*affinity); //Ka
+    var efcay = 10**efficacy;  // E
+    var recep = 10**recepDensity; //RT
+    var efcey = 10**efficiency; // SA
+    var agoaffin = 10**(-1*agoaffinity); //Kb
+    var antconc = antagconc; //[B]
+    console.log(((efcay*recep*efcey*1)-(irrHalfMaxEffect*((efcay*recep*efcey*1)+ 1 - efcay + (antconc/agoaffin)))));
+    //ago = (irrHalfMaxEffect*(affin*(1+antconc/agoaffin)))/((efcay*recep*efcey*100)-(irrHalfMaxEffect*(efcay*recep*efcey+1)));
+    ago = (irrHalfMaxEffect*affin)/((efcay*recep*efcey*1)-(irrHalfMaxEffect*((efcay*recep*efcey*1)+ 1 - efcay + (antconc/agoaffin))));
     return ago;
 }
 //
