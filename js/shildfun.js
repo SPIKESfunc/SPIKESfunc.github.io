@@ -803,7 +803,7 @@ function updateEverythingFun(){
     logdr3fun = document.getElementById("antlogdr3fun").value = calcLogDRFun(doseratio3fun).toFixed(2);
     logdr4fun = document.getElementById("antlogdr4fun").value = calcLogDRFun(doseratio4fun).toFixed(2);
 }
-
+// something wrong here
 function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoefficacy, agoconcentration, agodensity, agoefficiency){
     const STEP = 0.01;
     var data = [[],[]];
@@ -848,6 +848,54 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     }
     return data;
 }
+
+//old version calcLinesFun function(works but not use SABER)
+/**
+function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoefficacy, agodensity, agoefficiency, agoconcentration){
+    const STEP = 0.01;
+    var data = [[],[]];
+    //Inverse log input values
+
+    var affin = 10**(-1*affinity);
+    var efcay = 10**efficacy;
+    var recep = 10**recepDensity;
+    var efcey = 10**efficiency;
+    var agoaffin = 10**(-1*agoaffinity);
+    var agoeff = 10**(agoefficacy);
+    var agoden = 10**agodensity;
+    var agoeffic = 10**agoefficiency;
+
+    var emaxa = 100;
+    var emaxb = 100;
+
+    if(agoconcentration == 0){
+        agoconc = 0;
+        agoaffin = 0;
+        for (i=-12; i<-2;i=i+STEP){
+            //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
+            data[0].push(i);
+            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
+        }
+    }
+    else{
+        agoconc = 10**agoconcentration;
+        for (i=-12; i<-2;i=i+STEP){
+            var aconc = 10**i;
+
+            effect1 = aconc*efcay*recep*efcey*emaxa;
+            effect2 = (aconc*((efcay*recep*efcey)+1))+affin;
+            effect3 = agoconc*agoeff*agoden*agoeffic*emaxb;
+            effect4 = (agoconc*((agoeff*agoden*agoeffic)+1))+agoaffin;
+
+            effect = ((effect1/effect2)-(effect3/effect4));
+
+            data[0].push(i);
+            data[1].push(effect);   
+        }
+    }
+    return data;
+}
+*/
 
 var linecoloursfun = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#ff0000"]
 //
@@ -960,7 +1008,7 @@ function updateValidFun(data0, data1, data2, data3){
 
 function calcSchildFun(logval1,logval2, logval3, logval4, dr1, dr2, dr3, dr4){ //add 3 other concentrations as args
     var data = [[],[]];
-	var allxLogs = [-logval1, logval2, logval3, logval4] //x values for the schild
+	var allxLogs = [logval1, logval2, logval3, logval4] //x values for the schild
 	var alllogDr1 = [dr1, dr2, dr3, dr4]
     var xLogs = [];
     var logDr1 = [];
