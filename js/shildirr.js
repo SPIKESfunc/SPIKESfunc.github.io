@@ -653,16 +653,35 @@ function updateAntagonistLog4Irr(value){
 }
 //
 function calcAgoHalfEffectIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc){
+    /** 
     var ago;
     var affin = 10**(-1*affinity); //Ka
     var efcay = 10**efficacy;  // E
     var recep = 10**recepDensity; //RT
     var efcey = 10**efficiency; // SA
     var agoaffin = 10**(-1*agoaffinity); //Kb
-    var antconc = antagconc; //[B]
-    console.log(((efcay*recep*efcey*1)-(irrHalfMaxEffect*((efcay*recep*efcey*1)+ 1 - efcay + (antconc/agoaffin)))));
+    //var antconc = antagconc; //[B]
+    //console.log(((efcay*recep*efcey*1)-(irrHalfMaxEffect*((efcay*recep*efcey*1)+ 1 - efcay + (antconc/agoaffin)))));
+    //past equation
     //ago = (irrHalfMaxEffect*(affin*(1+antconc/agoaffin)))/((efcay*recep*efcey*100)-(irrHalfMaxEffect*(efcay*recep*efcey+1)));
-    ago = (irrHalfMaxEffect*affin)/((efcay*recep*efcey*1)-(irrHalfMaxEffect*((efcay*recep*efcey*1)+ 1 - efcay + (antconc/agoaffin))));
+    //equation A3A
+    //ago = (irrHalfMaxEffect*affin)/((efcay*recep*efcey*100)-(irrHalfMaxEffect*((efcay*recep*efcey*100)+ 1 - efcay + (antconc/agoaffin))));
+    // equation A3
+    ago = ( (affin*irrHalfMaxEffect) + ( (affin*irrHalfMaxEffect*antconc)/(agoaffinity) ) )/( (efcay*recep*efcey*100) - irrHalfMaxEffect*(1+(efcay*recep*efcey*100)-efcay+(antconc/agoaffin)));
+    return ago;
+    */
+    var ago
+    var lineData = calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc);
+    findIrrHalfMaxEffect(calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcarrirr[0]));
+    var data50 = calc50Irr(lineData);
+    //console.log(10**data50[0]);
+    if(10**data50[0] == 1){
+        ago = NaN;
+        //console.log("undefine dectected")
+    }
+    else{
+        ago = 10**(data50[0]);
+    }
     return ago;
 }
 //
@@ -674,16 +693,16 @@ function calcDoseRatioIrr(presant, absant){
 //
 function calcLogDRIrr(doseratio){
     var logdr;
-    logdr = Math.log10(doseratio-1);
+    logdr = Math.log(doseratio-1);
     return logdr;
 }
 //
 function updateEverythingIrr(){
-    anthalfeff0irr = document.getElementById("anteff0irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval0irr).toExponential(2);
-    anthalfeff1irr = document.getElementById("anteff1irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval1irr).toExponential(2);
-    anthalfeff2irr = document.getElementById("anteff2irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval2irr).toExponential(2);
-    anthalfeff3irr = document.getElementById("anteff3irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval3irr).toExponential(2);
-    anthalfeff4irr = document.getElementById("anteff4irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval4irr).toExponential(2);
+    anthalfeff0irr = document.getElementById("anteff0irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[0]).toExponential(2);
+    anthalfeff1irr = document.getElementById("anteff1irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]).toExponential(2);
+    anthalfeff2irr = document.getElementById("anteff2irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]).toExponential(2);
+    anthalfeff3irr = document.getElementById("anteff3irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]).toExponential(2);
+    anthalfeff4irr = document.getElementById("anteff4irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]).toExponential(2);
     
     doseratio1irr = document.getElementById("antdose1irr").value = calcDoseRatioIrr(anthalfeff1irr, anthalfeff0irr).toFixed(2);
     doseratio2irr = document.getElementById("antdose2irr").value = calcDoseRatioIrr(anthalfeff2irr, anthalfeff0irr).toFixed(2);
@@ -807,11 +826,11 @@ function plotGraphIrr(chart){
 //
 plotGraphIrr("quantitativeIrr");
 
-var anthalfeff0irr = document.getElementById("anteff0irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval0irr).toExponential(2);
-var anthalfeff1irr = document.getElementById("anteff1irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval1irr).toExponential(2);
-var anthalfeff2irr = document.getElementById("anteff2irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval2irr).toExponential(2);
-var anthalfeff3irr = document.getElementById("anteff3irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval3irr).toExponential(2);
-var anthalfeff4irr = document.getElementById("anteff4irr").value = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval4irr).toExponential(2);
+var anthalfeff0irr = document.getElementById("anteff0irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[0]).toExponential(2);
+var anthalfeff1irr = document.getElementById("anteff1irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]).toExponential(2);
+var anthalfeff2irr = document.getElementById("anteff2irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]).toExponential(2);
+var anthalfeff3irr = document.getElementById("anteff3irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]).toExponential(2);
+var anthalfeff4irr = document.getElementById("anteff4irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]).toExponential(2);
 
 var doseratio1irr = document.getElementById("antdose1irr").value = calcDoseRatioIrr(anthalfeff1irr, anthalfeff0irr).toFixed(2);
 var doseratio2irr = document.getElementById("antdose2irr").value = calcDoseRatioIrr(anthalfeff2irr, anthalfeff0irr).toFixed(2);

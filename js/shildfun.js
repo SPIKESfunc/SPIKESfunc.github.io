@@ -749,8 +749,9 @@ function updateAntagonistLog4Fun(value){
     Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 // 
-function calcAgoHalfEffectFun(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc){
+function calcAgoHalfEffectFun(affinity, efficacy, recepDensity, efficiency, affinity2, efficacy2, recepDensity2, efficiency2, antagconc){
     var ago;
+    /**
     var affin = 10**(-1*affinity);
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
@@ -758,6 +759,18 @@ function calcAgoHalfEffectFun(affinity, efficacy, recepDensity, efficiency, agoa
     var agoaffin = 10**(-1*agoaffinity);
     var antconc = antagconc;
     ago = (funHalfMaxEffect*(affin*(antconc/agoaffin)))/((efcay*recep*efcey*100)-(funHalfMaxEffect*(efcay*recep*efcey+1)));
+    return ago;
+    */
+    var lineData = calcLinesFun(affinity, efficacy, recepDensity, efficiency, affinity2, efficacy2, recepDensity2, efficiency2, antagconc);
+    findFunHalfMaxEffect(calcLinesFun(affinity, efficacy, recepDensity, efficiency, affinity2, efficacy2, recepDensity2, efficiency2, agoconcarrfun[0]));
+    var data50 = calc50Fun(lineData);
+    if(10**data50[0] == 1){
+        ago = NaN;
+        //console.log("undefine dectected")
+    }
+    else{
+        ago = 10**(data50[0]);
+    }
     return ago;
 }
 //
@@ -769,16 +782,16 @@ function calcDoseRatioFun(presant, absant){
 //
 function calcLogDRFun(doseratio){
     var logdr;
-    logdr = Math.log10(doseratio-1);
+    logdr = Math.log(doseratio-1);
     return logdr;
 }
 //
 function updateEverythingFun(){
-    anthalfeff0fun = document.getElementById("anteff0fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval0fun).toExponential(2);
-    anthalfeff1fun = document.getElementById("anteff1fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval1fun).toExponential(2);
-    anthalfeff2fun = document.getElementById("anteff2fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval2fun).toExponential(2);
-    anthalfeff3fun = document.getElementById("anteff3fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval3fun).toExponential(2);
-    anthalfeff4fun = document.getElementById("anteff4fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval4fun).toExponential(2);
+    anthalfeff0fun = document.getElementById("anteff0fun").value = calcAgoHalfEffectFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]).toExponential(2);
+    anthalfeff1fun = document.getElementById("anteff1fun").value = calcAgoHalfEffectFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]).toExponential(2);
+    anthalfeff2fun = document.getElementById("anteff2fun").value = calcAgoHalfEffectFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]).toExponential(2);
+    anthalfeff3fun = document.getElementById("anteff3fun").value = calcAgoHalfEffectFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]).toExponential(2);
+    anthalfeff4fun = document.getElementById("anteff4fun").value = calcAgoHalfEffectFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]).toExponential(2);
 
     doseratio1fun = document.getElementById("antdose1fun").value = calcDoseRatioFun(anthalfeff1fun, anthalfeff0fun).toFixed(2);
     doseratio2fun = document.getElementById("antdose2fun").value = calcDoseRatioFun(anthalfeff2fun, anthalfeff0fun).toFixed(2);
@@ -917,11 +930,11 @@ function plotGraphFun(chart){
 //
 plotGraphFun("quantitativeFun");
 
-var anthalfeff0fun = document.getElementById("anteff0fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval0fun).toExponential(2);
-var anthalfeff1fun = document.getElementById("anteff1fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval1fun).toExponential(2);
-var anthalfeff2fun = document.getElementById("anteff2fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval2fun).toExponential(2);
-var anthalfeff3fun = document.getElementById("anteff3fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval3fun).toExponential(2);
-var anthalfeff4fun = document.getElementById("anteff4fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, antval4fun).toExponential(2);
+var anthalfeff0fun = document.getElementById("anteff0fun").value = calcAgoHalfEffectFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[0]).toExponential(2);
+var anthalfeff1fun = document.getElementById("anteff1fun").value = calcAgoHalfEffectFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[1]).toExponential(2);
+var anthalfeff2fun = document.getElementById("anteff2fun").value = calcAgoHalfEffectFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[2]).toExponential(2);
+var anthalfeff3fun = document.getElementById("anteff3fun").value = calcAgoHalfEffectFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[3]).toExponential(2);
+var anthalfeff4fun = document.getElementById("anteff4fun").value = calcAgoHalfEffectFun(afffun1,efffun1,denfun1,efficfun1, afffun2,efffun2,denfun2,efficfun2, agoconcarrfun[4]).toExponential(2);
 
 var doseratio1fun = document.getElementById("antdose1fun").value = calcDoseRatioFun(anthalfeff1fun, anthalfeff0fun).toFixed(2);
 var doseratio2fun = document.getElementById("antdose2fun").value = calcDoseRatioFun(anthalfeff2fun, anthalfeff0fun).toFixed(2);

@@ -68,6 +68,7 @@ function resetQuantEff(){
     deneff = document.getElementById("deneffslider").value = document.getElementById("deneffslider").defaultValue;
     efficeff = document.getElementById("efficieffslider").value = document.getElementById("efficieffslider").defaultValue;
     agoaffeff = document.getElementById("agoeffnumeff").value = document.getElementById("agoeffnumeff").defaultValue;
+    agoeffeff = document.getElementById("agoeffeff").value = document.getElementById("agoeffeff").defaultValue;
     effleveleff = document.getElementById("effleveleff").value = document.getElementById("effleveleff").defaultValue;
     document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixed(2);
     document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
@@ -683,8 +684,9 @@ function updateAntagonistLog4Eff(value){
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
-function calcAgoHalfEffectEff(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc){
+function calcAgoHalfEffectEff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, antagconc){
     var ago;
+    /**
     var affin = 10**(-1*affinity);
     var efcay = 10**efficacy;
     var recep = 10**recepDensity;
@@ -692,6 +694,19 @@ function calcAgoHalfEffectEff(affinity, efficacy, recepDensity, efficiency, agoa
     var agoaffin = 10**(-1*agoaffinity);
     var antconc = antagconc;
     ago = (effHalfMaxEffect*(affin*(1+antconc/agoaffin)))/((efcay*recep*efcey*100)-(effHalfMaxEffect*(efcay*recep*efcey+1)));
+    return ago;
+    */
+    var lineData = calcLinesEff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, antagconc);
+    findEffHalfMaxEffect(calcLinesEff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, agoconcarraff[0]));
+    var data50 = calc50Eff(lineData);
+    //console.log(data50[0]);
+    if(10**data50[0] == 1){
+        ago = NaN;
+        //console.log("undefine dectected")
+    }
+    else{
+        ago = 10**(data50[0]);
+    }
     return ago;
 }
 
@@ -703,16 +718,16 @@ function calcDoseRatioEff(presant, absant){
 
 function calcLogDREff(doseratio){
     var logdr;
-    logdr = Math.log10(doseratio-1);
+    logdr = Math.log(doseratio-1);
     return logdr;
 }
 
 function updateEverythingEff(){
-    anthalfeff0eff = document.getElementById("anteff0eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval0eff).toExponential(2);
-    anthalfeff1eff = document.getElementById("anteff1eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval1eff).toExponential(2);
-    anthalfeff2eff = document.getElementById("anteff2eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval2eff).toExponential(2);
-    anthalfeff3eff = document.getElementById("anteff3eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval3eff).toExponential(2);
-    anthalfeff4eff = document.getElementById("anteff4eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval4eff).toExponential(2);
+    anthalfeff0eff = document.getElementById("anteff0eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[0]).toExponential(2);
+    anthalfeff1eff = document.getElementById("anteff1eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[1]).toExponential(2);
+    anthalfeff2eff = document.getElementById("anteff2eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[2]).toExponential(2);
+    anthalfeff3eff = document.getElementById("anteff3eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[3]).toExponential(2);
+    anthalfeff4eff = document.getElementById("anteff4eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[4]).toExponential(2);
     
     doseratio1eff = document.getElementById("antdose1eff").value = calcDoseRatioEff(anthalfeff1eff, anthalfeff0eff).toFixed(2);
     doseratio2eff = document.getElementById("antdose2eff").value = calcDoseRatioEff(anthalfeff2eff, anthalfeff0eff).toFixed(2);
@@ -855,11 +870,11 @@ function plotGraphEff(chart){
 }
 plotGraphEff("quantitativeEff");
 
-var anthalfeff0eff = document.getElementById("anteff0eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval0eff).toExponential(2);
-var anthalfeff1eff = document.getElementById("anteff1eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval1eff).toExponential(2);
-var anthalfeff2eff = document.getElementById("anteff2eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval2eff).toExponential(2);
-var anthalfeff3eff = document.getElementById("anteff3eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval3eff).toExponential(2);
-var anthalfeff4eff = document.getElementById("anteff4eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval4eff).toExponential(2);
+var anthalfeff0eff = document.getElementById("anteff0eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[0]).toExponential(2);
+var anthalfeff1eff = document.getElementById("anteff1eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[1]).toExponential(2);
+var anthalfeff2eff = document.getElementById("anteff2eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[2]).toExponential(2);
+var anthalfeff3eff = document.getElementById("anteff3eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[3]).toExponential(2);
+var anthalfeff4eff = document.getElementById("anteff4eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[4]).toExponential(2);
 
 var doseratio1eff = document.getElementById("antdose1eff").value = calcDoseRatioEff(anthalfeff1eff, anthalfeff0eff).toFixed(2);
 var doseratio2eff = document.getElementById("antdose2eff").value = calcDoseRatioEff(anthalfeff2eff, anthalfeff0eff).toFixed(2);
