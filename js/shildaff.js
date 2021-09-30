@@ -936,18 +936,110 @@ function plotSchildAff(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
+        name: 'Real Line',
 		line: {
 			width: 1
 		}
 	}
 	data.push(trace1);
+
+    //Add a ideal line on Schild plot.
+    var lineData2 = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff);
+    for (i = 0; i < lineData2[1].length; i++){
+        lineData2[1][i] = Number(lineData2[0][i]) + 9;
+    }
+    var trace2 = {
+        x: lineData2[0],
+        y: lineData2[1],
+        mode: 'lines',
+        name: 'Ideal Line',
+        line: {
+            dash: 'dot',
+            color:'black',
+            width: 1
+        }
+    }
+    data.push(trace2);
 	
 	Plotly.plot(chart, data, layout, {responsive: true});
 }
 
 plotSchildAff("schildAff");
 
+//Define functions to calculate actual line values for Shild Plot Property Table, the formulas need to be modified here, this part hasn't been finished yet.
+//Get x values and y values.
+var tableDataAff = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
+var xtableDataAff = tableDataAff[0];
+var ytableDataAff = tableDataAff[1];
+for (i = 0; i < xtableDataAff.length; i++){
+    xtableDataAff[i] = Number(xtableDataAff[i]);
+}
+for (i = 0; i < ytableDataAff.length; i++){
+    ytableDataAff[i] = Number(ytableDataAff[i]);
+}
 
+//Calculate slope.
+function calcSlopeValueAff(){
+    var slopeValue = (xtableDataAff[2]-xtableDataAff[1])/(ytableDataAff[2]-ytableDataAff[1]);
+    return slopeValue;
+}
+var slopeValueAff = document.getElementById("slopevalueaff").innerHTML = calcSlopeValueAff().toFixed(1);
+
+//Calculate pA2.
+function calcpA2ValuAff(){
+    if (0 in xtableDataAff){
+        var index = ytableDataAff.indexOf(0);
+        var pA2Value = xtableDataAff[index];
+    } 
+    else {
+        var pA2Value = "Not Exist";
+    }
+    return pA2Value; 
+}
+var pA2ValueAff = document.getElementById("pA2valueaff").innerHTML = calcpA2ValuAff().toFixed(0);
+
+//Calculate R square.
+function calcr2ValueAff(){
+    //Calculate the mean of x.
+    var xtotal = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+      xtotal += xtableDataAff[i];
+    }
+    var xmean = xtotal/xtableDataAff.length;
+
+    //Calculate the mean of y.
+    var ytotal = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+      ytotal += ytableDataAff[i];
+    }
+    var ymean = ytotal/ytableDataAff.length;
+
+    //Calculate sum of regression.
+    var regressionSum = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+        regressionSum += (xtableDataAff[i] - xmean) * (ytableDataAff[i] - ymean);
+    }
+
+    //Calculate sum of total.
+    var sumx2 = 0;
+    for (var i = 0; i < xtableDataCom.length; i++) {
+        sumx2 += (xtableDataAff[i] - xmean) ** 2;
+    }
+
+    var sumy2 = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+        sumy2 += (ytableDataAff[i] - ymean) ** 2;
+    }
+
+    var totalSum = Math.sqrt(sumx2 * sumy2);
+
+    //Calculate R square value.
+    var rValue = regressionSum/totalSum;
+    var r2Value = rValue ** 2;
+
+    return r2Value; 
+}
+var r2ValueAff = document.getElementById("r2valueaff").innerHTML = calcr2ValueAff().toFixed(2);
 
 function showInstructionsQuant() {
     $('#instructions').modal('show');

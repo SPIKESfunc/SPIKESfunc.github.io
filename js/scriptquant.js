@@ -913,6 +913,80 @@ function plotSchild(chart) {
 
 plotSchild("schild");
 
+//Define functions to calculate actual line values for Shild Plot Property Table, the formulas need to be modified here, this part hasn't been finished yet.
+//Get x values and y values.
+var tableDataCom = calcSchild(antlogval1, antlogval2, antlogval3, antlogval4, logdr1, logdr2, logdr3, logdr4);
+var xtableDataCom = tableDataCom[0];
+var ytableDataCom = tableDataCom[1];
+for (i = 0; i < xtableDataCom.length; i++){
+    xtableDataCom[i] = Number(xtableDataCom[i]);
+}
+for (i = 0; i < ytableDataCom.length; i++){
+    ytableDataCom[i] = Number(ytableDataCom[i]);
+}
+
+//Calculate the slope.
+function calcSlopeValueCom(){
+    var slopeValue = (xtableDataCom[2]-xtableDataCom[1])/(ytableDataCom[2]-ytableDataCom[1]);
+    return slopeValue;
+}
+var slopeValueCom = document.getElementById("slopevaluecom").innerHTML = calcSlopeValueCom().toFixed(1);
+
+//Calculate pA2.
+function calcpA2ValuCom(){
+    if (0 in xtableDataCom){
+        var index = ytableDataCom.indexOf(0);
+        var pA2Value = xtableDataCom[index];
+    } 
+    else {
+        var pA2Value = "Not Exist";
+    }
+    return pA2Value; 
+}
+var pA2ValueCom = document.getElementById("pA2valuecom").innerHTML = calcpA2ValuCom().toFixed(0);
+
+//Calculate R square.
+function calcr2ValueCom(){
+    //Calculate the mean of x.
+    var xtotal = 0;
+    for (var i = 0; i < xtableDataCom.length; i++) {
+      xtotal += xtableDataCom[i];
+    }
+    var xmean = xtotal/xtableDataCom.length;
+
+    //Calculate the mean of y.
+    var ytotal = 0;
+    for (var i = 0; i < ytableDataCom.length; i++) {
+      ytotal += ytableDataCom[i];
+    }
+    var ymean = ytotal/ytableDataCom.length;
+
+    //Calculate sum of regression.
+    var regressionSum = 0;
+    for (var i = 0; i < xtableDataCom.length; i++) {
+        regressionSum += (xtableDataCom[i] - xmean) * (ytableDataCom[i] - ymean);
+    }
+
+    //Calculate sum of total.
+    var sumx2 = 0;
+    for (var i = 0; i < xtableDataCom.length; i++) {
+        sumx2 += (xtableDataCom[i] - xmean) ** 2;
+    }
+
+    var sumy2 = 0;
+    for (var i = 0; i < ytableDataCom.length; i++) {
+        sumy2 += (ytableDataCom[i] - ymean) ** 2;
+    }
+
+    var totalSum = Math.sqrt(sumx2 * sumy2);
+
+    //Calculate R square value.
+    var rValue = regressionSum/totalSum;
+    var r2Value = rValue ** 2;
+
+    return r2Value; 
+}
+var r2ValueCom = document.getElementById("r2valuecom").innerHTML = calcr2ValueCom().toFixed(2);
 
 function showInstructionsQuant() {
     $('#instructions').modal('show');
