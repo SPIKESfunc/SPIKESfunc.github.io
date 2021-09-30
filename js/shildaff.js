@@ -741,6 +741,7 @@ function updateEverythingAff(){
     logdr2aff = document.getElementById("antlogdr2aff").value = calcLogDRAff(doseratio2aff).toFixed(2);
     logdr3aff = document.getElementById("antlogdr3aff").value = calcLogDRAff(doseratio3aff).toFixed(2);
     logdr4aff = document.getElementById("antlogdr4aff").value = calcLogDRAff(doseratio4aff).toFixed(2);
+    updatePropertyTable();
 }
 
 
@@ -874,6 +875,7 @@ var logdr1aff = document.getElementById("antlogdr1aff").value = calcLogDRAff(dos
 var logdr2aff = document.getElementById("antlogdr2aff").value = calcLogDRAff(doseratio2aff).toFixed(2);
 var logdr3aff = document.getElementById("antlogdr3aff").value = calcLogDRAff(doseratio3aff).toFixed(2);
 var logdr4aff = document.getElementById("antlogdr4aff").value = calcLogDRAff(doseratio4aff).toFixed(2);
+updatePropertyTable();
 
 function updateValidAff(data0, data1, data2, data3){
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
@@ -947,6 +949,7 @@ function plotSchildAff(chart){
     var lineData2 = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     for (i = 0; i < lineData2[1].length; i++){
         lineData2[1][i] = Number(lineData2[0][i]) + 9;
+        console.log("loop exed");
     }
     var trace2 = {
         x: lineData2[0],
@@ -966,6 +969,66 @@ function plotSchildAff(chart){
 
 plotSchildAff("schildAff");
 
+function updatePropertyTable(){
+    // get data of plot point in the shild plot 
+    var tableDataAff = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
+    var xtableDataAff = tableDataAff[0];
+    var ytableDataAff = tableDataAff[1];
+    for (i = 0; i < xtableDataAff.length; i++){
+        xtableDataAff[i] = Number(xtableDataAff[i]);
+    }
+    for (i = 0; i < ytableDataAff.length; i++){
+        ytableDataAff[i] = Number(ytableDataAff[i]);
+    }
+    //slope in this table
+    var slopeValue = (xtableDataAff[2]-xtableDataAff[1])/(ytableDataAff[2]-ytableDataAff[1]);
+    document.getElementById("slopevalueaff").innerHTML = slopeValue.toFixed(1);
+
+    //PA2 value
+    if (0 in xtableDataAff){
+        var index = ytableDataAff.indexOf(0);
+        document.getElementById("pA2valueaff").innerHTML = xtableDataAff[index];
+    } 
+    else {
+        document.getElementById("pA2valueaff").innerHTML = "Not Exist";
+    }
+    //R^2 value
+    //Calculate the mean of x.
+    var xtotal = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+      xtotal += xtableDataAff[i];
+    }
+    var xmean = xtotal/xtableDataAff.length;
+    //Calculate the mean of y.
+    var ytotal = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+      ytotal += ytableDataAff[i];
+    }
+    var ymean = ytotal/ytableDataAff.length;
+    //Calculate sum of regression.
+    var regressionSum = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+        regressionSum += (xtableDataAff[i] - xmean) * (ytableDataAff[i] - ymean);
+    }
+    //Calculate sum of total.
+    var sumx2 = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+        sumx2 += (xtableDataAff[i] - xmean) ** 2;
+    }
+    var sumy2 = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+        sumy2 += (ytableDataAff[i] - ymean) ** 2;
+    }
+
+    var totalSum = Math.sqrt(sumx2 * sumy2);
+
+    //Calculate R square value.
+    var rValue = regressionSum/totalSum;
+    var r2Value = rValue ** 2;
+    document.getElementById("r2valueaff").innerHTML = r2Value.toFixed(2);
+}
+//old version here
+/*
 //Define functions to calculate actual line values for Shild Plot Property Table, the formulas need to be modified here, this part hasn't been finished yet.
 //Get x values and y values.
 var tableDataAff = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
@@ -1022,7 +1085,7 @@ function calcr2ValueAff(){
 
     //Calculate sum of total.
     var sumx2 = 0;
-    for (var i = 0; i < xtableDataCom.length; i++) {
+    for (var i = 0; i < xtableDataAff.length; i++) {
         sumx2 += (xtableDataAff[i] - xmean) ** 2;
     }
 
@@ -1040,6 +1103,7 @@ function calcr2ValueAff(){
     return r2Value; 
 }
 var r2ValueAff = document.getElementById("r2valueaff").innerHTML = calcr2ValueAff().toFixed(2);
+*/
 
 function showInstructionsQuant() {
     $('#instructions').modal('show');
