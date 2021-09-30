@@ -57,26 +57,30 @@
 				What to do?</button>
 		</p>
 		<!--sub navbar in this page-->
-		<ul class="nav nav-pills nav-justified" role="tablist">
-			<li class="nav-item">
-				<a class="nav-link active" data-toggle="tab" href="#schildcom" onclick=titleCom()>Competitive
-					Antagonist</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" href="#schildirr" onclick=titleIrr()>Irreversible Antagonist</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" href="#schildaff" onclick=titleAff()>Allosteric Antagonist
-					(Affinity)</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" href="#schildeff" onclick=titleEff()>Allosteric Antagonist
-					(Efficacy)</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" href="#schildfun" onclick=titleFun()>Functional Antagonist</a>
-			</li>
-		</ul>
+		<div class="container">
+			<ul class="nav nav-pills nav-justified" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#schildcom" onclick=titleCom()>Competitive
+						Antagonist</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#schildirr" onclick=titleIrr()>Irreversible
+						Antagonist</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#schildaff" onclick=titleAff()>Allosteric Antagonist
+						(Affinity)</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#schildeff" onclick=titleEff()>Allosteric Antagonist
+						(Efficacy)</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#schildfun" onclick=titleFun()>Functional Antagonist</a>
+				</li>
+			</ul>
+		</div>
+
 		<div class="tab-content">
 			<div id="schildcom" class="container tab-pane active">
 				<div class="col col-lg-12">
@@ -99,8 +103,8 @@
 							<fieldset style="width: 90%;">
 								<legend>Cell</legend>
 								<label for="density">Receptor Density (R<sub>T</sub>)</label>
-								<input type="range" autocomplete="off" name="density" id="dencomslider" min="-1"
-									max="1" step="0.01" value="0" oninput="updateDensityCom(this.value)">
+								<input type="range" autocomplete="off" name="density" id="dencomslider" min="-1" max="1"
+									step="0.01" value="0" oninput="updateDensityCom(this.value)">
 								<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 								<input type="range" autocomplete="off" name="efficiency" id="efficicomslider" min="0"
 									max="2" step="0.01" value="1" oninput="updateEfficiencyCom(this.value)">
@@ -341,7 +345,7 @@
 									</div>
 								</div>
 
-								
+
 								<div class="row justify-content-center no-gutters">
 									<div class="col-xs-2 no-gutters">
 										<input class="numbox" type="number" autocomplete="off" name="antagonist4"
@@ -396,8 +400,8 @@
 							<fieldset style="width: 90%;">
 								<legend>Cell</legend>
 								<label for="density">Receptor Density (R<sub>T</sub>)</label>
-								<input type="range" autocomplete="off" name="density" id="denirrslider" min="-1"
-									max="1" step="0.01" value="0" oninput="updateDensityIrr(this.value)">
+								<input type="range" autocomplete="off" name="density" id="denirrslider" min="-1" max="1"
+									step="0.01" value="0" oninput="updateDensityIrr(this.value)">
 								<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 								<input type="range" autocomplete="off" name="efficiency" id="efficiirrslider" min="0"
 									max="2" step="0.01" value="1" oninput="updateEfficiencyIrr(this.value)">
@@ -621,14 +625,14 @@
 												id="anteff4irr" readonly>
 										</div>
 										<div class="col-xs-2 no-gutters noHover">
-											<input class="numbox" type="number" autocomplete="off" name="antagonistdose4"
-												id="antdose4irr" readonly>
+											<input class="numbox" type="number" autocomplete="off"
+												name="antagonistdose4" id="antdose4irr" readonly>
 										</div>
 										<div class="col-xs-2 no-gutters noHover">
-											<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr4"
-												id="antlogdr4irr" readonly>
+											<input class="numbox" type="number" autocomplete="off"
+												name="antagonistlogdr4" id="antlogdr4irr" readonly>
 										</div>
-								</div>
+									</div>
 							</fieldset>
 
 							<!-- Ideal Value Table goes here -->
@@ -681,8 +685,8 @@
 							<fieldset style="width: 90%;">
 								<legend>Cell</legend>
 								<label for="density">Receptor Density (R<sub>T</sub>)</label>
-								<input type="range" autocomplete="off" name="density" id="denaffslider" min="-1"
-									max="1" step="0.01" value="0" oninput="updateDensityAff(this.value)">
+								<input type="range" autocomplete="off" name="density" id="denaffslider" min="-1" max="1"
+									step="0.01" value="0" oninput="updateDensityAff(this.value)">
 								<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 								<input type="range" autocomplete="off" name="efficiency" id="efficiaffslider" min="0"
 									max="2" step="0.01" value="1" oninput="updateEfficiencyAff(this.value)">
@@ -972,8 +976,8 @@
 							<fieldset style="width: 90%;">
 								<legend>Cell</legend>
 								<label for="density">Receptor Density (R<sub>T</sub>)</label>
-								<input type="range" autocomplete="off" name="density" id="deneffslider" min="-1"
-									max="1" step="0.01" value="0" oninput="updateDensityEff(this.value)">
+								<input type="range" autocomplete="off" name="density" id="deneffslider" min="-1" max="1"
+									step="0.01" value="0" oninput="updateDensityEff(this.value)">
 								<br><label for="efficiency">Signal Amplification (<i>&#947</i>)</label>
 								<input type="range" autocomplete="off" name="efficiency" id="efficieffslider" min="0"
 									max="2" step="0.01" value="1" oninput="updateEfficiencyEff(this.value)">
