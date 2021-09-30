@@ -944,7 +944,7 @@ function plotSchildAff(chart){
 	data.push(trace1);
 
     //Add a ideal line on Schild plot.
-    var lineData2 = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff);
+    var lineData2 = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     for (i = 0; i < lineData2[1].length; i++){
         lineData2[1][i] = Number(lineData2[0][i]) + 9;
     }
