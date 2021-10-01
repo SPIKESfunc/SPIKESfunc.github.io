@@ -741,7 +741,8 @@ function updateEverythingAff(){
     logdr2aff = document.getElementById("antlogdr2aff").value = calcLogDRAff(doseratio2aff).toFixed(2);
     logdr3aff = document.getElementById("antlogdr3aff").value = calcLogDRAff(doseratio3aff).toFixed(2);
     logdr4aff = document.getElementById("antlogdr4aff").value = calcLogDRAff(doseratio4aff).toFixed(2);
-    updatePropertyTable();
+    //updatePropertyTable();
+    updateSchildPropertyTableAff();
 }
 
 
@@ -875,7 +876,8 @@ var logdr1aff = document.getElementById("antlogdr1aff").value = calcLogDRAff(dos
 var logdr2aff = document.getElementById("antlogdr2aff").value = calcLogDRAff(doseratio2aff).toFixed(2);
 var logdr3aff = document.getElementById("antlogdr3aff").value = calcLogDRAff(doseratio3aff).toFixed(2);
 var logdr4aff = document.getElementById("antlogdr4aff").value = calcLogDRAff(doseratio4aff).toFixed(2);
-updatePropertyTable();
+//updatePropertyTable();
+updateSchildPropertyTableAff();
 
 function updateValidAff(data0, data1, data2, data3){
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
@@ -969,6 +971,79 @@ function plotSchildAff(chart){
 
 plotSchildAff("schildAff");
 
+//Define a function to calculate real line values for Shild Plot Property Table, this part hasn't been finished yet.
+function updateSchildPropertyTableAff(){
+    //Get x values and y values.
+    var tableDataAff = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
+    var xtableDataAff = tableDataAff[0];
+    var ytableDataAff = tableDataAff[1];
+    for (i = 0; i < xtableDataAff.length; i++){
+    xtableDataAff[i] = Number(xtableDataAff[i]);
+    }
+    for (i = 0; i < ytableDataAff.length; i++){
+    ytableDataAff[i] = Number(ytableDataAff[i]);
+    }
+
+    //Calculate the slope.
+    var y2 = ytableDataAff[3];
+    var y1 = ytableDataAff[0];
+    var x2 = xtableDataAff[3];
+    var x1 = xtableDataAff[0];
+
+    slopeValueAff = (y2 - y1) / (x2 - x1);
+    //document.getElementById("slopevalueaff").innerHTML = slopeValueAff.toFixed(3);
+    document.getElementById("slopevalueaff").innerHTML = x1;
+
+    //Calculate pA2.
+    var bAff = y1 - (slopeValueAff * x1);
+    var pA2ValueAff = (0 - bAff) / slopeValueAff;
+    document.getElementById("pA2valueaff").innerHTML = pA2ValueAff.toFixed(3);
+
+    //Calculate R square.
+
+    //Calculate the mean of x.
+    var xtotal = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+      xtotal += xtableDataAff[i];
+    }
+    var xmean = xtotal/xtableDataAff.length;
+
+    //Calculate the mean of y.
+    var ytotal = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+      ytotal += ytableDataAff[i];
+    }
+    var ymean = ytotal/ytableDataAff.length;
+
+    //Calculate sum of regression.
+    var regressionSum = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+        regressionSum += (xtableDataAff[i] - xmean) * (ytableDataAff[i] - ymean);
+    }
+
+    //Calculate sum of total.
+    var sumx2 = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+        sumx2 += (xtableDataAff[i] - xmean) ** 2;
+    }
+
+    var sumy2 = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+        sumy2 += (ytableDataAff[i] - ymean) ** 2;
+    }
+
+    var totalSum = Math.sqrt(sumx2 * sumy2);
+
+    //Calculate R square value.
+    var rValue = regressionSum/totalSum;
+    var r2ValueAff = rValue ** 2;
+
+    document.getElementById("r2valueaff").innerHTML = r2ValueAff.toFixed(3);
+    //document.getElementById("r2valueaff").innerHTML = xtotal;
+
+}
+
+/*
 function updatePropertyTable(){
     // get data of plot point in the shild plot 
     var tableDataAff = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
@@ -1026,7 +1101,7 @@ function updatePropertyTable(){
     var rValue = regressionSum/totalSum;
     var r2Value = rValue ** 2;
     document.getElementById("r2valueaff").innerHTML = r2Value.toFixed(2);
-}
+}*/
 //old version here
 /*
 //Define functions to calculate actual line values for Shild Plot Property Table, the formulas need to be modified here, this part hasn't been finished yet.
