@@ -124,16 +124,16 @@ function graphRemoveAlertFun(div){
 //
 function checkSliderMinFun(){
     let ret = false;
-    if(document.getElementById("afffunslider1").value == 4){
+    if(document.getElementById("afffunslider1").value == 5){
         ret = true
     }
-    if(document.getElementById("efffunslider1").value == 0.04){
+    if(document.getElementById("efffunslider1").value == -0.7){
         ret = true
     }
-    if(document.getElementById("denfunslider1").value == 0.04){
+    if(document.getElementById("denfunslider1").value == -1){
         ret = true
     }
-    if(document.getElementById("efficifunslider1").value == 0.04){
+    if(document.getElementById("efficifunslider1").value == 0){
         ret = true
     }
     if(document.getElementById("efflevelfun").value == 0){
