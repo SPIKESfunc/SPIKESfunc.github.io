@@ -713,6 +713,8 @@ function updateEverythingIrr(){
     logdr2irr = document.getElementById("antlogdr2irr").value = calcLogDRIrr(doseratio2irr).toFixed(2);
     logdr3irr = document.getElementById("antlogdr3irr").value = calcLogDRIrr(doseratio3irr).toFixed(2);
     logdr4irr = document.getElementById("antlogdr4irr").value = calcLogDRIrr(doseratio4irr).toFixed(2);
+
+    updateSchildPropertyTableIrr();
 }
 //
 function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration) {
@@ -842,6 +844,8 @@ var logdr2irr = document.getElementById("antlogdr2irr").value = calcLogDRIrr(dos
 var logdr3irr = document.getElementById("antlogdr3irr").value = calcLogDRIrr(doseratio3irr).toFixed(2);
 var logdr4irr = document.getElementById("antlogdr4irr").value = calcLogDRIrr(doseratio4irr).toFixed(2);
 
+updateSchildPropertyTableIrr();
+
 function updateValidIrr(data0, data1, data2, data3){
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
 
@@ -914,7 +918,7 @@ function plotSchildIrr(chart){
     var lineData2 = calcSchildIrr(antlogval1irr, antlogval2irr, antlogval3irr, antlogval4irr, logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     for (i = 0; i < lineData2[1].length; i++){
         lineData2[1][i] = Number(lineData2[0][i]) + 9;
-        console.log("loop exed");
+        //console.log("loop exed");
     }
     var trace2 = {
         x: lineData2[0],
@@ -933,6 +937,84 @@ function plotSchildIrr(chart){
 }
 
 plotSchildIrr("schildIrr");
+
+//Define functions to calculate actual line values for Shild Plot Property Table, this part hasn't been finished yet.
+function updateSchildPropertyTableIrr(){
+    //Get x values and y values.
+    var tableDataIrr = calcSchildIrr(antlogval1irr, antlogval2irr, antlogval3irr, antlogval4irr, logdr1irr, logdr2irr, logdr3irr, logdr4irr);
+    var xtableDataIrr = tableDataIrr[0];
+    var ytableDataIrr = tableDataIrr[1];
+    for (i = 0; i < xtableDataIrr.length; i++){
+        xtableDataIrr[i] = Number(xtableDataIrr[i]);
+    }
+    for (i = 0; i < ytableDataIrr.length; i++){
+        ytableDataIrr[i] = Number(ytableDataIrr[i]);
+    }
+
+    
+    if (ytableDataIrr[1] == null){
+        document.getElementById("slopevalueirr").innerHTML = "NA";
+        document.getElementById("pA2valueirr").innerHTML = "NA";
+        document.getElementById("r2valueirr").innerHTML = "NA";
+    }
+    else{
+
+        var y1 = ytableDataIrr[0];
+        var y2 = ytableDataIrr[3];
+        var x1 = xtableDataIrr[0];
+        var x2 = xtableDataIrr[3];
+
+        //Calculate the slope.
+        var slopeValueIrr = (y2 - y1) / (x2 - x1);
+        document.getElementById("slopevalueirr").innerHTML = slopeValueIrr.toFixed(3);
+
+        //Calculate pA2 (x-intercept).
+        var bIrr = y1 - (slopeValueIrr * x1);
+        pA2ValueIrr = (0 - bIrr) / slopeValueIrr;
+        document.getElementById("pA2valueirr").innerHTML = pA2ValueIrr.toFixed(3); 
+
+        //Calculate R square.
+
+        //Calculate the mean of x.
+        var xtotal = 0;
+        for (var i = 0; i < xtableDataIrr.length; i++) {
+            xtotal += xtableDataIrr[i];
+        }
+        var xmean = xtotal/xtableDataIrr.length;
+
+        //Calculate the mean of y.
+        var ytotal = 0;
+        for (var i = 0; i < ytableDataIrr.length; i++) {
+            ytotal += ytableDataIrr[i];
+        }
+        var ymean = ytotal/ytableDataIrr.length;
+
+        //Calculate sum of regression.
+        var regressionSum = 0;
+        for (var i = 0; i < xtableDataIrr.length; i++) {
+            regressionSum += (xtableDataIrr[i] - xmean) * (ytableDataIrr[i] - ymean);
+        }
+
+        //Calculate sum of total.
+        var sumx2 = 0;
+        for (var i = 0; i < xtableDataIrr.length; i++) {
+            sumx2 += (xtableDataIrr[i] - xmean) ** 2;
+        }
+
+        var sumy2 = 0;
+        for (var i = 0; i < ytableDataIrr.length; i++) {
+            sumy2 += (ytableDataIrr[i] - ymean) ** 2;
+        }
+
+        var totalSum = Math.sqrt(sumx2 * sumy2);
+
+        //Calculate R square value.
+        var rValue = regressionSum/totalSum;
+        var r2ValueIrr = rValue ** 2;
+        
+        document.getElementById("r2valueirr").innerHTML = r2ValueIrr.toFixed(3); 
+    }
+}
 
 function showInstructionsQuant() {
     $('#instructions').modal('show');

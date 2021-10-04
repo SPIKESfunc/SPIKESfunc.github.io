@@ -802,6 +802,8 @@ function updateEverythingFun() {
     logdr2fun = document.getElementById("antlogdr2fun").value = calcLogDRFun(doseratio2fun).toFixed(2);
     logdr3fun = document.getElementById("antlogdr3fun").value = calcLogDRFun(doseratio3fun).toFixed(2);
     logdr4fun = document.getElementById("antlogdr4fun").value = calcLogDRFun(doseratio4fun).toFixed(2);
+
+    updateSchildPropertyTableFun();
 }
 // something wrong here
 function calcLinesFun(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoefficacy, agoconcentration, agodensity, agoefficiency) {
@@ -1041,6 +1043,8 @@ var logdr2fun = document.getElementById("antlogdr2fun").value = calcLogDRFun(dos
 var logdr3fun = document.getElementById("antlogdr3fun").value = calcLogDRFun(doseratio3fun).toFixed(2);
 var logdr4fun = document.getElementById("antlogdr4fun").value = calcLogDRFun(doseratio4fun).toFixed(2);
 
+updateSchildPropertyTableFun();
+
 function updateValidFun(data0, data1, data2, data3) {
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
     for (i = 0; i < 4; i++) {
@@ -1112,7 +1116,7 @@ function plotSchildFun(chart) {
     var lineData2 = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     for (i = 0; i < lineData2[1].length; i++) {
         lineData2[1][i] = Number(lineData2[0][i]) + 9;
-        console.log("loop exed");
+        //console.log("loop exed");
     }
     var trace2 = {
         x: lineData2[0],
@@ -1131,6 +1135,82 @@ function plotSchildFun(chart) {
 }
 
 plotSchildFun("schildFun");
+
+//Define a function to calculate actual line values for Shild Plot Property Table, this part hasn't been finished yet.
+function updateSchildPropertyTableFun(){
+    //Get x values and y values.
+    var tableDataFun = calcSchildFun(antlogval1fun, antlogval2fun, antlogval3fun, antlogval4fun, logdr1fun, logdr2fun, logdr3fun, logdr3fun);
+    var xtableDataFun = tableDataFun[0];
+    var ytableDataFun = tableDataFun[1];
+    for (i = 0; i < xtableDataFun.length; i++){
+        xtableDataFun[i] = Number(xtableDataFun[i]);
+    }
+    for (i = 0; i < ytableDataFun.length; i++){
+        ytableDataFun[i] = Number(ytableDataFun[i]);
+    }
+
+    if (ytableDataFun[1] == null){
+        document.getElementById("slopevaluefun").innerHTML = "NA";
+        document.getElementById("pA2valuefun").innerHTML = "NA";
+        document.getElementById("r2valuefun").innerHTML = "NA";
+    }
+    else{
+        var y1 = ytableDataFun[0];
+        var y2 = ytableDataFun[3];
+        var x1 = xtableDataFun[0];
+        var x2 = xtableDataFun[3];
+
+        //Calculate slope.
+        var slopeValueFun = (y2 - y1) / (x2 - x1);
+        document.getElementById("slopevaluefun").innerHTML = slopeValueFun.toFixed(3);
+
+        //Calculate pA2.
+        var bFun= y1 - (slopeValueFun * x1);
+        pA2Value = (0 - bFun) / slopeValueFun;
+        document.getElementById("pA2valuefun").innerHTML = pA2Value.toFixed(3);
+
+        //Calculate R square.
+
+        //Calculate the mean of x.
+        var xtotal = 0;
+        for (var i = 0; i < xtableDataFun.length; i++) {
+            xtotal += xtableDataFun[i];
+        }
+        var xmean = xtotal/xtableDataFun.length;
+
+        //Calculate the mean of y.
+        var ytotal = 0;
+        for (var i = 0; i < ytableDataFun.length; i++) {
+            ytotal += ytableDataFun[i];
+        }
+        var ymean = ytotal/ytableDataFun.length;
+
+        //Calculate sum of regression.
+        var regressionSum = 0;
+        for (var i = 0; i < xtableDataFun.length; i++) {
+            regressionSum += (xtableDataFun[i] - xmean) * (ytableDataFun[i] - ymean);
+        }
+
+        //Calculate sum of total.
+        var sumx2 = 0;
+        for (var i = 0; i < xtableDataFun.length; i++) {
+            sumx2 += (xtableDataFun[i] - xmean) ** 2;
+        }
+
+        var sumy2 = 0;
+        for (var i = 0; i < ytableDataFun.length; i++) {
+            sumy2 += (ytableDataFun[i] - ymean) ** 2;
+        }
+
+        var totalSum = Math.sqrt(sumx2 * sumy2);
+
+        //Calculate R square value.
+        var rValue = regressionSum/totalSum;
+        var r2ValueFun = rValue ** 2;
+        
+        document.getElementById("r2valuefun").innerHTML = r2ValueFun.toFixed(3); 
+    }
+}
 
 //QUESTION BOX
 var questionsSchildfun = ["Will the Schild plot for a functional antagonist be linear with a slope = 1.0?",

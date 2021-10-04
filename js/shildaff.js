@@ -951,7 +951,7 @@ function plotSchildAff(chart){
     var lineData2 = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     for (i = 0; i < lineData2[1].length; i++){
         lineData2[1][i] = Number(lineData2[0][i]) + 9;
-        console.log("loop exed");
+        //console.log("loop exed");
     }
     var trace2 = {
         x: lineData2[0],
@@ -984,20 +984,20 @@ function updateSchildPropertyTableAff(){
     ytableDataAff[i] = Number(ytableDataAff[i]);
     }
 
-    //Calculate the slope.
-    var y2 = ytableDataAff[3];
     var y1 = ytableDataAff[0];
-    var x2 = xtableDataAff[3];
+    var y2 = ytableDataAff[3]; 
     var x1 = xtableDataAff[0];
+    var x2 = xtableDataAff[3];
 
+    //Calculate the slope.
     var slopeValueAff = (y2 - y1) / (x2 - x1);
     document.getElementById("slopevalueaff").innerHTML = slopeValueAff.toFixed(3);
     //document.getElementById("slopevalueaff").innerHTML = x1;
 
-    //Calculate pA2.
+    //Calculate pA2 (x-intercept).
     var bAff = y1 - (slopeValueAff * x1);
     var pA2ValueAff = (0 - bAff) / slopeValueAff;
-    document.getElementById("pA2valueaff").innerHTML = bAff.toFixed(3);
+    document.getElementById("pA2valueaff").innerHTML = pA2ValueAff.toFixed(3);
 
     //Calculate R square.
 
@@ -1039,8 +1039,7 @@ function updateSchildPropertyTableAff(){
     var r2ValueAff = rValue ** 2;
 
     document.getElementById("r2valueaff").innerHTML = r2ValueAff.toFixed(3);
-    //document.getElementById("r2valueaff").innerHTML = xtotal;
-
+    //document.getElementById("r2valueaff").innerHTML = xtotal = 0;
 }
 
 /*

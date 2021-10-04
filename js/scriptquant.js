@@ -917,7 +917,7 @@ function plotSchild(chart) {
 
 plotSchild("schild");
 
-//Define a function to calculate real line values for Shild Plot Property Table, the formulas need to be modified here, this part hasn't been finished yet.
+//Define a function to calculate real line values for Shild Plot Property Table, this part hasn't been finished yet.
 function updateSchildPropertyTableCom(){
     //Get x values and y values.
     var tableDataCom = calcSchild(antlogval1, antlogval2, antlogval3, antlogval4, logdr1, logdr2, logdr3, logdr4);

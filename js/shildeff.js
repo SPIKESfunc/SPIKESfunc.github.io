@@ -738,6 +738,8 @@ function updateEverythingEff(){
     logdr2eff = document.getElementById("antlogdr2eff").value = calcLogDREff(doseratio2eff).toFixed(2);
     logdr3eff = document.getElementById("antlogdr3eff").value = calcLogDREff(doseratio3eff).toFixed(2);
     logdr4eff = document.getElementById("antlogdr4eff").value = calcLogDREff(doseratio4eff).toFixed(2);
+
+    updateSchildPropertyTableEff();
 }
 
 
@@ -886,6 +888,8 @@ var logdr2eff = document.getElementById("antlogdr2eff").value = calcLogDREff(dos
 var logdr3eff = document.getElementById("antlogdr3eff").value = calcLogDREff(doseratio3eff).toFixed(2);
 var logdr4eff = document.getElementById("antlogdr4eff").value = calcLogDREff(doseratio4eff).toFixed(2);
 
+updateSchildPropertyTableEff();
+
 function updateValidEff(data0, data1, data2, data3){
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
 
@@ -977,7 +981,81 @@ function plotSchildEff(chart){
 
 plotSchildEff("schildEff");
 
+//Define functions to calculate actual line values for Shild Plot Property Table, this part hasn't been finished yet.
+function updateSchildPropertyTableEff(){
+    //Get x values and y values.
+    var tableDataEff = calcSchildEff(antlogval1eff, antlogval2eff, antlogval3eff, antlogval4eff, logdr1eff, logdr2eff, logdr3eff, logdr4eff);
+    var xtableDataEff = tableDataEff[0];
+    var ytableDataEff = tableDataEff[1];
+    for (i = 0; i < xtableDataEff.length; i++){
+        xtableDataEff[i] = Number(xtableDataEff[i]);
+    }
+    for (i = 0; i < ytableDataEff.length; i++){
+        ytableDataEff[i] = Number(ytableDataEff[i]);
+    }
 
+    if (ytableDataEff[1] == null){
+        document.getElementById("slopevalueeff").innerHTML = "NA";
+        document.getElementById("pA2valueeff").innerHTML = "NA";
+        document.getElementById("r2valueeff").innerHTML = "NA";
+    }
+    else{
+        var y1 = ytableDataEff[0];
+        var y2 = ytableDataEff[3];
+        var x1 = xtableDataEff[0];
+        var x2 = xtableDataEff[3];
+
+        //Calculate the slope.
+        var slopeValueEff = (y2 - y1) / (x2 - x1);
+        document.getElementById("slopevalueeff").innerHTML = slopeValueEff.toFixed(3);
+
+        //Calculate pA2 (x-intercept).
+        var bEff = y1 - (slopeValueEff * x1);
+        pA2ValueEff = (0 - bEff) / slopeValueEff;
+        document.getElementById("pA2valueeff").innerHTML = pA2ValueEff.toFixed(3);
+
+         //Calculate R square.
+
+        //Calculate the mean of x.
+        var xtotal = 0;
+        for (var i = 0; i < xtableDataEff.length; i++) {
+            xtotal += xtableDataEff[i];
+        }
+        var xmean = xtotal/xtableDataEff.length;
+
+        //Calculate the mean of y.
+        var ytotal = 0;
+        for (var i = 0; i < ytableDataEff.length; i++) {
+            ytotal += ytableDataEff[i];
+        }
+        var ymean = ytotal/ytableDataEff.length;
+
+        //Calculate sum of regression.
+        var regressionSum = 0;
+        for (var i = 0; i < xtableDataEff.length; i++) {
+            regressionSum += (xtableDataEff[i] - xmean) * (ytableDataEff[i] - ymean);
+        }
+
+        //Calculate sum of total.
+        var sumx2 = 0;
+        for (var i = 0; i < xtableDataEff.length; i++) {
+            sumx2 += (xtableDataEff[i] - xmean) ** 2;
+        }
+
+        var sumy2 = 0;
+        for (var i = 0; i < ytableDataEff.length; i++) {
+            sumy2 += (ytableDataEff[i] - ymean) ** 2;
+        }
+
+        var totalSum = Math.sqrt(sumx2 * sumy2);
+
+        //Calculate R square value.
+        var rValue = regressionSum/totalSum;
+        var r2ValueEff = rValue ** 2;
+
+        document.getElementById("r2valueeff").innerHTML = r2ValueEff.toFixed(3); 
+    }
+}
 
 function showInstructionsQuant() {
     $('#instructions').modal('show');
