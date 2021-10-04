@@ -13,7 +13,7 @@ var efflevelfun = document.getElementById("efflevelfun").defaultValue;
 document.getElementById("displayeffectfun").innerHTML = (efflevelfun * 100).toFixed(2);
 document.getElementById("efftablefun").innerHTML = (efflevelfun * 100).toFixed(2);
 var isPointValidfun = [true, true, true, true];
-
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 var antval0fun = document.getElementById("ant0fun").defaultValue;
 var antval1fun = document.getElementById("ant1fun").defaultValue;
 var antval2fun = document.getElementById("ant2fun").defaultValue;
@@ -127,16 +127,16 @@ function graphRemoveAlertFun(div) {
 //
 function checkSliderMinFun() {
     let ret = false;
-    if (document.getElementById("afffunslider1").value == 5) {
+    if(document.getElementById("afffunslider1").value == 5){
         ret = true
     }
-    if (document.getElementById("efffunslider1").value == -0.7) {
+    if(document.getElementById("efffunslider1").value == -0.7){
         ret = true
     }
-    if (document.getElementById("denfunslider1").value == -1) {
+    if(document.getElementById("denfunslider1").value == -1){
         ret = true
     }
-    if (document.getElementById("efficifunslider1").value == 0) {
+    if(document.getElementById("efficifunslider1").value == 0){
         ret = true
     }
     if (document.getElementById("efflevelfun").value == 0) {
@@ -851,55 +851,7 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency, agoaffinity,
     return data;
 }
 
-//old version calcLinesFun function(works but not use SABER)
-/**
 function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoefficacy, agodensity, agoefficiency, agoconcentration){
-    const STEP = 0.01;
-    var data = [[],[]];
-    //Inverse log input values
-
-    var affin = 10**(-1*affinity);
-    var efcay = 10**efficacy;
-    var recep = 10**recepDensity;
-    var efcey = 10**efficiency;
-    var agoaffin = 10**(-1*agoaffinity);
-    var agoeff = 10**(agoefficacy);
-    var agoden = 10**agodensity;
-    var agoeffic = 10**agoefficiency;
-
-    var emaxa = 100;
-    var emaxb = 100;
-
-    if(agoconcentration == 0){
-        agoconc = 0;
-        agoaffin = 0;
-        for (i=-12; i<-2;i=i+STEP){
-            //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
-            data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
-        }
-    }
-    else{
-        agoconc = 10**agoconcentration;
-        for (i=-12; i<-2;i=i+STEP){
-            var aconc = 10**i;
-
-            effect1 = aconc*efcay*recep*efcey*emaxa;
-            effect2 = (aconc*((efcay*recep*efcey)+1))+affin;
-            effect3 = agoconc*agoeff*agoden*agoeffic*emaxb;
-            effect4 = (agoconc*((agoeff*agoden*agoeffic)+1))+agoaffin;
-
-            effect = ((effect1/effect2)-(effect3/effect4));
-
-            data[0].push(i);
-            data[1].push(effect);   
-        }
-    }
-    return data;
-}
-*/
-
-function calcLinesFun(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoefficacy, agoconcentration, agodensity, agoefficiency) {
     const STEP = 0.01;
     var data = [[], []];
     //Inverse log input values
@@ -944,9 +896,8 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency, agoaffinity,
     return data;
 }
 
-
-
 var linecoloursfun = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#ff0000"]
+
 //
 function plotGraphFun(chart) {
     var layout = {
@@ -982,17 +933,18 @@ function plotGraphFun(chart) {
                     width: 1
                 },
                 showlegend: false
-            }
-        }
-        else {
-            var graph = {
-                x: lineData[0],
-                y: lineData[1],
-                mode: "lines",
-                name: 10 ** agoconcarrfun[j] * 1000000000 + "nM",
-                line: {
-                    color: linecoloursfun[j],
-                    width: 1
+    		}
+   		}
+   		else{
+    	var graph = {
+        		x: lineData[0],
+        		y: lineData[1],
+       			mode: "lines",
+       			name: 10**agoconcarrfun[j]*1000000000+"nM",
+                   line: {
+                    color: linecolours[j],
+                    width: 1.2,
+                    dash: linestyles[j]
                 },
                 showlegend: false
             }
@@ -1046,6 +998,7 @@ var logdr4fun = document.getElementById("antlogdr4fun").value = calcLogDRFun(dos
 updateSchildPropertyTableFun();
 
 function updateValidFun(data0, data1, data2, data3) {
+
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
     for (i = 0; i < 4; i++) {
         if (validdata[i] >= -12 && validdata[i] <= -2) {
@@ -1118,6 +1071,7 @@ function plotSchildFun(chart) {
         lineData2[1][i] = Number(lineData2[0][i]) + 9;
         //console.log("loop exed");
     }
+
     var trace2 = {
         x: lineData2[0],
         y: lineData2[1],
@@ -1211,18 +1165,17 @@ function updateSchildPropertyTableFun(){
         document.getElementById("r2valuefun").innerHTML = r2ValueFun.toFixed(3); 
     }
 }
-
 //QUESTION BOX
 var questionsSchildfun = ["Will the Schild plot for a functional antagonist be linear with a slope = 1.0?",
-    "Is the shape and position of the Schild plot likely to be independent of the properties of the agonist (affinity / efficacy) and/or cell (receptor density, signal amplification)?",
-    "Can the pA<sub>2</sub> values derived from the Schild plot for a functional antagonist be used to calculate –logK<sub>B</sub> values?",
-    "Are functional antagonists appropriate for use in Schild analyses?"];
-
-
-var answersSchildfun = ["Almost always NO.  There are published examples of functional antagonists producing Schild plots that are linear with a slope not different from one (Kenakin, 1981). Indeed, particular simulations can generate Schild plots for functional antagonists that appear to linear with slope = 1.0 (at least over a specified and restricted concentration range of functional antagonist).  However, Schild plots obtained using functional antagonists are typically nonlinear with a slope < 1.0.  This can be readily observed by using the Dose-Response Visualiser.",
-    "NO. The shape and position of the Schild plot will be highly dependent upon the properties of both sets of agonist (agonist and functional antagonist), especially the efficacy of the functional antagonist.  The shape and position of the Schild plot for the functional antagonist will also depend upon the properties of the cell, including the receptor densities and signal amplification for each agonist.  Moreover, the Schild plot shape and position will depend upon the relative maximum capacities of the two receptor-effector systems within the cell.",
-    "NO.  pA<sub>2</sub> values obtained from Schild plots using functional antagonists are highly unlikely to be accurate measures of the affinity of the functional antagonist for its receptor.  Amongst other reasons, this is because the effect produced by a functional antagonist will relate to its potency, which is dependent upon numerous factors including affinity, efficacy, receptor density and signal amplification.  Any pA<sub>2</sub> obtained is likely to be an over-estimate of the –logK<sub>A</sub> value of the functional antagonist for its receptor.",
-    "NO.  Even in the unlikely event that a Schild plot obtained to a functional antagonist is linear with a slope of one, the information obtained (e.g. pA<sub>2</sub>) is of little value.  It is important to restate that the inhibitory actions of a functional antagonist do not occur at the level of the receptor, rather occur further down the stimulus-response cascade, and thus bear no mechanistic resemblance to competitive antagonism.  This highlights the fact that the appearance of a linear Schild plot with a slope of one DOES NOT prove that the inhibitor is acting as a competitive antagonist."];
+"Is the shape and position of the Schild plot likely to be independent of the properties of the agonist (affinity / efficacy) and/or cell (receptor density, signal amplification)?",
+"Can the pA<sub>2</sub> values derived from the Schild plot for a functional antagonist be used to calculate –logK<sub>B</sub> values?",
+"Are functional antagonists appropriate for use in Schild analyses?"];
+	
+	
+var answersSchildfun = ["Almost always <b>NO</b>.  There are published examples of functional antagonists producing Schild plots that are linear with a slope not different from one (Kenakin, 1981). Indeed, particular simulations can generate Schild plots for functional antagonists that appear to linear with slope = 1.0 (at least over a specified and restricted concentration range of functional antagonist).  However, Schild plots obtained using functional antagonists are typically nonlinear with a slope < 1.0.  This can be readily observed by using the Dose-Response Visualiser.",
+"<b>NO</b>. The shape and position of the Schild plot will be highly dependent upon the properties of both sets of agonist (agonist and functional antagonist), especially the efficacy of the functional antagonist.  The shape and position of the Schild plot for the functional antagonist will also depend upon the properties of the cell, including the receptor densities and signal amplification for each agonist.  Moreover, the Schild plot shape and position will depend upon the relative maximum capacities of the two receptor-effector systems within the cell.",
+"<b>NO</b>.  pA<sub>2</sub> values obtained from Schild plots using functional antagonists are highly unlikely to be accurate measures of the affinity of the functional antagonist for its receptor.  Amongst other reasons, this is because the effect produced by a functional antagonist will relate to its potency, which is dependent upon numerous factors including affinity, efficacy, receptor density and signal amplification.  Any pA<sub>2</sub> obtained is likely to be an over-estimate of the –logK<sub>A</sub> value of the functional antagonist for its receptor.",
+"<b>NO</b>.  Even in the unlikely event that a Schild plot obtained to a functional antagonist is linear with a slope of one, the information obtained (e.g. pA<sub>2</sub>) is of little value.  It is important to restate that the inhibitory actions of a functional antagonist do not occur at the level of the receptor, rather occur further down the stimulus-response cascade, and thus bear no mechanistic resemblance to competitive antagonism.  This highlights the fact that the appearance of a linear Schild plot with a slope of one <b>DOES NOT</b> prove that the inhibitor is acting as a competitive antagonist."]; 
 
 
 var questionCounterSchildfun = 0;

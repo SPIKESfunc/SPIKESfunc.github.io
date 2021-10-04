@@ -10,7 +10,7 @@ var efflevelaff = document.getElementById("efflevelaff").defaultValue;
 document.getElementById("displayeffectaff").innerHTML = (efflevelaff*100).toFixed(2);
 document.getElementById("efftableaff").innerHTML = (efflevelaff*100).toFixed(2);
 var isPointValidaff = [true, true, true, true];
-
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 var antval0aff = document.getElementById("ant0aff").defaultValue;
 var antval1aff = document.getElementById("ant1aff").defaultValue;
 var antval2aff = document.getElementById("ant2aff").defaultValue;
@@ -109,6 +109,12 @@ function resetQuantAff(){
         },animation)
     schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
+    findAffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], ideallogdr1aff, ideallogdr2aff, ideallogdr3aff);
+    Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function graphAlertAff(div){
@@ -554,6 +560,12 @@ function updateAntagonistLog2Aff(value){
         },animation)
     schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
+    findAffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], ideallogdr1aff, ideallogdr2aff, ideallogdr3aff);
+    Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function updateAntagonist3Aff(value){
@@ -586,6 +598,12 @@ function updateAntagonist3Aff(value){
         },animation)
     schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
+    findAffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], ideallogdr1aff, ideallogdr2aff, ideallogdr3aff);
+    Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function updateAntagonistLog3Aff(value){
@@ -825,9 +843,10 @@ function plotGraphAff(chart){
         		y: lineData[1],
        			mode: "lines",
        			name: 10**agoconcarraff[j]*1000000000+"nM",
-                line: {
-                    color: linecoloursaff[j],
-                    width: 1
+                   line: {
+                    color: linecolours[j],
+                    width: 1.2,
+                    dash: linestyles[j]
                 },
                 showlegend: false
     		}
@@ -878,6 +897,20 @@ var logdr3aff = document.getElementById("antlogdr3aff").value = calcLogDRAff(dos
 var logdr4aff = document.getElementById("antlogdr4aff").value = calcLogDRAff(doseratio4aff).toFixed(2);
 //updatePropertyTable();
 updateSchildPropertyTableAff();
+
+//Define variables for plotting ideal line.
+var idealanthalfeff0aff = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval0aff).toExponential(2);
+var idealanthalfeff1aff = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval0aff).toExponential(2);
+var idealanthalfeff2aff = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval0aff).toExponential(2);
+var idealanthalfeff3aff = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval0aff).toExponential(2);
+
+var idealdoseratio1aff = calcDoseRatioAff(idealanthalfeff1aff, idealanthalfeff0aff).toFixed(2);
+var idealdoseratio2aff = calcDoseRatioAff(idealanthalfeff2aff, idealanthalfeff0aff).toFixed(2);
+var idealdoseratio3aff = calcDoseRatioAff(idealanthalfeff3aff, idealanthalfeff0aff).toFixed(2)
+
+var ideallogdr1aff = calcLogDRAff(idealdoseratio1aff).toFixed(2);
+var ideallogdr2aff = calcLogDRAff(idealdoseratio2aff).toFixed(2);
+var ideallogdr3aff = calcLogDRAff(idealdoseratio3aff).toFixed(2);
 
 function updateValidAff(data0, data1, data2, data3){
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
@@ -940,7 +973,7 @@ function plotSchildAff(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
-        name: 'Real Line',
+    name:'Real Line',
 		line: {
 			width: 1
 		}
@@ -965,6 +998,7 @@ function plotSchildAff(chart){
         }
     }
     data.push(trace2);
+
 	
 	Plotly.plot(chart, data, layout, {responsive: true});
 }
@@ -1184,6 +1218,11 @@ function showInstructionsQuant() {
     $('.nav-tabs a[href="#quant"]').tab('show');
 };
 
+//Define functions to calculate actual line values for Actual Line Table, the formulas need to be modified here, this part hasn't been finished yet.
+var slopevalueaff = document.getElementById("slopevalueaff").innerHTML = 1;
+var pA2valueaff = document.getElementById("pA2valueaff").innerHTML = -9;
+var r2valueaff = document.getElementById("r2valueaff").innerHTML = 1;
+
 //QUESTION BOX
 var questionsSchildaff = ["For an allosteric antagonist that reduces agonist affinity only, will the Schild plot be linear with a slope = 1.0?",
 "Is the shape and position of the Schild plot likely to be independent of the properties of the agonist (affinity / efficacy) and/or cell (receptor density, signal amplification)?",
@@ -1191,9 +1230,9 @@ var questionsSchildaff = ["For an allosteric antagonist that reduces agonist aff
 "Are allosteric antagonists appropriate for use in Schild analyses?"];
 	
 	
-var answersSchildaff = ["YES and NO, depending on the concentration range of allosteric antagonist used and the maximum level of rightward shift produced by the antagonist. <br> Let’s first consider an allosteric antagonist that has a large propensity to reduce agonist affinity.  For example, an allosteric antagonist with a low  value of 0.001 will cause a maximum 1000-fold (1/) rightward shift of an agonist dose-response curve (when high [allosteric antagonist] saturate the allosteric binding site).  When such an allosteric antagonist is used at concentrations that produce 5, 20 and 100-fold rightward shifts (much less than the maximum level of possible shift), it will appear that the agonist dose-response curves are shifted to the right in a parallel manner, akin to that produced by a competitive antagonist.  Using these concentrations of allosteric antagonist, the generated Schild plot will appear linear with a slope of unity. <br>Secondly, if an allosteric antagonist has either a low propensity to reduce agonist affinity, or if high concentrations are used (that approach the maximum level of possible shift), then the resultant Schild plot will be nonlinear (a plateau region appearing at high [antagonist]) with a slope < 1.0.  This can be readily observed by using the Dose-Response Visualiser.  (see Kenakin p188 and p428).",
-"YES, for an allosteric antagonist that affects agonist affinity only, the shape and position of the Schild plot may be dependent upon the agonist used (unlike competitive antagonists).  This is because allosteric antagonists display ‘probe dependence’, whereby the effects of an allosteric antagonist on the affinity of the agonist for the orthosteric binding site on the receptor may vary markedly between agonists, i.e. be substantial for one agonist but inconsequential for another agonist.  Thus, whereas the use of the former agonist may produce a characteristic Schild plot (linear with slope = 1.0) the latter agonist may NOT produce a Schild plot at all (as the allosteric antagonist does not affect the affinity of this particular agonist).  If the allosteric antagonist only affects agonist affinity, then the impact of changing agonist efficacy, receptor density or signal amplification on the shape and position of the Schild plot should be minimal.",
-"YES, it is possible to determine the –logK<sub>B</sub> value for an allosteric antagonist that affects agonist affinity from a pA<sub>2</sub> value derived from a Schild plot.<br> As indicated in the first question of this series, a Schild plot for an allosteric antagonist that affects agonist affinity will appear linear with a slope of 1.0 IF the allosteric antagonist has a large propensity to reduce agonist affinity and the [allosteric antagonist] used produce dose ratios (shifts) that are much less than the maximum dose ratio.  In this instance, the pA<sub>2</sub> value is likely to be a reliable estimate of the affinity (-logK<sub>B</sub>) of the antagonist for the allosteric binding site on the receptor.  Alternately, the fitting of experimental agonist dose-response data obtained over a wide range of [allosteric antagonist] to an appropriate model of allosteric antagonism using nonlinear least squares regression analysis may generate reliable K<sub>B</sub> values (and &#946 values) (see Kenakin p428). ",
+var answersSchildaff = ["<b>YES and NO</b>, depending on the concentration range of allosteric antagonist used and the maximum level of rightward shift produced by the antagonist. <br> Let’s first consider an allosteric antagonist that has a large propensity to reduce agonist affinity.  For example, an allosteric antagonist with a low &#945 value of 0.001 will cause a maximum 1000-fold (1/&#945) rightward shift of an agonist dose-response curve (when high [allosteric antagonist] saturate the allosteric binding site).  When such an allosteric antagonist is used at concentrations that produce 5, 20 and 100-fold rightward shifts (much less than the maximum level of possible shift), it will appear that the agonist dose-response curves are shifted to the right in a parallel manner, akin to that produced by a competitive antagonist.  Using these concentrations of allosteric antagonist, the generated Schild plot will appear linear with a slope of unity. <br>Secondly, if an allosteric antagonist has either a low propensity to reduce agonist affinity, or if high concentrations are used (that approach the maximum level of possible shift), then the resultant Schild plot will be nonlinear (a plateau region appearing at high [antagonist]) with a slope < 1.0.  This can be readily observed by using the Dose-Response Visualiser.  (see Kenakin p188 and p428).",
+"<b>YES</b>, for an allosteric antagonist that affects agonist affinity only, the shape and position of the Schild plot may be dependent upon the agonist used (unlike competitive antagonists).  This is because allosteric antagonists display ‘probe dependence’, whereby the effects of an allosteric antagonist on the affinity of the agonist for the orthosteric binding site on the receptor may vary markedly between agonists, i.e. be substantial for one agonist but inconsequential for another agonist.  Thus, whereas the use of the former agonist may produce a characteristic Schild plot (linear with slope = 1.0) the latter agonist may <b>NOT</b> produce a Schild plot at all (as the allosteric antagonist does not affect the affinity of this particular agonist).  If the allosteric antagonist only affects agonist affinity, then the impact of changing agonist efficacy, receptor density or signal amplification on the shape and position of the Schild plot should be minimal.",
+"<b>YES</b>, it is possible to determine the –logK<sub>B</sub> value for an allosteric antagonist that affects agonist affinity from a pA<sub>2</sub> value derived from a Schild plot.<br> As indicated in the first question of this series, a Schild plot for an allosteric antagonist that affects agonist affinity will appear linear with a slope of 1.0 <b>IF</b> the allosteric antagonist has a large propensity to reduce agonist affinity and the [allosteric antagonist] used produce dose ratios (shifts) that are much less than the maximum dose ratio.  In this instance, the pA<sub>2</sub> value is likely to be a reliable estimate of the affinity (-logK<sub>B</sub>) of the antagonist <b>for the allosteric binding site</b> on the receptor.  Alternately, the fitting of experimental agonist dose-response data obtained over a wide range of [allosteric antagonist] to an appropriate model of allosteric antagonism using nonlinear least squares regression analysis may generate reliable K<sub>B</sub> values (and &#946 values) <br>Kenakin (2019), p428.",
 "As indicated in the answers to previous questions, careful analyses of Schild plots obtained to allosteric antagonists that affect agonist affinity can provide reliable measures of the affinity of the antagonist for the allosteric binding site on the receptor."]; 
 
  

@@ -8,8 +8,9 @@ var agoafflogirr = document.getElementById("agoafflogirrnum").defaultValue;
 var efflevelirr = document.getElementById("efflevelirr").defaultValue;
 document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
 document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
-var isPointValidirr = [true, false, false, false];
 
+var isPointValidirr = [true, false, false, false];
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 
 var antval0irr = document.getElementById("ant0irr").defaultValue;
 var antval1irr = document.getElementById("ant1irr").defaultValue;
@@ -110,6 +111,13 @@ function resetQuantIrr(){
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[0]);
+    findIrrHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], ideallogdr1irr, ideallogdr2irr, ideallogdr3irr);
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
+
 }
 //
 function graphAlertIrr(div){
@@ -174,6 +182,7 @@ function updateAffinityIrr(value){
             layout: {}
             },animation)
         schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
+
         Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -212,6 +221,7 @@ function updateEfficacyIrr(value){
             layout: {}
             },animation)
         schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
+
         Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -250,6 +260,7 @@ function updateDensityIrr(value){
             layout: {}
             },animation)
         schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
+
         Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -323,6 +334,7 @@ function updateAgoAffinityIrr(value){
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
+
 //
 function updateefflevelIrr(value){
     efflevelirr = value;
@@ -522,6 +534,12 @@ function updateAntagonistLog2Irr(value){
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[0]);
+    findIrrHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], ideallogdr1irr, ideallogdr2irr, ideallogdr3irr);
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    */
 }
 //
 function updateAntagonist3Irr(value){
@@ -554,6 +572,12 @@ function updateAntagonist3Irr(value){
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[0]);
+    findIrrHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], ideallogdr1irr, ideallogdr2irr, ideallogdr3irr);
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    */
 }
 //
 function updateAntagonistLog3Irr(value){
@@ -740,7 +764,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity,
         agoconc = 10 ** agoconcentration;
         for (i = -12; i < -2; i = i + STEP) {
             data[0].push(i);
-            data[1].push((((10 ** i)) * efcay * recep * efcey * 100) / (((10 ** i)) * (efcay * recep * efcey + 1 - efcay + (agoconc / agoaffin)) + affin));
+            data[1].push((((10 ** i) / affin) * efcay * recep * efcey * 100) / (((10 ** i) / affin) * (efcay * recep * efcey - efcay + 1 + (agoconc / agoaffin)) + 1 + (agoconc / agoaffin)))
         }
     }
 
@@ -748,6 +772,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity,
 }
 
 var linecoloursirr = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#ff0000"]
+
 //
 function plotGraphIrr(chart){
     var layout = {
@@ -791,9 +816,10 @@ function plotGraphIrr(chart){
         		y: lineData[1],
        			mode: "lines",
        			name: 10**agoconcarrirr[j]*1000000000+"nM",
-                line: {
-                    color: linecoloursirr[j],
-                    width: 1
+                   line: {
+                    color: linecolours[j],
+                    width: 1.2,
+                    dash: linestyles[j]
                 },
                 showlegend: false
     		}
@@ -845,6 +871,20 @@ var logdr3irr = document.getElementById("antlogdr3irr").value = calcLogDRIrr(dos
 var logdr4irr = document.getElementById("antlogdr4irr").value = calcLogDRIrr(doseratio4irr).toFixed(2);
 
 updateSchildPropertyTableIrr();
+
+//Define variables for plotting ideal line.
+var idealanthalfeff0irr = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval0irr).toExponential(2);
+var idealanthalfeff1irr = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval1irr).toExponential(2);
+var idealanthalfeff2irr = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval2irr).toExponential(2);
+var idealanthalfeff3irr = calcAgoHalfEffectIrr(affirr, effirr, denirr, efficirr, agoafflogirr, antval3irr).toExponential(2);
+
+var idealdoseratio1irr = calcDoseRatioIrr(idealanthalfeff1irr, idealanthalfeff0irr).toFixed(2);
+var idealdoseratio2irr = calcDoseRatioIrr(idealanthalfeff2irr, idealanthalfeff0irr).toFixed(2);
+var idealdoseratio3irr = calcDoseRatioIrr(idealanthalfeff3irr, idealanthalfeff0irr).toFixed(2)
+
+var ideallogdr1irr = calcLogDRIrr(idealdoseratio1irr).toFixed(2);
+var ideallogdr2irr = calcLogDRIrr(idealdoseratio2irr).toFixed(2);
+var ideallogdr3irr = calcLogDRIrr(idealdoseratio3irr).toFixed(2);
 
 function updateValidIrr(data0, data1, data2, data3){
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
@@ -907,7 +947,7 @@ function plotSchildIrr(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
-        name: 'Real Line',
+    name: 'Real Line',
 		line: {
 			width: 1
 		}
@@ -1021,6 +1061,11 @@ function showInstructionsQuant() {
     $('.nav-tabs a[href="#quant"]').tab('show');
 };
 
+//Define functions to calculate actual line values for Actual Line Table, the formulas need to be modified here, this part hasn't been finished yet.
+var slopevalueirr = document.getElementById("slopevalueirr").innerHTML = 1;
+var pA2valueirr = document.getElementById("pA2valueirr").innerHTML = -9;
+var r2valueirr = document.getElementById("r2valueirr").innerHTML = 1;
+
 //QUESTION BOX
 var questionsSchildirr = ["Will the Schild plot for an irreversible antagonist be linear with a slope = 1.0?", 
 "Is the shape and position of a Schild plot to an irreversible antagonist likely to be independent of the properties of the agonist (affinity / efficacy) and/or cell (receptor density, signal amplification)?",
@@ -1028,9 +1073,9 @@ var questionsSchildirr = ["Will the Schild plot for an irreversible antagonist b
 "Are irreversible antagonists appropriate for use in Schild analysis?"];
 	
 	
-var answersSchildirr = ["When a wide range of antagonist concentrations is used, the Schild plot for an irreversible antagonist will NOT be linear with a slope of unity.  This is because an effect of higher concentrations (or longer periods of exposure) of an irreversible antagonist is to reduce the maximum agonist-induced response, which ‘flattens the agonist dose-response curve’.  This has the effect of generating non-parallel rightward shifts of the agonist dose-response curves and exaggerated dose-ratio values (slope > 1.0).<br>Under special conditions, Schild plots may be less likely to deviate significantly from linearity and unit slope, e.g. when low concentrations of an irreversible antagonist are used in systems when there is considerable ‘receptor reserve’.  In these systems (e.g. high receptor density, high signal amplification), the effect of a narrow range of low concentrations of an irreversible antagonist is to produce near-parallel rightward shifts of dose-response curves to a high efficacy agonist. This may produce Schild plots that approach linearity with unit slope.  This can be readily observed by using the Dose-Response Visualiser.",
-"A key feature of the Schild analysis is that competitive antagonists generate Schild plots whose shape and position are independent of the properties of the agonist (i.e. level of affinity and/or efficacy) or the cell (level of receptor density and/or signal amplification). However, the shapes and positions of Schild plots generated using irreversible antagonists are NOT likely to be independent of the properties of the agonist (esp. efficacy) and/or the cell (receptor density, signal amplification). This can be readily observed by using the Dose-Response Visualiser.",
-"YES, but only under very limited conditions.  The pA<sub>2</sub> obtained for an irreversible antagonist will likely be an accurate measure of –logK<sub>B</sub> only at low levels of agonist-receptor occupancy (i.e. for high efficacy agonists AND when low levels of agonist-induced response are used to generate dose ratio values). (see Kenakin book page 151-152).  In most instances, the pA<sub>2</sub> values obtained using irreversible antagonists will under-estimate the –logK<sub>B</sub> value (as slope of Schild plot likely to be greater than one), and thereby over-estimate the true affinity of the antagonist.",
+var answersSchildirr = ["When a wide range of antagonist concentrations is used, the Schild plot for an irreversible antagonist will <b>NOT be linear with a slope of unity.</b>  This is because an effect of higher concentrations (or longer periods of exposure) of an irreversible antagonist is to reduce the maximum agonist-induced response, which ‘flattens the agonist dose-response curve’.  This has the effect of generating non-parallel rightward shifts of the agonist dose-response curves and exaggerated dose-ratio values (slope > 1.0).<br>Under special conditions, Schild plots may be less likely to deviate significantly from linearity and unit slope, e.g. when low concentrations of an irreversible antagonist are used in systems when there is considerable ‘receptor reserve’.  In these systems (e.g. high receptor density, high signal amplification), the effect of a narrow range of low concentrations of an irreversible antagonist is to produce near-parallel rightward shifts of dose-response curves to a high efficacy agonist. This may produce Schild plots that approach linearity with unit slope.  This can be readily observed by using the Dose-Response Visualiser.",
+"A key feature of the Schild analysis is that competitive antagonists generate Schild plots whose shape and position are independent of the properties of the agonist (i.e. level of affinity and/or efficacy) or the cell (level of receptor density and/or signal amplification). However, the shapes and positions of Schild plots generated using irreversible antagonists are <b>NOT likely to be independent of the properties of the agonist</b> (esp. efficacy) and/or the cell (receptor density, signal amplification). This can be readily observed by using the Dose-Response Visualiser.",
+"<b>YES</b>, but only under very limited conditions.  The pA<sub>2</sub> obtained for an irreversible antagonist will likely be an accurate measure of –logK<sub>B</sub> only at low levels of agonist-receptor occupancy (i.e. for high efficacy agonists AND when low levels of agonist-induced response are used to generate dose ratio values). Kenakin (2019), pp151-152.<br>  In most instances, the pA<sub>2</sub> values obtained using irreversible antagonists will under-estimate the –logK<sub>B</sub> value (as slope of Schild plot likely to be greater than one), and thereby over-estimate the true affinity of the antagonist.",
 "Like competitive antagonists, irreversible antagonists bind to the orthosteric (agonist) binding site on the receptor. In some special circumstances (as mentioned in previous questions), Schild plots may be used to calculate the affinity of an irreversible antagonist.  However, in general, reliable measures of antagonist affinity are best obtained from Schild plots using competitive, rather than irreversible antagonists."]; 
 
  

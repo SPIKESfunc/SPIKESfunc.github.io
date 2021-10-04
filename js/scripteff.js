@@ -11,6 +11,7 @@ document.getElementById("antcoopeff").value =
   Math.round(10 ** -agoeffeff * Math.pow(10, 3)) / Math.pow(10, 3);
 
 var agoconcarr = [0, -9, -8, -7, -6];
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 
 var animation = {
   transition: {
@@ -824,8 +825,9 @@ function plotGraphEff(chart) {
         name:"[Antagonist] #" + j,
         line: {
           color: linecolours[j],
-          width: 1
-        }
+          width: 1.2,
+          dash: linestyles[j]
+      }
       };
     }
     data.push(graph);
@@ -877,9 +879,9 @@ var questionsEff = [
 ];
 
 var answersEff = [
-  "An Allosteric antagonist (affecting only agonist efficacy) will cause a reduction in the maximum effect produced by an agonist (since the antagonist has reduced the efficacy of the agonist for the receptor). A feature of allosteric antagonists is their effect is SATURABLE, and the extent of the suppression of the maximum effect is LIMITED. This is in contrast to an irreversible antagonist where the suppression of the maximum effect is unlimited. <br> Test this using the Dose Response Visualiser..",
+  "An Allosteric antagonist (affecting only agonist efficacy) will cause a reduction in the maximum effect produced by an agonist (since the antagonist has reduced the efficacy of the agonist for the receptor). A feature of allosteric antagonists is their effect is <b>SATURABLE</b>, and the extent of the suppression of the maximum effect is <b>LIMITED</b>. This is in contrast to an irreversible antagonist where the suppression of the maximum effect is unlimited. <br> Test this using the Dose Response Visualiser.",
   "<b>YES</b>, but this will dependent upon whether the agonist is a partial or full agonist.  For partial agonists, the allosteric antagonist will reduce the maximum response.  However, for a full agonist (acting on a cell with high R<sub>T</sub> and signal amplification), the allosteric antagonist (affecting agonist efficacy) will produce a rightward shift of the agonist dose-response curve (at low [allosteric antagonist]) prior to suppression of the maximum response (at higher [allosteric antagonist]). <br> Test this using the Dose Response Visualiser.",
-  "<b>YES</b>, the effects of an allosteric antagonist (affecting agonist efficacy) will be GREATER against agonists will low efficacy and in cells with low receptor densities (R<sub>T</sub>)and coupling efficiencies (<i>&#947</i>). <br> Test this using the Dose Response Visualiser.",
+  "<b>YES</b>, the effects of an allosteric antagonist (affecting agonist efficacy) will be <b>GREATER</b> against agonists will low efficacy and in cells with low receptor densities (R<sub>T</sub>)and coupling efficiencies (<i>&#947</i>). <br> Test this using the Dose Response Visualiser.",
   "<b>NOT TYPICALLY</b>. The inhibitory effects produced by an allosteric antagonists (affecting agonist efficacy) are typically limited and can usually be overcome (at least to some degree) by increasing the [agonist].  This is unlike irreversible antagonists which can abolish agonist-induced effects.  However, in some more extreme circumstances (e.g. if the allosteric antagonist has a very high capacity to decrease agonist intrinsic efficacy and/or the agonist has low intrinsic efficacy) the allosteric antagonist may essentially abolish agonist-induced responses. <br> Test this using the Dose Response Visualiser."
 ];
 

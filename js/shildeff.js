@@ -9,8 +9,9 @@ var agoeffeff = document.getElementById("agoeffeff").defaultValue;
 var effleveleff = document.getElementById("effleveleff").defaultValue;
 document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixed(2);
 document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
-var isPointValideff = [true, false, false, false];
 
+var isPointValideff = [true, false, false, false];
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 var antval0eff = document.getElementById("ant0eff").defaultValue;
 var antval1eff = document.getElementById("ant1eff").defaultValue;
 var antval2eff = document.getElementById("ant2eff").defaultValue;
@@ -109,6 +110,12 @@ function resetQuantEff(){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function graphAlertEff(div){
@@ -554,6 +561,12 @@ function updateAntagonistLog2Eff(value){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function updateAntagonist3Eff(value){
@@ -586,6 +599,12 @@ function updateAntagonist3Eff(value){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+    /*
+    idealLineData0 = calcLinesIdealEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
+    findEffHalfMaxEffect(idealLineData0);
+    idealSchildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], ideallogdr1eff, ideallogdr2eff, ideallogdr3eff);
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
+    */
 }
 
 function updateAntagonistLog3Eff(value){
@@ -792,6 +811,7 @@ function calcLinesEff(
     return data;
   }
 
+
 var linecolourseff = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#ff0000"]
 
 function plotGraphEff(chart){
@@ -836,9 +856,10 @@ function plotGraphEff(chart){
         		y: lineData[1],
        			mode: "lines",
        			name: 10**agoconcarreff[j]*1000000000+"nM",
-                line: {
-                    color: linecolourseff[j],
-                    width: 1
+                   line: {
+                    color: linecolours[j],
+                    width: 1.2,
+                    dash: linestyles[j]
                 },
                 showlegend: false
     		}
@@ -889,6 +910,20 @@ var logdr3eff = document.getElementById("antlogdr3eff").value = calcLogDREff(dos
 var logdr4eff = document.getElementById("antlogdr4eff").value = calcLogDREff(doseratio4eff).toFixed(2);
 
 updateSchildPropertyTableEff();
+
+//Define variables for plotting ideal line.
+var idealanthalfeff0eff = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval0eff).toExponential(2);
+var idealanthalfeff1eff = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval0eff).toExponential(2);
+var idealanthalfeff2eff = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval0eff).toExponential(2);
+var idealanthalfeff3eff = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, antval0eff).toExponential(2);
+
+var idealdoseratio1eff = calcDoseRatioEff(idealanthalfeff1eff, idealanthalfeff0eff).toFixed(2);
+var idealdoseratio2eff = calcDoseRatioEff(idealanthalfeff2eff, idealanthalfeff0eff).toFixed(2);
+var idealdoseratio3eff = calcDoseRatioEff(idealanthalfeff3eff, idealanthalfeff0eff).toFixed(2)
+
+var ideallogdr1eff = calcLogDREff(idealdoseratio1eff).toFixed(2);
+var ideallogdr2eff = calcLogDREff(idealdoseratio2eff).toFixed(2);
+var ideallogdr3eff = calcLogDREff(idealdoseratio3eff).toFixed(2);
 
 function updateValidEff(data0, data1, data2, data3){
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
@@ -951,7 +986,7 @@ function plotSchildEff(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
-        name: 'Real Line',
+    name: 'Real Line',
 		line: {
 			width: 1
 		}
@@ -1062,15 +1097,21 @@ function showInstructionsQuant() {
     $('.nav-tabs a[href="#quant"]').tab('show');
 };
 
+
+//Define functions to calculate actual line values for Actual Line Table, the formulas need to be modified here, this part hasn't been finished yet.
+var slopevalueeff = document.getElementById("slopevalueeff").innerHTML = 1;
+var pA2valueeff = document.getElementById("pA2valueeff").innerHTML = -9;
+var r2valueeff = document.getElementById("r2valueeff").innerHTML = 1;
+
 //QUESTION BOX
 var questionsSchildeff = ["For an allosteric antagonist that reduces agonist efficacy only, is a Schild plot likely to be linear with a slope equal to one?",
 "Is the shape and position of the Schild plot likely to be independent of the properties of the agonist (affinity / efficacy) and/or cell (receptor density, signal amplification)?",
 "Can the pA<sub>2</sub> values derived from the Schild plot for an allosteric antagonist that affects agonist efficacy be used to calculate –logK<sub>B</sub> values?"];
 	
 	
-var answersSchildeff = ["NO, the shape of the Schild plot for an allosteric antagonist that affects agonist efficacy is unlikely to be linear with a slope equal to one.  At lower concentrations of the antagonist, the Schild plot slope is likely to be one or greater, whereas at higher concentrations the slope will be less than one.  These concentration-dependent changes in the slope of the Schild plot ensure that it is typically nonlinear.  This can be readily observed by using the Dose-Response Visualiser.",
-"NO, for an allosteric antagonist that affects agonist efficacy, the shape and position of the Schild plot may be dependent upon the agonist used (unlike competitive antagonists).  This is because allosteric antagonists display ‘probe dependence’, whereby the effects of an allosteric antagonist on the efficacy of the agonist for the orthosteric binding site on the receptor may vary markedly between agonists, i.e. it may be substantial for one agonist but inconsequential for another agonist.  If the allosteric antagonist differentially affects agonist efficacy, then the shape and position of the Schild plot will likely be sensitive to changes in receptor density or signal amplification, but not agonist affinity.  This can be readily observed by using the Dose-Response Visualiser.",
-"Due to the complex effects of the antagonist on the shape and position of the Schild plot, it is unlikely that a derived pA<sub>2</sub> value per se will be an accurate measure of the –logK<sub>B</sub> value.  Alternately, the fitting of experimental agonist dose-response data obtained over a wide range of [allosteric antagonist] to an appropriate model of allosteric antagonism using nonlinear least squares regression analysis may generate reliable K<sub>B</sub> values (and &#946 values) (see Kenakin p428)."]; 
+var answersSchildeff = ["<b>NO</b>, the shape of the Schild plot for an allosteric antagonist that affects agonist efficacy is unlikely to be linear with a slope equal to one.  At lower concentrations of the antagonist, the Schild plot slope is likely to be one or greater, whereas at higher concentrations the slope will be less than one.  These concentration-dependent changes in the slope of the Schild plot ensure that it is typically nonlinear.  This can be readily observed by using the Dose-Response Visualiser.",
+"<b>NO</b>, for an allosteric antagonist that affects agonist efficacy, the shape and position of the Schild plot may be dependent upon the agonist used (unlike competitive antagonists).  This is because allosteric antagonists display ‘probe dependence’, whereby the effects of an allosteric antagonist on the efficacy of the agonist for the orthosteric binding site on the receptor may vary markedly between agonists, i.e. it may be substantial for one agonist but inconsequential for another agonist.  If the allosteric antagonist differentially affects agonist efficacy, then the shape and position of the Schild plot will likely be sensitive to changes in receptor density or signal amplification, but not agonist affinity.  This can be readily observed by using the Dose-Response Visualiser.",
+"Due to the complex effects of the antagonist on the shape and position of the Schild plot, it is <b>unlikely</b> that a derived pA<sub>2</sub> value per se will be an accurate measure of the –logK<sub>B</sub> value.  Alternately, the fitting of experimental agonist dose-response data obtained over a wide range of [allosteric antagonist] to an appropriate model of allosteric antagonism using nonlinear least squares regression analysis may generate reliable K<sub>B</sub> values (and &#946 values) <br>Kenakin (2019), p428."]; 
 
  
 var questionCounterSchildeff = 0;

@@ -1,5 +1,6 @@
 
 var agoconcarr = [0, -9, -8, -7, -6];
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 
 var affirr = document.getElementById("affirrslider").defaultValue;
 var effirr = document.getElementById("effirrslider").defaultValue;
@@ -295,7 +296,10 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity,
         agoconc = 10 ** agoconcentration;
         for (i = -12; i < -2; i = i + STEP) {
             data[0].push(i);
-            data[1].push((((10 ** i)) * efcay * recep * efcey * 100) / (((10 ** i)) * (efcay * recep * efcey + 1 - efcay + (agoconc / agoaffin)) + affin));
+            // new forumla implys removing /affin. 
+            // client deemed new version incorrect with this regard so it was
+            // reintroduced.
+            data[1].push((((10 ** i) / affin) * efcay * recep * efcey * 100) / (((10 ** i) / affin) * (efcay * recep * efcey - efcay + 1 + (agoconc / agoaffin)) + 1 + (agoconc / agoaffin)))
         }
     }
 
@@ -349,7 +353,8 @@ function plotGraphIrr(chart) {
                 name: "[Antagonist] #" + j,
                 line: {
                     color: linecolours[j],
-                    width: 1
+                    width: 1.2,
+                    dash: linestyles[j]
                 }
             }
         }
@@ -391,11 +396,11 @@ var questionsIrr = ["What is the principal effect produced by an irreversible re
     "What other factors might influence the actions of an irreversible antagonist on agonist-induced effects?",
     "Can an irreversible antagonist abolish agonist-induced effects?<br><i>Test this using the Dose Response Visualiser.</i>"];
 
-var answersIrr = ["Irreversible antagonists have profound effects on agonist dose-response curves. <br><div style='text-align:center'><video width='320' height='240' controls><source src='images/Irrev. Antagonist - agonist DR effect.mp4' type='video/mp4'></source></video></div><br> The effect produced by irreversible antagonists is AGONIST-DEPENDENT (unlike competitive antagonists).  For PARTIAL AGONISTS (that need to activate all receptors to produce a sub-maximal response), the primary effect of an irreversible antagonist on the agonist dose-response curve is a REDUCTION IN THE MAXIMUM RESPONSE, with little effect on potency (EC<sub>50</sub> value).  For FULL AGONISTS (that do not need to activate all receptors to produce 100% Emax, i.e. there are spare receptors) the irreversible antagonist will not reduce the maximum effect until there is sufficient antagonism to block that fraction of the receptors required to achieve a maximal response.  Prior to reducing the maximal response, the irreversible antagonist will SHIFT THE FULL AGONIST DOSE-RESPONSE CURVE TO THE RIGHT (higher EC<sub>50</sub>, lower potency).   This effect can be observed using the visualiser.",
-    "An irreversible antagonist with a higher affinity will exert is inhibitory actions at LOWER DOSES than an irreversible antagonist with a lower affinity.  This effect can be observed using the visualiser.",
-    "<b>YES</b>, eventually irreversible antagonists will REDUCE THE MAXIMUM EFFECT induced by the agonist. For partial agonists (that need to activate all receptors to produce a maximal response), the irreversible antagonist will reduce the maximum response.  For full agonists (that do not need to activate all receptors to produce 100% Emax, i.e. there are spare receptors) the irreversible antagonist will not reduce the maximum effect until there is sufficient antagonism to block that fraction of the receptors required to achieve a maximal response.  This effect can be observed using the visualiser.",
+var answersIrr = ["Irreversible antagonists have profound effects on agonist dose-response curves. <br><div style='text-align:center'><video width='320' height='240' controls><source src='images/Irrev. Antagonist - agonist DR effect.mp4' type='video/mp4'></source></video></div><br> The effect produced by irreversible antagonists is <b>AGONIST-DEPENDENT</b> (unlike competitive antagonists).  For <b>PARTIAL AGONISTS</b> (that need to activate all receptors to produce a sub-maximal response), the primary effect of an irreversible antagonist on the agonist dose-response curve is a <b>REDUCTION IN THE MAXIMUM RESPONSE</b>, with little effect on potency (EC<sub>50</sub> value).  For <b>FULL AGONISTS</b> (that do not need to activate all receptors to produce 100% Emax, i.e. there are spare receptors) the irreversible antagonist will not reduce the maximum effect until there is sufficient antagonism to block that fraction of the receptors required to achieve a maximal response.  Prior to reducing the maximal response, the irreversible antagonist will <b>SHIFT THE FULL AGONIST DOSE-RESPONSE CURVE TO THE RIGHT</b> (higher EC<sub>50</sub>, lower potency).   This effect can be observed using the visualiser.",
+    "An irreversible antagonist with a higher affinity will exert is inhibitory actions at <b>LOWER DOSES</b> than an irreversible antagonist with a lower affinity.  This effect can be observed using the visualiser.",
+    "<b>YES</b>, eventually irreversible antagonists will <b>REDUCE THE MAXIMUM EFFECT</b> induced by the agonist. For partial agonists (that need to activate all receptors to produce a maximal response), the irreversible antagonist will reduce the maximum response.  For full agonists (that do not need to activate all receptors to produce 100% Emax, i.e. there are spare receptors) the irreversible antagonist will not reduce the maximum effect until there is sufficient antagonism to block that fraction of the receptors required to achieve a maximal response.  This effect can be observed using the visualiser.",
     "<b>YES</b>, the inhibitory effect of an irreversible antagonist will be greater against agonists with low efficacy and in cells with low signal amplification (<i>&#947</i>) and fewer receptors (R<sub>T</sub>). The magnitude of the inhibitory effect produced by an irreversible antagonist does not depend on the affinity of the agonist. Test this using the Dose Response Visualiser.",
-    "In addition to concentration, the magnitude of the effect produced by an irreversible antagonist is TIME-DEPENDENT – the longer the time the irreversible antagonist is incubated with the receptors the greater the reduction in the number of functional receptors, and the greater reduction in agonist-induced response. ",
+    "In addition to concentration, the magnitude of the effect produced by an irreversible antagonist is <b>TIME-DEPENDENT</b> – the longer the time the irreversible antagonist is incubated with the receptors the greater the reduction in the number of functional receptors, and the greater reduction in agonist-induced response. ",
     "<b>YES</b>, if used at sufficiently high concentration or for a sufficiently long time then the irreversible antagonist can reduce the number of functional receptors to zero, and thereby abolish agonist-induced responses.  This is a point of different between irreversible antagonists and competitive or allosteric antagonists. Test this using the Dose Response Visualiser."];
 
 var questionCounterIrr = 0;
