@@ -1,4 +1,4 @@
-var agoconcarraff = [0, -9, -8, -7];
+var agoconcarraff = [0, -9, -8, -7, -6];
 var affaff = document.getElementById("affaffslider").defaultValue;
 var effaff = document.getElementById("effaffslider").defaultValue;
 var denaff = document.getElementById("denaffslider").defaultValue;
@@ -15,9 +15,11 @@ var antval0aff = document.getElementById("ant0aff").defaultValue;
 var antval1aff = document.getElementById("ant1aff").defaultValue;
 var antval2aff = document.getElementById("ant2aff").defaultValue;
 var antval3aff = document.getElementById("ant3aff").defaultValue;
+var antval4aff = document.getElementById("ant4aff").defaultValue;
 var antlogval1aff = document.getElementById("antlog1aff").defaultValue;
 var antlogval2aff = document.getElementById("antlog2aff").defaultValue;
 var antlogval3aff = document.getElementById("antlog3aff").defaultValue;
+var antlogval4aff = document.getElementById("antlog4aff").defaultValue;
 var affHalfMaxEffect;
 
 $(document).ready(function () {
@@ -60,13 +62,14 @@ function calc50Aff(lineData){
 }
 
 function resetQuantAff(){
-    agoconcarraff = [0, -9, -8, -7];
+    agoconcarraff = [0, -9, -8, -7, -6];
     affaff = document.getElementById("affaffslider").value = document.getElementById("affaffslider").defaultValue;
     effaff = document.getElementById("effaffslider").value = document.getElementById("effaffslider").defaultValue;
     denaff = document.getElementById("denaffslider").value = document.getElementById("denaffslider").defaultValue;
     efficaff = document.getElementById("efficiaffslider").value = document.getElementById("efficiaffslider").defaultValue;
     agoaffaff = document.getElementById("agoaffnumaff").value = document.getElementById("agoaffnumaff").defaultValue;
     agoafflogaff = document.getElementById("agoafflognumaff").value = document.getElementById("agoafflognumaff").defaultValue;
+    agoeffaff = document.getElementById("agoeffaff").value = document.getElementById("agoeffaff").defaultValue;
     efflevelaff = document.getElementById("efflevelaff").value = document.getElementById("efflevelaff").defaultValue;
     document.getElementById("displayeffectaff").innerHTML = (efflevelaff*100).toFixed(2);
     document.getElementById("efftableaff").innerHTML = (efflevelaff*100).toFixed(2);
@@ -75,29 +78,36 @@ function resetQuantAff(){
     antval1aff = document.getElementById("ant1aff").value = document.getElementById("ant1aff").defaultValue;
     antval2aff = document.getElementById("ant2aff").value = document.getElementById("ant2aff").defaultValue;
     antval3aff = document.getElementById("ant3aff").value = document.getElementById("ant3aff").defaultValue;
+    antval4aff = document.getElementById("ant4aff").value = document.getElementById("ant4aff").defaultValue;
     antlogval1aff = document.getElementById("antlog1aff").value = document.getElementById("antlog1aff").defaultValue;
     antlogval2aff = document.getElementById("antlog2aff").value = document.getElementById("antlog2aff").defaultValue;
     antlogval3aff = document.getElementById("antlog3aff").value = document.getElementById("antlog3aff").defaultValue;
+    antlogval4aff = document.getElementById("antlog4aff").value = document.getElementById("antlog4aff").defaultValue;
     lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
     findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
-    updateValidAff(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     /*
     idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
@@ -149,22 +159,27 @@ function updateAffinityAff(value){
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+        lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
         findAffHalfMaxEffect(lineData0);
         halfData0 = calc50Aff(lineData0);
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
         halfData3 = calc50Aff(lineData3);
-        updateValidAff(halfData0, halfData1, halfData2, halfData3);
-        
+        halfData4 = calc50Aff(lineData4);
+        updateValidAff(halfData1, halfData2, halfData3, halfData4);
+
         updateEverythingAff();
         Plotly.animate("quantitativeAff",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+        schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
         Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -182,22 +197,27 @@ function updateEfficacyAff(value){
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+        lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
         findAffHalfMaxEffect(lineData0);
         halfData0 = calc50Aff(lineData0);
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
         halfData3 = calc50Aff(lineData3);
-        updateValidAff(halfData0, halfData1, halfData2, halfData3);
+        halfData4 = calc50Aff(lineData4);
+        updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
         updateEverythingAff();
         Plotly.animate("quantitativeAff",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+        schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
         Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -215,22 +235,27 @@ function updateDensityAff(value){
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+        lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
         findAffHalfMaxEffect(lineData0);
         halfData0 = calc50Aff(lineData0);
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
         halfData3 = calc50Aff(lineData3);
-        updateValidAff(halfData0, halfData1, halfData2, halfData3);
+        halfData4 = calc50Aff(lineData4);
+        updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
         updateEverythingAff();
         Plotly.animate("quantitativeAff",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+        schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
         Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 
@@ -249,22 +274,27 @@ function updateEfficiencyAff(value){
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+        lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
         findAffHalfMaxEffect(lineData0);
         halfData0 = calc50Aff(lineData0);
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
         halfData3 = calc50Aff(lineData3);
-        updateValidAff(halfData0, halfData1, halfData2, halfData3);
-        
+        halfData4 = calc50Aff(lineData4);
+        updateValidAff(halfData1, halfData2, halfData3, halfData4);
+
         updateEverythingAff();
         Plotly.animate("quantitativeAff",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+        schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
         Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 
@@ -278,29 +308,28 @@ function updateAgoAffinityAff(value){
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
     findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
-    updateValidAff(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    /*
-    idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
-    findAffHalfMaxEffect(idealLineData0);
-    idealSchildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], ideallogdr1aff, ideallogdr2aff, ideallogdr3aff);
-    Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
-    */
 }
 
 function updateAgoAffinityLogAff(value){
@@ -311,29 +340,28 @@ function updateAgoAffinityLogAff(value){
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
     findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
-    updateValidAff(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    /*
-    idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
-    findAffHalfMaxEffect(idealLineData0);
-    idealSchildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], ideallogdr1aff, ideallogdr2aff, ideallogdr3aff);
-    Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
-    */
 }
 
 function updateAgoEffAff(value){
@@ -342,24 +370,28 @@ function updateAgoEffAff(value){
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
     findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
-    updateValidAff(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-
 }
 
 function updateAntagonist1Aff(value){
@@ -370,29 +402,28 @@ function updateAntagonist1Aff(value){
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
     findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
-    updateValidAff(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    /*
-    idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
-    findAffHalfMaxEffect(idealLineData0);
-    idealSchildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], ideallogdr1aff, ideallogdr2aff, ideallogdr3aff);
-    Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
-    */
 }
 
 function updateefflevelAff(value){
@@ -410,22 +441,27 @@ function updateefflevelAff(value){
         lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+        lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
         findAffHalfMaxEffect(lineData0);
         halfData0 = calc50Aff(lineData0);
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
         halfData3 = calc50Aff(lineData3);
-        updateValidAff(halfData0, halfData1, halfData2, halfData3);
+        halfData4 = calc50Aff(lineData4);
+        updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
         updateEverythingAff();
         Plotly.animate("quantitativeAff",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-            traces: [0,1,2,3,4,5,6,7], 
+            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+            {x: halfData0[0], y: halfData0[1]}, 
+            {x: halfData1[0], y: halfData1[1]}, 
+            {x: halfData2[0], y: halfData2[1]}, 
+            {x: halfData3[0], y: halfData3[1]},
+            {x: halfData4[0], y: halfData4[1]}],
+            traces: [0,1,2,3,4,5,6,7,8,9], 
             layout: {}
             },animation)
-        schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+        schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
         Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
@@ -438,29 +474,28 @@ function updateAntagonistLog1Aff(value){
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
     findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
-    updateValidAff(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    /*
-    idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
-    findAffHalfMaxEffect(idealLineData0);
-    idealSchildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], ideallogdr1aff, ideallogdr2aff, ideallogdr3aff);
-    Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
-    */
 }
 
 function updateAntagonist2Aff(value){
@@ -471,29 +506,28 @@ function updateAntagonist2Aff(value){
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
     findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
-    updateValidAff(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    /*
-    idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
-    findAffHalfMaxEffect(idealLineData0);
-    idealSchildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], ideallogdr1aff, ideallogdr2aff, ideallogdr3aff);
-    Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
-    */
 }
 
 function updateAntagonistLog2Aff(value){
@@ -504,22 +538,27 @@ function updateAntagonistLog2Aff(value){
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
     findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
-    updateValidAff(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}], 
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     /*
     idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
@@ -537,22 +576,27 @@ function updateAntagonist3Aff(value){
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
     findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
-    updateValidAff(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     /*
     idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
@@ -570,32 +614,96 @@ function updateAntagonistLog3Aff(value){
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
     findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
     halfData3 = calc50Aff(lineData3);
-    updateValidAff(halfData0, halfData1, halfData2, halfData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingAff();
     Plotly.animate("quantitativeAff",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}],
-        traces: [0,1,2,3,4,5,6,7], 
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
         layout: {}
         },animation)
-    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], logdr1aff, logdr2aff, logdr3aff);
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
     Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    /*
-    idealLineData0 = calcLinesIdealAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
-    findAffHalfMaxEffect(idealLineData0);
-    idealSchildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], ideallogdr1aff, ideallogdr2aff, ideallogdr3aff);
-    Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0,1], layout: {}},animation)
-    */
 }
 
-function calcAgoHalfEffectAff(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc){
+function updateAntagonist4Aff(value){
+    antval4aff = value;
+    agoconcarraff[4] = Math.log10(value);
+    document.getElementById("antlog4aff").value = agoconcarraff[4].toFixed(2);
+    lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
+    lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
+    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
+    lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
+    findAffHalfMaxEffect(lineData0);
+    halfData0 = calc50Aff(lineData0);
+    halfData1 = calc50Aff(lineData1);
+    halfData2 = calc50Aff(lineData2);
+    halfData3 = calc50Aff(lineData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
+
+    updateEverythingAff();
+    Plotly.animate("quantitativeAff",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
+        layout: {}
+        },animation)
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
+    Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+}
+
+function updateAntagonistLog4Aff(value){
+    agoconcarraff[4] = value;
+    antval4aff = Math.pow(10, value);
+    document.getElementById("ant4aff").value = antval4aff.toExponential(2);
+    lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
+    lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
+    lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
+    lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
+    lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
+    findAffHalfMaxEffect(lineData0);
+    halfData0 = calc50Aff(lineData0);
+    halfData1 = calc50Aff(lineData1);
+    halfData2 = calc50Aff(lineData2);
+    halfData3 = calc50Aff(lineData3);
+    halfData4 = calc50Aff(lineData4);
+    updateValidAff(halfData1, halfData2, halfData3, halfData4);
+
+    updateEverythingAff();
+    Plotly.animate("quantitativeAff",{
+        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]},{y: lineData4[1]},
+        {x: halfData0[0], y: halfData0[1]}, 
+        {x: halfData1[0], y: halfData1[1]}, 
+        {x: halfData2[0], y: halfData2[1]}, 
+        {x: halfData3[0], y: halfData3[1]},
+        {x: halfData4[0], y: halfData4[1]}],
+        traces: [0,1,2,3,4,5,6,7,8,9], 
+        layout: {}
+        },animation)
+    schildData = calcSchildAff(agoconcarraff[1], agoconcarraff[2], agoconcarraff[3], agoconcarraff[4], logdr1aff, logdr2aff, logdr3aff, logdr4aff);
+    Plotly.animate("schildAff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
+}
+
+function calcAgoHalfEffectAff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, antagconc){
+    /**
     var ago;
     var affin = 10**(-1*affinity);
     var efcay = 10**efficacy;
@@ -603,7 +711,23 @@ function calcAgoHalfEffectAff(affinity, efficacy, recepDensity, efficiency, agoa
     var efcey = 10**efficiency;
     var agoaffin = 10**(-1*agoaffinity);
     var antconc = antagconc;
-    ago = (affHalfMaxEffect*(affin*(1+antconc/agoaffin)))/((efcay*recep*efcey*100)-(affHalfMaxEffect*(efcay*recep*efcey+1)));
+    //past equation
+    //ago = (affHalfMaxEffect*(affin*(1+antconc/agoaffin)))/((efcay*recep*efcey*100)-(affHalfMaxEffect*(efcay*recep*efcey+1)));
+    //equation A4
+    return ago;
+    */
+    var ago
+    var lineData = calcLinesAff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, antagconc);
+    findAffHalfMaxEffect(calcLinesAff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, agoconcarraff[0]));
+    var data50 = calc50Aff(lineData);
+    //console.log(data50[0]);
+    if(10**data50[0] == 1){
+        ago = NaN;
+        //console.log("undefine dectected")
+    }
+    else{
+        ago = 10**(data50[0]);
+    }
     return ago;
 }
 
@@ -615,23 +739,28 @@ function calcDoseRatioAff(presant, absant){
 
 function calcLogDRAff(doseratio){
     var logdr;
-    logdr = Math.log10(doseratio-1);
+    logdr = Math.log(doseratio-1);
     return logdr;
 }
 
 function updateEverythingAff(){
-    anthalfeff0aff = document.getElementById("anteff0aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval0aff).toExponential(2);
-    anthalfeff1aff = document.getElementById("anteff1aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval1aff).toExponential(2);
-    anthalfeff2aff = document.getElementById("anteff2aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval2aff).toExponential(2);
-    anthalfeff3aff = document.getElementById("anteff3aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval3aff).toExponential(2);
+    anthalfeff0aff = document.getElementById("anteff0aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[0]).toExponential(2);
+    anthalfeff1aff = document.getElementById("anteff1aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[1]).toExponential(2);
+    anthalfeff2aff = document.getElementById("anteff2aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[2]).toExponential(2);
+    anthalfeff3aff = document.getElementById("anteff3aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[3]).toExponential(2);
+    anthalfeff4aff = document.getElementById("anteff4aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[4]).toExponential(2);
     
     doseratio1aff = document.getElementById("antdose1aff").value = calcDoseRatioAff(anthalfeff1aff, anthalfeff0aff).toFixed(2);
     doseratio2aff = document.getElementById("antdose2aff").value = calcDoseRatioAff(anthalfeff2aff, anthalfeff0aff).toFixed(2);
     doseratio3aff = document.getElementById("antdose3aff").value = calcDoseRatioAff(anthalfeff3aff, anthalfeff0aff).toFixed(2);
+    doseratio4aff = document.getElementById("antdose4aff").value = calcDoseRatioAff(anthalfeff4aff, anthalfeff0aff).toFixed(2);
     
     logdr1aff = document.getElementById("antlogdr1aff").value = calcLogDRAff(doseratio1aff).toFixed(2);
     logdr2aff = document.getElementById("antlogdr2aff").value = calcLogDRAff(doseratio2aff).toFixed(2);
     logdr3aff = document.getElementById("antlogdr3aff").value = calcLogDRAff(doseratio3aff).toFixed(2);
+    logdr4aff = document.getElementById("antlogdr4aff").value = calcLogDRAff(doseratio4aff).toFixed(2);
+    //updatePropertyTable();
+    updateSchildPropertyTableAff();
 }
 
 
@@ -670,37 +799,7 @@ function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-//Define a function to calculate ideal line, the formulas need to be modified here, this part hasn't been finished yet.
-function calcLinesIdealAff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration){
-    const STEP = 0.01;
-    var data = [[],[]];
-    //Inverse log input values
-
-    var affin = 10**(-1*affinity);
-    var efcay = 10**efficacy;
-    var recep = 10**recepDensity;
-    var efcey = 10**efficiency;
-    var agoaffin = 10**(-1*agoaffinity);
-
-    if(agoconcentration == 0){
-        agoconc = 0;
-        agoaffin = 0;
-        for (i=-12; i<-2;i=i+STEP){
-            data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin));
-        }
-    }
-    else{
-    	agoconc = 10**agoconcentration;
-    	for (i=-12; i<-2;i=i+STEP){
-        	data[0].push(i);
-        	data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin)));
-    	}
-	}
-    return data;
-}
-
-var linecoloursaff = ["#000000", "#ff6666", "#ff3333", "#ff0000"]
+var linecoloursaff = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#ff0000"]
 
 function plotGraphAff(chart){
     var layout = {
@@ -722,7 +821,7 @@ function plotGraphAff(chart){
     }
     var j;
 
-    for(j = 0; j<4; j++){
+    for(j = 0; j<5; j++){
     	var data = []
     	var lineData = calcLinesAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[j])
    		if(j==0){
@@ -756,8 +855,8 @@ function plotGraphAff(chart){
     	Plotly.plot(chart,data,layout, {responsive: true});
 	}
     var i;
-    legendview = [true, false, false, false]
-    for(i = 0; i<4; i++){
+    legendview = [true, false, false, false, false]
+    for(i = 0; i<5; i++){
         var halfData = calcLinesAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[i]);
         findAffHalfMaxEffect(calcLinesAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[0]));
         data50 = calc50Aff(halfData); //plot the 50% effect marker
@@ -781,18 +880,23 @@ function plotGraphAff(chart){
 }
 plotGraphAff("quantitativeAff");
 
-var anthalfeff0aff = document.getElementById("anteff0aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval0aff).toExponential(2);
-var anthalfeff1aff = document.getElementById("anteff1aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval1aff).toExponential(2);
-var anthalfeff2aff = document.getElementById("anteff2aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval2aff).toExponential(2);
-var anthalfeff3aff = document.getElementById("anteff3aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval3aff).toExponential(2);
+var anthalfeff0aff = document.getElementById("anteff0aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[0]).toExponential(2);
+var anthalfeff1aff = document.getElementById("anteff1aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[1]).toExponential(2);
+var anthalfeff2aff = document.getElementById("anteff2aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[2]).toExponential(2);
+var anthalfeff3aff = document.getElementById("anteff3aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[3]).toExponential(2);
+var anthalfeff4aff = document.getElementById("anteff4aff").value = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, agoeffaff, agoconcarraff[4]).toExponential(2);
 
 var doseratio1aff = document.getElementById("antdose1aff").value = calcDoseRatioAff(anthalfeff1aff, anthalfeff0aff).toFixed(2);
 var doseratio2aff = document.getElementById("antdose2aff").value = calcDoseRatioAff(anthalfeff2aff, anthalfeff0aff).toFixed(2);
 var doseratio3aff = document.getElementById("antdose3aff").value = calcDoseRatioAff(anthalfeff3aff, anthalfeff0aff).toFixed(2);
+var doseratio4aff = document.getElementById("antdose4aff").value = calcDoseRatioAff(anthalfeff4aff, anthalfeff0aff).toFixed(2);
 
 var logdr1aff = document.getElementById("antlogdr1aff").value = calcLogDRAff(doseratio1aff).toFixed(2);
 var logdr2aff = document.getElementById("antlogdr2aff").value = calcLogDRAff(doseratio2aff).toFixed(2);
 var logdr3aff = document.getElementById("antlogdr3aff").value = calcLogDRAff(doseratio3aff).toFixed(2);
+var logdr4aff = document.getElementById("antlogdr4aff").value = calcLogDRAff(doseratio4aff).toFixed(2);
+//updatePropertyTable();
+updateSchildPropertyTableAff();
 
 //Define variables for plotting ideal line.
 var idealanthalfeff0aff = calcAgoHalfEffectAff(affaff, effaff, denaff, efficaff, agoafflogaff, antval0aff).toExponential(2);
@@ -821,10 +925,10 @@ function updateValidAff(data0, data1, data2, data3){
     }
 }
 
-function calcSchildAff(logval1,logval2, logval3, dr1, dr2, dr3){ //add 3 other concentrations as args
+function calcSchildAff(logval1,logval2, logval3, logval4, dr1, dr2, dr3, dr4){ //add 3 other concentrations as args
     var data = [[],[]];
-	var allxLogs = [-agoafflog, logval1, logval2, logval3] //x values for the schild
-	var alllogDr1 = [0, dr1, dr2, dr3]
+	var allxLogs = [logval1, logval2, logval3, logval4] //x values for the schild
+	var alllogDr1 = [dr1, dr2, dr3, dr4]
     var xLogs = [];
     var logDr1 = [];
     var j = 0;
@@ -864,12 +968,12 @@ function plotSchildAff(chart){
 	}	
 	var data = []
 
-    var lineData = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, logdr1aff, logdr2aff, logdr3aff);
+    var lineData = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
 	var trace1 = {
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
-        name: 'Actual Line',
+    name:'Real Line',
 		line: {
 			width: 1
 		}
@@ -877,7 +981,11 @@ function plotSchildAff(chart){
 	data.push(trace1);
 
     //Add a ideal line on Schild plot.
-    var lineData2 = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, ideallogdr1aff, ideallogdr2aff, ideallogdr3aff);
+    var lineData2 = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
+    for (i = 0; i < lineData2[1].length; i++){
+        lineData2[1][i] = Number(lineData2[0][i]) + 9;
+        //console.log("loop exed");
+    }
     var trace2 = {
         x: lineData2[0],
         y: lineData2[1],
@@ -889,14 +997,221 @@ function plotSchildAff(chart){
             width: 1
         }
     }
-    data.push(trace2)
+    data.push(trace2);
+
 	
 	Plotly.plot(chart, data, layout, {responsive: true});
 }
 
 plotSchildAff("schildAff");
 
+//Define a function to calculate real line values for Shild Plot Property Table, this part hasn't been finished yet.
+function updateSchildPropertyTableAff(){
+    //Get x values and y values.
+    var tableDataAff = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
+    var xtableDataAff = tableDataAff[0];
+    var ytableDataAff = tableDataAff[1];
+    for (i = 0; i < xtableDataAff.length; i++){
+    xtableDataAff[i] = Number(xtableDataAff[i]);
+    }
+    for (i = 0; i < ytableDataAff.length; i++){
+    ytableDataAff[i] = Number(ytableDataAff[i]);
+    }
 
+    var y1 = ytableDataAff[0];
+    var y2 = ytableDataAff[3]; 
+    var x1 = xtableDataAff[0];
+    var x2 = xtableDataAff[3];
+
+    //Calculate the slope.
+    var slopeValueAff = (y2 - y1) / (x2 - x1);
+    document.getElementById("slopevalueaff").innerHTML = slopeValueAff.toFixed(3);
+    //document.getElementById("slopevalueaff").innerHTML = x1;
+
+    //Calculate pA2 (x-intercept).
+    var bAff = y1 - (slopeValueAff * x1);
+    var pA2ValueAff = (0 - bAff) / slopeValueAff;
+    document.getElementById("pA2valueaff").innerHTML = pA2ValueAff.toFixed(3);
+
+    //Calculate R square.
+
+    //Calculate the mean of x.
+    var xtotal = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+      xtotal += xtableDataAff[i];
+    }
+    var xmean = xtotal/xtableDataAff.length;
+
+    //Calculate the mean of y.
+    var ytotal = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+      ytotal += ytableDataAff[i];
+    }
+    var ymean = ytotal/ytableDataAff.length;
+
+    //Calculate sum of regression.
+    var regressionSum = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+        regressionSum += (xtableDataAff[i] - xmean) * (ytableDataAff[i] - ymean);
+    }
+
+    //Calculate sum of total.
+    var sumx2 = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+        sumx2 += (xtableDataAff[i] - xmean) ** 2;
+    }
+
+    var sumy2 = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+        sumy2 += (ytableDataAff[i] - ymean) ** 2;
+    }
+
+    var totalSum = Math.sqrt(sumx2 * sumy2);
+
+    //Calculate R square value.
+    var rValue = regressionSum/totalSum;
+    var r2ValueAff = rValue ** 2;
+
+    document.getElementById("r2valueaff").innerHTML = r2ValueAff.toFixed(3);
+    //document.getElementById("r2valueaff").innerHTML = xtotal = 0;
+}
+
+/*
+function updatePropertyTable(){
+    // get data of plot point in the shild plot 
+    var tableDataAff = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
+    var xtableDataAff = tableDataAff[0];
+    var ytableDataAff = tableDataAff[1];
+    for (i = 0; i < xtableDataAff.length; i++){
+        xtableDataAff[i] = Number(xtableDataAff[i]);
+    }
+    for (i = 0; i < ytableDataAff.length; i++){
+        ytableDataAff[i] = Number(ytableDataAff[i]);
+    }
+    //slope in this table
+    var slopeValue = (xtableDataAff[2]-xtableDataAff[1])/(ytableDataAff[2]-ytableDataAff[1]);
+    document.getElementById("slopevalueaff").innerHTML = slopeValue.toFixed(1);
+
+    //PA2 value
+    if (0 in xtableDataAff){
+        var index = ytableDataAff.indexOf(0);
+        document.getElementById("pA2valueaff").innerHTML = xtableDataAff[index];
+    } 
+    else {
+        document.getElementById("pA2valueaff").innerHTML = "Not Exist";
+    }
+    //R^2 value
+    //Calculate the mean of x.
+    var xtotal = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+      xtotal += xtableDataAff[i];
+    }
+    var xmean = xtotal/xtableDataAff.length;
+    //Calculate the mean of y.
+    var ytotal = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+      ytotal += ytableDataAff[i];
+    }
+    var ymean = ytotal/ytableDataAff.length;
+    //Calculate sum of regression.
+    var regressionSum = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+        regressionSum += (xtableDataAff[i] - xmean) * (ytableDataAff[i] - ymean);
+    }
+    //Calculate sum of total.
+    var sumx2 = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+        sumx2 += (xtableDataAff[i] - xmean) ** 2;
+    }
+    var sumy2 = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+        sumy2 += (ytableDataAff[i] - ymean) ** 2;
+    }
+
+    var totalSum = Math.sqrt(sumx2 * sumy2);
+
+    //Calculate R square value.
+    var rValue = regressionSum/totalSum;
+    var r2Value = rValue ** 2;
+    document.getElementById("r2valueaff").innerHTML = r2Value.toFixed(2);
+}*/
+//old version here
+/*
+//Define functions to calculate actual line values for Shild Plot Property Table, the formulas need to be modified here, this part hasn't been finished yet.
+//Get x values and y values.
+var tableDataAff = calcSchildAff(antlogval1aff, antlogval2aff, antlogval3aff, antlogval4aff, logdr1aff, logdr2aff, logdr3aff, logdr4aff);
+var xtableDataAff = tableDataAff[0];
+var ytableDataAff = tableDataAff[1];
+for (i = 0; i < xtableDataAff.length; i++){
+    xtableDataAff[i] = Number(xtableDataAff[i]);
+}
+for (i = 0; i < ytableDataAff.length; i++){
+    ytableDataAff[i] = Number(ytableDataAff[i]);
+}
+
+//Calculate slope.
+function calcSlopeValueAff(){
+    var slopeValue = (xtableDataAff[2]-xtableDataAff[1])/(ytableDataAff[2]-ytableDataAff[1]);
+    return slopeValue;
+}
+var slopeValueAff = document.getElementById("slopevalueaff").innerHTML = calcSlopeValueAff().toFixed(1);
+
+//Calculate pA2.
+function calcpA2ValuAff(){
+    if (0 in xtableDataAff){
+        var index = ytableDataAff.indexOf(0);
+        var pA2Value = xtableDataAff[index];
+    } 
+    else {
+        var pA2Value = "Not Exist";
+    }
+    return pA2Value; 
+}
+var pA2ValueAff = document.getElementById("pA2valueaff").innerHTML = calcpA2ValuAff().toFixed(0);
+
+//Calculate R square.
+function calcr2ValueAff(){
+    //Calculate the mean of x.
+    var xtotal = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+      xtotal += xtableDataAff[i];
+    }
+    var xmean = xtotal/xtableDataAff.length;
+
+    //Calculate the mean of y.
+    var ytotal = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+      ytotal += ytableDataAff[i];
+    }
+    var ymean = ytotal/ytableDataAff.length;
+
+    //Calculate sum of regression.
+    var regressionSum = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+        regressionSum += (xtableDataAff[i] - xmean) * (ytableDataAff[i] - ymean);
+    }
+
+    //Calculate sum of total.
+    var sumx2 = 0;
+    for (var i = 0; i < xtableDataAff.length; i++) {
+        sumx2 += (xtableDataAff[i] - xmean) ** 2;
+    }
+
+    var sumy2 = 0;
+    for (var i = 0; i < ytableDataAff.length; i++) {
+        sumy2 += (ytableDataAff[i] - ymean) ** 2;
+    }
+
+    var totalSum = Math.sqrt(sumx2 * sumy2);
+
+    //Calculate R square value.
+    var rValue = regressionSum/totalSum;
+    var r2Value = rValue ** 2;
+
+    return r2Value; 
+}
+var r2ValueAff = document.getElementById("r2valueaff").innerHTML = calcr2ValueAff().toFixed(2);
+*/
 
 function showInstructionsQuant() {
     $('#instructions').modal('show');

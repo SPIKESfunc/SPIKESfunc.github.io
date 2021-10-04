@@ -60,26 +60,30 @@
 				What to do?</button>
 		</p>
 		<!--sub navbar in this page-->
-		<ul class="nav nav-pills nav-justified" role="tablist">
-			<li class="nav-item">
-				<a class="nav-link active" data-toggle="tab" href="#schildcom" onclick=titleCom()>Competitive
-					Antagonist</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" href="#schildirr" onclick=titleIrr()>Irreversible Antagonist</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" href="#schildaff" onclick=titleAff()>Allosteric Antagonist
-					(Affinity)</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" href="#schildeff" onclick=titleEff()>Allosteric Antagonist
-					(Efficacy)</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" href="#schildfun" onclick=titleFun()>Functional Antagonist</a>
-			</li>
-		</ul>
+		<div class="container">
+			<ul class="nav nav-pills nav-justified" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#schildcom" onclick=titleCom()>Competitive
+						Antagonist</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#schildirr" onclick=titleIrr()>Irreversible
+						Antagonist</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#schildaff" onclick=titleAff()>Allosteric Antagonist
+						(Affinity)</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#schildeff" onclick=titleEff()>Allosteric Antagonist
+						(Efficacy)</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#schildfun" onclick=titleFun()>Functional Antagonist</a>
+				</li>
+			</ul>
+		</div>
+
 		<div class="tab-content">
 			<div id="schildcom" class="container tab-pane active">
 				<div class="col col-lg-12">
@@ -344,7 +348,7 @@
 									</div>
 								</div>
 
-								<!--
+
 								<div class="row justify-content-center no-gutters">
 									<div class="col-xs-2 no-gutters">
 										<input class="numbox" type="number" autocomplete="off" name="antagonist4"
@@ -369,10 +373,36 @@
 											id="antlogdr4" readonly>
 									</div>
 								</div>
--->
-
-
 							</fieldset>
+
+							<!-- Schild Plot Property Table goes here -->
+							<fieldset style="width:500px;">
+								<legend class="text-center">Schild Plot Property Table</legend>
+								<div class="row justify-content-center no-gutters" style="height:30px;">
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox" style="text-align: center;">Slope</label>
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox" style="text-align: center;">pA<sub>2</sub>
+											(x-intercept)</label>
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox" style="text-align: center;">R<sup>2</sup></label>
+									</div>
+								</div>
+								<hr>
+								<div class="row justify-content-center no-gutters" style="height:25px;">
+									<div class="col-xs-2 no-gutters">
+										<label class="numbox" name="slope" id="slopevaluecom"
+											style="text-align: center;border: 1px; border-style: solid; border-color: lightgrey;"></label>
+										<label class="numbox" name="pA2" id="pA2valuecom"
+											style="text-align: center; border: 1px; border-style: solid; border-color: lightgrey;"></label>
+										<label class="numbox" name="r2" id="r2valuecom"
+											style="text-align: center; border: 1px; border-style: solid; border-color: lightgrey;"></label>
+									</div>
+								</div>
+							</fieldset>
+
 						</div>
 					</div>
 					<br><br>
@@ -607,12 +637,35 @@
 										<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr3"
 											id="antlogdr3irr" readonly>
 									</div>
-								</div>
-							</fieldset>
 
-							<!-- Actual Line Value Table goes here -->
+									<div class="row justify-content-center no-gutters">
+										<div class="col-xs-2 no-gutters">
+											<input class="numbox" type="number" autocomplete="off" name="antagonist4"
+												id="ant4irr" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-6"
+												oninput="updateAntagonist4Irr(this.value)">
+										</div>
+										<div class="col-xs-2 no-gutters">
+											<input class="numbox" type="number" autocomplete="off" name="antagonistlog4"
+												id="antlog4irr" min="-10" max="-4" step="0.1" value="-6"
+												oninput="updateAntagonistLog4Irr(this.value)">
+										</div>
+										<div class="col-xs-2 no-gutters noHover">
+											<input class="numbox" type="number" autocomplete="off" name="antagonisteff4"
+												id="anteff4irr" readonly>
+										</div>
+										<div class="col-xs-2 no-gutters noHover">
+											<input class="numbox" type="number" autocomplete="off"
+												name="antagonistdose4" id="antdose4irr" readonly>
+										</div>
+										<div class="col-xs-2 no-gutters noHover">
+											<input class="numbox" type="number" autocomplete="off"
+												name="antagonistlogdr4" id="antlogdr4irr" readonly>
+										</div>
+									</div>
+							</fieldset>
+							<!-- Schild Plot Property Table goes here -->
 							<fieldset style="width:500px;">
-								<legend class="text-center">Actual Line Value Table</legend>
+								<legend class="text-center">Schild Plot Property Table</legend>
 								<div class="row justify-content-center no-gutters" style="height:30px;">
 									<div class="col-xs-2 no-gutters">
 										<label class="numbox" style="text-align: center;">Slope</label>
@@ -879,11 +932,35 @@
 											id="antlogdr3aff" readonly>
 									</div>
 								</div>
+								<div class="row justify-content-center no-gutters">
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonist4"
+											id="ant4aff" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-6"
+											oninput="updateAntagonist4Aff(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlog4"
+											id="antlog4aff" min="-10" max="-4" step="0.1" value="-6"
+											oninput="updateAntagonistLog4Aff(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonisteff4"
+											id="anteff4aff" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistdose4"
+											id="antdose4aff" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr4"
+											id="antlogdr4aff" readonly>
+									</div>
+								</div>
 							</fieldset>
 
-							<!-- Actual Line Value Table goes here -->
+							<!-- Schild Plot Property Table goes here -->
 							<fieldset style="width:500px;">
-								<legend class="text-center">Actual Line Value Table</legend>
+								<legend class="text-center">Schild Plot Property Table</legend>
 								<div class="row justify-content-center no-gutters" style="height:30px;">
 									<div class="col-xs-2 no-gutters">
 										<label class="numbox" style="text-align: center;">Slope</label>
@@ -1150,11 +1227,35 @@
 											id="antlogdr3eff" readonly>
 									</div>
 								</div>
+								<div class="row justify-content-center no-gutters">
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonist4"
+											id="ant4eff" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-6"
+											oninput="updateAntagonist4Eff(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlog4"
+											id="antlog4eff" min="-10" max="-4" step="0.1" value="-6"
+											oninput="updateAntagonistLog4Eff(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonisteff4"
+											id="anteff4eff" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistdose4"
+											id="antdose4eff" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr4"
+											id="antlogdr4eff" readonly>
+									</div>
+								</div>
 							</fieldset>
 
-							<!-- Actual Line Value Table goes here -->
+							<!-- Schild Plot Property Table goes here -->
 							<fieldset style="width:500px;">
-								<legend class="text-center">Actual Line Value Table</legend>
+								<legend class="text-center">Schild Plot Property Table</legend>
 								<div class="row justify-content-center no-gutters" style="height:30px;">
 									<div class="col-xs-2 no-gutters">
 										<label class="numbox" style="text-align: center;">Slope</label>
@@ -1417,11 +1518,35 @@
 											id="antlogdr3fun" readonly>
 									</div>
 								</div>
+								<div class="row justify-content-center no-gutters">
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonist4"
+											id="ant4fun" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-6"
+											oninput="updateAntagonist4Fun(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlog4"
+											id="antlog4fun" min="-10" max="-4" step="0.1" value="-6"
+											oninput="updateAntagonistLog4Fun(this.value)">
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonisteff4"
+											id="anteff4fun" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistdose4"
+											id="antdose4fun" readonly>
+									</div>
+									<div class="col-xs-2 no-gutters noHover">
+										<input class="numbox" type="number" autocomplete="off" name="antagonistlogdr4"
+											id="antlogdr4fun" readonly>
+									</div>
+								</div>
 							</fieldset>
 
-							<!-- Actual Line Value Table goes here -->
+							<!-- Schild Plot Property Table goes here -->
 							<fieldset style="width:500px;">
-								<legend class="text-center">Actual Line Value Table</legend>
+								<legend class="text-center">Schild Plot Property Table</legend>
 								<div class="row justify-content-center no-gutters" style="height:30px;">
 									<div class="col-xs-2 no-gutters">
 										<label class="numbox" style="text-align: center;">Slope</label>
