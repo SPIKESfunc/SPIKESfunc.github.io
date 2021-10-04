@@ -10,7 +10,7 @@ var efflevelaff = document.getElementById("efflevelaff").defaultValue;
 document.getElementById("displayeffectaff").innerHTML = (efflevelaff*100).toFixed(2);
 document.getElementById("efftableaff").innerHTML = (efflevelaff*100).toFixed(2);
 var isPointValidaff = [true, true, true, true];
-
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 var antval0aff = document.getElementById("ant0aff").defaultValue;
 var antval1aff = document.getElementById("ant1aff").defaultValue;
 var antval2aff = document.getElementById("ant2aff").defaultValue;
@@ -744,9 +744,10 @@ function plotGraphAff(chart){
         		y: lineData[1],
        			mode: "lines",
        			name: 10**agoconcarraff[j]*1000000000+"nM",
-                line: {
-                    color: linecoloursaff[j],
-                    width: 1
+                   line: {
+                    color: linecolours[j],
+                    width: 1.2,
+                    dash: linestyles[j]
                 },
                 showlegend: false
     		}

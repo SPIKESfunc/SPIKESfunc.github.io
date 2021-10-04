@@ -13,7 +13,7 @@ var efflevelfun = document.getElementById("efflevelfun").defaultValue;
 document.getElementById("displayeffectfun").innerHTML = (efflevelfun*100).toFixed(2);
 document.getElementById("efftablefun").innerHTML = (efflevelfun*100).toFixed(2);
 var isPointValidfun = [true, true, true, true];
-
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 var antval0fun = document.getElementById("ant0fun").defaultValue;
 var antval1fun = document.getElementById("ant1fun").defaultValue;
 var antval2fun = document.getElementById("ant2fun").defaultValue;
@@ -803,9 +803,10 @@ function plotGraphFun(chart){
         		y: lineData[1],
        			mode: "lines",
        			name: 10**agoconcarrfun[j]*1000000000+"nM",
-                line: {
-                    color: linecoloursfun[j],
-                    width: 1
+                   line: {
+                    color: linecolours[j],
+                    width: 1.2,
+                    dash: linestyles[j]
                 },
                 showlegend: false
     		}
