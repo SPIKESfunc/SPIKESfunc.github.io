@@ -1,5 +1,6 @@
 
 var agoconcarr = [0, -9, -8, -7, -6];
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 
 var affirr = document.getElementById("affirrslider").defaultValue;
 var effirr = document.getElementById("effirrslider").defaultValue;
@@ -295,7 +296,10 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity,
         agoconc = 10 ** agoconcentration;
         for (i = -12; i < -2; i = i + STEP) {
             data[0].push(i);
-            data[1].push((((10 ** i)) * efcay * recep * efcey * 100) / (((10 ** i)) * (efcay * recep * efcey + 1 - efcay + (agoconc / agoaffin)) + affin));
+            // new forumla implys removing /affin. 
+            // client deemed new version incorrect with this regard so it was
+            // reintroduced.
+            data[1].push((((10 ** i) / affin) * efcay * recep * efcey * 100) / (((10 ** i) / affin) * (efcay * recep * efcey - efcay + 1 + (agoconc / agoaffin)) + 1 + (agoconc / agoaffin)))
         }
     }
 
@@ -349,7 +353,8 @@ function plotGraphIrr(chart) {
                 name: "[Antagonist] #" + j,
                 line: {
                     color: linecolours[j],
-                    width: 1
+                    width: 1.2,
+                    dash: linestyles[j]
                 }
             }
         }

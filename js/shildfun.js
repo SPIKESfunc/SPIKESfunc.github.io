@@ -13,7 +13,7 @@ var efflevelfun = document.getElementById("efflevelfun").defaultValue;
 document.getElementById("displayeffectfun").innerHTML = (efflevelfun*100).toFixed(2);
 document.getElementById("efftablefun").innerHTML = (efflevelfun*100).toFixed(2);
 var isPointValidfun = [true, true, true, true];
-
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 var antval0fun = document.getElementById("ant0fun").defaultValue;
 var antval1fun = document.getElementById("ant1fun").defaultValue;
 var antval2fun = document.getElementById("ant2fun").defaultValue;
@@ -124,16 +124,16 @@ function graphRemoveAlertFun(div){
 //
 function checkSliderMinFun(){
     let ret = false;
-    if(document.getElementById("afffunslider1").value == 4){
+    if(document.getElementById("afffunslider1").value == 5){
         ret = true
     }
-    if(document.getElementById("efffunslider1").value == 0.04){
+    if(document.getElementById("efffunslider1").value == -0.7){
         ret = true
     }
-    if(document.getElementById("denfunslider1").value == 0.04){
+    if(document.getElementById("denfunslider1").value == -1){
         ret = true
     }
-    if(document.getElementById("efficifunslider1").value == 0.04){
+    if(document.getElementById("efficifunslider1").value == 0){
         ret = true
     }
     if(document.getElementById("efflevelfun").value == 0){
@@ -683,7 +683,8 @@ function updateEverythingFun(){
     logdr2fun = document.getElementById("antlogdr2fun").value = calcLogDRFun(doseratio2fun).toFixed(2);
     logdr3fun = document.getElementById("antlogdr3fun").value = calcLogDRFun(doseratio3fun).toFixed(2);
 }
-function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoefficacy, agoconcentration, agodensity, agoefficiency){
+
+function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoefficacy, agodensity, agoefficiency, agoconcentration){
     const STEP = 0.01;
     var data = [[],[]];
     //Inverse log input values
@@ -803,9 +804,10 @@ function plotGraphFun(chart){
         		y: lineData[1],
        			mode: "lines",
        			name: 10**agoconcarrfun[j]*1000000000+"nM",
-                line: {
-                    color: linecoloursfun[j],
-                    width: 1
+                   line: {
+                    color: linecolours[j],
+                    width: 1.2,
+                    dash: linestyles[j]
                 },
                 showlegend: false
     		}

@@ -9,7 +9,7 @@ var efflevelirr = document.getElementById("efflevelirr").defaultValue;
 document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
 document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
 var isPointValidirr = [true, true, true, false];
-
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 
 var antval0irr = document.getElementById("ant0irr").defaultValue;
 var antval1irr = document.getElementById("ant1irr").defaultValue;
@@ -633,7 +633,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity,
         agoconc = 10 ** agoconcentration;
         for (i = -12; i < -2; i = i + STEP) {
             data[0].push(i);
-            data[1].push((((10 ** i)) * efcay * recep * efcey * 100) / (((10 ** i)) * (efcay * recep * efcey + 1 - efcay + (agoconc / agoaffin)) + affin));
+            data[1].push((((10 ** i) / affin) * efcay * recep * efcey * 100) / (((10 ** i) / affin) * (efcay * recep * efcey - efcay + 1 + (agoconc / agoaffin)) + 1 + (agoconc / agoaffin)))
         }
     }
 
@@ -714,9 +714,10 @@ function plotGraphIrr(chart){
         		y: lineData[1],
        			mode: "lines",
        			name: 10**agoconcarrirr[j]*1000000000+"nM",
-                line: {
-                    color: linecoloursirr[j],
-                    width: 1
+                   line: {
+                    color: linecolours[j],
+                    width: 1.2,
+                    dash: linestyles[j]
                 },
                 showlegend: false
     		}
