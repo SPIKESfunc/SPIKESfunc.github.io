@@ -903,11 +903,31 @@ function plotSchildIrr(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
+        name: 'Real Line',
 		line: {
 			width: 1
 		}
 	}
 	data.push(trace1);
+
+    //Add a ideal line on Schild plot.
+    var lineData2 = calcSchildIrr(antlogval1irr, antlogval2irr, antlogval3irr, antlogval4irr, logdr1irr, logdr2irr, logdr3irr, logdr4irr);
+    for (i = 0; i < lineData2[1].length; i++){
+        lineData2[1][i] = Number(lineData2[0][i]) + 9;
+        console.log("loop exed");
+    }
+    var trace2 = {
+        x: lineData2[0],
+        y: lineData2[1],
+        mode: 'lines',
+        name: 'Ideal Line',
+        line: {
+            dash: 'dot',
+            color:'black',
+            width: 1
+        }
+    }
+    data.push(trace2);
 	
 	Plotly.plot(chart, data, layout, {responsive: true});
 }

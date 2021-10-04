@@ -708,6 +708,8 @@ function updateEverything() {
     logdr2 = document.getElementById("antlogdr2").value = calcLogDR(doseratio2).toFixed(2);
     logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3).toFixed(2);
     logdr4 = document.getElementById("antlogdr4").value = calcLogDR(doseratio4).toFixed(2);
+
+    updateSchildPropertyTableCom();
 }
 
 function calcLinesCom(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration) {
@@ -841,6 +843,8 @@ var logdr2 = document.getElementById("antlogdr2").value = calcLogDR(doseratio2).
 var logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3).toFixed(2);
 var logdr4 = document.getElementById("antlogdr4").value = calcLogDR(doseratio4).toFixed(2);
 
+updateSchildPropertyTableCom();
+
 function updateValid(data0, data1, data2, data3) {
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
 
@@ -913,40 +917,31 @@ function plotSchild(chart) {
 
 plotSchild("schild");
 
-//Define functions to calculate actual line values for Shild Plot Property Table, the formulas need to be modified here, this part hasn't been finished yet.
-//Get x values and y values.
-var tableDataCom = calcSchild(antlogval1, antlogval2, antlogval3, antlogval4, logdr1, logdr2, logdr3, logdr4);
-var xtableDataCom = tableDataCom[0];
-var ytableDataCom = tableDataCom[1];
-for (i = 0; i < xtableDataCom.length; i++){
-    xtableDataCom[i] = Number(xtableDataCom[i]);
-}
-for (i = 0; i < ytableDataCom.length; i++){
-    ytableDataCom[i] = Number(ytableDataCom[i]);
-}
-
-//Calculate the slope.
-function calcSlopeValueCom(){
-    var slopeValue = (xtableDataCom[2]-xtableDataCom[1])/(ytableDataCom[2]-ytableDataCom[1]);
-    return slopeValue;
-}
-var slopeValueCom = document.getElementById("slopevaluecom").innerHTML = calcSlopeValueCom().toFixed(1);
-
-//Calculate pA2.
-function calcpA2ValuCom(){
-    if (0 in xtableDataCom){
-        var index = ytableDataCom.indexOf(0);
-        var pA2Value = xtableDataCom[index];
-    } 
-    else {
-        var pA2Value = "Not Exist";
+//Define a function to calculate real line values for Shild Plot Property Table, the formulas need to be modified here, this part hasn't been finished yet.
+function updateSchildPropertyTableCom(){
+    //Get x values and y values.
+    var tableDataCom = calcSchild(antlogval1, antlogval2, antlogval3, antlogval4, logdr1, logdr2, logdr3, logdr4);
+    var xtableDataCom = tableDataCom[0];
+    var ytableDataCom = tableDataCom[1];
+    for (i = 0; i < xtableDataCom.length; i++){
+        xtableDataCom[i] = Number(xtableDataCom[i]);
     }
-    return pA2Value; 
-}
-var pA2ValueCom = document.getElementById("pA2valuecom").innerHTML = calcpA2ValuCom().toFixed(0);
+    for (i = 0; i < ytableDataCom.length; i++){
+        ytableDataCom[i] = Number(ytableDataCom[i]);
+    }
 
-//Calculate R square.
-function calcr2ValueCom(){
+    //Calculate the slope.
+    var slopeValueCom = (ytableDataCom[3] - ytableDataCom[2]) / (xtableDataCom[3] - xtableDataCom[2]);
+    document.getElementById("slopevaluecom").innerHTML = slopeValueCom.toFixed(3);
+    //document.getElementById("slopevaluecom").innerHTML = xtableDataCom[3];
+
+    //Calculate pA2.
+    var bCom = ytableDataCom[0] - (slopeValueCom * xtableDataCom[0]);
+    var pA2ValueCom = (0 - bCom) / slopeValueCom;
+    document.getElementById("pA2valuecom").innerHTML = pA2ValueCom.toFixed(3);
+
+    //Calculate R square.
+
     //Calculate the mean of x.
     var xtotal = 0;
     for (var i = 0; i < xtableDataCom.length; i++) {
@@ -982,11 +977,10 @@ function calcr2ValueCom(){
 
     //Calculate R square value.
     var rValue = regressionSum/totalSum;
-    var r2Value = rValue ** 2;
+    var r2ValueCom = rValue ** 2;
 
-    return r2Value; 
+    document.getElementById("r2valuecom").innerHTML = r2ValueCom.toFixed(3);
 }
-var r2ValueCom = document.getElementById("r2valuecom").innerHTML = calcr2ValueCom().toFixed(2);
 
 function showInstructionsQuant() {
     $('#instructions').modal('show');

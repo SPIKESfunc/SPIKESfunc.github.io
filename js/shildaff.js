@@ -990,14 +990,14 @@ function updateSchildPropertyTableAff(){
     var x2 = xtableDataAff[3];
     var x1 = xtableDataAff[0];
 
-    slopeValueAff = (y2 - y1) / (x2 - x1);
-    //document.getElementById("slopevalueaff").innerHTML = slopeValueAff.toFixed(3);
-    document.getElementById("slopevalueaff").innerHTML = x1;
+    var slopeValueAff = (y2 - y1) / (x2 - x1);
+    document.getElementById("slopevalueaff").innerHTML = slopeValueAff.toFixed(3);
+    //document.getElementById("slopevalueaff").innerHTML = x1;
 
     //Calculate pA2.
     var bAff = y1 - (slopeValueAff * x1);
     var pA2ValueAff = (0 - bAff) / slopeValueAff;
-    document.getElementById("pA2valueaff").innerHTML = pA2ValueAff.toFixed(3);
+    document.getElementById("pA2valueaff").innerHTML = bAff.toFixed(3);
 
     //Calculate R square.
 
