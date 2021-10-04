@@ -11,6 +11,7 @@ document.getElementById("antcoopeff").value =
   Math.round(10 ** -agoeffeff * Math.pow(10, 3)) / Math.pow(10, 3);
 
 var agoconcarr = [0, -9, -8, -7, -6];
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 
 var animation = {
   transition: {
@@ -824,8 +825,9 @@ function plotGraphEff(chart) {
         name:"[Antagonist] #" + j,
         line: {
           color: linecolours[j],
-          width: 1
-        }
+          width: 1.2,
+          dash: linestyles[j]
+      }
       };
     }
     data.push(graph);

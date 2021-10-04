@@ -1,5 +1,6 @@
 
 var agoconcarr = [0, -9, -8, -7, -6];
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 
 var affirr = document.getElementById("affirrslider").defaultValue;
 var effirr = document.getElementById("effirrslider").defaultValue;
@@ -352,7 +353,8 @@ function plotGraphIrr(chart) {
                 name: "[Antagonist] #" + j,
                 line: {
                     color: linecolours[j],
-                    width: 1
+                    width: 1.2,
+                    dash: linestyles[j]
                 }
             }
         }

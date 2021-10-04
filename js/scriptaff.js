@@ -10,6 +10,7 @@ document.getElementById("antcoopaff").value = Math.round(10**(-agoeffaff) * Math
 var agoconcarr = [0, -9, -8, -7, -6];
 var calc50aff;
 var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"];
+var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 var lineData0;
 var lineData1;
 var lineData2;
@@ -377,7 +378,8 @@ function plotGraphAff(chart){
                 name: "[Antagonist] #" + j,
                 line: {
                     color: linecolours[j],
-                    width: 1
+                    width: 1.2,
+                    dash: linestyles[j]
                 }
             }
         }
