@@ -1089,7 +1089,7 @@ function calcIdealSchildFun(logval1, logval2, logval3, logval4){
     var j = 0;
 
     for(i = 0; i<4; i++){
-        if(isPointValidafun[i]){
+        if(isPointValidfun[i]){
             xLogs[j] =  allxLogs[i];
             logDr1[j] = alllogDr1[i];
             j++;
@@ -1134,7 +1134,7 @@ function plotSchildFun(chart) {
     }
     data.push(trace1);
 
-    /*
+
     //Add a ideal line on Schild plot, this part still has some small issues need to be fixed.
     var lineData2 = calcIdealSchildFun(antlogval1fun, antlogval2fun, antlogval3fun, antlogval4fun);
     var trace2 = {
@@ -1148,7 +1148,7 @@ function plotSchildFun(chart) {
             width: 1
         }
     }
-    data.push(trace2);*/
+    data.push(trace2);
     //console.log("loop exed");
 
     Plotly.plot(chart, data, layout, { responsive: true });
