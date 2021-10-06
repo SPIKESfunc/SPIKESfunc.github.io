@@ -98,6 +98,8 @@ function resetQuantEff(){
     updateValidEff(halfData1, halfData2, halfData3, halfData4);
 
     updateEverythingEff();
+    graphRemoveAlertAff("quantalertAff");
+    Plotly.restyle("quantitativeAff", 'visible', true);
     Plotly.animate("quantitativeEff",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
         {x: halfData0[0], y: halfData0[1]}, 

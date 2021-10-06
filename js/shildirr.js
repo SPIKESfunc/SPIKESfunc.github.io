@@ -97,9 +97,11 @@ function resetQuantIrr(){
     halfData3 = calc50Irr(lineData3);
     halfData4 = calc50Irr(lineData4);
     updateValidIrr(halfData1, halfData2, halfData3, halfData4);
-
+    
     updateEverythingIrr();
-    Plotly.animate("quantitativeIrr",{
+    graphRemoveAlert("quantalertIrr");
+    Plotly.restyle("quantitativeIrr", 'visible', true);
+        Plotly.animate("quantitativeIrr",{
         data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
         {x: halfData0[0], y: halfData0[1]}, 
         {x: halfData1[0], y: halfData1[1]}, 
