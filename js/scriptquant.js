@@ -96,7 +96,8 @@ function resetQuant() {
     halfData3 = calc50(lineData3);
     halfData4 = calc50(lineData4);
     updateValid(halfData1, halfData2, halfData3, halfData4);
-
+    graphRemoveAlert("quantalert");
+    Plotly.restyle("quantitative", 'visible', true);
     updateEverything();
     Plotly.animate("quantitative", {
         data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
