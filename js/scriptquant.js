@@ -694,6 +694,12 @@ function calcLogDR(doseratio) {
 }
 
 function updateEverything() {
+
+    antlogval1 = document.getElementById("antlog1").value;
+    antlogval2 = document.getElementById("antlog2").value;
+    antlogval3 = document.getElementById("antlog3").value;
+    antlogval4 = document.getElementById("antlog4").value;
+    
     anthalfeff0 = document.getElementById("anteff0").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval0).toExponential(2);
     anthalfeff1 = document.getElementById("anteff1").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval1).toExponential(2);
     anthalfeff2 = document.getElementById("anteff2").value = calcAgoHalfEffect(affcom, effcom, dencom, efficcom, agoafflog, antval2).toExponential(2);
@@ -846,8 +852,6 @@ var logdr2 = document.getElementById("antlogdr2").value = calcLogDR(doseratio2).
 var logdr3 = document.getElementById("antlogdr3").value = calcLogDR(doseratio3).toFixed(2);
 var logdr4 = document.getElementById("antlogdr4").value = calcLogDR(doseratio4).toFixed(2);
 
-updateSchildPropertyTableCom();
-
 function updateValid(data0, data1, data2, data3) {
     var validdata = [data0[0], data1[0], data2[0], data3[0]];
 
@@ -920,70 +924,80 @@ function plotSchild(chart) {
 
 plotSchild("schild");
 
-//Define a function to calculate real line values for Shild Plot Property Table, this part hasn't been finished yet.
+//Define a function to calculate real line properties for Shild Plot Property Table, this part still has some small issues need to be fixed.
 function updateSchildPropertyTableCom(){
     //Get x values and y values.
     var tableDataCom = calcSchild(antlogval1, antlogval2, antlogval3, antlogval4, logdr1, logdr2, logdr3, logdr4);
     var xtableDataCom = tableDataCom[0];
     var ytableDataCom = tableDataCom[1];
-    for (i = 0; i < xtableDataCom.length; i++){
+
+    var numberofxCom = xtableDataCom.length;
+    var numberofyCom = ytableDataCom.length;
+    for (i = 0; i < numberofxCom; i++){
         xtableDataCom[i] = Number(xtableDataCom[i]);
-    }
-    for (i = 0; i < ytableDataCom.length; i++){
         ytableDataCom[i] = Number(ytableDataCom[i]);
     }
 
-    //Calculate the slope.
-    var slopeValueCom = (ytableDataCom[3] - ytableDataCom[2]) / (xtableDataCom[3] - xtableDataCom[2]);
-    document.getElementById("slopevaluecom").innerHTML = slopeValueCom.toFixed(3);
-    //document.getElementById("slopevaluecom").innerHTML = xtableDataCom[3];
+    var x1 = xtableDataCom[0];
+    var x2 = xtableDataCom[numberofxCom-1];
+    var y1 = ytableDataCom[0];
+    var y2 = ytableDataCom[numberofyCom-1]; 
 
-    //Calculate pA2.
-    var bCom = ytableDataCom[0] - (slopeValueCom * xtableDataCom[0]);
-    var pA2ValueCom = (0 - bCom) / slopeValueCom;
-    document.getElementById("pA2valuecom").innerHTML = pA2ValueCom.toFixed(3);
-
-    //Calculate R square.
-
-    //Calculate the mean of x.
-    var xtotal = 0;
-    for (var i = 0; i < xtableDataCom.length; i++) {
-      xtotal += xtableDataCom[i];
+    if(isFinite(y1) == false){
+        document.getElementById("slopevaluecom").innerHTML = "NA";
+        document.getElementById("pA2valuecom").innerHTML = "NA";
+        document.getElementById("r2valuecom").innerHTML = "NA";
+        document.getElementById("notecom").innerHTML = "Note: Values are not avaliable (NA), becasue log(Dr-1) values are infinity.";
     }
-    var xmean = xtotal/xtableDataCom.length;
+    else{
+        //Calculate the slope.
+        var slopeValueCom = (y2 - y1) / (x2 - x1);
+        document.getElementById("slopevaluecom").innerHTML = slopeValueCom.toFixed(3);
 
-    //Calculate the mean of y.
-    var ytotal = 0;
-    for (var i = 0; i < ytableDataCom.length; i++) {
-      ytotal += ytableDataCom[i];
+        //Calculate pA2 (x-intercept).
+        var bCom = y1 - (slopeValueCom * x1);
+        var pA2ValueCom = (0 - bCom) / slopeValueCom;
+        document.getElementById("pA2valuecom").innerHTML = pA2ValueCom.toFixed(3);
+
+        //Calculate R square.
+
+        //Calculate the mean of x and y.
+        var xtotal = 0;
+        var ytotal = 0;
+        for (var i = 0; i < numberofxCom; i++) {
+            xtotal += xtableDataCom[i];
+            ytotal += ytableDataCom[i];
+        }
+        var xmean = xtotal/numberofxCom;
+        var ymean = ytotal/numberofyCom;
+        
+        //Calculate sum of regression.
+        var regressionSum = 0;
+        for (var i = 0; i < numberofxCom; i++) {
+            regressionSum += (xtableDataCom[i] - xmean) * (ytableDataCom[i] - ymean);
+        }
+
+        //Calculate sum of total.
+        var sumx2 = 0;
+        var sumy2 = 0;
+        for (var i = 0; i < numberofxCom; i++) {
+            sumx2 += (xtableDataCom[i] - xmean) ** 2;
+            sumy2 += (ytableDataCom[i] - ymean) ** 2;
+        }
+        var totalSum = Math.sqrt(sumx2 * sumy2);
+
+        //Calculate R square value.
+        var rValue = regressionSum/totalSum;
+        var r2ValueCom = rValue ** 2;
+
+        document.getElementById("r2valuecom").innerHTML = r2ValueCom.toFixed(3);
+
+        document.getElementById("notecom").innerHTML = "Note: Values are avaliable now.";
     }
-    var ymean = ytotal/ytableDataCom.length;
-
-    //Calculate sum of regression.
-    var regressionSum = 0;
-    for (var i = 0; i < xtableDataCom.length; i++) {
-        regressionSum += (xtableDataCom[i] - xmean) * (ytableDataCom[i] - ymean);
-    }
-
-    //Calculate sum of total.
-    var sumx2 = 0;
-    for (var i = 0; i < xtableDataCom.length; i++) {
-        sumx2 += (xtableDataCom[i] - xmean) ** 2;
-    }
-
-    var sumy2 = 0;
-    for (var i = 0; i < ytableDataCom.length; i++) {
-        sumy2 += (ytableDataCom[i] - ymean) ** 2;
-    }
-
-    var totalSum = Math.sqrt(sumx2 * sumy2);
-
-    //Calculate R square value.
-    var rValue = regressionSum/totalSum;
-    var r2ValueCom = rValue ** 2;
-
-    document.getElementById("r2valuecom").innerHTML = r2ValueCom.toFixed(3);
+    
 }
+
+updateSchildPropertyTableCom();
 
 function showInstructionsQuant() {
     $('#instructions').modal('show');
