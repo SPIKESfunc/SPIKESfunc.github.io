@@ -11,7 +11,10 @@ document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixe
 document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
 
 var isPointValideff = [true, false, false, false];
+var allmarkercolourseff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var markercolourseff = ['rgb(255,215,0)'];
 var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+
 var antval0eff = document.getElementById("ant0eff").defaultValue;
 var antval1eff = document.getElementById("ant1eff").defaultValue;
 var antval2eff = document.getElementById("ant2eff").defaultValue;
@@ -755,7 +758,7 @@ function calcDoseRatioEff(presant, absant){
 
 function calcLogDREff(doseratio){
     var logdr;
-    logdr = Math.log(doseratio-1);
+    logdr = Math.log10(doseratio-1);
     return logdr;
 }
 
@@ -836,7 +839,7 @@ function calcLinesEff(
   }
 
 
-var linecolourseff = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#ff0000"]
+var linecolourseff = ['rgb(0,0,0)','rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 function plotGraphEff(chart){
     var layout = {
@@ -901,7 +904,7 @@ function plotGraphEff(chart){
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "EC Value",
+            name: "Level of Effect",
             marker: {
                 color: "red",
                 size: dotsize,
@@ -944,6 +947,19 @@ function updateValidEff(data0, data1, data2, data3){
             isPointValideff[i] = false;
         }
     }
+
+    markercolourseff = [];
+    for (j = 0; j < 4; j++) {
+        if (isPointValideff[j]){
+            markercolourseff.push(allmarkercolourseff[j]);
+        }
+    }
+    var update = {
+        marker :{
+            color: markercolourseff,
+        }
+    };
+    Plotly.restyle("schildEff", update, 0);
 }
 
 function calcSchildEff(logval1,logval2, logval3, logval4, dr1, dr2, dr3, dr4){ //add 3 other concentrations as args
@@ -1021,10 +1037,15 @@ function plotSchildEff(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
-    name: 'Real Line',
+        name: 'Real Line',
 		line: {
-			width: 1
-		}
+            width: 1,
+            color: 'rgb(0,0,0)',
+        },
+        marker: {
+            color: markercolourseff,
+            size: 7,
+        }
 	}
 	data.push(trace1);
 

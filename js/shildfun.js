@@ -12,8 +12,12 @@ var agoafflogfun = -1 * Math.log10(afffun2);
 var efflevelfun = document.getElementById("efflevelfun").defaultValue;
 document.getElementById("displayeffectfun").innerHTML = (efflevelfun * 100).toFixed(2);
 document.getElementById("efftablefun").innerHTML = (efflevelfun * 100).toFixed(2);
-var isPointValidfun = [true, true, true, true];
+
+var isPointValidfun = [true, true, false, false];
+var allmarkercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var markercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)'];
 var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+
 var antval0fun = document.getElementById("ant0fun").defaultValue;
 var antval1fun = document.getElementById("ant1fun").defaultValue;
 var antval2fun = document.getElementById("ant2fun").defaultValue;
@@ -820,7 +824,7 @@ function calcDoseRatioFun(presant, absant) {
 //
 function calcLogDRFun(doseratio) {
     var logdr;
-    logdr = Math.log(doseratio - 1);
+    logdr = Math.log10(doseratio - 1);
     return logdr;
 }
 //
@@ -940,7 +944,7 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-var linecoloursfun = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#ff0000"]
+var linecoloursfun = ['rgb(0,0,0)','rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 //
 function plotGraphFun(chart) {
@@ -1006,7 +1010,7 @@ function plotGraphFun(chart) {
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "EC Value",
+            name: "Level of Effect",
             marker: {
                 color: "red",
                 size: dotsize,
@@ -1050,6 +1054,19 @@ function updateValidFun(data0, data1, data2, data3) {
             isPointValidfun[i] = false;
         }
     }
+
+    markercoloursfun = [];
+    for (j = 0; j < 4; j++) {
+        if (isPointValidfun[j]){
+            markercoloursfun.push(allmarkercoloursfun[j]);
+        }
+    }
+    var update = {
+        marker :{
+            color: markercoloursfun,
+        }
+    };
+    Plotly.restyle("schildFun", update, 0);
 }
 
 function calcSchildFun(logval1, logval2, logval3, logval4, dr1, dr2, dr3, dr4) { //add 3 other concentrations as args
@@ -1129,7 +1146,12 @@ function plotSchildFun(chart) {
         mode: 'lines+markers',
         name: 'Real Line',
         line: {
-            width: 1
+            width: 1,
+            color: 'rgb(0,0,0)',
+        },
+        marker: {
+            color: markercoloursfun,
+            size: 7,
         }
     }
     data.push(trace1);
