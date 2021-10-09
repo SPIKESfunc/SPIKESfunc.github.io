@@ -12,6 +12,16 @@
 	<!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 
+	<style>
+		p {
+			text-align: left;
+		}
+
+		ol {
+			text-align: left;
+		}
+	</style>
+
 	<link href="css/stylesheet.css" rel="stylesheet">
 
 </head>
@@ -35,7 +45,7 @@
 
 	<div id="page" class="container box-size bg-box p-4">
 		<div class="col-lg-12 text-center" id="quizsection">
-			<h2> Non Linear Schild Informational Page</h2>
+			<h2 id="top"> Non Linear Schild Informational Page</h2>
 		</br>
 		<!-- Starting image and clickable content. -->
 			<h3> Click a plot to learn more about it! </h3> <br>
@@ -49,10 +59,12 @@
 				<area target="" alt="nonlinear2" title="nonlinear2" href="#nonlinear2" coords="327,358,644,627" shape="rect">
 			</map> <br>
 
+			<h2 style="padding: 40px;"> Plot Descriptions</h2>
+
 			<!-- Linear info 1 -->
 			<fieldset style="padding: 5%;" id="linear1">
 				<h3> <b>1#</b> Schild plot is linear with a slope not significantly different from 1.0 (Ideal Schild Plot) </h3> <br>
-				<img src="images/nonlinear/linear1.png">
+				<img style="padding-right: 100px;" src="images/nonlinear/linear1.png">
 				
 				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
 
@@ -74,12 +86,15 @@
 				<p>
 					When used in conjunction with receptor-selective antagonists, the Schild analysis offers a powerful method for characterising receptor function in cells and tissues.
 				</p>
+
+				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+
 			</fieldset> <br> <br>
 
 			<!-- Linear info 2 -->
 			<fieldset style="padding: 5%;" id="linear2">
 				<h3> <b>2#</b> Schild plot is linear with unit slope, but generates unreliable pA2 values </h3> <br>
-				<img src="images/nonlinear/linear2.png">
+				<img style="padding-right: 100px;" src="images/nonlinear/linear2.png">
 				
 				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
 
@@ -90,9 +105,8 @@
 					However, there are instances whereby linear Schild plots with unit slope have generated pA2 values that are not accurate estimates of the actual affinity of the antagonist for the receptor (-logKB value).  There are several mechanisms through which this phenomenon might occur, including the following.
 				</p>
 				
-				<p>
-					<span style="color: black;"> <b>(i)</b>  </span> <span style="color: blue;"> The competitive antagonist has not been equilibrated with the tissue for sufficient time</span>
-				</p>
+		
+				<span style="color: black;"> <b>(i)</b>  </span> <span style="color: blue;"> The competitive antagonist has not been equilibrated with the tissue for sufficient time</span>
 
 				<p>
 					If an antagonist cannot readily penetrate into a tissue (diffusion is a rate-limiting step), then the use of shorter-than-optimum equilibration times will generate Schild plots that are positioned to the right of plots obtained when longer, more appropriate equilibration times have been used (see Kenakin, 1982, p258).  Thus, the effect of a shorter-than-optimum equilibration time will be to under-estimate both the pA2 and affinity of the antagonist.  Of course, <i> this issue can be remedied by increasing the period of exposure of the antagonist such that complete equilibration of the antagonist with the receptor is achieved. </i>
@@ -103,6 +117,132 @@
 				<p>
 					It is often necessary to use additional drugs in Schild plot studies e.g. to inhibit uptake processes, degradative enzymes, and/or other receptor subtypes. If an additional drug, for example an uptake inhibitor, also possesses considerable receptor blocking activity, then the Schild plot for the competitive antagonist will be displaced to the right (proportional to the concentration of the uptake inhibitor).  Such an effect will result in under-estimation of both the pA2 and affinity of the antagonist (see Kenakin, 1982, p258). <i> This issue can be remedied by changing the additional drugs used to particular drugs that do not have an action at the receptor of interest.</i>
 				</p>
+
+				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+
+			</fieldset> <br> <br>
+
+			<!-- Not Linear info 1 -->
+			<fieldset style="padding: 5%;" id="nonlinear1">
+				<h3> <b>3#</b> Schild plot is nonlinear with a slope > 1.0 at low concentrations </h3> <br>
+				<img style="padding-right: 100px;" src="images/nonlinear/nonlinear1.png">
+				
+				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
+
+				<br><br><p>
+					Ideally Schild plots obtained to competitive antagonists should be linear with a slope that is not significantly different from 1.0.  However, there are several instances whereby the Schild plot deviates from linearity at low concentrations of antagonist, and the slope in this region of the plot is greater than 1.0 (see figure above).  This effect is typically indicative of several mechanisms, as follows:
+				</p>
+			
+				<span style="color: black;"> <b>(i)</b>  </span> <span style="color: blue;"> The competitive antagonist is a substrate of a saturable uptake system	</span>
+
+				<p>
+					If the antagonist is a substrate of a saturable uptake system, then the concentration of the antagonist in the vicinity of the receptor is less than that predicted based on the concentration administered (to the solution surrounding the cells or tissue), resulting in a lower-than-expected level of antagonism of an agonist-induced response (smaller than predicted DR value). However, at higher concentrations of the antagonist, the uptake system becomes saturated and the concentration of antagonist in the vicinity of the receptor is closer to that predicted based on the dose administered, and the expected level of antagonism is produced.  
+				</p>
+				<p>
+					<i> This issue can be remedied by blocking the saturable uptake system for which the antagonist is a substrate.  </i>
+				</p>
+
+				<span style="color: black;"> <b>(ii)</b>  </span> <span style="color: blue;"> Additional drugs are being used in the study that also interact with the receptor </span>
+
+				<p>
+					If an antagonist cannot readily equilibrate with the receptor, then lower concentrations of the antagonist require a longer period of time to equilibrate than higher concentrations.  Thus, if the equilibration time is shorter than that required for the lowest concentration of antagonist used, then these lower concentrations will be less effective and produce lower DR values than predicted (see Fig. 2, Kenakin, 1982, p257) – resulting in slopes greater than one at the lower regions of the Schild plot.
+				</p>
+
+				<p>
+					<i> Of course, this issue can be remedied by increasing the period of exposure of the antagonist such that equilibration of the antagonist with the receptor is achieved. </i>
+				</p>
+
+				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+
+			</fieldset> <br> <br>
+
+			<!-- Not Linear info 2 -->
+			<fieldset style="padding: 5%;" id="nonlinear2">
+				<h3> <b>4#</b> Schild plot is nonlinear with a slope < 1.0 at low concentrations </h3> <br>
+				<img style="padding-right: 100px;" src="images/nonlinear/nonlinear2.png">
+				
+				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
+
+				<br><br><p>
+					Ideally Schild plots obtained to competitive antagonists should be linear with a slope that is not significantly different from 1.0.  However, there are some well-documented examples where the Schild plot deviates from linearity at low concentrations of antagonist, such that the slope in this region of the plot is less than 1.0 (see figure above).  This effect is typically related to the properties of the agonist, rather than the antagonist. 
+				</p>
+				<p>
+					If the <span style="color: blue;">agonist is a substrate of a saturable uptake system</span>, then the concentration of the agonist in the vicinity of the receptor is less than that predicted based on the concentration administered (to the solution surrounding the cells or tissue), resulting in a lower-than-expected level of agonist-induced response – this will be particular evident in the control (no antagonist) agonist dose-response curve and those completed in the presence of low concentrations of antagonist. However, when higher concentrations of the agonist are used (e.g. in the presence of higher concentrations of the competitive antagonist) the uptake system for the agonist becomes saturated and the concentration of agonist in the vicinity of the receptor will be closer to that predicted based on the concentration administered, and the expected level of antagonism is produced (see Figure).  
+				</p>
+				
+				<p>
+					This effect has been extensively reported in relation to studies characterising adrenoceptors, as some adrenoceptor agonists (e.g. noradrenaline) are substrates of neuronal uptake systems, whereas other agonists (e.g. isoprenaline) are not substrates (see Kenakin (1982), p254). The magnitude of effect will depend on the tissue being investigated as the characteristics of saturable uptake systems varies considerably.  Of particular note, pA2 values obtained for antagonists when neuronal uptake of the agonist has not been blocked are unlikely to provide reliable measures of antagonist affinity.    				</p>
+				</p>
+				<p>
+					<i> This issue can be remedied by blocking the saturable uptake system for which the agonist is a substrate, for example by using cocaine to block the neuronal uptake of noradrenaline.   </i>
+				</p>
+
+				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+
+			</fieldset> <br> <br>
+
+			<!-- Not Linear info 3 -->
+			<fieldset style="padding: 5%;" id="nonlinear3">
+				<h3> <b>5#</b> Schild plot is nonlinear with a slope > 1.0 at high concentrations </h3> <br>
+				<img style="padding-right: 100px;" src="images/nonlinear/nonlinear3.png">
+				
+				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
+
+				<br><br>
+
+				<p>
+					Ideally Schild plots obtained to competitive antagonists should be linear with a slope that is not significantly different from 1.0. However, if the Schild plot deviates from linearity at high concentrations of antagonist, such that the slope in this region of the plot is greater than 1.0 (see figure above), then this may indicate that <span style="color: blue;" >high concentrations of either the agonist or antagonist are producing toxicity in these cells or tissue. </span>
+				</p>
+
+				<p>
+					A characteristic feature of toxicity is reduced responsiveness of the cells/tissue to agonists, which is manifest as a decrease in agonist potency and maximum effect.  Thus, if only high concentrations (of agonist or antagonist) are producing toxicity, then elevated DR values produced by the combined effects of antagonist and toxicity will only be evident in the latter phases of the Schild plot.  In this instance, the lower concentrations of antagonist that are non-toxic can be reliably used to generate pA2 values and logKB values (if that portion of the Schild plot is linear with unit slope).   
+				</p>
+
+				<p>
+					Of course,<i> this issue can be remedied by using competitive antagonists and agonists that are non-toxic.  As toxicity is typically concentration-dependent, the use of highly potent agonists and antagonists will likely be advantageous in this setting.     </i>
+				</p>
+
+				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+
+			</fieldset> <br> <br>
+
+			<!-- Not Linear info 3 -->
+			<fieldset style="padding: 5%;" id="nonlinear4">
+				<h3> <b>6#</b> Schild plot is nonlinear with a slope < 1.0 at high concentrations </h3> <br>
+				<img style="padding-right: 100px;" src="images/nonlinear/nonlinear4.png">
+				
+				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
+
+				<br><br>
+
+				<p>
+					Ideally Schild plots obtained to competitive antagonists should be linear with a slope that is not significantly different from 1.0. As mentioned elsewhere, this plateauing of the Schild plot at high concentrations of antagonist is typically seen with allosteric antagonists. 
+				</p>
+				
+				<p>
+					However, this phenomenon may also be observed with competitive antagonists under certain conditions (see Kenakin (1982), p256), as indicated below.
+				</p>
+
+				<ol>
+					<li style="color: blue;">
+						high concentrations of antagonist increases the sensitivity of the tissue to the agonist 
+					</li>
+					<li style="color: blue;">
+						high concentrations of the antagonist produce agonist-like responses in the tissue
+					</li>
+					<li style="color: blue;">
+						high concentrations of the agonist activates a second type of receptor/pathway that mediates 			the same response, but which is not blocked by the antagonist
+					</li>
+					<li style="color: blue;">
+						high concentrations of the agonist release an endogenous agonist that overcomes the	effects 			produced by the antagonist 	
+					</li>
+				</ol>
+
+				<p>
+					<i>These effects can be remedied by the careful selection of agonists and antagonists for use in Schild studies. </i>
+				</p>
+
+				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 
 			</fieldset> <br> <br>
 
