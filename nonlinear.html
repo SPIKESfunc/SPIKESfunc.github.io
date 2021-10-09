@@ -30,12 +30,51 @@
 			</div>
 		</nav>
 	</header>
+
+	<!-- Start of content -->
+
 	<div id="page" class="container box-size bg-box p-4">
 		<div class="col-lg-12 text-center" id="quizsection">
 			<h2> Non Linear Schild Informational Page</h2>
 		</br>
-			<h3> Part 1 ... (add nav bar to this page. or copy quant.html) </h3>
+		<!-- Starting image and clickable content. -->
+			<h3> Click a plot to learn more about it! </h3> <br>
+			<img src="images/nonlinear/start.png" class="d-inline-block align-center" alt="plots" usemap="#plots"> <br>
+			<map name="plots">
+				<area target="" alt="linear1" title="linear1" href="#linear1" coords="0,66,325,354" shape="rect">
+				<area target="" alt="linear2" title="linear2" href="#linear2" coords="0,355,325,627" shape="rect">
+				<area target="" alt="nonlinear1" title="nonlinear1" href="#nonlinear1" coords="327,65,646,356" shape="rect">
+				<area target="" alt="nonlinear3" title="nonlinear3" href="#nonlinear3" coords="648,66,934,355" shape="rect">
+				<area target="" alt="nonlinear4" title="nonlinear4" href="#nonlinear4" coords="649,359,934,627" shape="rect">
+				<area target="" alt="nonlinear2" title="nonlinear2" href="#nonlinear2" coords="327,358,644,627" shape="rect">
+			</map> <br>
+
+			<!-- Linear info 1 -->
+			<fieldset id="linear1">
+				<h3> 1# Schild plot is linear with a slope not significantly different from 1.0 (Ideal Schild Plot) </h3> <br>
+				<img src="images/nonlinear/linear1.png">
+				
+				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
+
+				<p>
+					Schild plots obtained to competitive antagonists should be linear with a slope that is not significantly different from 1.0.  If these criteria are met then the antagonist pA2 value (derived from the x-intercept) can typically be used as a measure of the affinity (-logKB) of the antagonist for the receptor mediating the agonist-induce response.  
+				</p>
+				<p>
+					Nevertheless, if should be recognised that a linear Schild plot with a slope that is not significantly different from 1.0 provides only presumptive evidence of competitive antagonism, not proof of competitive antagonism.  For example, under some restrictive conditions (e.g. use of a narrow antagonist concentration range), there are instances of allosteric, irreversible and functional antagonists generating Schild plots that satisfy the conditions of linearity and unit slope.  Thus, confirmatory evidence of competitive antagonism should be obtained from binding studies that directly evaluate the molecular interactions between ligands and receptors.
+				</p>
+				<p>
+					A clear strength of the Schild analysis is that the shape and position of the Schild plot should be:	 
+				</p>
+				<ol>
+					<li>independent of the level of response (effect) used to calculate the dose ratio (DR), as competitive antagonists produce parallel, rightward shifts of agonist dose-response curves </li>
+					<li>independent of the characteristics of the cell or tissue, such as receptor density and signal amplification </li>
+					<li>independent of the characteristics of the agonist used, including affinity and efficacy</li>
+				</ol>
+				<p>
+					When used in conjunction with receptor-selective antagonists, the Schild analysis offers a powerful method for characterising receptor function in cells and tissues.
+				</p>
 			</fieldset>
+
 		</div>
 	</div>
 
