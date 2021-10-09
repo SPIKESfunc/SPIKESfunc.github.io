@@ -15,11 +15,37 @@
 	<style>
 		p {
 			text-align: left;
+			font-size: larger;
 		}
 
 		ol {
 			text-align: left;
+			font-size: larger;
 		}
+
+		span {
+			font-size: x-large;
+		}
+
+		.fit-image{
+			width: 100%;
+			object-fit: cover;
+		}
+		
+		ol > li::marker {
+			font-weight: bold;
+			color: red;  /* maybe black?  ?? ----------------------------------- ?? */
+		}
+
+		a {
+			font-size: xx-large;
+		}
+
+		.contents {
+			color: red;
+			font-size: x-large;
+		}
+
 	</style>
 
 	<link href="css/stylesheet.css" rel="stylesheet">
@@ -45,7 +71,7 @@
 
 	<div id="page" class="container box-size bg-box p-4">
 		<div class="col-lg-12 text-center" id="quizsection">
-			<h2 id="top"> Non Linear Schild Informational Page</h2>
+			<h1 id="top"> Non Linear Schild Informational Page</h1>
 		</br>
 		<!-- Starting image and clickable content. -->
 			<h3> Click a plot to learn more about it! </h3> <br>
@@ -58,6 +84,14 @@
 				<area target="" alt="nonlinear4" title="nonlinear4" href="#nonlinear4" coords="649,359,934,627" shape="rect">
 				<area target="" alt="nonlinear2" title="nonlinear2" href="#nonlinear2" coords="327,358,644,627" shape="rect">
 			</map> <br>
+			<h3> You can also jump to the detailed descriptions here!</h3> <br>
+			<a class="contents" href="#detailed1">1. Antagonist is competitive, and produces an ideal Schild Plot</a> <br>
+			<a class="contents" href="#detailed2">2. Antagonist is competitive, but it is a substrate for a saturable uptake system</a> <br>
+			<a class="contents" href="#detailed3">3. Antagonist is competitive, but the agonist is a substrate for a saturable uptake system</a> <br>
+			<a class="contents" href="#detailed4">4. Antagonist is competitive, but it produces toxicity at higher doses</a> <br>
+			<a class="contents" href="#detailed5">5. Antagonist is an irreversible antagonist </a> <br>
+			<a class="contents" href="#detailed6">6. Antagonist is an allosteric antagonist (affecting agonist affinity)  </a> <br>
+			<a class="contents" href="#detailed7">7. Antagonist is a Functional antagonist   </a> <br>
 
 			<h2 style="padding: 40px;"> Plot Descriptions</h2>
 
@@ -66,8 +100,9 @@
 				<h3> <b>1#</b> Schild plot is linear with a slope not significantly different from 1.0 (Ideal Schild Plot) </h3> <br>
 				<img style="padding-right: 100px;" src="images/nonlinear/linear1.png">
 				
-				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
-
+				<a href="#detailed1">
+				<button type="button" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
+				</a>
 				<br><br><p>
 					Schild plots obtained to competitive antagonists should be linear with a slope that is not significantly different from 1.0.  If these criteria are met then the antagonist pA2 value (derived from the x-intercept) can typically be used as a measure of the affinity (-logKB) of the antagonist for the receptor mediating the agonist-induce response.  
 				</p>
@@ -96,8 +131,9 @@
 				<h3> <b>2#</b> Schild plot is linear with unit slope, but generates unreliable pA2 values </h3> <br>
 				<img style="padding-right: 100px;" src="images/nonlinear/linear2.png">
 				
-				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
-
+				<a href="#detailed1" style="visibility: hidden;">
+					<button type="button" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
+				</a>
 				<br><br><p>
 					Ideally Schild plots obtained to competitive antagonists should be linear with a slope that is not significantly different from 1.0.  Typically, if these criteria are met then the antagonist pA2 value (derived from the x-intercept) can theoretically be used as a measure of the affinity (-logKB) of the antagonist for the receptor mediating the agonist-induce response.   
 				</p>
@@ -126,9 +162,9 @@
 			<fieldset style="padding: 5%;" id="nonlinear1">
 				<h3> <b>3#</b> Schild plot is nonlinear with a slope > 1.0 at low concentrations </h3> <br>
 				<img style="padding-right: 100px;" src="images/nonlinear/nonlinear1.png">
-				
-				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
-
+				<a href="#detailed2">
+					<button type="button" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
+				</a>
 				<br><br><p>
 					Ideally Schild plots obtained to competitive antagonists should be linear with a slope that is not significantly different from 1.0.  However, there are several instances whereby the Schild plot deviates from linearity at low concentrations of antagonist, and the slope in this region of the plot is greater than 1.0 (see figure above).  This effect is typically indicative of several mechanisms, as follows:
 				</p>
@@ -161,8 +197,9 @@
 				<h3> <b>4#</b> Schild plot is nonlinear with a slope < 1.0 at low concentrations </h3> <br>
 				<img style="padding-right: 100px;" src="images/nonlinear/nonlinear2.png">
 				
-				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
-
+				<a href="#detailed3">
+					<button type="button" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
+				</a>
 				<br><br><p>
 					Ideally Schild plots obtained to competitive antagonists should be linear with a slope that is not significantly different from 1.0.  However, there are some well-documented examples where the Schild plot deviates from linearity at low concentrations of antagonist, such that the slope in this region of the plot is less than 1.0 (see figure above).  This effect is typically related to the properties of the agonist, rather than the antagonist. 
 				</p>
@@ -186,8 +223,9 @@
 				<h3> <b>5#</b> Schild plot is nonlinear with a slope > 1.0 at high concentrations </h3> <br>
 				<img style="padding-right: 100px;" src="images/nonlinear/nonlinear3.png">
 				
-				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
-
+				<a href="#detailed4">
+					<button type="button" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
+				</a>
 				<br><br>
 
 				<p>
@@ -211,7 +249,7 @@
 				<h3> <b>6#</b> Schild plot is nonlinear with a slope < 1.0 at high concentrations </h3> <br>
 				<img style="padding-right: 100px;" src="images/nonlinear/nonlinear4.png">
 				
-				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red">Take me to a more detailed example.</button>
+				<button type="button" href="/quant.html this doesnt work" class="btn waves-effect waves-light red" style="visibility: hidden;">Take me to a more detailed example.</button>
 
 				<br><br>
 
@@ -246,6 +284,223 @@
 
 			</fieldset> <br> <br>
 
+			<!-- Start of more detailed work-->
+			<h2 style="padding: 40px;"> More Detailed Descriptions </h2>
+
+			<!-- Detailed 1 -->
+			<fieldset style="padding: 5%;" id="detailed1">
+				<h3> <b>Antagonist is competitive, and produces an ideal Schild Plot </b> </h3> <br>
+				<div class="row">
+					<div class="col-sm-4">
+						<h4> <b> Characteristic features </b> </h4>
+						<p>The Schild plot to a competitive antagonist should be: </p>
+						<ol>
+							<li>linear with a slope that is not statistically different from 1.0</li>
+							<li>independent of the affinity and efficacy of the agonist used</li>
+							<li>independent of the level of 	Effect used to calculate the dose ratio (DR) (as agonist dose-response curves are shifted in parallel manner)</li>
+							<li>independent of the characteristics of the cell, such as receptor density and signal amplification </li>
+							<li>independent of the period of exposure of the antagonist with the cell/tissue (so long as sufficient time is allowed for equilibrium to be achieved)</li>
+						</ol>
+						<h4> <b> Additional points of note </b> </h4>
+						<p>The pA2 value (x-intercept) can be used as a measure of –logKB of the antagonist for the receptor mediating the agonist-induced effect, and is a powerful method for characterising receptors.</p>
+						<h4> <b> Helpful Video </b> </h4>
+						<div style='text-align:center'>
+							<video width="320" height="240" controls>
+								<source src="images\How to create a Schild plot.mp4" type="video/mp4">
+							</video>
+						</div>
+						<br>
+						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+					</div>
+					<div class="col-sm-8">
+						<p>
+							<img class="img-responsive fit-image" src="images/nonlinear/detailed1.png">
+						</p>
+					</div>
+				</div>
+			</fieldset> <br> <br>
+
+			<!-- Detailed 2 -->
+			<fieldset style="padding: 5%;" id="detailed2">
+				<h3> <b>Antagonist is competitive, but it is a substrate for a saturable uptake system  </b> </h3> <br>
+				<div class="row">
+					<div class="col-sm-4">
+						<h4> <b> Characteristic features </b> </h4>
+						<p>The Schild plot is: </p>
+						<ol>
+							<li>typically nonlinear with a slope greater than 1.0 at lower (non-saturating) concentrations. At higher (saturating) concentrations, deviation from linearity and unit slope are reduced.</li>
+							<li>independent of the affinity and efficacy of the agonist used</li>
+							<li>independent of the level of Effect used to calculate the dose ratio (DR) (as agonist dose-response curves are shifted in parallel manner)</li>
+							<li>dependent on the cell/tissue used (as the characteristics of saturable uptake systems varies between cells/tissues) </li>
+							<li>likely to be largely independent of the period of exposure of the antagonist </li>
+						</ol>
+						<h4> <b> Potential Remedies </b> </h4>
+						<p>
+							Repeat in the presence of an inhibitor of the saturable uptake system.
+						</p>
+						<p>
+							Repeat using an agonist that is not a substrate of a saturable uptake system.
+						</p>
+						<br>
+						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+					</div>
+					<div class="col-sm-8">
+						<p>
+							<img class="img-responsive fit-image" src="images/nonlinear/detailed2-1.png">
+							<img class="img-responsive fit-image" src="images/nonlinear/detailed2-2.png">
+						</p>
+					</div>
+				</div>
+			</fieldset> <br> <br>
+
+			<!-- Detailed 3 -->
+			<fieldset style="padding: 5%;" id="detailed3">
+				<h3> <b>Antagonist is competitive, but the <u> agonist</u> is a substrate for a saturable uptake system </b> </h3> <br>
+				<div class="row">
+					<div class="col-sm-4">
+						<h4> <b> Characteristic features </b> </h4>
+						<p>The Schild plot is: </p>
+						<ol>
+							<li>typically nonlinear with a slope less than 1.0 at lower agonist concentrations (that are subject to uptake). At higher agonist concentrations	(that saturate the uptake system), deviation from linearity and unit slope are less pronounced (although pA2 is under-estimated because of position of control agonist dose-response curve (no Antagonist)).</li>
+							<li>dependent on the agonist characteristics, as agonists differ in 	their susceptibility to uptake processes.</li>
+							<li>typically independent of the level of Effect used to calculate the dose ratio (DR) 	(as agonist dose-response curves are shifted in parallel manner)</li>
+							<li>dependent on the cell/tissue used (as the characteristics of saturable uptake systems varies between cells/tissues) </li>
+							<li>likely to be largely independent of the period of exposure of the antagonist (so long as sufficient time is allowed for equilibrium to be achieved) </li>
+						</ol>
+						<h4> <b> Potential Remedies </b> </h4>
+						<p>
+							Repeat in the presence of an inhibitor of the saturable uptake system.
+						</p>
+						<p>
+							Repeat using antagonists that are not substrates of a saturable uptake system.
+						</p>
+						<br>
+						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+					</div>
+					<div class="col-sm-8">
+						<p>
+							<img class="img-responsive fit-image" src="images/nonlinear/detailed3.png">
+						</p>
+					</div>
+				</div>
+			</fieldset> <br> <br>
+
+			<!-- Detailed 4 -->
+			<fieldset style="padding: 5%;" id="detailed4">
+				<h3> <b>Antagonist is competitive, but it produces toxicity at higher doses </b> </h3> <br>
+				<div class="row">
+					<div class="col-sm-4">
+						<h4> <b> Characteristic features </b> </h4>
+						<p>The Schild plot is: </p>
+						<ol>
+							<li>typically linear with a slope of 1.0 at lower (nontoxic) concentrations. Higher toxic concentrations are associated with larger DR values, causing slopes > 1.0</li>
+							<li>independent of the agonist used (affinity & efficacy)</li>
+							<li>level of toxicity (and thus extent of effect) will depend on the susceptibility of the cell/tissue used </li>
+							<li>likely to be dependent on the period of exposure of the antagonist with longer periods producing greater effects (due to greater toxicity) </li>
+						</ol>
+						<h4> <b> Additional points of note </b> </h4>
+						<p>A pA2 value (x-intercept) determined by using lower, non-toxic concentrations of the antagonist can be used as a measure of –logKB of the antagonist for the receptor mediating the agonist-induced effect (if this part of the Schild plot is linear with unit slope).  In the example shown, pA2 (and –logKB) values could be determined using antagonist concentrations that were 10-7M and lower.</p>
+						<p>pA2 determinations from non-linear Schild plots with a slope > 1.0, is inappropriate, and will result in an under-estimation of the pA2 value (and an over-estimation of the KB value).</p>
+						<h4> <b> Potential Remedies </b> </h4>
+						<p>
+							Compete analysis of Schild plot using only low [antagonist]
+						</p>
+						<p>
+							Repeat using non-toxic antagonist.
+						</p>
+						<br>
+						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+					</div>
+					<div class="col-sm-8">
+						<p>
+							<img class="img-responsive fit-image" src="images/nonlinear/detailed4.png">
+						</p>
+					</div>
+				</div>
+			</fieldset> <br> <br>
+
+			<!-- Detailed 5 -->
+			<fieldset style="padding: 5%;" id="detailed5">
+				<h3> <b>Antagonist is an irreversible antagonist  </b> </h3> <br>
+				<div class="row">
+					<div class="col-sm-4">
+						<h4> <b> Characteristic features </b> </h4>
+						<p>The Schild plot is: </p>
+						<ol>
+							<li>typically nonlinear with a slope that is greater than 1.0</li>
+							<li>dependent on the agonist used (especially efficacy of agonist)</li>
+							<li>dependent on the level of Effect used to calculate the dose ratio (DR) (as agonist dose-response curves are not shifted in parallel manner)</li>
+							<li>greatly dependent on cell characteristics such as receptor density and signal amplification </li>
+							<li>greatly dependent on the period of exposure of the antagonist with the cell </li>
+						</ol>
+						<h4> <b> Additional points of note </b> </h4>
+						<p>The pA2 value (x-intercept) obtained using the lowest concentrations of antagonist (that produce small rightward shifts of the agonist dose-response curve) may be an approximation of the –logKB value of the antagonist for the receptor mediating the agonist-induced effect.</p>
+						<h4> <b> Potential Remedies </b> </h4>
+						<p>Irreversible antagonists are not suitable for use in Schild plots – use an appropriate competitive antagonist</p>
+						<br>
+						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+					</div>
+					<div class="col-sm-8">
+						<p>
+							<img class="img-responsive fit-image" src="images/nonlinear/detailed5.png">
+						</p>
+					</div>
+				</div>
+			</fieldset> <br> <br>
+
+			<!-- Detailed 6 -->
+			<fieldset style="padding: 5%;" id="detailed6">
+				<h3> <b>Antagonist is an allosteric antagonist (affecting agonist affinity)</b> </h3> <br>
+				<div class="row">
+					<div class="col-sm-4">
+						<h4> <b> Characteristic features </b> </h4>
+						<p>The Schild plot is: </p>
+						<ol>
+							<li>typically nonlinear with a slope that is less than 1.0</li>
+							<li>dependent on the agonist used (affinity & efficacy), as the actions produced by an allosteric antagonist will differentially affect the binding of agonists to the orthosteric binding site.</li>
+							<li>independent of the level of Effect used to calculate the dose ratio (DR) (as agonist dose-response curves are shifted in parallel manner) </li>
+							<li>independent of cell characteristics such as receptor density and signal amplification </li>
+							<li>independent of the period of exposure of the antagonist with the cell (so long as sufficient time is allowed for equilibrium to be achieved) </li>
+						</ol>
+						<h4> <b> Potential Remedies </b> </h4>
+						<p>Allosteric antagonists are not suitable for use in Schild plots – use an appropriate competitive antagonist.</p>
+						<br>
+						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+					</div>
+					<div class="col-sm-8">
+						<p>
+							<img class="img-responsive fit-image" src="images/nonlinear/detailed6.png">
+						</p>
+					</div>
+				</div>
+			</fieldset> <br> <br>
+
+			<!-- Detailed 7 -->
+			<fieldset style="padding: 5%;" id="detailed7">
+				<h3> <b>Antagonist is a Functional antagonist </b> </h3> <br>
+				<div class="row">
+					<div class="col-sm-4">
+						<h4> <b> Characteristic features </b> </h4>
+						<p>The Schild plot is: </p>
+						<ol>
+							<li>typically nonlinear with a slope that is usually less than 1.0, especially at higher concentrations of functional antagonist</li>
+							<li>dependent on the affinity and efficacy of both the agonist and functional antagonist used</li>
+							<li>dependent on the cell characteristics, such as receptor density, signal amplification and maximum system effect (as these can vary for the agonist and functional antagonist).</li>
+							<li>dependent of the level of Effect used to calculate the dose ratio (DR) (as agonist dose-response curves are shifted in a non-parallel manner)</li>
+						</ol>
+						<h4> <b> Additional points of note </b> </h4>
+						<p>The pA2 value (x-intercept) obtained will almost invariably <b>NOT</b> be an accurate approximation of the affinity (-logKA) of the functional antagonist for its cognate receptor. That is, it will provide no useful information on the receptor mediating the agonist-induced response.</p>
+						<br>
+						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+					</div>
+					<div class="col-sm-8">
+						<p>
+							<img class="img-responsive fit-image" src="images/nonlinear/detailed7.png">
+						</p>
+					</div>
+				</div>
+			</fieldset> <br> <br>
+	
 		</div>
 	</div>
 
