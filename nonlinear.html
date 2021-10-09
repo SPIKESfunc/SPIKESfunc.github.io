@@ -37,12 +37,14 @@
 			color: red;  /* maybe black?  ?? ----------------------------------- ?? */
 		}
 
-		a {
-			font-size: xx-large;
-		}
 
 		.contents {
 			color: red;
+			font-size: x-large;
+		}
+
+		.goback {
+			color: crimson;
 			font-size: x-large;
 		}
 
@@ -56,13 +58,35 @@
 	<header>
 		<nav class="navbar navbar-light navbar-expand-lg fixed-top header">
 			<div class="container">
-				<a class="navbar-brand nav-style" href="index.html">
+				<a class="navbar-brand nav-style active" href="index.html">
 				<img src="images/favicon-196x196.png" width="30" height="30" class="d-inline-block align-center" alt="">
 					SPIKES<i>func</i></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 				 aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-item nav-link nav-style" href="qualitative.html">Dose-Response Visualiser</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-item nav-link nav-style" href="quantitative.html">Schild Plot Generator</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-item nav-link nav-style" href="quiz.html">Schild Plot Analysis Quiz</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-item nav-link nav-style" href="logtable.html" target="_blank">-logK<sub>i</sub> Values</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-item nav-link nav-style" href="video.html" target="_blank">Videos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-item nav-link nav-style" href="nonlinear.html">Non-Linear Schild Info</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 	</header>
@@ -122,7 +146,7 @@
 					When used in conjunction with receptor-selective antagonists, the Schild analysis offers a powerful method for characterising receptor function in cells and tissues.
 				</p>
 
-				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+				<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 
 			</fieldset> <br> <br>
 
@@ -154,7 +178,7 @@
 					It is often necessary to use additional drugs in Schild plot studies e.g. to inhibit uptake processes, degradative enzymes, and/or other receptor subtypes. If an additional drug, for example an uptake inhibitor, also possesses considerable receptor blocking activity, then the Schild plot for the competitive antagonist will be displaced to the right (proportional to the concentration of the uptake inhibitor).  Such an effect will result in under-estimation of both the pA2 and affinity of the antagonist (see Kenakin, 1982, p258). <i> This issue can be remedied by changing the additional drugs used to particular drugs that do not have an action at the receptor of interest.</i>
 				</p>
 
-				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+				<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 
 			</fieldset> <br> <br>
 
@@ -188,7 +212,7 @@
 					<i> Of course, this issue can be remedied by increasing the period of exposure of the antagonist such that equilibration of the antagonist with the receptor is achieved. </i>
 				</p>
 
-				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+				<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 
 			</fieldset> <br> <br>
 
@@ -214,7 +238,7 @@
 					<i> This issue can be remedied by blocking the saturable uptake system for which the agonist is a substrate, for example by using cocaine to block the neuronal uptake of noradrenaline.   </i>
 				</p>
 
-				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+				<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 
 			</fieldset> <br> <br>
 
@@ -240,7 +264,7 @@
 					Of course,<i> this issue can be remedied by using competitive antagonists and agonists that are non-toxic.  As toxicity is typically concentration-dependent, the use of highly potent agonists and antagonists will likely be advantageous in this setting.     </i>
 				</p>
 
-				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+				<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 
 			</fieldset> <br> <br>
 
@@ -280,7 +304,7 @@
 					<i>These effects can be remedied by the careful selection of agonists and antagonists for use in Schild studies. </i>
 				</p>
 
-				<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+				<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 
 			</fieldset> <br> <br>
 
@@ -310,7 +334,7 @@
 							</video>
 						</div>
 						<br>
-						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+						<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 					</div>
 					<div class="col-sm-8">
 						<p>
@@ -342,7 +366,7 @@
 							Repeat using an agonist that is not a substrate of a saturable uptake system.
 						</p>
 						<br>
-						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+						<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 					</div>
 					<div class="col-sm-8">
 						<p>
@@ -375,7 +399,7 @@
 							Repeat using antagonists that are not substrates of a saturable uptake system.
 						</p>
 						<br>
-						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+						<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 					</div>
 					<div class="col-sm-8">
 						<p>
@@ -409,7 +433,7 @@
 							Repeat using non-toxic antagonist.
 						</p>
 						<br>
-						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+						<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 					</div>
 					<div class="col-sm-8">
 						<p>
@@ -438,7 +462,7 @@
 						<h4> <b> Potential Remedies </b> </h4>
 						<p>Irreversible antagonists are not suitable for use in Schild plots – use an appropriate competitive antagonist</p>
 						<br>
-						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+						<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 					</div>
 					<div class="col-sm-8">
 						<p>
@@ -465,7 +489,7 @@
 						<h4> <b> Potential Remedies </b> </h4>
 						<p>Allosteric antagonists are not suitable for use in Schild plots – use an appropriate competitive antagonist.</p>
 						<br>
-						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+						<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 					</div>
 					<div class="col-sm-8">
 						<p>
@@ -491,7 +515,7 @@
 						<h4> <b> Additional points of note </b> </h4>
 						<p>The pA2 value (x-intercept) obtained will almost invariably <b>NOT</b> be an accurate approximation of the affinity (-logKA) of the functional antagonist for its cognate receptor. That is, it will provide no useful information on the receptor mediating the agonist-induced response.</p>
 						<br>
-						<a href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
+						<a class="goback" href="#top" style="color: crimson;"> <b> Click me to go back to all plots.</b> </a>
 					</div>
 					<div class="col-sm-8">
 						<p>
