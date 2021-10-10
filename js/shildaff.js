@@ -9,8 +9,12 @@ var agoeffaff = document.getElementById("agoeffaff").defaultValue;
 var efflevelaff = document.getElementById("efflevelaff").defaultValue;
 document.getElementById("displayeffectaff").innerHTML = (efflevelaff*100).toFixed(2);
 document.getElementById("efftableaff").innerHTML = (efflevelaff*100).toFixed(2);
+
 var isPointValidaff = [true, true, true, true];
+var allmarkercoloursaff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var markercoloursaff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+
 var antval0aff = document.getElementById("ant0aff").defaultValue;
 var antval1aff = document.getElementById("ant1aff").defaultValue;
 var antval2aff = document.getElementById("ant2aff").defaultValue;
@@ -757,7 +761,7 @@ function calcDoseRatioAff(presant, absant){
 
 function calcLogDRAff(doseratio){
     var logdr;
-    logdr = Math.log(doseratio-1);
+    logdr = Math.log10(doseratio-1);
     return logdr;
 }
 
@@ -823,7 +827,7 @@ function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-var linecoloursaff = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#ff0000"]
+var linecoloursaff = ['rgb(0,0,0)','rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 function plotGraphAff(chart){
     var layout = {
@@ -888,7 +892,7 @@ function plotGraphAff(chart){
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "EC Value",
+            name: "Level of Effect",
             marker: {
                 color: "red",
                 size: dotsize,
@@ -931,6 +935,19 @@ function updateValidAff(data0, data1, data2, data3){
             isPointValidaff[i] = false;
         }
     }
+
+    markercoloursaff = [];
+    for (j = 0; j < 4; j++) {
+        if (isPointValidaff[j]){
+            markercoloursaff.push(allmarkercoloursaff[j]);
+        }
+    }
+    var update = {
+        marker :{
+            color: markercoloursaff,
+        }
+    };
+    Plotly.restyle("schildAff", update, 0);
 }
 
 function calcSchildAff(logval1,logval2, logval3, logval4, dr1, dr2, dr3, dr4){ //add 3 other concentrations as args
@@ -1008,10 +1025,15 @@ function plotSchildAff(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
-    name:'Real Line',
+        name:'Real Line',
 		line: {
-			width: 1
-		}
+            width: 1,
+            color: 'rgb(0,0,0)',
+        },
+        marker: {
+            color: markercoloursaff,
+            size: 7,
+        }
 	}
 	data.push(trace1);
 

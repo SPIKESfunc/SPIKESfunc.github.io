@@ -6,9 +6,12 @@ var efficcom = document.getElementById("efficicomslider").defaultValue;
 var agoaff = document.getElementById("agoaffnum").defaultValue;
 var agoafflog = document.getElementById("agoafflognum").defaultValue;
 var efflevelcom = document.getElementById("efflevelcom").defaultValue;
-document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 100).toFixed(2);
-document.getElementById("efftablecom").innerHTML = (efflevelcom * 100).toFixed(2);
+document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 89).toFixed(2);
+document.getElementById("efftablecom").innerHTML = (efflevelcom * 89).toFixed(2);
+
 var isPointValid = [true, true, true, true];
+var allmarkercolours = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var markercolours = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 
 var antval0 = document.getElementById("ant0").defaultValue;
@@ -72,8 +75,8 @@ function resetQuant() {
     agoaff = document.getElementById("agoaffnum").value = document.getElementById("agoaffnum").defaultValue;
     agoafflog = document.getElementById("agoafflognum").value = document.getElementById("agoafflognum").defaultValue;
     efflevelcom = document.getElementById("efflevelcom").value = document.getElementById("efflevelcom").defaultValue;
-    document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 100).toFixed(2);
-    document.getElementById("efftablecom").innerHTML = (efflevelcom * 100).toFixed(2);
+    document.getElementById("displayeffectcom").innerHTML = (efflevelcom *89).toFixed(2);
+    document.getElementById("efftablecom").innerHTML = (efflevelcom * 89).toFixed(2);
 
     antval0 = document.getElementById("ant0").value = document.getElementById("ant0").defaultValue;
     antval1 = document.getElementById("ant1").value = document.getElementById("ant1").defaultValue;
@@ -370,8 +373,8 @@ function updateAgoAffinityLog(value) {
 
 function updateefflevelCom(value) {
     efflevelcom = value;
-    document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 100).toFixed(2);
-    document.getElementById("efftablecom").innerHTML = (efflevelcom * 100).toFixed(2);
+    document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 89).toFixed(2);
+    document.getElementById("efftablecom").innerHTML = (efflevelcom * 89).toFixed(2);
     if (checkSliderMinCom()) {
         Plotly.restyle("quantitative", 'visible', false)
         graphAlert("quantalert")
@@ -752,7 +755,8 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency, agoaffinity,
     return data;
 }
 
-var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#ff0000"]
+//var linecolours = ["#000000", "#ff99999", "#ff66666", "#ff33333", "#ff00000"]
+var linecolours = ['rgb(0,0,0)','rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 function plotGraphCom(chart) {
     var layout = {
@@ -820,7 +824,7 @@ function plotGraphCom(chart) {
             x: data50[0],
             y: data50[1],
             mode: 'markers',
-            name: "EC Value",
+            name: "Level of Effect",
             marker: {
                 color: "red",
                 size: dotsize,
@@ -863,6 +867,19 @@ function updateValid(data0, data1, data2, data3) {
             isPointValid[i] = false;
         }
     }
+    markercolours = [];
+    for (j = 0; j < 4; j++) {
+        if (isPointValid[j]){
+            markercolours.push(allmarkercolours[j]);
+        }
+    }
+
+    var update = {
+        marker :{
+            color: markercolours,
+        }
+    };
+    Plotly.restyle("schild", update, 0);
 }
 
 function calcSchild(logval1, logval2, logval3, logval4, dr1, dr2, dr3, dr4) { //add 3 other concentrations as args
@@ -914,7 +931,12 @@ function plotSchild(chart) {
         y: lineData[1],
         mode: 'lines+markers',
         line: {
-            width: 1
+            width: 1,
+            color: 'rgb(0,0,0)',
+        },
+        marker: {
+            color: markercolours,
+            size: 7,
         }
     }
     data.push(trace1);
@@ -1034,7 +1056,7 @@ var questionsSchild = ["Why would you consider conducting a Schild analysis?",
     "Your research team has conducted a radioligand binding study and determined that Cell X contains a mixed population of M<sub>2</sub>, M<sub>4</sub> and M<sub>5</sub> receptors. You wish to determine which of these subtypes mediates a particular response in Cell X, so you undertake a Schild analysis using competitive receptor antagonists. Having selected an agonist that activates both receptor subtypes, <br><b>1.</b> Which antagonist would most clearly identify the receptor subtype mediating the agonist-induced response in Cell X? (HINT: choose an antagonist from the “-logK<sub>i</sub> values” list that best distinguishes between M<sub>2</sub> and M<sub>4</sub> receptors based on –logK<sub>i</sub> values?)<br><b>2.</b> Based on your selection of antagonist, use the Schild Plot Generator to predict what the Schild Plots would look like if the response was mediated by M<sub>2</sub> (HINT 1: enter the –logK<sub>i</sub> value of the antagonist for the M<sub>2</sub> receptor into the –logK<sub>B</sub> window, and then select 3 appropriate [antagonist] for use in the Schild analysis. HINT 2: the lowest [antagonist] selected should produce an approximate DR of 3 (to maximise chances of accurately estimating the pA<sub>2</sub> value), and the highest [antagonist] should be 50-100 times larger than the lowest [antagonist] (to readily establish linearity and unit slope)). <br><b>3.</b> Repeat (2) using the same antagonist to predict what the Schild Plot would look like if the agonist was activating M<sub>4</sub> or M<sub>5</sub> receptors. <br><b>4.</b> Which other antagonists might be useful in confirming that the response was being mediated by that receptor subtype?"];
 
 
-var answersSchild = ["The Schild analysis is particularly useful for the classification and identification of the functional roles played by various receptor subtypes.  The Schild analysis allows the determination of the affinity (K<sub>B</sub>) of a competitive antagonist at a particular receptor that is mediating the response produced by an agonist.  By comparing the determined K<sub>B</sub> value of the antagonist to known affinity values (typically –logK<sub>i</sub> values determined from competition binding studies using homogeneous populations of pure receptor subtypes) the receptor mediating the response can be identified.  The process typically involves the study of numerous receptor-selective competitive antagonists. <br><br> Characterising Receptors: <br><div style='text-align:center'><video width='320' height='240' controls><source src='images/Receptor Expression and Function.mp4' type='video/mp4'></source></video></div><br>",
+var answersSchild = ["The Schild analysis is particularly useful for the classification and identification of the functional roles played by various receptor subtypes.  The Schild analysis allows the determination of the affinity (K<sub>B</sub>) of a competitive antagonist at a particular receptor that is mediating the response produced by an agonist.  By comparing the determined K<sub>B</sub> value of the antagonist to known affinity values (typically –logK<sub>i</sub> values determined from competition binding studies using homogeneous populations of pure receptor subtypes) the receptor mediating the response can be identified.  The process typically involves the study of numerous receptor-selective competitive antagonists. <br><br> <b>Characterising Receptors</b>: <br><div style='text-align:center'><video width='320' height='240' controls><source src='images/Receptor Expression and Function.mp4' type='video/mp4'></source></video></div><br>",
 "The extent of the shift of the agonist dose-response curve is quantitated in terms of a dose ratio (DR).  The dose ratio, also referred to as the concentration ratio, is the ratio of the concentration of an agonist that produces a specified response (often but not necessarily 50% Emax) in the presence of an antagonist, to the agonist concentration that produces the same response in the absence of the competitive antagonist.  The larger the rightward shift of the agonist dose-response curve, the larger the dose ratio.  This effect can be observed using the Schild Plot Generator. <br><div style='text-align:center'><video width='320' height='240' controls><source src='images/How to create a Schild plot.mp4' type='video/mp4'></source></video></div><br>",
 "The Schild Plot plots the log[antagonist] (M) on the x-axis against the calculated log(DR-1) on the y-axis.  This effect can be observed using the Schild Plot Generator.",
 "If certain conditions are met (linearity, unity of slope), then a Schild Plot can be used to generate a pA<sub>2</sub> value, which is an estimate of the affinity of the competitive antagonist (K<sub>B</sub> value) for the receptor through which the agonist is producing the response.  The pA<sub>2</sub> is determined by measuring the value of the dose ratio (DR) at several antagonist concentrations, allowing an estimate of the antagonist concentration at which log(DR-1) is zero (i.e. where the Schild plot intercepts with the x-axis).  This is commonly done by graphical extrapolation or interpolation.  Thus, pA<sub>2</sub> is the –log[antagonist] that produces a DR equal to 2, and is the –logK<sub>B</sub> value of the antagonist for the receptor. ",
@@ -1059,8 +1081,8 @@ var answersSchild = ["The Schild analysis is particularly useful for the classif
 "<br><b>1.</b> <b>DAU-5884</b>, because it has the greatest difference in –logK<sub>i</sub> values for M<sub>1</sub> and M<sub>2</sub> receptors (1.8 log units).<br><b>2. & 3.</b> The pA<sub>2</sub> values should be the same as the –logK<sub>i</sub> values and also differ by 1.8 log units.<br><b>4.</b> Pirenzepine with a 1.7 log unit difference between M<sub>1</sub> and M<sub>2</sub> receptors would also be useful for distinguishing between M<sub>1</sub> and M<sub>2</sub> receptors.",
 "<br><b>1.</b> <b>MT-3</b>, because it has the greatest difference in –logK<sub>i</sub> values for M<sub>2</sub> and M<sub>4</sub> receptors (2.2 log units).<br><b>2. & 3.</b> The pA<sub>2</sub> values should be the same as the –logK<sub>i</sub> values and also differ by 2.2 log units.<br><b>4.</b> PD102807 with a 1.8 log unit difference between M<sub>2</sub> and M<sub>4</sub> receptors would also be useful for distinguishing between M<sub>2</sub> and M<sub>4</sub> receptors.",
 "<br><b>1.</b> <b>PD102807</b>, because it has the greatest difference in –logK<sub>i</sub> values for M<sub>3</sub> and M<sub>5</sub> receptors (1.7 log units).<br><b>2. & 3.</b> The pA<sub>2</sub> values should be the same as the –logK<sub>i</sub> values and also differ by 1.7 log units.<br><b>4.</b> S-secoverine with a 1.2 log unit difference between M<sub>3</sub> and M<sub>5</sub> receptors would also be useful for distinguishing between M<sub>3</sub> and M<sub>5</sub> receptors.",
-"<br><b>1.</b> Could choose either <b>darifenacin or DAU-5884</b> because both the greatest difference in –logK<sub>i</sub> values for M<sub>2</sub> and M<sub>3</sub> receptors (1.8 log units).<br><b>2. & 3.</b> The pA<sub>2</sub> values should be the same as the –logK<sub>i</sub> values and also differ by 1.8 log units.<br><b>4.</b> <b>Methoctramine<b> with a 1.7 log unit difference between M<sub>2</sub> and M<sub>3</sub> receptors would also be useful for distinguishing between M<sub>2</sub> and M<sub>3</sub> receptors.",
-"<br><b>1.</b> <b>PD102807</b>, because it has at least a 1 log unit difference in –logK<sub>i</sub> values for each pair of M<sub>2</sub>, M<sub>4</sub> and M<sub>5</sub> receptors.<br><b>2. & 3.</b> The pA<sub>2</sub> values should be the same as the –logK<sub>i</sub> values and also differ by &gt; 1.0 log units.<br><b>4.</b> <b>Methoctramine<b> with a 0.7 log unit difference between each M<sub>2</sub>, M<sub>4</sub> and M<sub>5</sub> receptors would also be useful, but not highly selective. Instead of using one antagonist, consider using 3 antagonists known to be selective for the 3 subtypes (i.e. use DAU-5884 to include/exclude M<sub>2</sub>, MT-3 to include/exclude M<sub>4</sub> & S-secoverine to include/exclude M<sub>5</sub>). "]; 
+"<br><b>1.</b> Could choose either <b>darifenacin or DAU-5884</b> because both the greatest difference in –logK<sub>i</sub> values for M<sub>2</sub> and M<sub>3</sub> receptors (1.8 log units).<br><b>2. & 3.</b> The pA<sub>2</sub> values should be the same as the –logK<sub>i</sub> values and also differ by 1.8 log units.<br><b>4.</b> <b>Methoctramine</b> with a 1.7 log unit difference between M<sub>2</sub> and M<sub>3</sub> receptors would also be useful for distinguishing between M<sub>2</sub> and M<sub>3</sub> receptors.",
+"<br><b>1.</b> <b>PD102807</b>, because it has at least a 1 log unit difference in –logK<sub>i</sub> values for each pair of M<sub>2</sub>, M<sub>4</sub> and M<sub>5</sub> receptors.<br><b>2. & 3.</b> The pA<sub>2</sub> values should be the same as the –logK<sub>i</sub> values and also differ by &gt; 1.0 log units.<br><b>4.</b> <b>Methoctramine</b> with a 0.7 log unit difference between each M<sub>2</sub>, M<sub>4</sub> and M<sub>5</sub> receptors would also be useful, but not highly selective. Instead of using one antagonist, consider using 3 antagonists known to be selective for the 3 subtypes (i.e. use DAU-5884 to include/exclude M<sub>2</sub>, MT-3 to include/exclude M<sub>4</sub> & S-secoverine to include/exclude M<sub>5</sub>). "]; 
 
 var questionCounterSchild = 0;
 document.getElementById("schildQuestion").innerHTML = "<b>" + questionsSchild[questionCounterSchild] + "</b>";
