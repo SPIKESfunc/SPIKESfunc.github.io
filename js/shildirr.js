@@ -1,4 +1,3 @@
-var agoconcarrirr = [0, -9, -8, -7, -6];
 var affirr= document.getElementById("affirrslider").defaultValue;
 var effirr = document.getElementById("effirrslider").defaultValue;
 var denirr = document.getElementById("denirrslider").defaultValue;
@@ -9,9 +8,9 @@ var efflevelirr = document.getElementById("efflevelirr").defaultValue;
 document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
 document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
 
-var isPointValidirr = [true, false, false, false];
+var isPointValidirr = [true, true, true, false];
 var allmarkercoloursirr = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var markercoloursirr = ['rgb(255,215,0)'];
+var markercoloursirr = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)'];
 var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 
 var antval0irr = document.getElementById("ant0irr").defaultValue;
@@ -19,10 +18,16 @@ var antval1irr = document.getElementById("ant1irr").defaultValue;
 var antval2irr = document.getElementById("ant2irr").defaultValue;
 var antval3irr = document.getElementById("ant3irr").defaultValue;
 var antval4irr = document.getElementById("ant4irr").defaultValue;
-var antlogval1irr = document.getElementById("antlog1irr").defaultValue;
-var antlogval2irr = document.getElementById("antlog2irr").defaultValue;
-var antlogval3irr = document.getElementById("antlog3irr").defaultValue;
-var antlogval4irr = document.getElementById("antlog4irr").defaultValue;
+var agoconcarrirr = [0, Math.log10(antval1irr), Math.log10(antval2irr), Math.log10(antval3irr), Math.log10(antval4irr)];
+var antlogval1irr = Math.log10(antval1irr);
+var antlogval2irr = Math.log10(antval2irr);
+var antlogval3irr = Math.log10(antval3irr);
+var antlogval4irr = Math.log10(antval4irr);
+
+document.getElementById("antlog1irr").value = Math.log10(antval1irr).toFixed(1);
+document.getElementById("antlog2irr").value = Math.log10(antval2irr).toFixed(1);
+document.getElementById("antlog3irr").value = Math.log10(antval3irr).toFixed(1);
+document.getElementById("antlog4irr").value = Math.log10(antval4irr).toFixed(1);
 var irrHalfMaxEffect;
 
 
@@ -67,7 +72,6 @@ function calc50Irr(lineData){
 }
 //
 function resetQuantIrr(){
-    agoconcarrirr = [0, -9, -8, -7, -6];
     affirr = document.getElementById("affirrslider").value = document.getElementById("affirrslider").defaultValue;
     effirr = document.getElementById("effirrslider").value = document.getElementById("effirrslider").defaultValue;
     denirr = document.getElementById("denirrslider").value = document.getElementById("denirrslider").defaultValue;
@@ -83,10 +87,15 @@ function resetQuantIrr(){
     antval2irr = document.getElementById("ant2irr").value = document.getElementById("ant2irr").defaultValue;
     antval3irr = document.getElementById("ant3irr").value = document.getElementById("ant3irr").defaultValue;
     antval4irr = document.getElementById("ant4irr").value = document.getElementById("ant4irr").defaultValue;
-    antlogval1irr = document.getElementById("antlog1irr").value = document.getElementById("antlog1irr").defaultValue;
-    antlogval2irr = document.getElementById("antlog2irr").value = document.getElementById("antlog2irr").defaultValue;
-    antlogval3irr = document.getElementById("antlog3irr").value = document.getElementById("antlog3irr").defaultValue;
-    antlogval4irr = document.getElementById("antlog4irr").value = document.getElementById("antlog4irr").defaultValue;
+    agoconcarrirr = [0, Math.log10(antval1irr), Math.log10(antval2irr), Math.log10(antval3irr), Math.log10(antval4irr)];
+    antlogval1irr = Math.log10(antval1irr);
+    antlogval2irr = Math.log10(antval2irr);
+    antlogval3irr = Math.log10(antval3irr);
+    antlogval4irr = Math.log10(antval4irr);
+    document.getElementById("antlog1irr").value = Math.log10(antval1irr).toFixed(1);
+    document.getElementById("antlog2irr").value = Math.log10(antval2irr).toFixed(1);
+    document.getElementById("antlog3irr").value = Math.log10(antval3irr).toFixed(1);
+    document.getElementById("antlog4irr").value = Math.log10(antval4irr).toFixed(1);
     lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[0]);
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
@@ -738,10 +747,10 @@ function calcLogDRIrr(doseratio){
 //
 function updateEverythingIrr(){
 
-    antlogval1irr = document.getElementById("antlog1irr").value;
-    antlogval2irr = document.getElementById("antlog2irr").value;
-    antlogval3irr = document.getElementById("antlog3irr").value;
-    antlogval4irr = document.getElementById("antlog4irr").value;
+    antlogval1irr =  Math.log10(antval1irr);
+    antlogval2irr =  Math.log10(antval2irr);
+    antlogval3irr =  Math.log10(antval3irr);
+    antlogval4irr =  Math.log10(antval4irr);
 
     anthalfeff0irr = document.getElementById("anteff0irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[0]).toExponential(2);
     anthalfeff1irr = document.getElementById("anteff1irr").value = calcAgoHalfEffectIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[1]).toExponential(2);

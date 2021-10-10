@@ -1,5 +1,3 @@
-var agoconcarrfun = [0, -9, -8, -7, -6];
-
 var afffun1 = document.getElementById("afffunslider1").defaultValue;
 var efffun1 = document.getElementById("efffunslider1").defaultValue;
 var denfun1 = document.getElementById("denfunslider1").defaultValue;
@@ -13,9 +11,9 @@ var efflevelfun = document.getElementById("efflevelfun").defaultValue;
 document.getElementById("displayeffectfun").innerHTML = (efflevelfun * 100).toFixed(2);
 document.getElementById("efftablefun").innerHTML = (efflevelfun * 100).toFixed(2);
 
-var isPointValidfun = [true, true, false, false];
+var isPointValidfun = [true, true, true, false];
 var allmarkercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var markercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)'];
+var markercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)'];
 var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 
 var antval0fun = document.getElementById("ant0fun").defaultValue;
@@ -23,10 +21,16 @@ var antval1fun = document.getElementById("ant1fun").defaultValue;
 var antval2fun = document.getElementById("ant2fun").defaultValue;
 var antval3fun = document.getElementById("ant3fun").defaultValue;
 var antval4fun = document.getElementById("ant4fun").defaultValue;
-var antlogval1fun = document.getElementById("antlog1fun").defaultValue;
-var antlogval2fun = document.getElementById("antlog2fun").defaultValue;
-var antlogval3fun = document.getElementById("antlog3fun").defaultValue;
-var antlogval4fun = document.getElementById("antlog4fun").defaultValue;
+var agoconcarrfun = [0, Math.log10(antval1fun), Math.log10(antval2fun), Math.log10(antval3fun), Math.log10(antval4fun)];
+var antlogval1fun = Math.log10(antval1fun);
+var antlogval2fun = Math.log10(antval2fun);
+var antlogval3fun = Math.log10(antval3fun);
+var antlogval4fun = Math.log10(antval4fun);
+
+document.getElementById("antlog1fun").value = Math.log10(antval1fun).toFixed(1);
+document.getElementById("antlog2fun").value = Math.log10(antval2fun).toFixed(1);
+document.getElementById("antlog3fun").value = Math.log10(antval3fun).toFixed(1);
+document.getElementById("antlog4fun").value = Math.log10(antval4fun).toFixed(1);
 var funHalfMaxEffect;
 
 
@@ -71,7 +75,6 @@ function calc50Fun(lineData) {
 }
 //
 function resetQuantFun() {
-    agoconcarrfun = [0, -9, -8, -7, -6];
     afffun1 = document.getElementById("afffunslider1").value = document.getElementById("afffunslider1").defaultValue;
     efffun1 = document.getElementById("efffunslider1").value = document.getElementById("efffunslider1").defaultValue;
     denfun1 = document.getElementById("denfunslider1").value = document.getElementById("denfunslider1").defaultValue;
@@ -89,10 +92,16 @@ function resetQuantFun() {
     antval2fun = document.getElementById("ant2fun").value = document.getElementById("ant2fun").defaultValue;
     antval3fun = document.getElementById("ant3fun").value = document.getElementById("ant3fun").defaultValue;
     antval4fun = document.getElementById("ant4fun").value = document.getElementById("ant4fun").defaultValue;
-    antlogval1fun = document.getElementById("antlog1fun").value = document.getElementById("antlog1fun").defaultValue;
-    antlogval2fun = document.getElementById("antlog2fun").value = document.getElementById("antlog2fun").defaultValue;
-    antlogval3fun = document.getElementById("antlog3fun").value = document.getElementById("antlog3fun").defaultValue;
-    antlogval4fun = document.getElementById("antlog4fun").value = document.getElementById("antlog4fun").defaultValue;
+    agoconcarrfun = [0, Math.log10(antval1fun), Math.log10(antval2fun), Math.log10(antval3fun), Math.log10(antval4fun)];
+    antlogval1fun = Math.log10(antval1fun);
+    antlogval2fun = Math.log10(antval2fun);
+    antlogval3fun = Math.log10(antval3fun);
+    antlogval4fun = Math.log10(antval4fun);
+
+    document.getElementById("antlog1fun").value = Math.log10(antval1fun).toFixed(1);
+    document.getElementById("antlog2fun").value = Math.log10(antval2fun).toFixed(1);
+    document.getElementById("antlog3fun").value = Math.log10(antval3fun).toFixed(1);
+    document.getElementById("antlog4fun").value = Math.log10(antval4fun).toFixed(1);
     lineData0 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[0]);
     lineData1 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[1]);
     lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
@@ -830,10 +839,10 @@ function calcLogDRFun(doseratio) {
 //
 function updateEverythingFun() {
 
-    antlogval1fun = document.getElementById("antlog1fun").value;
-    antlogval2fun = document.getElementById("antlog2fun").value;
-    antlogval3fun = document.getElementById("antlog3fun").value;
-    antlogval4fun = document.getElementById("antlog4fun").value;
+    antlogval1fun = Math.log10(antval1fun);
+    antlogval2fun = Math.log10(antval2fun);
+    antlogval3fun = Math.log10(antval3fun);
+    antlogval4fun = Math.log10(antval4fun);
 
     anthalfeff0fun = document.getElementById("anteff0fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[0]).toExponential(2);
     anthalfeff1fun = document.getElementById("anteff1fun").value = calcAgoHalfEffectFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[1]).toExponential(2);

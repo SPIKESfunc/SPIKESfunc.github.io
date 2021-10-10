@@ -1,4 +1,3 @@
-var agoconcarreff = [0, -9, -8, -7, -6];
 var affeff = document.getElementById("affeffslider").defaultValue;
 var effeff = document.getElementById("effeffslider").defaultValue;
 var deneff = document.getElementById("deneffslider").defaultValue;
@@ -10,9 +9,9 @@ var effleveleff = document.getElementById("effleveleff").defaultValue;
 document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixed(2);
 document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
 
-var isPointValideff = [true, false, false, false];
+var isPointValideff = [true, true, true, false];
 var allmarkercolourseff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var markercolourseff = ['rgb(255,215,0)'];
+var markercolourseff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)'];
 var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
 
 var antval0eff = document.getElementById("ant0eff").defaultValue;
@@ -20,10 +19,16 @@ var antval1eff = document.getElementById("ant1eff").defaultValue;
 var antval2eff = document.getElementById("ant2eff").defaultValue;
 var antval3eff = document.getElementById("ant3eff").defaultValue;
 var antval4eff = document.getElementById("ant4eff").defaultValue;
-var antlogval1eff = document.getElementById("antlog1eff").defaultValue;
-var antlogval2eff = document.getElementById("antlog2eff").defaultValue;
-var antlogval3eff = document.getElementById("antlog3eff").defaultValue;
-var antlogval4eff = document.getElementById("antlog4eff").defaultValue;
+var agoconcarreff = [0, Math.log10(antval1eff), Math.log10(antval2eff), Math.log10(antval3eff), Math.log10(antval4eff)];
+var antlogval1eff = Math.log10(antval1eff);
+var antlogval2eff = Math.log10(antval2eff);
+var antlogval3eff = Math.log10(antval3eff);
+var antlogval4eff = Math.log10(antval4eff);
+
+document.getElementById("antlog1eff").value = Math.log10(antval1eff).toFixed(1);
+document.getElementById("antlog2eff").value = Math.log10(antval2eff).toFixed(1);
+document.getElementById("antlog3eff").value = Math.log10(antval3eff).toFixed(1);
+document.getElementById("antlog4eff").value = Math.log10(antval4eff).toFixed(1);
 var effHalfMaxEffect;
 
 $(document).ready(function () {
@@ -66,7 +71,6 @@ function calc50Eff(lineData){
 }
 
 function resetQuantEff(){
-    agoconcarreff = [0, -9, -8, -7, -6];
     affeff = document.getElementById("affeffslider").value = document.getElementById("affeffslider").defaultValue;
     effeff = document.getElementById("effeffslider").value = document.getElementById("effeffslider").defaultValue;
     deneff = document.getElementById("deneffslider").value = document.getElementById("deneffslider").defaultValue;
@@ -83,10 +87,15 @@ function resetQuantEff(){
     antval2eff = document.getElementById("ant2eff").value = document.getElementById("ant2eff").defaultValue;
     antval3eff = document.getElementById("ant3eff").value = document.getElementById("ant3eff").defaultValue;
     antval4eff = document.getElementById("ant4eff").value = document.getElementById("ant4eff").defaultValue;
-    antlogval1eff = document.getElementById("antlog1eff").value = document.getElementById("antlog1eff").defaultValue;
-    antlogval2eff = document.getElementById("antlog2eff").value = document.getElementById("antlog2eff").defaultValue;
-    antlogval3eff = document.getElementById("antlog3eff").value = document.getElementById("antlog3eff").defaultValue;
-    antlogval4eff = document.getElementById("antlog4eff").value = document.getElementById("antlog4eff").defaultValue;
+    agoconcarreff = [0, Math.log10(antval1eff), Math.log10(antval2eff), Math.log10(antval3eff), Math.log10(antval4eff)];
+    antlogval1eff = Math.log10(antval1eff);
+    antlogval2eff = Math.log10(antval2eff);
+    antlogval3eff = Math.log10(antval3eff);
+    antlogval4eff = Math.log10(antval4eff);
+    document.getElementById("antlog1eff").value = Math.log10(antval1eff).toFixed(1);
+    document.getElementById("antlog2eff").value = Math.log10(antval2eff).toFixed(1);
+    document.getElementById("antlog3eff").value = Math.log10(antval3eff).toFixed(1);
+    document.getElementById("antlog4eff").value = Math.log10(antval4eff).toFixed(1);
     lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
     lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[1]);
     lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[2]);
@@ -764,10 +773,10 @@ function calcLogDREff(doseratio){
 
 function updateEverythingEff(){
 
-    antlogval1eff = document.getElementById("antlog1eff").value;
-    antlogval2eff = document.getElementById("antlog2eff").value;
-    antlogval3eff = document.getElementById("antlog3eff").value;
-    antlogval4eff = document.getElementById("antlog4eff").value;
+    antlogval1eff = Math.log10(antval1eff);
+    antlogval2eff = Math.log10(antval2eff);
+    antlogval3eff = Math.log10(antval3eff);
+    antlogval4eff = Math.log10(antval4eff);
 
     anthalfeff0eff = document.getElementById("anteff0eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[0]).toExponential(2);
     anthalfeff1eff = document.getElementById("anteff1eff").value = calcAgoHalfEffectEff(affeff, effeff, deneff, efficeff, agoefflogeff, agoeffeff, agoconcarreff[1]).toExponential(2);
