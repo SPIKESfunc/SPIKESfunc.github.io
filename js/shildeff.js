@@ -994,7 +994,7 @@ function calcSchildEff(logval1,logval2, logval3, logval4, dr1, dr2, dr3, dr4){ /
 
 }
 
-//Define a function to calculate the y values for ideal line in Schild plot, this part still has some small issues need to be fixed.
+//Define a function to calculate the y values for actual plot in Schild plot, this part still has some small issues need to be fixed.
 function calcIdealSchildEff(logval1, logval2, logval3, logval4){
     var data = [[],[]];
 	var allxLogs = [logval1, logval2, logval3, logval4];
@@ -1046,7 +1046,7 @@ function plotSchildEff(chart){
 		x: lineData[0],
 		y: lineData[1],
 		mode: 'lines+markers',
-        name: 'Real Line',
+        name: 'Actual Plot',
 		line: {
             width: 1,
             color: 'rgb(0,0,0)',
@@ -1058,13 +1058,13 @@ function plotSchildEff(chart){
 	}
 	data.push(trace1);
 
-     //Add a ideal line on Schild plot, this part still has some small issues need to be fixed.
+     //Add a ideal plot on Schild plot, this part still has some small issues need to be fixed.
     var lineData2 = calcIdealSchildEff(antlogval1eff, antlogval2eff, antlogval3eff, antlogval4eff);
     var trace2 = {
         x: lineData2[0],
         y: lineData2[1],
         mode: 'lines+markers',
-        name: 'Ideal Line',
+        name: 'Ideal Plot',
         line: {
             dash: 'dot',
             color:'black',
@@ -1078,7 +1078,7 @@ function plotSchildEff(chart){
 
 plotSchildEff("schildEff");
 
-//Define a function to calculate real line properties for Shild Plot Property Table, this part still has some small issues need to be fixed.
+//Define a function to calculate actual plot properties for Shild Plot Property Table, this part still has some small issues need to be fixed.
 function updateSchildPropertyTableEff(){
     //Get x values and y values.
     var tableDataEff = calcSchildEff(antlogval1eff, antlogval2eff, antlogval3eff, antlogval4eff, logdr1eff, logdr2eff, logdr3eff, logdr4eff);
