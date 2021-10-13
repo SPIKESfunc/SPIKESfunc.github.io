@@ -214,7 +214,7 @@ function plotGraph(chart){
 		mode: "markers",
 		name: "EC<sub>50</sub> value",
         marker: {
-            color: "red",
+            color: "rgb(225,225,225)",
             size: dotsize,
             line: {
                 color: 'black',

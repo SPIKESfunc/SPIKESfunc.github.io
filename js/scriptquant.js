@@ -11,8 +11,11 @@ document.getElementById("efftablecom").innerHTML = (efflevelcom * 89).toFixed(2)
 
 var isPointValid = [true, true, true, true];
 var allmarkercolours = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var markercolours = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+var markercolours = ['rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linestyles = ["solid", "solid", "solid", "solid", "solid"];
+
+var plotmarkercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+
 
 var antval0 = document.getElementById("ant0").defaultValue;
 var antval1 = document.getElementById("ant1").defaultValue;
@@ -756,7 +759,7 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency, agoaffinity,
 }
 
 //var linecolours = ["#000000", "#ff99999", "#ff66666", "#ff33333", "#ff00000"]
-var linecolours = ['rgb(0,0,0)','rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecolours = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 function plotGraphCom(chart) {
     var layout = {
@@ -826,7 +829,7 @@ function plotGraphCom(chart) {
             mode: 'markers',
             name: "Level of Effect",
             marker: {
-                color: "red",
+                color: plotmarkercolors[i],
                 size: dotsize,
                 line: {
                     color: 'black',

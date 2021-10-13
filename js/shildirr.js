@@ -11,7 +11,9 @@ document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
 var isPointValidirr = [true, true, true, false];
 var allmarkercoloursirr = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var markercoloursirr = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)'];
-var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+var linestyles = ["solid", "solid", "solid", "solid", "solid"];
+
+var plotmarkercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 var antval0irr = document.getElementById("ant0irr").defaultValue;
 var antval1irr = document.getElementById("ant1irr").defaultValue;
@@ -801,7 +803,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity,
     return data;
 }
 
-var linecoloursirr = ['rgb(0,0,0)','rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecoloursirr = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 //
 function plotGraphIrr(chart){
@@ -869,7 +871,7 @@ function plotGraphIrr(chart){
             mode: 'markers',
             name: "Level of Effect",
             marker: {
-                color: "red",
+                color: plotmarkercolors[i],
                 size: dotsize,
                 line: {
                     color: 'black',

@@ -1,6 +1,8 @@
 
-var agoconcarr = [0, -9, -8, -7, -6];
-var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+var agoconcarr = [0, -10, -9, -8, -7];
+var markercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecolours = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linestyles = ["solid", "solid", "solid", "solid", "solid"];
 
 var affirr = document.getElementById("affirrslider").defaultValue;
 var effirr = document.getElementById("effirrslider").defaultValue;
@@ -306,8 +308,6 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity,
     return data;
 }
 
-var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"]
-
 function plotGraphIrr(chart) {
 
     var layout = {
@@ -373,7 +373,7 @@ function plotGraphIrr(chart) {
             mode: 'markers',
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "red",
+                color: markercolors[i],
                 size: dotsize,
                 line: {
                     color: 'black',

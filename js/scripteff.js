@@ -11,8 +11,9 @@ document.getElementById("antcoopeff").value =
   Math.round(10 ** -agoeffeff * Math.pow(10, 3)) / Math.pow(10, 3);
 
 var agoconcarr = [0, -9, -8, -7, -6];
-var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
-
+var linecolours = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linestyles = ["solid", "solid", "solid", "solid", "solid"];
+var markercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var animation = {
   transition: {
     duration: 0,
@@ -774,7 +775,6 @@ function resetEff() {
   );
 }
 
-var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"];
 
 function plotGraphEff(chart) {
   var layout = {
@@ -854,7 +854,7 @@ function plotGraphEff(chart) {
         mode: "markers",
         name: "EC<sub>50</sub> Value",
         marker: {
-          color: "red",
+          color: markercolors[i],
           size: dotsize,
           line: {
               color: 'black',
