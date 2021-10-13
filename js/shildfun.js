@@ -14,7 +14,10 @@ document.getElementById("efftablefun").innerHTML = (efflevelfun * 100).toFixed(2
 var isPointValidfun = [true, true, true, false];
 var allmarkercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var markercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)'];
-var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+var linestyles = ["solid", "solid", "solid", "solid", "solid"];
+var markercolours = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+
+var plotmarkercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 var antval0fun = document.getElementById("ant0fun").defaultValue;
 var antval1fun = document.getElementById("ant1fun").defaultValue;
@@ -953,7 +956,7 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-var linecoloursfun = ['rgb(0,0,0)','rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecoloursfun = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 //
 function plotGraphFun(chart) {
@@ -1021,7 +1024,7 @@ function plotGraphFun(chart) {
             mode: 'markers',
             name: "Level of Effect",
             marker: {
-                color: "red",
+                color: plotmarkercolors[i],
                 size: dotsize,
                 line: {
                     color: 'black',

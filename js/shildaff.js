@@ -11,9 +11,12 @@ document.getElementById("displayeffectaff").innerHTML = (efflevelaff*100).toFixe
 document.getElementById("efftableaff").innerHTML = (efflevelaff*100).toFixed(2);
 
 var isPointValidaff = [true, true, true, true];
+var markercolours = ['rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var allmarkercoloursaff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var markercoloursaff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+var linestyles = ["solid", "solid", "solid", "solid", "solid"];
+
+var plotmarkercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 var antval0aff = document.getElementById("ant0aff").defaultValue;
 var antval1aff = document.getElementById("ant1aff").defaultValue;
@@ -827,7 +830,7 @@ function calcLinesAff(affinity, efficacy, recepDensity, efficiency,agoaffinity, 
     return data;
 }
 
-var linecoloursaff = ['rgb(0,0,0)','rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecoloursaff = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 function plotGraphAff(chart){
     var layout = {
@@ -894,7 +897,7 @@ function plotGraphAff(chart){
             mode: 'markers',
             name: "Level of Effect",
             marker: {
-                color: "red",
+                color: plotmarkercolors[i],
                 size: dotsize,
                 line: {
                     color: 'black',

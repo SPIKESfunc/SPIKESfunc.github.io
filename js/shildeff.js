@@ -12,7 +12,10 @@ document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
 var isPointValideff = [true, true, true, false];
 var allmarkercolourseff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var markercolourseff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)'];
-var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+var linestyles = ["solid", "solid", "solid", "solid", "solid"];
+var markercolours = ['rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+
+var plotmarkercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 var antval0eff = document.getElementById("ant0eff").defaultValue;
 var antval1eff = document.getElementById("ant1eff").defaultValue;
@@ -848,7 +851,7 @@ function calcLinesEff(
   }
 
 
-var linecolourseff = ['rgb(0,0,0)','rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecolourseff = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 function plotGraphEff(chart){
     var layout = {
@@ -915,7 +918,7 @@ function plotGraphEff(chart){
             mode: 'markers',
             name: "Level of Effect",
             marker: {
-                color: "red",
+                color: plotmarkercolors[i],
                 size: dotsize,
                 line: {
                     color: 'black',
