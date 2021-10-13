@@ -73,10 +73,10 @@ function calcLinesInv(affinity, selectivity, negefficacy, allosteric, ampliagoin
     const STEP = 0.01;
     var data = [[],[]];
 
-    var affin = 10**(-1*affinity);
-    var selec = 10**efficacy;
-    var negeff = 10**recepDensity;
-    var allosteric = 10**efficiency;
+    var affin = 10**affinity;
+    var selec = 10**selectivity;
+    var negeff = 10**negefficacy;
+    var allosteric = 10**allosteric;
 }
 //
 function calc50Inv(lineData){
@@ -360,9 +360,9 @@ function plotGraphInv(chart){
 plotGraphInv("agonistinv");
 
 //QUESTION BOX
-var questionsInv = ["1"];
+var questionsInv = ["1","2","3","4"];
 
-var answersInv = ["1"];
+var answersInv = ["1","2","3","4"];
 
 var questionCounterInv = 0;
 document.getElementById("invQuestion").innerHTML = "<b>" + questionsInv[questionCounterInv] + "</b>";
@@ -381,7 +381,7 @@ function nextQuestionInv() {
         document.getElementById("revealInvAnswer").style.display = "none";
         document.getElementById("restartMessageInv").style.display = "inline-block";
         document.getElementById("restartQuestionInv").style.display = "inline-block";
-        document.getElementById("nextInvQuestion").style.display = "none";
+        document.getElementById("nextQuestionInv").style.display = "none";
     }
     else {
         questionCounterInv++;
@@ -409,7 +409,7 @@ function prevQuestionInv() {
 function restartQuestionInv() {
     questionCounterInv = 0;
     document.getElementById("invQuestion").style.display = "block";
-    document.getElementById("nextInvQuestion").style.display = "inline-block";
+    document.getElementById("nextQuestionInv").style.display = "inline-block";
     document.getElementById("restartMessageInv").style.display = "none";
     document.getElementById("restartQuestionInv").style.display = "none";
     document.getElementById("invQuestion").innerHTML = "<b>" + questionsINv[questionCounterInv] + "</b>";
