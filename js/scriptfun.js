@@ -387,9 +387,9 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency, agoaffinity,
     }
     return data;
 }
-
-var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"]
-var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+var markercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecolours = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linestyles = ["solid", "solid", "solid", "solid", "solid"];
 
 function plotGraphFun(chart) {
 
@@ -455,7 +455,7 @@ function plotGraphFun(chart) {
             mode: 'markers',
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "red",
+                color: markercolors[i],
                 size: dotsize,
                 line: {
                     color: 'black',

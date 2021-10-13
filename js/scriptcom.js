@@ -5,8 +5,9 @@ var efficcom = document.getElementById("efficicomslider").defaultValue;
 var agoaffcom = document.getElementById("antagocomp").value = document.getElementById("agoaffcomslider").defaultValue;
 var comHalfMaxEffect;
 var agoconcarr = [0, -9, -8, -7, -6];
-var linecolours = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"];
-var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+var linecolours = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linestyles = ["solid", "solid", "solid", "solid", "solid"];
+var markercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var lineData0;
 var lineData1;
 var lineData2;
@@ -372,7 +373,7 @@ function plotGraphCom(chart){
             mode: "markers",
             name: "EC<sub>50</sub> Value",
             marker: {
-                color: "red",
+                color: markercolors[i],
                 size: dotsize,
                 line: {
                     color: 'black',
