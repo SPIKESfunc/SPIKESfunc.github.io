@@ -2090,13 +2090,13 @@
 									step="0.03" value="-0.5" oninput="updateAllInv(this.value)">
 							</fieldset>
 							<!-- The contents inside the quiz box -->
-
-							<fieldset style="width:450px;text-align:center">
+							<fieldset style="width:430px;text-align:center">
 								<legend>Questions</legend>
-								<div id="InvQuestion" style="margin-bottom:20px;"></div>
-								<div id="restartMessageinv" style="display:none">There are no more questions. Would
-									you like to try again?<br><br></div>
-
+								<div id="invQuestion" style="margin-bottom:20px;"></div>
+								<div id="restartMessageInv" style="display:none">There are no more questions. Would you
+									like to try again?<br><br></div>
+							
+							
 								<div id="invAnswerModal" class="modal fade" role="dialog">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -2115,27 +2115,21 @@
 										</div>
 									</div>
 								</div>
-
+							
 								<button id="restartQuestionInv" style="display:none" type="button"
 									class="btn waves-effect waves-light red qbutton"
 									onclick="restartQuestionInv()">Restart</button>
-
-								<button id="prevQuestionInv" style="float:left" type="button"
+								<button id="prevInvQuestion" style="float:left" type="button"
 									class="btn waves-effect waves-light red qbutton"
 									onclick="prevQuestionInv()">Previous Question</button>
-
-
-								<button id="nextQuestionInv" style="float:right" type="button"
-									class="btn waves-effect waves-light red qbutton"
-									onclick="nextQuestionInv()">Next Question</button>
-
-								<button id="revealAnswerinv" type="button"
-									class="btn waves-effect waves-light red qbutton"
-									onclick="revealAnswerInv()">Reveal Answer</button>
-
-
+								<button id="revealInvAnswer" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="revealAnswerInv()">Reveal
+									Answer</button>
+								<button id="nextInvQuestion" style="float:right" type="button"
+									class="btn waves-effect waves-light red qbutton" onclick="nextQuestionInv()">Next
+									Question</button>
 							</fieldset>
-
+							
 						</div>
 						<!-- The Agonist box -->
 
