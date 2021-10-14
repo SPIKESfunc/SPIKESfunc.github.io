@@ -124,9 +124,8 @@ function resetQuantIrr(){
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
+    idealSchildData = calcIdealSchildIrr(agoafflogirr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
-
 }
 //
 function graphAlertIrr(div){
@@ -191,9 +190,7 @@ function updateAffinityIrr(value){
             layout: {}
             },animation)
         schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-        //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-        idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-        Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
 //
@@ -231,9 +228,7 @@ function updateEfficacyIrr(value){
             layout: {}
             },animation)
         schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-        //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-        idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-        Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
 //
@@ -271,9 +266,7 @@ function updateDensityIrr(value){
             layout: {}
             },animation)
         schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-        //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-        idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-        Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
 //
@@ -311,9 +304,7 @@ function updateEfficiencyIrr(value){
             layout: {}
             },animation)
         schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-        //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-        idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-        Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
 //
@@ -346,9 +337,7 @@ function updateAgoAffinityIrr(value){
         layout: {}
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-    //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 //
@@ -388,9 +377,7 @@ function updateefflevelIrr(value){
             layout: {}
             },animation)
         schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-        //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-        idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-        Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
 //
@@ -424,7 +411,7 @@ function updateAgoAffinityLogIrr(value){
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
     //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
+    idealSchildData = calcIdealSchildIrr(agoafflogirr);
     Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
 }
 //
@@ -457,9 +444,7 @@ function updateAntagonist1Irr(value){
         layout: {}
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-    //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
 function updateAntagonistLog1Irr(value){
@@ -491,9 +476,7 @@ function updateAntagonistLog1Irr(value){
         layout: {}
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-    //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonist2Irr(value){
@@ -525,9 +508,7 @@ function updateAntagonist2Irr(value){
         layout: {}
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-    //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
 function updateAntagonistLog2Irr(value){
@@ -559,9 +540,7 @@ function updateAntagonistLog2Irr(value){
         layout: {}
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-    //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
 function updateAntagonist3Irr(value){
@@ -593,9 +572,7 @@ function updateAntagonist3Irr(value){
         layout: {}
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-    //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
 function updateAntagonistLog3Irr(value){
@@ -627,9 +604,7 @@ function updateAntagonistLog3Irr(value){
         layout: {}
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-    //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonist4Irr(value){
@@ -661,9 +636,7 @@ function updateAntagonist4Irr(value){
         layout: {}
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-    //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
 function updateAntagonistLog4Irr(value){
@@ -695,9 +668,7 @@ function updateAntagonistLog4Irr(value){
         layout: {}
         },animation)
     schildData = calcSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4], logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-    //Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildIrr(agoconcarrirr[1], agoconcarrirr[2], agoconcarrirr[3], agoconcarrirr[4]);
-    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildIrr",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 //
 function calcAgoHalfEffectIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc){
@@ -949,31 +920,26 @@ function calcSchildIrr(logval1,logval2, logval3, logval4, dr1, dr2, dr3, dr4){ /
 
 }
 
-//Define a function to calculate the y values for ideal plot in Schild plot, this part still has some small issues need to be fixed.
-function calcIdealSchildIrr(logval1, logval2, logval3, logval4){
-    var data = [[],[]];
-	var allxLogs = [logval1, logval2, logval3, logval4];
-    var newdr1 = Number(logval1) + 9;
-    var newdr2 = Number(logval2) + 9;
-    var newdr3 = Number(logval3) + 9;
-    var newdr4 = Number(logval4) + 9;
-	var alllogDr1 = [newdr1, newdr2, newdr3, newdr4];
-    var xLogs = [];
-    var logDr1 = [];
-    var j = 0;
+//Define a function to calculate x values and y values for ideal plot in Schild plot.
+function calcIdealSchildIrr(negativelogKBValue){
+    var idealData = [[],[]];
 
-    for(i = 0; i<4; i++){
-        if(isPointValidirr[i]){
-            xLogs[j] =  allxLogs[i];
-            logDr1[j] = alllogDr1[i];
-            j++;
-        }
+    //Ideal Plot Equation: y = 1 * x + (-logKBValue).
+
+    //Calculate x values for ideal plot.
+	var idealAllxLogs = [-9, -8, -7, -6, -4];
+
+    //Calculate y values for ideal plot based on the equation.
+    var idealAllLogDr1 = [];
+    var negLogKBValue = Number(negativelogKBValue);
+    for(i = 0; i < idealAllxLogs.length; i++){
+        idealAllLogDr1[i] = 1 * idealAllxLogs[i] + negLogKBValue;
     }
+	
+	idealData[0] = idealAllxLogs;
+	idealData[1] = idealAllLogDr1;
 
-	data[0] = xLogs;
-	data[1] = logDr1;
-
-    return data;
+    return idealData;
 }
 
 function plotSchildIrr(chart){
@@ -1012,112 +978,121 @@ function plotSchildIrr(chart){
         }
 	}
 	data.push(trace1);
-
-   //Add a ideal plot on Schild plot, this part still has some small issues need to be fixed.
-   var lineData2 = calcIdealSchildIrr(antlogval1irr, antlogval2irr, antlogval3irr, antlogval4irr);
-   var trace2 = {
-       x: lineData2[0],
-       y: lineData2[1],
-       mode: 'lines+markers',
-       name: 'Ideal Plot',
-       line: {
-           dash: 'dot',
-           color:'black',
-           width: 1
-       }
-   }
-   data.push(trace2);
-   //console.log("loop exed");
+    
+    //Add a ideal plot on Schild plot.
+    var lineData2 = calcIdealSchildIrr(agoafflogirr);
+    var trace2 = {
+        x: lineData2[0],
+        y: lineData2[1],
+        mode: 'lines',
+        name: 'Ideal Plot',
+        line: {
+            dash: 'dot',
+            color:'rgb(128, 128, 128)',
+            width: 1
+        }
+    }
+    data.push(trace2);
 	
 	Plotly.plot(chart, data, layout, {responsive: true});
 }
 
 plotSchildIrr("schildIrr");
 
-//Define a function to calculate actual plot properties for Shild Plot Property Table, this part still has some small issues need to be fixed.
+//Define a function to calculate actual plot properties for Shild Plot Property Table.
 function updateSchildPropertyTableIrr(){
     //Get x values and y values.
-    var tableDataIrr = calcSchildIrr(antlogval1irr, antlogval2irr, antlogval3irr, antlogval4irr, logdr1irr, logdr2irr, logdr3irr, logdr4irr);
-    var tempxtableDataIrr = tableDataIrr[0];
-    var tempytableDataIrr = tableDataIrr[1];
+    var tableData = calcSchildIrr(antlogval1irr, antlogval2irr, antlogval3irr, antlogval4irr, logdr1irr, logdr2irr, logdr3irr, logdr4irr);
+    var tempxTableData = tableData[0];
+    var tempyTableData = tableData[1];
+    var tempNumberofx = tempxTableData.length;
+    for(i = 0; i < tempNumberofx; i++){
+        tempxTableData[i] = Number(tempxTableData[i]);
+        tempyTableData[i] = Number(tempyTableData[i]);
+    }
 
-    var ytableDataIrr = [];
-    var j = 0;
-    for(i = 0; i<tempytableDataIrr.length; i++){
-        if(isNaN(tempytableDataIrr[i]) == false){
-            ytableDataIrr[j] =  tempytableDataIrr[i];
-            j++;
+    //Check if there are any equal x values and remove duplicated one(s).
+    var x1 = tempxTableData[0];
+    var y1 = tempyTableData[0];
+    var xTableData = [x1];
+    var yTableData = [y1];
+    for (i = 1; i < tempNumberofx; i++){
+        if(xTableData[0] != tempxTableData[i]){
+            xTableData.push(tempxTableData[i]);
+            yTableData.push(tempyTableData[i]);
         }
     }
-    var numberofyIrr = ytableDataIrr.length;
-    var xtableDataIrr = tempxtableDataIrr.slice(0, numberofyIrr);
-    var numberofxIrr = xtableDataIrr.length;
-    for (i = 0; i < numberofxIrr; i++){
-        xtableDataIrr[i] = Number(xtableDataIrr[i]);
-        ytableDataIrr[i] = Number(ytableDataIrr[i]);
-    }
-
-    var x1 = xtableDataIrr[0];
-    var x2 = xtableDataIrr[numberofxIrr - 1];
-    var y1 = ytableDataIrr[0];
-    var y2 = ytableDataIrr[numberofyIrr - 1];
-
+    var numberofx = xTableData.length;
+    var numberofy = yTableData.length;
     
-    if (numberofyIrr < 2){
+    /*
+    Calculate actual plot properties.
+    Note: There are some cases can't calculate actual plot properties, need to provide error messages.
+          1. There are multiple groups of coordinates with same x values and y values, or there is less than one group of coordinates.
+          2. There are multiple x values but y values are -infinity.
+    */
+    if(numberofx < 2){
         document.getElementById("slopevalueirr").innerHTML = "NA";
         document.getElementById("pA2valueirr").innerHTML = "NA";
         document.getElementById("r2valueirr").innerHTML = "NA";
-        if(isNaN(y1) == false){
-            document.getElementById("noteirr").innerHTML = "Note: Values are not avaliable (NA).";
-        }
-        else{
-            document.getElementById("noteirr").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
-        }
+        document.getElementById("noteirr").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
     }
     else{
-        //Calculate the slope.
-        var slopeValueIrr = (y2 - y1) / (x2 - x1);
-        document.getElementById("slopevalueirr").innerHTML = slopeValueIrr.toFixed(3);
-
-        //Calculate pA2 (x-intercept).
-        var bIrr = y1 - (slopeValueIrr * x1);
-        pA2ValueIrr = (0 - bIrr) / slopeValueIrr;
-        document.getElementById("pA2valueirr").innerHTML = pA2ValueIrr.toFixed(3); 
-
-        //Calculate R square.
-
-        //Calculate the mean of x and y.
-        var xtotal = 0;
-        var ytotal = 0;
-        for (var i = 0; i < numberofxIrr; i++) {
-            xtotal += xtableDataIrr[i];
-            ytotal += ytableDataIrr[i];
+        if(isFinite(y1) == false){
+            document.getElementById("slopevalueirr").innerHTML = "NA";
+            document.getElementById("pA2valueirr").innerHTML = "NA";
+            document.getElementById("r2valueirr").innerHTML = "NA";
+            document.getElementById("noteirr").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
         }
-        var xmean = xtotal/numberofxIrr;
-        var ymean = ytotal/numberofyIrr;
+        else{
+            var x1Calc = xTableData[0];
+            var x2Calc = xTableData[numberofx - 1];
+            var y1Calc = yTableData[0];
+            var y2Calc = yTableData[numberofy - 1];
 
-        //Calculate sum of regression.
-        var regressionSum = 0;
-        for (var i = 0; i < numberofxIrr; i++) {
-            regressionSum += (xtableDataIrr[i] - xmean) * (ytableDataIrr[i] - ymean);
+            //Calculate the slope.
+            var slopeValueIrr = (y2Calc - y1Calc) / (x2Calc - x1Calc);
+            document.getElementById("slopevalueirr").innerHTML = slopeValueIrr.toFixed(2);
+
+            //Calculate pA2 (x-intercept).
+            var b = y1Calc - (slopeValueIrr * x1Calc);
+            var pA2ValueIrr = (0 - b) / slopeValueIrr;
+            document.getElementById("pA2valueirr").innerHTML = pA2ValueIrr.toFixed(2);
+
+            //Calculate R square.
+
+            //Calculate the mean of x and y.
+            var xTotal = 0;
+            var yTotal = 0;
+            for (var i = 0; i < numberofx; i++) {
+                xTotal += xTableData[i];
+                yTotal += yTableData[i];
+            }
+            var xMean = xTotal / numberofx;
+            var yMean = yTotal / numberofy;
+
+            //Calculate sum of regression.
+            var regressionSum = 0;
+            for (var i = 0; i < numberofx; i++) {
+                regressionSum += (xTableData[i] - xMean) * (yTableData[i] - yMean);
+            }
+
+            //Calculate sum of total.
+            var sumx2 = 0;
+            var sumy2 = 0;
+            for (var i = 0; i < numberofx; i++) {
+                sumx2 += (xTableData[i] - xMean) ** 2;
+                sumy2 += (yTableData[i] - yMean) ** 2;
+            }
+            var totalSum = Math.sqrt(sumx2 * sumy2);
+
+            //Calculate R square value.
+            var rValue = regressionSum / totalSum;
+            var r2ValueIrr = rValue ** 2;
+            document.getElementById("r2valueirr").innerHTML = r2ValueIrr.toFixed(2);
+
+            document.getElementById("noteirr").innerHTML = "Note: Values are avaliable now.";
         }
-
-        //Calculate sum of total.
-        var sumx2 = 0;
-        var sumy2 = 0;
-        for (var i = 0; i < numberofxIrr; i++) {
-            sumx2 += (xtableDataIrr[i] - xmean) ** 2;
-            sumy2 += (ytableDataIrr[i] - ymean) ** 2;
-        }
-        var totalSum = Math.sqrt(sumx2 * sumy2);
-
-        //Calculate R square value.
-        var rValue = regressionSum/totalSum;
-        var r2ValueIrr = rValue ** 2;
-    
-        document.getElementById("r2valueirr").innerHTML = r2ValueIrr.toFixed(3);
-    
-        document.getElementById("noteirr").innerHTML = "Note: Values are avaliable now.";
     }
 }
 
