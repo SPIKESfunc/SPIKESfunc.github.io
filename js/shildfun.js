@@ -11,9 +11,9 @@ var efflevelfun = document.getElementById("efflevelfun").defaultValue;
 document.getElementById("displayeffectfun").innerHTML = (efflevelfun * 100).toFixed(2);
 document.getElementById("efftablefun").innerHTML = (efflevelfun * 100).toFixed(2);
 
-var isPointValidfun = [true, true, true, false];
+var isPointValidfun = [true, true, true, true];
 var allmarkercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var markercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)'];
+var markercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var linestyles = ["solid", "solid", "solid", "solid", "solid"];
 var markercolours = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
@@ -1076,6 +1076,7 @@ function updateValidFun(data0, data1, data2, data3) {
     var update = {
         marker :{
             color: markercoloursfun,
+            size: dotsize,
         }
     };
     Plotly.restyle("schildFun", update, 0);
@@ -1138,20 +1139,20 @@ function plotSchildFun(chart) {
         xaxis: {
             title: "Log [Antagonist] (log M)",
             showline: true,
-            range: [-11, -4],
+            range: [-10,-6],
 
         },
         yaxis: {
             title: "Log(DR-1)",
             showline: true,
-            range: [0, 4],
-            tickvals: [0, 1, 2, 3, 4]
+            range: [0,2],
+            tickvals: [0, 0.5, 1, 1.5, 2]
 
         },
     }
     var data = []
 
-    var lineData = calcSchildFun(antlogval1fun, antlogval2fun, antlogval3fun, antlogval4fun, logdr1fun, logdr2fun, logdr3fun, logdr3fun);
+    var lineData = calcSchildFun(antlogval1fun, antlogval2fun, antlogval3fun, antlogval4fun, logdr1fun, logdr2fun, logdr3fun, logdr4fun);
     var trace1 = {
         x: lineData[0],
         y: lineData[1],
@@ -1163,7 +1164,7 @@ function plotSchildFun(chart) {
         },
         marker: {
             color: markercoloursfun,
-            size: 7,
+            size: dotsize,
         }
     }
     data.push(trace1);
@@ -1180,6 +1181,9 @@ function plotSchildFun(chart) {
             dash: 'dot',
             color:'black',
             width: 1
+        },
+        marker: {
+            size: dotsize,
         }
     }
     data.push(trace2);

@@ -147,6 +147,7 @@
 							<!-- Schild plot goes here -->
 							<fieldset style="display:block;">
 								<legend>Schild Plot</legend>
+								<a class="contents" href="nonlinear.html">Why might Schild Plots be Non-linear? Click here to learn more</a>
 								<div id="schild"></div>
 							</fieldset>
 							<button id="reset" type="button" class="btn waves-effect waves-light red"
@@ -158,7 +159,7 @@
 							<fieldset style="width: 100%">
 								<label for="levelofeffectcom">Level of effect(%Emax)</label>
 								<input type="range" style="float:right;" autocomplete="off" name="levelofeffectcom"
-									id="efflevelcom" min="0" max="1" step="0.0001" value="0.5"
+									id="efflevelcom" min="0" max="0.89" step="0.0001" value="0.4"
 									oninput="updateefflevelCom(this.value)">
 								<br>
 								<p>Current Level of effect(%Emax) is <b id="displayeffectcom"></b>%</p>
@@ -204,6 +205,7 @@
 							</fieldset>
 
 							<!-- "Why might Schild Plots be non-ideal?" button goes here -->
+							<!--
 							<fieldset>
 								<div id="whySchildPlotsNonidealModal" class="modal fade" role="dialog">
 									<div class="modal-dialog">
@@ -234,6 +236,7 @@
 									onclick="whySchildPlotsNonidealFunction()">Why might Schild Plots be
 									non-ideal?</button>
 							</fieldset>
+							-->
 
 						</div>
 						<div class="col-lg-6">
@@ -450,7 +453,7 @@
 						<div class="col-lg-6" style="width: 90%;">
 							<!-- Comp antag slider goes ehre -->
 							<fieldset style="width: 90%;">
-								<legend>Competitive Antagonist</legend>
+								<legend>Irreversible Antagonist</legend>
 								<label for="agoaffinity">Antagonist Affinity (&#8733 1/K<sub>B</sub>)</label>
 								<input type="number" style="float:right;" autocomplete="off" name="agoaffinity"
 									id="agoaffirrnum" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-9"
@@ -476,6 +479,7 @@
 							<!-- Schild plot goes here -->
 							<fieldset style="display:block;">
 								<legend>Schild Plot</legend>
+								<a class="contents" href="nonlinear.html">Why might Schild Plots be Non-linear? Click here to learn more</a>
 								<div id="schildIrr"></div>
 							</fieldset>
 							<button id="reset" type="button" class="btn waves-effect waves-light red"
@@ -488,7 +492,7 @@
 							<fieldset style="width: 100%">
 								<label for="levelofeffectirr">Level of effect(%Emax)</label>
 								<input type="range" style="float:right;" autocomplete="off" name="levelofeffectirr"
-									id="efflevelirr" min="0" max="1" step="0.0001" value="0.5"
+									id="efflevelirr" min="0" max="0.89" step="0.0001" value="0.3"
 									oninput="updateefflevelIrr(this.value)">
 								<br>
 								<p>Current Level of effect(%Emax) is <b id="displayeffectirr"></b>%</p>
@@ -744,22 +748,24 @@
 						<div class="col-lg-6">
 							<!-- Comp antag slider goes ehre -->
 							<fieldset style="width: 90%;">
-								<legend>Competitive Antagonist</legend>
-								<br>
+								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Antagonist Affinity (&#8733 1/K<sub>B</sub>)</label>
 								<input type="number" style="float:right;" autocomplete="off" name="agoaffinity"
 									id="agoaffnumaff" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-9"
 									oninput="updateAgoAffinityAff(this.value)">
 								<br>
-								<label for="neglog">-logK<sub>B</sub></label>
-								<input type="number" style="float:right; width:138px;" autocomplete="off" name="neglog"
+								<label for="neglog">-logK<sub>B</sub> =&nbsp</label>
+								<input class="number" type="number" autocomplete="off" name="neglog"
 									id="agoafflognumaff" min="4" max="10" step="0.1" value="9.0"
 									oninput="updateAgoAffinityLogAff(this.value)">
 								<br>
 								<label for="affeffect">Cooperativity Factor (&#945)</label>
-								<input type="number" style="float:right;" autocomplete="off" name="affeffect"
-									id="agoeffaff" min="0.0" max="2" step="0.1" value="1"
+								<input type="range" style="float:right;" autocomplete="off" name="affeffect"
+									id="agoeffaff" min="0" max="2" step="0.1" value="1"
 									oninput="updateAgoEffAff(this.value)">
+								<br>
+								<label for="effaffdisplay">&#945 =&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="effaffdisplay" id="effaffdisplay" readonly>
 							</fieldset>
 						</div>
 					</div>
@@ -767,7 +773,7 @@
 						<div class="col-lg-6">
 							<!-- Effect of comp antag goes ehre -->
 							<fieldset style="display:block;">
-								<legend>Effect of Competitive Antagonist on Agonist Dose Response curve</legend>
+								<legend>Effect of Allosteric Antagonist on Agonist-Dose-Response curve</legend>
 								<h5 class="warning" id="quantalertAff"></h5>
 								<div id="quantitativeAff"></div>
 							</fieldset>
@@ -776,6 +782,7 @@
 							<!-- Schild plot goes here -->
 							<fieldset style="display:block;">
 								<legend>Schild Plot</legend>
+								<a class="contents" href="nonlinear.html">Why might Schild Plots be Non-linear? Click here to learn more</a>
 								<div id="schildAff"></div>
 							</fieldset>
 							<button id="reset" type="button" class="btn waves-effect waves-light red"
@@ -788,7 +795,7 @@
 							<fieldset style="width: 100%">
 								<label for="levelofeffectaff">Level of effect(%Emax)</label>
 								<input type="range" style="float:right;" autocomplete="off" name="levelofeffectaff"
-									id="efflevelaff" min="0" max="1" step="0.0001" value="0.5"
+									id="efflevelaff" min="0" max="0.89" step="0.0001" value="0.4"
 									oninput="updateefflevelAff(this.value)">
 								<br>
 								<p>Current Level of effect(%Emax) is <b id="displayeffectaff"></b>%</p>
@@ -1045,22 +1052,24 @@
 						<div class="col-lg-6">
 							<!-- Comp antag slider goes ehre -->
 							<fieldset style="width: 90%;">
-								<legend>Competitive Antagonist</legend>
-								<br>
+								<legend>Allosteric Antagonist</legend>
 								<label for="agoaffinity">Antagonist Affinity (&#8733 1/K<sub>B</sub>)</label>
 								<input type="number" style="float:right;" autocomplete="off" name="agoaffinity"
 									id="agoeffnumeff" min="1.00e-10" max="1.00e-6" step="1.00e-9" value="1e-9"
 									oninput="updateAgoAffinityEff(this.value)">
 								<br>
-								<label for="neglog">-logK<sub>B</sub></label>
-								<input type="number" style="float:right; width:138px;" autocomplete="off" name="neglog"
+								<label for="neglog">-logK<sub>B</sub> =&nbsp</label>
+								<input class= "number" type="number" autocomplete="off" name="neglog"
 									id="agoefflognumeff" min="4" max="10" step="0.1" value="9.0"
 									oninput="updateAgoAffinityLogEff(this.value)">
 								<br>
 								<label for="effeffect">Cooperativity Factor (&#946)</label>
-								<input type="number" style="float:right;" autocomplete="off" name="effeffect"
+								<input type="range" style="float:right;" autocomplete="off" name="effeffect"
 									id="agoeffeff" min="0.0" max="2" step="0.1" value="1"
 									oninput="updateAgoAffEff(this.value)">
+								<br>
+								<label for="effeffdisplay">&#946 =&nbsp</label>
+								<input class="numbox" type="number" autocomplete="off" name="effeffdisplay" id="effeffdisplay" readonly>
 							</fieldset>
 						</div>
 					</div>
@@ -1068,7 +1077,7 @@
 						<div class="col-lg-6">
 							<!-- Effect of comp antag goes ehre -->
 							<fieldset style="display:block;">
-								<legend>Effect of Competitive Antagonist on Agonist Dose Response curve</legend>
+								<legend>Effect of Allosteric Antagonist on Agonist-Dose-Response curve</legend>
 								<h5 class="warning" id="quantalertEff"></h5>
 								<div id="quantitativeEff"></div>
 							</fieldset>
@@ -1077,6 +1086,7 @@
 							<!-- Schild plot goes here -->
 							<fieldset style="display:block;">
 								<legend>Schild Plot</legend>
+								<a class="contents" href="nonlinear.html">Why might Schild Plots be Non-linear? Click here to learn more</a>
 								<div id="schildEff"></div>
 							</fieldset>
 							<button id="reset" type="button" class="btn waves-effect waves-light red"
@@ -1089,7 +1099,7 @@
 							<fieldset style="width: 100%">
 								<label for="levelofeffecteff">Level of effect(%Emax)</label>
 								<input type="range" style="float:right;" autocomplete="off" name="levelofeffecteff"
-									id="effleveleff" min="0" max="1" step="0.0001" value="0.5"
+									id="effleveleff" min="0" max="0.89" step="0.0001" value="0.3"
 									oninput="updateefflevelEff(this.value)">
 								<br>
 								<p>Current Level of effect(%Emax) is <b id="displayeffecteff"></b>%</p>
@@ -1375,6 +1385,7 @@
 							<!-- Schild plot goes here -->
 							<fieldset style="display:block;">
 								<legend>Schild Plot</legend>
+								<a class="contents" href="nonlinear.html">Why might Schild Plots be Non-linear? Click here to learn more</a>
 								<div id="schildFun"></div>
 							</fieldset>
 							<button id="reset" type="button" class="btn waves-effect waves-light red"
@@ -1386,7 +1397,7 @@
 							<fieldset style="width: 100%">
 								<label for="levelofeffectfun">Level of effect(%Emax)</label>
 								<input type="range" style="float:right;" autocomplete="off" name="levelofeffectfun"
-									id="efflevelfun" min="0" max="1" step="0.0001" value="0.5"
+									id="efflevelfun" min="0" max="0.89" step="0.0001" value="0.3"
 									oninput="updateefflevelfun(this.value)">
 								<br>
 								<p>Current Level of effect(%Emax) is <b id="displayeffectfun"></b>%</p>

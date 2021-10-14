@@ -8,10 +8,11 @@ var agoeffeff = document.getElementById("agoeffeff").defaultValue;
 var effleveleff = document.getElementById("effleveleff").defaultValue;
 document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixed(2);
 document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
+document.getElementById("effeffdisplay").value = (10**(-1*agoeffeff)).toFixed(2);
 
-var isPointValideff = [true, true, true, false];
+var isPointValideff = [true, true, true, true];
 var allmarkercolourseff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var markercolourseff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)'];
+var markercolourseff = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var linestyles = ["solid", "solid", "solid", "solid", "solid"];
 var markercolours = ['rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
@@ -83,7 +84,8 @@ function resetQuantEff(){
     effleveleff = document.getElementById("effleveleff").value = document.getElementById("effleveleff").defaultValue;
     document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixed(2);
     document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
-    
+    document.getElementById("effeffdisplay").value = (10**(-1*agoeffeff)).toFixed(2);
+
     agoefflogeff = document.getElementById("agoefflognumeff").value = document.getElementById("agoefflognumeff").defaultValue;
     antval0eff = document.getElementById("ant0eff").value = document.getElementById("ant0eff").defaultValue;
     antval1eff = document.getElementById("ant1eff").value = document.getElementById("ant1eff").defaultValue;
@@ -434,6 +436,7 @@ function updateAgoAffinityLogEff(value){
 
 function updateAgoAffEff(value){
     agoeffeff = value;
+    document.getElementById("effeffdisplay").value = (10**(-1*agoeffeff)).toFixed(2);
     lineData0 = calcLinesEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[0]);
     lineData1 = calcLinesEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[1]);
     lineData2 = calcLinesEff(affeff,effeff,deneff,efficeff,agoefflogeff, agoeffeff, agoconcarreff[2]);
@@ -969,6 +972,7 @@ function updateValidEff(data0, data1, data2, data3){
     var update = {
         marker :{
             color: markercolourseff,
+            size: dotsize,
         }
     };
     Plotly.restyle("schildEff", update, 0);
@@ -1031,14 +1035,14 @@ function plotSchildEff(chart){
         xaxis:{
             title: "Log [Antagonist] (log M)",
             showline: true,
-            range: [-11,-4],
+            range: [-10,-6],
             
         },
         yaxis:{
             title: "Log(DR-1)",
             showline: true,
-            range: [0,4],
-            tickvals: [0, 1, 2, 3, 4]
+            range: [0,2],
+            tickvals: [0, 0.5, 1, 1.5, 2]
 
         },
 	}	
@@ -1056,7 +1060,7 @@ function plotSchildEff(chart){
         },
         marker: {
             color: markercolourseff,
-            size: 7,
+            size: dotsize,
         }
 	}
 	data.push(trace1);
@@ -1071,7 +1075,10 @@ function plotSchildEff(chart){
         line: {
             dash: 'dot',
             color:'black',
-            width: 1
+            width: 1,
+        },
+        marker: {
+                size: dotsize,
         }
     }
     data.push(trace2);

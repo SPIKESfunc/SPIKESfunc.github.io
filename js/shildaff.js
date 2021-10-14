@@ -9,6 +9,7 @@ var agoeffaff = document.getElementById("agoeffaff").defaultValue;
 var efflevelaff = document.getElementById("efflevelaff").defaultValue;
 document.getElementById("displayeffectaff").innerHTML = (efflevelaff*100).toFixed(2);
 document.getElementById("efftableaff").innerHTML = (efflevelaff*100).toFixed(2);
+document.getElementById("effaffdisplay").value = (10**(-1*agoeffaff)).toFixed(2);
 
 var isPointValidaff = [true, true, true, true];
 var markercolours = ['rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
@@ -80,7 +81,7 @@ function resetQuantAff(){
     efflevelaff = document.getElementById("efflevelaff").value = document.getElementById("efflevelaff").defaultValue;
     document.getElementById("displayeffectaff").innerHTML = (efflevelaff*100).toFixed(2);
     document.getElementById("efftableaff").innerHTML = (efflevelaff*100).toFixed(2);
-    
+    document.getElementById("effaffdisplay").value = (10**(-1*agoeffaff)).toFixed(2);
     antval0aff = document.getElementById("ant0aff").value = document.getElementById("ant0aff").defaultValue;
     antval1aff = document.getElementById("ant1aff").value = document.getElementById("ant1aff").defaultValue;
     antval2aff = document.getElementById("ant2aff").value = document.getElementById("ant2aff").defaultValue;
@@ -383,6 +384,7 @@ function updateAgoAffinityLogAff(value){
 
 function updateAgoEffAff(value){
     agoeffaff = value;
+    document.getElementById("effaffdisplay").value = (10**(-1*agoeffaff)).toFixed(2);
     lineData0 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[0]);
     lineData1 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[1]);
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
@@ -948,6 +950,7 @@ function updateValidAff(data0, data1, data2, data3){
     var update = {
         marker :{
             color: markercoloursaff,
+            size: dotsize,
         }
     };
     Plotly.restyle("schildAff", update, 0);
@@ -1010,14 +1013,13 @@ function plotSchildAff(chart){
         xaxis:{
             title: "Log [Antagonist] (log M)",
             showline: true,
-            range: [-11,-4],
-            
+            range: [-10,-4],   
         },
         yaxis:{
             title: "Log(DR-1)",
             showline: true,
-            range: [0,4],
-            tickvals: [0, 1, 2, 3, 4]
+            range: [0,2.5],
+            //tickvals: [0, 0.5, 1, 1.5, 2, 2.5]
 
         },
 	}	
@@ -1035,7 +1037,7 @@ function plotSchildAff(chart){
         },
         marker: {
             color: markercoloursaff,
-            size: 7,
+            size: dotsize,
         }
 	}
 	data.push(trace1);
@@ -1051,6 +1053,9 @@ function plotSchildAff(chart){
           dash: 'dot',
           color:'black',
           width: 1
+      },
+      marker: {
+          size: dotsize,
       }
    }
    data.push(trace2);
