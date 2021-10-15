@@ -48,7 +48,7 @@ function updateConcentrationFun(value, index) {
     agoconcarr[index] = value;
 
     // used from existing functions below. (updateEfficacyFun())
-    Plotly.restyle("functional", 'visible', true)
+    Plotly.restyle("functional", 'visible', true);
     lineData0 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[0], agodenfun, agoefficfun);
     lineData1 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[1], agodenfun, agoefficfun);
     lineData2 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[2], agodenfun, agoefficfun);
@@ -75,12 +75,12 @@ function updateConcentrationFun(value, index) {
 function updateAffinityFun(value) {
     afffun = value;
     if (checkSliderMinFun()) {
-        Plotly.restyle("functional", 'visible', false)
+        Plotly.restyle("functional", 'visible', false);
         graphAlert("funalert", "aff")
     }
     else {
         graphRemoveAlert("funalert")
-        Plotly.restyle("functional", 'visible', true)
+        Plotly.restyle("functional", 'visible', true);
         lineData0 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[0], agodenfun, agoefficfun);
         lineData1 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[1], agodenfun, agoefficfun);
         lineData2 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[2], agodenfun, agoefficfun);
@@ -107,12 +107,12 @@ function updateAffinityFun(value) {
 function updateEfficacyFun(value) {
     efffun = value;
     if (checkSliderMinFun()) {
-        Plotly.restyle("functional", 'visible', false)
+        Plotly.restyle("functional", 'visible', false);
         graphAlert("funalert", "eff")
     }
     else {
         graphRemoveAlert("funalert")
-        Plotly.restyle("functional", 'visible', true)
+        Plotly.restyle("functional", 'visible', true);
         lineData0 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[0], agodenfun, agoefficfun);
         lineData1 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[1], agodenfun, agoefficfun);
         lineData2 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[2], agodenfun, agoefficfun);
@@ -138,12 +138,12 @@ function updateEfficacyFun(value) {
 function updateDensityFun(value) {
     denfun = value;
     if (checkSliderMinFun()) {
-        Plotly.restyle("functional", 'visible', false)
+        Plotly.restyle("functional", 'visible', false);
         graphAlert("funalert", "den")
     }
     else {
         graphRemoveAlert("funalert")
-        Plotly.restyle("functional", 'visible', true)
+        Plotly.restyle("functional", 'visible', true);
         lineData0 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[0], agodenfun, agoefficfun);
         lineData1 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[1], agodenfun, agoefficfun);
         lineData2 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[2], agodenfun, agoefficfun);
@@ -169,12 +169,12 @@ function updateDensityFun(value) {
 function updateEfficiencyFun(value) {
     efficfun = value;
     if (checkSliderMinFun()) {
-        Plotly.restyle("functional", 'visible', false)
+        Plotly.restyle("functional", 'visible', false);
         graphAlert("funalert", "effic")
     }
     else {
         graphRemoveAlert("funalert")
-        Plotly.restyle("functional", 'visible', true)
+        Plotly.restyle("functional", 'visible', true);
         lineData0 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[0], agodenfun, agoefficfun);
         lineData1 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[1], agodenfun, agoefficfun);
         lineData2 = calcLinesFun(afffun, efffun, denfun, efficfun, agoafffun, agoefffun, agoconcarr[2], agodenfun, agoefficfun);
@@ -302,6 +302,9 @@ function resetFun() {
     agodenfun = document.getElementById("agodenfunslider").value = document.getElementById("agodenfunslider").defaultValue;
     agoefficfun = document.getElementById("agoefficifunslider").value = document.getElementById("agoefficifunslider").defaultValue;
 
+
+    graphRemoveAlert("funalert");
+    Plotly.restyle("functional", 'visible', true);
     //updates lines concentration
     document.getElementById("funline2").value = document.getElementById("funline2").defaultValue;
     document.getElementById("funline3").value = document.getElementById("funline3").defaultValue;
