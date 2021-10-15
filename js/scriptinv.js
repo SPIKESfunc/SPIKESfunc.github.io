@@ -6,7 +6,6 @@ var ampliagoinv = [0.3, 1, 3, 10, 100, 1000];
 
 var linestylesinv = ["solid", "solid", "solid", "solid", "solid", "solid"];
 var linecoloursinv = ["rgb(102,178,255)", "rgb(255,128,0)", "rgb(128,128,128)", "rgb(255,215,55)", "rgb(0,0,255)", "rgb(0,255,0)"];
-var markercolorsinv = ["rgb(102,178,255)", "rgb(255,128,0)", "rgb(128,128,128)", "rgb(255,215,55)", "rgb(0,0,255)", "rgb(0,255,0)"];
 
 var lineData0inv;
 var lineData1inv;
@@ -69,7 +68,7 @@ function calcLinesInv(affinity, selectivity, negefficacy, allosteric, amplificat
     Signal Amplification (tR).
     */
 
-    const STEP = 0.5;
+    const STEP = 0.01;
     var data = [[],[]];
 
     var kA = 10 ** (-1 * affinity);
@@ -92,7 +91,7 @@ function updateAffinityInv(value){
     affagoinv = value;
     if(checkSliderMinInv()){
         Plotly.restyle("inverse", "visible", false);
-        graphAlert("invalert","aff");
+        graphAlert("invalert","inv");
     }
     else{
         graphRemoveAlert("invalert");
@@ -254,19 +253,16 @@ function plotGraphInv(chart){
         graph = {
             x: lineData[0],
             y: lineData[1],
-            mode: "lines+markers",
-            name: ampliagoinv[i],
+            mode: "lines",
+            name: "Signal Amplification " + ampliagoinv[i],
             line: {
                 dash: linestylesinv[i],
                 color: linecoloursinv[i],
                 width: 1.2
     	    	},
-            marker: {
-                color: markercolorsinv[i],
-                size: 6,
-            }
     	}
         data.push(graph);
+
         Plotly.plot(chart, data, layout, {responsive: true});
     }
 }
