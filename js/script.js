@@ -52,6 +52,9 @@ function graphAlert(div, property){
     if(property === "effic"){
     document.getElementById(div).innerHTML = "An agonist cannot induce an effect if the cell contains no functioning signalling pathways that link the activated receptor to the observed effect – when <i>&#947</i> = 0, agonist-induced effect = 0";
     }
+    if(property === "inv"){
+        document.getElementById(div).innerHTML = "error message";
+    }
 }
 
 function graphRemoveAlert(div){
