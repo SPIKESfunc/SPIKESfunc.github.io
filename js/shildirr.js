@@ -5,8 +5,8 @@ var efficirr = document.getElementById("efficiirrslider").defaultValue;
 var agoaffirr = document.getElementById("agoaffirrnum").defaultValue;
 var agoafflogirr = document.getElementById("agoafflogirrnum").defaultValue;
 var efflevelirr = document.getElementById("efflevelirr").defaultValue;
-document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
-document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
+document.getElementById("displayeffectirr").innerHTML = (efflevelirr*89).toFixed(2);
+document.getElementById("efftableirr").innerHTML = (efflevelirr*89).toFixed(2);
 
 var isPointValidirr = [true, true, true, true];
 var allmarkercoloursirr = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
@@ -81,8 +81,8 @@ function resetQuantIrr(){
     agoaffirr = document.getElementById("agoaffirrnum").value = document.getElementById("agoaffirrnum").defaultValue;
     agoafflogirr = document.getElementById("agoafflogirrnum").value = document.getElementById("agoafflogirrnum").defaultValue;
     efflevelirr = document.getElementById("efflevelirr").value = document.getElementById("efflevelirr").defaultValue;
-    document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
-    document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
+    document.getElementById("displayeffectirr").innerHTML = (efflevelirr*89).toFixed(2);
+    document.getElementById("efftableirr").innerHTML = (efflevelirr*89).toFixed(2);
     
     antval0irr = document.getElementById("ant0irr").value = document.getElementById("ant0irr").defaultValue;
     antval1irr = document.getElementById("ant1irr").value = document.getElementById("ant1irr").defaultValue;
@@ -344,8 +344,8 @@ function updateAgoAffinityIrr(value){
 //
 function updateefflevelIrr(value){
     efflevelirr = value;
-    document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
-    document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
+    document.getElementById("displayeffectirr").innerHTML = (efflevelirr*89).toFixed(2);
+    document.getElementById("efftableirr").innerHTML = (efflevelirr*89).toFixed(2);
     if(checkSliderMinIrr()){
         Plotly.restyle("quantitativeIrr", 'visible', false)
         graphAlert("quantalertIrr")
@@ -959,6 +959,10 @@ function plotSchildIrr(chart){
         marker: {
             color: markercoloursirr,
             size: dotsize,
+            line: {
+                color: 'black',
+                width: 1
+            }
         }
 	}
 	data.push(trace1);
@@ -1029,6 +1033,7 @@ function updateSchildPropertyTableIrr(){
             document.getElementById("noteirr").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
         }
         else{
+            document.getElementById("noteirr").innerHTML = "";
             var x1Calc = xTableData[0];
             var x2Calc = xTableData[numberofx - 1];
             var y1Calc = yTableData[0];
@@ -1075,7 +1080,7 @@ function updateSchildPropertyTableIrr(){
             var r2ValueIrr = rValue ** 2;
             document.getElementById("r2valueirr").innerHTML = r2ValueIrr.toFixed(2);
 
-            document.getElementById("noteirr").innerHTML = "Note: Values are avaliable now.";
+            //document.getElementById("noteirr").innerHTML = "Note: Values are avaliable now.";
         }
     }
 }

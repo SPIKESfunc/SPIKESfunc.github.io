@@ -6,8 +6,8 @@ var agoaffeff = document.getElementById("agoeffnumeff").defaultValue;
 var agoefflogeff = document.getElementById("agoefflognumeff").defaultValue;
 var agoeffeff = document.getElementById("agoeffeff").defaultValue;
 var effleveleff = document.getElementById("effleveleff").defaultValue;
-document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixed(2);
-document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
+document.getElementById("displayeffecteff").innerHTML = (effleveleff*89).toFixed(2);
+document.getElementById("efftableeff").innerHTML = (effleveleff*89).toFixed(2);
 document.getElementById("effeffdisplay").value = (10**(-1*agoeffeff)).toFixed(2);
 
 var isPointValideff = [true, true, true, true];
@@ -82,8 +82,8 @@ function resetQuantEff(){
     agoaffeff = document.getElementById("agoeffnumeff").value = document.getElementById("agoeffnumeff").defaultValue;
     agoeffeff = document.getElementById("agoeffeff").value = document.getElementById("agoeffeff").defaultValue;
     effleveleff = document.getElementById("effleveleff").value = document.getElementById("effleveleff").defaultValue;
-    document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixed(2);
-    document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
+    document.getElementById("displayeffecteff").innerHTML = (effleveleff*89).toFixed(2);
+    document.getElementById("efftableeff").innerHTML = (effleveleff*89).toFixed(2);
     document.getElementById("effeffdisplay").value = (10**(-1*agoeffeff)).toFixed(2);
 
     agoefflogeff = document.getElementById("agoefflognumeff").value = document.getElementById("agoefflognumeff").defaultValue;
@@ -349,8 +349,8 @@ function updateAgoAffinityEff(value){
 
 function updateefflevelEff(value){
     effleveleff = value;
-    document.getElementById("displayeffecteff").innerHTML = (effleveleff*100).toFixed(2);
-    document.getElementById("efftableeff").innerHTML = (effleveleff*100).toFixed(2);
+    document.getElementById("displayeffecteff").innerHTML = (effleveleff*89).toFixed(2);
+    document.getElementById("efftableeff").innerHTML = (effleveleff*89).toFixed(2);
     if(checkSliderMinEff()){
         Plotly.restyle("quantitativeEff", 'visible', false)
         graphAlertEff("quantalertEff")
@@ -709,16 +709,6 @@ function updateAntagonistLog4Eff(value){
 
 function calcAgoHalfEffectEff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, antagconc){
     var ago;
-    /**
-    var affin = 10**(-1*affinity);
-    var efcay = 10**efficacy;
-    var recep = 10**recepDensity;
-    var efcey = 10**efficiency;
-    var agoaffin = 10**(-1*agoaffinity);
-    var antconc = antagconc;
-    ago = (effHalfMaxEffect*(affin*(1+antconc/agoaffin)))/((efcay*recep*efcey*100)-(effHalfMaxEffect*(efcay*recep*efcey+1)));
-    return ago;
-    */
     var lineData = calcLinesEff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, antagconc);
     findEffHalfMaxEffect(calcLinesEff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, agoconcarraff[0]));
     var data50 = calc50Eff(lineData);
@@ -1024,6 +1014,10 @@ function plotSchildEff(chart){
         marker: {
             color: markercolourseff,
             size: dotsize,
+            line: {
+                color: 'black',
+                width: 1
+            }
         }
 	}
 	data.push(trace1);
@@ -1086,6 +1080,7 @@ function updateSchildPropertyTableEff(){
         document.getElementById("noteeff").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
     }
     else{
+        document.getElementById("noteeff").innerHTML = "";
         var x1Calc = xTableData[0];
         var x2Calc = xTableData[numberofx - 1];
         var y1Calc = yTableData[0];
@@ -1132,7 +1127,7 @@ function updateSchildPropertyTableEff(){
         var r2ValueEff = rValue ** 2;
         document.getElementById("r2valueeff").innerHTML = r2ValueEff.toFixed(2);
 
-        document.getElementById("noteeff").innerHTML = "Note: Values are avaliable now.";
+        //document.getElementById("noteeff").innerHTML = "Note: Values are avaliable now.";
     }
 }
 

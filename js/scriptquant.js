@@ -6,8 +6,8 @@ var efficcom = document.getElementById("efficicomslider").defaultValue;
 var agoaff = document.getElementById("agoaffnum").defaultValue;
 var agoafflog = document.getElementById("agoafflognum").defaultValue;
 var efflevelcom = document.getElementById("efflevelcom").defaultValue;
-document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 100).toFixed(2);
-document.getElementById("efftablecom").innerHTML = (efflevelcom * 100).toFixed(2);
+document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 89).toFixed(2);
+document.getElementById("efftablecom").innerHTML = (efflevelcom * 89).toFixed(2);
 
 var isPointValid = [true, true, true, true];
 var allmarkercolours = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
@@ -78,8 +78,8 @@ function resetQuant() {
     agoaff = document.getElementById("agoaffnum").value = document.getElementById("agoaffnum").defaultValue;
     agoafflog = document.getElementById("agoafflognum").value = document.getElementById("agoafflognum").defaultValue;
     efflevelcom = document.getElementById("efflevelcom").value = document.getElementById("efflevelcom").defaultValue;
-    document.getElementById("displayeffectcom").innerHTML = (efflevelcom *100).toFixed(2);
-    document.getElementById("efftablecom").innerHTML = (efflevelcom * 100).toFixed(2);
+    document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 89).toFixed(2);
+    document.getElementById("efftablecom").innerHTML = (efflevelcom * 89).toFixed(2);
 
     antval0 = document.getElementById("ant0").value = document.getElementById("ant0").defaultValue;
     antval1 = document.getElementById("ant1").value = document.getElementById("ant1").defaultValue;
@@ -376,8 +376,8 @@ function updateAgoAffinityLog(value) {
 
 function updateefflevelCom(value) {
     efflevelcom = value;
-    document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 100).toFixed(2);
-    document.getElementById("efftablecom").innerHTML = (efflevelcom *100).toFixed(2);
+    document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 89).toFixed(2);
+    document.getElementById("efftablecom").innerHTML = (efflevelcom *89).toFixed(2);
     if (checkSliderMinCom()) {
         Plotly.restyle("quantitative", 'visible', false)
         graphAlert("quantalert")
@@ -940,6 +940,10 @@ function plotSchild(chart) {
         marker: {
             color: markercolours,
             size: dotsize,
+            line: {
+                color: 'black',
+                width: 1
+            }
         }
     }
     data.push(trace1);
@@ -987,6 +991,7 @@ function updateSchildPropertyTableCom(){
         document.getElementById("notecom").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
     }
     else{
+        document.getElementById("notecom").innerHTML = "";
         var x1Calc = xTableData[0];
         var x2Calc = xTableData[numberofx - 1];
         var y1Calc = yTableData[0];
@@ -1033,7 +1038,7 @@ function updateSchildPropertyTableCom(){
         var r2ValueCom = rValue ** 2;
         document.getElementById("r2valuecom").innerHTML = r2ValueCom.toFixed(2);
 
-        document.getElementById("notecom").innerHTML = "Note: Values are avaliable now.";
+        //document.getElementById("notecom").innerHTML = "Note: Values are avaliable now.";
     }
     
 }

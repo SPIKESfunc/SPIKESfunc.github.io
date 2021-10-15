@@ -8,8 +8,8 @@ var denfun2 = document.getElementById("denfunslider2").defaultValue;
 var efficfun2 = document.getElementById("efficifunslider2").defaultValue;
 var agoafflogfun = -1 * Math.log10(afffun2);
 var efflevelfun = document.getElementById("efflevelfun").defaultValue;
-document.getElementById("displayeffectfun").innerHTML = (efflevelfun * 100).toFixed(2);
-document.getElementById("efftablefun").innerHTML = (efflevelfun * 100).toFixed(2);
+document.getElementById("displayeffectfun").innerHTML = (efflevelfun *89).toFixed(2);
+document.getElementById("efftablefun").innerHTML = (efflevelfun *89).toFixed(2);
 
 var isPointValidfun = [true, true, true, true];
 var allmarkercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
@@ -87,8 +87,8 @@ function resetQuantFun() {
     denfun2 = document.getElementById("denfunslider2").value = document.getElementById("denfunslider2").defaultValue;
     efficfun2 = document.getElementById("efficifunslider2").value = document.getElementById("efficifunslider2").defaultValue;
     efflevelfun = document.getElementById("efflevelfun").value = document.getElementById("efflevelfun").defaultValue;
-    document.getElementById("displayeffectfun").innerHTML = (efflevelfun * 100).toFixed(2);
-    document.getElementById("efftablefun").innerHTML = (efflevelfun * 100).toFixed(2);
+    document.getElementById("displayeffectfun").innerHTML = (efflevelfun *89).toFixed(2);
+    document.getElementById("efftablefun").innerHTML = (efflevelfun *89).toFixed(2);
 
     antval0fun = document.getElementById("ant0fun").value = document.getElementById("ant0fun").defaultValue;
     antval1fun = document.getElementById("ant1fun").value = document.getElementById("ant1fun").defaultValue;
@@ -474,8 +474,8 @@ function updateEfficiencyFun2(value) {
 
 function updateefflevelfun(value) {
     efflevelfun = value;
-    document.getElementById("displayeffectfun").innerHTML = (efflevelfun * 100).toFixed(2);
-    document.getElementById("efftablefun").innerHTML = (efflevelfun * 100).toFixed(2);
+    document.getElementById("displayeffectfun").innerHTML = (efflevelfun *89).toFixed(2);
+    document.getElementById("efftablefun").innerHTML = (efflevelfun *89).toFixed(2);
     if (checkSliderMinFun()) {
         Plotly.restyle("quantitativeFun", 'visible', false)
         graphAlert("quantalertFun")
@@ -1129,6 +1129,10 @@ function plotSchildFun(chart) {
         marker: {
             color: markercoloursfun,
             size: dotsize,
+            line: {
+                color: 'black',
+                width: 1
+            }
         }
     }
     data.push(trace1);
@@ -1191,6 +1195,7 @@ function updateSchildPropertyTableFun(){
         document.getElementById("notefun").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
     }
     else{
+        document.getElementById("notefun").innerHTML = "";
         var x1Calc = xTableData[0];
         var x2Calc = xTableData[numberofx - 1];
         var y1Calc = yTableData[0];
@@ -1237,7 +1242,7 @@ function updateSchildPropertyTableFun(){
         var r2ValueFun = rValue ** 2;
         document.getElementById("r2valuefun").innerHTML = r2ValueFun.toFixed(2);
 
-        document.getElementById("notefun").innerHTML = "Note: Values are avaliable now.";
+        //document.getElementById("notefun").innerHTML = "Note: Values are avaliable now.";
 
     }
 }
