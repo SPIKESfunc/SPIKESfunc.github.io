@@ -245,8 +245,6 @@ function resetCom(){
 	efficcom = document.getElementById("efficicomslider").value = document.getElementById("efficicomslider").defaultValue;
     agoaffcom = document.getElementById("agoaffcomslider").value = document.getElementById("agoaffcomslider").defaultValue;
     document.getElementById("antagocomp").value = document.getElementById("agoaffcomslider").defaultValue;
-<<<<<<< Updated upstream
-=======
 
     graphRemoveAlert("comalert");
     Plotly.restyle("competitive", "visible", true);
@@ -257,7 +255,6 @@ function resetCom(){
     document.getElementById("comline5").value = document.getElementById("comline5").defaultValue;
     agoconcarr = [0, -9, -8, -7, -6]; // need this to reset values
     
->>>>>>> Stashed changes
     lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
     lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
     lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);

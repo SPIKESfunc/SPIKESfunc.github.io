@@ -604,8 +604,6 @@ function resetEff() {
   agoeffeff = document.getElementById("agoeffeffslider").value = document.getElementById("agoeffeffslider").defaultValue;
   document.getElementById("antagoeff").value = document.getElementById("agoaffeffslider").defaultValue;
   document.getElementById("antcoopeff").value = Math.round(10 ** -agoeffeff * Math.pow(10, 3)) / Math.pow(10, 3);
-<<<<<<< Updated upstream
-=======
 
   graphRemoveAlert("effalert");
   Plotly.restyle("alloeffic", "visible", true);
@@ -616,7 +614,6 @@ function resetEff() {
   document.getElementById("effline5").value = document.getElementById("effline5").defaultValue;
   agoconcarr = [0, -9, -8, -7, -6]; // need this to reset values
 
->>>>>>> Stashed changes
   var lineData0 = calcLinesEff(
     affeff,
     effeff,
