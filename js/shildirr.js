@@ -8,10 +8,12 @@ var efflevelirr = document.getElementById("efflevelirr").defaultValue;
 document.getElementById("displayeffectirr").innerHTML = (efflevelirr*100).toFixed(2);
 document.getElementById("efftableirr").innerHTML = (efflevelirr*100).toFixed(2);
 
-var isPointValidirr = [true, true, true, false];
+var isPointValidirr = [true, true, true, true];
 var allmarkercoloursirr = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var markercoloursirr = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)'];
-var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+var markercoloursirr = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linestyles = ["solid", "solid", "solid", "solid", "solid"];
+
+var plotmarkercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 var antval0irr = document.getElementById("ant0irr").defaultValue;
 var antval1irr = document.getElementById("ant1irr").defaultValue;
@@ -672,23 +674,6 @@ function updateAntagonistLog4Irr(value){
 }
 //
 function calcAgoHalfEffectIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc){
-    /** 
-    var ago;
-    var affin = 10**(-1*affinity); //Ka
-    var efcay = 10**efficacy;  // E
-    var recep = 10**recepDensity; //RT
-    var efcey = 10**efficiency; // SA
-    var agoaffin = 10**(-1*agoaffinity); //Kb
-    //var antconc = antagconc; //[B]
-    //console.log(((efcay*recep*efcey*1)-(irrHalfMaxEffect*((efcay*recep*efcey*1)+ 1 - efcay + (antconc/agoaffin)))));
-    //past equation
-    //ago = (irrHalfMaxEffect*(affin*(1+antconc/agoaffin)))/((efcay*recep*efcey*100)-(irrHalfMaxEffect*(efcay*recep*efcey+1)));
-    //equation A3A
-    //ago = (irrHalfMaxEffect*affin)/((efcay*recep*efcey*100)-(irrHalfMaxEffect*((efcay*recep*efcey*100)+ 1 - efcay + (antconc/agoaffin))));
-    // equation A3
-    ago = ( (affin*irrHalfMaxEffect) + ( (affin*irrHalfMaxEffect*antconc)/(agoaffinity) ) )/( (efcay*recep*efcey*100) - irrHalfMaxEffect*(1+(efcay*recep*efcey*100)-efcay+(antconc/agoaffin)));
-    return ago;
-    */
     var ago
     var lineData = calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc);
     findIrrHalfMaxEffect(calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcarrirr[0]));
@@ -772,7 +757,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity,
     return data;
 }
 
-var linecoloursirr = ['rgb(0,0,0)','rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecoloursirr = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 //
 function plotGraphIrr(chart){
@@ -840,7 +825,7 @@ function plotGraphIrr(chart){
             mode: 'markers',
             name: "Level of Effect",
             marker: {
-                color: "red",
+                color: plotmarkercolors[i],
                 size: dotsize,
                 line: {
                     color: 'black',
@@ -892,6 +877,7 @@ function updateValidIrr(data0, data1, data2, data3){
     var update = {
         marker :{
             color: markercoloursirr,
+            size: dotsize,
         }
     };
     Plotly.restyle("schildIrr", update, 0);
@@ -949,14 +935,14 @@ function plotSchildIrr(chart){
         xaxis:{
             title: "Log [Antagonist] (log M)",
             showline: true,
-            range: [-11,-4],
+            range: [-10,-7],
             
         },
         yaxis:{
             title: "Log(DR-1)",
             showline: true,
-            range: [0,4],
-            tickvals: [0, 1, 2, 3, 4]
+            range: [0,2],
+            tickvals: [0, 0.5, 1, 1.5, 2]
 
         },
 	}	
@@ -974,25 +960,25 @@ function plotSchildIrr(chart){
         },
         marker: {
             color: markercoloursirr,
-            size: 7,
+            size: dotsize,
         }
 	}
 	data.push(trace1);
     
-    //Add a ideal plot on Schild plot.
-    var lineData2 = calcIdealSchildIrr(agoafflogirr);
-    var trace2 = {
-        x: lineData2[0],
-        y: lineData2[1],
-        mode: 'lines',
-        name: 'Ideal Plot',
-        line: {
-            dash: 'dot',
-            color:'rgb(128, 128, 128)',
-            width: 1
-        }
+  //Add a ideal plot on Schild plot.
+  var lineData2 = calcIdealSchildIrr(agoafflogirr);
+  var trace2 = {
+    x: lineData2[0],
+    y: lineData2[1],
+    mode: 'lines',
+    name: 'Ideal Plot',
+    line: {
+      dash: 'dot',
+      color:'rgb(128, 128, 128)',
+      width: 1
     }
-    data.push(trace2);
+ }
+ data.push(trace2);
 	
 	Plotly.plot(chart, data, layout, {responsive: true});
 }

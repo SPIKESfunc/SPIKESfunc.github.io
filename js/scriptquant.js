@@ -6,13 +6,16 @@ var efficcom = document.getElementById("efficicomslider").defaultValue;
 var agoaff = document.getElementById("agoaffnum").defaultValue;
 var agoafflog = document.getElementById("agoafflognum").defaultValue;
 var efflevelcom = document.getElementById("efflevelcom").defaultValue;
-document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 89).toFixed(2);
-document.getElementById("efftablecom").innerHTML = (efflevelcom * 89).toFixed(2);
+document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 100).toFixed(2);
+document.getElementById("efftablecom").innerHTML = (efflevelcom * 100).toFixed(2);
 
 var isPointValid = [true, true, true, true];
 var allmarkercolours = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var markercolours = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var linestyles = ["solid", "dot", "dashdot", "dot", "dashdot"];
+var markercolours = ['rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linestyles = ["solid", "solid", "solid", "solid", "solid"];
+
+var plotmarkercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+
 
 var antval0 = document.getElementById("ant0").defaultValue;
 var antval1 = document.getElementById("ant1").defaultValue;
@@ -75,8 +78,8 @@ function resetQuant() {
     agoaff = document.getElementById("agoaffnum").value = document.getElementById("agoaffnum").defaultValue;
     agoafflog = document.getElementById("agoafflognum").value = document.getElementById("agoafflognum").defaultValue;
     efflevelcom = document.getElementById("efflevelcom").value = document.getElementById("efflevelcom").defaultValue;
-    document.getElementById("displayeffectcom").innerHTML = (efflevelcom *89).toFixed(2);
-    document.getElementById("efftablecom").innerHTML = (efflevelcom * 89).toFixed(2);
+    document.getElementById("displayeffectcom").innerHTML = (efflevelcom *100).toFixed(2);
+    document.getElementById("efftablecom").innerHTML = (efflevelcom * 100).toFixed(2);
 
     antval0 = document.getElementById("ant0").value = document.getElementById("ant0").defaultValue;
     antval1 = document.getElementById("ant1").value = document.getElementById("ant1").defaultValue;
@@ -373,8 +376,8 @@ function updateAgoAffinityLog(value) {
 
 function updateefflevelCom(value) {
     efflevelcom = value;
-    document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 89).toFixed(2);
-    document.getElementById("efftablecom").innerHTML = (efflevelcom * 89).toFixed(2);
+    document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 100).toFixed(2);
+    document.getElementById("efftablecom").innerHTML = (efflevelcom *100).toFixed(2);
     if (checkSliderMinCom()) {
         Plotly.restyle("quantitative", 'visible', false)
         graphAlert("quantalert")
@@ -755,8 +758,7 @@ function calcLinesCom(affinity, efficacy, recepDensity, efficiency, agoaffinity,
     return data;
 }
 
-//var linecolours = ["#000000", "#ff99999", "#ff66666", "#ff33333", "#ff00000"]
-var linecolours = ['rgb(0,0,0)','rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecolours = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 
 function plotGraphCom(chart) {
     var layout = {
@@ -826,7 +828,7 @@ function plotGraphCom(chart) {
             mode: 'markers',
             name: "Level of Effect",
             marker: {
-                color: "red",
+                color: plotmarkercolors[i],
                 size: dotsize,
                 line: {
                     color: 'black',
@@ -877,6 +879,7 @@ function updateValid(data0, data1, data2, data3) {
     var update = {
         marker :{
             color: markercolours,
+            size: dotsize,
         }
     };
     Plotly.restyle("schild", update, 0);
@@ -936,7 +939,7 @@ function plotSchild(chart) {
         },
         marker: {
             color: markercolours,
-            size: 7,
+            size: dotsize,
         }
     }
     data.push(trace1);
