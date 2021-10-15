@@ -37,18 +37,33 @@ function checkSliderMinIrr(){
 
 function updateAffinityIrr(value){
     affirr = value;
+<<<<<<< Updated upstream
     if(checkSliderMinIrr()){
         Plotly.restyle("irreversible", 'visible', false)
         graphAlert("irralert","aff")
+=======
+    if (checkSliderMinIrr()) {
+        Plotly.restyle("irreversible", 'visible', false);
+        graphAlert("irralert", "aff")
+>>>>>>> Stashed changes
     }
     else{
         graphRemoveAlert("irralert")
+<<<<<<< Updated upstream
         Plotly.restyle("irreversible", 'visible', true)
         lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
         lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
         lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+=======
+        Plotly.restyle("irreversible", 'visible', true);
+        lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
+>>>>>>> Stashed changes
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
@@ -65,20 +80,68 @@ function updateAffinityIrr(value){
 
 }
 
+<<<<<<< Updated upstream
 function updateEfficacyIrr(value){
     effirr = value;
     if(checkSliderMinIrr()){
         Plotly.restyle("irreversible", 'visible', false)
         graphAlert("irralert","eff")
+=======
+
+// This is used to update the Concentration Values Table
+function updateConcentrationIrr(value, index){
+    // use this to reference the id of the box
+    //let line_id = "comline" + index;
+    agoconcarr[index] = value;
+
+    // used from existing functions below. (updateEfficacyIrr())
+    Plotly.restyle("irreversible", 'visible', true);
+    lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+    lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+    lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+    lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+    lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);
+    Plotly.animate("irreversible", {
+        data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+        { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+            x: halfData2[0],
+            y: halfData2[1]
+        }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+        traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        layout: {}
+    }, animation)
+
+}
+
+function updateEfficacyIrr(value) {
+    effirr = value;
+    if (checkSliderMinIrr()) {
+        Plotly.restyle("irreversible", 'visible', false);
+        graphAlert("irralert", "eff")
+>>>>>>> Stashed changes
     }
     else{
         graphRemoveAlert("irralert")
+<<<<<<< Updated upstream
         Plotly.restyle("irreversible", 'visible', true)
         lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
         lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
         lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+=======
+        Plotly.restyle("irreversible", 'visible', true);
+        lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
+>>>>>>> Stashed changes
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
@@ -96,18 +159,33 @@ function updateEfficacyIrr(value){
 
 function updateDensityIrr(value){
     denirr = value;
+<<<<<<< Updated upstream
     if(checkSliderMinIrr()){
         Plotly.restyle("irreversible", 'visible', false)
         graphAlert("irralert","den")
+=======
+    if (checkSliderMinIrr()) {
+        Plotly.restyle("irreversible", 'visible', false);
+        graphAlert("irralert", "den")
+>>>>>>> Stashed changes
     }
     else{
         graphRemoveAlert("irralert")
+<<<<<<< Updated upstream
         Plotly.restyle("irreversible", 'visible', true)
         lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
         lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
         lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+=======
+        Plotly.restyle("irreversible", 'visible', true);
+        lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
+>>>>>>> Stashed changes
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
@@ -125,18 +203,33 @@ function updateDensityIrr(value){
 
 function updateEfficiencyIrr(value){
     efficirr = value;
+<<<<<<< Updated upstream
     if(checkSliderMinIrr()){
         Plotly.restyle("irreversible", 'visible', false)
         graphAlert("irralert","effic")
+=======
+    if (checkSliderMinIrr()) {
+        Plotly.restyle("irreversible", 'visible', false);
+        graphAlert("irralert", "effic")
+>>>>>>> Stashed changes
     }
     else{
         graphRemoveAlert("irralert")
+<<<<<<< Updated upstream
         Plotly.restyle("irreversible", 'visible', true)
         lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
         lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
         lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+=======
+        Plotly.restyle("irreversible", 'visible', true);
+        lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+        lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+        lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+        lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+        lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
+>>>>>>> Stashed changes
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
@@ -182,11 +275,30 @@ function resetIrr(){
     efficirr = document.getElementById("efficiirrslider").value = document.getElementById("efficiirrslider").defaultValue;
     agoaffirr = document.getElementById("agoaffirrslider").value = document.getElementById("agoaffirrslider").defaultValue;
     document.getElementById("antagoirr").value = document.getElementById("agoaffirrslider").defaultValue;
+<<<<<<< Updated upstream
     lineData0 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[0]);
     lineData1 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[1]);
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[3]);
     lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoaffirr,agoconcarr[4]);
+=======
+
+
+    graphRemoveAlert("irralert");
+    Plotly.restyle("irreversible", 'visible', true);
+    //updates lines concentration
+    document.getElementById("irrline2").value = document.getElementById("irrline2").defaultValue;
+    document.getElementById("irrline3").value = document.getElementById("irrline3").defaultValue;
+    document.getElementById("irrline4").value = document.getElementById("irrline4").defaultValue;
+    document.getElementById("irrline5").value = document.getElementById("irrline5").defaultValue;
+    agoconcarr = [0, -9, -8, -7, -6]; // need this to reset values
+
+    lineData0 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[0]);
+    lineData1 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[1]);
+    lineData2 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[2]);
+    lineData3 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[3]);
+    lineData4 = calcLinesIrr(affirr, effirr, denirr, efficirr, agoaffirr, agoconcarr[4]);
+>>>>>>> Stashed changes
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
