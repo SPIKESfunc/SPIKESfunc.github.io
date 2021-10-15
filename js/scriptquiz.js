@@ -467,19 +467,19 @@ function antFeedback(reason){
 	switch(Ant3311[ant].type) {
 		case "allosteric":
 			inequality = "<";
-			ant3311Feedback = "<b>allosteric antagonist.</b>";
+			ant3311Feedback = '<a href="nonlinear.html#detailed6">allosteric antagonist.</a>'
 			break;
 		case "irreversible":
 			inequality = ">";
-			ant3311Feedback = "<b>irreversible antagonist.</b>" 
+			ant3311Feedback = '<a href="nonlinear.html#detailed5">irreversible antagonist.</a>'
 			break;
 		case "toxic":
 			inequality = ">";
-			ant3311Feedback = "<b>antagonist that produces toxicity at high concentrations.</b>" 
+			ant3311Feedback = '<a href="nonlinear.html#detailed4">antagonist that produces toxicity at high concentrations.</a>' 
 			break;
 		case "substrate":
 			inequality = ">";
-			ant3311Feedback = "<b>antagonist that is the substrate of a substrate uptake process.</b>"
+			ant3311Feedback = '<a href="nonlinear.html#detailed2">Link antagonist that is the substrate of a substrate uptake process.</a>'
 			break;
 
 	} 
