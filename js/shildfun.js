@@ -133,7 +133,7 @@ function resetQuantFun() {
     }, animation)
     schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
     //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-    idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
+    idealSchildData = calcIdealSchildFun(afffun2);
     Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
 }
 //
@@ -199,9 +199,7 @@ function updateAffinityFun1(value) {
             layout: {}
         }, animation)
         schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-        //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-        idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-        Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
     }
 }
 //
@@ -239,9 +237,7 @@ function updateEfficacyFun1(value) {
             layout: {}
         }, animation)
         schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-        //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-        idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-        Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
     }
 }
 //
@@ -279,11 +275,8 @@ function updateDensityFun1(value) {
             layout: {}
         }, animation)
         schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-        //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-        idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-        Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
     }
-
 }
 //
 function updateEfficiencyFun1(value) {
@@ -320,9 +313,7 @@ function updateEfficiencyFun1(value) {
             layout: {}
         }, animation)
         schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-        //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-        idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-        Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
     }
 
 }
@@ -363,7 +354,7 @@ function updateAffinityFun2(value) {
         }, animation)
         schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
         //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-        idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
+        idealSchildData = calcIdealSchildFun(afffun2);
         Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
     }
 }
@@ -402,9 +393,7 @@ function updateEfficacyFun2(value) {
             layout: {}
         }, animation)
         schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-        //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-        idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-        Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
     }
 }
 //
@@ -442,9 +431,7 @@ function updateDensityFun2(value) {
             layout: {}
         }, animation)
         schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-        //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-        idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-        Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
     }
 }
 //
@@ -482,9 +469,7 @@ function updateEfficiencyFun2(value) {
             layout: {}
         }, animation)
         schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-        //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-        idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-        Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
     }
 }
 //
@@ -525,9 +510,7 @@ function updateefflevelfun(value) {
             layout: {}
         }, animation)
         schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-        //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-        idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-        Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
     }
 }
 
@@ -594,9 +577,7 @@ function updateAntagonistLog1Fun(value) {
         layout: {}
     }, animation)
     schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-    //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-    idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-    Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
 }
 
 function updateAntagonist2Fun(value) {
@@ -628,9 +609,7 @@ function updateAntagonist2Fun(value) {
         layout: {}
     }, animation)
     schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-    //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-    idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-    Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
 }
 //
 function updateAntagonistLog2Fun(value) {
@@ -662,9 +641,7 @@ function updateAntagonistLog2Fun(value) {
         layout: {}
     }, animation)
     schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-    //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-    idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-    Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
 }
 //
 function updateAntagonist3Fun(value) {
@@ -696,9 +673,7 @@ function updateAntagonist3Fun(value) {
         layout: {}
     }, animation)
     schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-    //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-    idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-    Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
 }
 //
 function updateAntagonistLog3Fun(value) {
@@ -764,9 +739,7 @@ function updateAntagonist4Fun(value) {
         layout: {}
     }, animation)
     schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-    //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-    idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-    Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
 }
 //
 function updateAntagonistLog4Fun(value) {
@@ -798,9 +771,7 @@ function updateAntagonistLog4Fun(value) {
         layout: {}
     }, animation)
     schildData = calcSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4], logdr1fun, logdr2fun, logdr3fun, logdr4fun);
-    //Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-    idealSchildData = calcIdealSchildFun(agoconcarrfun[1], agoconcarrfun[2], agoconcarrfun[3], agoconcarrfun[4]);
-    Plotly.animate("schildFun",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildFun", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
 }
 // 
 function calcAgoHalfEffectFun(affinity, efficacy, recepDensity, efficiency, affinity2, efficacy2, recepDensity2, efficiency2, antagconc) {
@@ -1105,31 +1076,26 @@ function calcSchildFun(logval1, logval2, logval3, logval4, dr1, dr2, dr3, dr4) {
 
 }
 
-//Define a function to calculate the y values for ideal plot in Schild plot, this part still has some small issues need to be fixed.
-function calcIdealSchildFun(logval1, logval2, logval3, logval4){
-    var data = [[],[]];
-	var allxLogs = [logval1, logval2, logval3, logval4];
-    var newdr1 = Number(logval1) + 9;
-    var newdr2 = Number(logval2) + 9;
-    var newdr3 = Number(logval3) + 9;
-    var newdr4 = Number(logval4) + 9;
-	var alllogDr1 = [newdr1, newdr2, newdr3, newdr4]
-    var xLogs = [];
-    var logDr1 = [];
-    var j = 0;
+//Define a function to calculate the x values and y values for ideal plot in Schild plot.
+function calcIdealSchildFun(affinityFunValue){ 
+    var idealData = [[],[]];
 
-    for(i = 0; i<4; i++){
-        if(isPointValidfun[i]){
-            xLogs[j] =  allxLogs[i];
-            logDr1[j] = alllogDr1[i];
-            j++;
-        }
+    //Ideal Plot Equation: y = 1 * x + (-logKBValue).
+    
+    //Calculate x values for ideal plot.
+	var idealAllxLogs = [-9, -8, -7, -6, -4];
+
+    //Calculate y values for ideal plot based on the equation.
+    var idealAllLogDr1 = [];
+    var negLogKBValue = Number(affinityFunValue);
+    for(i = 0; i < idealAllxLogs.length; i++){
+        idealAllLogDr1[i] = 1 * idealAllxLogs[i] + negLogKBValue;
     }
+	
+	idealData[0] = idealAllxLogs;
+	idealData[1] = idealAllLogDr1;
 
-	data[0] = xLogs;
-	data[1] = logDr1;
-
-    return data;
+    return idealData;
 }
 
 function plotSchildFun(chart) {
@@ -1168,108 +1134,110 @@ function plotSchildFun(chart) {
         }
     }
     data.push(trace1);
-
-
-    //Add a ideal line on Schild plot, this part still has some small issues need to be fixed.
-    var lineData2 = calcIdealSchildFun(antlogval1fun, antlogval2fun, antlogval3fun, antlogval4fun);
+  
+    //Add a ideal plot on Schild plot.
+    var lineData2 = calcIdealSchildFun(afffun2);
     var trace2 = {
-        x: lineData2[0],
-        y: lineData2[1],
-        mode: 'lines+markers',
-        name: 'Ideal Plot',
-        line: {
-            dash: 'dot',
-            color:'black',
-            width: 1
-        },
-        marker: {
-            size: dotsize,
-        }
+      x: lineData2[0],
+      y: lineData2[1],
+      mode: 'lines',
+      name: 'Ideal Plot',
+      line: {
+        dash: 'dot',
+        color:'rgb(128, 128, 128)',
+        width: 1
+      }
     }
     data.push(trace2);
-    //console.log("loop exed");
 
     Plotly.plot(chart, data, layout, { responsive: true });
 }
 
 plotSchildFun("schildFun");
 
-//Define a function to calculate actual plot properties for Shild Plot Property Table, this part still has some small issues need to be fixed.
+//Define a function to calculate actual plot properties for Shild Plot Property Table.
 function updateSchildPropertyTableFun(){
     //Get x values and y values.
-    var tableDataFun = calcSchildFun(antlogval1fun, antlogval2fun, antlogval3fun, antlogval4fun, logdr1fun, logdr2fun, logdr3fun, logdr3fun);
-    var tempxtableDataFun = tableDataFun[0];
-    var tempytableDataFun = tableDataFun[1];
-   
-    var ytableDataFun = [];
-    var j = 0;
-    for(i = 0; i<tempytableDataFun.length; i++){
-        if(isNaN(tempytableDataFun[i]) == false){
-            ytableDataFun[j] =  tempytableDataFun[i];
-            j++;
-        }
-    }
-    var numberofyFun = ytableDataFun.length;
-    var xtableDataFun = tempxtableDataFun.slice(0, numberofyFun);
-    var numberofxFun = xtableDataFun.length;
-    for (i = 0; i < numberofxFun; i++){
-        xtableDataFun[i] = Number(xtableDataFun[i]);
-        ytableDataFun[i] = Number(ytableDataFun[i]);
+    var tableData = calcSchildFun(antlogval1fun, antlogval2fun, antlogval3fun, antlogval4fun, logdr1fun, logdr2fun, logdr3fun, logdr4fun);
+    var tempxTableData = tableData[0];
+    var tempyTableData = tableData[1];
+    var tempNumberofx = tempxTableData.length;
+    for(i = 0; i < tempNumberofx; i++){
+        tempxTableData[i] = Number(tempxTableData[i]);
+        tempyTableData[i] = Number(tempyTableData[i]);
     }
 
-    var x1 = xtableDataFun[0];
-    var x2 = xtableDataFun[numberofxFun - 1];
-    var y1 = ytableDataFun[0];
-    var y2 = ytableDataFun[numberofyFun - 1];
-    
-    if (numberofyFun < 2){
+    //Check if there are any equal x values and remove duplicated one(s).
+    var x1 = tempxTableData[0];
+    var y1 = tempyTableData[0];
+    var xTableData = [x1];
+    var yTableData = [y1];
+    for (i = 1; i < tempNumberofx; i++){
+        if(xTableData[0] != tempxTableData[i]){
+            xTableData.push(tempxTableData[i]);
+            yTableData.push(tempyTableData[i]);
+        }
+    }
+    var numberofx = xTableData.length;
+    var numberofy = yTableData.length;
+
+     /*
+    Calculate actual plot properties.
+    Note: There are some cases can't calculate actual plot properties, need to provide error messages.
+          1. There are multiple groups of coordinates with same x values and y values, or there is less than one group of coordinates.
+    */
+    if (numberofx < 2){
         document.getElementById("slopevaluefun").innerHTML = "NA";
         document.getElementById("pA2valuefun").innerHTML = "NA";
         document.getElementById("r2valuefun").innerHTML = "NA";
         document.getElementById("notefun").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
     }
     else{
+        var x1Calc = xTableData[0];
+        var x2Calc = xTableData[numberofx - 1];
+        var y1Calc = yTableData[0];
+        var y2Calc = yTableData[numberofy - 1];
+
         //Calculate slope.
-        var slopeValueFun = (y2 - y1) / (x2 - x1);
-        document.getElementById("slopevaluefun").innerHTML = slopeValueFun.toFixed(3);
+        var slopeValueFun = (y2Calc - y1Calc) / (x2Calc - x1Calc);
+        document.getElementById("slopevaluefun").innerHTML = slopeValueFun.toFixed(2);
 
         //Calculate pA2 (x-intercept).
-        var bFun= y1 - (slopeValueFun * x1);
-        pA2Value = (0 - bFun) / slopeValueFun;
-        document.getElementById("pA2valuefun").innerHTML = pA2Value.toFixed(3);
+        var b = y1Calc - (slopeValueFun * x1Calc);
+        pA2Value = (0 - b) / slopeValueFun;
+        document.getElementById("pA2valuefun").innerHTML = pA2Value.toFixed(2);
 
         //Calculate R square.
 
         //Calculate the mean of x and y.
-        var xtotal = 0;
-        var ytotal = 0;
-        for (var i = 0; i < numberofxFun; i++) {
-            xtotal += xtableDataFun[i];
-            ytotal += ytableDataFun[i];
+        var xTotal = 0;
+        var yTotal = 0;
+        for (var i = 0; i < numberofx; i++) {
+            xTotal += xTableData[i];
+            yTotal += yTableData[i];
         }
-        var xmean = xtotal/numberofxFun;
-        var ymean = ytotal/numberofyFun;
+        var xMean = xTotal/numberofx;
+        var yMean = yTotal/numberofy;
 
         //Calculate sum of regression.
         var regressionSum = 0;
-        for (var i = 0; i < numberofxFun; i++) {
-            regressionSum += (xtableDataFun[i] - xmean) * (ytableDataFun[i] - ymean);
+        for (var i = 0; i < numberofx; i++) {
+            regressionSum += (xTableData[i] - xMean) * (yTableData[i] - yMean);
         }
         
         //Calculate sum of total.
         var sumx2 = 0;
         var sumy2 = 0;
-        for (var i = 0; i < numberofxFun; i++) {
-            sumx2 += (xtableDataFun[i] - xmean) ** 2;
-            sumy2 += (ytableDataFun[i] - ymean) ** 2;
+        for (var i = 0; i < numberofx; i++) {
+            sumx2 += (xTableData[i] - xMean) ** 2;
+            sumy2 += (yTableData[i] - yMean) ** 2;
         }
         var totalSum = Math.sqrt(sumx2 * sumy2);
 
         //Calculate R square value.
         var rValue = regressionSum/totalSum;
         var r2ValueFun = rValue ** 2;
-        
-        document.getElementById("r2valuefun").innerHTML = r2ValueFun.toFixed(3);
+        document.getElementById("r2valuefun").innerHTML = r2ValueFun.toFixed(2);
 
         document.getElementById("notefun").innerHTML = "Note: Values are avaliable now.";
 
@@ -1277,6 +1245,7 @@ function updateSchildPropertyTableFun(){
 }
 
 updateSchildPropertyTableFun();
+
 
 //QUESTION BOX
 var questionsSchildfun = ["Will the Schild plot for a functional antagonist be linear with a slope = 1.0?",

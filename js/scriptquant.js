@@ -949,73 +949,89 @@ function plotSchild(chart) {
 
 plotSchild("schild");
 
-//Define a function to calculate real line properties for Shild Plot Property Table, this part still has some small issues need to be fixed.
+//Define a function to calculate actual plot properties for Shild Plot Property Table.
 function updateSchildPropertyTableCom(){
     //Get x values and y values.
-    var tableDataCom = calcSchild(antlogval1, antlogval2, antlogval3, antlogval4, logdr1, logdr2, logdr3, logdr4);
-    var xtableDataCom = tableDataCom[0];
-    var ytableDataCom = tableDataCom[1];
-
-    var numberofxCom = xtableDataCom.length;
-    var numberofyCom = ytableDataCom.length;
-    for (i = 0; i < numberofxCom; i++){
-        xtableDataCom[i] = Number(xtableDataCom[i]);
-        ytableDataCom[i] = Number(ytableDataCom[i]);
+    var tableData = calcSchild(antlogval1, antlogval2, antlogval3, antlogval4, logdr1, logdr2, logdr3, logdr4);
+    var tempxTableData = tableData[0];
+    var tempyTableData = tableData[1];
+    var tempNumberofx = tempxTableData.length;
+    for (i = 0; i < tempNumberofx; i++){
+        tempxTableData[i] = Number(tempxTableData[i]);
+        tempyTableData[i] = Number(tempyTableData[i]);
     }
 
-    var x1 = xtableDataCom[0];
-    var x2 = xtableDataCom[numberofxCom-1];
-    var y1 = ytableDataCom[0];
-    var y2 = ytableDataCom[numberofyCom-1]; 
-
-    if(isFinite(y1) == false){
-        document.getElementById("slopevaluecom").innerHTML = "NA";
+    //Check if there are any equal x values and remove duplicated one(s).
+    var x1 = tempxTableData[0];
+    var y1 = tempyTableData[0];
+    var xTableData = [x1];
+    var yTableData = [y1];
+    for (i = 1; i < tempNumberofx; i++){
+        if(xTableData[0] != tempxTableData[i]){
+            xTableData.push(tempxTableData[i]);
+            yTableData.push(tempyTableData[i]);
+        }
+    }
+    var numberofx = xTableData.length;
+    var numberofy = yTableData.length;
+    
+    /*
+    Calculate actual plot properties.
+    Note: There are some cases can't calculate actual plot properties, need to provide error messages.
+          1. There are multiple groups of coordinates with same x values and y values.
+    */
+    if(numberofx < 2){
+        document.getElementById("slopevaluecom").innerHTML = "NA"
         document.getElementById("pA2valuecom").innerHTML = "NA";
         document.getElementById("r2valuecom").innerHTML = "NA";
-        document.getElementById("notecom").innerHTML = "Note: Values are not avaliable (NA), becasue log(Dr-1) values are infinity.";
+        document.getElementById("notecom").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
     }
     else{
+        var x1Calc = xTableData[0];
+        var x2Calc = xTableData[numberofx - 1];
+        var y1Calc = yTableData[0];
+        var y2Calc = yTableData[numberofy - 1];
+
         //Calculate the slope.
-        var slopeValueCom = (y2 - y1) / (x2 - x1);
-        document.getElementById("slopevaluecom").innerHTML = slopeValueCom.toFixed(3);
+        var slopeValueCom = (y2Calc - y1Calc) / (x2Calc - x1Calc);
+        document.getElementById("slopevaluecom").innerHTML = slopeValueCom.toFixed(2);
 
         //Calculate pA2 (x-intercept).
-        var bCom = y1 - (slopeValueCom * x1);
-        var pA2ValueCom = (0 - bCom) / slopeValueCom;
-        document.getElementById("pA2valuecom").innerHTML = pA2ValueCom.toFixed(3);
+        var b = y1Calc - (slopeValueCom * x1Calc);
+        var pA2ValueCom = (0 - b) / slopeValueCom;
+        document.getElementById("pA2valuecom").innerHTML = pA2ValueCom.toFixed(2);
 
         //Calculate R square.
 
         //Calculate the mean of x and y.
-        var xtotal = 0;
-        var ytotal = 0;
-        for (var i = 0; i < numberofxCom; i++) {
-            xtotal += xtableDataCom[i];
-            ytotal += ytableDataCom[i];
+        var xTotal = 0;
+        var yTotal = 0;
+        for (var i = 0; i < numberofx; i++) {
+            xTotal += xTableData[i];
+            yTotal += yTableData[i];
         }
-        var xmean = xtotal/numberofxCom;
-        var ymean = ytotal/numberofyCom;
+        var xMean = xTotal/numberofx;
+        var yMean = yTotal/numberofy;
         
         //Calculate sum of regression.
         var regressionSum = 0;
-        for (var i = 0; i < numberofxCom; i++) {
-            regressionSum += (xtableDataCom[i] - xmean) * (ytableDataCom[i] - ymean);
+        for (var i = 0; i < numberofx; i++) {
+            regressionSum += (xTableData[i] - xMean) * (yTableData[i] - yMean);
         }
 
         //Calculate sum of total.
         var sumx2 = 0;
         var sumy2 = 0;
-        for (var i = 0; i < numberofxCom; i++) {
-            sumx2 += (xtableDataCom[i] - xmean) ** 2;
-            sumy2 += (ytableDataCom[i] - ymean) ** 2;
+        for (var i = 0; i < numberofx; i++) {
+            sumx2 += (xTableData[i] - xMean) ** 2;
+            sumy2 += (yTableData[i] - yMean) ** 2;
         }
         var totalSum = Math.sqrt(sumx2 * sumy2);
 
         //Calculate R square value.
         var rValue = regressionSum/totalSum;
         var r2ValueCom = rValue ** 2;
-
-        document.getElementById("r2valuecom").innerHTML = r2ValueCom.toFixed(3);
+        document.getElementById("r2valuecom").innerHTML = r2ValueCom.toFixed(2);
 
         document.getElementById("notecom").innerHTML = "Note: Values are avaliable now.";
     }

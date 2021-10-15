@@ -129,7 +129,7 @@ function resetQuantEff(){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
     //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
+    idealSchildData = calcIdealSchildEff(agoefflogeff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
 }
 
@@ -196,9 +196,7 @@ function updateAffinityEff(value){
             layout: {}
             },animation)
         schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-        //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-        idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-        Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
 
@@ -236,9 +234,7 @@ function updateEfficacyEff(value){
             layout: {}
             },animation)
         schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-        //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-        idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-        Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
 
@@ -276,9 +272,7 @@ function updateDensityEff(value){
             layout: {}
             },animation)
         schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-        //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-        idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-        Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 
 } 
@@ -317,9 +311,7 @@ function updateEfficiencyEff(value){
             layout: {}
             },animation)
         schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-        //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-        idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-        Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 
 } 
@@ -353,9 +345,7 @@ function updateAgoAffinityEff(value){
         layout: {}
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-    //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateefflevelEff(value){
@@ -394,9 +384,7 @@ function updateefflevelEff(value){
             layout: {}
             },animation)
         schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-        //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-        idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-        Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+        Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
     }
 } 
 
@@ -430,7 +418,7 @@ function updateAgoAffinityLogEff(value){
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
     //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
+    idealSchildData = calcIdealSchildEff(agoefflogeff);
     Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
 }
 
@@ -462,9 +450,7 @@ function updateAgoAffEff(value){
         layout: {}
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-    //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonist1Eff(value){
@@ -496,9 +482,7 @@ function updateAntagonist1Eff(value){
         layout: {}
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-    //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonistLog1Eff(value){
@@ -530,9 +514,7 @@ function updateAntagonistLog1Eff(value){
         layout: {}
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-    //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonist2Eff(value){
@@ -564,9 +546,7 @@ function updateAntagonist2Eff(value){
         layout: {}
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-    //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonistLog2Eff(value){
@@ -598,9 +578,7 @@ function updateAntagonistLog2Eff(value){
         layout: {}
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-    //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonist3Eff(value){
@@ -632,9 +610,7 @@ function updateAntagonist3Eff(value){
         layout: {}
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-    //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonistLog3Eff(value){
@@ -666,9 +642,7 @@ function updateAntagonistLog3Eff(value){
         layout: {}
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-    //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonist4Eff(value){
@@ -700,9 +674,7 @@ function updateAntagonist4Eff(value){
         layout: {}
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-    //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function updateAntagonistLog4Eff(value){
@@ -734,9 +706,7 @@ function updateAntagonistLog4Eff(value){
         layout: {}
         },animation)
     schildData = calcSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4], logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-    //Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
-    idealSchildData = calcIdealSchildEff(agoconcarreff[1], agoconcarreff[2], agoconcarreff[3], agoconcarreff[4]);
-    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}, {x: idealSchildData[0], y: idealSchildData[1]}], traces: [0, 1], layout: {}},animation)
+    Plotly.animate("schildEff",{data: [{x: schildData[0], y: schildData[1]}], traces: [0], layout: {}},animation)
 }
 
 function calcAgoHalfEffectEff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, antagconc){
@@ -1001,31 +971,26 @@ function calcSchildEff(logval1,logval2, logval3, logval4, dr1, dr2, dr3, dr4){ /
 
 }
 
-//Define a function to calculate the y values for actual plot in Schild plot, this part still has some small issues need to be fixed.
-function calcIdealSchildEff(logval1, logval2, logval3, logval4){
-    var data = [[],[]];
-	var allxLogs = [logval1, logval2, logval3, logval4];
-    var newdr1 = Number(logval1) + 9;
-    var newdr2 = Number(logval2) + 9;
-    var newdr3 = Number(logval3) + 9;
-    var newdr4 = Number(logval4) + 9;
-	var alllogDr1 = [newdr1, newdr2, newdr3, newdr4];
-    var xLogs = [];
-    var logDr1 = [];
-    var j = 0;
+//Define a function to calculate the x values and y values for ideal plot in Schild plot.
+function calcIdealSchildEff(negativelogKBValue){
+    var idealData = [[],[]];
 
-    for(i = 0; i<4; i++){
-        if(isPointValideff[i]){
-            xLogs[j] =  allxLogs[i];
-            logDr1[j] = alllogDr1[i];
-            j++;
-        }
+    //Ideal Plot Equation: y = 1 * x + (-logKBValue).
+
+    //Calculate x values for ideal plot.
+	var idealAllxLogs = [-9, -8, -7, -6, -4];
+
+    //Calculate y values for ideal plot based on the equation.
+    var idealAllLogDr1 = [];
+    var negLogKBValue = Number(negativelogKBValue);
+    for(i = 0; i < idealAllxLogs.length; i++){
+        idealAllLogDr1[i] = 1 * idealAllxLogs[i] + negLogKBValue;
     }
+	
+	idealData[0] = idealAllxLogs;
+	idealData[1] = idealAllLogDr1;
 
-	data[0] = xLogs;
-	data[1] = logDr1;
-
-    return data;
+    return idealData;
 }
 
 function plotSchildEff(chart){
@@ -1065,20 +1030,17 @@ function plotSchildEff(chart){
 	}
 	data.push(trace1);
 
-     //Add a ideal plot on Schild plot, this part still has some small issues need to be fixed.
-    var lineData2 = calcIdealSchildEff(antlogval1eff, antlogval2eff, antlogval3eff, antlogval4eff);
+    //Add a ideal plot on Schild plot.
+    var lineData2 = calcIdealSchildEff(agoefflogeff);
     var trace2 = {
         x: lineData2[0],
         y: lineData2[1],
-        mode: 'lines+markers',
+        mode: 'lines',
         name: 'Ideal Plot',
         line: {
             dash: 'dot',
-            color:'black',
-            width: 1,
-        },
-        marker: {
-                size: dotsize,
+            color:'rgb(128, 128, 128)',
+            width: 1
         }
     }
     data.push(trace2);
@@ -1088,73 +1050,89 @@ function plotSchildEff(chart){
 
 plotSchildEff("schildEff");
 
-//Define a function to calculate actual plot properties for Shild Plot Property Table, this part still has some small issues need to be fixed.
+//Define a function to calculate actual plot properties for Shild Plot Property Table.
 function updateSchildPropertyTableEff(){
     //Get x values and y values.
-    var tableDataEff = calcSchildEff(antlogval1eff, antlogval2eff, antlogval3eff, antlogval4eff, logdr1eff, logdr2eff, logdr3eff, logdr4eff);
-    var xtableDataEff = tableDataEff[0];
-    var ytableDataEff = tableDataEff[1];
-
-    var numberofxEff = xtableDataEff.length;
-    var numberofyEff = ytableDataEff.length;
-    for (i = 0; i < numberofxEff; i++){
-        xtableDataEff[i] = Number(xtableDataEff[i]);
-        ytableDataEff[i] = Number(ytableDataEff[i]);
+    var tableData = calcSchildEff(antlogval1eff, antlogval2eff, antlogval3eff, antlogval4eff, logdr1eff, logdr2eff, logdr3eff, logdr4eff);
+    var tempxTableData = tableData[0];
+    var tempyTableData = tableData[1];
+    var tempNumberofx = tempxTableData.length;
+    for(i = 0; i < tempNumberofx; i++){
+        tempxTableData[i] = Number(tempxTableData[i]);
+        tempyTableData[i] = Number(tempyTableData[i]);
     }
 
-    var x1 = xtableDataEff[0];
-    var x2 = xtableDataEff[numberofxEff - 1];
-    var y1 = ytableDataEff[0];
-    var y2 = ytableDataEff[numberofyEff - 1];
+    //Check if there are any equal x values and remove duplicated one(s).
+    var x1 = tempxTableData[0];
+    var y1 = tempyTableData[0];
+    var xTableData = [x1];
+    var yTableData = [y1];
+    for (i = 1; i < tempNumberofx; i++){
+        if(xTableData[0] != tempxTableData[i]){
+            xTableData.push(tempxTableData[i]);
+            yTableData.push(tempyTableData[i]);
+        }
+    }
+    var numberofx = xTableData.length;
+    var numberofy = yTableData.length;
 
-    if (numberofyEff < 2){
+    /*
+    Calculate actual plot properties.
+    Note: There are some cases can't calculate actual plot properties, need to provide error messages.
+          1. There are multiple groups of coordinates with same x values and y values, or there is less than one group of coordinates.
+    */
+    if (numberofx < 2){
         document.getElementById("slopevalueeff").innerHTML = "NA";
         document.getElementById("pA2valueeff").innerHTML = "NA";
         document.getElementById("r2valueeff").innerHTML = "NA";
         document.getElementById("noteeff").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
     }
     else{
+        var x1Calc = xTableData[0];
+        var x2Calc = xTableData[numberofx - 1];
+        var y1Calc = yTableData[0];
+        var y2Calc = yTableData[numberofy - 1];
+
         //Calculate the slope.
-        var slopeValueEff = (y2 - y1) / (x2 - x1);
-        document.getElementById("slopevalueeff").innerHTML = slopeValueEff.toFixed(3);
+        var slopeValueEff = (y2Calc - y1Calc) / (x2Calc - x1Calc);
+        document.getElementById("slopevalueeff").innerHTML = slopeValueEff.toFixed(2);
         
         //Calculate pA2 (x-intercept).
-        var bEff = y1 - (slopeValueEff * x1);
-        pA2ValueEff = (0 - bEff) / slopeValueEff;
-        document.getElementById("pA2valueeff").innerHTML = pA2ValueEff.toFixed(3);
+        var b = y1Calc - (slopeValueEff * x1Calc);
+        pA2ValueEff = (0 - b) / slopeValueEff;
+        document.getElementById("pA2valueeff").innerHTML = pA2ValueEff.toFixed(2);
 
         //Calculate R square.
 
         //Calculate the mean of x and y.
-        var xtotal = 0;
-        var ytotal = 0;
-        for (var i = 0; i < numberofxEff; i++) {
-            xtotal += xtableDataEff[i];
-            ytotal += ytableDataEff[i];
+        var xTotal = 0;
+        var yTotal = 0;
+        for (var i = 0; i < numberofx; i++) {
+            xTotal += xTableData[i];
+            yTotal += yTableData[i];
         }
-        var xmean = xtotal/numberofxEff;
-        var ymean = ytotal/numberofyEff;
+        var xMean = xTotal/numberofx;
+        var yMean = yTotal/numberofy;
 
         //Calculate sum of regression.
         var regressionSum = 0;
-        for (var i = 0; i < numberofxEff; i++) {
-            regressionSum += (xtableDataEff[i] - xmean) * (ytableDataEff[i] - ymean);
+        for (var i = 0; i < numberofx; i++) {
+            regressionSum += (xTableData[i] - xMean) * (yTableData[i] - yMean);
         }
 
         //Calculate sum of total.
         var sumx2 = 0;
         var sumy2 = 0;
-        for (var i = 0; i < numberofxEff; i++) {
-            sumx2 += (xtableDataEff[i] - xmean) ** 2;
-            sumy2 += (ytableDataEff[i] - ymean) ** 2;
+        for (var i = 0; i < numberofx; i++) {
+            sumx2 += (xTableData[i] - xMean) ** 2;
+            sumy2 += (yTableData[i] - yMean) ** 2;
         }
         var totalSum = Math.sqrt(sumx2 * sumy2);
 
         //Calculate R square value.
         var rValue = regressionSum/totalSum;
         var r2ValueEff = rValue ** 2;
-
-        document.getElementById("r2valueeff").innerHTML = r2ValueEff.toFixed(3);
+        document.getElementById("r2valueeff").innerHTML = r2ValueEff.toFixed(2);
 
         document.getElementById("noteeff").innerHTML = "Note: Values are avaliable now.";
     }
