@@ -306,7 +306,8 @@ function resetAff(){
     agoeffaff = document.getElementById("agoeffaffslider").value = document.getElementById("agoeffaffslider").defaultValue;
     document.getElementById("antagoaff").value = document.getElementById("agoaffslider").defaultValue;
     document.getElementById("antcoopaff").value = Math.round(10**(-agoeffaff) * Math.pow(10,3)) / Math.pow(10,3);
-
+    graphRemoveAlert("affalert");
+    Plotly.restyle("alloaffin", "visible", true);
     //updates lines concentration
     document.getElementById("affline2").value = document.getElementById("affline2").defaultValue;
     document.getElementById("affline3").value = document.getElementById("affline3").defaultValue;

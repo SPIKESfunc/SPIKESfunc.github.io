@@ -282,7 +282,8 @@ function resetCom(){
 	efficcom = document.getElementById("efficicomslider").value = document.getElementById("efficicomslider").defaultValue;
     agoaffcom = document.getElementById("agoaffcomslider").value = document.getElementById("agoaffcomslider").defaultValue;
     document.getElementById("antagocomp").value = document.getElementById("agoaffcomslider").defaultValue;
-
+    graphRemoveAlert("comalert");
+    Plotly.restyle("competitive", "visible", true);
     //updates lines concentration
     document.getElementById("comline2").value = document.getElementById("comline2").defaultValue;
     document.getElementById("comline3").value = document.getElementById("comline3").defaultValue;

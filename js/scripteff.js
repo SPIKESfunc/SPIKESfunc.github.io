@@ -691,7 +691,8 @@ function resetEff() {
   agoeffeff = document.getElementById("agoeffeffslider").value = document.getElementById("agoeffeffslider").defaultValue;
   document.getElementById("antagoeff").value = document.getElementById("agoaffeffslider").defaultValue;
   document.getElementById("antcoopeff").value = Math.round(10 ** -agoeffeff * Math.pow(10, 3)) / Math.pow(10, 3);
-
+  graphRemoveAlert("effalert");
+  Plotly.restyle("alloeffic", "visible", true);
   //updates lines concentration
   document.getElementById("effline2").value = document.getElementById("effline2").defaultValue;
   document.getElementById("effline3").value = document.getElementById("effline3").defaultValue;

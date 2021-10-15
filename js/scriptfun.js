@@ -301,7 +301,8 @@ function resetFun() {
     agoefffun = document.getElementById("agoefffunslider").value = document.getElementById("agoefffunslider").defaultValue;
     agodenfun = document.getElementById("agodenfunslider").value = document.getElementById("agodenfunslider").defaultValue;
     agoefficfun = document.getElementById("agoefficifunslider").value = document.getElementById("agoefficifunslider").defaultValue;
-
+    graphRemoveAlert("funalert");
+    Plotly.restyle("functional", "visible", true);
     //updates lines concentration
     document.getElementById("funline2").value = document.getElementById("funline2").defaultValue;
     document.getElementById("funline3").value = document.getElementById("funline3").defaultValue;

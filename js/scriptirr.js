@@ -235,6 +235,9 @@ function resetIrr() {
     agoaffirr = document.getElementById("agoaffirrslider").value = document.getElementById("agoaffirrslider").defaultValue;
     document.getElementById("antagoirr").value = document.getElementById("agoaffirrslider").defaultValue;
 
+    graphRemoveAlert("irralert");
+    Plotly.restyle("irreversible", "visible", true);
+
     //updates lines concentration
     document.getElementById("irrline2").value = document.getElementById("irrline2").defaultValue;
     document.getElementById("irrline3").value = document.getElementById("irrline3").defaultValue;
