@@ -2092,16 +2092,16 @@
 											</div>
 										</div>
 									</div>
-								<input type="range" autocomplete="off" name="affinityinv" id="affsliderinv" min="-10" max="-6"
-									step="0.04" value="-8" oninput="updateAffinityInv(this.value)">
+								<input type="range" autocomplete="off" name="affinityinv" id="affsliderinv" min="6" max="10"
+									step="0.01" value="8" oninput="updateAffinityInv(this.value)">
 
 								<br><label for="selectivity">Selectivity for R<sub>i</sub>(&#945)</label>
 								<input type="range" autocomplete="off" name="selectivity" id="selsliderinv" min="-3" max="0"
-									step="0.03" value="-1.5" oninput="updateSelectivityInv(this.value)">
+									step="0.01" value="-1.5" oninput="updateSelectivityInv(this.value)">
 
 								<br><label for="negefficacy">Negative efficacy(&#947)</label>
 								<input type="range" autocomplete="off" name="negefficacy" id="negeffsliderinv" min="-3" max="0"
-									step="0.03" value="-1.5" oninput="updateNegeffInv(this.value)">
+									step="0.01" value="-1.5" oninput="updateNegeffInv(this.value)">
 							</fieldset>
 							<!-- The contents inside the Receptor box -->
 
@@ -2109,7 +2109,7 @@
 								<legend>Receptor</legend>
 								<label for="allconstant">Allosteric constant(L) (R<sub>a</sub>)/(R<sub>j</sub>)</label>
 								<input type="range" autocomplete="off" name="allconstant" id="allsliderinv" min="-2" max="1"
-									step="0.03" value="-0.5" oninput="updateAllInv(this.value)">
+									step="0.01" value="0.5" oninput="updateAllInv(this.value)">
 							</fieldset>
 							<!-- The contents inside the quiz box -->
 							<fieldset style="width:430px;text-align:center">
@@ -2154,15 +2154,14 @@
 							
 						</div>
 						<!-- The Agonist box -->
-
-						<div class="col-lg-7">
-							<fieldset style="display:block">
+						<div class="col-lg-7" style="padding-top: 40px;">
+							<fieldset><!--style="display:block"-->
 								<legend>Inverse Agonist Dose Response Curve</legend>
 								<h5 class="warning" id="invalert"></h5>
-								<div id="agonistinv"></div>
+								<div id="inverse"></div>
 							</fieldset>
 							<button id="resetinv" type="button" class="btn waves-effect waves-light red"
-								onclick="resetAgoInv()" style="float: right;">Reset</button>
+								onclick="resetInv()" style="float: right;">Reset</button>
 						</div>
 					</div>
 				</div>

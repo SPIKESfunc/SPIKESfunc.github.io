@@ -2,28 +2,20 @@ var affagoinv = document.getElementById("affsliderinv").defaultValue;
 var selagoinv = document.getElementById("selsliderinv").defaultValue;
 var negeffagoinv = document.getElementById("negeffsliderinv").defaultValue;
 var allagoinv = document.getElementById("allsliderinv").defaultValue;
-var invHalfMaxEffect;
 var ampliagoinv = [0.3, 1, 3, 10, 100, 1000];
-var linecoloursinv = ["#000000", "#ff6666", "#ff3333", "#ff0000", "#cc0000"]; //haven't done
-var linestylesinv = ["solid", "dot", "dashdot", "dot", "dashdot"]; //haven't done
+
+var linestylesinv = ["solid", "solid", "solid", "solid", "solid", "solid"];
+var linecoloursinv = ["rgb(102,178,255)", "rgb(255,128,0)", "rgb(128,128,128)", "rgb(255,215,55)", "rgb(0,0,255)", "rgb(0,255,0)"];
+var markercolorsinv = ["rgb(102,178,255)", "rgb(255,128,0)", "rgb(128,128,128)", "rgb(255,215,55)", "rgb(0,0,255)", "rgb(0,255,0)"];
+
 var lineData0inv;
 var lineData1inv;
 var lineData2inv;
 var lineData3inv;
 var lineData4inv;
 var lineData5inv;
-var lineData6inv;
-var halfData0inv;
-var halfData1inv;
-var halfData2inv;
-var halfData3inv;
-var halfData4inv;
-var halfData5inv;
-var halfData6inv;
-var data50inv;
-var calc50inv;
 
-var animation = {
+/*var animation = {
     transition: {
         duration: 0,
         easing: "cubic-in-out"
@@ -32,9 +24,7 @@ var animation = {
         duration: 0,
         redraw: false,
  }
-};
-
-var dotsizeinv = 10 // defines 50% dot size
+};*/
 
 var animation = {
     transition: {
@@ -46,14 +36,11 @@ var animation = {
         redraw: false,
     }
 };
-//
-function findInvHalfMaxEffect(lineData){
-    invHalfMaxEffect = Math.max.apply(Math, lineData[1])/2;
-} 
+
 //
 function checkSliderMinInv(){
     let ret = false;
-    if(document.getElementById("affsliderinv").value === "-10"){
+    if(document.getElementById("affsliderinv").value === "6"){
         ret = true;
     }
     if(document.getElementById("selsliderinv").value === "-3"){
@@ -68,304 +55,223 @@ function checkSliderMinInv(){
     return ret;
 }
 
-//haven't done
-function calcLinesInv(affinity, selectivity, negefficacy, allosteric, ampliagoinv){
-    const STEP = 0.01;
+//
+function calcLinesInv(affinity, selectivity, negefficacy, allosteric, amplification){
+
+    /*
+    Parameters:
+    Affinity (1/KA) = KA.
+    Selectivity (a), ues a decreasing scale.
+    Negative Efficacy (y), ues a decreasing scale.
+    Allosteric Constant (L).
+    [G]/KG = 1, constant.
+    Concentration of the Inverse Agonist([A]), [-12, -2].
+    Signal Amplification (tR).
+    */
+
+    const STEP = 0.5;
     var data = [[],[]];
 
-    var affin = 10**affinity;
-    var selec = 10**(-1*selectivity); //decreasing scale
-    var negeff = 10**(-1*negefficacy); //decreasing scale
-    var allosteric = 10**allosteric;
-    //temp code, just make the code able to run
-    for (i = -12; i < -2; i = i + STEP) {
-        
-        data[0].push(i);
-        data[1].push(i);
+    var kA = 10 ** (-1 * affinity);
+    var selec = 10 ** (0-(selectivity - (-3)));
+    var negef = 10 ** (0-(negefficacy - (-3)));
+    var allos = 10 ** allosteric;
+    const GKG = 1;
+
+    for (var i = -12; i < -2; i = i + STEP){
+        var linexData = i;
+        var lineyData = (allos * GKG * (1 + selec * negef * (10**i / kA)) * amplification * 100) / ((10**i / kA) * (1 + selec * allos * (1 + negef * GKG * (1 + amplification))) + allos * GKG * (1 + amplification) + 1);
+        data[0].push(linexData);
+        data[1].push(lineyData); 
     }
     return data;
 }
-//
-function calc50Inv(lineData){
 
-	var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
-	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
-        return number >= halfMaxEffect;
-    });
-    var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
-    var agoret = [[halfAgoEffect], [halfMaxEffect]];
-	return agoret; //return x, y
-}
 //
 function updateAffinityInv(value){
     affagoinv = value;
     if(checkSliderMinInv()){
-        Plotly.restyle("agonistinv", "visible", false);
-        graphAlert("agoalertinv","inv");
+        Plotly.restyle("inverse", "visible", false);
+        graphAlert("invalert","aff");
     }
     else{
         graphRemoveAlert("invalert");
-        Plotly.restyle("agonistinv", "visible", true);
+        Plotly.restyle("inverse", "visible", true);
         lineData0inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[0]);
         lineData1inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[1]);
         lineData2inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[2]);
         lineData3inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[3]);
         lineData4inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[4]);
         lineData5inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[5]);
-        lineData6inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[6]);
-        halfData0inv = calc50(lineData0inv);
-        halfData1inv = calc50(lineData1inv);
-        halfData2inv = calc50(lineData2inv);
-        halfData3inv = calc50(lineData3inv);
-        halfData4inv = calc50(lineData4inv);
-        halfData4inv = calc50(lineData5inv);
-        halfData4inv = calc50(lineData6inv);
 
-        Plotly.animate("agonistinv",{
-                data: [{y: lineData0inv[1]}, {y: lineData1inv[1]}, {y: lineData2inv[1]}, {y: lineData3inv[1]}, {y: lineData4inv[1]}, {y: lineData6inv[1]}, {y: lineData6inv[1]},
-                {x: halfData0inv[0], y: halfData0inv[1]}, 
-                {x: halfData1inv[0], y: halfData1inv[1]}, 
-                {x: halfData2inv[0], y: halfData2inv[1]}, 
-                {x: halfData3inv[0], y: halfData3inv[1]}, 
-                {x: halfData4inv[0], y: halfData4inv[1]},
-                {x: halfData5inv[0], y: halfData5inv[1]}, 
-                {x: halfData6inv[0], y: halfData6inv[1]}, ],
-                traces: [0,1,2,3,4,5,6,7,8,9,10,11,12,13],
-                layout: {}
-                },animation);
+        Plotly.animate("inverse",{
+            data: [{x: lineData0inv[0], y: lineData0inv[1]}, 
+            {x: lineData1inv[0], y: lineData1inv[1]},
+            {x: lineData2inv[0], y: lineData2inv[1]}, 
+            {x: lineData3inv[0], y: lineData3inv[1]}, 
+            {x: lineData4inv[0], y: lineData4inv[1]},
+            {x: lineData5inv[0], y: lineData5inv[1]},],
+            traces: [0,1,2,3,4,5], layout: {}
+        },animation);
     }
 } 
+
 //
 function updateSelectivityInv(value){
     selagoinv = value;
     if(checkSliderMinInv()){
-        Plotly.restyle("agonistinv", "visible", false);
-        graphAlert("agoalertinv","inv");
+        Plotly.restyle("inverse", "visible", false);
+        graphAlert("invalert","inv");
     }
     else{
         graphRemoveAlert("invalert");
-        Plotly.restyle("agonistinv", "visible", true);
+        Plotly.restyle("inverse", "visible", true);
         lineData0inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[0]);
         lineData1inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[1]);
         lineData2inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[2]);
         lineData3inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[3]);
         lineData4inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[4]);
         lineData5inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[5]);
-        lineData6inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[6]);
-        halfData0inv = calc50(lineData0inv);
-        halfData1inv = calc50(lineData1inv);
-        halfData2inv = calc50(lineData2inv);
-        halfData3inv = calc50(lineData3inv);
-        halfData4inv = calc50(lineData4inv);
-        halfData4inv = calc50(lineData5inv);
-        halfData4inv = calc50(lineData6inv);
 
-        Plotly.animate("agonistinv",{
-                data: [{y: lineData0inv[1]}, {y: lineData1inv[1]}, {y: lineData2inv[1]}, {y: lineData3inv[1]}, {y: lineData4inv[1]}, {y: lineData6inv[1]}, {y: lineData6inv[1]},
-                {x: halfData0inv[0], y: halfData0inv[1]}, 
-                {x: halfData1inv[0], y: halfData1inv[1]}, 
-                {x: halfData2inv[0], y: halfData2inv[1]}, 
-                {x: halfData3inv[0], y: halfData3inv[1]}, 
-                {x: halfData4inv[0], y: halfData4inv[1]},
-                {x: halfData5inv[0], y: halfData5inv[1]}, 
-                {x: halfData6inv[0], y: halfData6inv[1]}, ],
-                traces: [0,1,2,3,4,5,6,7,8,9,10,11,12,13],
-                layout: {}
-                },animation);
+        Plotly.animate("inverse",{
+            data: [{x: lineData0inv[0], y: lineData0inv[1]}, 
+            {x: lineData1inv[0], y: lineData1inv[1]},
+            {x: lineData2inv[0], y: lineData2inv[1]}, 
+            {x: lineData3inv[0], y: lineData3inv[1]}, 
+            {x: lineData4inv[0], y: lineData4inv[1]},
+            {x: lineData5inv[0], y: lineData5inv[1]},],
+            traces: [0,1,2,3,4,5], layout: {}
+        },animation);
     }
-} 
+}
+
 //
 function updateNegeffInv(value){
     negeffagoinv = value;
     if(checkSliderMinInv()){
-        Plotly.restyle("agonistinv", "visible", false);
-        graphAlert("agoalertinv","inv");
+        Plotly.restyle("inverse", "visible", false);
+        graphAlert("invalert","inv");
     }
     else{
         graphRemoveAlert("invalert");
-        Plotly.restyle("agonistinv", "visible", true);
+        Plotly.restyle("inverse", "visible", true);
         lineData0inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[0]);
         lineData1inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[1]);
         lineData2inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[2]);
         lineData3inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[3]);
         lineData4inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[4]);
         lineData5inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[5]);
-        lineData6inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[6]);
-        halfData0inv = calc50(lineData0inv);
-        halfData1inv = calc50(lineData1inv);
-        halfData2inv = calc50(lineData2inv);
-        halfData3inv = calc50(lineData3inv);
-        halfData4inv = calc50(lineData4inv);
-        halfData4inv = calc50(lineData5inv);
-        halfData4inv = calc50(lineData6inv);
 
-        Plotly.animate("agonistinv",{
-                data: [{y: lineData0inv[1]}, {y: lineData1inv[1]}, {y: lineData2inv[1]}, {y: lineData3inv[1]}, {y: lineData4inv[1]}, {y: lineData6inv[1]}, {y: lineData6inv[1]},
-                {x: halfData0inv[0], y: halfData0inv[1]}, 
-                {x: halfData1inv[0], y: halfData1inv[1]}, 
-                {x: halfData2inv[0], y: halfData2inv[1]}, 
-                {x: halfData3inv[0], y: halfData3inv[1]}, 
-                {x: halfData4inv[0], y: halfData4inv[1]},
-                {x: halfData5inv[0], y: halfData5inv[1]}, 
-                {x: halfData6inv[0], y: halfData6inv[1]}, ],
-                traces: [0,1,2,3,4,5,6,7,8,9,10,11,12,13],
-                layout: {}
-                },animation);
+        Plotly.animate("inverse",{
+            data: [{x: lineData0inv[0], y: lineData0inv[1]}, 
+            {x: lineData1inv[0], y: lineData1inv[1]},
+            {x: lineData2inv[0], y: lineData2inv[1]}, 
+            {x: lineData3inv[0], y: lineData3inv[1]}, 
+            {x: lineData4inv[0], y: lineData4inv[1]},
+            {x: lineData5inv[0], y: lineData5inv[1]},],
+            traces: [0,1,2,3,4,5], layout: {}
+        },animation);
     }
 }
+
 //
 function updateAllInv(value){
     allagoinv = value;
     if(checkSliderMinInv()){
-        Plotly.restyle("agonistinv", "visible", false);
-        graphAlert("agoalertinv","inv");
+        Plotly.restyle("inverse", "visible", false);
+        graphAlert("invalert", "inv");
     }
     else{
         graphRemoveAlert("invalert");
-        Plotly.restyle("agonistinv", "visible", true);
+        Plotly.restyle("inverse", "visible", true);
         lineData0inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[0]);
         lineData1inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[1]);
         lineData2inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[2]);
         lineData3inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[3]);
         lineData4inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[4]);
         lineData5inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[5]);
-        lineData6inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[6]);
-        halfData0inv = calc50(lineData0inv);
-        halfData1inv = calc50(lineData1inv);
-        halfData2inv = calc50(lineData2inv);
-        halfData3inv = calc50(lineData3inv);
-        halfData4inv = calc50(lineData4inv);
-        halfData4inv = calc50(lineData5inv);
-        halfData4inv = calc50(lineData6inv);
 
-        Plotly.animate("agonistinv",{
-                data: [{y: lineData0inv[1]}, {y: lineData1inv[1]}, {y: lineData2inv[1]}, {y: lineData3inv[1]}, {y: lineData4inv[1]}, {y: lineData6inv[1]}, {y: lineData6inv[1]},
-                {x: halfData0inv[0], y: halfData0inv[1]}, 
-                {x: halfData1inv[0], y: halfData1inv[1]}, 
-                {x: halfData2inv[0], y: halfData2inv[1]}, 
-                {x: halfData3inv[0], y: halfData3inv[1]}, 
-                {x: halfData4inv[0], y: halfData4inv[1]},
-                {x: halfData5inv[0], y: halfData5inv[1]}, 
-                {x: halfData6inv[0], y: halfData6inv[1]}, ],
-                traces: [0,1,2,3,4,5,6,7,8,9,10,11,12,13],
-                layout: {}
-                },animation);
+        Plotly.animate("inverse",{
+            data: [{x: lineData0inv[0], y: lineData0inv[1]}, 
+            {x: lineData1inv[0], y: lineData1inv[1]},
+            {x: lineData2inv[0], y: lineData2inv[1]}, 
+            {x: lineData3inv[0], y: lineData3inv[1]}, 
+            {x: lineData4inv[0], y: lineData4inv[1]},
+            {x: lineData5inv[0], y: lineData5inv[1]},],
+            traces: [0,1,2,3,4,5], layout: {}
+        },animation);
     }
 }
+
 //
 function resetInv(){
 	affagoinv = document.getElementById("affsliderinv").value = document.getElementById("affsliderinv").defaultValue;
     selagoinv = document.getElementById("selsliderinv").value = document.getElementById("selsliderinv").defaultValue;
     negeffagoinv = document.getElementById("negeffsliderinv").value = document.getElementById("negeffsliderinv").defaultValue;
     allagoinv = document.getElementById("allsliderinv").value = document.getElementById("allsliderinv").defaultValue;
-    ampliagoinv = [0.3, 1, 3, 10, 100, 1000];
     
+    graphRemoveAlert("invalert");
+    Plotly.restyle("inverse", "visible", true);
     lineData0inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[0]);
     lineData1inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[1]);
     lineData2inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[2]);
     lineData3inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[3]);
     lineData4inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[4]);
     lineData5inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[5]);
-    lineData6inv = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[6]);
-    halfData0inv = calc50(lineData0inv);
-    halfData1inv = calc50(lineData1inv);
-    halfData2inv = calc50(lineData2inv);
-    halfData3inv = calc50(lineData3inv);
-    halfData4inv = calc50(lineData4inv);
-    halfData4inv = calc50(lineData5inv);
-    halfData4inv = calc50(lineData6inv);
 
-    Plotly.animate("agonistinv",{
-        data: [{y: lineData0inv[1]}, {y: lineData1inv[1]}, {y: lineData2inv[1]}, {y: lineData3inv[1]}, {y: lineData4inv[1]}, {y: lineData6inv[1]}, {y: lineData6inv[1]},
-        {x: halfData0inv[0], y: halfData0inv[1]}, 
-        {x: halfData1inv[0], y: halfData1inv[1]}, 
-        {x: halfData2inv[0], y: halfData2inv[1]}, 
-        {x: halfData3inv[0], y: halfData3inv[1]}, 
-        {x: halfData4inv[0], y: halfData4inv[1]},
-        {x: halfData5inv[0], y: halfData5inv[1]}, 
-        {x: halfData6inv[0], y: halfData6inv[1]}, ],
-        traces: [0,1,2,3,4,5,6,7,8,9,10,11,12,13],
-        layout: {}
-        },animation);
+    Plotly.animate("inverse", {
+        data: [{x: lineData0inv[0], y: lineData0inv[1]}, 
+        {x: lineData1inv[0], y: lineData1inv[1]},
+        {x: lineData2inv[0], y: lineData2inv[1]}, 
+        {x: lineData3inv[0], y: lineData3inv[1]}, 
+        {x: lineData4inv[0], y: lineData4inv[1]},
+        {x: lineData5inv[0], y: lineData5inv[1]}],
+        traces: [0,1,2,3,4,5], layout: {}
+    },animation);
 }
 
 function plotGraphInv(chart){
     var layout = {
         xaxis:{
-            title: "[Agonist] (log M)",
+            title: "[Inverse Agonist] ([A])",
             showline: true,
             range: [-12,-2],
             dtick: 1
-            
         },
         yaxis:{
             title: "Effect (% Emax)",
             showline: true,
             range: [0,100],
             dtick: 10
-
-        }
+      }
     };
-    for(var j = 0; j<6; j++){
+
+    var lineNumber = ampliagoinv.length;
+    for(var i = 0; i < lineNumber; i++){
         var data = [];
-        var lineData = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[j]);
+        var lineData = calcLinesInv(affagoinv, selagoinv, negeffagoinv, allagoinv, ampliagoinv[i]);
         var graph;
-        if(j === 0){
-			graph = {
-        		x: lineData[0],
-        		y: lineData[1],
-       			mode: "lines",
-       			name: 0+"nM",
-       			line: {
-                    color: linecoloursinv[j],
-                    width: 1
-    	    	}
-    		}
-   		}
-   		else{
-    	    graph = {
-        		x: lineData[0],
-        		y: lineData[1],
-       			mode: "lines",
-                //old 
-                //name: 10**agoconcarr[j]*1000000000+"nM",
-                //new
-                name: "[Antagonist] #" + j,
-                line: {
-                    color: linecoloursinv[j],
-                    width: 1.2,
-                    dash: linestylesinv[j]
-                }
-    		}
-        }
-        data.push(graph);
-        Plotly.plot(chart,data,layout, {responsive: true}); 
-    }
-    var legendview = [true, false, false, false, false];
-    for(var i = 0; i<6; i++){
-        var halfData = calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[i]);
-        findInvHalfMaxEffect(calcLinesInv(affagoinv,selagoinv,negeffagoinv,allagoinv,ampliagoinv[0]));
-        data50 = calc50Inv(halfData);
-        var trace1 = [{
-            x: data50[0],
-            y: data50[1],
-            mode: "markers",
-            name: "EC<sub>50</sub> Value",
+        graph = {
+            x: lineData[0],
+            y: lineData[1],
+            mode: "lines+markers",
+            name: ampliagoinv[i],
+            line: {
+                dash: linestylesinv[i],
+                color: linecoloursinv[i],
+                width: 1.2
+    	    	},
             marker: {
-                color: "red",
-                size: dotsize,
-                line: {
-                    color: 'black',
-                    width: 1
-                  }
-            },
-            showlegend: legendview[i]
-        }];
-        Plotly.plot(chart,trace1,layout, {responsive: true});
+                color: markercolorsinv[i],
+                size: 6,
+            }
+    	}
+        data.push(graph);
+        Plotly.plot(chart, data, layout, {responsive: true});
     }
 }
-plotGraphInv("agonistinv");
 
+plotGraphInv("inverse");
 
 //QUESTION BOX
 var questionsInv = ["What is the principal effect produced by an inverse agonist?",
