@@ -1154,13 +1154,3 @@ function restartQuestionSchild() {
     document.getElementById("schildQuestion").innerHTML = "<b>" + questionsSchild[questionCounterSchild] + "</b>";
     document.getElementById("revealSchildAnswer").style.display = "inline-block";
 }
-
-//Task 6
-//Addition information, more details about that particular type of Schild plot.
-var linear = []
-var nonlinear = []
-
-function whySchildPlotsNonidealFunction() {
-    document.getElementById("whySchildPlotsNonidealPage").innerHTML;
-    $('#whySchildPlotsNonidealModal').modal('show');
-}
