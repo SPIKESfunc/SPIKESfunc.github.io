@@ -956,7 +956,7 @@ function calcIdealSchildAff(negativelogKBValue){
     //Ideal Plot Equation: y = 1 * x + (-logKBValue).
     
     //Calculate x values for ideal plot.
-	var idealAllxLogs = [-9, -8, -7, -6, -4];
+	var idealAllxLogs = [-10, -9, -8, -7, -6, -4];
 
     //Calculate y values for ideal plot based on the equation.
     var idealAllLogDr1 = [];
@@ -978,7 +978,7 @@ function plotSchildAff(chart){
         xaxis:{
             title: "Log [Antagonist] (log M)",
             showline: true,
-            range: [-10,-4],   
+            range: [-10,-4],
         },
         yaxis:{
             title: "Log(DR-1)",
@@ -1007,25 +1007,22 @@ function plotSchildAff(chart){
 	}
 	data.push(trace1);
 
-  //Add a ideal plot on Schild plot.
-  var lineData2 = calcIdealSchildAff(agoafflogaff);
-  var trace2 = {
-      x: lineData2[0],
-      y: lineData2[1],
-      mode: 'lines',
-      name: 'Ideal Plot',
-      line: {
-          dash: 'dot',
-          color:'rgb(128, 128, 128)',
-          width: 1
-      },
-      marker: {
-          size: dotsize,
-      }
-   }
-   data.push(trace2);
-   
-   Plotly.plot(chart, data, layout, {responsive: true});
+    //Add a ideal plot on Schild plot.
+    var lineData2 = calcIdealSchildAff(agoafflogaff);
+    var trace2 = {
+        x: lineData2[0],
+        y: lineData2[1],
+        mode: 'lines',
+        name: 'Ideal Plot',
+        line: {
+            dash: 'dot',
+            color:'rgb(128, 128, 128)',
+            width: 1
+        }
+    }
+    data.push(trace2);
+    
+    Plotly.plot(chart, data, layout, {responsive: true});
 }
 
 plotSchildAff("schildAff");

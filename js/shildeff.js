@@ -978,7 +978,7 @@ function calcIdealSchildEff(negativelogKBValue){
     //Ideal Plot Equation: y = 1 * x + (-logKBValue).
 
     //Calculate x values for ideal plot.
-	var idealAllxLogs = [-9, -8, -7, -6, -4];
+	var idealAllxLogs = [-10, -9, -8, -7, -6];
 
     //Calculate y values for ideal plot based on the equation.
     var idealAllLogDr1 = [];
