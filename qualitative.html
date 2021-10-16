@@ -68,7 +68,7 @@
 
 	<div id="page" class="container box-size bg-box p-4" style="visibility: hidden; position: absolute;">
 		<h1 class="d-flex justify-content-center">Dose-Response Visualiser</h1>
-		<p align="center">
+		<p style = "text-align: center">
 			<button class="btn waves-effect waves-light red" onclick="showInstructionsQual()"><span
 					class="fa fa-info-circle"></span> What to do?</button>
 		</p>
@@ -357,20 +357,15 @@
 								<button id="restartQuestionAgonist" style="display:none" type="button"
 									class="btn waves-effect waves-light red qbutton"
 									onclick="restartQuestionAgonist()">Restart</button>
-
 								<button id="prevAgonistQuestion" style="float:left" type="button"
 									class="btn waves-effect waves-light red qbutton"
 									onclick="prevQuestionAgonist()">Previous Question</button>
-
-
-								<button id="nextAgonistQuestion" style="float:right" type="button"
-									class="btn waves-effect waves-light red qbutton"
-									onclick="nextQuestionAgonist()">Next Question</button>
-
 								<button id="revealAgonistAnswer" type="button"
 									class="btn waves-effect waves-light red qbutton"
 									onclick="revealAnswerAgonist()">Reveal Answer</button>
-
+								<button id="nextAgonistQuestion" style="float:right" type="button"
+									class="btn waves-effect waves-light red qbutton"
+									onclick="nextQuestionAgonist()">Next Question</button>
 
 							</fieldset>
 
@@ -644,7 +639,7 @@
 							</fieldset>
 
 							<!--COLOURS OF DIFFERENT ONES-->
-							<fieldset style="width:430px;text-align:center">
+							<fieldset style="width:450px;text-align:center">
 								<legend>Questions</legend>
 								<div id="comQuestion" style="margin-bottom:20px;"></div>
 								<div id="restartMessageCom" style="display:none">There are no more questions. Would you
@@ -950,7 +945,7 @@
 								<input class="numbox" type="number" autocomplete="off" name="antagoirr" id="antagoirr"
 									style="width: 60px;" readonly>
 							</fieldset>
-							<fieldset style="width:430px; text-align:center">
+							<fieldset style="width:450px; text-align:center">
 								<legend>Questions</legend>
 								<div id="irrQuestion" style="margin-bottom:20px;"></div>
 								<div id="restartMessageIrr" style="display:none">There are no more questions. Would you
@@ -1295,7 +1290,7 @@
 								<input class="numbox" type="number" autocomplete="off" name="antcoopaff" id="antcoopaff"
 									readonly>
 							</fieldset>
-							<fieldset style="width:430px;text-align:center">
+							<fieldset style="width:450px;text-align:center">
 								<legend>Questions</legend>
 								<div id="affQuestion" style="margin-bottom:20px"></div>
 								<div id="restartMessageAff" style="display:none">There are no more questions. Would you
@@ -1618,7 +1613,7 @@
 								<input class="numbox" type="number" autocomplete="off" name="antcoopeff" id="antcoopeff"
 									style="width: 65px;" readonly>
 							</fieldset>
-							<fieldset style="width:430px;text-align:center">
+							<fieldset style="width:450px;text-align:center">
 								<legend>Questions</legend>
 								<div id="effQuestion" style="margin-bottom:20px"></div>
 								<div id="restartMessageEff" style="display:none">There are no more questions. Would you
@@ -1931,7 +1926,7 @@
 									<!--value was -0.216-->
 								</fieldset>
 							</fieldset>
-							<fieldset style="width:430px;text-align:center">
+							<fieldset style="width:450px;text-align:center">
 								<legend>Questions</legend>
 								<div id="funQuestion" style="margin-bottom:20px;"></div>
 								<div id="restartMessageFun" style="display:none">There are no more questions. Would you
@@ -2112,7 +2107,7 @@
 									step="0.01" value="-0.52" oninput="updateAllInv(this.value)">
 							</fieldset>
 							<!-- The contents inside the quiz box -->
-							<fieldset style="width:430px;text-align:center">
+							<fieldset style="width:450px;text-align:center">
 								<legend>Questions</legend>
 								<div id="invQuestion" style="margin-bottom:20px;"></div>
 								<div id="restartMessageInv" style="display:none">There are no more questions. Would you
