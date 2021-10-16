@@ -1072,6 +1072,7 @@ function updateSchildPropertyTableEff(){
     Calculate actual plot properties.
     Note: There are some cases can't calculate actual plot properties, need to provide error messages.
           1. There are multiple groups of coordinates with same x values and y values, or there is less than one group of coordinates.
+          2. There are multiple x values but y values are the same.
     */
     if (numberofx < 2){
         document.getElementById("slopevalueeff").innerHTML = "NA";
@@ -1080,54 +1081,62 @@ function updateSchildPropertyTableEff(){
         document.getElementById("noteeff").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
     }
     else{
-        document.getElementById("noteeff").innerHTML = "";
-        var x1Calc = xTableData[0];
-        var x2Calc = xTableData[numberofx - 1];
-        var y1Calc = yTableData[0];
-        var y2Calc = yTableData[numberofy - 1];
+        const allEqual = arr => arr.every(val => val === arr[0]);
+        if(allEqual(yTableData) == true){
+            document.getElementById("slopevalueeff").innerHTML = "NA";
+            document.getElementById("pA2valueeff").innerHTML = "NA";
+            document.getElementById("r2valueeff").innerHTML = "NA";
+            document.getElementById("noteeff").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
+        }
+        else{
+            var x1Calc = xTableData[0];
+            var x2Calc = xTableData[numberofx - 1];
+            var y1Calc = yTableData[0];
+            var y2Calc = yTableData[numberofy - 1];
 
-        //Calculate the slope.
-        var slopeValueEff = (y2Calc - y1Calc) / (x2Calc - x1Calc);
-        document.getElementById("slopevalueeff").innerHTML = slopeValueEff.toFixed(2);
+            //Calculate the slope.
+            var slopeValueEff = (y2Calc - y1Calc) / (x2Calc - x1Calc);
+            document.getElementById("slopevalueeff").innerHTML = slopeValueEff.toFixed(2);
         
-        //Calculate pA2 (x-intercept).
-        var b = y1Calc - (slopeValueEff * x1Calc);
-        pA2ValueEff = (0 - b) / slopeValueEff;
-        document.getElementById("pA2valueeff").innerHTML = pA2ValueEff.toFixed(2);
+            //Calculate pA2 (x-intercept).
+            var b = y1Calc - (slopeValueEff * x1Calc);
+            pA2ValueEff = (0 - b) / slopeValueEff;
+            document.getElementById("pA2valueeff").innerHTML = pA2ValueEff.toFixed(2);
 
-        //Calculate R square.
+            //Calculate R square.
 
-        //Calculate the mean of x and y.
-        var xTotal = 0;
-        var yTotal = 0;
-        for (var i = 0; i < numberofx; i++) {
-            xTotal += xTableData[i];
-            yTotal += yTableData[i];
+            //Calculate the mean of x and y.
+            var xTotal = 0;
+            var yTotal = 0;
+            for (var i = 0; i < numberofx; i++) {
+                xTotal += xTableData[i];
+                yTotal += yTableData[i];
+            }
+            var xMean = xTotal/numberofx;
+            var yMean = yTotal/numberofy;
+
+            //Calculate sum of regression.
+            var regressionSum = 0;
+            for (var i = 0; i < numberofx; i++) {
+                regressionSum += (xTableData[i] - xMean) * (yTableData[i] - yMean);
+             }
+
+            //Calculate sum of total.
+            var sumx2 = 0;
+            var sumy2 = 0;
+            for (var i = 0; i < numberofx; i++) {
+                sumx2 += (xTableData[i] - xMean) ** 2;
+                sumy2 += (yTableData[i] - yMean) ** 2;
+            }
+            var totalSum = Math.sqrt(sumx2 * sumy2);
+
+            //Calculate R square value.
+            var rValue = regressionSum/totalSum;
+            var r2ValueEff = rValue ** 2;
+            document.getElementById("r2valueeff").innerHTML = r2ValueEff.toFixed(2);
+
+            document.getElementById("noteeff").innerHTML = "";
         }
-        var xMean = xTotal/numberofx;
-        var yMean = yTotal/numberofy;
-
-        //Calculate sum of regression.
-        var regressionSum = 0;
-        for (var i = 0; i < numberofx; i++) {
-            regressionSum += (xTableData[i] - xMean) * (yTableData[i] - yMean);
-        }
-
-        //Calculate sum of total.
-        var sumx2 = 0;
-        var sumy2 = 0;
-        for (var i = 0; i < numberofx; i++) {
-            sumx2 += (xTableData[i] - xMean) ** 2;
-            sumy2 += (yTableData[i] - yMean) ** 2;
-        }
-        var totalSum = Math.sqrt(sumx2 * sumy2);
-
-        //Calculate R square value.
-        var rValue = regressionSum/totalSum;
-        var r2ValueEff = rValue ** 2;
-        document.getElementById("r2valueeff").innerHTML = r2ValueEff.toFixed(2);
-
-        //document.getElementById("noteeff").innerHTML = "Note: Values are avaliable now.";
     }
 }
 

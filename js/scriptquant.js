@@ -991,7 +991,6 @@ function updateSchildPropertyTableCom(){
         document.getElementById("notecom").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
     }
     else{
-        document.getElementById("notecom").innerHTML = "";
         var x1Calc = xTableData[0];
         var x2Calc = xTableData[numberofx - 1];
         var y1Calc = yTableData[0];
@@ -1038,7 +1037,7 @@ function updateSchildPropertyTableCom(){
         var r2ValueCom = rValue ** 2;
         document.getElementById("r2valuecom").innerHTML = r2ValueCom.toFixed(2);
 
-        //document.getElementById("notecom").innerHTML = "Note: Values are avaliable now.";
+        document.getElementById("notecom").innerHTML = "";
     }
     
 }
