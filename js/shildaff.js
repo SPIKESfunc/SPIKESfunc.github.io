@@ -1047,6 +1047,7 @@ function updateSchildPropertyTableAff(){
     Calculate actual plot properties.
     Note: There are some cases can't calculate actual plot properties, need to provide error messages.
           1. There are multiple groups of coordinates with same x values and y values.
+          2. There are multiple x values but y values are -infinity.
     */
     if(numberofx < 2){
         document.getElementById("slopevalueaff").innerHTML = "NA"
@@ -1055,54 +1056,61 @@ function updateSchildPropertyTableAff(){
         document.getElementById("noteaff").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the agonist or antagonist, or the Level of Effect.";
     }
     else{
-        document.getElementById("noteaff").innerHTML = "";
-        var x1Calc = xTableData[0];
-        var x2Calc = xTableData[numberofx - 1];
-        var y1Calc = yTableData[0];
-        var y2Calc = yTableData[numberofy - 1];
-
-        //Calculate the slope.
-        var slopeValueAff = (y2Calc - y1Calc) / (x2Calc - x1Calc);
-        document.getElementById("slopevalueaff").innerHTML = slopeValueAff.toFixed(2);
-
-        //Calculate pA2 (x-intercept).
-        var b = y1Calc - (slopeValueAff * x1Calc);
-        var pA2ValueAff = (0 - b) / slopeValueAff;
-        document.getElementById("pA2valueaff").innerHTML = pA2ValueAff.toFixed(2);
-
-        //Calculate R square.
-
-        //Calculate the mean of x and y.
-        var xTotal = 0;
-        var yTotal = 0;
-        for (var i = 0; i < numberofx; i++) {
-            xTotal += xTableData[i];
-            yTotal += yTableData[i];
+        if(isFinite(y1) == false){
+            document.getElementById("slopevalueaff").innerHTML = "NA";
+            document.getElementById("pA2valueaff").innerHTML = "NA";
+            document.getElementById("r2valueaff").innerHTML = "NA";
+            document.getElementById("noteaff").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
         }
-        var xMean = xTotal/numberofx;
-        var yMean = yTotal/numberofy;
-
-        //Calculate sum of regression.
-        var regressionSum = 0;
-        for (var i = 0; i < numberofx; i++) {
-            regressionSum += (xTableData[i] - xMean) * (yTableData[i] - yMean);
+        else{
+            var x1Calc = xTableData[0];
+            var x2Calc = xTableData[numberofx - 1];
+            var y1Calc = yTableData[0];
+            var y2Calc = yTableData[numberofy - 1];
+    
+            //Calculate the slope.
+            var slopeValueAff = (y2Calc - y1Calc) / (x2Calc - x1Calc);
+            document.getElementById("slopevalueaff").innerHTML = slopeValueAff.toFixed(2);
+    
+            //Calculate pA2 (x-intercept).
+            var b = y1Calc - (slopeValueAff * x1Calc);
+            var pA2ValueAff = (0 - b) / slopeValueAff;
+            document.getElementById("pA2valueaff").innerHTML = pA2ValueAff.toFixed(2);
+    
+            //Calculate R square.
+    
+            //Calculate the mean of x and y.
+            var xTotal = 0;
+            var yTotal = 0;
+            for (var i = 0; i < numberofx; i++) {
+                xTotal += xTableData[i];
+                yTotal += yTableData[i];
+            }
+            var xMean = xTotal/numberofx;
+            var yMean = yTotal/numberofy;
+    
+            //Calculate sum of regression.
+            var regressionSum = 0;
+            for (var i = 0; i < numberofx; i++) {
+                regressionSum += (xTableData[i] - xMean) * (yTableData[i] - yMean);
+            }
+    
+            //Calculate sum of total.
+            var sumx2 = 0;
+            var sumy2 = 0;
+            for (var i = 0; i < numberofx; i++) {
+                sumx2 += (xTableData[i] - xMean) ** 2;
+                sumy2 += (yTableData[i] - yMean) ** 2;
+            }
+            var totalSum = Math.sqrt(sumx2 * sumy2);
+    
+            //Calculate R square value.
+            var rValue = regressionSum/totalSum;
+            var r2ValueAff = rValue ** 2;
+            document.getElementById("r2valueaff").innerHTML = r2ValueAff.toFixed(2);
+    
+            document.getElementById("noteaff").innerHTML = "";
         }
-
-        //Calculate sum of total.
-        var sumx2 = 0;
-        var sumy2 = 0;
-        for (var i = 0; i < numberofx; i++) {
-            sumx2 += (xTableData[i] - xMean) ** 2;
-            sumy2 += (yTableData[i] - yMean) ** 2;
-        }
-        var totalSum = Math.sqrt(sumx2 * sumy2);
-
-        //Calculate R square value.
-        var rValue = regressionSum/totalSum;
-        var r2ValueAff = rValue ** 2;
-        document.getElementById("r2valueaff").innerHTML = r2ValueAff.toFixed(2);
-
-        //document.getElementById("noteaff").innerHTML = "Note: Values are avaliable now.";
     }  
 }
 

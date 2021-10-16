@@ -1033,7 +1033,6 @@ function updateSchildPropertyTableIrr(){
             document.getElementById("noteirr").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
         }
         else{
-            document.getElementById("noteirr").innerHTML = "";
             var x1Calc = xTableData[0];
             var x2Calc = xTableData[numberofx - 1];
             var y1Calc = yTableData[0];
@@ -1080,7 +1079,7 @@ function updateSchildPropertyTableIrr(){
             var r2ValueIrr = rValue ** 2;
             document.getElementById("r2valueirr").innerHTML = r2ValueIrr.toFixed(2);
 
-            //document.getElementById("noteirr").innerHTML = "Note: Values are avaliable now.";
+            document.getElementById("noteirr").innerHTML = "";
         }
     }
 }

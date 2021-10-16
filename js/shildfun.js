@@ -1187,6 +1187,7 @@ function updateSchildPropertyTableFun(){
     Calculate actual plot properties.
     Note: There are some cases can't calculate actual plot properties, need to provide error messages.
           1. There are multiple groups of coordinates with same x values and y values, or there is less than one group of coordinates.
+          2. There are multiple x values but some y values are -infinity.
     */
     if (numberofx < 2){
         document.getElementById("slopevaluefun").innerHTML = "NA";
@@ -1195,55 +1196,61 @@ function updateSchildPropertyTableFun(){
         document.getElementById("notefun").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point or only one point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
     }
     else{
-        document.getElementById("notefun").innerHTML = "";
-        var x1Calc = xTableData[0];
-        var x2Calc = xTableData[numberofx - 1];
-        var y1Calc = yTableData[0];
-        var y2Calc = yTableData[numberofy - 1];
-
-        //Calculate slope.
-        var slopeValueFun = (y2Calc - y1Calc) / (x2Calc - x1Calc);
-        document.getElementById("slopevaluefun").innerHTML = slopeValueFun.toFixed(2);
-
-        //Calculate pA2 (x-intercept).
-        var b = y1Calc - (slopeValueFun * x1Calc);
-        pA2Value = (0 - b) / slopeValueFun;
-        document.getElementById("pA2valuefun").innerHTML = pA2Value.toFixed(2);
-
-        //Calculate R square.
-
-        //Calculate the mean of x and y.
-        var xTotal = 0;
-        var yTotal = 0;
-        for (var i = 0; i < numberofx; i++) {
-            xTotal += xTableData[i];
-            yTotal += yTableData[i];
+        if(isFinite(y1) == false){
+            document.getElementById("slopevaluefun").innerHTML = "NA";
+            document.getElementById("pA2valuefun").innerHTML = "NA";
+            document.getElementById("r2valuefun").innerHTML = "NA";
+            document.getElementById("notefun").innerHTML = "Note: Values are not avaliable (NA), becasue Schild Plot has no point - please try changing the properties of the agonist or antagonist, or the Level of Effect.";
         }
-        var xMean = xTotal/numberofx;
-        var yMean = yTotal/numberofy;
+        else{
+            var x1Calc = xTableData[0];
+            var x2Calc = xTableData[numberofx - 1];
+            var y1Calc = yTableData[0];
+            var y2Calc = yTableData[numberofy - 1];
 
-        //Calculate sum of regression.
-        var regressionSum = 0;
-        for (var i = 0; i < numberofx; i++) {
-            regressionSum += (xTableData[i] - xMean) * (yTableData[i] - yMean);
+            //Calculate slope.
+            var slopeValueFun = (y2Calc - y1Calc) / (x2Calc - x1Calc);
+            document.getElementById("slopevaluefun").innerHTML = slopeValueFun.toFixed(2);
+
+            //Calculate pA2 (x-intercept).
+            var b = y1Calc - (slopeValueFun * x1Calc);
+            pA2Value = (0 - b) / slopeValueFun;
+            document.getElementById("pA2valuefun").innerHTML = pA2Value.toFixed(2);
+
+            //Calculate R square.
+
+            //Calculate the mean of x and y.
+            var xTotal = 0;
+            var yTotal = 0;
+            for (var i = 0; i < numberofx; i++) {
+                xTotal += xTableData[i];
+                yTotal += yTableData[i];
+            }
+            var xMean = xTotal / numberofx;
+            var yMean = yTotal / numberofy;
+
+            //Calculate sum of regression.
+            var regressionSum = 0;
+            for (var i = 0; i < numberofx; i++) {
+                regressionSum += (xTableData[i] - xMean) * (yTableData[i] - yMean);
+            }
+
+            //Calculate sum of total.
+            var sumx2 = 0;
+            var sumy2 = 0;
+            for (var i = 0; i < numberofx; i++) {
+                sumx2 += (xTableData[i] - xMean) ** 2;
+                sumy2 += (yTableData[i] - yMean) ** 2;
+            }
+            var totalSum = Math.sqrt(sumx2 * sumy2);
+
+            //Calculate R square value.
+            var rValue = regressionSum / totalSum;
+            var r2ValueFun = rValue ** 2;
+            document.getElementById("r2valuefun").innerHTML = r2ValueFun.toFixed(2);
+
+            document.getElementById("notefun").innerHTML = "";
         }
-        
-        //Calculate sum of total.
-        var sumx2 = 0;
-        var sumy2 = 0;
-        for (var i = 0; i < numberofx; i++) {
-            sumx2 += (xTableData[i] - xMean) ** 2;
-            sumy2 += (yTableData[i] - yMean) ** 2;
-        }
-        var totalSum = Math.sqrt(sumx2 * sumy2);
-
-        //Calculate R square value.
-        var rValue = regressionSum/totalSum;
-        var r2ValueFun = rValue ** 2;
-        document.getElementById("r2valuefun").innerHTML = r2ValueFun.toFixed(2);
-
-        //document.getElementById("notefun").innerHTML = "Note: Values are avaliable now.";
-
     }
 }
 
