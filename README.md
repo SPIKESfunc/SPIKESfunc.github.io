@@ -1,4 +1,4 @@
-# Modelling How Drugs Work
+# SPIKESfuncV2 - Modelling How Drugs Work
 
 Link to site: [SPIKESfuncV2.github.io](https://spikesfuncv2.github.io/)
 
