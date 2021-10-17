@@ -59,13 +59,15 @@ function calcLinesInv(affinity, selectivity, negefficacy, allosteric, amplificat
 
     /*
     Parameters:
-    Affinity (1/KA) = KA.
-    Selectivity (a), ues a decreasing scale.
-    Negative Efficacy (y), ues a decreasing scale.
-    Allosteric Constant (L).
+    Affinity (1/KA), use logarithmic scale.
+    KA = 1/Affinity = Affinity^-1.
+    Selectivity (a), ues a decreasing scale and logarithmic scale.
+    Negative Efficacy (y), ues a decreasing scale and logarithmic scale.
+    Allosteric Constant (L), use logarithmic scale.
+    Signal Amplification (tR), values are [0.3, 1, 3, 10, 100, 1000].
+    Concentration of the [Inverse Agonist] ([A]), range is [-12, -2], use logarithmic scale.
     [G]/KG = 1, constant.
-    Concentration of the Inverse Agonist([A]), [-12, -2].
-    Signal Amplification (tR).
+    Effect (% Emax).
     */
 
     const STEP = 0.01;
@@ -75,11 +77,12 @@ function calcLinesInv(affinity, selectivity, negefficacy, allosteric, amplificat
     var selec = 10 ** (0-(selectivity - (-3)));
     var negef = 10 ** (0-(negefficacy - (-3)));
     var allos = 10 ** allosteric;
+    var conce;
     const GKG = 1;
 
-    for (var i = -12; i < -2; i = i + STEP){
-        var linexData = i;
-        var lineyData = (allos * GKG * (1 + selec * negef * (10**i / kA)) * amplification * 100) / ((10**i / kA) * (1 + selec * allos * (1 + negef * GKG * (1 + amplification))) + allos * GKG * (1 + amplification) + 1);
+    for (conce = -12; conce < -2; conce = conce + STEP){
+        var linexData = conce;
+        var lineyData = (allos * GKG * (1 + selec * negef * (10**conce / kA)) * amplification * 100) / ((10**conce / kA) * (1 + selec * allos * (1 + negef * GKG * (1 + amplification))) + allos * GKG * (1 + amplification) + 1);
         data[0].push(linexData);
         data[1].push(lineyData); 
     }
