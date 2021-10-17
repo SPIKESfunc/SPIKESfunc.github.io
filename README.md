@@ -1,6 +1,6 @@
 # Modelling How Drugs Work
 
-Link to site: [SPIKESfunc.github.io](https://spikesfuncv2.github.io/)
+Link to site: [SPIKESfuncV2.github.io](https://spikesfuncv2.github.io/)
 
 As a part of the CITS3200 Project,
 at the University of Western Australia.
