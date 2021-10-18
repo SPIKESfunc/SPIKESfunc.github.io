@@ -5,8 +5,8 @@ var efficirr = document.getElementById("efficiirrslider").defaultValue;
 var agoaffirr = document.getElementById("agoaffirrnum").defaultValue;
 var agoafflogirr = document.getElementById("agoafflogirrnum").defaultValue;
 var efflevelirr = document.getElementById("efflevelirr").defaultValue;
-document.getElementById("displayeffectirr").innerHTML = (efflevelirr*89).toFixed(2);
-document.getElementById("efftableirr").innerHTML = (efflevelirr*89).toFixed(2);
+document.getElementById("displayeffectirr").innerHTML = (efflevelirr*89).toFixed(1);
+document.getElementById("efftableirr").innerHTML = (efflevelirr*89).toFixed(1);
 
 var isPointValidirr = [true, true, true, true];
 var allmarkercoloursirr = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
@@ -344,8 +344,8 @@ function updateAgoAffinityIrr(value){
 //
 function updateefflevelIrr(value){
     efflevelirr = value;
-    document.getElementById("displayeffectirr").innerHTML = (efflevelirr*89).toFixed(2);
-    document.getElementById("efftableirr").innerHTML = (efflevelirr*89).toFixed(2);
+    document.getElementById("displayeffectirr").innerHTML = (efflevelirr*89).toFixed(1);
+    document.getElementById("efftableirr").innerHTML = (efflevelirr*89).toFixed(1);
     if(checkSliderMinIrr()){
         Plotly.restyle("quantitativeIrr", 'visible', false)
         graphAlert("quantalertIrr")

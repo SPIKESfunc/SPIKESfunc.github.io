@@ -6,8 +6,8 @@ var agoaffeff = document.getElementById("agoeffnumeff").defaultValue;
 var agoefflogeff = document.getElementById("agoefflognumeff").defaultValue;
 var agoeffeff = document.getElementById("agoeffeff").defaultValue;
 var effleveleff = document.getElementById("effleveleff").defaultValue;
-document.getElementById("displayeffecteff").innerHTML = (effleveleff*89).toFixed(2);
-document.getElementById("efftableeff").innerHTML = (effleveleff*89).toFixed(2);
+document.getElementById("displayeffecteff").innerHTML = (effleveleff*89).toFixed(1);
+document.getElementById("efftableeff").innerHTML = (effleveleff*89).toFixed(1);
 document.getElementById("effeffdisplay").value = (10**(-1*agoeffeff)).toFixed(2);
 
 var isPointValideff = [true, true, true, true];
@@ -349,8 +349,8 @@ function updateAgoAffinityEff(value){
 
 function updateefflevelEff(value){
     effleveleff = value;
-    document.getElementById("displayeffecteff").innerHTML = (effleveleff*89).toFixed(2);
-    document.getElementById("efftableeff").innerHTML = (effleveleff*89).toFixed(2);
+    document.getElementById("displayeffecteff").innerHTML = (effleveleff*89).toFixed(1);
+    document.getElementById("efftableeff").innerHTML = (effleveleff*89).toFixed(1);
     if(checkSliderMinEff()){
         Plotly.restyle("quantitativeEff", 'visible', false)
         graphAlertEff("quantalertEff")

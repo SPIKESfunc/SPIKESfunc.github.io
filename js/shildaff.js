@@ -7,8 +7,8 @@ var agoaffaff = document.getElementById("agoaffnumaff").defaultValue;
 var agoafflogaff = document.getElementById("agoafflognumaff").defaultValue;
 var agoeffaff = document.getElementById("agoeffaff").defaultValue;
 var efflevelaff = document.getElementById("efflevelaff").defaultValue;
-document.getElementById("displayeffectaff").innerHTML = (efflevelaff*89).toFixed(2);
-document.getElementById("efftableaff").innerHTML = (efflevelaff*89).toFixed(2);
+document.getElementById("displayeffectaff").innerHTML = (efflevelaff*89).toFixed(1);
+document.getElementById("efftableaff").innerHTML = (efflevelaff*89).toFixed(1);
 document.getElementById("effaffdisplay").value = (10**(-1*agoeffaff)).toFixed(2);
 
 var isPointValidaff = [true, true, true, true];
@@ -435,8 +435,8 @@ function updateAntagonist1Aff(value){
 
 function updateefflevelAff(value){
     efflevelaff = value;
-    document.getElementById("displayeffectaff").innerHTML = (efflevelaff*89).toFixed(2);
-    document.getElementById("efftableaff").innerHTML = (efflevelaff*89).toFixed(2);
+    document.getElementById("displayeffectaff").innerHTML = (efflevelaff*89).toFixed(1);
+    document.getElementById("efftableaff").innerHTML = (efflevelaff*89).toFixed(1);
     if(checkSliderMinAff()){
         Plotly.restyle("quantitativeAff", 'visible', false)
         graphAlertAff("quantalertAff")
