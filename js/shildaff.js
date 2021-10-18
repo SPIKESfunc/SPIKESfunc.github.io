@@ -165,7 +165,7 @@ function updateAffinityAff(value){
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
         lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-        findAffHalfMaxEffect(lineData0);
+        //findAffHalfMaxEffect(lineData0);
         halfData0 = calc50Aff(lineData0);
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
@@ -203,7 +203,7 @@ function updateEfficacyAff(value){
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
         lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-        findAffHalfMaxEffect(lineData0);
+        //findAffHalfMaxEffect(lineData0);
         halfData0 = calc50Aff(lineData0);
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
@@ -241,7 +241,7 @@ function updateDensityAff(value){
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
         lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-        findAffHalfMaxEffect(lineData0);
+        //findAffHalfMaxEffect(lineData0);
         halfData0 = calc50Aff(lineData0);
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
@@ -280,7 +280,7 @@ function updateEfficiencyAff(value){
         lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
         lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
         lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-        findAffHalfMaxEffect(lineData0);
+        //findAffHalfMaxEffect(lineData0);
         halfData0 = calc50Aff(lineData0);
         halfData1 = calc50Aff(lineData1);
         halfData2 = calc50Aff(lineData2);
@@ -314,7 +314,7 @@ function updateAgoAffinityAff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-    findAffHalfMaxEffect(lineData0);
+    //findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
@@ -346,7 +346,7 @@ function updateAgoAffinityLogAff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-    findAffHalfMaxEffect(lineData0);
+    //findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
@@ -378,7 +378,7 @@ function updateAgoEffAff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-    findAffHalfMaxEffect(lineData0);
+    //findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
@@ -410,7 +410,7 @@ function updateAntagonist1Aff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-    findAffHalfMaxEffect(lineData0);
+    //findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
@@ -482,7 +482,7 @@ function updateAntagonistLog1Aff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-    findAffHalfMaxEffect(lineData0);
+    //findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
@@ -514,7 +514,7 @@ function updateAntagonist2Aff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-    findAffHalfMaxEffect(lineData0);
+    //findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
@@ -546,7 +546,7 @@ function updateAntagonistLog2Aff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-    findAffHalfMaxEffect(lineData0);
+    //findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
@@ -578,7 +578,7 @@ function updateAntagonist3Aff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-    findAffHalfMaxEffect(lineData0);
+    //findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
@@ -610,7 +610,7 @@ function updateAntagonistLog3Aff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-    findAffHalfMaxEffect(lineData0);
+    //findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
@@ -642,7 +642,7 @@ function updateAntagonist4Aff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-    findAffHalfMaxEffect(lineData0);
+    //findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
@@ -674,7 +674,7 @@ function updateAntagonistLog4Aff(value){
     lineData2 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[2]);
     lineData3 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[3]);
     lineData4 = calcLinesAff(affaff,effaff,denaff,efficaff,agoafflogaff, agoeffaff, agoconcarraff[4]);
-    findAffHalfMaxEffect(lineData0);
+    //findAffHalfMaxEffect(lineData0);
     halfData0 = calc50Aff(lineData0);
     halfData1 = calc50Aff(lineData1);
     halfData2 = calc50Aff(lineData2);
@@ -701,7 +701,7 @@ function calcAgoHalfEffectAff(affinity, efficacy, recepDensity, efficiency, agoa
 
     var ago
     var lineData = calcLinesAff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, antagconc);
-    findAffHalfMaxEffect(calcLinesAff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, agoconcarraff[0]));
+    //findAffHalfMaxEffect(calcLinesAff(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoeffect, agoconcarraff[0]));
     var data50 = calc50Aff(lineData);
     //console.log(data50[0]);
     if(10**data50[0] == 1){

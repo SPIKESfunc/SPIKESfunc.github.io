@@ -178,7 +178,7 @@ function updateAffinityFun1(value) {
         lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
         lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-        findFunHalfMaxEffect(lineData0);
+        //findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
@@ -216,7 +216,7 @@ function updateEfficacyFun1(value) {
         lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
         lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-        findFunHalfMaxEffect(lineData0);
+        //findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
@@ -254,7 +254,7 @@ function updateDensityFun1(value) {
         lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
         lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-        findFunHalfMaxEffect(lineData0);
+        //findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
@@ -292,7 +292,7 @@ function updateEfficiencyFun1(value) {
         lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
         lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-        findFunHalfMaxEffect(lineData0);
+        //findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
@@ -332,7 +332,7 @@ function updateAffinityFun2(value) {
         lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
         lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-        findFunHalfMaxEffect(lineData0);
+        //findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
@@ -371,7 +371,7 @@ function updateEfficacyFun2(value) {
         lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
         lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-        findFunHalfMaxEffect(lineData0);
+        //findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
@@ -409,7 +409,7 @@ function updateDensityFun2(value) {
         lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
         lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-        findFunHalfMaxEffect(lineData0);
+        //findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
@@ -447,7 +447,7 @@ function updateEfficiencyFun2(value) {
         lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
         lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
         lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-        findFunHalfMaxEffect(lineData0);
+        //findFunHalfMaxEffect(lineData0);
         halfData0 = calc50Fun(lineData0);
         halfData1 = calc50Fun(lineData1);
         halfData2 = calc50Fun(lineData2);
@@ -521,7 +521,7 @@ function updateAntagonist1Fun(value) {
     lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
     lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-    findFunHalfMaxEffect(lineData0);
+    //findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
@@ -555,7 +555,7 @@ function updateAntagonistLog1Fun(value) {
     lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
     lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-    findFunHalfMaxEffect(lineData0);
+    //findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
@@ -587,7 +587,7 @@ function updateAntagonist2Fun(value) {
     lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
     lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-    findFunHalfMaxEffect(lineData0);
+    //findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
@@ -619,7 +619,7 @@ function updateAntagonistLog2Fun(value) {
     lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
     lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-    findFunHalfMaxEffect(lineData0);
+    //findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
@@ -651,7 +651,7 @@ function updateAntagonist3Fun(value) {
     lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
     lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-    findFunHalfMaxEffect(lineData0);
+    //findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
@@ -683,7 +683,7 @@ function updateAntagonistLog3Fun(value) {
     lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
     lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-    findFunHalfMaxEffect(lineData0);
+    //findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
@@ -717,7 +717,7 @@ function updateAntagonist4Fun(value) {
     lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
     lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-    findFunHalfMaxEffect(lineData0);
+    //findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
@@ -749,7 +749,7 @@ function updateAntagonistLog4Fun(value) {
     lineData2 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[2]);
     lineData3 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[3]);
     lineData4 = calcLinesFun(afffun1, efffun1, denfun1, efficfun1, afffun2, efffun2, denfun2, efficfun2, agoconcarrfun[4]);
-    findFunHalfMaxEffect(lineData0);
+    //findFunHalfMaxEffect(lineData0);
     halfData0 = calc50Fun(lineData0);
     halfData1 = calc50Fun(lineData1);
     halfData2 = calc50Fun(lineData2);
@@ -785,7 +785,7 @@ function calcAgoHalfEffectFun(affinity, efficacy, recepDensity, efficiency, affi
     return ago;
     */
     var lineData = calcLinesFun(affinity, efficacy, recepDensity, efficiency, affinity2, efficacy2, recepDensity2, efficiency2, antagconc);
-    findFunHalfMaxEffect(calcLinesFun(affinity, efficacy, recepDensity, efficiency, affinity2, efficacy2, recepDensity2, efficiency2, agoconcarrfun[0]));
+    //findFunHalfMaxEffect(calcLinesFun(affinity, efficacy, recepDensity, efficiency, affinity2, efficacy2, recepDensity2, efficiency2, agoconcarrfun[0]));
     var data50 = calc50Fun(lineData);
     if (10 ** data50[0] == 1) {
         ago = NaN;

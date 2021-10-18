@@ -171,7 +171,7 @@ function updateAffinityIrr(value){
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
         lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-        findIrrHalfMaxEffect(lineData0);
+        //findIrrHalfMaxEffect(lineData0);
         halfData0 = calc50Irr(lineData0);
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
@@ -209,7 +209,7 @@ function updateEfficacyIrr(value){
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
         lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-        findIrrHalfMaxEffect(lineData0);
+        //findIrrHalfMaxEffect(lineData0);
         halfData0 = calc50Irr(lineData0);
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
@@ -247,7 +247,7 @@ function updateDensityIrr(value){
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
         lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-        findIrrHalfMaxEffect(lineData0);
+        //findIrrHalfMaxEffect(lineData0);
         halfData0 = calc50Irr(lineData0);
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
@@ -285,7 +285,7 @@ function updateEfficiencyIrr(value){
         lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
         lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
         lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-        findIrrHalfMaxEffect(lineData0);
+        //findIrrHalfMaxEffect(lineData0);
         halfData0 = calc50Irr(lineData0);
         halfData1 = calc50Irr(lineData1);
         halfData2 = calc50Irr(lineData2);
@@ -318,7 +318,7 @@ function updateAgoAffinityIrr(value){
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
     lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-    findIrrHalfMaxEffect(lineData0);
+    //findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
@@ -391,7 +391,7 @@ function updateAgoAffinityLogIrr(value){
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
     lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-    findIrrHalfMaxEffect(lineData0);
+    //findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
@@ -424,7 +424,7 @@ function updateAntagonist1Irr(value){
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
     lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-    findIrrHalfMaxEffect(lineData0);
+    //findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
@@ -456,7 +456,7 @@ function updateAntagonistLog1Irr(value){
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
     lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-    findIrrHalfMaxEffect(lineData0);
+    //findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
@@ -488,7 +488,7 @@ function updateAntagonist2Irr(value){
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
     lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-    findIrrHalfMaxEffect(lineData0);
+    //findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
@@ -520,7 +520,7 @@ function updateAntagonistLog2Irr(value){
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
     lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-    findIrrHalfMaxEffect(lineData0);
+    //findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
@@ -552,7 +552,7 @@ function updateAntagonist3Irr(value){
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
     lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-    findIrrHalfMaxEffect(lineData0);
+    //findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
@@ -584,7 +584,7 @@ function updateAntagonistLog3Irr(value){
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
     lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-    findIrrHalfMaxEffect(lineData0);
+    //findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
@@ -616,7 +616,7 @@ function updateAntagonist4Irr(value){
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
     lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-    findIrrHalfMaxEffect(lineData0);
+    //findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
@@ -648,7 +648,7 @@ function updateAntagonistLog4Irr(value){
     lineData2 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[2]);
     lineData3 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[3]);
     lineData4 = calcLinesIrr(affirr,effirr,denirr,efficirr,agoafflogirr, agoconcarrirr[4]);
-    findIrrHalfMaxEffect(lineData0);
+    //findIrrHalfMaxEffect(lineData0);
     halfData0 = calc50Irr(lineData0);
     halfData1 = calc50Irr(lineData1);
     halfData2 = calc50Irr(lineData2);
@@ -674,7 +674,7 @@ function updateAntagonistLog4Irr(value){
 function calcAgoHalfEffectIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc){
     var ago
     var lineData = calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, antagconc);
-    findIrrHalfMaxEffect(calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcarrirr[0]));
+    //findIrrHalfMaxEffect(calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcarrirr[0]));
     var data50 = calc50Irr(lineData);
     //console.log(10**data50[0]);
     if(10**data50[0] == 1){

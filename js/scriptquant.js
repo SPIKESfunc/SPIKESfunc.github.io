@@ -169,7 +169,7 @@ function updateAffinityCom(value) {
         lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
         lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-        findComHalfMaxEffect(lineData0);
+        //findComHalfMaxEffect(lineData0);
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
@@ -207,7 +207,7 @@ function updateEfficacyCom(value) {
         lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
         lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-        findComHalfMaxEffect(lineData0);
+        //findComHalfMaxEffect(lineData0);
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
@@ -245,7 +245,7 @@ function updateDensityCom(value) {
         lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
         lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-        findComHalfMaxEffect(lineData0);
+        //findComHalfMaxEffect(lineData0);
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
@@ -283,7 +283,7 @@ function updateEfficiencyCom(value) {
         lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
         lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
         lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-        findComHalfMaxEffect(lineData0);
+        //findComHalfMaxEffect(lineData0);
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
@@ -317,7 +317,7 @@ function updateAgoAffinity(value) {
     lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
     lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-    findComHalfMaxEffect(lineData0);
+    //findComHalfMaxEffect(lineData0);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
@@ -350,7 +350,7 @@ function updateAgoAffinityLog(value) {
     lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
     lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-    findComHalfMaxEffect(lineData0);
+    //findComHalfMaxEffect(lineData0);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
@@ -423,7 +423,7 @@ function updateAntagonist1(value) {
     lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
     lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-    findComHalfMaxEffect(lineData0);
+    //findComHalfMaxEffect(lineData0);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
@@ -456,7 +456,7 @@ function updateAntagonistLog1(value) {
     lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
     lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-    findComHalfMaxEffect(lineData0);
+    //findComHalfMaxEffect(lineData0);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
@@ -489,7 +489,7 @@ function updateAntagonist2(value) {
     lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
     lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-    findComHalfMaxEffect(lineData0);
+    //findComHalfMaxEffect(lineData0);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
@@ -522,7 +522,7 @@ function updateAntagonistLog2(value) {
     lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
     lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-    findComHalfMaxEffect(lineData0);
+    //findComHalfMaxEffect(lineData0);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
@@ -554,7 +554,7 @@ function updateAntagonist3(value) {
     lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
     lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-    findComHalfMaxEffect(lineData0);
+    //findComHalfMaxEffect(lineData0);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
@@ -586,7 +586,7 @@ function updateAntagonistLog3(value) {
     lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
     lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-    findComHalfMaxEffect(lineData0);
+    //findComHalfMaxEffect(lineData0);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
@@ -619,7 +619,7 @@ function updateAntagonist4(value) {
     lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
     lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-    findComHalfMaxEffect(lineData0);
+    //findComHalfMaxEffect(lineData0);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
@@ -651,7 +651,7 @@ function updateAntagonistLog4(value) {
     lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[2]);
     lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[3]);
     lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoafflog, agoconcarr[4]);
-    findComHalfMaxEffect(lineData0);
+    //findComHalfMaxEffect(lineData0);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
