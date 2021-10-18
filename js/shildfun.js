@@ -8,8 +8,8 @@ var denfun2 = document.getElementById("denfunslider2").defaultValue;
 var efficfun2 = document.getElementById("efficifunslider2").defaultValue;
 var agoafflogfun = -1 * Math.log10(afffun2);
 var efflevelfun = document.getElementById("efflevelfun").defaultValue;
-document.getElementById("displayeffectfun").innerHTML = (efflevelfun *89).toFixed(2);
-document.getElementById("efftablefun").innerHTML = (efflevelfun *89).toFixed(2);
+document.getElementById("displayeffectfun").innerHTML = (efflevelfun *89).toFixed(1);
+document.getElementById("efftablefun").innerHTML = (efflevelfun *89).toFixed(1);
 
 var isPointValidfun = [true, true, true, true];
 var allmarkercoloursfun = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
@@ -474,8 +474,8 @@ function updateEfficiencyFun2(value) {
 
 function updateefflevelfun(value) {
     efflevelfun = value;
-    document.getElementById("displayeffectfun").innerHTML = (efflevelfun *89).toFixed(2);
-    document.getElementById("efftablefun").innerHTML = (efflevelfun *89).toFixed(2);
+    document.getElementById("displayeffectfun").innerHTML = (efflevelfun *89).toFixed(1);
+    document.getElementById("efftablefun").innerHTML = (efflevelfun *89).toFixed(1);
     if (checkSliderMinFun()) {
         Plotly.restyle("quantitativeFun", 'visible', false)
         graphAlert("quantalertFun")

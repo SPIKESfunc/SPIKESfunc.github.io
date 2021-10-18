@@ -6,8 +6,8 @@ var efficcom = document.getElementById("efficicomslider").defaultValue;
 var agoaff = document.getElementById("agoaffnum").defaultValue;
 var agoafflog = document.getElementById("agoafflognum").defaultValue;
 var efflevelcom = document.getElementById("efflevelcom").defaultValue;
-document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 89).toFixed(2);
-document.getElementById("efftablecom").innerHTML = (efflevelcom * 89).toFixed(2);
+document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 89).toFixed(1);
+document.getElementById("efftablecom").innerHTML = (efflevelcom * 89).toFixed(1);
 
 var isPointValid = [true, true, true, true];
 var allmarkercolours = ['rgb(255,215,0)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
@@ -376,8 +376,8 @@ function updateAgoAffinityLog(value) {
 
 function updateefflevelCom(value) {
     efflevelcom = value;
-    document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 89).toFixed(2);
-    document.getElementById("efftablecom").innerHTML = (efflevelcom *89).toFixed(2);
+    document.getElementById("displayeffectcom").innerHTML = (efflevelcom * 89).toFixed(1);
+    document.getElementById("efftablecom").innerHTML = (efflevelcom *89).toFixed(1);
     if (checkSliderMinCom()) {
         Plotly.restyle("quantitative", 'visible', false)
         graphAlert("quantalert")
