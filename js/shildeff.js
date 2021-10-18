@@ -82,8 +82,8 @@ function resetQuantEff(){
     agoaffeff = document.getElementById("agoeffnumeff").value = document.getElementById("agoeffnumeff").defaultValue;
     agoeffeff = document.getElementById("agoeffeff").value = document.getElementById("agoeffeff").defaultValue;
     effleveleff = document.getElementById("effleveleff").value = document.getElementById("effleveleff").defaultValue;
-    document.getElementById("displayeffecteff").innerHTML = (effleveleff*89).toFixed(2);
-    document.getElementById("efftableeff").innerHTML = (effleveleff*89).toFixed(2);
+    document.getElementById("displayeffecteff").innerHTML = (effleveleff*89).toFixed(1);
+    document.getElementById("efftableeff").innerHTML = (effleveleff*89).toFixed(1);
     document.getElementById("effeffdisplay").value = (10**(-1*agoeffeff)).toFixed(2);
 
     agoefflogeff = document.getElementById("agoefflognumeff").value = document.getElementById("agoefflognumeff").defaultValue;

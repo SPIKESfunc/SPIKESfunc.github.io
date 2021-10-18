@@ -87,8 +87,8 @@ function resetQuantFun() {
     denfun2 = document.getElementById("denfunslider2").value = document.getElementById("denfunslider2").defaultValue;
     efficfun2 = document.getElementById("efficifunslider2").value = document.getElementById("efficifunslider2").defaultValue;
     efflevelfun = document.getElementById("efflevelfun").value = document.getElementById("efflevelfun").defaultValue;
-    document.getElementById("displayeffectfun").innerHTML = (efflevelfun *89).toFixed(2);
-    document.getElementById("efftablefun").innerHTML = (efflevelfun *89).toFixed(2);
+    document.getElementById("displayeffectfun").innerHTML = (efflevelfun *89).toFixed(1);
+    document.getElementById("efftablefun").innerHTML = (efflevelfun *89).toFixed(1);
 
     antval0fun = document.getElementById("ant0fun").value = document.getElementById("ant0fun").defaultValue;
     antval1fun = document.getElementById("ant1fun").value = document.getElementById("ant1fun").defaultValue;
