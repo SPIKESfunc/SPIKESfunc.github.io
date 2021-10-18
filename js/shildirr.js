@@ -81,8 +81,8 @@ function resetQuantIrr(){
     agoaffirr = document.getElementById("agoaffirrnum").value = document.getElementById("agoaffirrnum").defaultValue;
     agoafflogirr = document.getElementById("agoafflogirrnum").value = document.getElementById("agoafflogirrnum").defaultValue;
     efflevelirr = document.getElementById("efflevelirr").value = document.getElementById("efflevelirr").defaultValue;
-    document.getElementById("displayeffectirr").innerHTML = (efflevelirr*89).toFixed(2);
-    document.getElementById("efftableirr").innerHTML = (efflevelirr*89).toFixed(2);
+    document.getElementById("displayeffectirr").innerHTML = (efflevelirr*89).toFixed(1);
+    document.getElementById("efftableirr").innerHTML = (efflevelirr*89).toFixed(1);
     
     antval0irr = document.getElementById("ant0irr").value = document.getElementById("ant0irr").defaultValue;
     antval1irr = document.getElementById("ant1irr").value = document.getElementById("ant1irr").defaultValue;

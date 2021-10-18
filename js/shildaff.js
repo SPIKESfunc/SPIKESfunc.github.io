@@ -79,8 +79,8 @@ function resetQuantAff(){
     agoafflogaff = document.getElementById("agoafflognumaff").value = document.getElementById("agoafflognumaff").defaultValue;
     agoeffaff = document.getElementById("agoeffaff").value = document.getElementById("agoeffaff").defaultValue;
     efflevelaff = document.getElementById("efflevelaff").value = document.getElementById("efflevelaff").defaultValue;
-    document.getElementById("displayeffectaff").innerHTML = (efflevelaff*89).toFixed(2);
-    document.getElementById("efftableaff").innerHTML = (efflevelaff*89).toFixed(2);
+    document.getElementById("displayeffectaff").innerHTML = (efflevelaff*89).toFixed(1);
+    document.getElementById("efftableaff").innerHTML = (efflevelaff*89).toFixed(1);
     document.getElementById("effaffdisplay").value = (10**(-1*agoeffaff)).toFixed(2);
     antval0aff = document.getElementById("ant0aff").value = document.getElementById("ant0aff").defaultValue;
     antval1aff = document.getElementById("ant1aff").value = document.getElementById("ant1aff").defaultValue;
