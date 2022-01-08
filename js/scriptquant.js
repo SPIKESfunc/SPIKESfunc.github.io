@@ -338,7 +338,6 @@ function updateAgoAffinity(value) {
     }, animation)
     schildData = calcSchild(agoconcarr[1], agoconcarr[2], agoconcarr[3], agoconcarr[4], logdr1, logdr2, logdr3, logdr4);
     Plotly.animate("schild", { data: [{ x: schildData[0], y: schildData[1] }], traces: [0], layout: {} }, animation)
-
 }
 
 function updateAgoAffinityLog(value) {
@@ -803,7 +802,6 @@ function plotGraphCom(chart) {
                 mode: "lines",
                 name: 10 ** agoconcarr[j] * 1000000000 + "nM",
                 line: {
-
                     color: linecolours[j],
                     width: 1.2,
                     dash: linestyles[j]
@@ -1087,7 +1085,7 @@ var answersSchild = ["The Schild analysis is particularly useful for the classif
 "<b>NO</b>, the shape and position of the Schild Plot should be independent of agonist affinity or efficacy and cell R<sub>T</sub> or <i>&#947</i>.   Test this by changing the properties of the agonist and/or cell and observing the effect on the Schild plot.  This is one of the great advantages of the Schild Analysis.  ",
 "<br><b>1.</b> Use a range of different antagonists that display selectivity for the receptor subtypes.  For example, the characterisation of the M receptor subtype mediating a response may require the use of antagonists such as pirenzepine (M<sub>1</sub> receptor-selective), methoctramine (M<sub>2</sub>-selective), darifenacin (M<sub>3</sub>), MT-3 (M<sub>4</sub>) and S-secoverine (M<sub>5</sub>).<br><b>2.</b> Use a wide range of concentrations of the antagonists (at least 30-100 fold concentration range), ensuring that the lower concentrations used generate log(DR-1) values that are close to zero and thus more likely to provide a good estimate of the pA<sub>2</sub> value (less extrapolation to the x-axis required). This effect can be observed using the Schild Plot Generator.",
 "<br>Schild plots for a competitive antagonist may be non-ideal for many different reasons (see Non-Ideal Schild Plot page … provide link).  For example:<br><b>1.</b> If the antagonist (or agonist) produces <b>TOXICITY</b> at high concentrations then the Schild Plot will be nonlinear with slope > 1 at higher antagonist concentrations.<br><b>2.</b> If the <b>ANTAGONIST IS A SUBSTRATE OF A SATURABLE UPTAKE SYSTEM</b>, then the Schild plot will be nonlinear with a slope > 1.0 at low (non-saturating) antagonist concentrations.<br><b>3.</b> If the <b>AGONIST IS A SUBSTRATE OF A SATURABLE UPTAKE SYSTEM</b>, then the Schild plot will be nonlinear with a slope < 1.0 at low (non-saturating) agonist concentrations.<br><b>4.</b> If insufficient time is allowed for the antagonist to equilibrate with the receptor <b>(AGONIST-ANTAGONIST HEMI-EQUILIBRIA)</b>, then the Schild plot will be nonlinear with a slope < 1.0 at low antagonist concentrations.<br>",
-"<b>DAU-5884</b> has the highest affinity because it has the highest –logK<sub>i</sub> value at M<sub>1</sub> receptors (8.9). <br>Pirenzepine is the most selective for M<sub>1</sub> receptors because it has the greatest difference in –logK<sub>i</sub> values for M<sub>1</sub> compared to any other receptor subtype (at least 0.8 log units different).",
+"<b>DAU-5884</b><br> has the highest affinity because it has the highest –logK<sub>i</sub> value at M<sub>1</sub> receptors (8.9). <br><b>Pirenzepine</b> is the most selective for M<sub>1</sub> receptors because it has the greatest difference in –logK<sub>i</sub> values for M<sub>1</sub> compared to any other receptor subtype (at least 0.8 log units different).",
 "<b>S-secoverine</b> has the highest affinity because it has the highest –logK<sub>i</sub> value at M<sub>2</sub> receptors (7.9). <br>DAU-5884 is the most selective for M<sub>2</sub> receptors because it has the greatest difference in –logK<sub>i</sub> values for M<sub>2</sub> compared to any other receptor subtype (at least 1.0 log units different).",
 "<b>DAU-5884</b> has the highest affinity because it has the highest –logK<sub>i</sub> value at M<sub>3</sub> receptors (8.9). <br>Darifenacin is the most selective for M<sub>3</sub> receptors because it has the greatest difference in –logK<sub>i</sub> values for M<sub>3</sub> compared to any other receptor subtype (at least 0.8 log units different).",
 "<b>DAU-5884</b> has the highest affinity because it has the highest –logK<sub>i</sub> value at M<sub>4</sub> receptors (8.5). <br>MT-3 is the most selective for M<sub>4</sub> receptors because it has the greatest difference in –logK<sub>i</sub> values for M<sub>4</sub> compared to any other receptor subtype (at least 1.4 log units different).",
