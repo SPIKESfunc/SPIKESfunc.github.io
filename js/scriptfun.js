@@ -388,8 +388,8 @@ function calcLinesFun(affinity, efficacy, recepDensity, efficiency, agoaffinity,
     }
     return data;
 }
-var markercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var linecolours = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var markercolors = ['rgb(225,225,225)', 'rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecolours = ['rgb(0,0,0)', 'rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var linestyles = ["solid", "solid", "solid", "solid", "solid"];
 
 function plotGraphFun(chart) {
@@ -420,7 +420,7 @@ function plotGraphFun(chart) {
                 x: lineData[0],
                 y: lineData[1],
                 mode: "lines",
-                name: 0 + "nM",
+                name: "No antagonist",
                 line: {
                     color: linecolours[j],
                     width: 1
