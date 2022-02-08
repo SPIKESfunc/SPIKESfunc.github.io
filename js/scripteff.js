@@ -11,9 +11,9 @@ document.getElementById("antcoopeff").value =
   Math.round(10 ** -agoeffeff * Math.pow(10, 3)) / Math.pow(10, 3);
 
 var agoconcarr = [0, -9, -8, -7, -6];
-var linecolours = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecolours = ['rgb(0,0,0)', 'rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var linestyles = ["solid", "solid", "solid", "solid", "solid"];
-var markercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var markercolors = ['rgb(225,225,225)', 'rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var animation = {
   transition: {
     duration: 0,
@@ -72,7 +72,7 @@ function calcLinesEff(
     agoaffin = 0;
     for (i = -12; i < -2; i = i + STEP) {
       data[0].push(i);
-      data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
+      data[1].push((10 ** i * efcay * recep * efcey * 100) / (10 ** i * (efcay * recep * efcey + 1 - efcay) + affin));
     }
   } else {
     agoconc = 10 ** agoconcentration;
@@ -96,7 +96,7 @@ function calcLinesEff(
 
 function calc50(lineData) {
   var halfMaxEffect = Math.max.apply(Math, lineData[1]) / 2; //get the 50% value
-  var maxEffectAgoIndex = lineData[1].findIndex(function(number) {
+  var maxEffectAgoIndex = lineData[1].findIndex(function (number) {
     //get the x-index for the 50% value
     return number >= halfMaxEffect;
   });
@@ -107,7 +107,7 @@ function calc50(lineData) {
 
 
 // This is used to update the Concentration Values Table
-function updateConcentrationEff(value, index){
+function updateConcentrationEff(value, index) {
   // use this to reference the id of the box
   //let line_id = "comline" + index;
   agoconcarr[index] = value;
@@ -811,7 +811,7 @@ function plotGraphEff(chart) {
         x: lineData[0],
         y: lineData[1],
         mode: "lines",
-        name: 0 + "nM",
+        name: "No antagonist",
         line: {
           color: linecolours[j],
           width: 1
@@ -823,12 +823,12 @@ function plotGraphEff(chart) {
         y: lineData[1],
         mode: "lines",
         //name: 10 ** agoconcarr[j] * 1000000000 + "nM",
-        name:"[Antagonist] #" + j,
+        name: "[Antagonist] #" + j,
         line: {
           color: linecolours[j],
           width: 1.2,
           dash: linestyles[j]
-      }
+        }
       };
     }
     data.push(graph);
@@ -858,10 +858,10 @@ function plotGraphEff(chart) {
           color: markercolors[i],
           size: dotsize,
           line: {
-              color: 'black',
-              width: 1
-            }
-      },
+            color: 'black',
+            width: 1
+          }
+        },
         showlegend: legendview[i]
       }
     ];
@@ -873,7 +873,7 @@ plotGraphEff("alloeffic");
 
 //QUESTION BOX
 var questionsEff = [
-  "What is the principal effect produced by an Allosteric Antagonist (affecting agonist efficacy) antagonist on an agonist dose-response curve?<br><i>Test this using the Dose Response Visualiser.</i>",
+  "What is the principal effect produced by an Allosteric Antagonist (affecting agonist efficacy) on an agonist dose-response curve?<br><i>Test this using the Dose Response Visualiser.</i>",
   "Does an Allosteric Antagonist (affecting agonist efficacy) affect the maximum effect induced by the agonist?<br><i>Test this using the Dose Response Visualiser.</i>",
   "Is the effect of an Allosteric Antagonist (affecting agonist efficacy) influenced by the properties of the agonist (Affinity, Intrinsic Efficacy) <br> or the cell (R<sub>T</sub>, <i>&#947</i> )?<br><i>Test this using the Dose Response Visualiser.</i>",
   "Can an Allosteric Antagonist (affecting agonist efficacy) abolish agonist-induced effects?<br><i>Test this using the Dose Response Visualiser.</i>"
@@ -882,8 +882,8 @@ var questionsEff = [
 var answersEff = [
   "An Allosteric antagonist (affecting only agonist efficacy) will cause a reduction in the maximum effect produced by an agonist (since the antagonist has reduced the efficacy of the agonist for the receptor). A feature of allosteric antagonists is their effect is <b>SATURABLE</b>, and the extent of the suppression of the maximum effect is <b>LIMITED</b>. This is in contrast to an irreversible antagonist where the suppression of the maximum effect is unlimited. <br> Test this using the Dose Response Visualiser.",
   "<b>YES</b>, but this will dependent upon whether the agonist is a partial or full agonist.  For partial agonists, the allosteric antagonist will reduce the maximum response.  However, for a full agonist (acting on a cell with high R<sub>T</sub> and signal amplification), the allosteric antagonist (affecting agonist efficacy) will produce a rightward shift of the agonist dose-response curve (at low [allosteric antagonist]) prior to suppression of the maximum response (at higher [allosteric antagonist]). <br> Test this using the Dose Response Visualiser.",
-  "<b>YES</b>, the effects of an allosteric antagonist (affecting agonist efficacy) will be <b>GREATER</b> against agonists will low efficacy and in cells with low receptor densities (R<sub>T</sub>)and coupling efficiencies (<i>&#947</i>). <br> Test this using the Dose Response Visualiser.",
-  "<b>NOT TYPICALLY</b>. The inhibitory effects produced by an allosteric antagonists (affecting agonist efficacy) are typically limited and can usually be overcome (at least to some degree) by increasing the [agonist].  This is unlike irreversible antagonists which can abolish agonist-induced effects.  However, in some more extreme circumstances (e.g. if the allosteric antagonist has a very high capacity to decrease agonist intrinsic efficacy and/or the agonist has low intrinsic efficacy) the allosteric antagonist may essentially abolish agonist-induced responses. <br> Test this using the Dose Response Visualiser."
+  "<b>YES</b>, the effects of an allosteric antagonist (affecting agonist efficacy) will be <b>GREATER</b> against agonists will low efficacy and in cells with low receptor densities (R<sub>T</sub>) and signal amplification (<i>&#947</i>). <br> Test this using the Dose Response Visualiser.",
+  "<b>NOT TYPICALLY</b>. The inhibitory effects produced by allosteric antagonists (affecting agonist efficacy) are typically limited and can usually be overcome (at least to some degree) by increasing the [agonist].  This is unlike irreversible antagonists which can abolish agonist-induced effects.  However, in some more extreme circumstances (e.g. if the allosteric antagonist has a very high capacity to decrease agonist intrinsic efficacy and/or the agonist has low intrinsic efficacy) the allosteric antagonist may essentially abolish agonist-induced responses. <br> Test this using the Dose Response Visualiser."
 ];
 
 var questionCounterEff = 0;
@@ -905,27 +905,27 @@ function nextQuestionEff() {
     document.getElementById("restartMessageEff").style.display = "inline-block";
     document.getElementById("restartQuestionEff").style.display = "inline-block";
     document.getElementById("nextEffQuestion").style.display = "none";
-  } 
+  }
   else {
     questionCounterEff++;
     document.getElementById("restartMessageEff").style.display = "none";
     document.getElementById("restartQuestionEff").style.display = "none";
-    document.getElementById("effQuestion").innerHTML ="<b>" + questionsEff[questionCounterEff] + "</b>";
+    document.getElementById("effQuestion").innerHTML = "<b>" + questionsEff[questionCounterEff] + "</b>";
   }
 }
 
 function prevQuestionEff() {
   if (!questionCounterEff) { //beginning of questions
-      alert("Already at beginning of questions");
+    alert("Already at beginning of questions");
   }
   else {
-      questionCounterEff--;
-      document.getElementById("effQuestion").style.display = "block";
-      document.getElementById("nextEffQuestion").style.display = "inline-block";
-      document.getElementById("revealEffAnswer").style.display = "inline-block";
-      document.getElementById("restartMessageEff").style.display = "none";
-      document.getElementById("restartQuestionEff").style.display = "none";
-      document.getElementById("effQuestion").innerHTML = "<b>" + questionsEff[questionCounterEff] + "</b>";
+    questionCounterEff--;
+    document.getElementById("effQuestion").style.display = "block";
+    document.getElementById("nextEffQuestion").style.display = "inline-block";
+    document.getElementById("revealEffAnswer").style.display = "inline-block";
+    document.getElementById("restartMessageEff").style.display = "none";
+    document.getElementById("restartQuestionEff").style.display = "none";
+    document.getElementById("effQuestion").innerHTML = "<b>" + questionsEff[questionCounterEff] + "</b>";
   }
 }
 

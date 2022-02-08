@@ -1,7 +1,7 @@
 
 var agoconcarr = [0, -10, -9, -8, -7];
-var markercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
-var linecolours = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var markercolors = ['rgb(225,225,225)', 'rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecolours = ['rgb(0,0,0)', 'rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var linestyles = ["solid", "solid", "solid", "solid", "solid"];
 
 var affirr = document.getElementById("affirrslider").defaultValue;
@@ -80,7 +80,7 @@ function updateAffinityIrr(value) {
 
 
 // This is used to update the Concentration Values Table
-function updateConcentrationIrr(value, index){
+function updateConcentrationIrr(value, index) {
     // use this to reference the id of the box
     //let line_id = "comline" + index;
     agoconcarr[index] = value;
@@ -294,7 +294,7 @@ function calcLinesIrr(affinity, efficacy, recepDensity, efficiency, agoaffinity,
         agoaffin = 0;
         for (i = -12; i < -2; i = i + STEP) {
             data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
+            data[1].push((10 ** i * efcay * recep * efcey * 100) / (10 ** i * (efcay * recep * efcey + 1 - efcay) + affin));
         }
     }
     else {
@@ -340,7 +340,7 @@ function plotGraphIrr(chart) {
                 x: lineData[0],
                 y: lineData[1],
                 mode: "lines",
-                name: 0 + "nM",
+                name: "No antagonist",
                 line: {
                     color: linecolours[j],
                     width: 1
@@ -381,7 +381,7 @@ function plotGraphIrr(chart) {
                 line: {
                     color: 'black',
                     width: 1
-                  }
+                }
             },
             showlegend: legendview[i]
         }];
@@ -400,7 +400,7 @@ var questionsIrr = ["What is the principal effect produced by an irreversible re
     "Can an irreversible antagonist abolish agonist-induced effects?<br><i>Test this using the Dose Response Visualiser.</i>"];
 
 var answersIrr = ["Irreversible antagonists have profound effects on agonist dose-response curves. <br><div style='text-align:center'><video width='320' height='240' controls><source src='images/Irrev. Antagonist - agonist DR effect.mp4' type='video/mp4'></source></video></div><br> The effect produced by irreversible antagonists is <b>AGONIST-DEPENDENT</b> (unlike competitive antagonists).  For <b>PARTIAL AGONISTS</b> (that need to activate all receptors to produce a sub-maximal response), the primary effect of an irreversible antagonist on the agonist dose-response curve is a <b>REDUCTION IN THE MAXIMUM RESPONSE</b>, with little effect on potency (EC<sub>50</sub> value).  For <b>FULL AGONISTS</b> (that do not need to activate all receptors to produce 100% Emax, i.e. there are spare receptors) the irreversible antagonist will not reduce the maximum effect until there is sufficient antagonism to block that fraction of the receptors required to achieve a maximal response.  Prior to reducing the maximal response, the irreversible antagonist will <b>SHIFT THE FULL AGONIST DOSE-RESPONSE CURVE TO THE RIGHT</b> (higher EC<sub>50</sub>, lower potency).   This effect can be observed using the visualiser.",
-    "An irreversible antagonist with a higher affinity will exert is inhibitory actions at <b>LOWER DOSES</b> than an irreversible antagonist with a lower affinity.  This effect can be observed using the visualiser.",
+    "An irreversible antagonist with a higher affinity will exert its inhibitory actions at <b>LOWER DOSES</b> than an irreversible antagonist with a lower affinity.  This effect can be observed using the visualiser.",
     "<b>YES</b>, eventually irreversible antagonists will <b>REDUCE THE MAXIMUM EFFECT</b> induced by the agonist. For partial agonists (that need to activate all receptors to produce a maximal response), the irreversible antagonist will reduce the maximum response.  For full agonists (that do not need to activate all receptors to produce 100% Emax, i.e. there are spare receptors) the irreversible antagonist will not reduce the maximum effect until there is sufficient antagonism to block that fraction of the receptors required to achieve a maximal response.  This effect can be observed using the visualiser.",
     "<b>YES</b>, the inhibitory effect of an irreversible antagonist will be greater against agonists with low efficacy and in cells with low signal amplification (<i>&#947</i>) and fewer receptors (R<sub>T</sub>). The magnitude of the inhibitory effect produced by an irreversible antagonist does not depend on the affinity of the agonist. Test this using the Dose Response Visualiser.",
     "In addition to concentration, the magnitude of the effect produced by an irreversible antagonist is <b>TIME-DEPENDENT</b> – the longer the time the irreversible antagonist is incubated with the receptors the greater the reduction in the number of functional receptors, and the greater reduction in agonist-induced response. ",
