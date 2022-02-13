@@ -5,9 +5,9 @@ var efficcom = document.getElementById("efficicomslider").defaultValue;
 var agoaffcom = document.getElementById("antagocomp").value = document.getElementById("agoaffcomslider").defaultValue;
 var comHalfMaxEffect;
 var agoconcarr = [0, -9, -8, -7, -6];
-var linecolours = ['rgb(0,0,0)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var linecolours = ['rgb(0,0,0)', 'rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var linestyles = ["solid", "solid", "solid", "solid", "solid"];
-var markercolors = ['rgb(225,225,225)','rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
+var markercolors = ['rgb(225,225,225)', 'rgb(255,215,55)', 'rgb(0,255,0)', 'rgb(255,0,0)', 'rgb(0,0,255)'];
 var lineData0;
 var lineData1;
 var lineData2;
@@ -35,251 +35,263 @@ var animation = {
     }
 };
 
-function findComHalfMaxEffect(lineData){
-    comHalfMaxEffect = Math.max.apply(Math, lineData[1])/2;
-} 
+function findComHalfMaxEffect(lineData) {
+    comHalfMaxEffect = Math.max.apply(Math, lineData[1]) / 2;
+}
 
-function checkSliderMinCom(){
+function checkSliderMinCom() {
     let ret = false;
-    if(document.getElementById("affcomslider").value === "5"){
+    if (document.getElementById("affcomslider").value === "5") {
         ret = true;
     }
-    if(document.getElementById("effcomslider").value === "-0.7"){
+    if (document.getElementById("effcomslider").value === "-0.7") {
         ret = true;
     }
-    if(document.getElementById("dencomslider").value === "-1"){
+    if (document.getElementById("dencomslider").value === "-1") {
         ret = true;
     }
-    if(document.getElementById("efficicomslider").value === "0"){
+    if (document.getElementById("efficicomslider").value === "0") {
         ret = true;
     }
     return ret;
 }
 
-function calcLinesCom(affinity, efficacy, recepDensity, efficiency,agoaffinity, agoconcentration){
+function calcLinesCom(affinity, efficacy, recepDensity, efficiency, agoaffinity, agoconcentration) {
     const STEP = 0.01;
-    var data = [[],[]];
+    var data = [[], []];
 
-    var affin = 10**(-1*affinity);
-    var efcay = 10**efficacy;
-    var recep = 10**recepDensity;
-    var efcey = 10**efficiency;
-    var agoaffin = 10**(-1*agoaffinity);
+    var affin = 10 ** (-1 * affinity);
+    var efcay = 10 ** efficacy;
+    var recep = 10 ** recepDensity;
+    var efcey = 10 ** efficiency;
+    var agoaffin = 10 ** (-1 * agoaffinity);
     var agoconc;
 
     // graphs base line
-    if(agoconcentration === 0){
+    if (agoconcentration === 0) {
         agoconc = 0;
         agoaffin = 0;
-        for (var i=-12; i<-2;i=i+STEP){
+        for (var i = -12; i < -2; i = i + STEP) {
             //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin);
             data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin));
+            data[1].push((10 ** i * efcay * recep * efcey * 100) / (10 ** i * (efcay * recep * efcey + 1 - efcay) + affin));
         }
     }
     //graphs other lines
-    else{
-        agoconc = 10**agoconcentration;
-        for (var i=-12; i<-2;i=i+STEP){
+    else {
+        agoconc = 10 ** agoconcentration;
+        for (var i = -12; i < -2; i = i + STEP) {
             //effect = (10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1)+affin*(1+agoconc/agoaffin));
             data[0].push(i);
-            data[1].push((10**i*efcay*recep*efcey*100)/(10**i*(efcay*recep*efcey+1-efcay)+affin*(1+agoconc/agoaffin)));
+            data[1].push((10 ** i * efcay * recep * efcey * 100) / (10 ** i * (efcay * recep * efcey + 1 - efcay) + affin * (1 + agoconc / agoaffin)));
         }
-	}
+    }
     return data;
 }
 
-function calc50(lineData){
+function calc50(lineData) {
 
-	var halfMaxEffect = Math.max.apply(Math, lineData[1])/2; //get the 50% value
-	var maxEffectAgoIndex = lineData[1].findIndex(function(number) { //get the x-index for the 50% value
+    var halfMaxEffect = Math.max.apply(Math, lineData[1]) / 2; //get the 50% value
+    var maxEffectAgoIndex = lineData[1].findIndex(function (number) { //get the x-index for the 50% value
         return number >= halfMaxEffect;
     });
     var halfAgoEffect = lineData[0][maxEffectAgoIndex]; //get the x value corresponding to 50% value
     var agoret = [[halfAgoEffect], [halfMaxEffect]];
-	return agoret; //return x, y
-    
+    return agoret; //return x, y
+
 }
 
-function updateAffinityCom(value){
+function updateAffinityCom(value) {
     affcom = value;
-    if(checkSliderMinCom()){
+    if (checkSliderMinCom()) {
         Plotly.restyle("competitive", "visible", false);
-        graphAlert("comalert","aff");
+        graphAlert("comalert", "aff");
     }
-    else{
+    else {
         graphRemoveAlert("comalert");
         Plotly.restyle("competitive", "visible", true);
-        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
-        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
-        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
-        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+        lineData0 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[3]);
+        lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[4]);
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
         halfData3 = calc50(lineData3);
         halfData4 = calc50(lineData4);
 
-        Plotly.animate("competitive",{
-                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-                {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-                y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
-                traces: [0,1,2,3,4,5,6,7,8,9],
-                layout: {}
-                },animation);
+        Plotly.animate("competitive", {
+            data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+            { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+                x: halfData2[0],
+                y: halfData2[1]
+            }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+            traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+            layout: {}
+        }, animation);
     }
-} 
+}
 
-function updateEfficacyCom(value){
+function updateEfficacyCom(value) {
     effcom = value;
-    if(checkSliderMinCom()){
+    if (checkSliderMinCom()) {
         Plotly.restyle("competitive", "visible", false);
-        graphAlert("comalert","eff");
+        graphAlert("comalert", "eff");
     }
-    else{
+    else {
         graphRemoveAlert("comalert");
         Plotly.restyle("competitive", "visible", true);
-        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
-        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
-        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
-        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+        lineData0 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[3]);
+        lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[4]);
         halfData0 = calc50(lineData0);
         halfData1 = calc50(lineData1);
         halfData2 = calc50(lineData2);
         halfData3 = calc50(lineData3);
         halfData4 = calc50(lineData4);
 
-        Plotly.animate("competitive",{
-                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-                {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-                y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
-                traces: [0,1,2,3,4,5,6,7,8,9],
-                layout: {}
-                },animation);
+        Plotly.animate("competitive", {
+            data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+            { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+                x: halfData2[0],
+                y: halfData2[1]
+            }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+            traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+            layout: {}
+        }, animation);
     }
 
-} 
+}
 
 
 // This is used to update the Concentration Values Table
-function updateConcentrationCom(value, index){
+function updateConcentrationCom(value, index) {
     // use this to reference the id of the box
     //let line_id = "comline" + index;
     agoconcarr[index] = value;
 
     // used from existing functions below. (updateDensityCom())
     Plotly.restyle("competitive", "visible", true);
-    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
-    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
-    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
-    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
-    halfData0 = calc50(lineData0);
-    halfData1 = calc50(lineData1);
-    halfData2 = calc50(lineData2);
-    halfData3 = calc50(lineData3);
-    halfData4 = calc50(lineData4);    
-        
-    Plotly.animate("competitive",{
-        data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-        {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-        y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
-        traces: [0,1,2,3,4,5,6,7,8,9],
-        layout: {}
-        },animation);
-
-}
-
-function updateDensityCom(value){
-    dencom = value;
-    if(checkSliderMinCom()){
-        Plotly.restyle("competitive", "visible", false);
-        graphAlert("comalert","den");
-    }
-    else{
-        graphRemoveAlert("comalert");
-        Plotly.restyle("competitive", "visible", true);
-        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
-        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
-        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
-        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
-        halfData0 = calc50(lineData0);
-        halfData1 = calc50(lineData1);
-        halfData2 = calc50(lineData2);
-        halfData3 = calc50(lineData3);
-        halfData4 = calc50(lineData4);    
-        
-        Plotly.animate("competitive",{
-                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-                {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-                y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
-                traces: [0,1,2,3,4,5,6,7,8,9],
-                layout: {}
-                },animation);
-    }
-} 
-
-function updateEfficiencyCom(value){
-    efficcom = value;
-    if(checkSliderMinCom()){
-        Plotly.restyle("competitive", "visible", false);
-        graphAlert("comalert","effic");
-    }
-    else{
-        graphRemoveAlert("comalert");
-        Plotly.restyle("competitive", "visible", true);
-        lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
-        lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
-        lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
-        lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-        lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
-        halfData0 = calc50(lineData0);
-        halfData1 = calc50(lineData1);
-        halfData2 = calc50(lineData2);
-        halfData3 = calc50(lineData3);
-        halfData4 = calc50(lineData4);   
-        Plotly.animate("competitive",{
-                data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-                {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-                y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
-                traces: [0,1,2,3,4,5,6,7,8,9],
-                layout: {}
-                },animation);
-    }
-
-} 
-
-function updateAgoAffinityCom(value){
-    agoaffcom = document.getElementById("antagocomp").value = value;
-    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
-    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
-    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
-    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);
+    lineData0 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[4]);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
     halfData3 = calc50(lineData3);
     halfData4 = calc50(lineData4);
 
-    Plotly.animate("competitive",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
-     		traces: [0,1,2,3,4,5,6,7,8,9],
-     		layout: {}
-     		},animation);
+    Plotly.animate("competitive", {
+        data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+        { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+            x: halfData2[0],
+            y: halfData2[1]
+        }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+        traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        layout: {}
+    }, animation);
 
 }
 
-function resetCom(){
-	affcom = document.getElementById("affcomslider").value = document.getElementById("affcomslider").defaultValue;
-	effcom = document.getElementById("effcomslider").value = document.getElementById("effcomslider").defaultValue;
-	dencom = document.getElementById("dencomslider").value = document.getElementById("dencomslider").defaultValue;
-	efficcom = document.getElementById("efficicomslider").value = document.getElementById("efficicomslider").defaultValue;
+function updateDensityCom(value) {
+    dencom = value;
+    if (checkSliderMinCom()) {
+        Plotly.restyle("competitive", "visible", false);
+        graphAlert("comalert", "den");
+    }
+    else {
+        graphRemoveAlert("comalert");
+        Plotly.restyle("competitive", "visible", true);
+        lineData0 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[3]);
+        lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[4]);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);
+
+        Plotly.animate("competitive", {
+            data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+            { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+                x: halfData2[0],
+                y: halfData2[1]
+            }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+            traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+            layout: {}
+        }, animation);
+    }
+}
+
+function updateEfficiencyCom(value) {
+    efficcom = value;
+    if (checkSliderMinCom()) {
+        Plotly.restyle("competitive", "visible", false);
+        graphAlert("comalert", "effic");
+    }
+    else {
+        graphRemoveAlert("comalert");
+        Plotly.restyle("competitive", "visible", true);
+        lineData0 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]);
+        lineData1 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[1]);
+        lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[2]);
+        lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[3]);
+        lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[4]);
+        halfData0 = calc50(lineData0);
+        halfData1 = calc50(lineData1);
+        halfData2 = calc50(lineData2);
+        halfData3 = calc50(lineData3);
+        halfData4 = calc50(lineData4);
+        Plotly.animate("competitive", {
+            data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+            { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+                x: halfData2[0],
+                y: halfData2[1]
+            }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+            traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+            layout: {}
+        }, animation);
+    }
+
+}
+
+function updateAgoAffinityCom(value) {
+    agoaffcom = document.getElementById("antagocomp").value = value;
+    lineData0 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[4]);
+    halfData0 = calc50(lineData0);
+    halfData1 = calc50(lineData1);
+    halfData2 = calc50(lineData2);
+    halfData3 = calc50(lineData3);
+    halfData4 = calc50(lineData4);
+
+    Plotly.animate("competitive", {
+        data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+        { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+            x: halfData2[0],
+            y: halfData2[1]
+        }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+        traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        layout: {}
+    }, animation);
+
+}
+
+function resetCom() {
+    affcom = document.getElementById("affcomslider").value = document.getElementById("affcomslider").defaultValue;
+    effcom = document.getElementById("effcomslider").value = document.getElementById("effcomslider").defaultValue;
+    dencom = document.getElementById("dencomslider").value = document.getElementById("dencomslider").defaultValue;
+    efficcom = document.getElementById("efficicomslider").value = document.getElementById("efficicomslider").defaultValue;
     agoaffcom = document.getElementById("agoaffcomslider").value = document.getElementById("agoaffcomslider").defaultValue;
     document.getElementById("antagocomp").value = document.getElementById("agoaffcomslider").defaultValue;
     graphRemoveAlert("comalert");
@@ -290,65 +302,67 @@ function resetCom(){
     document.getElementById("comline4").value = document.getElementById("comline4").defaultValue;
     document.getElementById("comline5").value = document.getElementById("comline5").defaultValue;
     agoconcarr = [0, -9, -8, -7, -6]; // need this to reset values
-    
-    lineData0 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[0]);
-    lineData1 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[1]);
-    lineData2 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[2]);
-    lineData3 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[3]);
-    lineData4 = calcLinesCom(affcom,effcom,dencom,efficcom,agoaffcom, agoconcarr[4]);    
+
+    lineData0 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]);
+    lineData1 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[1]);
+    lineData2 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[2]);
+    lineData3 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[3]);
+    lineData4 = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[4]);
     halfData0 = calc50(lineData0);
     halfData1 = calc50(lineData1);
     halfData2 = calc50(lineData2);
     halfData3 = calc50(lineData3);
     halfData4 = calc50(lineData4);
 
-    Plotly.animate("competitive",{
-            data: [{y: lineData0[1]}, {y: lineData1[1]}, {y: lineData2[1]}, {y: lineData3[1]}, {y: lineData4[1]},
-            {x: halfData0[0], y: halfData0[1]}, {x: halfData1[0], y: halfData1[1]}, {x: halfData2[0],
-            y: halfData2[1]}, {x: halfData3[0], y: halfData3[1]}, {x: halfData4[0], y: halfData4[1]}],
-            traces: [0,1,2,3,4,5,6,7,8,9],
-            layout: {}
-            },animation);
+    Plotly.animate("competitive", {
+        data: [{ y: lineData0[1] }, { y: lineData1[1] }, { y: lineData2[1] }, { y: lineData3[1] }, { y: lineData4[1] },
+        { x: halfData0[0], y: halfData0[1] }, { x: halfData1[0], y: halfData1[1] }, {
+            x: halfData2[0],
+            y: halfData2[1]
+        }, { x: halfData3[0], y: halfData3[1] }, { x: halfData4[0], y: halfData4[1] }],
+        traces: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        layout: {}
+    }, animation);
 }
 
-function plotGraphCom(chart){
+function plotGraphCom(chart) {
     var layout = {
-        xaxis:{
+        xaxis: {
             title: "[Agonist] (log M)",
             showline: true,
-            range: [-12,-2],
+            range: [-12, -2],
             dtick: 1
-            
+
         },
-        yaxis:{
+        yaxis: {
             title: "Effect (% Emax)",
             showline: true,
-            range: [0,100],
+            range: [0, 100],
             dtick: 10
 
         }
     };
-    for(var j = 0; j<5; j++){
+    for (var j = 0; j < 5; j++) {
         var data = [];
         var lineData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[j]);
         var graph;
-        if(j === 0){
-			graph = {
-        		x: lineData[0],
-        		y: lineData[1],
-       			mode: "lines",
-       			name: 0+"nM",
-       			line: {
+        if (j === 0) {
+            graph = {
+                x: lineData[0],
+                y: lineData[1],
+                mode: "lines",
+                name: "No antagonist",
+                line: {
                     color: linecolours[j],
                     width: 1
-    	    	}
-    		}
-   		}
-   		else{
-    	    graph = {
-        		x: lineData[0],
-        		y: lineData[1],
-       			mode: "lines",
+                }
+            }
+        }
+        else {
+            graph = {
+                x: lineData[0],
+                y: lineData[1],
+                mode: "lines",
                 //old 
                 //name: 10**agoconcarr[j]*1000000000+"nM",
                 //new
@@ -358,13 +372,13 @@ function plotGraphCom(chart){
                     width: 1.2,
                     dash: linestyles[j]
                 }
-    		}
+            }
         }
         data.push(graph);
-        Plotly.plot(chart,data,layout, {responsive: true}); 
+        Plotly.plot(chart, data, layout, { responsive: true });
     }
     var legendview = [true, false, false, false, false];
-    for(var i = 0; i<5; i++){
+    for (var i = 0; i < 5; i++) {
         var halfData = calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[i]);
         findComHalfMaxEffect(calcLinesCom(affcom, effcom, dencom, efficcom, agoaffcom, agoconcarr[0]));
         data50 = calc50(halfData);
@@ -379,11 +393,11 @@ function plotGraphCom(chart){
                 line: {
                     color: 'black',
                     width: 1
-                  }
+                }
             },
             showlegend: legendview[i]
         }];
-        Plotly.plot(chart,trace1,layout, {responsive: true});
+        Plotly.plot(chart, trace1, layout, { responsive: true });
     }
 }
 plotGraphCom("competitive");
