@@ -21,8 +21,8 @@ body {
 
 fieldset {
   display: inline;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 1px;
+  margin-right: 1px;
   padding: 0.35em 0.75em 0.625em 0.75em;
   border: 2px groove;
   border-radius: 10px;
@@ -434,4 +434,12 @@ nav .navbar-nav li.nav-item a.nav-item.nav-link.active {
 
 .qbutton{
   padding: 0 2px;
+}
+
+/*footer red*/
+footer a{
+	color: Red;
+}
+footer a:hover {
+    color: Red;
 }

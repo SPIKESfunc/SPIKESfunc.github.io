@@ -464,26 +464,31 @@ function PlotQuizSchild(chart, ticksize, show){
 function antFeedback(reason){
 	var inequality
 	var ant3311Feedback	
+	var nonlinearScript
 	switch(Ant3311[ant].type) {
 		case "allosteric":
 			inequality = "<";
-			ant3311Feedback = "<b>allosteric antagonist.</b>";
+			ant3311Feedback = '<a href="nonlinear.html#detailed6" target="_blank">allosteric antagonist.</a>';
+			nonlinearScript = "<br>The Schild plot for Ant3311 is nonlinear with slope ";
 			break;
 		case "irreversible":
 			inequality = ">";
-			ant3311Feedback = "<b>irreversible antagonist.</b>" 
+			ant3311Feedback = '<a href="nonlinear.html#detailed5" target="_blank">irreversible antagonist.</a>';
+			nonlinearScript = "<br>The Schild plot for Ant3311 has slope ";
 			break;
 		case "toxic":
 			inequality = ">";
-			ant3311Feedback = "<b>antagonist that produces toxicity at high concentrations.</b>" 
+			ant3311Feedback = '<a href="nonlinear.html#detailed4" target="_blank">antagonist that produces toxicity at high concentrations.</a>'; 
+			nonlinearScript = "<br>The Schild plot for Ant3311 is nonlinear with slope ";
 			break;
 		case "substrate":
 			inequality = ">";
-			ant3311Feedback = "<b>antagonist that is the substrate of a substrate uptake process.</b>"
+			ant3311Feedback = '<a href="nonlinear.html#detailed2" target="_blank">antagonist that is the substrate of a substrate uptake process.</a>';
+			nonlinearScript = "<br>The Schild plot for Ant3311 is nonlinear with slope ";
 			break;
 
 	} 
-	document.getElementById("antFeedback").innerHTML = reason + "<br>The Schild plot for Ant3311 is nonlinear with slope " + inequality + " 1.0, which is expected for an " + ant3311Feedback;
+	document.getElementById("antFeedback").innerHTML = reason + nonlinearScript + inequality + " 1.0, which is expected for an " + ant3311Feedback;
 	document.getElementById("antFeedback1").innerHTML = document.getElementById("antFeedback").innerHTML;
 }
 
